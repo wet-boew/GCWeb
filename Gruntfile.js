@@ -138,9 +138,10 @@ module.exports = function(grunt) {
 			}
 		},
 
-		clean: [
-			'dist', 'lib'
-		],
+		clean: {
+			all: [ 'dist', 'lib'],
+			init : ['lib/*', '!lib/wet-boew']
+		},
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
@@ -159,6 +160,15 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		 hub: {
+		    wetboew: {
+		      src: ['lib/wet-boew/Gruntfile.js'],
+		      tasks: ['init', 'build'],
+		    },
+  		},
+  		"install-dependencies": {
+  				options : { cwd: 'lib/wet-boew' }
+  		},
 		jshint: {
 			options: {
 				curly: true,
@@ -206,6 +216,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-install-dependencies');
+	grunt.loadNpmTasks('grunt-hub');
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks("assemble");
 	grunt.loadTasks('tasks');
@@ -214,7 +226,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['coffee','sass','concat', 'i18n', 'uglify', 'copy', 'assemble']);
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('html', ['assemble']);
-	grunt.registerTask('wipe', ['clean']);
-	grunt.registerTask('default', ['clean', 'build', 'test']);
-	grunt.registerTask('init', ['bower']);
+	grunt.registerTask('wipe', ['clean:all']);
+	grunt.registerTask('buildwet', ['hub']);
+	grunt.registerTask('default', ['clean:all', 'build', 'test']);
+	grunt.registerTask('init', ['clean:init']);
+	grunt.registerTask('depbuild', ['install-dependencies','hub']);
 };
