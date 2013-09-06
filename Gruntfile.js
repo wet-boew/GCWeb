@@ -19,15 +19,8 @@ module.exports = function(grunt) {
 				options: {
 					stripBanners: true
 				},
-				src: ['dist/js/wet-boew.js', 'src/plugins/**/*.js'],
-				dest: 'dist/js/wet-boew.js',
-			},
-			core: {
-				options: {
-					stripBanners: false
-				},
-				src: ['lib/modernizr/modernizr-custom.js', 'dist/js/vapour.js'],
-				dest: 'dist/js/vapour.js',
+				src: ['dist/js/theme.js', 'src/plugins/**/*.js'],
+				dest: 'dist/js/theme.js',
 			}
 		},
 		assemble: {
@@ -137,76 +130,8 @@ module.exports = function(grunt) {
 			}
 
 		},
-		modernizr: {
-			// [REQUIRED] Path to the build you're using for development.
-			"devFile" : "lib/modernizr/modernizr-custom.js",
-			// By default, source is uglified before saving
-			"uglify" : true,
-			// [REQUIRED] Path to save out the built file.
-			"outputFile" : "lib/modernizr/modernizr-custom.js",
-			// Based on default settings on http://modernizr.com/download/
-			"extra" : {
-				"shiv" : true,
-				"printshiv" : false,
-				"load" : true,
-				"mq" : true,
-				"css3": true,
-				"input": true,
-				"inputtypes": true,
-				"html5": true,
-				"cssclasses" : true,
-				"fontface": true,
-				"backgroundsize" : true,
-				"borderimage" : true,
-				// continue with all tests
-			},
-			// Based on default settings on http://modernizr.com/download/
-			"extensibility" : {
-				"addtest" : false,
-				"prefixed" : false,
-				"teststyles" : true,
-				"testprops" : true,
-				"testallprops" : true,
-				"hasevents" : true,
-				"prefixes" : true,
-				"domprefixes" : true
-			},
-			// Define any tests you want to impliticly include.
-			"tests" : [],
-			// By default, this task will crawl your project for references to Modernizr tests.
-			// Set to false to disable.
-			"parseFiles" : false,
-			// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
-			// You can override this by defining a "files" array below.
-			// "files" : [],
-			// When parseFiles = true, matchCommunityTests = true will attempt to
-			// match user-contributed tests.
-			"matchCommunityTests" : false,
-			// Have custom Modernizr tests? Add paths to their location here.
-			"customTests" : []
-		},
 		copy: {
-			jquery: {
-				files: [{
-					cwd: 'lib/jquery',
-					src: ['jquery.min.js', 'jquery.min.map'],
-					dest: 'dist/js',
-					expand: true
-				}]
-			},
-			oldie: {
-				cwd: 'lib',
-				src: [
-					'jquery-ie/jquery.min.js',
-					'jquery-ie/jquery.min.map',
-					'selectivizr/selectivizr.js', //TODO: Minify
-					'respond/respond.min.js'
-					],
-				dest: 'dist/js/oldie',
-				expand: true,
-				flatten: true
-			},
-			bootstrap: {
+			wetboew: {
 				files: {
 					'dist/css/bootstrap.min.css': 'lib/bootstrap/dist/css/bootstrap.min.css'
 				}
@@ -214,7 +139,7 @@ module.exports = function(grunt) {
 		},
 
 		clean: [
-			'dist'
+			'dist', 'lib'
 		],
 		watch: {
 			gruntfile: {
@@ -264,14 +189,6 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-		connect: {
-			server: {
-				options: {
-					port: 8000,
-					base: '.'
-				}
-			}
-		},
 		i18n: {
 			options: {
 				template: 'src/i18n/base.js',
@@ -289,9 +206,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks("grunt-modernizr");
 	grunt.loadNpmTasks("assemble");
 	grunt.loadTasks('tasks');
 
@@ -299,7 +214,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['coffee','sass','concat', 'i18n', 'uglify', 'copy', 'assemble']);
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('html', ['assemble']);
+	grunt.registerTask('wipe', ['clean']);
 	grunt.registerTask('default', ['clean', 'build', 'test']);
-	grunt.registerTask('server', ['connect','watch:source']);
-	grunt.registerTask('init', ['modernizr']);
+	grunt.registerTask('init', ['bower']);
 };
