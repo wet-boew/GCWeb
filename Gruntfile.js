@@ -229,6 +229,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('wipe', ['clean:all']);
 	grunt.registerTask('buildwet', ['hub']);
 	grunt.registerTask('default', ['clean:all', 'build', 'test']);
-	grunt.registerTask('init', ['clean:init']);
+	grunt.registerTask('init', ['clean:init', 'depbuild', 'buildwet']);
 	grunt.registerTask('depbuild', ['install-dependencies','hub']);
 };
