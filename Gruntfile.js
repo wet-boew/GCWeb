@@ -25,25 +25,25 @@ module.exports = function(grunt) {
 					sanitize: false
 				},
 				production: false,
-				data: 'src/templates/data/*.yml',
-				assets: 'dist/assets',
-				helpers: 'src/helpers/helper-*.js',
-				layoutdir: 'lib/wet-boew/src/templates/layouts',
-				partials: ['src/templates/includes/**/*.hbs']
+				data: 'site/data/*.yml',
+				assets: 'dist',
+				helpers: 'site/helpers/helper-*.js',
+				layoutdir: 'site/layouts',
+				partials: ['site/includes/**/*.hbs']
 			},
 			site: {
 				options: {
 					layout: 'default.hbs'
 				},
 				expand: true,
-				cwd: 'src/templates/pages',
+				cwd: 'site/pages',
 				src: ['*.hbs'],
 				dest: 'dist/'
 			}
 		},
 		sass: {
 			base: {
-				'dist/css/theme.css': 'src/base/theme.scss'
+				'dist/css/theme.css': 'src/sass/theme.scss'
 			}
 		},
 		uglify: {
