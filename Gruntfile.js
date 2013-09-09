@@ -14,24 +14,21 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				banner: '<%= banner %>'
-			},
-			plugins: {
-				options: {
-					stripBanners: true
-				},
-				src: ['dist/js/theme.js', 'src/plugins/**/*.js'],
-				dest: 'dist/js/theme.js',
 			}
 		},
 		assemble: {
 			options: {
-				prettify: {indent: 2},
-				marked: {sanitize: false},
+				prettify: {
+					indent: 2
+				},
+				marked: {
+					sanitize: false
+				},
 				production: false,
 				data: 'src/templates/data/*.yml',
 				assets: 'dist/assets',
 				helpers: 'src/helpers/helper-*.js',
-				layoutdir: 'src/templates/layouts',
+				layoutdir: 'lib/wet-boew/src/templates/layouts',
 				partials: ['src/templates/includes/**/*.hbs']
 			},
 			site: {
@@ -42,105 +39,42 @@ module.exports = function(grunt) {
 				cwd: 'src/templates/pages',
 				src: ['*.hbs'],
 				dest: 'dist/'
-			},
-			plugins: {
-				options: {
-					layout: 'plugins.hbs'
-				},
-				expand: true,
-				cwd: 'src/plugins',
-				src: ['**/*.hbs'],
-				dest: 'dist/demo/',
-				flatten: true
 			}
 		},
 		sass: {
-			all: {
-				expand: true,
-				cwd: 'src/base',
-				src: ['**/*.scss', '!**/_*.scss'],
-				dest: 'dist/css/',
-				ext: '.css'
+			base: {
+				'dist/css/theme.css': 'src/base/theme.scss'
 			}
 		},
 		uglify: {
-			polyfills: {
-				options: {
-					preserveComments : 'some'
-				},
-				expand: true,
-				cwd: 'src/polyfills',
-				src: ['**/*.js'],
-				dest: 'dist/js/polyfills/',
-				ext: '.min.js',
-				flatten: true
+			options: {
+				banner: '<%= banner %>'
 			},
-			core: {
-				options: {
-					preserveComments : 'some'
-				},
-				files: {
-					'dist/js/vapour.min.js': 'dist/js/vapour.js'
-				}
-			},
-			plugins: {
-				options: {
-					banner: '<%= banner %>'
-				},
-				files: {
-					'dist/js/wet-boew.min.js': 'dist/js/wet-boew.js'
-				}
-			},
-			i18n: {
-				options: {
-					banner: '<%= banner %>'
-				},
-				expand: true,
-				cwd: 'dist/js/i18n',
-				src: ['**/*.js'],
-				dest: 'dist/js/i18n',
-				ext: '.min.js'
-			},
-			lib: {
-				options: {
-					preserveComments : 'some'
-				},
-				files: {
-					'dist/js/deps/jquery.pjax.min.js': 'lib/jquery-pjax/jquery.pjax.js'
-				}
+			all: {
+				cwd: 'dist/js',
+				src: '**/*.js',
+				dest: 'dist'
 			}
-
 		},
 		coffee: {
-			vapour: {
-				options: {
-					bare: true,
-				},
-				files: {
-					'dist/js/vapour.js': 'src/core/vapour.coffee'
-				}
-			},
-			plugins: {
-				options: {
-					bare: true
-				},
-				files: {
-					'dist/js/wet-boew.js': ['src/core/helpers.coffee','src/plugins/**/*.coffee']
-				}
+			all: {
+				cwd: 'src',
+				src: '**/*.coffee',
+				dest: 'dist'
 			}
-
 		},
 		copy: {
 			wetboew: {
-				files: {
-					'dist/css/bootstrap.min.css': 'lib/bootstrap/dist/css/bootstrap.min.css'
-				}
+				expand: true,
+				cwd: 'lib/wet-boew/dist',
+				src: '**/*.*',
+				dest: 'dist/'
 			}
 		},
 
 		clean: {
-			all: [ 'dist', 'lib'],
-			init : ['lib/*', '!lib/wet-boew']
+			dist: [ 'dist'],
+			lib : ['lib']
 		},
 		watch: {
 			gruntfile: {
@@ -149,7 +83,7 @@ module.exports = function(grunt) {
 			},
 			lib_test: {
 				files: '<%= jshint.lib_test.src %>',
-				tasks: ['jshint:lib_test', 'qunit']
+				tasks: ['jshint:lib_test']
 			},
 			source: {
 				files: '<%= jshint.lib_test.src %>',
@@ -160,15 +94,17 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		 hub: {
-		    wetboew: {
-		      src: ['lib/wet-boew/Gruntfile.js'],
-		      tasks: ['init', 'build'],
-		    },
-  		},
-  		"install-dependencies": {
-  				options : { cwd: 'lib/wet-boew' }
-  		},
+		hub: {
+			wetboew: {
+				src: ['lib/wet-boew/Gruntfile.js'],
+				tasks: ['init', 'build'],
+			},
+		},
+		"install-dependencies": {
+				options : {
+					cwd: 'lib/wet-boew'
+				}
+		},
 		jshint: {
 			options: {
 				curly: true,
@@ -192,19 +128,9 @@ module.exports = function(grunt) {
 			},
 			lib_test: {
 				src: [
-					'src/**/*.js',
-					'!src/**/*min.js',
-					'!src/polyfills/**/*.js',
-					'test/**/*.js'
+					'src/**/*.js'
 				]
 			}
-		},
-		i18n: {
-			options: {
-				template: 'src/i18n/base.js',
-				csv: 'src/i18n/i18n.csv'
-			},
-			src: 'src/js/i18n/formvalid/*.js'
 		}
 	});
 
@@ -219,16 +145,15 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-install-dependencies');
 	grunt.loadNpmTasks('grunt-hub');
 	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks("assemble");
-	grunt.loadTasks('tasks');
+	grunt.loadNpmTasks('assemble');
 
 	// Default task.
-	grunt.registerTask('build', ['coffee','sass','concat', 'i18n', 'uglify', 'copy', 'assemble']);
+	grunt.registerTask('build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'assemble']);
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('html', ['assemble']);
-	grunt.registerTask('wipe', ['clean:all']);
+	grunt.registerTask('wipe', ['clean:dist']);
 	grunt.registerTask('buildwet', ['hub']);
-	grunt.registerTask('default', ['clean:all', 'build', 'test']);
-	grunt.registerTask('init', ['clean:init', 'depbuild', 'buildwet']);
-	grunt.registerTask('depbuild', ['install-dependencies','hub']);
+	grunt.registerTask('default', ['clean:dist', 'build', 'test']);
+	grunt.registerTask('init', ['clean:lib', 'depbuild', 'buildwet']);
+	grunt.registerTask('depbuild', ['install-dependencies', 'hub']);
 };
