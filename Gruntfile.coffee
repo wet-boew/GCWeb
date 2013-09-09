@@ -1,0 +1,131 @@
+#global module:false
+module.exports = ->
+
+	@initConfig
+		pkg: @file.readJSON 'package.json'
+		banner: '/*! Web Experience Toolkit (WET) / Boîte à outils de l\'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n' +
+			' - v<%= pkg.version %> - ' +
+			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+			' License: <%= pkg.license %> */\n'
+
+		concat:
+			options:
+				banner: '<%= banner %>'
+
+		assemble:
+			options:
+				prettify:
+					indent: 2
+				marked:
+					sanitize: false
+				production: false
+				data: 'site/data/*.yml'
+				assets: 'dist'
+				helpers: 'site/helpers/helper-*.js'
+				layoutdir: 'lib/wet-boew/src/templates/layouts'
+				partials: ['site/includes/**/*.hbs']
+
+			site:
+				options:
+					layout: 'default.hbs'
+
+				expand: true
+				cwd: 'site/pages'
+				src: ['*.hbs']
+				dest: 'dist/'
+
+		sass:
+			base:
+				'dist/css/theme.css': 'src/sass/theme.scss'
+
+		uglify:
+			options:
+				banner: '<%= banner %>'
+			all:
+				cwd: 'dist/js'
+				src: '**/*.js'
+				dest: 'dist'
+
+		coffee:
+			all:
+				cwd: 'src',
+				src: '**/*.coffee',
+				dest: 'dist'
+
+		copy:
+			wetboew:
+				expand: true
+				cwd: 'lib/wet-boew/dist'
+				src: '**/*.*'
+				dest: 'dist/'
+
+		clean:
+			dist: [ 'dist']
+			lib: ['lib']
+
+		watch:
+			gruntfile:
+				files: 'Gruntfile.coffee'
+				tasks: ['build']
+			lib_test:
+				files: '<%= jshint.lib_test.src %>'
+				tasks: ['jshint:lib_test']
+			source:
+				files: '<%= jshint.lib_test.src %>'
+				tasks: ['build']
+				options:
+					interval: 5007
+					livereload: true
+
+		hub:
+			wetboew:
+				src: ['lib/wet-boew/Gruntfile.js']
+				tasks: ['init', 'build']
+
+		'install-dependencies':
+			options:
+				cwd: 'lib/wet-boew'
+
+
+		jshint:
+			options:
+				curly: true
+				eqeqeq: true
+				immed: true
+				latedef: true
+				newcap: true
+				noarg: true
+				sub: true
+				undef: true
+				unused: true
+				boss: true
+				eqnull: true
+				browser: true
+				globals:
+					jQuery: true
+			lib_test:
+				src: 'src/**/*.js'
+
+	# These plugins provide necessary tasks.
+	@loadNpmTasks 'grunt-contrib-concat'
+	@loadNpmTasks 'grunt-contrib-copy'
+	@loadNpmTasks 'grunt-contrib-uglify'
+	@loadNpmTasks 'grunt-contrib-jshint'
+	@loadNpmTasks 'grunt-contrib-watch'
+	@loadNpmTasks 'grunt-contrib-coffee'
+	@loadNpmTasks 'grunt-contrib-clean'
+	@loadNpmTasks 'grunt-install-dependencies'
+	@loadNpmTasks 'grunt-hub'
+	@loadNpmTasks 'grunt-sass'
+	@loadNpmTasks 'assemble'
+
+	# Default task.
+	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'assemble']
+	@registerTask 'test', ['jshint']
+	@registerTask 'html', ['assemble']
+	@registerTask 'wipe', ['clean:dist']
+	@registerTask 'buildwet', ['hub']
+	@registerTask 'default', ['clean:dist', 'build', 'test']
+	@registerTask 'init', ['clean:lib', 'depbuild', 'buildwet']
+	@registerTask 'depbuild', ['install-dependencies', 'hub']
