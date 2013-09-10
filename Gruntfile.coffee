@@ -48,6 +48,12 @@ module.exports = ->
 				src: '**/*.js'
 				dest: 'dist'
 
+		cssmin:
+			dist:
+				expand: true
+				src: ['dist/css/**/*.css', '!dist/css/**/*.min.css']
+				ext: '.min.css'
+
 		coffee:
 			all:
 				cwd: 'src',
@@ -64,6 +70,12 @@ module.exports = ->
 		clean:
 			dist: [ 'dist']
 			lib: ['lib']
+			non_mincss:
+				expand: true
+				src: [
+					'dist/**/*.css',
+					'!dist/**/*.min.css'
+				]
 
 		watch:
 			gruntfile:
@@ -82,7 +94,7 @@ module.exports = ->
 		hub:
 			wetboew:
 				src: ['lib/wet-boew/Gruntfile.js']
-				tasks: ['init', 'build']
+				tasks: ['clean:dist', 'build']
 
 		'install-dependencies':
 			options:
@@ -117,13 +129,14 @@ module.exports = ->
 	@loadNpmTasks 'grunt-contrib-watch'
 	@loadNpmTasks 'grunt-contrib-coffee'
 	@loadNpmTasks 'grunt-contrib-clean'
+	@loadNpmTasks 'grunt-contrib-cssmin'
 	@loadNpmTasks 'grunt-install-dependencies'
 	@loadNpmTasks 'grunt-hub'
 	@loadNpmTasks 'grunt-sass'
 	@loadNpmTasks 'assemble'
 
 	# Default task.
-	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'assemble']
+	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'cssmin', 'clean:non_mincss', 'assemble']
 	@registerTask 'test', ['jshint']
 	@registerTask 'html', ['assemble']
 	@registerTask 'wipe', ['clean:dist', 'clean:lib']
