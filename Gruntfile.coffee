@@ -37,8 +37,11 @@ module.exports = ->
 
 		sass:
 			base:
-				files:
-					'dist/css/theme.css': 'src/sass/theme.scss'
+				expand: true
+				cwd: 'src/sass'
+				src: 'theme.scss'
+				dest: 'dist/css'
+				ext: '.css'
 
 		uglify:
 			options:
@@ -139,7 +142,7 @@ module.exports = ->
 	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'cssmin', 'clean:non_mincss', 'assemble']
 	@registerTask 'test', ['jshint']
 	@registerTask 'html', ['assemble']
-	@registerTask 'wipe', ['clean:dist', 'clean:lib']
+	@registerTask 'wipe', ['clean:dist']
 	@registerTask 'buildwet', ['hub']
 	@registerTask 'default', ['clean:dist', 'build', 'test']
 	@registerTask 'init', ['depbuild', 'buildwet']
