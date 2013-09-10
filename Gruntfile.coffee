@@ -20,10 +20,10 @@ module.exports = ->
 				marked:
 					sanitize: false
 				production: false
-				data: 'site/data/*.yml'
+				data: 'site/data/*.{yml,json}'
 				assets: 'dist'
 				helpers: 'site/helpers/helper-*.js'
-				layoutdir: 'lib/wet-boew/src/templates/layouts'
+				layoutdir: 'site/layouts'
 				partials: ['site/includes/**/*.hbs']
 
 			site:
@@ -31,13 +31,14 @@ module.exports = ->
 					layout: 'default.hbs'
 
 				expand: true
-				cwd: 'site/pages'
+				cwd: 'site'
 				src: ['*.hbs']
 				dest: 'dist/'
 
 		sass:
 			base:
-				'dist/css/theme.css': 'src/sass/theme.scss'
+				files:
+					'dist/css/theme.css': 'src/sass/theme.scss'
 
 		uglify:
 			options:
@@ -86,6 +87,7 @@ module.exports = ->
 		'install-dependencies':
 			options:
 				cwd: 'lib/wet-boew'
+				failOnError: false
 
 
 		jshint:
@@ -124,8 +126,8 @@ module.exports = ->
 	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'assemble']
 	@registerTask 'test', ['jshint']
 	@registerTask 'html', ['assemble']
-	@registerTask 'wipe', ['clean:dist']
+	@registerTask 'wipe', ['clean:dist', 'clean:lib']
 	@registerTask 'buildwet', ['hub']
 	@registerTask 'default', ['clean:dist', 'build', 'test']
-	@registerTask 'init', ['clean:lib', 'depbuild', 'buildwet']
+	@registerTask 'init', ['depbuild', 'buildwet']
 	@registerTask 'depbuild', ['install-dependencies', 'hub']
