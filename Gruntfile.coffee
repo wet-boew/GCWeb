@@ -20,11 +20,11 @@ module.exports = ->
 				marked:
 					sanitize: false
 				production: false
-				data: 'site/data/*.{yml,json}'
+				data: ['lib/wet-boew/site/data/**/*.{yml,json}', 'site/data/**/*.{yml,json}']
+				helpers: ['lib/wet-boew/site/helpers/helper-*.js', 'site/helpers/helper-*.js']
+				partials: ['lib/wet-boew/site/includes/**/*.hbs', 'site/includes/**/*.hbs']
+				layoutdir: 'lib/wet-boew/theme/layouts'
 				assets: 'dist'
-				helpers: 'site/helpers/helper-*.js'
-				layoutdir: 'site/layouts'
-				partials: ['site/includes/**/*.hbs']
 
 			site:
 				options:
