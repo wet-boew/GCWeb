@@ -23,7 +23,7 @@ module.exports = ->
 				data: ['lib/wet-boew/site/data/**/*.{yml,json}', 'site/data/**/*.{yml,json}']
 				helpers: ['lib/wet-boew/site/helpers/helper-*.js', 'site/helpers/helper-*.js']
 				partials: ['lib/wet-boew/site/includes/**/*.hbs', 'site/includes/**/*.hbs']
-				layoutdir: 'lib/wet-boew/theme/layouts'
+				layoutdir: 'lib/wet-boew/site/layouts'
 				assets: 'dist'
 
 			site:
@@ -31,7 +31,7 @@ module.exports = ->
 					layout: 'default.hbs'
 
 				expand: true
-				cwd: 'site'
+				cwd: 'site/pages'
 				src: ['*.hbs']
 				dest: 'dist/'
 
@@ -96,7 +96,7 @@ module.exports = ->
 
 		hub:
 			wetboew:
-				src: ['lib/wet-boew/Gruntfile.js']
+				src: ['lib/wet-boew/Gruntfile.coffee']
 				tasks: ['clean:dist', 'build']
 
 		'install-dependencies':
