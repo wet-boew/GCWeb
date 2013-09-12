@@ -9,6 +9,9 @@ module.exports = ->
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 			' License: <%= pkg.license %> */\n'
 
+		environment:
+			suffix: ".min"
+
 		concat:
 			options:
 				banner: '<%= banner %>'
@@ -24,11 +27,13 @@ module.exports = ->
 				helpers: ['lib/wet-boew/site/helpers/helper-*.js', 'site/helpers/helper-*.js']
 				partials: ['lib/wet-boew/site/includes/**/*.hbs', 'site/includes/**/*.hbs']
 				layoutdir: 'lib/wet-boew/site/layouts'
-				assets: 'dist'
+				assets: 'dist/'
 
 			site:
 				options:
 					layout: 'default.hbs'
+					environment:
+						suffix: "<%= environment.suffix %>"
 
 				expand: true
 				cwd: 'site/pages'
