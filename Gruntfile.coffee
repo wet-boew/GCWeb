@@ -26,7 +26,7 @@ module.exports = ->
 				data: ['lib/wet-boew/site/data/**/*.{yml,json}', 'site/data/**/*.{yml,json}']
 				helpers: ['lib/wet-boew/site/helpers/helper-*.js', 'site/helpers/helper-*.js']
 				partials: ['lib/wet-boew/site/includes/**/*.hbs', 'site/includes/**/*.hbs']
-				layoutdir: 'lib/wet-boew/site/layouts'
+				layoutdir: 'site/layouts'
 				assets: 'dist/'
 
 			site:
@@ -39,6 +39,18 @@ module.exports = ->
 				cwd: 'site/pages'
 				src: ['*.hbs']
 				dest: 'dist/'
+
+			plugins:
+				options:
+					layout: 'default.hbs'
+					environment:
+						suffix: "<%= environment.suffix %>"
+
+				expand: true
+				cwd: 'lib/wet-boew/src/plugins'
+				src: ['**/*.hbs']
+				dest: 'dist/demo/'
+				flatten: true
 
 		sass:
 			base:
@@ -74,6 +86,12 @@ module.exports = ->
 				cwd: 'lib/wet-boew/dist'
 				src: '**/*.*'
 				dest: 'dist/'
+			site:
+				expand: true
+				cwd: 'src/img'
+				src: '**/*.*'
+				dest: 'dist/img'
+
 
 		clean:
 			dist: [ 'dist']
