@@ -3,178 +3,96 @@
 <!--[if gt IE 8]><!-->
 <html lang="{{language}}">
 <!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html -->
-<title>{{ title }} - GCWeb</title>
-<link href="images/favicon.ico" rel="shortcut icon">
-<meta content="width=device-width, initial-scale=1" name="viewport">
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>{{title}} - {{sitename}}</title>
+		<link href="./{{assets}}/images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="{{description}}" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="./{{assets}}/css/base{{environment.suffix}}.css">
+		<link rel="stylesheet" href="./{{assets}}/css/bootstrap{{environment.suffix}}.css">
+		<link rel="stylesheet" href="./{{assets}}/css/theme{{environment.suffix}}.css">
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/theme.css">
+		<!-- Polyfill loader-->
+		<!--[if lt IE 9]>
+		<script src="./{{assets}}/js/oldie/respond.min.js"></script>
+		<script src="./{{assets}}/js/oldie/jquery.min.js"></script>
+		<script src="./{{assets}}/js/oldie/selectivizr.min.js"></script><![endif]-->
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="./{{assets}}/js/jquery.min.js"></script>
+		<!--<![endif]-->
+		<script src="./{{assets}}/js/vapour{{environment.suffix}}.js"></script>
 
-<!-- Polyfill loader-->
-<!--[if lt IE 9]>
-<script src="js/oldie/respond.min.js"></script>
-<script src="js/oldie/jquery.oldie.min.js"></script>
-<script src="js/oldie/selectivizr.min.js"></script><![endif]-->
-<!--[if gte IE 9 | !IE ]><!-->
-<script src="js/jquery.min.js"></script>
-<!--<![endif]-->
-<script src="js/vapour.js"></script>
-
-</head>
-<body class="secondary">
-<div id="wb-skip" class="sr-only">
-	<ul id="wb-tphp">
-		<li id="wb-skip1"><a href="#wb-cont">{{#i18n "%tmpl-skip-cont"}}{{/i18n}}</a></li>
-		<li id="wb-skip2"><a href="#wb-nav">{{#i18n "%tmpl-skip-foot"}}{{/i18n}}</a></li>
-	</ul>
-</div>
-<header>
-
-	<nav id="wb-glb-mn" role="navigation" class="visible-xs visible-sm">
-		<div class="container">
-			<div class="row">
-				<section class="brand col-xs-6">
-					<a href="home.html"><object type="images/svg+xml" tabindex="-1" role="img" data="img/wmms-blk.svg" aria-label="{{#i18n "%tmpl-gc-sig"}}{{/i18n}}"></object></a>
-				</section>
-				<section class="wb-mb-links col-xs-6">
-					<ul id="wet-mnavbar" class="list-inline text-right">
-					<li><a href="#mnpanel" title="Menu"><span class="glyphicon glyphicon-th-list"><i class="wb-invisible">Menu</i></span></a></li>
-					<li><a href="#srchpnl" title="{{#i18n "%tmpl-search"}}{{/i18n}}"><span class="glyphicon glyphicon-search"><i class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</i></span></a></li>
-					<li><a href="#sttgpnl" title="{{#i18n "%tmpl-settings"}}{{/i18n}}"><span class="glyphicon glyphicon-cog"><i class="wb-invisible">{{#i18n "%tmpl-settings"}}{{/i18n}}</i></span></a></li>
-				</ul>
-				</section>
-			</div>
+	</head>
+	<body>
+		<div id="wb-skip" class="wb-invisible">
+			<ul id="wb-tphp">
+				<li id="wb-skip1">
+					<a href="#wb-cont">{{#i18n "%tmpl-skip-cont"}}{{/i18n}}</a>
+				</li>
+				<li id="wb-skip2">
+					<a href="#wb-nav">{{#i18n "%tmpl-skip-foot"}}{{/i18n}}</a>
+				</li>
+			</ul>
 		</div>
-	</nav>
-	<section id="wb-lang" class="visible-md visible-lg">
-		<div class="container text-right">
-			<h2 class="wb-invisible">{{#i18n "%tmpl-lang-select"}}{{/i18n}}</h2>
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="list-inline margin-bottom-none">
-					    {{#if isEnglish}}
-					    <li><a lang="fr" href="index-fr.html">Français</a></li>
-					    {{else}}
-					    <li><a lang="en" href="index-en.html">English</a></li>
-					    {{/if}}
-					</ul>
+
+		<header role="banner">
+			<div id="wb-banner" class="container visible-md visible-lg">
+
+				<section id="wb-lang" aria-labelledby="wb-lang-h" class="visible-md visible-lg text-right">
+					<h2 id="wb-lang-h" class="wb-invisible">{{#i18n "%tmpl-lang-select"}}{{/i18n}}</h2>
+					{{>languagetoggle}}
+				</section>
+
+		  		<div class="row">
+					{{>brand}}
+
+					<section id="wb-srch" aria-labelledby="wb-srch-h" class="col-xs-6 text-right">
+						<h2 id="wb-srch-h" class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
+						{{>sitesearch}}
+					</section>
 				</div>
 			</div>
-		</div>
-	</section>
-	<div id="wb-title" class="visible-md visible-lg">
-		<div class="container">
-		  <div class="row">
-			<section class="brand col-xs-6">
-				<a href="home.html"><object type="images/svg+xml" tabindex="-1" role="img" data="img/wmms-blk.svg" aria-label="{{#i18n "%tmpl-gc-sig"}}{{/i18n}}"></object></a>
-			</section>
 
-			<section id="wb-srch" class="col-xs-6 text-right">
-				<h2 class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
-				<form action="#" method="post" role="form" class="form-inline">
-					<div class="form-group">
-						<label for="wb-srch-txt" class="wb-invisible">{{#i18n "%tmpl-search-site"}}{{/i18n}}</label>
-						<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" placeholder="{{#i18n "%tmpl-search"}}{{/i18n}} Canada.ca" size="27" maxlength="150" />
-					</div>
-					<div class="form-group submit">
-						<button type="submit"	id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit" ><span class="glyphicon-search glyphicon"></span><span class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</span></button>
-					</div>
-				</form>
-			</section>
-		    </div>
-		</div>
-	</div>
-	<section id="wb-nav" class="visible-md visible-lg">
-		<h2 class="wb-invisible">Navigation</h2>
-		<div class="container">
-		   <div class="row">
-			<nav id="wb-st-nav" class="col-md-12 text-center">
-				<ul class="list-inline">
-					<li><a href="#">{{#i18n "%cont-service"}}{{/i18n}}</a></li>
-					<li><a href="#">{{#i18n "%cont-dept"}}{{/i18n}}</a></li>
-					<li><a href="#">{{#i18n "%cont-news"}}{{/i18n}}</a></li>
-					<li><a href="#">{{#i18n "%cont-canada"}}{{/i18n}}</a></li>
-					<li><a href="#">{{#i18n "%cont-pub"}}{{/i18n}}</a></li>
-				</ul>
+			<nav role="navigation" id="wb-sm" aria-labelledby="wb-sm-h" class="visible-md visible-lg text-center">
+				<h2 id="wb-sm-h" class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
+				{{>sitemenu}}
 			</nav>
-			</div>
-		</div>
 
-	</section>
-	<section class="breadcrumbs">
-		<nav id="wb-bc" class="container wb-invisible">
-			<section>
-				<h2>{{#i18n "%tmpl-bcrumb"}}{{/i18n}}</h2>
-				<ol>
-					{{#each breadcrumbs}}
-  					<li>{{#if link}}<a href="{{link}}">{{title}}</a>{{else}}{{title}}{{/if}}</li>
-  					{{/each}}
-				</ol>
-			</section>
+			<nav role="navigation" id="wb-bc" aria-labelledby="wb-bc-h" class="wb-invisible">
+				<h2 id="wb-bc-h" class="wb-invisible">{{#i18n "%tmpl-bcrumb"}}{{/i18n}}</h2>
+				{{>breadcrumbs}}
+			</nav>
+		</header>
+
+		<main role="main" aria-labelledby="wb-cont" class="container">
+			{{>promotion}}
+			<h1 id="wb-cont" class="wb-invisible">{{title}}</h1>
+			{{>body}}
+		</main>
+
+		<!--
+		<nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+			<h2 id="wb-sec-h">{{#i18n "%tmpl-sec-menu"}}{{/i18n}}</h2>
+			{{>supporting}}
 		</nav>
-	</section>
-</header>
+		 -->
 
+		<footer role="contentinfo" id="wb-nav">
 
-<main class="container">
-{{>body}}
-</main>
-<footer id="wb-org-nav">
-		<div class="container visible-lg visible-md">
-			<section class="row about">
-				<h3 class="wb-invisible">{{#i18n "%tmpl-site-foot"}}{{/i18n}}</h3>
-				<section class="col-sm-3 col-lg-3">
-					<h4>About the site</h4>
-					<ul class="list-unstyled">
-						<li><a href="#">The new Canada.ca</a></li>
-						<li><a href="#">Sitemap</a></li>
-						<li><a href="#">Terms of use</a></li>
-						<li><a href="#">Accessibility</a></li>
-						<li><a href="#">Privacy</a></li>
-					</ul>
-				</section>
-				<section class="col-sm-3 col-lg-3">
-					<h4>Contact Information</h4>
-					<ul class="list-unstyled">
-						<li><a href="#">Employee directory</a></li>
-						<li><a href="#">International Offices</a></li>
-					</ul>
-				</section>
-				<section class="col-sm-3 col-lg-3">
-					<h4>Social Media</h4>
-					<ul class="list-unstlyed">
+			<nav role="navigation" aria-labelledby="wb-si-h" class="container visible-lg visible-md">
+				<h2 id="wb-si-h" class="wb-invisible">{{#i18n "%tmpl-site-info"}}{{/i18n}}</h2>
+				{{>footer}}
+			</nav>
 
-					</ul>
-				</section>
-				<section class="col-sm-3 col-lg-3">
-					<h4>Mobile centre</h4>
-					<ul class="list-unstyled">
+			{{>footerbrand}}
 
-					</ul>
-				</section>
+		</footer>
 
-			</section>
-		</div>
-		<section class="brand">
-			<div class="container text-right">
-			 <div class="row visible-lg visible-md">
-			 	<div class="col-xs-12">
-
-				<object type="images/svg+xml" tabindex="-1" role="img" data="img/sig-eng.svg" aria-label="{{#i18n "%tmpl-gc-sig"}}{{/i18n}}"></object>
-				</div>
-			 </div>
-			 <div class="row visible-sm visible-xs">
-			 	<div class="col-xs-12">
-					<a href="#wb-cont">{{#i18n "%tmpl-toppage"}}{{/i18n}}<span class="glyphicon glyphicon-chevron-up"></span></a>
-				</div>
-			 </div>
-			</div>
-		</section>
-</footer>
-</body>
+		<script src="./{{assets}}/js/wet-boew{{environment.suffix}}.js"></script>
+	</body>
 </html>

@@ -29,7 +29,7 @@
 
 	</head>
 	<body>
-		<div id="wb-skip">
+		<div id="wb-skip" class="wb-invisible">
 			<ul id="wb-tphp">
 				<li id="wb-skip1">
 					<a href="#wb-cont">Passer au contentu</a>
@@ -39,51 +39,64 @@
 				</li>
 			</ul>
 		</div>
-		<header role="banner">
-			<div id="wb-banner">
-				<a href="index-fr.html"><object type="images/svg+xml" tabindex="-1" role="img" data="/images/logo.svg" aria-label=""></object><span><small></small></span></a>
 
-				<section id="wb-lang" aria-labelledby="wb-lang-h">
-					<h2 id="wb-lang-h">Sélection de la langue</h2>
-					<ul>
-	<li class="current">
-		Français&#32;<span>(courant)</span>
-	</li>
-	<li>
-		<a lang="fr" href="#">Français</a>
-	</li>
-</ul>
+		<header role="banner">
+			<div id="wb-banner" class="container visible-md visible-lg">
+
+				<section id="wb-lang" aria-labelledby="wb-lang-h" class="visible-md visible-lg text-right">
+					<h2 id="wb-lang-h" class="wb-invisible">Sélection de la langue</h2>
+					<div class="row">
+	<div class="col-md-12">
+		<ul class="list-inline margin-bottom-none">
+			
+				<li><a lang="en" href="#">English</a></li>
+			
+		</ul>
+	</div>
+</div>
+
 				</section>
 
-				<section id="wb-srch" aria-labelled-by="wb-srch-h">
-					<h2 id="wb-srch-h">Recherche</h2>
-					<form action="#" method="post" role="search" class="form-inline">
+		  		<div class="row">
+					<div class="brand col-xs-6">
+	<a href="index-fr.html"><object type="images/svg+xml" tabindex="-1" role="img" data=".//img/wmms-blk.svg" aria-label="Symbole du gouvernement du Canada"></object></a>
+</div>
+
+
+					<section id="wb-srch" aria-labelledby="wb-srch-h" class="col-xs-6 text-right">
+						<h2 id="wb-srch-h" class="wb-invisible">Recherche</h2>
+						<form action="#" method="post" role="search" class="form-inline">
 	<div id="wet-srchbx-in">
-		<label for="wb-srch-txt">Recherchez le site Web</label>
-		<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
-		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Recherche</button>
+		<div class="form-group">
+			<label for="wb-srch-txt" class="wb-invisible">Recherchez le site Web</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+		<div class="form-group submit">
+			<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Recherche</button>
+		</div>
 	</div>
 </form>
-				</section>
+
+					</section>
+				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" aria-labelledby="wb-sm-h">
-				<h2 id="wb-sm-h">Menu du site</h2>
-				<ul class="mb-menu">
-	<li>
-		<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
-	</li>
-	<li>
-		<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
-	</li>
-	<li>
-		<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
-	</li>
-</ul>
+			<nav role="navigation" id="wb-sm" aria-labelledby="wb-sm-h" class="visible-md visible-lg text-center">
+				<h2 id="wb-sm-h" class="wb-invisible">Menu du site</h2>
+				<div class="container text-center">
+	<ul class="list-inline mb-menu" data-ajax-replace="/ajax/menu-fr.txt">
+		<li><a href="#">Services &amp; Information</a></li>
+		<li><a href="#">Department &amp; Agencies</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">About Canada</a></li>
+		<li><a href="#">Publications &amp; Data</a></li>
+	</ul>
+</div>
+
 			</nav>
 
-			<nav role="navigation" id="wb-bc" aria-labelledby="wb-bc-h">
-				<h2 id="wb-bc-h">Fil d'Ariane</h2>
+			<nav role="navigation" id="wb-bc" aria-labelledby="wb-bc-h" class="wb-invisible">
+				<h2 id="wb-bc-h" class="wb-invisible">Fil d'Ariane</h2>
 				<ol>
 	<li>
 		<a href="../index-fr.html">Accueil</a>
@@ -95,8 +108,9 @@
 			</nav>
 		</header>
 
-		<main role="main" aria-labelledby="wb-cont">
-			<h1 id="wb-cont">Emplois et milieu de travail</h1>
+		<main role="main" aria-labelledby="wb-cont" class="container">
+			
+			<h1 id="wb-cont" class="wb-invisible">Emplois et milieu de travail</h1>
 			
 
 
@@ -104,7 +118,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 text-left datemod">
-						Date Modified: 2013-08-06
+						Date de modification&#160 2013-08-06
 				</div>
 				<div class="col-md-6 text-right">
 					<a href="#" class="btn btn-default share"><span class="shareicon"></span> Share this page</a>
@@ -113,53 +127,69 @@
 		</div>
 	</section>
 
+
 		</main>
 
-		<!-- Secondary Menu [optional] -->
+		<!--
 		<nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
 			<h2 id="wb-sec-h">Menu secondaire</h2>
 			
 		</nav>
+		 -->
 
 		<footer role="contentinfo" id="wb-nav">
-			<nav role="navigation" aria-labelledby="wb-si-h">
-				<h2 id="wb-si-h">Information du site</h2>
+
+			<nav role="navigation" aria-labelledby="wb-si-h" class="container visible-lg visible-md">
+				<h2 id="wb-si-h" class="wb-invisible">Information du site</h2>
 				<section aria-labelledby="wb-si1-h" class="col-sm-3 col-lg-3">
-	<h3 id="wb-si1-h">About</h3>
+	<h3 id="wb-si1-h">About the site</h3>
 	<ul>
-		<li>
-			<a href="#">About the Web Experience Toolkit</a>
-		</li>
-		<li>
-			<a href="#">About the Web Standards</a>
-		</li>
+		<ul class="list-unstyled">
+			<li><a href="#">The new Canada.ca</a></li>
+			<li><a href="#">Sitemap</a></li>
+			<li><a href="#">Terms of use</a></li>
+			<li><a href="#">Accessiblity</a></li>
+			<li><a href="#">Privacy</a></li>
+		</ul>
 	</ul>
 </section>
 <section aria-labelledby="wb-si2-h" class="col-sm-3 col-lg-3">
-	<h3 id="wb-si2-h">Contact us</h3>
-	<ul>
-		<li>
-			<a href="#">Questions or comments?</a>
-		</li>
+	<h3 id="wb-si2-h">Contact Inforation</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">Employee directory</a></li>
+		<li><a href="#">International Offices</a></li>
 	</ul>
 </section>
 <section aria-labelledby="wb-si3-h" class="col-sm-3 col-lg-3">
-	<h3 id="wb-si3-h">News</h3>
-	<ul>
-		<li>
-			<a href="#">Recent project activity</a>
-		</li>
+	<h3 id="wb-si3-h">Social Media</h3>
+	<ul class="list-unstlyed">
+
 	</ul>
 </section>
 <section aria-labelledby="wb-si4-h" class="col-sm-3 col-lg-3">
-	<h3 id="wb-si4-h">Stay Connected</h3>
-	<ul>
-		<li>
-			<a href="#">Twitter</a>
-		</li>
+	<h3 id="wb-si4-h">Mobile centre</h3>
+	<ul class="list-unstyled">
+
 	</ul>
 </section>
+
 			</nav>
+
+			<div class="brand">
+	<div class="container text-right">
+		<div class="row visible-lg visible-md">
+			<div class="col-xs-12">
+				<object type="images/svg+xml" tabindex="-1" role="img" data=".//img/sig-fr.svg" aria-label="Gouvernement du Canada"></object>
+			 </div>
+		</div>
+		<div class="row visible-sm visible-xs">
+			<div class="col-xs-12">
+				<a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
 		</footer>
 
 		<script src=".//js/wet-boew.min.js"></script>
