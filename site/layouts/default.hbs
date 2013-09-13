@@ -42,7 +42,7 @@
 		</div>
 
 		<header role="banner">
-			<div id="wb-banner" class="container visible-md visible-lg">
+			<div id="wb-banner" class="container">
 
 				<section id="wb-lang" class="visible-md visible-lg text-right">
 					<h2 class="wb-invisible">{{#i18n "%tmpl-lang-select"}}{{/i18n}}</h2>
@@ -52,14 +52,15 @@
 		  		<div class="row">
 					{{>brand}}
 
-					<section id="wb-srch" class="col-xs-6 text-right">
+					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="./{{assets}}/ajax/mobmenu-{{language}}.txt">
 						<h2 class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
 						{{>sitesearch}}
 					</section>
+
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="visible-md visible-lg text-center">
+			<nav role="navigation" id="wb-sm" class="visible-md visible-lg text-center" data-ajax-replace="./{{assets}}/ajax/sitemenu-{{language}}.txt">
 				<h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
 				{{>sitemenu}}
 			</nav>

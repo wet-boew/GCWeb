@@ -1,0 +1,48 @@
+/*
+ Menu Treatments
+ */
+
+#wb-sm {
+    position: relative;
+    overflow: hidden;
+    background: $accent-blue;
+    ul {
+        display: table;
+        width: 100%;
+        margin-bottom: 0;
+        li {
+            display: table-cell;
+            padding: 1em 0.5em;
+            border-left: 1px ridge #284468;
+            border-right: 1px ridge #284468;
+            &:first-child {
+                border-left-width: 2px;
+            }
+            &:last-child {
+                border-right-width: 2px;
+            }
+            a {
+                color: #fff;
+                display: block;
+            }
+        }
+    }
+
+
+    .menu-item {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: 0;
+        overflow: hidden;
+        /* Set our transitions up. */
+        -webkit-transition: max-height 0.8s;
+        -moz-transition: max-height 0.8s;
+        transition: max-height 0.8s;
+        &.open {
+            max-height: 600px;
+        }
+    }
+}
