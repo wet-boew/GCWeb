@@ -52,6 +52,20 @@ module.exports = ->
 				dest: 'dist/demo/'
 				flatten: true
 
+			ajax:
+				options:
+					layout: 'ajax.hbs'
+					ext: ".txt"
+					environment:
+						suffix: "<%= environment.suffix %>"
+
+				expand: true
+				cwd: 'site/pages/ajax'
+				src: ['*.hbs']
+				dest: 'dist/ajax/'
+
+				flatten: true
+
 		sass:
 			base:
 				expand: true
@@ -120,7 +134,7 @@ module.exports = ->
 		hub:
 			wetboew:
 				src: ['lib/wet-boew/Gruntfile.coffee']
-				tasks: ['clean:dist', 'build']
+				tasks: ['default']
 
 		'install-dependencies':
 			options:
