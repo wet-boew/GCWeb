@@ -13,9 +13,19 @@ header {
     }
     .brand {
         padding-bottom: 2em;
-        object {
-            height: 56px;
-            width: 240px;
+        a {
+            max-width: 240px;
+            height: auto;
+
+            display: block;
+            @media screen and (max-width: $mobile) {
+                max-width: 190px;
+                margin-top: 20px;
+            }
+        }
+         object {
+            height: auto;
+            max-width: 100%;
         }
     }
     /*
@@ -23,11 +33,11 @@ header {
      */
     #wb-glb-mn {
         margin-top: 20px;
-        max-width: 100%;
+        /* max-width: 100%;
         object {
             max-height: 45px;
             max-width: auto;
-        }
+        }*/
         ul {
             height: 44px;
             background: $accent-blue;
@@ -78,122 +88,9 @@ header {
             min-width: 246px;
         }
     }
-    #wb-sm {
 
-        background: $accent-blue;
-        >.text-center{
-             display: table;
-             width: 100%;
-        ul {
-            display: table-row;
-            width: 100%;
-            li {
-                display: table-cell;
-                padding: 1em 0.5em;
-                border-left: 1px ridge #284468;
-                border-right: 1px ridge #284468;
-                &:first-child {
-                    border-left-width: 2px;
-                }
-                &:last-child {
-                    border-right-width: 2px;
-                }
-                a {
-                    color: #fff;
-                    display: block;
-                }
-            }
-         }
-        }
-
-    }
 }
 
-#wb-nav, .jumbotron.pagebrand {
-    .row {
-        margin-left: -25px;
-        margin-right: -25px;
-    }
-}
-
-.jumbotron.pagebrand {
-    padding: 0;
-    figure {
-        position: relative;
-        img {
-            width: 100%;
-        }
-    }
-    figcaption {
-        position: absolute;
-        color: #fff;
-        padding: 20px 30px;
-        background: url("../img/promos/backdrop.png");
-        bottom: 25px;
-        left: 35px;
-        .learnmore {
-            font-style: italic;
-            color: #fff !important;
-            font-size: 0.750em;
-        }
-        h2 {
-            font-weight: 700;
-            font-size: 1.063em;
-            margin: 0;
-        }
-        p {
-            margin: 0;
-            line-height: 1;
-        }
-        &.top {
-            top: 20px;
-        }
-        &.right {
-            left: auto;
-            right: 20px;
-        }
-    }
-}
-
-.jumbotron.sub-promo {
-    .row {
-        margin-left: -25px;
-        margin-right: -25px;
-    }
-    padding: 0;
-    height: 305px;
-    background: #d1d5d8;
-    figure {
-        position: relative;
-        img {
-            position: absolute;
-            max-width: 100%;
-            top: 0;
-            right: 0;
-        }
-        figcaption {
-            .h3 {
-                font-size: 44px;
-                font-weight: 700;
-                text-transform: uppercase;
-                text-shadow: #fff 0 1px 0;
-            }
-            .subtext {
-                font-size: 0.7em;
-            }
-            .btn {
-                padding: 0.5em 3em;
-                background-color: $accent-blue;
-                border-color: $accent-blue;
-                text-transform: uppercase;
-                font-weight: 700;
-            }
-        }
-    }
-    .btn {
-        text-transform: uppercase;
-    }
-}
 
 main {
     #wb-cont {
@@ -278,9 +175,9 @@ footer {
         }
         [class*="col-"] {
             padding-left: 40px;
-            h4 {
-                padding-top: 50px;
+            h3 {
                 font-weight: 700;
+                font-size: 1.10em;
             }
         }
     }
@@ -384,6 +281,9 @@ footer {
     }
 }
 
+@import "menus";
+@import "promo";
+
 .datemod {
     font-size: 0.875em;
 }
@@ -391,3 +291,5 @@ footer {
 footer a {
     font-size: 0.875em;
 }
+
+
