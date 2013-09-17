@@ -27,7 +27,7 @@ module.exports = ->
 				helpers: ['lib/wet-boew/site/helpers/helper-*.js', 'site/helpers/helper-*.js']
 				partials: ['lib/wet-boew/site/includes/**/*.hbs', 'site/includes/**/*.hbs']
 				layoutdir: 'site/layouts'
-				assets: 'dist/'
+				assets: 'dist'
 
 			site:
 				options:
