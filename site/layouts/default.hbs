@@ -8,24 +8,24 @@
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
 		<title>{{title}} - {{sitename}}</title>
-		<link href="./{{assets}}/images/favicon.ico" rel="shortcut icon">
+		<link href="{{assets}}/images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
 		<meta name="description" content="{{description}}" />
 		<!-- Meta data-->
-		<link rel="stylesheet" href="./{{assets}}/css/base{{environment.suffix}}.css">
-		<link rel="stylesheet" href="./{{assets}}/css/bootstrap{{environment.suffix}}.css">
-		<link rel="stylesheet" href="./{{assets}}/css/theme{{environment.suffix}}.css">
+		<link rel="stylesheet" href="{{assets}}/css/base{{environment.suffix}}.css">
+		<link rel="stylesheet" href="{{assets}}/css/bootstrap{{environment.suffix}}.css">
+		<link rel="stylesheet" href="{{assets}}/css/theme{{environment.suffix}}.css">
 
 		<!-- Polyfill loader-->
 		<!--[if lt IE 9]>
-		<script src="./{{assets}}/js/oldie/respond.min.js"></script>
-		<script src="./{{assets}}/js/oldie/jquery.min.js"></script>
-		<script src="./{{assets}}/js/oldie/selectivizr.min.js"></script><![endif]-->
+		<script src="{{assets}}/js/oldie/respond.min.js"></script>
+		<script src="{{assets}}/js/oldie/jquery.min.js"></script>
+		<script src="{{assets}}/js/oldie/selectivizr.min.js"></script><![endif]-->
 		<!--[if gte IE 9 | !IE ]><!-->
-		<script src="./{{assets}}/js/jquery.min.js"></script>
+		<script src="{{assets}}/js/jquery.min.js"></script>
 		<!--<![endif]-->
-		<script src="./{{assets}}/js/vapour{{environment.suffix}}.js"></script>
+		<script src="{{assets}}/js/vapour{{environment.suffix}}.js"></script>
 
 	</head>
 
@@ -52,7 +52,7 @@
 		  		<div class="row">
 					{{>brand}}
 
-					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="./{{assets}}/ajax/mobmenu-{{language}}.txt">
+					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="{{assets}}/ajax/mobmenu-{{language}}.txt">
 						<h2 class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
 						{{>sitesearch}}
 					</section>
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="text-center" data-ajax-replace="./{{assets}}/ajax/sitemenu-{{language}}.txt">
+			<nav role="navigation" id="wb-sm" class="text-center" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.txt">
 				<h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
 				{{>sitemenu}}
 			</nav>
@@ -93,6 +93,6 @@
 
 		</footer>
 
-		<script src="./{{assets}}/js/wet-boew{{environment.suffix}}.js"></script>
+		<script src="{{assets}}/js/wet-boew{{environment.suffix}}.js"></script>
 	</body>
 </html>
