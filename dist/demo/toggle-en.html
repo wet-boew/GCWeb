@@ -7,25 +7,25 @@
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Expand/Collapse All - </title>
-		<link href="./../images/favicon.ico" rel="shortcut icon">
+		<title>Toggle - </title>
+		<link href="./..//images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
 		<meta name="description" content="" />
 		<!-- Meta data-->
-		<link rel="stylesheet" href="./../css/base.min.css">
-		<link rel="stylesheet" href="./../css/bootstrap.min.css">
-		<link rel="stylesheet" href="./../css/theme.min.css">
+		<link rel="stylesheet" href="./..//css/base.min.css">
+		<link rel="stylesheet" href="./..//css/bootstrap.min.css">
+		<link rel="stylesheet" href="./..//css/theme.min.css">
 
 		<!-- Polyfill loader-->
 		<!--[if lt IE 9]>
-		<script src="./../js/oldie/respond.min.js"></script>
-		<script src="./../js/oldie/jquery.min.js"></script>
-		<script src="./../js/oldie/selectivizr.min.js"></script><![endif]-->
+		<script src="./..//js/oldie/respond.min.js"></script>
+		<script src="./..//js/oldie/jquery.min.js"></script>
+		<script src="./..//js/oldie/selectivizr.min.js"></script><![endif]-->
 		<!--[if gte IE 9 | !IE ]><!-->
-		<script src="./../js/jquery.min.js"></script>
+		<script src="./..//js/jquery.min.js"></script>
 		<!--<![endif]-->
-		<script src="./../js/vapour.min.js"></script>
+		<script src="./..//js/vapour.min.js"></script>
 
 	</head>
 
@@ -58,11 +58,11 @@
 
 		  		<div class="row">
 					<div class="brand col-xs-6">
-	<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="./../img/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object></a>
+	<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="./..//img/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object></a>
 </div>
 
 
-					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="./../ajax/mobmenu-en.txt">
+					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="./..//ajax/mobmenu-en.txt">
 						<h2 class="wb-invisible">Search</h2>
 						<form action="#" method="post" role="search" class="form-inline">
 	<div id="wet-srchbx-in">
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="text-center" data-ajax-replace="./../ajax/sitemenu-en.txt">
+			<nav role="navigation" id="wb-sm" class="text-center" data-ajax-replace="./..//ajax/sitemenu-en.txt">
 				<h2 class="wb-invisible">Site menu</h2>
 				
 <div class="container text-center" >
@@ -101,7 +101,7 @@
 			<nav role="navigation" id="wb-bc" class="wb-invisible">
 				<h2 class="wb-invisible">Breadcrumb trail</h2>
 				<ol>
-	<li>Expand/Collapse All</li>
+	<li>Toggle</li>
 </ol>
 			</nav>
 		</header>
@@ -110,29 +110,47 @@
 
 		<main role="main" class="container ">
 			
+
+<style>
+	.on {
+		color: #d9534f !important;
+	}
+	.off {
+		color: inherit;
+	}
+	.row {
+		margin: 1em 0;
+	}
+	.row > div {
+		text-align: center;
+		font-size: 2em;
+		height: 4em;
+		line-height: 4em;
+		border: 1px solid #ddd;
+	}
+</style>
+
 <section>
-	<h2>Expand/Collapse All Example</h2>
-	<details>
-		<summary>Testing</summary>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quisquam, optio corporis incidunt ipsa quaerat repellendus consequatur natus accusamus sapiente! Nobis fugit atque dolor mollitia doloremque! Veritatis ea consectetur ut.</p>
-		<p>Omnis, ex facilis vel quas ab! Perspiciatis, asperiores, quod repudiandae ad aperiam rem impedit eos quibusdam hic in omnis deleniti autem quos quaerat accusantium esse minus tempora dolore? Ab, quas?</p>
-	</details>
-	<div id="foo">
-		<details>
-			<summary>More testing</summary>
-			<p>Harum, nulla, consequuntur, sed, earum voluptate omnis laudantium necessitatibus sint totam id beatae corrupti nisi animi provident illo praesentium reprehenderit in quis quod itaque repellendus dolor vel. Vitae, reiciendis, voluptatibus!</p>
-			<p>Inventore, aut, ea quisquam quis dignissimos sed illo nihil assumenda eaque perferendis optio magnam repellat pariatur maxime accusamus deserunt possimus modi neque sunt debitis nesciunt at esse odit commodi dolorum.</p>
-			<p>Provident, ipsa laudantium necessitatibus hic quibusdam omnis vero quidem quasi molestias deleniti voluptatem est maiores. Ipsa, pariatur, corporis saepe deleniti quisquam accusantium tempora sapiente error quis expedita nam eos ducimus!</p>
-			<p>Rerum fugiat omnis id mollitia commodi tempore quibusdam modi. Minima ipsa magnam minus obcaecati accusamus! Vitae, quam ratione deleniti voluptates consequuntur ipsum earum quibusdam possimus voluptatibus dignissimos nihil officia adipisci.</p>
-			<p>Laboriosam, velit, id, tempora omnis atque voluptatem quo tempore est ipsam illo consequatur distinctio sed illum? Architecto, reprehenderit, alias incidunt quod in numquam rerum! Corporis ducimus dicta quod ab at.</p>
-			<p>Explicabo, magni, dicta assumenda dignissimos sunt consequatur aut pariatur saepe cupiditate nulla nemo nam? Qui, fugiat, reiciendis, hic sint optio minus eos cum ut et blanditiis quaerat consectetur ipsa mollitia.</p>
-			<p>Quisquam, numquam, veniam, minus vero doloremque delectus corporis ducimus a quo aliquid fugit quos magni omnis voluptatibus in accusantium ipsa odit quia ut eum quae velit consequuntur iure adipisci hic.</p>
-			<p>Nostrum, ab aspernatur impedit odio explicabo? Doloremque, quos, corporis ut quibusdam aperiam inventore fugiat sunt minima iure dolorum facere molestiae similique quas itaque repellendus! Facere, nam quas blanditiis aperiam rem?</p>
-		</details>
-	</div>
-	<a href="#" class="wb-expand-collapse-all" data-print-open="true">Toggle</a>
-	<a href="#" class="wb-expand-collapse-all" data-print-open="true" data-parent="#foo">Toggle</a>
+	<h2>Toggle Example</h2>
+	
+    <div class="row">
+	    <div class="col-md-1"><span class="glyphicon glyphicon-adjust"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-align-center"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-align-justify"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-align-left"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-align-right"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-arrow-down"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-arrow-left"></span></div>
+	    <div class="col-md-1"><span class="glyphicon glyphicon-tower"></span></div>
+    </div>    	
+	
+	<div class="btn-group">
+		<button type="button" class="btn btn-primary wb-toggle" data-selector=".glyphicon">Toggle</button>
+		<button type="button" class="btn btn-default wb-toggle" data-selector=".glyphicon" data-type="on">On</button>
+		<button type="button" class="btn btn-default wb-toggle" data-selector=".glyphicon" data-type="off">Off</button>
+	</div>	
 </section>
+
 		</main>
 
 		<!--
@@ -181,7 +199,7 @@
 	<div class="container text-right">
 		<div class="row visible-lg visible-md">
 			<div class="col-xs-12">
-				<object type="images/svg+xml" tabindex="-1" role="img" data="./../img/sig-en.svg" aria-label="Government of Canada"></object>
+				<object type="images/svg+xml" tabindex="-1" role="img" data="./..//img/sig-en.svg" aria-label="Government of Canada"></object>
 			 </div>
 		</div>
 		<div class="row visible-sm visible-xs">
@@ -194,6 +212,6 @@
 
 		</footer>
 
-		<script src="./../js/wet-boew.min.js"></script>
+		<script src="./..//js/wet-boew.min.js"></script>
 	</body>
 </html>
