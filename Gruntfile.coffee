@@ -74,6 +74,27 @@ module.exports = ->
 				dest: 'dist/css'
 				ext: '.css'
 
+		autoprefixer:
+			options:
+				browsers: [
+					"last 2 versions",
+					"ff >= 17",
+					"opera 12.1",
+					"bb >= 7",
+					"android >= 2.3",
+					"ie >= 8",
+					"ios 5"
+				]
+			all:
+				cwd: "dist/css"
+				src: [
+					"**/*.css",
+					"!**/*.min.css"
+				]
+				dest: "dist/css"
+				expand: true
+				flatten: true
+
 		uglify:
 			options:
 				banner: '<%= banner %>'
@@ -162,6 +183,7 @@ module.exports = ->
 				src: 'src/**/*.js'
 
 	# These plugins provide necessary tasks.
+	@loadNpmTasks 'grunt-autoprefixer'
 	@loadNpmTasks 'grunt-contrib-concat'
 	@loadNpmTasks 'grunt-contrib-copy'
 	@loadNpmTasks 'grunt-contrib-uglify'
@@ -176,7 +198,8 @@ module.exports = ->
 	@loadNpmTasks 'assemble'
 
 	# Default task.
-	@registerTask 'build', ['coffee', 'sass', 'concat', 'uglify', 'copy', 'cssmin', 'clean:non_mincss', 'assemble']
+	@registerTask 'build', ['coffee', 'css', 'concat', 'uglify', 'copy', 'cssmin', 'clean:non_mincss', 'assemble']
+	@registerTask 'css', ['sass', 'autoprefixer']
 	@registerTask 'test', ['jshint']
 	@registerTask 'html', ['assemble']
 	@registerTask 'wipe', ['clean:dist']
