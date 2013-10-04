@@ -155,7 +155,7 @@ module.exports = ->
 		hub:
 			wetboew:
 				src: ['lib/wet-boew/Gruntfile.coffee']
-				tasks: ['default']
+				tasks: ['dist']
 
 		'install-dependencies':
 			options:
