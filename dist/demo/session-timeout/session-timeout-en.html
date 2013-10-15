@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Session Timeout - </title>
+		<link href="../../images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/base.min.css">
+		<link rel="stylesheet" href="../../css/theme.min.css">
+
+		<!-- Polyfill loader-->
+		<!--[if lt IE 9]>
+		<script src="../../js/oldie/respond.min.js"></script>
+		<script src="../../js/oldie/jquery.min.js"></script>
+		<script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../../js/jquery.min.js"></script>
+		<!--<![endif]-->
+		<script src="../../js/vapour.min.js"></script>
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="wb-skip">
+			<ul id="wb-tphp">
+				<li id="wb-skip1">
+					<a class="wb-skip-link" href="#wb-cont">Skip to content</a>
+				</li>
+				<li id="wb-skip2">
+					<a class="wb-skip-link" href="#wb-nav">Skip to footer</a>
+				</li>
+			</ul>
+		</div>
+		<header role="banner">
+			<div id="wb-banner">
+				<a href="index-en.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
+
+				<section id="wb-lang">
+					<h2>Language selection</h2>
+					<ul>
+	<li class="current">
+		English&#32;<span>(current)</span>
+	</li>
+	<li>
+		<a lang="fr" href="#">Français</a>
+	</li>
+</ul>
+				</section>
+
+				<section id="wb-srch">
+					<h2>Search</h2>
+					<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+		<label for="wb-srch-txt">Search website</label>
+		<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Search</button>
+	</div>
+</form>
+				</section>
+			</div>
+
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Site menu</h2>
+				<ul class="mb-menu">
+	<li>
+		<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
+	</li>
+	<li>
+		<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
+	</li>
+	<li>
+		<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
+	</li>
+</ul>
+			</nav>
+
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
+				<h2>Breadcrumb trail</h2>
+				<ol>
+	<li>
+		<a href="../index-en.html">Home</a>
+	</li>
+	<li>
+		Working examples
+	</li>
+</ol>
+			</nav>
+		</header>
+
+		<main role="main" property="mainContentOfPage">
+			<h1 id="wb-cont" property="name">Session Timeout</h1>
+			
+
+<span class="wb-session-timeout"></span>
+<section>
+	<h2>Overview</h2>
+	<p>This sub project will help web asset owners provide session timeout and inactivity timeout functionality. When a user requests a page with this plugin implemented their session will begin. After the specified session period, they will be notified that their session is about to timeout.  At this point, they will have the option to remain logged in by clicking "OK", or logging out by clicking "Cancel".  At anytime during the session, if the user remains idle for a specified amount of time, they will be notified that they're session is about to time out. In either case, if the user does not respond to the timeout notification within a specified amount of time, once they click either "OK" or "Cancel" they will be automatically redirected to the log out page.</p>
+	<p>The code you're allowed to edit (within the page) is:</p>
+	<p><code>&lt;span class="wet-boew-sessiontimeout" data-wet-boew='{"inactivity": 1200000, "reactionTime": 30000, "sessionalive": 1200000, "logouturl": "./", "refreshCallbackUrl": "./"}'&gt;&lt;/span&gt;</code></p>
+	<p>This allows you to configure the plugin:</p>
+	<ul>
+		<li><strong>inactivity:</strong> This is the inactivity period of time after which the dialog message will appear.</li>
+		<li><strong>reactionTime:</strong> This is the period of time the user has to perform an action with the dialog message.</li>
+		<li><strong>sessionalive:</strong> This is the period of time for the session to stay alive until the dialog message appears.</li>
+		<li><strong>logouturl:</strong> This is the URL that users are sent to when the session has expired.</li>
+		<li><strong>refreshCallbackUrl:</strong> This is the URL to perform an ajax refresh, must return true/false.</li>
+	</ul>
+	<p>The only required parameter is logouturl, all other fields are optional. The default code would be:</p>
+	<p><code>&lt;span class="wet-boew-sessiontimeout"&gt; data-wet-boew='{logouturl: "./"}'&gt;&lt;/span&gt;</code></p>
+	<p><strong>IMPORTANT NOTE:</strong> The inactivity, reactionTime and sessionalive parameters are set in milliseconds. The only required parameter is the logouturl. The default inactivity and sessionalive is set to 20 minutes with a 30 second confirmation time with the dialog message. The refreshCallbackUrl must not be a page containing the timeout function again as a loop will be created, it should be simply a viewless page that refreshes the session.</p>
+	<p>Need help with the conversion? See: <a href="http://www.calculateme.com/Time/Minutes/ToMilliseconds.htm" rel="external">http://www.calculateme.com/Time/Minutes/ToMilliseconds.htm</a></p>
+	<p><strong>IMPORTANT NOTE</strong>: Your sessionalive and inactivity parameters should be equal to your web server session alive time minus the reactionTime time. If you set your sessionalive time and inactivity time to the same as your web server without taking into consideration the reactionTime time then the session will have ended by the server as soon as the popup appears to extend the session.</p>
+</section>
+<section>
+	<h2>How do I use it?</h2>
+	<p>Add the following to the page:</p>
+	<p><code>&lt;span class="wet-boew-sessiontimeout" data-wet-boew='{logouturl: "./"}'&gt;&lt;/span&gt;</code></p>
+</section>
+<section>
+	<h2>Try it out!</h2>
+	<p>This page has a 30 seconds inactivity timeout period. You also have 30 seconds to confirm if you want to keep the session alive. Please wait for the prompt to appear.</p>
+</section>
+		</main>
+
+		<!-- Secondary Menu [optional] -->
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Secondary menu</h2>
+			
+		</nav>
+
+		<footer role="contentinfo" id="wb-nav">
+			<nav role="navigation">
+				<h2>Site Information</h2>
+				<section class="col-sm-3 col-lg-3">
+	<h3>About</h3>
+	<ul>
+		<li>
+			<a href="#">About the Web Experience Toolkit</a>
+		</li>
+		<li>
+			<a href="#">About the Web Standards</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Contact us</h3>
+	<ul>
+		<li>
+			<a href="#">Questions or comments?</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>News</h3>
+	<ul>
+		<li>
+			<a href="#">Recent project activity</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Stay Connected</h3>
+	<ul>
+		<li>
+			<a href="#">Twitter</a>
+		</li>
+	</ul>
+</section>
+			</nav>
+		</footer>
+
+		<script src="../../js/wet-boew.min.js"></script>
+		<script src="../../js/theme.js"></script>
+	</body>
+</html>

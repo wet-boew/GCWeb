@@ -28,7 +28,7 @@
 		<script src="../../js/vapour.min.js"></script>
 
 	</head>
-	<body>
+	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="wb-skip">
 			<ul id="wb-tphp">
 				<li id="wb-skip1">
@@ -41,7 +41,7 @@
 		</div>
 		<header role="banner">
 			<div id="wb-banner">
-				<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
+				<a href="index-en.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
 
 				<section id="wb-lang">
 					<h2>Language selection</h2>
@@ -67,7 +67,7 @@
 				</section>
 			</div>
 
-			<nav role="navigation" id="wb-sm">
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
 				<h2>Site menu</h2>
 				<ul class="mb-menu">
 	<li>
@@ -82,7 +82,7 @@
 </ul>
 			</nav>
 
-			<nav role="navigation" id="wb-bc">
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
 				<h2>Breadcrumb trail</h2>
 				<ol>
 	<li>
@@ -95,8 +95,8 @@
 			</nav>
 		</header>
 
-		<main role="main">
-			<h1 id="wb-cont">Picturefill</h1>
+		<main role="main" property="mainContentOfPage">
+			<h1 id="wb-cont" property="name">Picturefill</h1>
 			
 
 <section>
@@ -104,7 +104,7 @@
 	
 	<h3>Browser Width</h3>
 	<p>This example uses <a href="http://www.w3.org/TR/css3-mediaqueries/#width">min-width</a> to determine which image should be displayed.  Resize the browser window to see the different images load.</p>
-	<span data-picture="data-picture" data-alt="Parliament Hill" class="wet-boew-responsiveimg">
+	<span data-picture data-alt="Parliament Hill">
 		<!-- Default image: <div [data-src]> with no data-media attribute is displayed when:
 		     1. None of the other <div [data-src]> media queries match.
 		     2. The browser doesn't support media queries  -->
@@ -123,7 +123,7 @@
 	<details class="wet-boew-prettify all-pre linenums">
 		<summary>View code</summary>
 		<pre>
-&lt;span  data-picture="data-picture" data-alt="Parliament Hill" class="wet-boew-responsiveimg"&gt;
+&lt;span  data-picture data-alt="Parliament Hill"&gt;
    &lt;!-- Default image: &lt;div [data-src]&gt; with no data-media attribute is displayed when:
            1. None of the other &lt;div [data-src]&gt; media queries match.
            2. The browser doesn't support media queries  --&gt;
@@ -142,7 +142,7 @@
 
 	<h3>High Pixel Density</h3>
 	<p>This example uses <a href="http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/" title="Read about high resolution media queries">two media queries</a> to serve high resolution images to devices that will benefit from them (i.e. Retina displays).</p>
-	<span data-picture="data-picture" data-alt="False Kiva in the Canyonlands">
+	<span data-picture data-alt="False Kiva in the Canyonlands">
 		<!-- Images for different device resolutions -->
 	    <span data-src="img/cave-low-res.jpg"></span>
 	    <span data-src="img/cave-high-res.jpg" data-media="(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)"></span>
@@ -155,7 +155,7 @@
 	<details>
 		<summary>View code</summary>
 		<pre>
-&lt;span  data-picture="data-picture" data-alt="False Kiva in the Canyonlands"&gt;
+&lt;span  data-picture data-alt="False Kiva in the Canyonlands"&gt;
    &lt;!-- Images for different device resolutions --&gt;
    &lt;span data-src="img/cave-low-res.jpg"&gt;&lt;/span&gt;
    &lt;span data-src="img/cave-high-res.jpg" data-media="(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)"&gt;&lt;/span&gt;
@@ -170,7 +170,7 @@
 		</main>
 
 		<!-- Secondary Menu [optional] -->
-		<nav role="navigation" id="wb-sec">
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
 			<h2>Secondary menu</h2>
 			
 		</nav>
@@ -217,5 +217,6 @@
 		</footer>
 
 		<script src="../../js/wet-boew.min.js"></script>
+		<script src="../../js/theme.js"></script>
 	</body>
 </html>

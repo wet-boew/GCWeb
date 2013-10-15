@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Lightbox - </title>
+		<link href="../images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="../css/base.min.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/theme.min.css">
+
+		<!-- Polyfill loader-->
+		<!--[if lt IE 9]>
+		<script src="../js/oldie/respond.min.js"></script>
+		<script src="../js/oldie/jquery.min.js"></script>
+		<script src="../js/oldie/selectivizr.min.js"></script><![endif]-->
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../js/jquery.min.js"></script>
+		<!--<![endif]-->
+		<script src="../js/vapour.min.js"></script>
+
+	</head>
+
+	<body>
+		<div id="wb-skip" class="wb-invisible">
+			<ul id="wb-tphp">
+				<li id="wb-skip1">
+					<a href="#wb-cont">Skip to content</a>
+				</li>
+				<li id="wb-skip2">
+					<a href="#wb-nav">Skip to footer</a>
+				</li>
+			</ul>
+		</div>
+
+		<header role="banner">
+			<div id="wb-banner" class="container">
+
+				<section id="wb-lang" class="visible-md visible-lg text-right">
+					<h2 class="wb-invisible">Language selection</h2>
+					<div class="row">
+	<div class="col-md-12">
+		<ul class="list-inline margin-bottom-none">
+			<li><a lang="" href=""></a></li>
+		</ul>
+	</div>
+</div>
+
+				</section>
+
+		  		<div class="row">
+					<div class="brand col-xs-6">
+	<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="./../img/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object></a>
+</div>
+
+
+					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="../ajax/mobmenu-en.txt">
+						<h2 class="wb-invisible">Search</h2>
+						<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+		<div class="form-group">
+			<label for="wb-srch-txt" class="wb-invisible">Search website</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+		<div class="form-group submit">
+			<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit"><span class="glyphicon-search glyphicon"></span><span class="wb-invisible">Search</span></button>
+		</div>
+	</div>
+</form>
+
+					</section>
+
+				</div>
+			</div>
+
+			<nav role="navigation" id="wb-sm" class="text-center" data-ajax-replace="../ajax/sitemenu-en.txt">
+				<h2 class="wb-invisible">Site menu</h2>
+				
+<div class="container text-center" >
+	<div class="row">
+		<ul class="list-inline mb-menu">
+			<li><a href="#deeplinking">Services &amp; Information</a></li>
+			<li><a href="#deeplinking">Department &amp; Agencies</a></li>
+			<li><a href="#deeplinking">News</a></li>
+			<li><a href="#deeplinking">About Canada</a></li>
+			<li><a href="#deeplinking">Publications &amp; Data</a></li>
+		</ul>
+	</div>
+</div>
+
+			</nav>
+
+			<nav role="navigation" id="wb-bc" class="wb-invisible">
+				<h2 class="wb-invisible">Breadcrumb trail</h2>
+				<ol>
+	<li>Lightbox</li>
+</ol>
+			</nav>
+		</header>
+		
+
+
+		<main role="main" class="container ">
+			
+
+<style>
+	.inline-list > ul {
+		margin-left: 0;
+	}
+	.inline-list > ul > li {
+		list-style-type: none;
+		display: inline-block;
+		margin: 0 5px 0 0;
+	}
+	.inline-list ul li.box {
+		margin-bottom: 0.4em;
+	}
+	.inline-list li img {
+		margin-bottom: 0;
+	}
+	.inline-list > ul > li > a {
+		text-decoration: none;
+	}
+	.box > a, .lb-hidden-gallery li:first-child.box > a {
+		display: block;
+		width: 148px;
+		height: 148px;
+		border: 1px solid #000;
+		text-align: center;
+		line-height: 148px;
+		background: #EEE;
+	}
+	.box > a:hover, .box > a:focus, .box > a:active {
+		text-decoration: underline;
+		background: #FFF;
+	}
+	.lb-hidden-gallery a {
+		display: none;
+	}
+	.lb-hidden-gallery li:first-child a {
+		display: inline;
+	}
+	#inline_content {
+		background: none repeat scroll 0 0 #FFFFFF;
+		margin: 40px auto;
+		max-width: 650px;
+		padding: 20px 30px;
+		position: relative;
+		text-align: left;
+	}
+</style>
+
+<section>
+	<h2>Table of contents</h2>
+	<ul>
+		<li><a href="#features">Features</a></li>
+		<li><a href="#examples">Examples</a>
+			<ul>
+				<li><a href="#examples1">Single items</a></li>
+				<li><a href="#examples2">Item gallery</a></li>
+				<li><a href="#examples3">Hidden item gallery</a></li>
+				<li><a href="#examples4">Alternative image title</a></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h2 id="features">Features</h2>
+	<ul>
+		<li>Displays images and other content using the <a href="http://dimsemenov.com/plugins/magnific-popup/" rel="external">Magnific Popup</a> plugin.</li>
+		<li>Easy navigation in image galleries using mouse, touchscreen or keyboard.</li>
+	</ul>
+</section>
+
+<div class="wb-prettify all-pre">
+	<section>
+		<h2 id="examples">Examples</h2>
+
+		<div id="inline_content" class="mfp-hide">
+			<ol>
+				<li>ordered list (<code>ol</code>) first level default appearance</li>
+				<li>ordered list (<code>ol</code>) first level default appearance
+					<ol>
+						<li>ordered list (<code>ol</code>) second level default appearance</li>
+						<li>ordered list (<code>ol</code>) second level default appearance
+							<ol>
+								<li>ordered list (<code>ol</code>) third level default appearance</li>
+								<li>ordered list (<code>ol</code>) third level default appearance</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			</ol>
+			<p><a href="#">Link default appearance</a></p>
+		</div>
+		<details>
+			<summary>Long description of image 2</summary>
+			<p id="image2-desc">Example long description of image 2 (referenced by <code>aria-describedby</code>).</p>
+		</details>
+
+		<section>
+			<h3 id="examples1">Single items</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="inline-list">
+					<ul>
+						<li>
+							<a class="wb-lightbox" href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a class="wb-lightbox" href="img/2_b.jpg" title="Image 2">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+						<li class="box">
+							<a class="wb-lightbox" title="Example of AJAX content" href="ajax/ajax-en.html">AJAX content</a>
+						</li>
+						<li class="box">
+							<a class="wb-lightbox" title="Example of inline content" href="#inline_content">Inline content</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;ul&gt;
+    &lt;li&gt;
+      &lt;a class="wb-lightbox" href="img/1_b.jpg" title="Image 1"&gt;
+        &lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a class="wb-lightbox" href="img/2_b.jpg" title="Image 2"&gt;
+        &lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a class="wb-lightbox" title="Example of AJAX content" href="ajax/ajax-en.html"&gt;AJAX content&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a class="wb-lightbox" title="Example of inline content" href="#inline_content"&gt;Inline content&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples2">Image gallery</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="wb-lightbox lb-gallery inline-list">
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+						<li>
+							<a href="img/3_b.jpg" title="Image 3">
+								<img src="img/3_s.jpg" alt="Image 3" />
+							</a>
+						</li>
+						<li>
+							<a href="img/4_b.jpg" title="Image 4">
+								<img src="img/4_s.jpg" alt="Image 4" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;div class="wb-lightbox lb-gallery inline-list"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+	  &lt;a href="img/1_b.jpg" title="Image 1"&gt;
+		&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/2_b.jpg" title="Image 2"&gt;
+		&lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/3_b.jpg" title="Image 3"&gt;
+		&lt;img src="img/3_s.jpg" alt="Image 3" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/4_b.jpg" title="Image 4"&gt;
+		&lt;img src="img/4_s.jpg" alt="Image 4" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;	
+&lt;/div&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples3">Hidden image gallery</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="wb-lightbox lb-hidden-gallery inline-list">
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+						<li>
+							<a href="img/3_b.jpg" title="Image 3">
+								<img src="img/3_s.jpg" alt="Image 3" />
+							</a>
+						</li>
+						<li>
+							<a href="img/4_b.jpg" title="Image 4">
+								<img src="img/4_s.jpg" alt="Image 4" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;div class="wb-lightbox lb-hidden-gallery inline-list"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href="img/1_b.jpg" title="Image 1"&gt;
+        &lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="img/2_b.jpg" title="Image 1"&gt;
+        &lt;img src="img/2_s.jpg" alt="Image 1" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/3_b.jpg" title="Image 3"&gt;
+		&lt;img src="img/3_s.jpg" alt="Image 3" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/4_b.jpg" title="Image 4"&gt;
+		&lt;img src="img/4_s.jpg" alt="Image 4" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;	
+&lt;/div&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples4">Alternative image title (v3.1)</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="wb-lightbox lb-gallery inline-list">
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1" data-title="image_1_b">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2" data-title="image_2_b">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<p id="image_1_b"><strong>Image 1:</strong> Lorem ipsum consectetur <em>adipiscing elit</em>.</p>
+				<p id="image_2_b"><strong>Image 2:</strong> Nulla mollis dolor leo. Quisque laoreet tincidunt mollis. Duis posuere scelerisque lectus quis lobortis. </p>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;div class="wb-lightbox lb-gallery inline-list"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+	  &lt;a href="img/1_b.jpg" title="Image 1" data-title="image_1_b"&gt;
+		&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	  &lt;a href="img/2_b.jpg" title="Image 2" data-title="image_2_b"&gt;
+		&lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+	  &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;	
+&lt;/div&gt;
+&lt;p id="element_id"&gt;Title of the image&lt;/p&gt;</code></pre>
+			</section>
+		</section>
+	</section>
+</div>
+
+		</main>
+
+		<!--
+		<nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+			<h2 id="wb-sec-h">Secondary menu</h2>
+			
+		</nav>
+		 -->
+
+		<footer role="contentinfo" id="wb-nav">
+
+			<nav role="navigation" class="container visible-lg visible-md">
+				<h2 class="wb-invisible">Site Information</h2>
+				<section class="col-sm-3 col-lg-3">
+	<h3>About the site</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">The new Canada.ca</a></li>
+		<li><a href="#">Sitemap</a></li>
+		<li><a href="#">Terms of use</a></li>
+		<li><a href="#">Privacy</a></li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Contact Inforation</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">Employee directory</a></li>
+		<li><a href="#">International Offices</a></li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Social Media</h3>
+	<ul class="list-unstyled">
+		<li>...</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Mobile</h3>
+	<ul class="list-unstyled">
+		<li>...</li>
+	</ul>
+</section>
+
+			</nav>
+
+			<div class="brand">
+	<div class="container text-right">
+		<div class="row visible-lg visible-md">
+			<div class="col-xs-12">
+				<object type="images/svg+xml" tabindex="-1" role="img" data="./../img/sig-en.svg" aria-label="Government of Canada"></object>
+			 </div>
+		</div>
+		<div class="row visible-sm visible-xs">
+			<div class="col-xs-12">
+				<a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+		</footer>
+
+		<script src="../js/wet-boew.min.js"></script>
+	</body>
+</html>
