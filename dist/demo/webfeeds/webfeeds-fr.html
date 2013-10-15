@@ -17,19 +17,14 @@
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/theme.min.css">
 
-        <!-- Polyfill loader-->
-        <!--[if lt IE 9]>
-        <script src="../../js/oldie/respond.min.js"></script>
-        <script src="../../js/oldie/jquery.min.js"></script>
-        <script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
-        <!--[if gte IE 9 | !IE ]><!-->
-        <script src="../../js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="../../js/vapour.min.js"></script>
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="../../js/vapour-ie8.min.js">
+        <![endif]-->
 
     </head>
 
-    <body>
+    <body vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -81,35 +76,38 @@
                 </div>
             </div>
 
-            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-fr.txt">
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-fr.txt" typeof="SiteNavigationElement">
                 <h2 class="wb-invisible">Menu du site</h2>
-                <div class="container text-center visible-md visible-lg nvbar">
+                <div class="container visible-md visible-lg nvbar">
     <div class="row">
         <ul class="list-inline menu">
-            <li><a href="#deeplinking">Services et information</a></li>
-            <li><a href="#deeplinking">Ministères et organismes</a></li>
-            <li><a href="#deeplinking">Nouvelles</a></li>
-            <li><a href="#deeplinking">Au sujet du Canada</a></li>
-            <li><a href="#deeplinking">Publications et données</a></li>
+            <li><a href="#deeplink">Emplois</a></li>
+            <li><a href="#deeplink">Immigration</a></li>
+            <li><a href="#deeplink">Voyage</a></li>
+            <li><a href="#deeplink">Business</a></li>
+            <li><a href="#deeplink">Prestations</a></li>
+            <li><a href="#deeplink">Santé</a></li>
+            <li><a href="#deeplink">Taxes</a></li>
+            <li><a href="#deeplink">More services</a></li>
         </ul>
     </div>
 </div>
 
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible">
+            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
                 <h2 class="wb-invisible">Fil d'Ariane</h2>
                 <ol>
 	<li>Fils de syndication</li>
 </ol>
             </nav>
         </header>
+        
 
 
-
-        <main role="main" class="container ">
-
-<p>>Cette composante est un gadget logiciel permettant de regrouper et d’afficher des données d'un ou plusieurs fils de syndication. Les formats soutenus sont Atom, RSS et Media RSS.</p>
+        <main role="main" class="container " property="mainContentOfPage">
+            
+<p>Cette composante est un gadget logiciel permettant de regrouper et d’afficher des données d'un ou plusieurs fils de syndication. Les formats soutenus sont Atom, RSS et Media RSS.</p>
 
 <section>
 	<h2>Avantages</h2>
@@ -126,18 +124,9 @@
 
 <section>
 	<h2>Exemples</h2>
-	<div class="wb-webfeeds">
-		<section class="widget-container">
-			<h3>Météo d'Ottawa</h3>
-			<ul class="widget-content">
-				<li><a href="http://weather.gc.ca/city/pages/on-118_metric_f.html" rel="external">Ottawa Ontario</a></li>
-			</ul>
-		</section>
-	</div>
-
 	<div class="wb-webfeeds limit-5">
 		<section class="widget-container">
-			<h3>Fils RSS</h3>
+			<h3>Communiqués de presse et rappels de la sécurité routière</h3>
 			<ul class="widget-content">
 				<li>
 					<a href="http://www.tc.gc.ca/medias/rss/routier.xml" rel="external">Communiqués de presse routière (Tous)</a>
@@ -149,12 +138,14 @@
 		</section>
 	</div>
 
-	<div class="wb-webfeeds">
+	<div class="wb-webfeeds limit-1">
 		<section class="widget-container">
-			<h3>Chronologie intégrée Twitter</h3>
-			<article>
-				<a class="twitter-timeline" href="https://twitter.com/search?q=%23boew" data-widget-id="329071414877495297">Tweets concernant "#boew"</a>
-			</article>
+			<h3>Météo d'Ottawa</h3>
+			<ul class="widget-content">
+				<li>
+					<a href="http://weather.gc.ca/rss/city/on-118_f.xml" rel="external">Ottawa Ontario</a>
+				</li>
+			</ul>
 		</section>
 	</div>
 </section>
@@ -179,19 +170,18 @@
 			<tr>
 				<td><code>limit-<em>xxx</em></code></td>
 				<td>affichage</td>
-				<td>contrôle la quantité d'articles que le gadget des fils de syndication affichera (sauf les fils intégrés Twitter)</td>
+				<td>contrôle la quantité d'articles que le gadget des fils de syndication affichera</td>
 			</tr>
 		</tbody>
 	</table>
-	<p><a href="https://dev.twitter.com/docs/embedded-timelines">Options de configuration des fils intégrés Twitter</a></p>
 </section>
 
         </main>
 
         <!--
-        <nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+        <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
             <h2 id="wb-sec-h">Menu secondaire</h2>
-
+            
         </nav>
          -->
 
@@ -247,6 +237,10 @@
 
         </footer>
 
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/vapour.min.js"></script>
+        <!--<![endif]-->
         <script src="../../js/wet-boew.min.js"></script>
     </body>
 </html>

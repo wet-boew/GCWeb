@@ -17,19 +17,14 @@
         <link rel="stylesheet" href="{{assets}}/css/bootstrap{{environment.suffix}}.css">
         <link rel="stylesheet" href="{{assets}}/css/theme{{environment.suffix}}.css">
 
-        <!-- Polyfill loader-->
-        <!--[if lt IE 9]>
-        <script src="{{assets}}/js/oldie/respond.min.js"></script>
-        <script src="{{assets}}/js/oldie/jquery.min.js"></script>
-        <script src="{{assets}}/js/oldie/selectivizr.min.js"></script><![endif]-->
-        <!--[if gte IE 9 | !IE ]><!-->
-        <script src="{{assets}}/js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="{{assets}}/js/vapour{{environment.suffix}}.js"></script>
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="{{assets}}/js/vapour-ie8{{environment.suffix}}.js">
+        <![endif]-->
 
     </head>
 
-    <body>
+    <body vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -60,23 +55,23 @@
                 </div>
             </div>
 
-            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.txt">
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.txt" typeof="SiteNavigationElement">
                 <h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
                 {{>sitemenu}}
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible">
+            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
                 <h2 class="wb-invisible">{{#i18n "%tmpl-bcrumb"}}{{/i18n}}</h2>
                 {{>breadcrumbs}}
             </nav>
         </header>
         {{>promotion}}
-        <main role="main" class="container {{pageclass}}">
+        <main role="main" class="container {{pageclass}}" property="mainContentOfPage">
             {{>body}}
         </main>
 
         <!--
-        <nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+        <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
             <h2 id="wb-sec-h">{{#i18n "%tmpl-sec-menu"}}{{/i18n}}</h2>
             {{>supporting}}
         </nav>
@@ -93,6 +88,10 @@
 
         </footer>
 
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="{{assets}}/js/jquery.min.js"></script>
+        <script src="{{assets}}/js/vapour{{environment.suffix}}.js"></script>
+        <!--<![endif]-->
         <script src="{{assets}}/js/wet-boew{{environment.suffix}}.js"></script>
     </body>
 </html>

@@ -17,19 +17,14 @@
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/theme.min.css">
 
-        <!-- Polyfill loader-->
-        <!--[if lt IE 9]>
-        <script src="../../js/oldie/respond.min.js"></script>
-        <script src="../../js/oldie/jquery.min.js"></script>
-        <script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
-        <!--[if gte IE 9 | !IE ]><!-->
-        <script src="../../js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="../../js/vapour.min.js"></script>
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="../../js/vapour-ie8.min.js">
+        <![endif]-->
 
     </head>
 
-    <body>
+    <body vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -81,34 +76,37 @@
                 </div>
             </div>
 
-            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt">
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt" typeof="SiteNavigationElement">
                 <h2 class="wb-invisible">Site menu</h2>
-                <div class="container text-center visible-md visible-lg nvbar">
+                <div class="container visible-md visible-lg nvbar">
     <div class="row">
         <ul class="list-inline menu">
-            <li><a href="#deeplinking">Services &amp; Information</a></li>
-            <li><a href="#deeplinking">Department &amp; Agencies</a></li>
-            <li><a href="#deeplinking">News</a></li>
-            <li><a href="#deeplinking">About Canada</a></li>
-            <li><a href="#deeplinking">Publications &amp; Data</a></li>
+            <li><a href="#deeplink">Jobs</a></li>
+            <li><a href="#deeplink">Immigration</a></li>
+            <li><a href="#deeplink">Travel</a></li>
+            <li><a href="#deeplink">Business</a></li>
+            <li><a href="#deeplink">Benefits</a></li>
+            <li><a href="#deeplink">Health</a></li>
+            <li><a href="#deeplink">Taxes</a></li>
+            <li><a href="#deeplink">More services</a></li>
         </ul>
     </div>
 </div>
 
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible">
+            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
                 <h2 class="wb-invisible">Breadcrumb trail</h2>
                 <ol>
 	<li>Data inview</li>
 </ol>
             </nav>
         </header>
+        
 
 
-
-        <main role="main" class="container ">
-
+        <main role="main" class="container " property="mainContentOfPage">
+            
 <section>
 	<h2>Data inview Example #1</h2>
 	<div class="wb-inview toc">
@@ -162,9 +160,9 @@
         </main>
 
         <!--
-        <nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+        <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
             <h2 id="wb-sec-h">Secondary menu</h2>
-
+            
         </nav>
          -->
 
@@ -220,6 +218,10 @@
 
         </footer>
 
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/vapour.min.js"></script>
+        <!--<![endif]-->
         <script src="../../js/wet-boew.min.js"></script>
     </body>
 </html>

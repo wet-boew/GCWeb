@@ -17,19 +17,14 @@
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/theme.min.css">
 
-        <!-- Polyfill loader-->
-        <!--[if lt IE 9]>
-        <script src="../../js/oldie/respond.min.js"></script>
-        <script src="../../js/oldie/jquery.min.js"></script>
-        <script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
-        <!--[if gte IE 9 | !IE ]><!-->
-        <script src="../../js/jquery.min.js"></script>
-        <!--<![endif]-->
-        <script src="../../js/vapour.min.js"></script>
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="../../js/vapour-ie8.min.js">
+        <![endif]-->
 
     </head>
 
-    <body>
+    <body vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -81,43 +76,47 @@
                 </div>
             </div>
 
-            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt">
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt" typeof="SiteNavigationElement">
                 <h2 class="wb-invisible">Site menu</h2>
-                <div class="container text-center visible-md visible-lg nvbar">
+                <div class="container visible-md visible-lg nvbar">
     <div class="row">
         <ul class="list-inline menu">
-            <li><a href="#deeplinking">Services &amp; Information</a></li>
-            <li><a href="#deeplinking">Department &amp; Agencies</a></li>
-            <li><a href="#deeplinking">News</a></li>
-            <li><a href="#deeplinking">About Canada</a></li>
-            <li><a href="#deeplinking">Publications &amp; Data</a></li>
+            <li><a href="#deeplink">Jobs</a></li>
+            <li><a href="#deeplink">Immigration</a></li>
+            <li><a href="#deeplink">Travel</a></li>
+            <li><a href="#deeplink">Business</a></li>
+            <li><a href="#deeplink">Benefits</a></li>
+            <li><a href="#deeplink">Health</a></li>
+            <li><a href="#deeplink">Taxes</a></li>
+            <li><a href="#deeplink">More services</a></li>
         </ul>
     </div>
 </div>
 
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible">
+            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
                 <h2 class="wb-invisible">Breadcrumb trail</h2>
                 <ol>
 	<li>Prettify</li>
 </ol>
             </nav>
         </header>
+        
 
 
-
-        <main role="main" class="container ">
-
+        <main role="main" class="container " property="mainContentOfPage">
+            
 
 <p>Syntax highlighting of source code snippets in an html page using <a href="http://code.google.com/p/google-code-prettify/" rel="external">google-code-prettify</a>.</p>
 
 <section>
 	<h2>How to use</h2>
 	<ol>
-		<li>Apply <code>class="prettyprint"</code> to a <code>pre</code> or <code>code</code> element to apply syntax highlighting. Alternatively use <code>class="all-pre"</code> to apply syntax highlighting to all <code>pre</code> elements on the page.</li>
-		<li>Apply <code>class="linenums"</code> to a <code>pre</code> or <code>code</code> element to add line numbers. Alternatively use <code>class="all-linenums"</code> to all applicable <code>pre</code> elements. Specify the starting number by adding <code>linenums:#</code> before <code>linenums</code>.</li>
-		<li>Add extra language support by applying <code>class="lang-*"</code> to each applicable <code>pre</code> or <code>code</code> element.  Supported language syntax CSS classes are as follows:
+		<li>Apply <code>class="wb-prettify"</code> to an element on the page to load the component (once per page).</li>
+		<li>Apply <code>class="prettyprint"</code> to a <code>pre</code> or <code>code</code> element to apply syntax highlighting. Alternatively use <code>class="wb-prettify all-pre"</code> to apply syntax highlighting to all <code>pre</code> elements on the page.</li>
+		<li>Apply <code>class="linenums"</code> to a <code>pre</code> or <code>code</code> element to add line numbers. Alternatively use <code>class="wb-prettify linenums"</code> to apply line numbers to all applicable <code>pre</code> elements on the page. Specify the starting number by adding <code>linenums:#</code> before <code>linenums</code>.</li>
+		<li>Add extra language support by using <code>class="wb-prettify lang-*"</code> (e.g., <code>class="wet-boew-prettify lang-css"</code>) and applying <code>class="lang-*"</code> to each applicable <code>pre</code> or <code>code</code> element.  Supported formats are below:
 			<ul>
 				<li>lang-apollo</li>
 				<li>lang-clj</li>
@@ -137,14 +136,14 @@
 				<li>lang-vhdl</li>
 				<li>lang-wiki</li>
 				<li>lang-xq</li>
-				<li>lang-yaml</li>
+				<li>lang-yaml</li>			
 			</ul>
 		</li>
 	</ol>
 </section>
 
 <section>
-	<h2 id="examples" class="wet-boew-prettify all-pre">Examples</h2>
+	<h2 id="examples" class="wb-prettify all-pre lang-css">Examples</h2>
 	<section>
 		<h3>HTML</h3>
 		<pre class="prettyprint"><code>&lt;form action="#" method="post"&gt;
@@ -208,64 +207,51 @@ div#gcwu-headlines ul li,div#gcwu-headlines ul{
 }</code></pre>
 	</section>
 	<section>
-		<h3>JavaScript (uses linenums:16 and linenums)</h3>
-		<pre class="prettyprint linenums:16 linenums"><code>/**
+		<h3>JavaScript (uses linenums:50 and linenums)</h3>
+		<pre class="prettyprint linenums:50 linenums"><code>/**
  * Initialize the plugin. This only runs once on the DOM.
+ * @function init
  */
-init: function() {
-	var cssClass, cssClasses, deps, i, j, lenClasses, lenPres, modeJS, pre, pres, settings;
-	window._timer.remove( plugin.selector );
+init = function() {
+	var cssClass, cssClasses, i, len, $pre,
+		$elm = $( this ),
+		modeJS = vapour.getMode() + ".js",
+		deps = [ "site!deps/prettify" + modeJS ],
+		settings = $.extend( {}, defaults, $elm.data() );
 
-	// Only initialize this plugin once.  The prettify lib updates the DOM in one pass.
-	if ( plugin.executed === false ) {
-		plugin.executed = true;
+	window._timer.remove( selector );
 
-		pres = vapour.doc[0].getElementsByTagName( "pre" );
-		modeJS = vapour.getMode() + ".js";
-		settings = $.extend( {}, plugin.defaults );
-		deps = [ "site!deps/prettify" + modeJS ];
-
-		// Check the pre CSS classes to determine plugin settings
-		for ( i = 0, lenPres = pres.length; i < lenPres; i++ ) {
-			pre = pres[ i ];
-			cssClasses = typeof pre.className === "string" ? pre.className.split( " " ) : [];
-			for ( j = 0, lenClasses = cssClasses.length; j < lenClasses; j++ ) {
-				cssClass = cssClasses[ j ];
-
-				// Language syntax file
-				if ( cssClass.indexOf( "lang-" ) === 0 ) {
-					deps.push( "site!deps/" + cssClass + modeJS );
-
-				// Add line numbers to all pre elements
-				} else if ( cssClass.indexOf( "all-linenums" ) === 0 ) {
-					settings.allLineNums = true;
-
-				// Prettify all pre elements
-				} else if ( cssClass.indexOf( "all-pre" ) === 0 ) {
-					settings.allPre = true;
-				}
-			}
+	// Check the element for `lang-*` syntax CSS classes
+	cssClasses = typeof $elm[0].className === "string" ? $elm[0].className.split( " " ) : [];
+	for ( i = 0, len = cssClasses.length; i < len; i++ ) {
+		cssClass = cssClasses[ i ];
+		if ( cssClass.indexOf( "lang-" ) === 0 ) {
+			deps.push( "site!deps/" + cssClass + modeJS );
 		}
-
-		// Apply global plugin settings
-		if ( settings.allPre || settings.allLinenums ) {
-			pres = $( pres );
-			if ( settings.allPre ) {
-				pres.addClass( plugin.selector );
-			}
-			if ( settings.allLinenums ) {
-				pres.filter( plugin.selector ).addClass( "linenums" );
-			}
-		}
-
-		// Load the required dependencies and prettify the code once finished
-		window.Modernizr.load({
-			load: deps,
-			complete: function() {
-				vapour.doc.trigger( "prettyprint.wb-prettify" );
-			}
-		});
 	}
+
+	// CSS class overides of settings
+	settings.allpre = settings.allpre || $elm.hasClass( "all-pre" );
+	settings.linenums = settings.linenums || $elm.hasClass( "linenums" );
+
+	// Apply global settings
+	if ( settings.allpre || settings.linenums ) {
+		$pre = $( "pre" );
+		if ( settings.allpre ) {
+			$pre.addClass( "prettyprint" );
+		}
+		if ( settings.linenums ) {
+			$pre.filter( ".prettyprint" ).addClass( "linenums" );
+		}
+	}
+
+	// Load the required dependencies and prettify the code once finished
+	window.Modernizr.load({
+		load: deps,
+		complete: function() {
+			vapour.doc.trigger( "prettyprint.wb-prettify" );
+		}
+	});
 }</code></pre>
 	</section>
 </section>
@@ -273,9 +259,9 @@ init: function() {
         </main>
 
         <!--
-        <nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+        <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
             <h2 id="wb-sec-h">Secondary menu</h2>
-
+            
         </nav>
          -->
 
@@ -331,6 +317,10 @@ init: function() {
 
         </footer>
 
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/vapour.min.js"></script>
+        <!--<![endif]-->
         <script src="../../js/wet-boew.min.js"></script>
     </body>
 </html>
