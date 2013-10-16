@@ -1,81 +1,69 @@
-<h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
-<div class="container text-center visible-md visible-lg">
-	<div class="row">
-		<ul class="list-inline wb-menu">
-			<li><a href="#service">{{#i18n "%cont-service"}}{{/i18n}}</a></li>
-			<li><a href="#dept">{{#i18n "%cont-dept"}}{{/i18n}}</a></li>
-			<li><a href="#news">{{#i18n "%cont-news"}}{{/i18n}}</a></li>
-			<li><a href="#canada">{{#i18n "%cont-canada"}}{{/i18n}}</a></li>
-			<li><a href="#pub">{{#i18n "%cont-pub"}}{{/i18n}}</a></li>
-		</ul>
-	</div>
-</div>
 <!-- some mobile views -->
-<a href="#" class="nav-close visible-sm visible-xs">Close</span></a>
-<!-- -->
-<section  class="menu-item" id="service">
-		<h3 class="wb-invisible">{{#i18n "%cont-service"}}{{/i18n}}</h3>
-		<div class="container text-center">
-			<ul>
-				<li><a href="#">{{#i18n "%menu-service-1"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-2"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-3"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-4"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-serivce-5"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-6"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-7"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-service-8"}}{{/i18n}}</a></li>
-				<li><a href="#">{{#i18n "%menu-serivce-9"}}{{/i18n}}</a></li>
-			</ul>
-		</div>
-</section>
-<section class="menu-item" id="dept">
-	<h3 class="wb-invisible">{{#i18n "%cont-service"}}{{/i18n}}</h3>
-	<div class="container text-center">
-		<ul>
-			<li><a href="#">{{#i18n "%menu-dept-1"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-dept-2"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-dept-3"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-dept-4"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-dept-5"}}{{/i18n}}</a></li>
-		</ul>
-	</div>
+    <a href="#" class="nav-close visible-sm visible-xs"><span class="glyphicon glyphicon-remove"></span>{{#i18n "%gnl-close%"}}{{/i18n}}</a>
+<!-- secondary navigation if enabled -->
+<section>
+    <h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
+    <!-- some mobile views -->
+    <a href="#" class="nav-close visible-sm visible-xs"><span class="glyphicon glyphicon-remove"></span>{{#i18n "%gnl-close%"}}{{/i18n}}</a>
+    <!-- -->
+    <div class="container visible-md visible-lg nvbar">
+        <div class="row">
+            <ul class="list-inline menu">
+                <li><a href="#jobs" role="menuitem" aria-haspopup="true">{{#i18n "%jobs" }}{{/i18n}}</a>
+                </li>
+                <li><a href="#immigration" role="menuitem" aria-haspopup="true">{{#i18n "%immigration" }}{{/i18n}}</a>
+                    <ul class="item" id="immigration" role="menu" aria-expanded="false" aria-hidden="true">
+                        <li><a href="http://www.cic.gc.ca/english/citizenship/index.asp" role="menuitem">{{#i18n "%citizenship" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/work/index.asp" role="menuitem">{{#i18n "%work" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/residents/canadians.asp" role="menuitem">{{#i18n "%canadians" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/residents/new_immigrants.asp" role="menuitem">{{#i18n "%new-immigrants" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/e-services/index.asp" role="menuitem">{{#i18n "%my-application" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/study/index.asp" role="menuitem">{{#i18n "%study" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/immigrate/index.asp" role="menuitem">{{#i18n "%immigrate" }}{{/i18n}}</a></li>
+                        <li><a href="http://www.cic.gc.ca/english/visit/index.asp" role="menuitem">{{#i18n "%visit" }}{{/i18n}}</a></li>
+                    </ul>
+                </li>
+                <li><a href="#travel" role="menuitem" aria-haspopup="true">{{#i18n "%travel" }}{{/i18n}}</a>
+                    <ul class="item" id="travel" role="menu" aria-expanded="false" aria-hidden="true">
+                        <li><a href="http://travel.gc.ca/assistance?wb48617274=A1233063 " role="menuitem">{{#i18n "%assistance" }}{{/i18n}}</a></li>
+                        <li><a href="http://travel.gc.ca/news-warnings" role="menuitem">{{#i18n "%news-and-warnings" }}{{/i18n}}</a></li>
+                        <li><a href="http://travel.gc.ca/travelling?wb48617274=A1233063 " role="menuitem">{{#i18n "%travelling-abroad" }}{{/i18n}}</a></li>
+                        <li><a href="http://travel.gc.ca/returning " role="menuitem">{{#i18n "%returning-to-canada" }}{{/i18n}}</a></li>
+                    </ul>
+                </li>
+                <li><a href="#business" role="menuitem" aria-haspopup="true">{{#i18n "%business" }}{{/i18n}}</a>
+                    <ul class="item" id="business" role="menu" aria-expanded="false" aria-hidden="true">
+                        <li><a href="#" role="menuitem">{{#i18n "%import-export-investment" }}{{/i18n}}</a></li>
+                    </ul>
+                </li>
+                <li><a href="#benefits" role="menuitem" aria-haspopup="true">{{#i18n "%benefits" }}{{/i18n}}</a>
+                </li>
+                <li><a href="#health" role="menuitem" aria-haspopup="true">{{#i18n "%health" }}{{/i18n}}</a>
+                    <ul class="item" id="health" role="menu" aria-expanded="false" aria-hidden="true">
+                        <li><a href="#" role="menuitem">{{#i18n "%healthy-canadians" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%prescription-drugs-natural-health-products" }}{{/i18n}}</a></li>
+                    </ul>
+                </li>
+                <li><a href="#taxes" role="menuitem" aria-haspopup="true">{{#i18n "%taxes" }}{{/i18n}}</a>
+                </li>
+                <li><a href="#more-services" role="menuitem" aria-haspopup="true">{{#i18n "%more-services" }}{{/i18n}}</a>
+                    <ul class="item" id="more-services" role="menu" aria-expanded="false" aria-hidden="true">
+                        <li><a href="#" role="menuitem">{{#i18n "%money-finances" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%arts-culture-heritage" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%environment-natural-resources" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%public-safety" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%canada-the-world" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%defence-security" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%science-innovation" }}{{/i18n}}</a></li>
+                        <li><a href="#" role="menuitem">{{#i18n "%transport-infrastructure" }}{{/i18n}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section class="menu-item" id="news">
-	<h3 class="wb-invisible">{{#i18n "%cont-news"}}{{/i18n}}</h3>
-	<div class="container text-center">
-		<ul>
-			<li><a href="#">{{#i18n "%menu-news-1"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-news-2"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-news-3"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-news-4"}}{{/i18n}}</a></li>
-		</ul>
-	</div>
-</section>
+<section class="wb-nav visible-sm visible-xs">
+    <h2 class="wb-invisible">{{#i18n "%tmpl-site-info"}}{{/i18n}}</h2>
 
-<section class="menu-item" id="canada">
-	<h3 class="wb-invisible">{{#i18n "%cont-canada"}}{{/i18n}}</h3>
-	<div class="container text-center">
-		<ul>
-			<li><a href="#">{{#i18n "%menu-canada-1"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-2"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-3"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-4"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-5"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-6"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-canada-7"}}{{/i18n}}</a></li>
-		</ul>
-	</div>
-</section>
-
-<section class="menu-item" id="pub">
-	<h3 class="wb-invisible">{{#i18n "%cont-pub"}}{{/i18n}}</h3>
-	<div class="container text-center">
-		<ul>
-			<li><a href="#">{{#i18n "%menu-pub-1"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-pub-2"}}{{/i18n}}</a></li>
-			<li><a href="#">{{#i18n "%menu-pub-3"}}{{/i18n}}</a></li>
-		</ul>
-	</div>
 </section>

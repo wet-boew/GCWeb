@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+        <title>Lightbox - </title>
+        <link href="../../images/favicon.ico" rel="shortcut icon">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <!-- Meta data -->
+        <meta name="description" content="" />
+        <!-- Meta data-->
+        <link rel="stylesheet" href="../../css/base.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/theme.min.css">
+
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="../../js/vapour-ie8.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body class="" vocab="http://schema.org/" typeof="WebPage">
+        <div id="wb-skip" class="wb-invisible">
+            <ul id="wb-tphp">
+                <li id="wb-skip1">
+                    <a href="#wb-cont">Skip to content</a>
+                </li>
+                <li id="wb-skip2">
+                    <a href="#wb-nav">Skip to footer</a>
+                </li>
+            </ul>
+        </div>
+
+        <header role="banner">
+            <div id="wb-banner" class="container">
+
+                <section id="wb-lang" class="visible-md visible-lg text-right">
+                    <h2 class="wb-invisible">Language selection</h2>
+                    <div class="row">
+	<div class="col-md-12">
+		<ul class="list-inline margin-bottom-none">
+			<li><a lang="" href=""></a></li>
+		</ul>
+	</div>
+</div>
+
+                </section>
+
+                  <div class="row">
+                    <div class="brand col-xs-6">
+	<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="./../../img/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object></a>
+</div>
+
+
+                    <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="../../ajax/mobmenu-en.txt">
+                        <h2 class="wb-invisible">Search</h2>
+                        <form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+		<div class="form-group">
+			<label for="wb-srch-txt" class="wb-invisible">Search website</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+		<div class="form-group submit">
+			<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit"><span class="glyphicon-search glyphicon"></span><span class="wb-invisible">Search</span></button>
+		</div>
+	</div>
+</form>
+
+                    </section>
+
+                </div>
+            </div>
+
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt" typeof="SiteNavigationElement">
+                <h2 class="wb-invisible">Site menu</h2>
+                <div class="container visible-md visible-lg nvbar">
+    <div class="row">
+        <ul class="list-inline menu">
+            <li><a href="#deeplink">Jobs</a></li>
+            <li><a href="#deeplink">Immigration</a></li>
+            <li><a href="#deeplink">Travel</a></li>
+            <li><a href="#deeplink">Business</a></li>
+            <li><a href="#deeplink">Benefits</a></li>
+            <li><a href="#deeplink">Health</a></li>
+            <li><a href="#deeplink">Taxes</a></li>
+            <li><a href="#deeplink">More services</a></li>
+        </ul>
+    </div>
+</div>
+
+            </nav>
+
+            <nav role="navigation" id="wb-bc" class="" property="breadcrumb">
+                <h2 class="wb-invisible">Breadcrumb trail</h2>
+                <div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>Lightbox</li>
+		</ol>
+	</div>
+</div>
+
+
+            </nav>
+        </header>
+        
+
+
+        <main role="main" class="container" property="mainContentOfPage">
+            
+
+<style>
+	.inline-list > ul {
+		margin-left: 0;
+	}
+	.inline-list > ul > li {
+		list-style-type: none;
+		display: inline-block;
+		margin: 0 5px 0 0;
+	}
+	.inline-list ul li.box {
+		margin-bottom: 0.4em;
+	}
+	.inline-list li img {
+		margin-bottom: 0;
+	}
+	.inline-list > ul > li > a {
+		text-decoration: none;
+	}
+	.box > a, .lb-hidden-gallery li:first-child.box > a {
+		display: block;
+		width: 150px;
+		height: 150px;
+		border: 1px solid #000;
+		text-align: center;
+		line-height: 148px;
+		background: #EEE;
+	}
+	.box > a:hover, .box > a:focus, .box > a:active {
+		text-decoration: underline;
+		background: #FFF;
+	}
+</style>
+
+<section>
+	<h2>Table of contents</h2>
+	<ul>
+		<li><a href="#features">Features</a></li>
+		<li><a href="#examples">Examples</a>
+			<ul>
+				<li><a href="#examples1">Single items</a></li>
+				<li><a href="#examples2">Item gallery</a></li>
+				<li><a href="#examples3">Hidden item gallery</a></li>
+				<li><a href="#examples4">Alternative image title</a></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h2 id="features">Features</h2>
+	<ul>
+		<li>Displays images and other content using the <a href="http://dimsemenov.com/plugins/magnific-popup/" rel="external">Magnific Popup</a> plugin.</li>
+		<li>Easy navigation in image galleries using mouse, touchscreen or keyboard.</li>
+	</ul>
+</section>
+
+<div class="wb-prettify all-pre">
+	<section>
+		<h2 id="examples">Examples</h2>
+
+		<details>
+			<summary>Long description of image 2</summary>
+			<p id="image2-desc">Example long description of image 2 (referenced by <code>aria-describedby</code>).</p>
+		</details>
+
+		<section>
+			<h3 id="examples1">Single items</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="inline-list" class="lb-default-popup">
+					<ul>
+						<li>
+							<a class="wb-lightbox" href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li class="box">
+							<a class="wb-lightbox" title="AJAX - Example 1 of AJAX content" href="ajax/ajax1-en.html">AJAX - Example 1</a>
+						</li>
+						<li class="box">
+							<a class="wb-lightbox" title="Example of inline content" href="#inline_content">Inline content</a>
+							<div id="inline_content" class="mfp-hide modal-dialog">
+								<article class="modal-content">
+									<header class="modal-header">
+										<h1 class="modal-title">Title</h1>
+									</header>
+									<div class="modal-body">
+										<ol>
+											<li>ordered list (<code>ol</code>) first level default appearance</li>
+											<li>ordered list (<code>ol</code>) first level default appearance
+												<ol>
+													<li>ordered list (<code>ol</code>) second level default appearance</li>
+													<li>ordered list (<code>ol</code>) second level default appearance
+														<ol>
+															<li>ordered list (<code>ol</code>) third level default appearance</li>
+															<li>ordered list (<code>ol</code>) third level default appearance</li>
+														</ol>
+													</li>
+												</ol>
+											</li>
+										</ol>
+										<p><a href="#">Link default appearance</a></p>
+									</div>
+								</article>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;ul&gt;
+	&lt;li&gt;
+		&lt;a class="wb-lightbox" href="img/1_b.jpg" title="Image 1"&gt;
+			&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a class="wb-lightbox" title="AJAX - Example 1 of AJAX content" href="ajax/ajax-en.html"&gt;AJAX - Example 1&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;a class="wb-lightbox" title="Example of inline content" href="#inline_content"&gt;Inline content&lt;/a&gt;
+		&lt;div id="inline_content" class="mfp-hide modal-dialog"&gt;
+			&lt;article class="modal-content"&gt;
+				&lt;header class="modal-header"&gt;
+					&lt;h1 class="modal-title"&gt;Title&lt;/h1&gt;
+				&lt;/header&gt;
+				&lt;div class="modal-body"&gt;
+					&lt;ol&gt;
+						&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) first level default appearance&lt;/li&gt;
+						&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) first level default appearance
+							&lt;ol&gt;
+								&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) second level default appearance&lt;/li&gt;
+								&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) second level default appearance
+									&lt;ol&gt;
+										&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) third level default appearance&lt;/li&gt;
+										&lt;li&gt;ordered list (&lt;code&gt;ol&lt;/code&gt;) third level default appearance&lt;/li&gt;
+									&lt;/ol&gt;
+								&lt;/li&gt;
+							&lt;/ol&gt;
+						&lt;/li&gt;
+					&lt;/ol&gt;
+					&lt;p&gt;&lt;a href="#"&gt;Link default appearance&lt;/a&gt;&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/article&gt;
+		&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples2">Galleries</h3>
+			<section>
+				<h4>Examples</h4>
+				<section class="wb-lightbox lb-gallery inline-list">
+					<h5>Image gallery</h5>
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+						<li>
+							<a href="img/3_b.jpg" title="Image 3">
+								<img src="img/3_s.jpg" alt="Image 3" />
+							</a>
+						</li>
+						<li>
+							<a href="img/4_b.jpg" title="Image 4">
+								<img src="img/4_s.jpg" alt="Image 4" />
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section class="wb-lightbox lb-gallery inline-list">
+					<h5>AJAX gallery</h5>
+					<ul>
+						<li class="box">
+							<a title="AJAX - Example 1 of AJAX content" href="ajax/ajax1-en.html">AJAX - Example 1</a>
+						</li>
+						<li class="box">
+							<a title="AJAX - Example 2 of AJAX content" href="ajax/ajax2-en.html">AJAX - Example 2</a>
+						</li>
+						<li class="box">
+							<a title="AJAX - Example 3 of AJAX content" href="ajax/ajax3-en.html">AJAX - Example 3</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;section class="wb-lightbox lb-gallery inline-list"&gt;
+	&lt;h5&gt;Image gallery&lt;/h5&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a href="img/1_b.jpg" title="Image 1"&gt;
+				&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/2_b.jpg" title="Image 2"&gt;
+				&lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/3_b.jpg" title="Image 3"&gt;
+				&lt;img src="img/3_s.jpg" alt="Image 3" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/4_b.jpg" title="Image 4"&gt;
+				&lt;img src="img/4_s.jpg" alt="Image 4" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;	
+&lt;/section&gt;
+&lt;section class="wb-lightbox lb-gallery inline-list"&gt;
+	&lt;h5&gt;AJAX gallery&lt;/h5&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 1 of AJAX content" href="ajax/ajax1-en.html"&gt;AJAX - Example 1&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 2 of AJAX content" href="ajax/ajax2-en.html"&gt;AJAX - Example 2&lt;/a&gt;
+		&lt;/li&gt
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 3 of AJAX content" href="ajax/ajax3-en.html"&gt;AJAX - Example 3&lt;/a&gt;
+		&lt;/li&gt
+	&lt;/ul&gt;	
+&lt;/section&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples3">Hidden image galleries</h3>
+			<section>
+				<h4>Examples</h4>
+				<section class="wb-lightbox lb-hidden-gallery">
+					<h5>Image gallery</h5>
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+						<li>
+							<a href="img/3_b.jpg" title="Image 3">
+								<img src="img/3_s.jpg" alt="Image 3" />
+							</a>
+						</li>
+						<li>
+							<a href="img/4_b.jpg" title="Image 4">
+								<img src="img/4_s.jpg" alt="Image 4" />
+							</a>
+						</li>
+					</ul>
+				</section>
+				<section class="wb-lightbox lb-hidden-gallery">
+					<h5>AJAX gallery</h5>
+					<ul>
+						<li class="box">
+							<a title="AJAX - Example 1 of AJAX content" href="ajax/ajax1-en.html">AJAX - Example 1</a>
+						</li>
+						<li class="box">
+							<a title="AJAX - Example 2 of AJAX content" href="ajax/ajax2-en.html">AJAX - Example 2</a>
+						</li>
+						<li class="box">
+							<a title="AJAX - Example 3 of AJAX content" href="ajax/ajax3-en.html">AJAX - Example 3</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;section class="wb-lightbox lb-hidden-gallery"&gt;
+	&lt;h5&gt;Image gallery&lt;/h5&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a href="img/1_b.jpg" title="Image 1"&gt;
+				&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/2_b.jpg" title="Image 2"&gt;
+				&lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/3_b.jpg" title="Image 3"&gt;
+				&lt;img src="img/3_s.jpg" alt="Image 3" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/4_b.jpg" title="Image 4"&gt;
+				&lt;img src="img/4_s.jpg" alt="Image 4" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;	
+&lt;/section&gt;
+&lt;section class="wb-lightbox lb-hidden-gallery"&gt;
+	&lt;h5&gt;AJAX gallery&lt;/h5&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 1 of AJAX content" href="ajax/ajax1-en.html"&gt;AJAX - Example 1&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 2 of AJAX content" href="ajax/ajax2-en.html"&gt;AJAX - Example 2&lt;/a&gt;
+		&lt;/li&gt
+		&lt;li&gt;
+			&lt;a title="AJAX - Example 3 of AJAX content" href="ajax/ajax3-en.html"&gt;AJAX - Example 3&lt;/a&gt;
+		&lt;/li&gt
+	&lt;/ul&gt;	
+&lt;/section&gt;</code></pre>
+			</section>
+		</section>
+
+		<section>
+			<h3 id="examples4">Alternative image title</h3>
+			<section>
+				<h4>Example</h4>
+				<div class="wb-lightbox lb-gallery inline-list">
+					<ul>
+						<li>
+							<a href="img/1_b.jpg" title="Image 1" data-title="image_1_b">
+								<img src="img/1_s.jpg" alt="Image 1" />
+							</a>
+						</li>
+						<li>
+							<a href="img/2_b.jpg" title="Image 2" data-title="image_2_b">
+								<img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" />
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<p id="image_1_b"><strong>Image 1:</strong> Lorem ipsum consectetur <em>adipiscing elit</em>.</p>
+				<p id="image_2_b"><strong>Image 2:</strong> Nulla mollis dolor leo. Quisque laoreet tincidunt mollis. Duis posuere scelerisque lectus quis lobortis.</p>
+			</section>
+
+			<section>
+				<h4>Coding</h4>
+				<pre><code>&lt;div class="wb-lightbox lb-gallery inline-list"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a href="img/1_b.jpg" title="Image 1" data-title="image_1_b"&gt;
+				&lt;img src="img/1_s.jpg" alt="Image 1" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="img/2_b.jpg" title="Image 2" data-title="image_2_b"&gt;
+				&lt;img src="img/2_s.jpg" alt="Image 2" aria-describedby="image2-desc" longdesc="#image2-desc" /&gt;
+			&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;	
+&lt;/div&gt;
+&lt;p id="image_1_b"&gt;&lt;strong&gt;Image 1:&lt;/strong&gt; Lorem ipsum consectetur &lt;em&gt;adipiscing elit&lt;/em&gt;.&lt;/p&gt;
+&lt;p id="image_2_b"&gt;&lt;strong&gt;Image 2:&lt;/strong&gt; Nulla mollis dolor leo. Quisque laoreet tincidunt mollis. Duis posuere scelerisque lectus quis lobortis.&lt;/p&gt;</code></pre>
+			</section>
+		</section>
+	</section>
+</div>
+
+        </main>
+
+        <!--
+        <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+            <h2 id="wb-sec-h">Secondary menu</h2>
+            <ul class="list-unstyled">
+	<li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+	<li><a href="#">Officia, molestiae praesentium.</a></li>
+	<li><a href="#">Officiis, dolorem ut sunt?</a></li>
+	<li><a href="#">Harum, aliquam cupiditate!</a></li>
+	<li><a href="#">Quos voluptates quisquam alias.</a></li>
+</ul>
+
+        </nav>
+         -->
+         <aside class="features">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="h3">Features</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/healthy.jpg" alt="...">
+				<figcaption class="caption">
+					<a href="#">Healthy Canadians</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/eap.jpg" alt="..." >
+				<figcaption class="caption">
+					<a href="#">Responsible resource development</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/wireless.jpg" alt="..." >
+				<figcaption class="caption">
+					<a href="#">Canada's wireless policy is clear</a>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
+
+        </aside>
+        <footer role="contentinfo" id="wb-nav">
+
+            <nav role="navigation" class="container visible-lg visible-md">
+                <h2 class="wb-invisible">Site Information</h2>
+                <section class="col-sm-3 col-lg-3">
+
+	<h3>Government</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">How government works</a></li>
+		<li><a href="#">Departments & agencies</a></li>
+		<li><a href="#">Ministers</a></li>
+		<li><a href="#">Policies, regulations & laws</a></li>
+		<li><a href="#">Libraries</a></li>
+		<li><a href="#">Publications</a></li>
+		<li><a href="#">Statistics & data</a></li>
+		<li><a href="#">The new Canada.ca</a></li>
+	</ul>
+</section>
+
+<section class="col-sm-3 col-lg-3">
+	<h3>Transparency</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">Open government</a></li>
+		<li><a href="#">Proactive disclosure</a></li>
+		<li><a href="#">Terms of use</a></li>
+		<li><a href="#">Privacy</a></li>
+
+
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3 border-left">
+	<h3>News</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">News releases</a></li>
+		<li><a href="#">Speeches & statements</a></li>
+		<li><a href="#">Media advisories</a></li>
+	</ul>
+
+	<h3>Contact information</h3>
+	<ul class="list-unstyled">
+			<li><a href="#">[Contextual information]</a></li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3 border-left">
+	<h3>Social media</h3>
+	<p><img src="http://dummyimage.com/213x53/ddd" class="img-responsive"></p>
+
+	<h3>Mobile centre</h3>
+	<p><img src="http://dummyimage.com/213x53/ddd" class="img-responsive"></p>
+
+</section>
+
+            </nav>
+
+            <div class="brand">
+	<div class="container text-right">
+		<div class="row visible-lg visible-md">
+			<div class="col-xs-12">
+				<object type="images/svg+xml" tabindex="-1" role="img" data="./../../img/sig-en.svg" aria-label="Government of Canada"></object>
+			 </div>
+		</div>
+		<div class="row visible-sm visible-xs">
+			<div class="col-xs-12">
+				<a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+        </footer>
+
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/vapour.min.js"></script>
+        <!--<![endif]-->
+        <script src="../../js/wet-boew.min.js"></script>
+    </body>
+</html>

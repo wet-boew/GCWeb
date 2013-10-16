@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="{{language}}"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="{{language}}">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+        <title>{{title}} - {{sitename}}</title>
+        <link href="{{assets}}/images/favicon.ico" rel="shortcut icon">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <!-- Meta data -->
+        <meta name="description" content="{{description}}" />
+        <!-- Meta data-->
+        <link rel="stylesheet" href="{{assets}}/css/base{{environment.suffix}}.css">
+        <link rel="stylesheet" href="{{assets}}/css/bootstrap{{environment.suffix}}.css">
+        <link rel="stylesheet" href="{{assets}}/css/theme{{environment.suffix}}.css">
+
+        <!-- IE8 Support -->
+        <!--[if IE 8]>
+        <script src="{{assets}}/js/vapour-ie8{{environment.suffix}}.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body class="{{pageclass}}" vocab="http://schema.org/" typeof="WebPage">
+        <div id="wb-skip" class="wb-invisible">
+            <ul id="wb-tphp">
+                <li id="wb-skip1">
+                    <a href="#wb-cont">{{#i18n "%tmpl-skip-cont"}}{{/i18n}}</a>
+                </li>
+                <li id="wb-skip2">
+                    <a href="#wb-nav">{{#i18n "%tmpl-skip-foot"}}{{/i18n}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <header role="banner">
+            <div id="wb-banner" class="container">
+
+                <section id="wb-lang" class="visible-md visible-lg text-right">
+                    <h2 class="wb-invisible">{{#i18n "%tmpl-lang-select"}}{{/i18n}}</h2>
+                    {{>languagetoggle}}
+                </section>
+
+                  <div class="row">
+                    {{>brand}}
+
+                    <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="{{assets}}/ajax/mobmenu-{{language}}.txt">
+                        <h2 class="wb-invisible">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
+                        {{>sitesearch}}
+                    </section>
+
+                </div>
+            </div>
+
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.txt" typeof="SiteNavigationElement">
+                <h2 class="wb-invisible">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
+                {{>sitemenu}}
+            </nav>
+
+            <nav role="navigation" id="wb-bc" class="" property="breadcrumb">
+                <h2>{{#i18n "%tmpl-bcrumb"}}{{/i18n}}</h2>
+                {{>breadcrumbs}}
+            </nav>
+        </header>
+        {{>promotion}}
+        <div class="container">
+            <div class="row">
+
+                <main role="main" class="col-md-9 pull-right" property="mainContentOfPage">
+                    {{>body}}
+                </main>
+
+                <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="wb-sec col-md-3">
+                    <h2 id="wb-sec-h" class="h3">{{#i18n "%tmpl-sec-menu"}}{{/i18n}}</h2>
+                    {{>supporting}}
+                </nav>
+
+            </div>
+        </div>
+
+       <aside class="features">
+            {{>features}}
+        </aside>
+
+        <footer role="contentinfo" id="wb-nav">
+
+            <nav role="navigation" class="container visible-lg visible-md">
+                <h2 class="wb-invisible">{{#i18n "%tmpl-site-info"}}{{/i18n}}</h2>
+                {{>footer}}
+            </nav>
+
+            {{>footerbrand}}
+
+        </footer>
+
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="{{assets}}/js/jquery.min.js"></script>
+        <script src="{{assets}}/js/vapour{{environment.suffix}}.js"></script>
+        <!--<![endif]-->
+        <script src="{{assets}}/js/wet-boew{{environment.suffix}}.js"></script>
+    </body>
+</html>
