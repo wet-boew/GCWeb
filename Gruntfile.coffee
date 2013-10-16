@@ -65,6 +65,20 @@ module.exports = ->
 
                 flatten: true
 
+            partners:
+                options:
+                    layout: 'partners.hbs'
+                    ext: ".html"
+                    environment:
+                        suffix: "<%= environment.suffix %>"
+
+                expand: true
+                cwd: 'site/pages/partners'
+                src: ['*.hbs']
+                dest: 'dist/partners/'
+
+                flatten: true
+
         sass:
             base:
                 expand: true

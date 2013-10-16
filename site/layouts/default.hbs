@@ -19,12 +19,12 @@
 
         <!-- IE8 Support -->
         <!--[if IE 8]>
-        <script src="{{assets}}/js/vapour-ie8{{environment.suffix}}.js">
+        <script src="{{assets}}/js/vapour-ie8{{environment.suffix}}.js"></script>
         <![endif]-->
 
     </head>
 
-    <body vocab="http://schema.org/" typeof="WebPage">
+    <body class="{{pageclass}}" vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -60,13 +60,13 @@
                 {{>sitemenu}}
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
+            <nav role="navigation" id="wb-bc" class="" property="breadcrumb">
                 <h2 class="wb-invisible">{{#i18n "%tmpl-bcrumb"}}{{/i18n}}</h2>
                 {{>breadcrumbs}}
             </nav>
         </header>
         {{>promotion}}
-        <main role="main" class="container {{pageclass}}" property="mainContentOfPage">
+        <main role="main" class="container" property="mainContentOfPage">
             {{>body}}
         </main>
 
@@ -76,7 +76,9 @@
             {{>supporting}}
         </nav>
          -->
-
+         <aside class="features">
+            {{>features}}
+        </aside>
         <footer role="contentinfo" id="wb-nav">
 
             <nav role="navigation" class="container visible-lg visible-md">
