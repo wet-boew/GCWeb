@@ -19,12 +19,12 @@
 
         <!-- IE8 Support -->
         <!--[if IE 8]>
-        <script src="../../js/vapour-ie8.min.js">
+        <script src="../../js/vapour-ie8.min.js"></script>
         <![endif]-->
 
     </head>
 
-    <body vocab="http://schema.org/" typeof="WebPage">
+    <body class="" vocab="http://schema.org/" typeof="WebPage">
         <div id="wb-skip" class="wb-invisible">
             <ul id="wb-tphp">
                 <li id="wb-skip1">
@@ -95,17 +95,23 @@
 
             </nav>
 
-            <nav role="navigation" id="wb-bc" class="wb-invisible" property="breadcrumb">
+            <nav role="navigation" id="wb-bc" class="" property="breadcrumb">
                 <h2 class="wb-invisible">Breadcrumb trail</h2>
-                <ol>
-	<li>Multimedia Player</li>
-</ol>
+                <div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>Multimedia Player</li>
+		</ol>
+	</div>
+</div>
+
+
             </nav>
         </header>
         
 
 
-        <main role="main" class="container " property="mainContentOfPage">
+        <main role="main" class="container" property="mainContentOfPage">
             
 <p>For video, the multimedia player leverages the native HTML5 video tag and relies on Flash as a fallback mechanism when the HTML5 video tag is not implemented. The MPEG 4 format (H264 codec) is the minimum requirement for video because the Flash fallback relies on it and H264 is the standard video format on many mobile devices. An optional but highly recommended Webm (VP8 codec) should be added as well to allow some browsers such as Firefox that do not include native support for H264 to leverage the native HTML5 performance gains.</p>
 <p>For <a href="#audio-only">audio only</a>, the multimedia player leverages the native HTML5 audio tag and relies on Flash as a fallback mechanism when the HTML5 audio tag is not implemented.</p>
@@ -385,41 +391,102 @@
         <!--
         <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
             <h2 id="wb-sec-h">Secondary menu</h2>
-            
+            <ul class="list-unstyled">
+	<li><a href="#">Lorem ipsum dolor sit amet.</a></li>
+	<li><a href="#">Officia, molestiae praesentium.</a></li>
+	<li><a href="#">Officiis, dolorem ut sunt?</a></li>
+	<li><a href="#">Harum, aliquam cupiditate!</a></li>
+	<li><a href="#">Quos voluptates quisquam alias.</a></li>
+</ul>
+
         </nav>
          -->
+         <aside class="features">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="h3">Features</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/healthy.jpg" alt="...">
+				<figcaption class="caption">
+					<a href="#">Healthy Canadians</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/eap.jpg" alt="..." >
+				<figcaption class="caption">
+					<a href="#">Responsible resource development</a>
+				</figcaption>
+			</figure>
+		</div>
+		<div class="col-md-4">
+			<figure class="thumbnail">
+				<img src="../../img/wireless.jpg" alt="..." >
+				<figcaption class="caption">
+					<a href="#">Canada's wireless policy is clear</a>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>
 
+        </aside>
         <footer role="contentinfo" id="wb-nav">
 
             <nav role="navigation" class="container visible-lg visible-md">
                 <h2 class="wb-invisible">Site Information</h2>
                 <section class="col-sm-3 col-lg-3">
-	<h3>About the site</h3>
+
+	<h3>Government</h3>
 	<ul class="list-unstyled">
+		<li><a href="#">How government works</a></li>
+		<li><a href="#">Departments & agencies</a></li>
+		<li><a href="#">Ministers</a></li>
+		<li><a href="#">Policies, regulations & laws</a></li>
+		<li><a href="#">Libraries</a></li>
+		<li><a href="#">Publications</a></li>
+		<li><a href="#">Statistics & data</a></li>
 		<li><a href="#">The new Canada.ca</a></li>
-		<li><a href="#">Sitemap</a></li>
+	</ul>
+</section>
+
+<section class="col-sm-3 col-lg-3">
+	<h3>Transparency</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">Open government</a></li>
+		<li><a href="#">Proactive disclosure</a></li>
 		<li><a href="#">Terms of use</a></li>
 		<li><a href="#">Privacy</a></li>
+
+
 	</ul>
 </section>
-<section class="col-sm-3 col-lg-3">
-	<h3>Contact Inforation</h3>
+<section class="col-sm-3 col-lg-3 border-left">
+	<h3>News</h3>
 	<ul class="list-unstyled">
-		<li><a href="#">Employee directory</a></li>
-		<li><a href="#">International Offices</a></li>
+		<li><a href="#">News releases</a></li>
+		<li><a href="#">Speeches & statements</a></li>
+		<li><a href="#">Media advisories</a></li>
+	</ul>
+
+	<h3>Contact information</h3>
+	<ul class="list-unstyled">
+			<li><a href="#">[Contextual information]</a></li>
 	</ul>
 </section>
-<section class="col-sm-3 col-lg-3">
-	<h3>Social Media</h3>
-	<ul class="list-unstyled">
-		<li>...</li>
-	</ul>
-</section>
-<section class="col-sm-3 col-lg-3">
-	<h3>Mobile</h3>
-	<ul class="list-unstyled">
-		<li>...</li>
-	</ul>
+<section class="col-sm-3 col-lg-3 border-left">
+	<h3>Social media</h3>
+	<p><img src="http://dummyimage.com/213x53/ddd" class="img-responsive"></p>
+
+	<h3>Mobile centre</h3>
+	<p><img src="http://dummyimage.com/213x53/ddd" class="img-responsive"></p>
+
 </section>
 
             </nav>

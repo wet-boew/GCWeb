@@ -17,13 +17,27 @@
         }
         > li {
             position: relative;
+            padding: 0;
+            margin: 0;
             a {
                 color: #fff;
                 padding: 1em;
                 text-align: center;
                 display: block;
+                border-left: 2px ridge #284468;
+
                 &:hover {
                     text-decoration: none;
+                }
+            }
+            &:first-child {
+                a {
+
+                }
+            }
+            &:last-child {
+                a {
+                    border-right: 2px ridge #284468;
                 }
             }
         }
@@ -43,19 +57,24 @@
             text-transform: none;
             padding: 0;
             background: #ccc;
-            top: 3.4em;
+            top: auto;
             left: 0;
-            width: auto;
+            right: 0;
+            min-width: 200px;
             li {
-                padding: 5px 0;
                 display: block;
                 a {
                     color: #444;
+                    border-left: none;
+                    border-right: none;
                     text-shadow: none;
                     text-align: left;
                     padding: 5px 10px;
                 }
             }
+            .expandicon {
+            display: none;
+        }
         }
         .row {
             background: transparent;
@@ -69,21 +88,32 @@
         position: relative;
         top: 0.75em;
     }
-    .open {
-        .expandicon {
-            display: none;
-        }
-        li a {
-            color: #444;
-            text-shadow: none;
-            text-align: left;
-            padding: 5px 10px;
-        }
+     @media screen and (max-width: $mobile) {
+        display: none;
     }
-    .row > ul {
-        a {}
-        li {
-            border: none;
+}
+
+/*
+  Secondary Navigation
+ */
+
+.wb-sec {
+    #wb-sec-h {
+        margin-top: 0;
+        display: inline-block;
+        width: 100%;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: $accent-blue;
+        color: #fff;
+    }
+    ul {
+        padding-left: 5px;
+        margin-top: 10px;
+        a {
+            display: block;
+            padding: 5px 0;
         }
     }
 }
