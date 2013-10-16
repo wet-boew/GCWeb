@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+        <title>Text highlighting - </title>
+        <link href="../../images/favicon.ico" rel="shortcut icon">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <!-- Meta data -->
+        <meta name="description" content="" />
+        <!-- Meta data-->
+        <link rel="stylesheet" href="../../css/base.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/theme.min.css">
+
+        <!-- Polyfill loader-->
+        <!--[if lt IE 9]>
+        <script src="../../js/oldie/respond.min.js"></script>
+        <script src="../../js/oldie/jquery.min.js"></script>
+        <script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
+        <!--[if gte IE 9 | !IE ]><!-->
+        <script src="../../js/jquery.min.js"></script>
+        <!--<![endif]-->
+        <script src="../../js/vapour.min.js"></script>
+
+    </head>
+
+    <body>
+        <div id="wb-skip" class="wb-invisible">
+            <ul id="wb-tphp">
+                <li id="wb-skip1">
+                    <a href="#wb-cont">Skip to content</a>
+                </li>
+                <li id="wb-skip2">
+                    <a href="#wb-nav">Skip to footer</a>
+                </li>
+            </ul>
+        </div>
+
+        <header role="banner">
+            <div id="wb-banner" class="container">
+
+                <section id="wb-lang" class="visible-md visible-lg text-right">
+                    <h2 class="wb-invisible">Language selection</h2>
+                    <div class="row">
+	<div class="col-md-12">
+		<ul class="list-inline margin-bottom-none">
+			<li><a lang="" href=""></a></li>
+		</ul>
+	</div>
+</div>
+
+                </section>
+
+                  <div class="row">
+                    <div class="brand col-xs-6">
+	<a href="index-en.html"><object type="images/svg+xml" tabindex="-1" role="img" data="./../../img/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object></a>
+</div>
+
+
+                    <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="../../ajax/mobmenu-en.txt">
+                        <h2 class="wb-invisible">Search</h2>
+                        <form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+		<div class="form-group">
+			<label for="wb-srch-txt" class="wb-invisible">Search website</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+		<div class="form-group submit">
+			<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit"><span class="glyphicon-search glyphicon"></span><span class="wb-invisible">Search</span></button>
+		</div>
+	</div>
+</form>
+
+                    </section>
+
+                </div>
+            </div>
+
+            <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="../../ajax/sitemenu-en.txt">
+                <h2 class="wb-invisible">Site menu</h2>
+                <div class="container text-center visible-md visible-lg nvbar">
+    <div class="row">
+        <ul class="list-inline menu">
+            <li><a href="#deeplinking">Services &amp; Information</a></li>
+            <li><a href="#deeplinking">Department &amp; Agencies</a></li>
+            <li><a href="#deeplinking">News</a></li>
+            <li><a href="#deeplinking">About Canada</a></li>
+            <li><a href="#deeplinking">Publications &amp; Data</a></li>
+        </ul>
+    </div>
+</div>
+
+            </nav>
+
+            <nav role="navigation" id="wb-bc" class="wb-invisible">
+                <h2 class="wb-invisible">Breadcrumb trail</h2>
+                <ol>
+	<li>Text highlighting</li>
+</ol>
+            </nav>
+        </header>
+
+
+
+        <main role="main" class="container ">
+
+<p>The Text highlighting sub project highlights any text within a pre-defined area that matches case-insensitive search criteria specified through the URL's query string. Supports multi-word strings, including spaces and basic punctuation.</p>
+<p><strong>Note:</strong> Search criteria using special regex characters such as <code>"</code>, <code>|</code>, <code>?</code>, <code>+</code>, <code>(</code> or <code>)</code> may be partially or fully excluded from the results.</p>
+
+<section>
+	<h2>How Do I Use It?</h2>
+	<ol>
+		<li>Define your search area. Add the "<code>wet-boew-texthighlight</code>" class to the tag whose contents you want to search in.</li>
+		<li>Specify the search criteria in a URL query string. Add "<code>texthighlight=&lt;text_1&gt;+&lt;text_2&gt;+&lt;text_3&gt;</code>" to the query string.<br /><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</li>
+	</ol>
+</section>
+
+<section>
+	<h2>Example</h2>
+	<section>
+		<h3>Sample search criteria</h3>
+		<ul>
+			<li>avian influenza</li>
+			<li>world</li>
+			<li>cook</li>
+			<li>flu-like symptoms</li>
+			<li>Don't Forget...</li>
+			<li>causes sickness in birds, it can also infect people.</li>
+		</ul>
+
+		<p><strong>Query string:</strong> <code>?texthighlight=avian%20influenza+world+cook+flu-like%20symptoms+Don't%20Forget...+causes%20sickness%20in%20birds,%20it%20can%20also%20infect%20people.</code></p>
+
+		<p><a href="?texthighlight=avian%20influenza+world+cook+flu-like%20symptoms+Don't%20Forget...+causes%20sickness%20in%20birds,%20it%20can%20also%20infect%20people.#example">Highlight example text that meets the search criteria</a></p>
+	</section>
+
+	<section id="example" class="wb-texthighlight">
+		<h3>Avian Influenza (H5N1) Worldwide</h3>
+		<p><strong>Updated: March 17, 2010</strong></p>
+		<ul>
+			<li><a href="#thn">Travel Health Notice</a></li>
+			<li><a href="#about">About Avian Influenza (H5N1</a>)</li>
+			<li><a href="#where">Where is Avian Influenza (H5N1) a Concern?</a></li>
+			<li><a href="#rec">Recommendations for Travellers</a></li>
+			<li><a href="#df">Don't Forget... </a></li>
+			<li><a href="#ori">Other Related Information</a></li>
+		</ul>
+		<hr />
+
+		<section>
+			<h4 id="thn">Travel Health Notice </h4>
+			<p>Travellers are reminded that countries around the world continue to report cases of avian influenza (H5N1), or "bird flu".</p>
+			<p>While avian influenza (H5N1) commonly causes sickness in birds, it can also infect people. People who contract avian influenza can get very ill, and more than half die from it.</p>
+			<p>If you are travelling to a region <a href="#where">where avian influenza (H5N1) is known to be present</a>, the Public Health Agency of Canada (PHAC) recommends that you: </p>
+			<ol>
+				<li>Avoid all high-risk such as poultry farms and live animal markets.</li>
+				<li>Avoid eating undercooked eggs or poultry.</li>
+				<li>Wash your hands frequently.</li>
+				<li>See a health care provider if you develop flu-like symptoms while travelling or after you return to Canada</li>
+			</ol>
+		</section>
+
+		<section>
+			<h4 id="about">About Avian Influenza (H5N1)</h4>
+			<p>Avian influenza (H5N1), commonly known as "bird flu", is a viral infection that can spread easily and quickly among birds.</p>
+			<p>A particularly strong subtype called the Highly Pathogenic (H5N1) has been found in birds in parts of Asia, Europe, the Middle East and Africa. Humans have become infected with this virus.</p>
+			<section>
+				<h5>Symptoms</h5>
+				<ul>
+					<li>Can take two to eight days and possibly longer to appear.</li>
+					<li>Usually include symptoms similar to human influenza such as fever, cough, aching muscles and sore throat.</li>
+					<li>In more severe cases people may develop serious respiratory conditions such as pneumonia which may lead to death. Fatality rates among hospitalized patients with confirmed infection is high (about 60%).</li>
+				</ul>
+			</section>
+			<section>
+				<h5>Transmission</h5>
+				<ul>
+					<li>Most human cases have been traced to direct contact with live infected birds or their droppings.</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+			<h4 id="where">Where is Avian Influenza (H5N1) a Concern?</h4>
+			<ul>
+				<li>Asia, the Middle East, Europe and Africa have all had outbreaks of avian influenza (H5N1) in poultry since 2003.&#160; &#160;</li>
+				<li>Since 2009, cases of humans having caught H5N1 have been reported from Cambodia, China, Egypt, Indonesia and Vietnam. </li>
+				<li>From 2003 to early 2010, there have been nearly 500 confirmed human cases in 15 countries.</li>
+				<li>Worldwide, almost 300 people have died from avian influenza (H5N1). </li>
+			</ul>
+			<p>The World Health Organization (WHO) posts information on the <a href="#">total number of human cases of avian influenza</a> and <a href="#">maps of where human cases of avian influenza have occurred</a>. </p>
+		</section>
+
+		<section>
+			<h4 id="rec">Recommendations for travellers</h4>
+			<ol>
+				<li><strong>Avoid getting avian influenza (H5N1)</strong>
+					<ol class="lower-alpha">
+						<li>If you are travelling to an area <a href="#where">where avian influenza (H5N1) is a concern</a>,
+							<ol class="lower-roman">
+								<li>Avoid high-risk areas such as poultry farms and live animal markets; </li>
+								<li>Avoid unnecessary contact with birds, including chickens, ducks and wild birds</li>
+								<li>Avoid surfaces that may have bird droppings or secretions on them;</li>
+								<li>Ensure that all <a href="#">poultry dishes are well cooked, including eggs</a></li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+				<li><strong><a href="#">Wash your hands frequently</a>.</strong>
+					<ol class="lower-alpha">
+						<li>Wash your hands with soap under warm running water.</li>
+						<li>Alcohol-based hand sanitizer can also be used if soap and water are not readily available. It's a good idea to keep some with you in your pocket or purse when you travel. </li>
+					</ol>
+				</li>
+				<li><strong>Monitor your health:</strong>
+					<ol class="lower-alpha"><li>If you develop flu-like symptoms while travelling, or after you return to Canada, you should see a health care provider.</li>
+						<li>Tell your health care provider that you have been travelling or living in an area where avian influenza (H5N1) is a concern.</li>
+					</ol>
+				</li>
+			</ol>
+		</section>
+
+		<section>
+			<h4 id="df">Don't Forget … </h4>
+			<ol>
+				<li>Consult a health care provider or visit a travel health clinic at least six weeks before you travel.</li>
+				<li>What to do if you <a href="#">get sick when you are travelling </a></li>
+				<li>What to do if you <a href="#">get sick after you return to Canada</a></li>
+				<li>Know what <a href="#">vaccines you need and when to get them </a></li>
+			</ol>
+		</section>
+
+		<section>
+			<h4 id="ori"><strong>Other Related Information</strong></h4>
+			<ul>
+				<li>Public Health Agency of Canada (PHAC) – <a href="#">Fact Sheet: Avian Influenza (H5N1) </a></li>
+				<li>PHAC – <a href="#">Information on Avian Influenza </a></li>
+				<li>Health Canada – <a href="#">It’s Your Health: Avian Influenza (Bird Flu) </a></li>
+				<li>Health Canada – <a href="#">Avian Influenza and Poultry</a></li>
+				<li>Canadian Food Inspection Agency (CFIA) –<a href="#"> Animal Diseases: Avian Influenza</a></li>
+				<li>World Health Organization (WHO) – <a href="#">Fact Sheet: Avian Influenza ("bird flu")</a></li>
+				<li>WHO – <a href="#">Situation Updates: Avian Influenza</a></li>
+			</ul>
+		</section>
+	</section>
+</section>
+        </main>
+
+        <!--
+        <nav role="navigation" id="wb-sec" aria-labelledby="wb-sec-h">
+            <h2 id="wb-sec-h">Secondary menu</h2>
+
+        </nav>
+         -->
+
+        <footer role="contentinfo" id="wb-nav">
+
+            <nav role="navigation" class="container visible-lg visible-md">
+                <h2 class="wb-invisible">Site Information</h2>
+                <section class="col-sm-3 col-lg-3">
+	<h3>About the site</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">The new Canada.ca</a></li>
+		<li><a href="#">Sitemap</a></li>
+		<li><a href="#">Terms of use</a></li>
+		<li><a href="#">Privacy</a></li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Contact Inforation</h3>
+	<ul class="list-unstyled">
+		<li><a href="#">Employee directory</a></li>
+		<li><a href="#">International Offices</a></li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Social Media</h3>
+	<ul class="list-unstyled">
+		<li>...</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Mobile</h3>
+	<ul class="list-unstyled">
+		<li>...</li>
+	</ul>
+</section>
+
+            </nav>
+
+            <div class="brand">
+	<div class="container text-right">
+		<div class="row visible-lg visible-md">
+			<div class="col-xs-12">
+				<object type="images/svg+xml" tabindex="-1" role="img" data="./../../img/sig-en.svg" aria-label="Government of Canada"></object>
+			 </div>
+		</div>
+		<div class="row visible-sm visible-xs">
+			<div class="col-xs-12">
+				<a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+        </footer>
+
+        <script src="../../js/wet-boew.min.js"></script>
+    </body>
+</html>
