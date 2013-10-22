@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Prettify - </title>
+		<link href="../../images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/base.min.css">
+		<link rel="stylesheet" href="../../css/theme.min.css">
+
+		<!-- IE8 Support -->
+		<!--[if IE 8]>
+		<script src="../../js/vapour-ie8.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<ul id="wb-tphp">
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-cont">Skip to content</a>
+			</li>
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-nav">Skip to footer</a>
+			</li>
+		</ul>
+		<header role="banner">
+			<div id="wb-banner">
+				<section id="wb-lang">
+					<h2>Language selection</h2>
+					<div class="container">
+	<div class="row text-right">
+		<ul data-ajax-before="../../js/assets/mobmenu-en.html" class="visible-md visible-lg">
+			<li class="current">
+				English&#32;<span>(current)</span>
+			</li>
+			<li>
+				<a lang="fr" href="#">Français</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+				</section>
+
+				<div class="container">
+					<div class="row">
+
+						<section id="wb-sitetitle" class="col-md-8">
+							<a href="index-en.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../assets/logo.svg" aria-label=""></object><span><small></small></span></a>
+
+						</section>
+
+						<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+							<h2>Search</h2>
+							<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+
+		<div class="form-group">
+			<label for="wb-srch-txt">Search website</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Search</button>
+
+
+	</div>
+</form>
+
+						</section>
+
+					</div>
+				</div>
+
+			</div>
+
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Site menu</h2>
+				<div class="container">
+	<div class="row">
+		<ul class="mb-menu">
+			<li>
+				<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+			</nav>
+
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
+				<h2>Breadcrumb trail</h2>
+				<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>
+				<a href="../../index-en.html">Home</a>
+			</li>
+		</ol>
+	</div>
+</div>
+
+			</nav>
+		</header>
+
+		<main role="main" property="mainContentOfPage" class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 id="wb-cont" property="name">Prettify</h1>
+					
+
+<p>Syntax highlighting of source code snippets in an html page using <a href="http://code.google.com/p/google-code-prettify/" rel="external">google-code-prettify</a>.</p>
+
+<section>
+	<h2>How to use</h2>
+	<ol>
+		<li>Apply <code>class="wb-prettify"</code> to an element on the page to load the component (once per page).</li>
+		<li>Apply <code>class="prettyprint"</code> to a <code>pre</code> or <code>code</code> element to apply syntax highlighting. Alternatively use <code>class="wb-prettify all-pre"</code> to apply syntax highlighting to all <code>pre</code> elements on the page.</li>
+		<li>Apply <code>class="linenums"</code> to a <code>pre</code> or <code>code</code> element to add line numbers. Alternatively use <code>class="wb-prettify linenums"</code> to apply line numbers to all applicable <code>pre</code> elements on the page. Specify the starting number by adding <code>linenums:#</code> before <code>linenums</code>.</li>
+		<li>Add extra language support by using <code>class="wb-prettify lang-*"</code> (e.g., <code>class="wb-prettify lang-css"</code>) and applying <code>class="lang-*"</code> to each applicable <code>pre</code> or <code>code</code> element.  Supported formats are below:
+			<ul>
+				<li>lang-apollo</li>
+				<li>lang-clj</li>
+				<li>lang-css</li>
+				<li>lang-dart</li>
+				<li>lang-go</li>
+				<li>lang-hs</li>
+				<li>lang-lisp</li>
+				<li>lang-lua</li>
+				<li>lang-ml</li>
+				<li>lang-n</li>
+				<li>lang-proto</li>
+				<li>lang-scala</li>
+				<li>lang-sql</li>
+				<li>lang-tex</li>
+				<li>lang-vb</li>
+				<li>lang-vhdl</li>
+				<li>lang-wiki</li>
+				<li>lang-xq</li>
+				<li>lang-yaml</li>
+			</ul>
+		</li>
+	</ol>
+</section>
+
+<section>
+	<h2 id="examples" class="wb-prettify all-pre lang-css">Examples</h2>
+	<section>
+		<h3>HTML</h3>
+		<pre class="prettyprint"><code>&lt;form action="#" method="post"&gt;
+	&lt;div&gt;
+		&lt;label for="data1"&gt;Form input default appearance:&lt;/label&gt;
+		&lt;input name="data1" type="text" id="data1" /&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;label for="data2"&gt;Form text area default appearance:&lt;/label&gt;
+		&lt;textarea name="data2" cols="15" rows="3" id="data2"&gt;&lt;/textarea&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;label for="data4"&gt;Form &lt;code&gt;select&lt;/code&gt; default appearance:&lt;/label&gt;
+		&lt;select id="data4" name="data4"&gt;
+			&lt;option value="Option 1"&gt;Option 1&lt;/option&gt;
+			&lt;option value="Option 2"&gt;Option 2&lt;/option&gt;
+			&lt;option value="Option 3"&gt;Option 3&lt;/option&gt;
+			&lt;option value="Option 4"&gt;Option 4&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/div&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Form &lt;code&gt;legend&lt;/code&gt;, &lt;code&gt;fieldset&lt;/code&gt; and &lt;code&gt;checkbox&lt;/code&gt; default appearance&lt;/legend&gt;
+		&lt;div&gt;
+			&lt;input name="checkbox" type="checkbox" id="data5" value="checkbox" /&gt;&#160;&lt;label for="data5"&gt;Option 1&lt;/label&gt;&#160;&#160;
+			&lt;input name="checkbox" type="checkbox" id="data6" value="checkbox" /&gt;&#160;&lt;label for="data6"&gt;Option 2&lt;/label&gt;&#160;&#160;
+			&lt;input name="checkbox" type="checkbox" id="data7" value="checkbox" /&gt;&#160;&lt;label for="data7"&gt;Option 3&lt;/label&gt;&#160;&#160;
+			&lt;input name="checkbox" type="checkbox" id="data8" value="checkbox" /&gt;&#160;&lt;label for="data8"&gt;Option 4&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+	&lt;div&gt;
+		&lt;input name="submit" type="submit" id="submit" value="Submit default appearance" /&gt;
+		&lt;input name="reset" type="reset" id="reset" value="Reset default appearance" /&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+	</section>
+	<section>
+		<h3>CSS (uses linenums)</h3>
+		<pre class="prettyprint lang-css linenums"><code>#gcwu-date-mod dt,#gcwu-date-mod dd{
+	float:left;
+}
+
+#gcwu-date-mod dd{
+	margin:0 0 0 10px;
+}
+
+#gcwu-content h2,#gcwu-priorities h3{
+	color:#333;
+	font-weight:400;
+}
+
+#gcwu-content h2,#gcwu-priorities h3{
+	border:none;
+	margin-bottom:5px;
+	font-size:1.6em;
+}
+
+div#gcwu-headlines ul li,div#gcwu-headlines ul{
+	list-style:none !important;
+	margin:0 !important;
+	padding:0 !important;
+}</code></pre>
+	</section>
+	<section>
+		<h3>JavaScript (uses linenums:50 and linenums)</h3>
+		<pre class="prettyprint linenums:50 linenums"><code>/**
+ * Initialize the plugin. This only runs once on the DOM.
+ * @function init
+ */
+init = function() {
+	var cssClass, cssClasses, i, len, $pre,
+		$elm = $( this ),
+		modeJS = vapour.getMode() + ".js",
+		deps = [ "site!deps/prettify" + modeJS ],
+		settings = $.extend( {}, defaults, $elm.data() );
+
+	window._timer.remove( selector );
+
+	// Check the element for `lang-*` syntax CSS classes
+	cssClasses = typeof $elm[0].className === "string" ? $elm[0].className.split( " " ) : [];
+	for ( i = 0, len = cssClasses.length; i < len; i++ ) {
+		cssClass = cssClasses[ i ];
+		if ( cssClass.indexOf( "lang-" ) === 0 ) {
+			deps.push( "site!deps/" + cssClass + modeJS );
+		}
+	}
+
+	// CSS class overides of settings
+	settings.allpre = settings.allpre || $elm.hasClass( "all-pre" );
+	settings.linenums = settings.linenums || $elm.hasClass( "linenums" );
+
+	// Apply global settings
+	if ( settings.allpre || settings.linenums ) {
+		$pre = $( "pre" );
+		if ( settings.allpre ) {
+			$pre.addClass( "prettyprint" );
+		}
+		if ( settings.linenums ) {
+			$pre.filter( ".prettyprint" ).addClass( "linenums" );
+		}
+	}
+
+	// Load the required dependencies and prettify the code once finished
+	window.Modernizr.load({
+		load: deps,
+		complete: function() {
+			vapour.doc.trigger( "prettyprint.wb-prettify" );
+		}
+	});
+}</code></pre>
+	</section>
+</section>
+
+				</div>
+
+			</div>
+		</main>
+
+		<!-- Secondary Menu
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Secondary menu</h2>
+			
+		</nav>
+		[optional] -->
+
+		<footer role="contentinfo" id="wb-nav">
+			<nav role="navigation">
+				<h2>Site Information</h2>
+				<div class="container">
+	<div class="row">
+		<section class="col-sm-3 col-lg-3">
+			<h3>About</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">About the Web Experience Toolkit</a>
+				</li>
+				<li>
+					<a href="#">About the Web Standards</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Contact us</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Questions or comments?</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>News</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Recent project activity</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Stay Connected</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Twitter</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
+
+			</nav>
+		</footer>
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/vapour.min.js"></script>
+		<!--<![endif]-->
+		<script src="../../js/wet-boew.min.js"></script>
+		
+	</body>
+</html>
