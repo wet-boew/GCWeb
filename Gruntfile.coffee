@@ -1,5 +1,5 @@
 #global module:false
-module.exports = ->
+module.exports = (grunt) ->
 
     @initConfig
         pkg: @file.readJSON 'package.json'
@@ -10,7 +10,7 @@ module.exports = ->
             ' License: <%= pkg.license %> */\n'
 
         environment:
-            suffix: ".min"
+            suffix: if grunt.cli.tasks.indexOf('debug') > -1 then "" else ".min"
 
         concat:
             options:
@@ -172,9 +172,12 @@ module.exports = ->
                     livereload: true
 
         hub:
-            wetboew:
+            "wet-boew-dist":
                 src: ['lib/wet-boew/Gruntfile.coffee']
                 tasks: ['dist']
+            "wet-boew-debug":
+                src: ['lib/wet-boew/Gruntfile.coffee']
+                tasks: ['debug']
 
         'install-dependencies':
             options:
@@ -230,13 +233,15 @@ module.exports = ->
     @loadNpmTasks 'assemble'
 
     # Default task.
+    @registerTask 'debug', ['wipe', 'buildwetdebug', 'coffee', 'css', 'concat', 'copy:wetboew', 'html']
     @registerTask 'build', ['wipe','coffee', 'css', 'concat', 'uglify', 'copy:wetboew', 'cssmin', 'clean:non_mincss', 'html']
     @registerTask 'css', ['sass', 'autoprefixer']
     @registerTask 'test', ['jshint']
     @registerTask 'html', ['copy:site','assemble']
     @registerTask 'wipe', ['clean:dist']
-    @registerTask 'buildwet', ['hub']
+    @registerTask 'buildwet', ['hub:wet-boew-dist']
+    @registerTask 'buildwetdebug', ['hub:wet-boew-debug']
     @registerTask 'default', ['clean:dist', 'build', 'test']
     @registerTask 'init', ['depbuild', 'buildwet']
-    @registerTask 'depbuild', ['install-dependencies', 'hub']
+    @registerTask 'depbuild', ['install-dependencies']
     @registerTask('deploy', ['copy:deploy','gh-pages'])
