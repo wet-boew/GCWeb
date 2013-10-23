@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js ie8" lang="fr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="fr">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Validation de formulaires - </title>
+		<link href="../../images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/base.min.css">
+		<link rel="stylesheet" href="../../css/theme.min.css">
+
+		<!-- IE8 Support -->
+		<!--[if IE 8]>
+		<script src="../../js/vapour-ie8.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<ul id="wb-tphp">
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-cont">Passer au contentu</a>
+			</li>
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-nav">Passer au pied de page</a>
+			</li>
+		</ul>
+		<header role="banner">
+			<div id="wb-banner">
+				<section id="wb-lang">
+					<h2>Sélection de la langue</h2>
+					<div class="container">
+	<div class="row text-right">
+		<ul data-ajax-before="../../js/assets/mobmenu-fr.html" class="visible-md visible-lg">
+			<li class="current">
+				Français&#32;<span>(courant)</span>
+			</li>
+			<li>
+				<a lang="fr" href="#">Français</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+				</section>
+
+				<div class="container">
+					<div class="row">
+
+						<section id="wb-sitetitle" class="col-md-8">
+							<a href="index-fr.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../assets/logo.svg" aria-label=""></object><span><small></small></span></a>
+
+						</section>
+
+						<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+							<h2>Recherche</h2>
+							<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+
+		<div class="form-group">
+			<label for="wb-srch-txt">Recherchez le site Web</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Recherche</button>
+
+
+	</div>
+</form>
+
+						</section>
+
+					</div>
+				</div>
+
+			</div>
+
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Menu du site</h2>
+				<div class="container">
+	<div class="row">
+		<ul class="mb-menu">
+			<li>
+				<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+			</nav>
+
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
+				<h2>Fil d'Ariane</h2>
+				<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>
+				<a href="../../index-fr.html">Accueil</a>
+			</li>
+		</ol>
+	</div>
+</div>
+
+			</nav>
+		</header>
+
+		<main role="main" property="mainContentOfPage" class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 id="wb-cont" property="name">Validation de formulaires</h1>
+					
+<style>
+.wb-formvalid fieldset {
+	margin-bottom: 20px;
+}
+.wb-formvalid legend {
+	margin-bottom: 0;
+}
+.wb-formvalid label {
+	display: block;
+	margin-top: 15px;
+}
+</style>
+<div class="wb-formvalid">
+	<form action="#" method="get" id="validation-example">
+		<fieldset>
+			<legend>Coordonnées</legend>
+			<label for="title1"><span class="field-name">Titre</span> <strong>(obligatoire)</strong></label>
+			<select id="title1" name="title1" required="required">
+				<option label="Sélectionner un titre"></option>
+				<option value="dr">D. Ph.</option>
+				<option value="esq">Me</option>
+				<option value="mr">M.</option>
+				<option value="ms">Madame</option>
+			</select>
+			<label for="fname"><span class="field-name">Prénom</span> <strong>(obligatoire)</strong></label>
+			<input id="fname" name="fname" type="text" required="required" pattern=".{2,}" data-rule-minlength="2" />
+			<label for="lname"><span class="field-name">Nom de famille</span> <strong>(obligatoire)</strong></label>
+			<input id="lname" name="lname" type="text" required="required" pattern=".{2,}" data-rule-minlength="2" />
+			<label for="tel"><span class="field-name">Numéro de téléphone</span> (999-999-9999) <strong>(obligatoire)</strong></label>
+			<input id="tel" name="tel" type="tel" required="required" data-rule-phoneUS="true" />
+			<label for="email1"><span class="field-name">Adresse électronique</span></label>
+			<input id="email1" name="email1" type="email" />
+			<label for="url1"><span class="field-name">URL du site Web (http://www.url.com)</span></label>
+			<input id="url1" name="url1" type="url" />
+		</fieldset>
+
+		<fieldset>
+			<legend>Autres exemples</legend>
+			<label for="date1"><span class="field-name">Date</span><span class="datepicker-format"> (AAAA-MM-JJ)</span></label>
+			<input id="date1" name="date1" type="date" data-rule-dateISO="true" />
+			<label for="time1"><span class="field-name">Heure</span> (hh:mm)</label>
+			<input id="time1" name="time1" type="time" />
+			<label for="an1"><span class="field-name">Alphanumérique</span> (4 caractères minimum)</label>
+			<input id="an1" name="an1" type="text" pattern="[A-Za-z0-9\s]{4,}" data-rule-alphanumeric="true" data-rule-minlength="4" />
+			<label for="digits1"><span class="field-name">Chiffres seulement</span></label>
+			<input id="digits1" name="digits1" type="number" />
+			<label for="integer1"><span class="field-name">Intègre</span> (entre 5 et 40)</label>
+			<input id="integer1" name="integer1" type="number" min="5" max="40" />
+			<label for="letters1"><span class="field-name">Lettres seulement</span> (5 caractères maximum)</label>
+			<input id="letters1" name="letters1" type="text" size="5" maxlength="5" pattern="[A-Za-z\s]" data-rule-lettersonly="true" />
+			<label for="text1"><span class="field-name">Lettres et des signes de ponctuation seulement</span> (ponctuation qui est permis&#160;: [. , ( ) "])</label>
+			<input id="text1" name="text1" type="text" pattern="[A-Za-z-.,()'&#34;\s]" data-rule-letterswithbasicpunc="true" />
+			<label for="password1"><span class="field-name">Mot de passe</span> (entre 5 et 10 characters)</label>
+			<input id="password1" name="password1" type="password" maxlength="10" size="10" pattern=".{5,10}" data-rule-rangelength="[5,10]" />
+		</fieldset>
+
+		<fieldset>
+			<legend><span class="field-name">Animal favori</span> (sélectionner au moins une des options ci-dessous)</legend>
+			<label for="animal1"><input type="checkbox" name="animal" value="1" id="animal1" required="required" />&#160;&#160;Chien</label>
+			<label for="animal2"><input type="checkbox" name="animal" value="2" id="animal2" />&#160;&#160;Chat</label>
+			<label for="animal3"><input type="checkbox" name="animal" value="3" id="animal3" />&#160;&#160;Poisson</label>
+			<label for="animal4"><input type="checkbox" name="animal" value="4" id="animal4" />&#160;&#160;Autre</label>
+		</fieldset>
+
+		<fieldset>
+			<legend><span class="field-name">Statut de citoyen</span></legend>
+			<label for="status1"><input type="radio" name="status" value="1" id="status1" required="required" />&#160;&#160;Citoyen canadien</label>
+			<label for="status2"><input type="radio" name="status" value="2" id="status2" />&#160;&#160;Résident permanent</label>
+			<label for="status3"><input type="radio" name="status" value="3" id="status3" />&#160;&#160;Permis de travail</label>
+			<label for="status4"><input type="radio" name="status" value="4" id="status4" />&#160;&#160;Autre</label>
+		</fieldset>
+
+		<input type="submit" value="Soumettre" /> <input type="reset" value="Réinitialiser" />
+	</form>
+</div>
+<div class="clear"></div>
+<noscript>
+<p>Ce formulaire ne peut pas être soumis sans Javascript. Veuillez utiliser une des méthodes précisées ci-dessous&#160;:</p>
+<ul>
+<li>Méthode 1</li>
+<li>Méthode 2</li>
+<li>Méthode n</li>
+</ul>
+</noscript>
+				</div>
+
+			</div>
+		</main>
+
+		<!-- Secondary Menu
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Menu secondaire</h2>
+			
+		</nav>
+		[optional] -->
+
+		<footer role="contentinfo" id="wb-nav">
+			<nav role="navigation">
+				<h2>Information du site</h2>
+				<div class="container">
+	<div class="row">
+		<section class="col-sm-3 col-lg-3">
+			<h3>About</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">About the Web Experience Toolkit</a>
+				</li>
+				<li>
+					<a href="#">About the Web Standards</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Contact us</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Questions or comments?</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>News</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Recent project activity</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Stay Connected</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Twitter</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
+
+			</nav>
+		</footer>
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/vapour.min.js"></script>
+		<!--<![endif]-->
+		<script src="../../js/wet-boew.min.js"></script>
+		
+	</body>
+</html>
