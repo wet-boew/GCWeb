@@ -139,7 +139,13 @@ module.exports = ->
                 cwd: 'src/img'
                 src: '**/*.*'
                 dest: 'dist/img'
-
+            deploy:
+                src: [
+                    "*.txt"
+                    "README.md"
+                ]
+                dest: "dist"
+                expand: true
 
         clean:
             dist: [ 'dist']
@@ -195,6 +201,18 @@ module.exports = ->
             lib_test:
                 src: 'src/**/*.js'
 
+        "gh-pages":
+            options:
+                repo: "https://" + process.env.GH_TOKEN + "@github.com/bci-web/GCWeb.git"
+                branch: process.env.build_branch
+                clone: "GCWeb-dist"
+                message: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
+                silent: true
+                base: "dist"
+            src: [
+                "**/*.*"
+            ]
+
     # These plugins provide necessary tasks.
     @loadNpmTasks 'grunt-autoprefixer'
     @loadNpmTasks 'grunt-contrib-concat'
@@ -205,18 +223,20 @@ module.exports = ->
     @loadNpmTasks 'grunt-contrib-coffee'
     @loadNpmTasks 'grunt-contrib-clean'
     @loadNpmTasks 'grunt-contrib-cssmin'
-    @loadNpmTasks 'grunt-install-dependencies'
+    @loadNpmTasks "grunt-gh-pages"
     @loadNpmTasks 'grunt-hub'
+    @loadNpmTasks 'grunt-install-dependencies'
     @loadNpmTasks 'grunt-sass'
     @loadNpmTasks 'assemble'
 
     # Default task.
-    @registerTask 'build', ['wipe','coffee', 'css', 'concat', 'uglify', 'copy', 'cssmin', 'clean:non_mincss', 'assemble']
+    @registerTask 'build', ['wipe','coffee', 'css', 'concat', 'uglify', 'copy:wetboew', 'cssmin', 'clean:non_mincss', 'html']
     @registerTask 'css', ['sass', 'autoprefixer']
     @registerTask 'test', ['jshint']
-    @registerTask 'html', ['assemble']
+    @registerTask 'html', ['copy:site','assemble']
     @registerTask 'wipe', ['clean:dist']
     @registerTask 'buildwet', ['hub']
     @registerTask 'default', ['clean:dist', 'build', 'test']
     @registerTask 'init', ['depbuild', 'buildwet']
     @registerTask 'depbuild', ['install-dependencies', 'hub']
+    @registerTask('deploy', ['copy:deploy','gh-pages'])
