@@ -206,7 +206,7 @@ module.exports = (grunt) ->
 
         "gh-pages":
             options:
-                repo: "https://" + process.env.GH_TOKEN + "@github.com/bci-web/GCWeb.git"
+                repo: "https://" + process.env.GH_TOKEN + "@github.com/bci-web/GCWeb-dist.git"
                 branch: process.env.build_branch
                 clone: "GCWeb-dist"
                 message: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
@@ -215,6 +215,15 @@ module.exports = (grunt) ->
             src: [
                 "**/*.*"
             ]
+
+        connect:
+            server:
+                options:
+                    port: 8000
+                    base: "."
+                keeyalive: true
+
+    @loadNpmTasks 'grunt-contrib-connect'
 
     # These plugins provide necessary tasks.
     @loadNpmTasks 'grunt-autoprefixer'
