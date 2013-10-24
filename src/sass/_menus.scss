@@ -6,10 +6,11 @@
     background: $accent-blue;
     .menu {
         text-transform: uppercase;
+        display: table;
+        width: 100%;
         text-shadow: 1px 1px 1px #222;
         position: relative;
         margin-bottom: 0;
-        text-align: center;
         // Active State;
         .active {
             text-shadow: none;
@@ -17,22 +18,17 @@
         }
         > li {
             position: relative;
-            padding: 0;
+            display: table-cell;
             margin: 0;
+            padding: 0;
             a {
                 color: #fff;
                 padding: 1em;
                 text-align: center;
                 display: block;
                 border-left: 2px ridge #284468;
-
                 &:hover {
                     text-decoration: none;
-                }
-            }
-            &:first-child {
-                a {
-
                 }
             }
             &:last-child {
@@ -43,7 +39,7 @@
         }
     }
     // Menu Items ( ul in li's in this case)
-    .item {
+    .sbmnu {
         display: none;
         // open state
         &.open {
@@ -58,8 +54,6 @@
             padding: 0;
             background: #ccc;
             top: auto;
-            left: 0;
-            right: 0;
             min-width: 200px;
             li {
                 display: block;
@@ -70,11 +64,14 @@
                     text-shadow: none;
                     text-align: left;
                     padding: 5px 10px;
+                    &:hover, &:focus, &:active {
+                        text-decoration: underline;
+                    }
                 }
             }
             .expandicon {
-            display: none;
-        }
+                display: none;
+            }
         }
         .row {
             background: transparent;
@@ -88,8 +85,102 @@
         position: relative;
         top: 0.75em;
     }
-     @media screen and (max-width: $mobile) {
-        display: none;
+    /*
+      Mobile view
+     */
+    @media screen and (max-width: $mobile) {
+        .menu {
+            li a {
+                &:hover, &:focus, &:active {
+                    background: #eee;
+                }
+            }
+            .active {
+                background: #ddd;
+            }
+            li li a {
+                &:hover, &:focus, &:active {
+                    background: none;
+                }
+            }
+        }
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        right: -100%;
+        display: block !important;
+        background: #ddd;
+        height: 100%;
+        &:target {
+            width: 75%;
+            right: 0;
+            .container {
+                display: block !important;
+                background: #ddd;
+            }
+        }
+        .nav-close {
+            text-align: right;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+        }
+        .menu {
+            display: block;
+        }
+        .row {
+            border-bottom: 1px solid #bbb;
+            padding-bottom: 10px;
+        }
+        .menu > li {
+            display: block;
+            a {
+                text-align: left;
+                text-shadow: none;
+                color: #333;
+                border: none;
+                padding: .5em;
+            }
+        }
+        .sbmnu {
+            display: block;
+            position: relative;
+            z-index: auto;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-left: none;
+            border-right: none;
+            border-top: 1px solid #ddd;
+            text-transform: none;
+            padding: 0;
+            background: transparent;
+            top: auto;
+            min-width: 0;
+            &.open {
+                display: block;
+                position: relative;
+                z-index: auto;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #ddd;
+                text-transform: none;
+                padding: 0;
+                background: transparent;
+                top: auto;
+                min-width: 0;
+            }
+        }
+        .menu {
+            > li:last-child a {
+                border: none;
+            }
+            ul li {
+                border-bottom: 1px solid #ddd;
+                border-top: 1px solid #fff;
+                background: #eee;
+            }
+        }
     }
 }
 
