@@ -132,7 +132,7 @@ module.exports = (grunt) ->
             wetboew:
                 expand: true
                 cwd: 'lib/wet-boew/dist'
-                src: '**/*.*'
+                src: ['**/*.*', '!**/theme.css']
                 dest: 'dist/'
             site:
                 expand: true
