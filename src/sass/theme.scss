@@ -148,6 +148,10 @@ main {
             padding: 3em 0;
         }
     }
+    .priorities .thumbnail {
+        margin-bottom: 1.5em;
+        padding: 1em;
+    }
 }
 
 /* Footer */
@@ -207,22 +211,21 @@ aside.features {
     background-image: -webkit-linear-gradient(top, #ebebed 0%, #eaebed 100%);
     background-image: linear-gradient(to bottom, #ebebed 0%, #eaebed 100%);
     padding-bottom: 1.5em;
+    img {
+        border: solid 1px #eee;
+    }
     .thumbnail {
         padding: 10px 10px 0;
         background-color: #f8f8f8;
         border-radius: 0;
         border: 0;
+        margin-bottom: 1.5em;
     }
-    .h3 {
-        font-weight: 700;
-        font-size: 1.10em;
-    }
-    a {
+    figcaption a {
         text-decoration: underline;
     }
 }
 /* Heading with links inside of rows */
-
 .home .row h2 a, .home .row h3 a, .home .row h4 a,
 .theme .row h2 a, .theme .row h3 a, .theme .row h4 a, 
 .secondary .row h2 a, .secondary .row h3 a, .secondary .row h4 a {
@@ -335,7 +338,18 @@ aside.features {
         line-height: 1.4;
     }
 }
-
+/* Theme pages */
+.theme {
+    // Lets turn on the breadcrumbs
+    #wb-bc {
+        border-top: 4px solid #eee;
+        display: block;
+        .breadcrumb {
+            margin-bottom: 0;
+            background: none;
+        }    
+    }
+}
 .pagedetails {
     padding: 2em 0;
 }
