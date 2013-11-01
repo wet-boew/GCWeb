@@ -34,6 +34,7 @@ module.exports = (grunt) ->
 			"cssmin"
 			"clean:non_mincss"
 			"demos"
+			"htmlcompressor"
 		]
 	)
 
@@ -70,7 +71,6 @@ module.exports = (grunt) ->
 		[
 			"copy:site"
 			"assemble"
-			"htmlcompressor"
 		]
 	)
 
