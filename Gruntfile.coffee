@@ -70,6 +70,7 @@ module.exports = (grunt) ->
 		[
 			"copy:site"
 			"assemble"
+			"htmlcompressor"
 		]
 	)
 
@@ -195,6 +196,17 @@ module.exports = (grunt) ->
 				]
 				ext: ".min.css"
 
+		htmlcompressor:
+			options:
+				type: "html"
+			all:
+				cwd: "dist"
+				src: [
+					"**/*.html"
+				]
+				dest: "dist"
+				expand: true
+
 		copy:
 			wetboew:
 				expand: true
@@ -288,6 +300,7 @@ module.exports = (grunt) ->
 	@loadNpmTasks "grunt-contrib-cssmin"
 	@loadNpmTasks "grunt-contrib-watch"
 	@loadNpmTasks "grunt-gh-pages"
+	@loadNpmTasks "grunt-htmlcompressor"
 	@loadNpmTasks "grunt-hub"
 	@loadNpmTasks "grunt-install-dependencies"
 	@loadNpmTasks "grunt-sass"
