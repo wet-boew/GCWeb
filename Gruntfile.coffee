@@ -158,11 +158,30 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
+			mobile_centre:
+				options:
+					layout: "mobile-centre.hbs"
+					ext: ".html"
+				cwd: "site/pages/mobile-centre"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/mobile-centre/"
+				expand: true
+				flatten: true
+
 		sass:
 			base:
 				expand: true
 				cwd: "src/sass"
 				src: "theme.scss"
+				dest: "dist/css"
+				ext: ".css"
+
+			mobile_centre:
+				expand: true
+				cwd: "src/sass"
+				src: "mobile-centre.scss"
 				dest: "dist/css"
 				ext: ".css"
 

@@ -1,0 +1,176 @@
+/*
+ *	Mobile centre
+ */
+
+
+/* Re-usable rules */
+
+%data-block-no-border {
+	display: block;
+	border: none;
+}
+
+%data-hidden {
+	display: none;
+	visibility: hidden;
+}
+
+%data-visible-block {
+	display: block;
+	visibility: visible;
+}
+
+
+/* Layout of fields */
+
+.product-listing {
+	display: block;
+	width: 100%;
+}
+
+.product-record {
+	display: inline-block;
+	margin-bottom: 20px;
+	width: 100%;
+	&:target {
+		// !important is needed to override the fixed height set by DataTables.
+		height: auto !important;
+	}
+}
+
+.product-icon {
+	width: 48px;
+	height: 48px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+	border: none;
+}
+
+.product-name {
+	@extend %data-block-no-border;
+}
+
+.product-platforms {
+	@extend %data-block-no-border;
+}
+
+.product-shortdescription, .product-longdescription {
+	@extend %data-block-no-border;
+	margin-top: 1em;
+}
+
+.product-department {
+	@extend %data-block-no-border;
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+//.product-image {
+//	width: 240px;
+//	height: 360px;
+//}
+
+.product-link-list {
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: 1em;
+}
+
+.product-link-container {
+	margin-bottom: 1em;
+}
+
+.product-link {
+	display: block;
+	text-align: left;
+	text-decoration: none;
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+	// Overrides for lack of specificity of main .btn-primary in theme.scss.
+	// Remove when theme.scss has been fixed.
+	padding: 6px 12px !important;
+	text-transform: none !important;
+	// Override for bootstrap no-wrap on buttons
+	white-space: normal;
+}
+
+@media (min-width: 768px) {
+	.product-record {
+		max-width: 47%;
+		margin-right: 10px;
+		margin-left: 10px;
+		&:target {
+			max-width: 100%;
+		}
+	}
+
+	.product-department, .product-links {
+		width: 30%;
+		margin-right: 10px;
+	}
+
+	.product-longdescription {
+		width: 67%;
+		margin-left: 10px;
+		float: right;
+	}
+}
+
+@media (min-width: 1200px) {
+	.product-record {
+		max-width: 31.5%;
+	}
+}
+
+
+/* Expand/collapse record functionality */
+
+.record-expand {
+	color: inherit;
+	text-decoration: none;
+	&:hover, &:focus {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+.record-close {
+	@extend %data-hidden;
+	float: right;
+}
+
+:target {
+	.record-close {
+		@extend %data-visible-block;
+	}
+}
+
+/* Data visibility */
+
+.product-data-hidden {
+	@extend %data-hidden;
+}
+
+.product-data-compressed {
+	@extend %data-visible-block;
+}
+
+:target {
+	.product-data-compressed {
+		@extend %data-hidden;
+	}
+}
+
+.product-data-expanded {
+	@extend %data-hidden;
+}
+
+:target {
+	.product-data-expanded {
+		@extend %data-visible-block;
+	}
+}
