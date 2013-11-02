@@ -178,7 +178,7 @@ module.exports = (grunt) ->
 				dest: "dist/css"
 				ext: ".css"
 
-			mobile_gallery:
+			mobile_centre:
 				expand: true
 				cwd: "src/sass"
 				src: "mobile-centre.scss"
