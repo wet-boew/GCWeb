@@ -1,0 +1,99 @@
+/*
+ *	Social media centre
+ */
+
+
+/* Re-usable rules */
+
+%data-block-no-border {
+	display: block;
+	border: none;
+}
+
+%data-hidden {
+	display: none;
+	visibility: hidden;
+}
+
+%data-visible-block {
+	display: block;
+	visibility: visible;
+}
+
+
+/* Layout of fields */
+
+.product-listing {
+	display: block;
+	width: 100%;
+}
+
+.product-record {
+	display: inline-block;
+	margin-bottom: 20px;
+	width: 100%;
+	&:target {
+		// !important is needed to override the fixed height set by DataTables.
+		height: auto !important;
+	}
+}
+
+.product-name {
+	@extend %data-block-no-border;
+}
+
+.product-platforms {
+	@extend %data-block-no-border;
+}
+
+.product-department {
+	@extend %data-block-no-border;
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+.product-language {
+	@extend %data-block-no-border;
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+.product-link-container {
+	@extend %data-block-no-border;
+	margin-top: 1em;
+}
+
+.product-link {
+	display: block;
+	text-decoration: none;
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+	// Overrides for lack of specificity of main .btn-primary in theme.scss.
+	// Remove when theme.scss has been fixed.
+	padding: 6px 12px !important;
+	text-transform: none !important;
+}
+
+@media (min-width: 768px) {
+	.product-record {
+		max-width: 47%;
+		margin-right: 10px;
+		margin-left: 10px;
+		&:target {
+			max-width: 100%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.product-record {
+		max-width: 31.5%;
+	}
+}
+
+/* Data visibility */
+
+.product-data-hidden {
+	@extend %data-hidden;
+}
