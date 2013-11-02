@@ -178,6 +178,13 @@ module.exports = (grunt) ->
 				dest: "dist/css"
 				ext: ".css"
 
+			mobile_gallery:
+				expand: true
+				cwd: "src/sass"
+				src: "mobile-centre.scss"
+				dest: "dist/css"
+				ext: ".css"
+
 		autoprefixer:
 			options:
 				browsers: [
