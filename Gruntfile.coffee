@@ -70,6 +70,7 @@ module.exports = (grunt) ->
 		"INTERNAL: Compile the demo files"
 		[
 			"copy:site"
+			"copy:fonts"
 			"assemble"
 		]
 	)
@@ -125,6 +126,16 @@ module.exports = (grunt) ->
 					"*.hbs"
 				]
 				dest: "dist"
+
+			experimental:
+				expand: true
+				cwd: "site/pages"
+				options:
+					layout: "experimental.hbs"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/experimental"
 
 			plugins:
 				expand: true
@@ -259,6 +270,11 @@ module.exports = (grunt) ->
 				cwd: "src/img"
 				src: "**/*.*"
 				dest: "dist/img"
+			fonts:
+				expand: true
+				cwd: "src/fonts"
+				src: "**/*.*"
+				dest: "dist/fonts"
 			deploy:
 				src: [
 					"*.txt"
