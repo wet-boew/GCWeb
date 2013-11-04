@@ -146,17 +146,37 @@ main {
     display: inline-block;
     width: 100%;
     margin-bottom: 15px;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 @media (min-width: 992px) and (max-width: 1199px) {
     .sect-lnks {
         width: 47%;
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+        &:nth-child(2n+1) {
+            margin-right: 10px;
+        }
     }
 }
 @media (min-width: 1200px) {
     .sect-lnks {
         width: 31%;
+        &:nth-child(2n) {
+            margin-left: 0;
+        }
+        &:nth-child(2n+1) {
+            margin-right: 0;
+        }
+        &:nth-child(3n) {
+            margin-left: 10px;
+        }
+        &:nth-child(3n+1) {
+            margin-right: 10px;
+        }
+        &:nth-child(3n+2) {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 }
 /* Footer */
