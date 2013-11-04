@@ -170,6 +170,18 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
+			social_media_centre:
+				options:
+					layout: "social-media-centre.hbs"
+					ext: ".html"
+				cwd: "site/pages/social-media-centre"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/social-media-centre/"
+				expand: true
+				flatten: true
+
 		sass:
 			base:
 				expand: true
@@ -182,6 +194,13 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/sass"
 				src: "mobile-centre.scss"
+				dest: "dist/css"
+				ext: ".css"
+
+			social_media_centre:
+				expand: true
+				cwd: "src/sass"
+				src: "social-media-centre.scss"
 				dest: "dist/css"
 				ext: ".css"
 
