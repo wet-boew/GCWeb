@@ -10,33 +10,41 @@ module.exports = (grunt) ->
 		]
 	)
 
+	@registerTask(
+		"dist"
+		"Produces the production files"
+		[
+			"build"
+			"assets-dist"
+			"assemble"
+			#htmlcompressor"
+		]
+	)
+
 	#Alternate External tasks
 	@registerTask(
 		"debug"
 		"Produces unminified files"
 		[
-			"wipe"
-			"hub:wet-boew-debug"
-			"css"
-			"copy:wetboew"
-			"js"
-			"demos"
+			"build"
+			"assemble:demos"
+			"assemble:ajax"
+			"assemble:experimental"
+			"assemble:partners"
+			"assemble:mobile_centre"
+			"assemble:social_media_centre"
 		]
 	)
 
 	@registerTask(
-		"dist"
-		"Produces the production files"
+		"build"
+		"Produces unminified files"
 		[
-			"wipe"
+			"clean:dist"
+			"hub"
+			"assets"
 			"css"
-			"hub:wet-boew-dist"
 			"copy:wetboew"
-			"cssmin"
-			"clean:non_mincss"
-			"js"
-			"jsmin"
-			"demos"
 		]
 	)
 
@@ -64,24 +72,25 @@ module.exports = (grunt) ->
 		[
 			"sass"
 			"autoprefixer"
+			"cssmin"
 		]
 	)
 
 	@registerTask(
-		"demos"
-		"INTERNAL: Compile the demo files"
+		"assets-dist"
+		"INTERNAL: Process non-CSS/JS assets to dist"
+		[
+			"copy:site_min"
+			"copy:fonts_min"
+		]
+	)
+
+	@registerTask(
+		"assets"
+		"INTERNAL: Process non-CSS/JS assets to dist"
 		[
 			"copy:site"
 			"copy:fonts"
-			"assemble"
-		]
-	)
-
-	@registerTask(
-		"wipe"
-		"INTERNAL: Cleans out the dist director"
-		[
-			"clean:dist"
 		]
 	)
 
@@ -111,9 +120,6 @@ module.exports = (grunt) ->
 			"<%= pkg.homepage ? '* ' + pkg.homepage + '\\n' : '' %>" +
 			" License: <%= pkg.license %> */\n"
 
-		environment:
-			suffix: if grunt.cli.tasks.indexOf("debug") > -1 then "" else ".min"
-
 		assemble:
 			options:
 				prettify:
@@ -121,8 +127,6 @@ module.exports = (grunt) ->
 				marked:
 					sanitize: false
 				production: false
-				environment:
-					suffix: "<%= environment.suffix %>"
 				data: [
 					"lib/wet-boew/site/data/**/*.{yml,json}"
 					"site/data/**/*.{yml,json}"
@@ -139,36 +143,110 @@ module.exports = (grunt) ->
 				layout: "default.hbs"
 				assets: "dist"
 
-			site:
-				expand: true
-				cwd: "site/pages"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist"
-
-			experimental:
-				expand: true
-				cwd: "site/pages"
+			demos:
 				options:
-					layout: "experimental.hbs"
-				src: [
-					"*.hbs"
+					assets: "dist/unmin"
+				files: [
+						#site
+						expand: true
+						cwd: "site/pages"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist/unmin"
+					,
+						#plugins
+						expand: true
+						cwd: "lib/wet-boew/src/plugins"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/unmin/demos"
 				]
-				dest: "dist/experimental"
-
-			plugins:
-				expand: true
-				cwd: "lib/wet-boew/src/plugins"
-				src: [
-					"**/*.hbs"
-				]
-				dest: "dist/demos"
 
 			ajax:
 				options:
 					layout: "ajax.hbs"
-					ext: ".txt"
+					ext: ".html"
+				cwd: "site/pages/ajax"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/ajax/"
+				expand: true
+				flatten: true
+
+			experimental:
+				options:
+					layout: "experimental.hbs"
+				cwd: "site/pages"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/experimental"
+				expand: true
+
+			partners:
+				options:
+					layout: "partners.hbs"
+				cwd: "site/pages/partners"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/demos/partners/"
+				expand: true
+				flatten: true
+
+			mobile_centre:
+				options:
+					layout: "mobile-centre.hbs"
+				cwd: "site/pages/mobile-centre"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/mobile-centre/"
+				expand: true
+				flatten: true
+
+			social_media_centre:
+				options:
+					layout: "social-media-centre.hbs"
+				cwd: "site/pages/social-media-centre"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/social-media-centre/"
+				expand: true
+				flatten: true
+
+			demos_min:
+				options:
+					environment:
+						suffix: ".min"
+					assets: "dist"
+				files: [
+						#site
+						expand: true
+						cwd: "site/pages"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist"
+					,
+						#plugins
+						expand: true
+						cwd: "lib/wet-boew/src/plugins"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/demos"
+					
+				]
+
+			ajax_min:
+				options:
+					layout: "ajax.hbs"
+					ext: ".html"
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -177,10 +255,19 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
-			partners:
+			experimental_min:
+				options:
+					layout: "experimental.hbs"
+				cwd: "site/pages"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/experimental"
+				expand: true
+
+			partners_min:
 				options:
 					layout: "partners.hbs"
-					ext: ".html"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -189,10 +276,9 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
-			mobile_centre:
+			mobile_centre_min:
 				options:
 					layout: "mobile-centre.hbs"
-					ext: ".html"
 				cwd: "site/pages/mobile-centre"
 				src: [
 					"*.hbs"
@@ -201,10 +287,9 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
-			social_media_centre:
+			social_media_centre_min:
 				options:
 					layout: "social-media-centre.hbs"
-					ext: ".html"
 				cwd: "site/pages/social-media-centre"
 				src: [
 					"*.hbs"
@@ -218,21 +303,21 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/sass"
 				src: "theme.scss"
-				dest: "dist/css"
+				dest: "dist/unmin/css"
 				ext: ".css"
 
 			mobile_centre:
 				expand: true
 				cwd: "src/sass"
 				src: "mobile-centre*.scss"
-				dest: "dist/css"
+				dest: "dist/unmin/css"
 				ext: ".css"
 
 			social_media_centre:
 				expand: true
 				cwd: "src/sass"
 				src: "social-media-centre*.scss"
-				dest: "dist/css"
+				dest: "dist/unmin/css"
 				ext: ".css"
 
 		autoprefixer:
@@ -258,12 +343,14 @@ module.exports = (grunt) ->
 
 		cssmin:
 			dist:
-				expand: true
+				cwd: "dist/unmin/css"
 				src: [
-					"dist/css/**/*.css"
-					"!dist/css/**/*.min.css"
+					"**/*.css"
+					"!**/*.min.css"
 				]
 				ext: ".min.css"
+				dest: "dist/css"
+				expand: true
 
 		htmlcompressor:
 			options:
@@ -272,6 +359,7 @@ module.exports = (grunt) ->
 				cwd: "dist"
 				src: [
 					"**/*.html"
+					"!unmin/**/*.html"
 				]
 				dest: "dist"
 				expand: true
@@ -282,15 +370,25 @@ module.exports = (grunt) ->
 				cwd: "lib/wet-boew/dist"
 				src: [
 					"**/*.*"
-					"!**/theme.css"
+					"!**/theme*.css"
 				]
 				dest: "dist/"
 			site:
 				expand: true
 				cwd: "src/img"
 				src: "**/*.*"
-				dest: "dist/img"
+				dest: "dist/unmin/img"
 			fonts:
+				expand: true
+				cwd: "src/fonts"
+				src: "**/*.*"
+				dest: "dist/unmin/fonts"
+			site_min:
+				expand: true
+				cwd: "src/img"
+				src: "**/*.*"
+				dest: "dist/img"
+			fonts_min:
 				expand: true
 				cwd: "src/fonts"
 				src: "**/*.*"
@@ -363,19 +461,12 @@ module.exports = (grunt) ->
 				ext: "<%= environment.suffix %>.js"
 
 		hub:
-			"wet-boew-dist":
+			"wet-boew":
 				src: [
 					"lib/wet-boew/Gruntfile.coffee"
 				]
 				tasks: [
 					"dist"
-				]
-			"wet-boew-debug":
-				src: [
-					"lib/wet-boew/Gruntfile.coffee"
-				]
-				tasks: [
-					"debug"
 				]
 
 		"install-dependencies":
