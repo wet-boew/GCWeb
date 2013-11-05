@@ -210,7 +210,7 @@ module.exports = (grunt) ->
 			social_media_centre:
 				expand: true
 				cwd: "src/sass"
-				src: "social-media-centre.scss"
+				src: "social-media-centre*.scss"
 				dest: "dist/css"
 				ext: ".css"
 
