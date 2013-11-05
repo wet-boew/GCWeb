@@ -34,7 +34,6 @@ module.exports = (grunt) ->
 			"cssmin"
 			"clean:non_mincss"
 			"demos"
-			"htmlcompressor"
 		]
 	)
 
