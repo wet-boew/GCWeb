@@ -204,7 +204,7 @@ module.exports = (grunt) ->
 			mobile_centre:
 				expand: true
 				cwd: "src/sass"
-				src: "mobile-centre.scss"
+				src: "mobile-centre*.scss"
 				dest: "dist/css"
 				ext: ".css"
 
