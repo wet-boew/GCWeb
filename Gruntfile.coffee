@@ -19,6 +19,7 @@ module.exports = (grunt) ->
 			"hub:wet-boew-debug"
 			"css"
 			"copy:wetboew"
+			"js"
 			"demos"
 		]
 	)
@@ -33,6 +34,8 @@ module.exports = (grunt) ->
 			"copy:wetboew"
 			"cssmin"
 			"clean:non_mincss"
+			"js"
+			"jsmin"
 			"demos"
 		]
 	)
@@ -79,6 +82,24 @@ module.exports = (grunt) ->
 		"INTERNAL: Cleans out the dist director"
 		[
 			"clean:dist"
+		]
+	)
+
+	@registerTask(
+		"js"
+		"INTERNAL: Copies custom JS to the dist folder"
+		[
+			"copy:customJS"
+		]
+	)
+
+	@registerTask(
+		"jsmin"
+		"INTERNAL: Compile and minify JS, and then cleans up unminifed JS in dist"
+		[
+			"js"
+			"uglify"
+			"clean:jsUncompressed"
 		]
 	)
 
@@ -281,6 +302,11 @@ module.exports = (grunt) ->
 				]
 				dest: "dist"
 				expand: true
+			customJS:
+				expand: true
+				cwd: "src/js"
+				src: "*.js"
+				dest: "dist/js/customJS"
 
 		clean:
 			dist: [ "dist"]
@@ -291,6 +317,7 @@ module.exports = (grunt) ->
 					"dist/**/*.css"
 					"!dist/**/*.min.css"
 				]
+			jsUncompressed: ["dist/js/**/*.js", "!dist/js/**/*<%= environment.suffix %>.js"]
 
 		watch:
 			gruntfile:
@@ -311,6 +338,29 @@ module.exports = (grunt) ->
 				options:
 					interval: 5007
 					livereload: true
+
+		jshint:
+			options:
+				jshintrc: ".jshintrc"
+
+			lib_test:
+				src: [
+					"src/**/*.js"
+					"theme/**/*.js"
+					"test/**/*.js"
+					"tasks/*.js"
+				]
+
+		# Minify
+		uglify:
+			customJS:
+				options:
+					banner: "<%= banner %>"
+				expand: true
+				cwd: "dist/js/customJS"
+				src: ["*.js"]				
+				dest: "dist/js/customJS"
+				ext: "<%= environment.suffix %>.js"
 
 		hub:
 			"wet-boew-dist":
@@ -351,6 +401,8 @@ module.exports = (grunt) ->
 	@loadNpmTasks "grunt-contrib-clean"
 	@loadNpmTasks "grunt-contrib-copy"
 	@loadNpmTasks "grunt-contrib-cssmin"
+	@loadNpmTasks "grunt-contrib-jshint"
+	@loadNpmTasks "grunt-contrib-uglify"
 	@loadNpmTasks "grunt-contrib-watch"
 	@loadNpmTasks "grunt-gh-pages"
 	@loadNpmTasks "grunt-htmlcompressor"
