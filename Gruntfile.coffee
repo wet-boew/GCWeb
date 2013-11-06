@@ -141,7 +141,6 @@ module.exports = (grunt) ->
 				]
 				layoutdir: "site/layouts"
 				layout: "default.hbs"
-				assets: "dist"
 
 			demos:
 				options:
@@ -167,7 +166,7 @@ module.exports = (grunt) ->
 			ajax:
 				options:
 					layout: "ajax.hbs"
-					ext: ".html"
+					assets: "dist/unmin"
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -179,6 +178,7 @@ module.exports = (grunt) ->
 			experimental:
 				options:
 					layout: "experimental.hbs"
+					assets: "dist/unmin"
 				cwd: "site/pages"
 				src: [
 					"*.hbs"
@@ -189,6 +189,7 @@ module.exports = (grunt) ->
 			partners:
 				options:
 					layout: "partners.hbs"
+					assets: "dist/unmin"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -200,6 +201,7 @@ module.exports = (grunt) ->
 			mobile_centre:
 				options:
 					layout: "mobile-centre.hbs"
+					assets: "dist/unmin"
 				cwd: "site/pages/mobile-centre"
 				src: [
 					"*.hbs"
@@ -211,6 +213,7 @@ module.exports = (grunt) ->
 			social_media_centre:
 				options:
 					layout: "social-media-centre.hbs"
+					assets: "dist/unmin"
 				cwd: "site/pages/social-media-centre"
 				src: [
 					"*.hbs"
@@ -246,7 +249,9 @@ module.exports = (grunt) ->
 			ajax_min:
 				options:
 					layout: "ajax.hbs"
-					ext: ".html"
+					environment:
+						suffix: ".min"
+					assets: "dist"
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -258,6 +263,9 @@ module.exports = (grunt) ->
 			experimental_min:
 				options:
 					layout: "experimental.hbs"
+					environment:
+						suffix: ".min"
+					assets: "dist"
 				cwd: "site/pages"
 				src: [
 					"*.hbs"
@@ -268,6 +276,9 @@ module.exports = (grunt) ->
 			partners_min:
 				options:
 					layout: "partners.hbs"
+					environment:
+						suffix: ".min"
+					assets: "dist"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -279,6 +290,9 @@ module.exports = (grunt) ->
 			mobile_centre_min:
 				options:
 					layout: "mobile-centre.hbs"
+					environment:
+						suffix: ".min"
+					assets: "dist"
 				cwd: "site/pages/mobile-centre"
 				src: [
 					"*.hbs"
@@ -290,6 +304,9 @@ module.exports = (grunt) ->
 			social_media_centre_min:
 				options:
 					layout: "social-media-centre.hbs"
+					environment:
+						suffix: ".min"
+					assets: "dist"
 				cwd: "site/pages/social-media-centre"
 				src: [
 					"*.hbs"
