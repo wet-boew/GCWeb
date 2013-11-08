@@ -177,7 +177,7 @@ module.exports = (grunt) ->
 
 			experimental:
 				options:
-					layout: "experimental.hbs"
+					experimental: true
 					assets: "dist/unmin"
 				cwd: "site/pages"
 				src: [
@@ -262,7 +262,7 @@ module.exports = (grunt) ->
 
 			experimental_min:
 				options:
-					layout: "experimental.hbs"
+					experimental: true
 					environment:
 						suffix: ".min"
 					assets: "dist"
