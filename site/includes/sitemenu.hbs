@@ -1,14 +1,5 @@
-<div class="container visible-md visible-lg nvbar">
-    <div class="row">
-        <ul class="list-inline menu">
-            <li><a href="#deeplink">{{#i18n "%jobs" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%immigration" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%travel" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%business" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%benefits" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%health" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%taxes" }}{{/i18n}}</a></li>
-            <li><a href="#deeplink">{{#i18n "%more-services" }}{{/i18n}}</a></li>
-        </ul>
-    </div>
-</div>
+{{#startsWith "en" language }}
+{{>sitemenu-en}}
+ {{else}}
+ {{>sitemenu-fr}}
+{{/startsWith}}
