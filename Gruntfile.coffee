@@ -31,8 +31,6 @@ module.exports = (grunt) ->
 			"assemble:ajax"
 			"assemble:experimental"
 			"assemble:partners"
-			"assemble:mobile_centre"
-			"assemble:social_media_centre"
 		]
 	)
 
@@ -161,6 +159,24 @@ module.exports = (grunt) ->
 							"**/*.hbs"
 						]
 						dest: "dist/unmin/demos"
+					,
+						#mobile centre
+						expand: true
+						cwd: "site/pages/mobile-centre"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist/unmin/mobile-centre/"
+						flatten: true
+					,
+						#social_media_centre
+						expand: true
+						cwd: "site/pages/social-media-centre"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist/unmin/social-media-centre/"
+						flatten: true
 				]
 
 			ajax:
@@ -198,30 +214,6 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 
-			mobile_centre:
-				options:
-					layout: "mobile-centre.hbs"
-					assets: "dist/unmin"
-				cwd: "site/pages/mobile-centre"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/unmin/mobile-centre/"
-				expand: true
-				flatten: true
-
-			social_media_centre:
-				options:
-					layout: "social-media-centre.hbs"
-					assets: "dist/unmin"
-				cwd: "site/pages/social-media-centre"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/unmin/social-media-centre/"
-				expand: true
-				flatten: true
-
 			demos_min:
 				options:
 					environment:
@@ -243,7 +235,24 @@ module.exports = (grunt) ->
 							"**/*.hbs"
 						]
 						dest: "dist/demos"
-					
+					,
+						#mobile centre
+						expand: true
+						cwd: "site/pages/mobile-centre"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist/mobile-centre/"
+						flatten: true
+					,
+						#social_media_centre
+						expand: true
+						cwd: "site/pages/social-media-centre"
+						src: [
+							"*.hbs"
+						]
+						dest: "dist/social-media-centre/"
+						flatten: true
 				]
 
 			ajax_min:
@@ -284,34 +293,6 @@ module.exports = (grunt) ->
 					"*.hbs"
 				]
 				dest: "dist/demos/partners/"
-				expand: true
-				flatten: true
-
-			mobile_centre_min:
-				options:
-					layout: "mobile-centre.hbs"
-					environment:
-						suffix: ".min"
-					assets: "dist"
-				cwd: "site/pages/mobile-centre"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/mobile-centre/"
-				expand: true
-				flatten: true
-
-			social_media_centre_min:
-				options:
-					layout: "social-media-centre.hbs"
-					environment:
-						suffix: ".min"
-					assets: "dist"
-				cwd: "site/pages/social-media-centre"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/social-media-centre/"
 				expand: true
 				flatten: true
 
