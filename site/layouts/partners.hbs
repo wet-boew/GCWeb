@@ -59,16 +59,17 @@
 		<div class="container">
 			<div class="row">
 
-				<main role="main" class="col-md-9 pull-right" property="mainContentOfPage">
+				<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
 					{{>body}}
 				</main>
 
-				<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="wb-sec col-md-3">
+				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
 					<h2 id="wb-sec-h" class="h3">{{#i18n "%tmpl-sec-menu"}}{{/i18n}}</h2>
 					{{>supporting}}
 				</nav>
 
 			</div>
+			{{>datemodified}}
 		</div>
 
 	<aside class="features">
