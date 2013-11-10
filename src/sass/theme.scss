@@ -78,6 +78,7 @@ header {
             height: auto;
             display: block;
             position: relative;
+            padding-bottom: 0.5em;
             &:after {
                 content: "";
                 position: absolute;
@@ -145,7 +146,7 @@ header {
         }
     }
     .form-control, .btn {
-        padding: 5px 12px;
+        padding: 5px 12px 6px;
     }
     input {
         border-right: 0;
@@ -248,11 +249,9 @@ footer {
     position: relative;
     z-index: 5;
     background: #e1e4e7;
-    padding-top: 0.75em;
+
     .border-left {
-        background-repeat: no-repeat;
-        background-position: 0px 15px;
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADICAIAAACmkByiAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjJFMEIzREYzNUQ3MTFFMzgxQzlBMTYxOUUwOTI0MDQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjJFMEIzRTAzNUQ3MTFFMzgxQzlBMTYxOUUwOTI0MDQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMkUwQjNERDM1RDcxMUUzODFDOUExNjE5RTA5MjQwNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMkUwQjNERTM1RDcxMUUzODFDOUExNjE5RTA5MjQwNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjVj5TYAAAAZSURBVHjaYjh05CgTAwPDKB7FoxgTAwQYAJdOA9pG4uR3AAAAAElFTkSuQmCC);
+        border-left: 1px solid #ccc;
     }
     .brand {
         background: #335175;
@@ -274,13 +273,21 @@ footer {
     }
     nav {
         position: relative;
+        padding-bottom: 1em;
+        padding-top: 2em;
         li {
-            margin-bottom: 1em;
+            margin-bottom: 0.75em;
         }
         [class*="col-"] {
             h3 {
                 font-weight: 700;
                 font-size: 1.10em;
+                margin-top: 0;
+            }
+            section:last-child {
+                h3 {
+                    margin-top: 20px;
+                }
             }
         }
     }
@@ -300,9 +307,6 @@ aside.features {
     background-image: -webkit-linear-gradient(top, #ebebed 0%, #eaebed 100%);
     background-image: linear-gradient(to bottom, #ebebed 0%, #eaebed 100%);
     padding-bottom: 1.5em;
-    img {
-        border: solid 1px #eee;
-    }
     h2 {
         border: none;
     }
@@ -312,6 +316,11 @@ aside.features {
         border-radius: 0;
         border: 0;
         margin-bottom: 1.5em;
+
+        img {
+            border: solid 1px #eee;
+            width: 100%;
+        }
     }
     figcaption a {
         text-decoration: underline;
