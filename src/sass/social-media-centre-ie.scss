@@ -5,13 +5,39 @@
 
 /* Layout of fields */
 
-.product-name, .product-platforms, .product-department {
+.product-name, .product-platforms, .product-department, .product-language, .product-link-container {
+	margin-left: 1em;
+	margin-right: 1em;
 	float: left;
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+}
+
+.product-name {
+	margin-right: 0;
+}
+
+.product-platforms {
+	margin-left: 0;
+}
+
+.product-name, .product-platforms {
+	margin-top: 1em;
+}
+
+.product-link-container {
+	margin-bottom: 1em;
+}
+
+.product-department, .product-language, .product-link-container {
+	margin-top: 0;
+	clear: left;
+}
+
+.product-department {
+	padding-bottom: 0;
+}
+
+.product-language {
+	padding-top: 0.5em;
 }
 
 /*@media (min-width: 768px) {
