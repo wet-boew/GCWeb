@@ -5,13 +5,31 @@
 
 /* Layout of fields */
 
+.product-name, .product-platforms, .product-shortdescription, .product-longdescription, .product-department, .product-links {
+	margin-left: 10px;
+	margin-right: 10px;
+	float: left !important;
+}
+
 .product-name, .product-platforms, .product-shortdescription, .product-longdescription, .product-department {
-	float: left;
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+	width: 97% !important;
+}
+
+.product-name, .product-platforms {
+	margin-top: 10px;
+}
+
+.product-name {
+	padding-bottom: 0;
+}
+
+.product-platforms {
+	padding-top: 0;
+}
+
+.product-platforms, .product-shortdescription, .product-longdescription, .product-department, .product-links {
+	margin-top: 0;
+	clear: left;
 }
 
 /*@media (min-width: 768px) {
