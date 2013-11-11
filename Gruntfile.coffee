@@ -42,6 +42,7 @@ module.exports = (grunt) ->
 			"hub"
 			"assets"
 			"css"
+			"js"
 			"copy:wetboew"
 		]
 	)
@@ -94,19 +95,10 @@ module.exports = (grunt) ->
 
 	@registerTask(
 		"js"
-		"INTERNAL: Copies custom JS to the dist folder"
+		"INTERNAL: Brings in the custom JavaScripts."
 		[
 			"copy:customJS"
-		]
-	)
-
-	@registerTask(
-		"jsmin"
-		"INTERNAL: Compile and minify JS, and then cleans up unminifed JS in dist"
-		[
-			"js"
 			"uglify"
-			"clean:jsUncompressed"
 		]
 	)
 
@@ -402,7 +394,7 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/js"
 				src: "*.js"
-				dest: "dist/js/customJS"
+				dest: "dist/unmin/js/customJS"
 
 		clean:
 			dist: [ "dist"]
@@ -453,10 +445,10 @@ module.exports = (grunt) ->
 				options:
 					banner: "<%= banner %>"
 				expand: true
-				cwd: "dist/js/customJS"
+				cwd: "dist/unmin/js/customJS"
 				src: ["*.js"]				
 				dest: "dist/js/customJS"
-				ext: "<%= environment.suffix %>.js"
+				ext: ".min.js"
 
 		hub:
 			"wet-boew":
