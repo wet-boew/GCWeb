@@ -17,7 +17,7 @@ module.exports = (grunt) ->
 			"build"
 			"assets-dist"
 			"assemble"
-			#htmlcompressor"
+			"htmlcompressor"
 		]
 	)
 
