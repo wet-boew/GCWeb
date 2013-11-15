@@ -297,11 +297,6 @@ footer {
     }
 }
 
-// hide the breadcrumb
-#wb-bc {
-    display: none;
-}
-
 aside.features {
     background-color: #eaebed;
     background-image: -ms-linear-gradient(top, #ebebed 0%, #eaebed 100%);
@@ -334,6 +329,10 @@ aside.features {
 
 /* Home page */
 .home {
+    // Hide the breadcrumbs on homepage
+    #wb-bc {
+        display: none;
+    }
     h2, .departments h3 {
         font-size: 27px;
         border-bottom: 1px solid $border-red;
@@ -344,16 +343,6 @@ aside.features {
 
 /* Secondary pages */
 .secondary {
-    // Lets turn on the breadcrumbs
-    #wb-bc {
-        border-top: 4px solid #eee;
-        display: block;
-        background-color: #eee;
-        .breadcrumb {
-            margin-bottom: 0;
-            background: none;
-        }
-    }
     section {
         &.profile {
             .thumbnail {
@@ -420,19 +409,6 @@ aside.features {
                 text-indent: -999px;
                 display: inline-block;
             }
-        }
-    }
-}
-
-/* Theme pages */
-.theme {
-    // Lets turn on the breadcrumbs
-    #wb-bc {
-        border-top: 4px solid #eee;
-        display: block;
-        .breadcrumb {
-            margin-bottom: 0;
-            background: none;
         }
     }
 }
