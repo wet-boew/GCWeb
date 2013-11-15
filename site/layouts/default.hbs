@@ -55,10 +55,12 @@
 				{{>sitemenu}}
 			</nav>
 
+			{{#unless_eq pageclass compare="home"}}
 			<nav role="navigation" id="wb-bc" class="" property="breadcrumb">
 				<h2 class="wb-inv">{{#i18n "%you-are-here"}}{{/i18n}}</h2>
 				{{>breadcrumbs}}
 			</nav>
+			{{/unless_eq}}
 		</header>
 		{{>promotion}}
 		<main role="main" property="mainContentOfPage" class="container">
