@@ -1,7 +1,6 @@
 /*
  Menu Treatments
  */
-
 #wb-sm {
     background: $accent-blue;
     .menu {
@@ -12,9 +11,9 @@
         position: relative;
         margin-bottom: 0;
         // Active State;
-        .active, .selected {
+        .active, .selected, .wb-navcurr {
             text-shadow: none;
-            background: #243850;
+            background: $active-blue!important;
         }
         > li {
             position: relative;
@@ -192,22 +191,35 @@
  */
 
 .wb-sec {
-    #wb-sec-h {
-        margin-top: 0;
-        display: inline-block;
-        width: 100%;
-        padding-left: 5px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background: $accent-blue;
-        color: #fff;
-    }
-    ul {
-        padding-left: 5px;
-        margin-top: 10px;
-        a {
-            display: block;
-            padding: 5px 0;
+    .list-group {
+        text-shadow: 1px 1px 1px #222;
+        margin-bottom: 0;
+        .list-group-item {
+            color: #fff;
+            background:$accent-blue;
+            border-radius:0;
+            margin-top:-1px;
+            text-decoration:none;
+            &.wb-navcurr {
+                background-color: $active-blue!important;
+                text-shadow: none;
+            }
+            &:hover, &:focus {
+                background-color: $active-blue!important;
+                text-shadow: none;
+            }
+        }
+        .list-group {
+            .list-group-item {
+                padding-left: 1.8em;
+                background-color: lighten($accent-blue,10%);
+            }
+            .list-group {
+                .list-group-item {
+                    background-color: lighten($accent-blue,20%);
+                    padding-left: 2.5em;
+                }
+            }
         }
     }
 }
