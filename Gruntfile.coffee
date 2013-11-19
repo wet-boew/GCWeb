@@ -30,6 +30,7 @@ module.exports = (grunt) ->
 			"assemble:demos"
 			"assemble:ajax"
 			"assemble:experimental"
+			"assemble:index"
 			"assemble:partners"
 		]
 	)
@@ -191,11 +192,23 @@ module.exports = (grunt) ->
 					assets: "dist/unmin"
 				cwd: "site/pages"
 				src: [
-					"*.hbs"
+					"*.hbs",
+					"!index.hbs"
 				]
 				dest: "dist/unmin/experimental"
 				expand: true
 
+			index:
+				options:
+					layout: "splash.hbs"
+					assets: "dist/unmin"
+				cwd: "site/pages"
+				src: [
+					"index.hbs"
+				]
+				dest: "dist/unmin/"
+				expand: true
+				
 			partners:
 				options:
 					layout: "partners.hbs"
@@ -218,7 +231,16 @@ module.exports = (grunt) ->
 						expand: true
 						cwd: "site/pages"
 						src: [
-							"*.hbs"
+							"*.hbs",
+							"!index.hbs"
+						]
+						dest: "dist"
+					,
+						#index
+						expand: true
+						cwd: "site/pages"
+						src: [
+							"index.hbs"
 						]
 						dest: "dist"
 					,
@@ -276,6 +298,19 @@ module.exports = (grunt) ->
 				dest: "dist/experimental"
 				expand: true
 
+			index_min:
+				options:
+					layout: "splash.hbs"
+					environment:
+						suffix: ".min"
+					assets: "dist"
+				cwd: "site/pages"
+				src: [
+					"index.hbs"
+				]
+				dest: "dist"
+				expand: true
+
 			partners_min:
 				options:
 					layout: "partners.hbs"
@@ -289,7 +324,6 @@ module.exports = (grunt) ->
 				dest: "dist/demos/partners/"
 				expand: true
 				flatten: true
-
 		sass:
 			base:
 				expand: true
@@ -309,6 +343,13 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/sass"
 				src: "social-media-centre*.scss"
+				dest: "dist/unmin/css"
+				ext: ".css"
+
+			messages:
+				expand: true
+				cwd: "src/sass"
+				src: "messages.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
