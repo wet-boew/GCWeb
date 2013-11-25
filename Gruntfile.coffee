@@ -40,10 +40,10 @@ module.exports = (grunt) ->
 		[
 			"clean:dist"
 			"hub"
+			"copy:wetboew"
 			"assets"
 			"css"
 			"js"
-			"copy:wetboew"
 		]
 	)
 
@@ -80,6 +80,7 @@ module.exports = (grunt) ->
 		"INTERNAL: Process non-CSS/JS assets to dist"
 		[
 			"copy:site_min"
+			"copy:assets_min"
 			"copy:fonts_min"
 		]
 	)
@@ -89,6 +90,7 @@ module.exports = (grunt) ->
 		"INTERNAL: Process non-CSS/JS assets to dist"
 		[
 			"copy:site"
+			"copy:assets"
 			"copy:fonts"
 		]
 	)
@@ -368,6 +370,16 @@ module.exports = (grunt) ->
 				cwd: "src/img"
 				src: "**/*.*"
 				dest: "dist/unmin/img"
+			assets:
+				expand: true
+				cwd: "src/assets"
+				src: "**/*.*"
+				dest: "dist/unmin/assets"
+			assets_min:
+				expand: true
+				cwd: "src/assets"
+				src: "**/*.*"
+				dest: "dist/assets"
 			fonts:
 				expand: true
 				cwd: "src/fonts"
@@ -446,7 +458,7 @@ module.exports = (grunt) ->
 					banner: "<%= banner %>"
 				expand: true
 				cwd: "dist/unmin/js/customJS"
-				src: ["*.js"]				
+				src: ["*.js"]
 				dest: "dist/js/customJS"
 				ext: ".min.js"
 
