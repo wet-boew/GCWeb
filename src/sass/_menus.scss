@@ -13,8 +13,8 @@
         // Active State;
         .active, .selected, .wb-navcurr {
             text-shadow: none;
-            background: $active-blue!important;
-            color: #fff!important;
+            background: $active-blue !important;
+            color: white !important;
         }
         > li {
             position: relative;
@@ -24,7 +24,7 @@
             border-left: 2px ridge #284468;
             &:hover {
                 text-shadow: none;
-                background: $active-blue!important;
+                background: $active-blue !important;
             }
             a {
                 color: #fff;
@@ -34,7 +34,7 @@
                 text-decoration: none;
                 &:focus {
                     text-shadow: none;
-                    background: $active-blue!important;
+                    background: $active-blue !important;
                 }
             }
             &:last-child {
@@ -77,9 +77,9 @@
                 }
             }
             .slflnk {
-                background:#bbb;
+                background: #bbb;
             }
-            .expicon  {
+            .expicon {
                 display: none;
             }
         }
@@ -94,6 +94,21 @@
         left: 0.75em;
         position: relative;
         top: 0.75em;
+    }
+
+    /*
+       Accesiblity tweak for menu based overlapping at lowest desktop setting ( text size 200% )
+     */
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .menu {
+            border-right: 2px ridge #284468;
+            > li {
+                float: left;
+            }
+            > li:last-child a {
+                border: none;
+            }
+        }
     }
     /*
       Mobile view
@@ -120,8 +135,7 @@
         right: -100%;
         display: none !important;
         background: #ddd;
-
-        &:target {
+        &:target, &.slvzr-target {
             width: 75%;
             right: 0;
             display: block !important;
@@ -205,23 +219,23 @@
         margin-bottom: 0;
         .list-group-item {
             color: #fff;
-            background:$accent-blue;
-            border-radius:0;
-            margin-top:-1px;
-            text-decoration:none;
+            background: $accent-blue;
+            border-radius: 0;
+            margin-top: -1px;
+            text-decoration: none;
             &.wb-navcurr {
-                background-color: $active-blue!important;
+                background-color: $active-blue !important;
                 text-shadow: none;
             }
             &:hover, &:focus {
-                background-color: $active-blue!important;
+                background-color: $active-blue !important;
                 text-shadow: none;
             }
         }
         .list-group {
             .list-group-item {
                 padding-left: 1.8em;
-                background-color: lighten($accent-blue,10%);
+                background-color: lighten($accent-blue, 10%);
             }
         }
     }
