@@ -36,8 +36,12 @@
 
 				<div class="row">
 					{{>brand}}
-
-					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg" data-ajax-before="{{assets}}/ajax/mobmenu-{{language}}.html">
+					<div class="wb-mb-links col-xs-6 visible-sm visible-xs" id="wb-glb-mn" >
+						<ul class="list-inline text-right">
+							<li><a href="#wb-sm" title="Menu" class="wb-target" aria-controls="wb-sm"><span class="glyphicon glyphicon-th-list"></span><span class="wb-inv">Menu</span></a></li>
+						</ul>
+					</div>
+					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
 						<h2 class="wb-inv">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
 						{{>sitesearch}}
 					</section>
@@ -45,7 +49,7 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
+			<nav role="navigation" id="wb-sm" class="wb-menu" data-import="wb-sec wb-srch" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
 				<h2 class="wb-inv">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
 				{{>sitemenu}}
 			</nav>
