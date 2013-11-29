@@ -340,28 +340,25 @@
  */
 
 .wb-sec {
+    margin-top: 20px;
     .list-group {
-        text-shadow: 1px 1px 1px #222;
         margin-bottom: 0;
-        .list-group-item {
-            color: #fff;
-            background: $accent-blue;
-            border-radius: 0;
-            margin-top: -1px;
-            text-decoration: none;
-            &.wb-navcurr {
-                background-color: $active-blue !important;
-                text-shadow: none;
-            }
-            &:hover, &:focus {
-                background-color: $active-blue !important;
-                text-shadow: none;
+        a.list-group-item {
+            background-color: $menu-background;
+            color: $menu-colour;
+            border-radius:0;
+            margin-top:-1px;
+            text-decoration:none;
+            &.wb-navcurr, &:hover, &:focus {
+                background-color: darken($menu-background, 50%);
+                color: lighten($menu-colour, 75%);
             }
         }
         .list-group {
             .list-group-item {
+                background-color: darken($menu-background, 10%);
+                color: darken($menu-colour, 50%);
                 padding-left: 1.8em;
-                background-color: lighten($accent-blue, 10%);
             }
         }
     }
