@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "0.10"
+cache: false
 
 env:
   global:
@@ -8,6 +9,7 @@ env:
 
 before_install:
   - ./run-first
+
 
 script:
   - npm test && ./travis.sh
