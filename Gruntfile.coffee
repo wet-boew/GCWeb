@@ -404,6 +404,7 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.*"
 					"!**/theme*.css"
+					"!**/favicon*.ico"
 				]
 				dest: "dist/"
 			site:
