@@ -57,6 +57,14 @@ module.exports = (grunt) ->
 	)
 
 	@registerTask(
+		"server"
+		"Run the Connect web server for local repo"
+		[
+			"connect:server:keepalive"
+		]
+	)
+
+	@registerTask(
 		"deploy"
 		"Build and deploy artifacts to wet-boew-dist"
 		[
@@ -530,10 +538,27 @@ module.exports = (grunt) ->
 				"**/*.*"
 			]
 
+		connect:
+			options:
+				port: 8000
+
+			server:
+				options:
+					base: "dist"
+					middleware: (connect, options) ->
+						middlewares = []
+						middlewares.push(connect.compress(
+							filter: (req, res) ->
+								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
+						))
+						middlewares.push(connect.static(options.base));
+						middlewares
+
 	# These plugins provide necessary tasks.
 	@loadNpmTasks "assemble"
 	@loadNpmTasks "grunt-autoprefixer"
 	@loadNpmTasks "grunt-contrib-clean"
+	@loadNpmTasks "grunt-contrib-connect"
 	@loadNpmTasks "grunt-contrib-copy"
 	@loadNpmTasks "grunt-contrib-cssmin"
 	@loadNpmTasks "grunt-contrib-jshint"
