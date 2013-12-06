@@ -29,6 +29,7 @@ module.exports = (grunt) ->
 			"build"
 			"assemble:demos"
 			"assemble:ajax"
+			"assemble:json"
 			"assemble:experimental"
 			"assemble:index"
 			"assemble:partners"
@@ -42,6 +43,7 @@ module.exports = (grunt) ->
 			"clean:dist"
 			"hub"
 			"copy:wetboew"
+			"copy:json"
 			"assets"
 			"css"
 			"js"
@@ -109,6 +111,8 @@ module.exports = (grunt) ->
 		"INTERNAL: Brings in the custom JavaScripts."
 		[
 			"copy:customJS"
+			"copy:json"
+			"copy:json_min"
 			"uglify"
 		]
 	)
@@ -216,7 +220,7 @@ module.exports = (grunt) ->
 				]
 				dest: "dist/unmin/"
 				expand: true
-				
+
 			partners:
 				options:
 					layout: "partners.hbs"
@@ -430,6 +434,16 @@ module.exports = (grunt) ->
 				cwd: "src/assets"
 				src: "**/*.*"
 				dest: "dist/assets"
+			json:
+				expand: true
+				cwd: "site/pages/ajax"
+				src: "**/*.json"
+				dest: "dist/unmin/ajax"
+			json_min:
+				expand: true
+				cwd: "site/pages/ajax"
+				src: "**/*.json"
+				dest: "dist/ajax"
 			fonts:
 				expand: true
 				cwd: "src/fonts"

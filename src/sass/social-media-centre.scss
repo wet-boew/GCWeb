@@ -20,82 +20,89 @@
 	visibility: visible;
 }
 
+.backgroundsize.csstransitions {
 
-/* Layout of fields */
-
-.product-listing {
-	border: none;
-	display: block;
-	width: 100%;
-}
-
-.product-record {
-	display: inline-block;
-	margin-bottom: 20px;
-	width: 100%;
-	&:target {
-		// !important is needed to override the fixed height set by DataTables.
-		height: auto !important;
-	}
-}
-
-.product-name {
-	@extend %data-block-no-border;
-}
-
-.product-platforms {
-	@extend %data-block-no-border;
-}
-
-.product-department {
-	@extend %data-block-no-border;
-	font-weight: bold;
-	margin-top: 1em;
-}
-
-.product-language {
-	@extend %data-block-no-border;
-	font-weight: bold;
-	margin-top: 1em;
-}
-
-.product-link-container {
-	@extend %data-block-no-border;
-	margin-top: 1em;
-}
-
-.product-link {
-	display: block;
-	text-decoration: none;
-	white-space: normal;
-	&:hover, &:focus {
-		text-decoration: none;
-	}
-	// Overrides for lack of specificity of main .btn-primary in theme.scss.
-	// Remove when theme.scss has been fixed.
-	padding: 6px 12px !important;
-	text-transform: none !important;
-}
-
-@media (min-width: 768px) {
-	.product-record {
-		max-width: 47%;
-		margin-right: 10px;
-		margin-left: 10px;
-		&:target {
-			max-width: 100%;
+	#social-media-centre {
+		tbody {
+				padding-top: 2em;
+			tr {
+				 display: inline-block;
+				 margin-bottom: 0; // For input.btn
+				 text-align: center;
+				 vertical-align: middle;
+				 white-space: nowrap;
+				 padding: 5px;
+				 margin-bottom: 20px;
+				 background-color: #eee;
+				 border: none;
+				 background-clip: content-box;
+				 width: 100%;
+				 @media (min-width: 768px) {
+					width: 50%;
+				 }
+				 @media (min-width: 1200px) {
+				 	width: 33.333%;
+				 }
+				 background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==);
+				 background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+				 background-position: top left, top left, bottom left, top right;
+				 background-origin: content-box;
+				 .product-department {
+				 	white-space: normal;
+				 	height: 3em;
+				 }
+			}
 		}
 	}
-}
 
-@media (min-width: 1200px) {
+
+	/* Layout of fields */
+
+	.product-listing {
+		border: none;
+		display: block;
+		width: 100%;
+	}
+
 	.product-record {
-		max-width: 31.5%;
+		display: inline-block;
+		margin-bottom: 20px;
+		width: 100%;
+		&:target {
+			// !important is needed to override the fixed height set by DataTables.
+			height: auto !important;
+		}
+	}
+
+	.product-name, .product-platforms, .product-department, .product-language, .product-link-container  {
+		@extend %data-block-no-border;
+	}
+
+	.product-department, .product-language ,.product-link-container {
+		margin-top: 1em;
+	}
+
+	.product-department, .product-language  {
+		margin-top: 1em;
+		font-weight: bold;
+	}
+
+	.product-link {
+		display: block;
+		text-decoration: none;
+		white-space: normal;
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+		// Overrides for lack of specificity of main .btn-primary in theme.scss.
+		// Remove when theme.scss has been fixed.
+		padding: 6px 12px !important;
+		text-transform: none !important;
 	}
 }
 
-/* Data visibility */
-
-.product-data-hidden {
-	@extend %data-hidden;
+.dataTables_wrapper {
+	margin-bottom: 3em;
 }
+
+
