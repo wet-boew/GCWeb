@@ -21,13 +21,121 @@
 }
 
 
+.backgroundsize.csstransitions {
+
+	#mobile-centre {
+		tbody {
+				padding-top: 2em;
+			tr {
+				 display: inline-block;
+				 margin-bottom: 0; // For input.btn
+
+				 vertical-align: middle;
+				 padding: 5px;
+				 margin-bottom: 20px;
+				 background-color: #eee;
+				 border: none;
+				 background-clip: content-box;
+				 width: 100%;
+				 @media (min-width: 768px) {
+					width: 50%;
+				 }
+				 @media (min-width: 1200px) {
+				 	width: 33.333%;
+				 }
+				 background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==), url(data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==);
+				 background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+				 background-position: top left, top left, bottom left, top right;
+				 background-origin: content-box;
+				 min-height: 20em;
+				.product-longdescription, td.product-link-container, .product-department {
+					@extend %data-hidden;
+				}
+				.product-platforms {
+					span {
+						margin-right: 5px;
+					}
+				}
+
+				&:target {
+					// !important is needed to override the fixed height set by DataTables.
+					height: auto !important;
+					width: 100%;
+					.product-longdescription, td.product-link-container, .product-department  {
+						@extend %data-visible-block;
+					}
+					.product-longdescription {
+						float: none;
+					}
+					.product-link-container {
+						float: none;
+						border: none;
+					}
+				}
+				&:hover {
+					background-color: darken(#f5f5f5, 5%);
+					border-color: darken(#e3e3e3, 5%);
+					cursor: pointer;
+				}
+
+			}
+		}
+	}
+}
+
+.no-backgroundsize.no-csstransitions, .backgroundsize.no-csstransitions {
+
+	#mobile-centre {
+			tr {
+				border-top: 1px solid #999 !important;
+				border-bottom: 1px solid #999 !important;
+
+			}
+			.product-name, .product-platforms, .product-shortdescription, .product-longdescription, .product-department, .product-links {
+			        margin-left: 10px;
+			        margin-right: 10px;
+			        float: left !important;
+			}
+
+			.product-name, .product-platforms, .product-shortdescription, .product-longdescription, .product-department {
+			        width: 96% !important;
+			}
+
+			.product-name, .product-platforms {
+			        margin-top: 10px;
+			}
+
+			.product-name {
+			        padding-bottom: 0;
+			}
+
+			.product-platforms {
+			        padding-top: 0;
+			}
+
+			.product-platforms, .product-shortdescription, .product-longdescription, .product-department, .product-links {
+			        margin-top: 0;
+			        clear: left;
+			}
+			.product-shortdescription , .record-close { display: none !important;}
+			.product-link-container {
+				border: none !important;
+			}
+			.product-link-list {
+				li {
+					display: inline;
+					float: left;
+				}
+			}
+
+	}
+
+}
+
+
 /* Layout of fields */
 
-.product-listing {
-	border: none;
-	display: block;
-	width: 100%;
-}
+
 
 .product-record {
 	display: inline-block;
