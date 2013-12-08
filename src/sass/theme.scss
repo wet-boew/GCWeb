@@ -32,11 +32,6 @@ h6, .h6 {
     h1, .h1 {
         font-size: 30px !important;
     }
-	.sect-lnks {
-    	margin-left:10px!important;
-    	margin-right:10px!important;
-	}
-
 
 // Equal heights columns content 
     @media (min-width: 992px) and (max-width: 1199px) {
@@ -139,16 +134,12 @@ header {
         ul {
             height: 44px;
             background: $accent-blue;
+            padding-right: 1.5em;
             li {
                 a {
                     color: #fff;
                     font-size: 1.5em;
                     line-height: 2;
-                }
-                &:last-child {
-                    a {
-                        padding-right: 1em;
-                    }
                 }
             }
             &:before {
@@ -254,34 +245,14 @@ main {
 @media (min-width: 992px) and (max-width: 1199px) {
     .sect-lnks {
         width: 48.7%;
-        &:nth-child(2n) {
-            margin-left: 10px;
-        }
-        &:nth-child(2n+1) {
-            margin-right: 10px;
-        }
+		margin-right: 20px;
     }
 }
 
 @media (min-width: 1200px) {
     .sect-lnks {
         width: 31.9%;
-        &:nth-child(2n) {
-            margin-left: 0;
-        }
-        &:nth-child(2n+1) {
-            margin-right: 0;
-        }
-        &:nth-child(3n) {
-            margin-left: 10px;
-        }
-        &:nth-child(3n+1) {
-            margin-right: 10px;
-        }
-        &:nth-child(3n+2) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+		margin-right: 20px;
     }
 }
 // EH for partners pages
@@ -328,7 +299,7 @@ footer {
     nav {
         position: relative;
         padding-bottom: 1em;
-        padding-top: 2em;
+        padding-top: 0.75em;
         li {
             margin-bottom: 0.75em;
         }
@@ -336,12 +307,7 @@ footer {
             h3 {
                 font-weight: 700;
                 font-size: 1.10em;
-                margin-top: 0;
-            }
-            section:last-child {
-                h3 {
-                    margin-top: 20px;
-                }
+                margin-top: 20px;
             }
         }
     }
@@ -515,6 +481,6 @@ footer a {
         }
     }
 }
-.wb-tabs li:not('.tabs-toggle'){
+.wb-tabs li[role="presentation"]{
     display: none;
 }
