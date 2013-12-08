@@ -27,6 +27,7 @@ h6, .h6 {
     font-size: 16px;
     font-weight: bold;
 }
+
 /* IE */
 .lt-ie9 {
     h1, .h1 {
@@ -96,7 +97,6 @@ header {
             max-width: 100%;
             max-height: 74px;
         }
-
     }
     /*
      Mobile Navigation
@@ -178,13 +178,10 @@ main {
         margin-bottom: 1em;
         font-weight: 300;
     }
-
-    .btn-primary{
+    .btn-primary {
         background-color: $accent-blue;
         border-color: $accent-blue;
-
     }
-
     .thumbnail {
         border-radius: 0;
         background: $profile-gray;
@@ -205,8 +202,6 @@ main {
     }
 }
 
-
-
 @import "equalhieghts";
 
 /* Footer */
@@ -214,7 +209,6 @@ footer {
     position: relative;
     z-index: 5;
     background: #e1e4e7;
-
     .brand {
         background: #335175;
         line-height: 50px;
@@ -268,7 +262,6 @@ aside.features {
         border-radius: 0;
         border: 0;
         margin-bottom: 1.5em;
-
         img {
             border: solid 1px #eee;
             width: 100%;
@@ -291,6 +284,14 @@ aside.features {
     }
 }
 
+.thumbnail {
+        &:hover {
+            img {
+                box-shadow: 1px 1px 5px #999;
+            }
+        }
+}
+
 /* Secondary pages */
 .secondary {
     section {
@@ -301,7 +302,6 @@ aside.features {
             }
         }
     }
-
     .followus {
         line-height: 2;
         padding-top: 0;
@@ -357,6 +357,7 @@ aside.features {
 .pagedetails {
     padding: 2em 0;
 }
+
 //Feedback button
 .feedback .glyphicon {
     margin-right: 5px;
@@ -366,18 +367,13 @@ aside.features {
   Share Widget
  */
 .overlay-def {
-
     header {
         background: $accent-blue;
     }
-
     .overlay-close {
         background: transparent;
     }
 }
-
-
-
 
 @import "menus";
 @import "promo";
@@ -399,7 +395,7 @@ footer a {
         display: none !important;
         background: #ddd;
         &:target {
-        display: block !important;
+            display: block !important;
             right: 0;
             width: 75%;
         }
@@ -418,4 +414,3 @@ footer a {
         }
     }
 }
-
