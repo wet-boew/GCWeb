@@ -161,10 +161,27 @@ module.exports = (grunt) ->
 					,
 						#plugins
 						expand: true
+						cwd: "lib/wet-boew/site/pages/demos"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/unmin/demos"
+					,
+						expand: true
 						cwd: "lib/wet-boew/src/plugins"
 						src: [
 							"**/*.hbs"
 						]
+						dest: "dist/unmin/demos"
+					,
+						expand: true
+						cwd: "lib/wet-boew/src/polyfills"
+						src: "**/*.hbs"
+						dest: "dist/unmin/demos"
+					,
+						expand: true
+						cwd: "lib/wet-boew/src/other"
+						src: "**/*.hbs"
 						dest: "dist/unmin/demos"
 					,
 						#mobile centre
@@ -258,10 +275,27 @@ module.exports = (grunt) ->
 					,
 						#plugins
 						expand: true
+						cwd: "lib/wet-boew/site/pages/demos"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/demos"
+					,
+						expand: true
 						cwd: "lib/wet-boew/src/plugins"
 						src: [
 							"**/*.hbs"
 						]
+						dest: "dist/demos"
+					,
+						expand: true
+						cwd: "lib/wet-boew/src/polyfills"
+						src: "**/*.hbs"
+						dest: "dist/demos"
+					,
+						expand: true
+						cwd: "lib/wet-boew/src/other"
+						src: "**/*.hbs"
 						dest: "dist/demos"
 					,
 						#mobile centre
