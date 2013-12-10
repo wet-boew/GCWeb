@@ -392,6 +392,7 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.css"
 					"!**/*.min.css"
+					"!**/ie8*.css"
 				]
 				ext: ".min.css"
 				dest: "dist/css"
