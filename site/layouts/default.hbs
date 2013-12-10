@@ -39,7 +39,7 @@
 
 					<div class="wb-mb-links col-xs-6 visible-sm visible-xs" id="wb-glb-mn" >
 						<ul class="list-inline text-right">
-							<li><a href="#wb-sm" title="Menu" class="wb-target" aria-controls="wb-sm"><span class="glyphicon glyphicon-th-list"></span><span class="wb-inv">Menu</span></a></li>
+							<li><a href="#mb-pnl" title="Menu" class="overlay-lnk" aria-controls="mb-pnl"><span class="glyphicon glyphicon-th-list"></span><span class="wb-inv">Menu</span></a></li>
 						</ul>
 					</div>
 
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="wb-menu" data-import="wb-sec wb-srch" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
+			<nav role="navigation" id="wb-sm" class="wb-menu" data-targetto="mb-pnl" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
 				<h2 class="wb-inv">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
 				{{>sitemenu}}
 			</nav>
@@ -81,7 +81,7 @@
 			{{>footerbrand}}
 
 		</footer>
-
+		<div id="mb-pnl" class="wb-overlay modal-content overlay-def wb-panel-r"></div>
 		{{>footerresources}}
 	</body>
 </html>
