@@ -29,7 +29,6 @@ module.exports = (grunt) ->
 			"build"
 			"assemble:demos"
 			"assemble:ajax"
-			"assemble:json"
 			"assemble:experimental"
 			"assemble:index"
 			"assemble:partners"
@@ -452,6 +451,8 @@ module.exports = (grunt) ->
 					"**/*.*"
 					"!**/theme*.css"
 					"!**/favicon*.ico"
+					"!demos/**/*.*"
+					"!unmin/demos/**/*.*"
 				]
 				dest: "dist/"
 			site:
