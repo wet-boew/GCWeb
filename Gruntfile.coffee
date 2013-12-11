@@ -450,14 +450,15 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.*"
 					"!**/theme*.css"
-					"!**/favicon*.ico"
+					"!**/favicon*.*"
 					"!demos/**/*.*"
 					"!unmin/demos/**/*.*"
+					"!**/logo.*"
 				]
 				dest: "dist/"
 			site:
 				expand: true
-				cwd: "src/img"
+				cwd: "site/img"
 				src: "**/*.*"
 				dest: "dist/unmin/img"
 			assets:
@@ -487,7 +488,7 @@ module.exports = (grunt) ->
 				dest: "dist/unmin/fonts"
 			site_min:
 				expand: true
-				cwd: "src/img"
+				cwd: "site/img"
 				src: "**/*.*"
 				dest: "dist/img"
 			fonts_min:
