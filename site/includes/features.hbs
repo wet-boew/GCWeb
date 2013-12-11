@@ -5,23 +5,10 @@
         </div>
     </div>
     <div class="wb-eqht">
-		<a href="#" class="sect-lnks thumbnail"><figure>
-			<img src="{{assets}}/img/healthy.jpg" alt="">
-			<figcaption class="caption">
-				{{#i18n "%healthy-canadians"}}{{/i18n}}
-			</figcaption>
-		</figure></a>
-		<a href="#" class="sect-lnks thumbnail"><figure>
-			<img src="{{assets}}/img/eap.jpg" alt="" >
-			<figcaption class="caption">
-				{{#i18n "%responsible-resource"}}{{/i18n}}
-			</figcaption>
-		</figure></a>
-		<a href="#" class="sect-lnks thumbnail"><figure>
-			<img src="{{assets}}/img/wireless.jpg" alt="" >
-			<figcaption class="caption">
-				{{#i18n "%wireless-policy"}}{{/i18n}}
-			</figcaption>
-		</figure></a>
+		{{#startsWith "en" language }}
+			{{>features-en}}
+		{{else}}
+			{{>features-fr}}
+		{{/startsWith}}
 	</div>
 </div>
