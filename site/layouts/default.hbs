@@ -36,12 +36,13 @@
 
 				<div class="row">
 					{{>brand}}
-
-					<div class="wb-mb-links col-xs-6 visible-sm visible-xs" id="wb-glb-mn" >
-						<ul class="list-inline text-right">
+					<section class="wb-mb-links col-xs-6 visible-sm visible-xs" id="wb-glb-mn" >
+						<h2>Menu</h2>
+						<ul class="list-inline text-right chvrn">
 							<li><a href="#mb-pnl" title="Menu" class="overlay-lnk" aria-controls="mb-pnl"><span class="glyphicon glyphicon-th-list"></span><span class="wb-inv">Menu</span></a></li>
 						</ul>
-					</div>
+						<section id="mb-pnl" class="wb-overlay modal-content overlay-def wb-panel-r"></section>
+					</section>
 
 					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
 						<h2 class="wb-inv">{{#i18n "%tmpl-search"}}{{/i18n}}</h2>
@@ -51,7 +52,7 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" class="wb-menu" data-trgt="mb-pnl" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
+			<nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
 				<h2 class="wb-inv">{{#i18n "%tmpl-site-menu"}}{{/i18n}}</h2>
 				{{>sitemenu}}
 			</nav>
@@ -71,17 +72,14 @@
 		<aside class="features">
 			{{>features}}
 		</aside>
-		<footer role="contentinfo" id="wb-info">
 
+		<footer role="contentinfo" id="wb-info">
 			<nav role="navigation" class="container visible-lg visible-md wb-navcurr">
 				<h2 class="wb-inv">{{#i18n "%tmpl-site-info"}}{{/i18n}}</h2>
 				{{>footer}}
 			</nav>
-
 			{{>footerbrand}}
-
 		</footer>
-		<div id="mb-pnl" class="wb-overlay modal-content overlay-def wb-panel-r"></div>
 		{{>footerresources}}
 	</body>
 </html>
