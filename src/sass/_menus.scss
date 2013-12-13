@@ -1,313 +1,288 @@
 /*
  Menu Treatments
- */
+*/
 #wb-sm {
-    @media (min-width: $desktop) {
-        background: $accent-blue;
-        .menu {
-            text-transform: uppercase;
-            display: table;
-            width: 100%;
-            text-shadow: 1px 1px 1px #222;
-            position: relative;
-            margin-bottom: 0;
-            // Active State;
-            .active, .selected, .wb-navcurr {
-                text-shadow: none;
-                background: $active-blue !important;
-                color: white !important;
-            }
-            > li {
-                position: relative;
-                display: table-cell;
-                margin: 0;
-                padding: 0;
-                border-left: 1px solid #999;
-                &:last-child {
-                    border-right: 1px solid #999;
-                }
-                &:hover {
-                    text-shadow: none;
-                    background: $active-blue !important;
-                }
-                a {
-                    color: #fff;
-                    padding: 1em;
-                    text-align: center;
-                    display: block;
-                    text-decoration: none;
-                    &:focus {
-                        text-shadow: none;
-                        background: $active-blue !important;
-                    }
-                }
-            }
-        }
-        // Menu Items ( ul in li's in this case)
-        .sm {
-            display: none;
-            // open state
-            &.open {
-                display: inline;
-                position: absolute;
-                z-index: 100;
-                box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
-                border-left: none;
-                border-right: none;
-                border-bottom: 5px solid #243850;
-                text-transform: none;
-                padding: 0;
-                background: #ccc;
-                top: auto;
-                min-width: 200px;
-                li {
-                    display: block;
-                    a {
-                        color: #444;
-                        border-left: none;
-                        border-right: none;
-                        text-shadow: none;
-                        text-align: left;
-                        padding: 5px 10px;
-                        &:hover, &:focus, &:active {
-                            background: #243850;
-                            color: #fff;
-                        }
-                    }
-                }
-                .slflnk {
-                    background: #bbb;
-                }
-                .expicon {
-                    display: none;
-                }
-            }
-            .row {
-                background: transparent;
-                a {
-                    color: #6e6e6e;
-                }
-            }
-        }
-        .expicon {
-            left: 0.75em;
-            position: relative;
-            top: 0.75em;
-        }
-    }
-    /*
-       Accesiblity tweak for menu based overlapping at lowest desktop setting ( text size 200% )
-     */
-    @media (min-width: $desktop) and (max-width: $desktop-max) {
-        .menu {
-            border-right: 1px solid #999;
-            > li {
-                float: left;
-                &:last-child {
-                    border-right: 0;
-                }
-            }
-        }
-    }
+	@media (min-width: $desktop) {
+		background: $accent-blue;
+		.menu {
+			text-transform: uppercase;
+			display: table;
+			width: 100%;
+			text-shadow: 1px 1px 1px #222;
+			position: relative;
+			margin-bottom: 0;
+			// Active State;
+			.active, .selected, .wb-navcurr {
+				text-shadow: none;
+				background: $active-blue !important;
+				color: white !important;
+			}
+			> li {
+				position: relative;
+				display: table-cell;
+				margin: 0;
+				padding: 0;
+				border-left: 1px solid #999;
+				&:last-child {
+					border-right: 1px solid #999;
+				}
+				&:hover {
+					text-shadow: none;
+					background: $active-blue !important;
+				}
+				a {
+					color: #fff;
+					padding: 1em;
+					text-align: center;
+					display: block;
+					text-decoration: none;
+					&:focus {
+						text-shadow: none;
+						background: $active-blue !important;
+					}
+				}
+			}
+		}
+		// Menu Items ( ul in li's in this case)
+		.sm {
+			display: none;
+			// open state
+			&.open {
+				display: inline;
+				position: absolute;
+				z-index: 100;
+				box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
+				border-left: none;
+				border-right: none;
+				border-bottom: 5px solid #243850;
+				text-transform: none;
+				padding: 0;
+				background: #ccc;
+				top: auto;
+				min-width: 200px;
+				li {
+					display: block;
+					a {
+						color: #444;
+						border-left: none;
+						border-right: none;
+						text-shadow: none;
+						text-align: left;
+						padding: 5px 10px;
+						&:hover, &:focus, &:active {
+							background: #243850;
+							color: #fff;
+						}
+					}
+				}
+				.slflnk {
+					background: #bbb;
+				}
+				.expicon {
+					display: none;
+				}
+			}
+			.row {
+				background: transparent;
+				a {
+					color: #6e6e6e;
+				}
+			}
+		}
+		.expicon {
+			left: 0.75em;
+			position: relative;
+			top: 0.75em;
+		}
+	}
+	/*
+	 Accesiblity tweak for menu based overlapping at lowest desktop setting ( text size 200% )
+	*/
+	@media (min-width: $desktop) and (max-width: $desktop-max) {
+		.menu {
+			border-right: 1px solid #999;
+			> li {
+				float: left;
+				&:last-child {
+					border-right: 0;
+				}
+			}
+		}
+	}
 }
 
 /*
  Mobile Menu
- */
+*/
 #mb-pnl {
-    background: url(data:image/gif;base64,R0lGODlh6AMBAIAAABk0UQAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkMxRUQ2ODczNUEyODExRTNBODM4OUNCRUJBOUJGN0REIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkMxRUQ2ODc0NUEyODExRTNBODM4OUNCRUJBOUJGN0REIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzFFRDY4NzE1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzFFRDY4NzI1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQAAAAAACwAAAAA6AMBAAACHoSPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gs7BQA7);
-    background-position: 15px 0;
-    background-repeat: repeat-y;
-    box-shadow: none;
-    padding-left: 15px;
-    .modal-header {
-        position: relative;
-        text-align: left;
-        z-index: 1045;
-        margin-left: 1.23em;
-        margin-left: 0;
-        border-bottom: 1px solid #2e5274;
-        text-decoration: none;
-        box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
-        color: #fff;
-        top: 1em;
-        background: #2e5274;
-        &:before {
-            border-bottom: 1.45em solid #2E5274;
-            border-left: 1em solid rgba(0, 0, 0, 0);
-            border-top: 1.45em solid #2E5274;
-            content: "";
-            left: -1em;
-            position: absolute;
-            top: 0;
-        }
-        h2 {
-            border: none;
-            margin-bottom: 0;
-            padding: 9px;
-            margin-top: 1px;
-        }
-    }
-    section {
-        padding-bottom: 1em;
-        padding-top: 1em;
-    }
-    .modal-body {
-
-        background: #0E4164;
-        margin-left: 0;
-        padding-top: 5em;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        position: relative;
-        top: -3em;
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-        h2 {
-            display: none;
-        }
-        ul {
-            list-style-type: none;
-            li {
-                list-style-type: none;
-                line-height: 2;
-            }
-        }
-    }
-    .mfp-close {
-        top: 0.55em;
-    }
-    .lng-ofr {
-        text-align: right;
-        padding-right: 30px;
-        padding-top: 2em;
-    }
-    .srch-pnl {
-        form {
-            button {
-                background-color: $accent-blue;
-                border-color: $accent-blue;
-                border: 0;
-                border-radius: 0;
-                &:hover, &:focus, &:active {
-                    background: #243850;
-                }
-            }
-            input {
-                border-right: 0;
-                position: relative;
-                margin-right: -4px;
-                border-color: #e0e0e0;
-                border-style: solid;
-                box-shadow: none;
-                background-color: #e0e0e0;
-                color: #555;
-                border-radius: 0;
-            }
-        }
-        .btn {
-            line-height: 1.65;
-            margin-top: -1px;
-        }
-        .form-group {
-            width: 75%;
-            float: left;
-            margin-left: 15px;
-        }
-        .form-group.submit {
-            width: 15%;
-            margin-left: 0;
-        }
-    }
-    .sm-pnl{
-        background: #0E4164;
-        padding-bottom: 10px;
-        padding-top: 20px;
-        margin-bottom: 0;
-    }
-    .info-pnl{
-        background: #193451;
-        padding-top: 10px;
-        color: #325375 !important;
-    }
-    a {
-        position: relative;
-        padding-left: 1.5em;
-        .expicon {
-            position: absolute;
-            top: 0.25em;
-            left: 0.5em;
-            transform: rotate(270deg);
-        }
-    }
-    .active {
-        > a {
-            font-weight: 800;
-            .expicon {
-                transform: none;
-            }
-        }
-    }
-    ul {
-        float: none !important;
-        padding-left: 0;
-        li {
-            float: none !important;
-            border: none !important;
-            ul {
-                display: none;
-                margin-left: 10px;
-                &.open {
-                    display: block;
-                }
-            }
-        }
-    }
-    .sec-pnl {
-        background: #cdd4da !important;
-        padding-top: 10px;
-        padding-bottom: 5px;
-        a {
-            color: #2e5576 !important;
-            .expicon {
-               border-top-color: #2e5576;
-            }
-        }
-    }
+	background: url(data:image/gif;base64,R0lGODlh6AMBAIAAABk0UQAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkMxRUQ2ODczNUEyODExRTNBODM4OUNCRUJBOUJGN0REIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkMxRUQ2ODc0NUEyODExRTNBODM4OUNCRUJBOUJGN0REIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzFFRDY4NzE1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzFFRDY4NzI1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQAAAAAACwAAAAA6AMBAAACHoSPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gs7BQA7);
+	background-position: 15px 0;
+	background-repeat: repeat-y;
+	box-shadow: none;
+	padding-left: 15px;
+	.modal-header {
+		position: relative;
+		text-align: left;
+		z-index: 1045;
+		margin-left: 1.23em;
+		margin-left: 0;
+		border-bottom: 1px solid #2e5274;
+		text-decoration: none;
+		box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
+		color: #fff;
+		top: 1em;
+		background: #2e5274;
+		&:before {
+			border-bottom: 1.45em solid #2E5274;
+			border-left: 1em solid rgba(0, 0, 0, 0);
+			border-top: 1.45em solid #2E5274;
+			content: "";
+			left: -1em;
+			position: absolute;
+			top: 0;
+		}
+		h2 {
+			border: none;
+			margin-bottom: 0;
+			padding: 9px;
+			margin-top: 1px;
+		}
+	}
+	section, nav {
+		padding: 1em 20px;
+	}
+	.modal-body {
+		background: #0E4164;
+		margin-left: 0;
+		padding-top: 5em;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+		position: relative;
+		top: -3em;
+		summary {
+			color: #fff;
+			&:hover, &:focus {
+				background: transparent;
+				color: #fff;
+			}
+		}
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+		ul {
+			list-style-type: none;
+			li {
+				list-style-type: none;
+				line-height: 2;
+			}
+		}
+	}
+	.mfp-close {
+		top: 0.55em;
+	}
+	.lng-ofr {
+		text-align: right;
+		padding-right: 30px;
+		padding-top: 2em;
+	}
+	.srch-pnl {
+		form {
+			button {
+				position: relative;
+				background-color: $accent-blue;
+				border-color: $accent-blue;
+				border: 0;
+				border-radius: 0;
+				&:hover, &:focus, &:active {
+					background: #243850;
+				}
+			}
+			input {
+				border-right: 0;
+				position: relative;
+				margin-right: -4px;
+				border-color: #e0e0e0;
+				border-style: solid;
+				box-shadow: none;
+				background-color: #e0e0e0;
+				color: #555;
+				border-radius: 0;
+			}
+		}
+		.btn {
+			line-height: 1.65;
+			margin-top: -1px;
+		}
+		.form-group {
+			width: 75%;
+			float: left;
+			margin-left: 15px;
+		}
+		.form-group.submit {
+			width: 15%;
+			margin-left: 0;
+		}
+	}
+	.sm-pnl{
+		background: #0E4164;
+		padding-bottom: 10px;
+		padding-top: 20px;
+		margin-bottom: 0;
+	}
+	.info-pnl{
+		background: #193451;
+		padding-top: 10px;
+		color: #325375 !important;
+	}
+	.active {
+		> a {
+			font-weight: 800;
+		}
+	}
+	.sec-pnl {
+		background: #cdd4da !important;
+		padding-top: 10px;
+		padding-bottom: 5px;
+		a {
+			color: #2e5576 !important;
+			.expicon {
+			border-top-color: #2e5576;
+			}
+		}
+	}
 }
 
 /*
-  Secondary Navigation
- */
+ Secondary Navigation
+*/
 
 .wb-sec {
-    margin-top: 20px;
-    padding-bottom: 2em;
-    .list-group {
-        margin-bottom: 0;
-        a.list-group-item {
-            background-color: $menu-background;
-            color: $menu-colour;
-            border-radius: 0;
-            margin-top: -1px;
-            text-decoration: none;
-            &.wb-navcurr, &:hover, &:focus {
-                background-color: darken($menu-background, 50%);
-                color: lighten($menu-colour, 75%);
-            }
-        }
-        .list-group {
-            .list-group-item {
-                background-color: darken($menu-background, 10%);
-                color: darken($menu-colour, 50%);
-                padding-left: 1.8em;
-            }
-        }
-    }
-    @media screen and (max-width: $mobile) {
-        display: none;
-    }
+	margin-top: 20px;
+	padding-bottom: 2em;
+	.list-group {
+		margin-bottom: 0;
+		a.list-group-item {
+			background-color: $menu-background;
+			color: $menu-colour;
+			border-radius: 0;
+			margin-top: -1px;
+			text-decoration: none;
+			&.wb-navcurr, &:hover, &:focus {
+				background-color: darken($menu-background, 50%);
+				color: lighten($menu-colour, 75%);
+			}
+		}
+		.list-group {
+			.list-group-item {
+				background-color: darken($menu-background, 10%);
+				color: darken($menu-colour, 50%);
+				padding-left: 1.8em;
+			}
+		}
+	}
+	@media screen and (max-width: $mobile) {
+		display: none;
+	}
 }
