@@ -96,69 +96,7 @@ caption {
 	font-weight: bold;
 }
 
-/*Header */
-header {
-	position: relative;
-	#wb-lng {
-		padding-top: 10px;
-	}
-	.brand {
-		padding-bottom: 10px;
-		a {
-			max-width: 240px;
-			height: auto;
-			display: block;
-			position: relative;
-			padding-bottom: 0.5em;
-			&:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-			}
-			@media screen and (max-width: $mobile) {
-				max-width: 190px;
-				margin-top: 20px;
-			}
-		}
-		object, img {
-			height: auto;
-			max-width: 100%;
-			max-height: 74px;
-		}
-	}
-	/*
-	 Mobile Navigation
-	 */
-	#wb-glb-mn {
-		margin-top: 20px;
-			ul.chvrn  {
-				height: 44px;
-				background: $accent-blue;
-				padding-right: 1.5em;
-				li {
-					a {
-						color: #fff;
-						font-size: 1.5em;
-						line-height: 2;
-					}
-				}
-				&:before {
-					position: relative;
-					content: " ";
-					display: block;
-					float: left;
-					width: 0;
-					height: 0;
-					border-top: 22px solid transparent;
-					border-bottom: 22px solid transparent;
-					border-left: 11px solid #f8f8f8;
-				}
-			}
-	}
-}
+@import "header";
 
 #wb-srch, .srchbox {
 	padding-top: 1em;
@@ -229,46 +167,7 @@ main {
 }
 
 @import "equalheights";
-
-/* Footer */
-footer {
-	position: relative;
-	z-index: 5;
-	background: #e1e4e7;
-	.brand {
-		background: #335175;
-		line-height: 50px;
-		object {
-			width: 240px;
-			height: auto;
-			margin-top: 15px;
-		}
-		a {
-			color: #fff;
-			span {
-				margin-left: 10px;
-			}
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-	nav {
-		position: relative;
-		padding-bottom: 1em;
-		padding-top: 0.75em;
-		li {
-			margin-bottom: 0.75em;
-		}
-		[class*="col-"] {
-			h3 {
-				font-weight: 700;
-				font-size: 1.10em;
-				margin-top: 20px;
-			}
-		}
-	}
-}
+@import "footer";
 
 aside.features {
 	background-color: #eaebed;
