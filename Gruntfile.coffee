@@ -424,8 +424,22 @@ module.exports = (grunt) ->
 				cwd: "dist/unmin/css"
 				src: [
 					"**/*.css"
+					"!**/wet-boew.css"
+					"!**/ie8-wet-boew.css"
 					"!**/*.min.css"
 					"!**/ie8*.css"
+				]
+				ext: ".min.css"
+				dest: "dist/css"
+				expand: true
+
+			distWET:
+				options:
+					banner: ""
+				cwd: "dist/unmin/css"
+				src: [
+					"**/wet-boew.css"
+					"**/ie8-wet-boew.css"
 				]
 				ext: ".min.css"
 				dest: "dist/css"
