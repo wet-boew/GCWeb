@@ -9,65 +9,41 @@
 			display: table;
 			width: 100%;
 			text-shadow: 1px 1px 1px #222;
-			position: relative;
 			margin-bottom: 0;
 			// Active State;
 			.active, .selected, .wb-navcurr {
-				text-shadow: none;
 				background: $active-blue !important;
 				color: white !important;
 			}
 			> li {
-				position: relative;
+				float: none;
 				display: table-cell;
-				margin: 0;
-				padding: 0;
 				border-left: 1px solid #999;
 				&:last-child {
 					border-right: 1px solid #999;
 				}
-				&:hover {
-					text-shadow: none;
-					background: $active-blue !important;
-				}
 				a {
 					color: #fff;
-					padding: 1em;
-					text-align: center;
-					display: block;
-					text-decoration: none;
-					&:focus {
+					&:hover, &:focus {
 						text-shadow: none;
 						background: $active-blue !important;
+						text-decoration: none;
 					}
 				}
 			}
 		}
 		// Menu Items ( ul in li's in this case)
 		.sm {
-			display: none;
 			// open state
 			&.open {
-				display: inline;
-				position: absolute;
-				z-index: 100;
 				box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
-				border-left: none;
-				border-right: none;
 				border-bottom: 5px solid #243850;
-				text-transform: none;
-				padding: 0;
 				background: #ccc;
-				top: auto;
 				min-width: 200px;
 				li {
-					display: block;
 					a {
 						color: #444;
-						border-left: none;
-						border-right: none;
 						text-shadow: none;
-						text-align: left;
 						padding: 5px 10px;
 						&:hover, &:focus, &:active {
 							background: #243850;
@@ -78,9 +54,6 @@
 				.slflnk {
 					background: #bbb;
 				}
-				.expicon {
-					display: none;
-				}
 			}
 			.row {
 				background: transparent;
@@ -88,11 +61,6 @@
 					color: #6e6e6e;
 				}
 			}
-		}
-		.expicon {
-			left: 0.75em;
-			position: relative;
-			top: 0.75em;
 		}
 	}
 	/*
@@ -102,7 +70,6 @@
 		.menu {
 			border-right: 1px solid #999;
 			> li {
-				float: left;
 				&:last-child {
 					border-right: 0;
 				}
