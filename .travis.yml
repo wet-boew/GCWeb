@@ -8,8 +8,10 @@ env:
     - secure: "mW/VaQscFpItrkD0nNi/2pR2RpU0bHcXL+P/aNCkJtUXsmuf2btwJcgJUH4o8Jr8+DirnR4brTv2tp0jlk7GKnnR36Rw/iy2LrxwSK6b5eL68g0FYY7in5DGUpEQKzqvTHPGzcQXIwMO85qzKMFWMWjos6EWcO/r8tE7/wSI1hw=" #Github Token
 
 before_install:
-  - ./run-first
+  - sudo apt-get update && sudo apt-get install git
 
+install:
+  - scripts/setup
 
 script:
-  - npm test && ./travis.sh
+  - grunt && ./scripts/travis_artifacts.sh

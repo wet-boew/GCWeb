@@ -8,18 +8,28 @@ function error_exit
 	exit 1
 }
 
-if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_REPO_SLUG" == "bci-web/GCWeb" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_REPO_SLUG" == "wet-boew/GCWeb" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
 	#Set git user
 	git config --global user.email "wet.boew.bot@gmail.com"
 	git config --global user.name "Web Experience Toolkit Bot"
 
 	#Add the latest build result
-	echo -e "Uploading the build artifact for branch $TRAVIS_BRANCH\n"
-
-	export build_branch="$TRAVIS_BRANCH"
+	echo -e "Uploading the build artifacts\n"
 
 	grunt deploy || error_exit "Error running gh-pages task";
+
+	echo -e "Updating submodules"
+
+	cd themes-dist
+
+	git fetch origin refs/heads/gh-pages:gh-pages
+	git checkout gh-pages
+	git submodule update --remote --init
+	git add .
+	git commit -m "Updated submodules"
+
+	git push -fq https://${GH_TOKEN}@github.com/wet-boew/themes-dist.git gh-pages > /dev/null 2>&1 || error_exit "Error updating the working examples"
 fi
 
 end=$(date +%s)
