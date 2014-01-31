@@ -71,7 +71,7 @@ module.exports = (grunt) ->
 		[
 			"dist"
 			"copy:deploy"
-			"gh-pages"
+			"gh-pages:travis"
 		]
 	)
 
@@ -593,15 +593,18 @@ module.exports = (grunt) ->
 
 		"gh-pages":
 			options:
-				repo: "https://" + process.env.GH_TOKEN + "@github.com/bci-web/GCWeb-dist.git"
-				branch: process.env.build_branch
-				clone: "GCWeb-dist"
-				message: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
-				silent: true
+				clone: "themes-dist"
 				base: "dist"
-			src: [
-				"**/*.*"
-			]
+
+			travis:
+				options:
+					repo: "https://" + process.env.GH_TOKEN + "@github.com/wet-boew/themes-dist.git"
+					branch: "<%= pkg.name %>"
+					message: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
+					silent: true
+				src: [
+					"**/*.*"
+				]
 
 		connect:
 			options:
