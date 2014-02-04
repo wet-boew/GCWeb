@@ -1,7 +1,12 @@
 <div class="row">
 	<div class="col-md-12">
 		<ul class="list-inline margin-bottom-none">
-			<li><a lang="{{altlang}}" href="{{alternate}}">{{alternatetog}}</a></li>
+{{#isnt language "fr" }}
+			<li><a lang="fr" href="{{altLangPrefix}}-fr.html">{{#i18n "lang-native" language="fr"}}{{/i18n}}</a></li>
+{{/isnt}}
+{{#isnt language "en" }}
+			<li><a lang="en" href="{{altLangPrefix}}-en.html">{{#i18n "lang-native" language="en"}}{{/i18n}}</a></li>
+{{/isnt}}
 		</ul>
 	</div>
 </div>
