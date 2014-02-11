@@ -241,9 +241,8 @@ module.exports = (grunt) ->
 				src: [
 					"*.hbs"
 				]
-				dest: "dist/unmin/demos/partners/"
+				dest: "dist/unmin/partners/"
 				expand: true
-				flatten: true
 
 			demos_min:
 				options:
@@ -362,9 +361,8 @@ module.exports = (grunt) ->
 				src: [
 					"*.hbs"
 				]
-				dest: "dist/demos/partners/"
+				dest: "dist/partners/"
 				expand: true
-				flatten: true
 		sass:
 			base:
 				expand: true
@@ -465,6 +463,7 @@ module.exports = (grunt) ->
 					"!**/theme*.css"
 					"!**/favicon*.*"
 					"!demos/**/*.*"
+					"!theme/**/*.*"
 					"!unmin/demos/**/*.*"
 					"!**/logo.*"
 				]
