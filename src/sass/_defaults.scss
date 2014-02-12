@@ -1,7 +1,6 @@
 /*
 	Global Default Body styling
 */
-
 body {
 	background: #f8f8f8;
 	font-size: 16px;
@@ -11,8 +10,35 @@ body {
 
 a {
 	color: $button-blue;
+	img {
+		&.thumbnail {
+			&:hover {
+				box-shadow: 1px 1px 5px #999;
+			}
+		}
+	}
 }
 
+.form-control {
+	&::-moz-placeholder{
+		color: #5C5C5C !important;
+	}
+	&::-webkit-input-placeholder {
+		color: #5C5C5C !important;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		color: #5C5C5C !important;
+	}
+	&:-ms-input-placeholder {
+		color: #5C5C5C !important;
+	}
+}
+
+input[placeholder], [placeholder], *[placeholder]  {
+		color: #5C5C5C !important;
+}
+
+/* Theme base styles */
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -24,40 +50,181 @@ h1 {
     margin-bottom: 0.2em;
     padding-bottom: 0.2em;
 }
+
 .h3, .h4 {
 	border: none;
 }
 
-.form-control::-moz-placeholder{
-	color: #5C5C5C !important;
+h2, .h2 {
+	font-size: 25px;
 }
 
-
-.form-control::-webkit-input-placeholder {
-  color: #5C5C5C !important;
+h3, .h3 {
+	font-size: 22px;
 }
 
-.form-control:-moz-placeholder { /* Firefox 18- */
-  color: #5C5C5C !important;
+h4, .h4 {
+	font-size: 20px;
 }
 
-.form-control:-ms-input-placeholder {
-   color: #5C5C5C !important;
+h5, .h5 {
+	font-size: 18px;
 }
 
-
-input[placeholder], [placeholder], *[placeholder]  {
-		color: #5C5C5C !important;
+h6, .h6 {
+	font-size: 16px;
+	font-weight: bold;
 }
 
-main ul, ol {
-	li {
-		line-height: 1.4375;
-		margin-bottom: 1em;
-		ul, ol {
-			margin-top: 1em;
+table {
+	margin-bottom: 20px;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+
+th {
+	background-color: #ccc;
+	color: #000;
+	font-weight: normal;
+	padding: 8px;
+	border: 1px solid #ddd;
+	a {
+		color: #000;
+		&:hover, &:focus {
+			text-decoration: none;
+			color: #000;
 		}
 	}
 }
 
+td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
 
+caption {
+	font-weight: bold;
+}
+
+aside {
+	&.features {
+		background-color: #eaebed;
+		background-image: -ms-linear-gradient(top, #ebebed 0%, #eaebed 100%);
+		background-image: -moz-linear-gradient(top, #ebebed 0%, #eaebed 100%);
+		background-image: -o-linear-gradient(top, #ebebed 0%, #eaebed 100%);
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ebebed), color-stop(1, #eaebed));
+		background-image: -webkit-linear-gradient(top, #ebebed 0%, #eaebed 100%);
+		background-image: linear-gradient(to bottom, #ebebed 0%, #eaebed 100%);
+		padding-bottom: 1.5em;
+		h2 {
+			border: none;
+		}
+		.thumbnail {
+			padding: 10px 10px 0;
+			background-color: transparent;
+			border-radius: 0;
+			border: 0;
+			margin-bottom: 1.5em;
+			img {
+				border: solid 1px #eee;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+/* Heading with links inside of rows */
+.sect-lnks h2 a, .sect-lnks h3 a, .sect-lnks h4 a, .departments a h4, .priorities a h2 {
+	font-size: 16px;
+}
+
+/* Home page */
+.home {
+	h2, .departments h3 {
+		font-size: 27px;
+		border-bottom: 1px solid $border-red;
+		margin-bottom: 0.2em;
+		padding-bottom: 0.2em;
+	}
+}
+
+/* Thumbnail Treatments */
+.thumbnail {
+	border-radius: 0;
+	background: $profile-gray;
+	border-color: #eee;
+	padding: 5px;
+	&:hover {
+		img {
+			box-shadow: 1px 1px 5px #999;
+		}
+	}
+}
+
+/* Secondary pages */
+.secondary {
+	section {
+		&.profile {
+			.thumbnail {
+				border: none;
+				padding: 5px;
+			}
+		}
+	}
+}
+
+.pagedetails {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.datemod {
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+/* IE */
+.lt-ie9 {
+	h1, .h1 {
+		font-size: 27px !important;
+	}
+	h2, .h2 {
+		font-size: 25px;
+	}
+	h3, .h3 {
+		font-size: 22px;
+	}
+	h4, .h4 {
+		font-size: 20px;
+	}
+	h5, .h5 {
+		font-size: 18px;
+	}
+	h6, .h6 {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	// overrides from ie8-wet-boew.css for thumbnails
+	.priorities, .features {
+		.thumbnail {
+			display: inline-block;
+		}
+		.thumbnail > img,
+		.thumbnail a > img {
+			display: inline-block;
+		}
+	}
+	.priorities {
+		.thumbnail {
+			background-color: $profile-gray;
+		}
+	}
+
+	/*
+	 Normalizes IE8 behaviour with floated boxes and border-box model. IE without it reports back an incorrect Offset.
+	 */
+	.sect-lnks {
+		vertical-align: top !important;
+	}
+}
