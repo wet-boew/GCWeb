@@ -1,86 +1,10 @@
 /*
- Menu Treatments
-*/
-#wb-sm {
-	@media (min-width: $desktop) {
-		background: $accent-blue;
-		.menu {
-			text-transform: uppercase;
-			display: table;
-			width: 100%;
-			text-shadow: 1px 1px 1px #222;
-			margin-bottom: 0;
-			// Active State;
-			.active, .selected, .wb-navcurr {
-				background: $active-blue !important;
-				color: white !important;
-			}
-			> li {
-				float: none;
-				display: table-cell;
-				border-left: 1px solid #999;
-				&:last-child {
-					border-right: 1px solid #999;
-				}
-				a {
-					color: #fff;
-					&:hover, &:focus {
-						text-shadow: none;
-						background: $active-blue !important;
-						text-decoration: none;
-					}
-				}
-			}
-		}
-		// Menu Items ( ul in li's in this case)
-		.sm {
-			// open state
-			&.open {
-				box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
-				border-bottom: 5px solid #243850;
-				background: #ccc;
-				min-width: 200px;
-				li {
-					a {
-						color: #444;
-						text-shadow: none;
-						padding: 5px 10px;
-						&:hover, &:focus, &:active {
-							background: #243850;
-							color: #fff;
-						}
-					}
-				}
-				.slflnk {
-					background: #bbb;
-				}
-			}
-			.row {
-				background: transparent;
-				a {
-					color: #6e6e6e;
-				}
-			}
-		}
-	}
-	/*
-	 Accesiblity tweak for menu based overlapping at lowest desktop setting ( text size 200% )
-	*/
-	@media (min-width: $desktop) and (max-width: $desktop-max) {
-		.menu {
-			border-right: 1px solid #999;
-			> li {
-				&:last-child {
-					border-right: 0;
-				}
-			}
-		}
-	}
-}
+ * Site menu
+ */
 
 /*
- Mobile Menu
-*/
+ * Mobile panel
+ */
 #mb-pnl {
 	background: url(data:image/gif;base64,R0lGODlh6AMBAIAAABk0UQAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkMxRUQ2ODczNUEyODExRTNBODM4OUNCRUJBOUJGN0REIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkMxRUQ2ODc0NUEyODExRTNBODM4OUNCRUJBOUJGN0REIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzFFRDY4NzE1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzFFRDY4NzI1QTI4MTFFM0E4Mzg5Q0JFQkE5QkY3REQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQAAAAAACwAAAAA6AMBAAACHoSPqcvtD6OctNqLs968+w+G4kiW5omm6sq27gs7BQA7);
 	background-position: 15px 0;
@@ -217,38 +141,5 @@
 		a, summary {
 			color: #2e5576 !important;
 		}
-	}
-}
-
-/*
- Secondary Navigation
-*/
-
-.wb-sec {
-	margin-top: 20px;
-	padding-bottom: 2em;
-	.list-group {
-		margin-bottom: 0;
-		a.list-group-item {
-			background-color: $menu-background;
-			color: $menu-colour;
-			border-radius: 0;
-			margin-top: -1px;
-			text-decoration: none;
-			&.wb-navcurr, &:hover, &:focus {
-				background-color: darken($menu-background, 50%);
-				color: lighten($menu-colour, 75%);
-			}
-		}
-		.list-group {
-			.list-group-item {
-				background-color: darken($menu-background, 10%);
-				color: darken($menu-colour, 50%);
-				padding-left: 1.8em;
-			}
-		}
-	}
-	@media screen and (max-width: $mobile) {
-		display: none;
 	}
 }

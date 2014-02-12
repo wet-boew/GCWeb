@@ -1,0 +1,64 @@
+/*
+ * Site menu (medium view and over)
+ */
+#wb-sm {
+	background: $accent-blue;
+	.menu {
+		text-transform: uppercase;
+		display: table;
+		width: 100%;
+		text-shadow: 1px 1px 1px #222;
+		margin-bottom: 0;
+		// Active State;
+		.active, .selected, .wb-navcurr {
+			background: $active-blue !important;
+			color: white !important;
+		}
+		> li {
+			float: none;
+			display: table-cell;
+			border-left: 1px solid #999;
+			&:last-child {
+				border-right: 1px solid #999;
+			}
+			a {
+				color: #fff;
+				&:hover, &:focus {
+					text-shadow: none;
+					background: $active-blue !important;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	// Menu Items ( ul in li's in this case)
+	.sm {
+		// open state
+		&.open {
+			box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
+			border-bottom: 5px solid #243850;
+			background: #ccc;
+			min-width: 200px;
+			li {
+				a {
+					color: #444;
+					text-shadow: none;
+					padding: 5px 10px;
+					&:hover, &:focus, &:active {
+						background: #243850;
+						color: #fff;
+					}
+				}
+			}
+			.slflnk {
+				background: #bbb;
+			}
+		}
+		.row {
+			background: transparent;
+			a {
+				color: #6e6e6e;
+			}
+		}
+	}
+}

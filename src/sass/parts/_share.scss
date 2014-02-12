@@ -1,0 +1,34 @@
+/*
+ * Share widget-specific overrides
+ */
+%gcweb-share-text-decoration-none {
+	text-decoration: none;
+}
+a {
+	&.shr-opn{
+		@extend %gcweb-share-text-decoration-none;
+		&:hover {
+			@extend %gcweb-share-text-decoration-none;
+		}
+	}
+}
+
+// Feedback & Share button
+.shr, .fdbck {
+	.btn {
+		background-color: #eee;
+		color: $accent-blue;
+		.glyphicon {
+			margin-right: 3px;
+		}
+		&:hover {
+			background-color: darken(#eeeeee, 5%);
+			color: $active-blue;
+		}
+	}
+	&.text-right {
+		.shr-pg {
+			text-align: left;
+		}
+	}
+}
