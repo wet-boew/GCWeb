@@ -118,9 +118,11 @@
 			float: left;
 			margin-left: 15px;
 		}
-		.form-group.submit {
-			width: 15%;
-			margin-left: 0;
+		.form-group {
+			&.submit {
+				width: 15%;
+				margin-left: 0;
+			}
 		}
 	}
 	.sm-pnl{
@@ -140,6 +142,50 @@
 		background: #cdd4da !important;
 		a, summary {
 			color: #2e5576 !important;
+		}
+	}
+}
+
+[dir=rtl] {
+	#mb-pnl {
+		padding-left: 0;
+		padding-right: 15px;
+		background: transparent;
+		.lng-ofr {
+			ul {
+				text-align: left;
+			}
+		}
+		.srch-pnl {
+			.form-group {
+				float: right;
+				margin-left: 0;
+				margin-right: 15px;
+				input {
+					margin-left: 0;
+					margin-right: -4px;
+				}
+				&.submit {
+					margin-right: 0;
+				}
+			}
+		}
+		.modal-header {
+			text-align: right;
+			&:before {
+				border-left: none;
+				border-right: 1em solid rgba(0, 0, 0, 0);
+				left: auto;
+				right: -1em;
+			}
+		}
+		ul {
+			li {
+				&.no-sect {
+					padding-left: 0;
+					padding-right: 1.27em
+				}
+			}
 		}
 	}
 }
