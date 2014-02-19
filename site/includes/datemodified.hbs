@@ -1,6 +1,9 @@
 <div class="row pagedetails">
 	<div class="col-xs-6 datemod">
-		{{#i18n "%tmpl-date-mod"}}{{/i18n}} <time>2013-08-06</time>
+		<dl class="wb-date">
+			<dt>{{#i18n "tmpl-date-mod"}}{{/i18n}}{{#i18n "space"}}{{/i18n}}</dt>
+			<dd><time>{{page.dateModified}}</time></dd>
+		</dl>
 	</div>
 	<div class="col-xs-6 fdbck text-right">
 		<a href="{{#i18n "%tmpl-feedback-link"}}{{/i18n}}" class="btn"><span class="glyphicon glyphicon-comment"></span>{{#i18n "%tmpl-feedback"}}{{/i18n}}<span class="wb-inv">{{#i18n "%tmpl-feedback-hidden"}}{{/i18n}}</span></a>
