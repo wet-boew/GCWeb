@@ -388,7 +388,7 @@ module.exports = (grunt) ->
 			messages:
 				expand: true
 				cwd: "src/sass"
-				src: "messages.scss"
+				src: "messages*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
