@@ -7,15 +7,25 @@
 	padding-bottom: 2em;
 	.list-group {
 		margin-bottom: 0;
-		a.list-group-item {
-			background-color: $menu-background;
-			color: $menu-colour;
-			border-radius: 0;
-			margin-top: -1px;
-			text-decoration: none;
-			&.wb-navcurr, &:hover, &:focus {
-				background-color: darken($menu-background, 50%);
-				color: lighten($menu-colour, 75%);
+		a {
+			.list-group-item {
+				background-color: $menu-background;
+				color: $menu-colour;
+				border-radius: 0;
+				margin-top: -1px;
+				text-decoration: none;
+				%secmenu-canada-theme-menuitem-curr-hover-focus {
+					background-color: darken($menu-background, 50%);
+					color: lighten($menu-colour, 75%);
+				}
+				&.wb-navcurr {
+					@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
+				}
+				&[href] {
+					&:hover, &:focus {
+						@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
+					}
+				}
 			}
 		}
 		.list-group {
