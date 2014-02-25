@@ -66,6 +66,13 @@
 
 				<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
 					{{>body}}
+{{#if page.dateModified}}
+	{{#is page.share "true"}}
+					{{>datemodified-share}}
+	{{else}}
+					{{>datemodified}}
+	{{/is}}
+{{/if}}
 				</main>
 
 				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">

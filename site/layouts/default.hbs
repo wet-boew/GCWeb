@@ -64,6 +64,13 @@
 		{{>promotion}}
 		<main role="main" property="mainContentOfPage" class="container">
 			{{>body}}
+{{#if page.dateModified}}
+	{{#is page.share "true"}}
+			{{>datemodified-share}}
+	{{else}}
+			{{>datemodified}}
+	{{/is}}
+{{/if}}
 		</main>
 
 		<aside class="features">
