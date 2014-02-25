@@ -1,14 +1,38 @@
-<aside class="jumbotron pagebrand promo-one visible-md visible-lg">
+<aside class="jumbotron pagebrand flpr">
 	<div class="container">
 		<div class="row">
-			<h2 class="wb-inv">{{#i18n "%tmpl-promo-title"}}{{/i18n}}</h2>
-			<figure class="col-md-12">
-				<img src="{{assets}}/img/promos/one.jpg" alt="">
-				<figcaption>
-					<h2 class="h3">Banff National Park</h2>
-					<p><a href="#" class="learnmore">Learn More...</a></p>
-		    	</figcaption>
-			</figure>
+			<h2 class="wb-inv">{{#i18n "%tmpl-promo-title"}}{{/i18n}}</h2>            
+			<div class="wb-tabs carousel-s2 playing" data-speed="slow">
+				<ul role="tablist">
+					<li class="active"><a href="#tab1" title="Tab 1: {{#startsWith "en" language }} Banff National Park {{else}} Parc national Banff {{/startsWith}}"><img src="{{assets}}/img/promos/one.jpg" alt=""></a></li>
+					<li><a href="#tab2" title="Tab 2: {{#startsWith "en" language }} Algonquin Provincial Park {{else}} Parc Provincial Algonquin {{/startsWith}}"><img src="{{assets}}/img/promos/two.jpg" alt=""></a></li>
+					<li><a href="#tab3" title="Tab 3: {{#startsWith "en" language }} Rideau Canal {{else}} Canal Rideau {{/startsWith}}"><img src="{{assets}}/img/promos/three.jpg" alt=""></a></li>
+				</ul>
+				<div role="tabpanel" id="tab1" class="in fade">
+					<figure>
+						<img src="{{assets}}/img/promos/one.jpg" alt="">
+						<figcaption>
+							<p><a href="#" class="learnmore">{{#startsWith "en" language }} Banff National Park {{else}} Parc national Banff {{/startsWith}}</a></p>
+						</figcaption>
+					</figure>
+				</div>
+				<div role="tabpanel" id="tab2" class="out fade">
+					<figure>
+						<img src="{{assets}}/img/promos/two.jpg" alt="">
+						<figcaption>
+							<p><a href="#" class="learnmore">{{#startsWith "en" language }} Algonquin Provincial Park {{else}} Parc Provincial Algonquin {{/startsWith}}</a></p>
+						</figcaption>
+					</figure>
+				</div>
+				<div role="tabpanel" id="tab3" class="out fade">
+					<figure>
+						<img src="{{assets}}/img/promos/three.jpg" alt="">
+						<figcaption>
+							<p><a href="#" class="learnmore">{{#startsWith "en" language }} Rideau Canal {{else}} Canal Rideau {{/startsWith}}</a></p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
-   </div>
+	</div>
 </aside>
