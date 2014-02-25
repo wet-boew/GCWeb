@@ -404,12 +404,12 @@ module.exports = (grunt) ->
 					"ios 5"
 				]
 			all:
-				cwd: "dist/css"
+				cwd: "dist/unmin/css"
 				src: [
 					"**/*.css"
 					"!**/*.min.css"
 				]
-				dest: "dist/css"
+				dest: "dist/unmin/css"
 				expand: true
 				flatten: true
 
