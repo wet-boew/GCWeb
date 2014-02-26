@@ -25,7 +25,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_REPO_SLUG" == "wet-boew/G
 
 	git fetch origin refs/heads/gh-pages:gh-pages
 	git checkout gh-pages
-	git submodule update --remote --init
+	git submodule update --remote --init > /dev/null 2>&1 || error_exit "Error updating submodules"
 	git add .
 	git commit -m "Updated submodules"
 
