@@ -150,9 +150,17 @@ module.exports = (grunt) ->
 						expand: true
 						cwd: "site/pages"
 						src: [
-							"*.hbs"
+							"**/*.hbs"
 						]
 						dest: "dist/unmin"
+					,
+						#docs
+						expand: true
+						cwd: "lib/wet-boew/site/pages/docs"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/unmin/docs"
 					,
 						#plugins
 						expand: true
@@ -254,7 +262,7 @@ module.exports = (grunt) ->
 						expand: true
 						cwd: "site/pages"
 						src: [
-							"*.hbs",
+							"**/*.hbs",
 							"!index.hbs"
 						]
 						dest: "dist"
@@ -266,6 +274,14 @@ module.exports = (grunt) ->
 							"index.hbs"
 						]
 						dest: "dist"
+					,
+						#docs
+						expand: true
+						cwd: "lib/wet-boew/site/pages/docs"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/docs"
 					,
 						#plugins
 						expand: true
