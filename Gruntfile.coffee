@@ -91,6 +91,7 @@ module.exports = (grunt) ->
 			"copy:site_min"
 			"copy:assets_min"
 			"copy:fonts_min"
+			"copy:wetboew_demo_min"
 		]
 	)
 
@@ -101,6 +102,7 @@ module.exports = (grunt) ->
 			"copy:site"
 			"copy:assets"
 			"copy:fonts"
+			"copy:wetboew_demo"
 		]
 	)
 
@@ -483,6 +485,16 @@ module.exports = (grunt) ->
 					"!unmin/demos/**/*.*"
 					"!**/logo.*"
 				]
+				dest: "dist/"
+			wetboew_demo:
+				expand: true
+				cwd: "lib/wet-boew/dist/unmin"
+				src: "demos/**/demo/*.*"
+				dest: "dist/unmin/"
+			wetboew_demo_min:
+				expand: true
+				cwd: "lib/wet-boew/dist"
+				src: "demos/**/demo/*.*"
 				dest: "dist/"
 			site:
 				expand: true
