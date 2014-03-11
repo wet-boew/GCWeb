@@ -110,7 +110,7 @@ module.exports = (grunt) ->
 		"js"
 		"INTERNAL: Brings in the custom JavaScripts."
 		[
-			"copy:customJS"
+			"copy:js"
 			"copy:json"
 			"copy:json_min"
 			"uglify"
@@ -424,41 +424,20 @@ module.exports = (grunt) ->
 			all:
 				cwd: "dist/unmin/css"
 				src: [
-					"**/*.css"
-					"!**/*.min.css"
+					"*theme*.css"
 				]
 				dest: "dist/unmin/css"
 				expand: true
-				flatten: true
 
 		cssmin:
-			options:
-				banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
-						" * <%= pkg.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n *\n */"
-			dist:
-				cwd: "dist/unmin/css"
-				src: [
-					"**/*.css"
-					"!**/wet-boew.css"
-					"!**/ie8-wet-boew.css"
-					"!**/*.min.css"
-					"!**/ie8*.css"
-				]
-				ext: ".min.css"
-				dest: "dist/css"
-				expand: true
-
-			distWET:
+			theme:
 				options:
-					banner: ""
-				cwd: "dist/unmin/css"
-				src: [
-					"**/wet-boew.css"
-					"**/ie8-wet-boew.css"
-				]
+					banner: "<%= banner %>"
+				expand: true
+				cwd: "dist/unmin/css/"
+				src: "*theme*.css"
 				ext: ".min.css"
 				dest: "dist/css"
-				expand: true
 
 		htmlcompressor:
 			options:
@@ -543,7 +522,7 @@ module.exports = (grunt) ->
 				]
 				dest: "dist"
 				expand: true
-			customJS:
+			js:
 				expand: true
 				cwd: "src/js"
 				src: "*.js"
@@ -594,13 +573,13 @@ module.exports = (grunt) ->
 
 		# Minify
 		uglify:
-			customJS:
+			dist:
 				options:
 					banner: "<%= banner %>"
 				expand: true
-				cwd: "dist/unmin/js/customJS"
-				src: ["*.js"]
-				dest: "dist/js/customJS"
+				cwd: "src/js/"
+				src: "<%= copy.js.src %>"
+				dest: "dist/js/"
 				ext: ".min.js"
 
 		hub:
