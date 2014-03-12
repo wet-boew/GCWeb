@@ -18,6 +18,7 @@ module.exports = (grunt) ->
 			"assets-dist"
 			"assemble"
 			"htmlcompressor"
+			"htmllint"
 		]
 	)
 
@@ -32,6 +33,7 @@ module.exports = (grunt) ->
 			"assemble:experimental"
 			"assemble:index"
 			"assemble:partners"
+			"htmllint"
 		]
 	)
 
@@ -451,6 +453,46 @@ module.exports = (grunt) ->
 				dest: "dist"
 				expand: true
 
+		htmllint:
+			ajax:
+				options:
+					ignore: [
+						"XHTML element “head” is missing a required instance of child element “title”."
+
+					]
+				src: [
+					"dist/unmin/ajax/**/*.html"
+					"dist/unmin/demos/menu/demo/*.html"
+
+				]
+			ajaxFragments:
+				options:
+					ignore: [
+						"XHTML element “head” is missing a required instance of child element “title”."
+						"XHTML element “li” not allowed as child of XHTML element “body” in this context. (Suppressing further errors from this subtree.)"
+						"The “aria-controls” attribute must point to an element in the same document."
+					]
+				src: [
+					"dist/unmin/demos/cal-events/ajax/**/*.html"
+					"dist/unmin/assets/*.html"
+				]
+			all:
+				options:
+					ignore: [
+						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
+						"The “date” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill."
+						"The “track” element is not supported by browsers yet. It would probably be better to wait for implementations."
+						"The “time” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill."
+						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
+						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
+						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
+					]
+				src: [
+					"dist/unmin/**/*.html"
+					"!dist/unmin/**/ajax/**/*.html"
+					"!dist/unmin/assets/**/*.html"
+					"!dist/unmin/demos/menu/demo/*.html"
+				]
 		copy:
 			wetboew:
 				expand: true
@@ -638,6 +680,7 @@ module.exports = (grunt) ->
 	@loadNpmTasks "grunt-contrib-uglify"
 	@loadNpmTasks "grunt-contrib-watch"
 	@loadNpmTasks "grunt-gh-pages"
+	@loadNpmTasks "grunt-html"
 	@loadNpmTasks "grunt-htmlcompressor"
 	@loadNpmTasks "grunt-hub"
 	@loadNpmTasks "grunt-install-dependencies"
