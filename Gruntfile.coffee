@@ -435,7 +435,7 @@ module.exports = (grunt) ->
 					banner: "<%= banner %>"
 				expand: true
 				cwd: "dist/unmin/css/"
-				src: "*theme*.css"
+				src: ["*theme*.css", "messages*.css"]
 				ext: ".min.css"
 				dest: "dist/css"
 
