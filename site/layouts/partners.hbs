@@ -63,8 +63,11 @@
 		{{>promotion}}
 		<div class="container">
 			<div class="row">
-
+{{#is page.pageclass "secondary"}}
 				<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
+{{else}}
+				<main property="mainContentOfPage" class="col-md-12" role="main">
+{{/is}}
 					{{>contentbuttons}}
 					{{>body}}
 {{#if page.dateModified}}
@@ -75,15 +78,17 @@
 	{{/is}}
 {{/if}}
 				</main>
-
+{{#is page.pageclass "secondary"}}
 				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
 					<h2 id="wb-sec-h" class="wb-inv">{{#i18n "%tmpl-sec-menu"}}{{/i18n}}</h2>
 					{{>secondarymenu}}
 				</nav>
-
+{{/is}}
 			</div>
 		</div>
-
+{{#is page.pageclass "theme"}}
+		{{>related}}
+{{/is}}
 		<aside class="features">
 			{{>features}}
 		</aside>
