@@ -19,10 +19,10 @@
 		{{>google}}
 		<ul id="wb-tphp">
 			<li class="wb-slc">
-				<a class="wb-sl" href="#wb-cont">{{#i18n "tmpl-skip-cont"}}{{/i18n}}</a>
+				<a class="wb-sl" href="#wb-cont">{{i18n "tmpl-skip-cont"}}</a>
 			</li>
 			<li class="wb-slc visible-md visible-lg">
-				<a class="wb-sl" href="#wb-info">{{#i18n "tmpl-skip-info"}}{{/i18n}}</a>
+				<a class="wb-sl" href="#wb-info">{{i18n "tmpl-skip-info"}}</a>
 			</li>
 		</ul>
 
@@ -30,32 +30,32 @@
 			<div id="wb-bnr" class="container">
 
 				<section id="wb-lng" class="visible-md visible-lg text-right">
-					<h2 class="wb-inv">{{#i18n "tmpl-lang-select"}}{{/i18n}}</h2>
+					<h2 class="wb-inv">{{i18n "tmpl-lang-select"}}</h2>
 					{{>languagetoggle}}
 				</section>
 
 				<div class="row">
 					{{>brand}}
 					<section class="wb-mb-links col-xs-3 visible-sm visible-xs" id="wb-glb-mn" >
-						<h2>{{#i18n "menu"}}{{/i18n}}</h2>
+						<h2>{{i18n "menu"}}</h2>
 						{{>mobimenu}}
 					</section>
 
 					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-						<h2 class="wb-inv">{{#i18n "tmpl-search"}}{{/i18n}}</h2>
+						<h2 class="wb-inv">{{i18n "tmpl-search"}}</h2>
 						{{>sitesearch}}
 					</section>
 				</div>
 			</div>
 
 			<nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
-				<h2 class="wb-inv">{{#i18n "tmpl-site-menu"}}{{/i18n}}</h2>
+				<h2 class="wb-inv">{{i18n "tmpl-site-menu"}}</h2>
 				{{>sitemenu}}
 			</nav>
 
 			{{#unless_eq pageclass compare="home"}}
 			<nav role="navigation" id="wb-bc" class="" property="breadcrumb">
-				<h2>{{#i18n "you-are-here"}}{{/i18n}}</h2>
+				<h2>{{i18n "you-are-here"}}</h2>
 				{{>breadcrumbs}}
 			</nav>
 			{{/unless_eq}}
@@ -90,7 +90,7 @@
 				</main>
 {{#is page.pageclass "secondary"}}
 				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
-					<h2 id="wb-sec-h" class="wb-inv">{{#i18n "tmpl-sec-menu"}}{{/i18n}}</h2>
+					<h2 id="wb-sec-h" class="wb-inv">{{i18n "tmpl-sec-menu"}}</h2>
 					{{>secondarymenu}}
 				</nav>
 {{/is}}
@@ -105,7 +105,7 @@
 
 		<footer role="contentinfo" id="wb-info">
 			<nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-				<h2 class="wb-inv">{{#i18n "tmpl-site-info"}}{{/i18n}}</h2>
+				<h2 class="wb-inv">{{i18n "tmpl-site-info"}}</h2>
 				{{>footer}}
 			</nav>
 			{{>footerbrand}}
