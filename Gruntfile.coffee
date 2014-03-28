@@ -121,6 +121,8 @@ module.exports = (grunt) ->
 
 	@initConfig
 		pkg: @file.readJSON "package.json"
+		jqueryVersion: grunt.file.readJSON("lib/jquery/bower.json")
+		jqueryOldIEVersion: grunt.file.readJSON("lib/jquery-oldIE/bower.json")
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * <%= pkg.version %> - " + "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n *\n */"
 
@@ -149,6 +151,9 @@ module.exports = (grunt) ->
 			demos:
 				options:
 					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				files: [
 						#site
 						expand: true
@@ -214,6 +219,9 @@ module.exports = (grunt) ->
 				options:
 					layout: "ajax.hbs"
 					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -226,6 +234,9 @@ module.exports = (grunt) ->
 				options:
 					experimental: true
 					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
 					"*.hbs",
@@ -238,6 +249,9 @@ module.exports = (grunt) ->
 				options:
 					layout: "splash.hbs"
 					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
 					"index.hbs"
@@ -249,6 +263,9 @@ module.exports = (grunt) ->
 				options:
 					layout: "partners.hbs"
 					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -260,6 +277,8 @@ module.exports = (grunt) ->
 				options:
 					environment:
 						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 					assets: "dist"
 				files: [
 						#site
@@ -336,6 +355,8 @@ module.exports = (grunt) ->
 					layout: "ajax.hbs"
 					environment:
 						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 					assets: "dist"
 				cwd: "site/pages/ajax"
 				src: [
@@ -363,6 +384,8 @@ module.exports = (grunt) ->
 					layout: "splash.hbs"
 					environment:
 						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 					assets: "dist"
 				cwd: "site/pages"
 				src: [
@@ -376,6 +399,8 @@ module.exports = (grunt) ->
 					layout: "partners.hbs"
 					environment:
 						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 					assets: "dist"
 				cwd: "site/pages/partners"
 				src: [
