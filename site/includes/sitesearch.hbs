@@ -1,4 +1,11 @@
-<form action="#" method="post" role="search" class="form-inline">
+<form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript"> 
+		var autoCompletionOptions = { 'validLanguages' : {{#startsWith "en" language }}'en'{{else}}'fr'{{/startsWith}}, };
+		google.load( 'search', '1');
+		google.setOnLoadCallback( function() {google.search.CustomSearchControl.attachAutoCompletionWithOptions( '008724028898028201144:knjjdikrhq0', document.getElementById( 'wb-srch-q' ), 'cse-search-box', autoCompletionOptions );});
+		google.setOnLoadCallback( function() {setTimeout( function(){google.search.CustomSearchControl.attachAutoCompletionWithOptions( '008724028898028201144:knjjdikrhq0', document.getElementById( 'wb-srch-q-imprt' ), 'cse-search-box',autoCompletionOptions );}, 2000);});
+	</script>
 	<div class="form-group">
 		<label for="wb-srch-q" class="wb-inv">{{{i18n "tmpl-search-site"}}}</label>
 		<input id="wb-srch-q" class="wb-srch-q form-control" name="wb-srch-q" type="search" value="" size="27" maxlength="150" placeholder="{{{i18n "tmpl-search-placeholder"}}}" />
