@@ -8,7 +8,9 @@ env:
     - secure: "JLds52bUoPVt3sTjZc8NrMusq6P4V8EL5ZUBQJ2BeshmUcisLjvtbI64CYFAhOG2ouX78brtixEjbwsvXr8RQaHZKIfT0xP2IeQAB5DnnERZtGzKkleCp34SSjhfYX/j9i+yvapTlXUW2gyE6F0XYOX5H0QqQ+S33NKvLVx2l0g=" #Github Token
 
 install:
+  - gem install scss-lint --no-ri --version '=0.22.0'
   - scripts/setup
 
 script:
+  - scss-lint .
   - grunt && ./scripts/travis_artifacts.sh
