@@ -39,27 +39,29 @@
 	font-size: 1.2em;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-	li {
-		&.tab-count {
-			.curr-count {
-				@extend %carousel-nav-font-size;
-			}
-		}
-		&.plypause {
-			a {
-				@extend %carousel-nav-font-size;
-			}
-		}
-	}
-}
+.wb-tabs {
+	&.carousel-s2 {
+		[role="tablist"] {
+			li {
+				&.tab-count {
+					.curr-count {
+						@extend %carousel-nav-font-size;
+					}
+				}
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-	li {
-		&.nxt, &.prv {
-			a {
-				.glyphicon {
-					font-size: 1.65em;
+				&.plypause {
+					a {
+						@extend %carousel-nav-font-size;
+					}
+				}
+
+				&.nxt,
+				&.prv {
+					a {
+						.glyphicon {
+							font-size: 1.65em;
+						}
+					}
 				}
 			}
 		}
