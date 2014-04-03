@@ -8,18 +8,18 @@
 
 
 %basic-font-format {
+	display: block;
 	font-family: "gcweb";
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
 	-webkit-font-smoothing: antialiased;
-	transform: rotate(0);
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	text-decoration: none;
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 	-webkit-text-stroke: 1px transparent;
-	display: block;
-	text-decoration: none;
+	text-transform: none;
+	transform: rotate(0);
 }
 
 header {
@@ -62,9 +62,9 @@ header {
 }
 
 .cndwrdmrk {
-	position: relative;
-	min-width: 100%;
 	font-size: 3.5em;
+	min-width: 100%;
+	position: relative;
 	text-decoration: none;
 	&:before, &:after {
 		@extend %basic-font-format;
@@ -72,13 +72,13 @@ header {
 		position: relative;
 	}
 	&:before {
-		content: "\f100";
 		color: #000;
+		content: "\f100";
 	}
 	&:after {
 		@extend %basic-font-format;
-		content: "\f101";
 		color: #f00;
+		content: "\f101";
 		left: -1em;
 	}
 }

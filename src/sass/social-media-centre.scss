@@ -6,8 +6,8 @@
 /* Re-usable rules */
 
 %data-block-no-border {
-	display: block;
 	border: 0;
+	display: block;
 }
 
 %data-hidden {
@@ -26,29 +26,31 @@
 		tbody {
 			padding-top: 2em;
 			tr {
+				background-clip: content-box;
+				background-color: #eee;
+				background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
+				background-origin: content-box;
+				background-position: top left, top left, bottom left, top right;
+				background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+				border: 0;
 				display: inline-block;
 				margin-bottom: 0; // For input.btn
+				margin-bottom: 20px;
+				padding: 5px;
 				text-align: center;
 				vertical-align: middle;
-				padding: 5px;
-				margin-bottom: 20px;
-				background-color: #eee;
-				border: 0;
-				background-clip: content-box;
 				width: 100%;
+
 				@media (min-width: 768px) {
 					width: 50%;
 				}
+
 				@media (min-width: 1200px) {
 					width: 33.333%;
 				}
-				background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
-				background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
-				background-position: top left, top left, bottom left, top right;
-				background-origin: content-box;
 				.product-department {
-					white-space: normal;
 					height: 3em;
+					white-space: normal;
 				}
 			}
 		}
@@ -83,18 +85,19 @@
 	}
 
 	.product-department, .product-language {
-		margin-top: 1em;
 		font-weight: bold;
+		margin-top: 1em;
 	}
 
 	.product-link {
 		display: block;
-		text-decoration: none;
-		white-space: normal;
+
 		// Overrides for lack of specificity of main .btn-primary in theme.scss.
 		// Remove when theme.scss has been fixed.
 		padding: 6px 12px !important;
+		text-decoration: none;
 		text-transform: none !important;
+		white-space: normal;
 
 		&:hover, &:focus {
 			text-decoration: none;
