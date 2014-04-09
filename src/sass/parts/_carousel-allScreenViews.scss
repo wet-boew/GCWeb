@@ -2,34 +2,38 @@
  * Carousel-specific overrides
  */
 .prm-flpr {
-	margin-top: 1px;
 	background-color: #eee;
+	margin-top: 1px;
+
 	.carousel-s2 {
 		.plypause {
 			font-size: 1.3em;
 		}
+
 		figure {
 			figcaption {
 				font-size: 1.3em;
+
 				a {
-				  text-decoration: none;
-				  &:hover{
-				    text-decoration: underline;
-				  }
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			}
 		}
 	}
 }
 
-/* 
-* IE 
+/*
+* IE
 */
 .lt-ie9 {
 	.prm-flpr {
 		.carousel-s2 {
 			figcaption {
-				background: url(../assets/backdrop.png);
+				background: url("../assets/backdrop.png");
 			}
 		}
 	}
@@ -39,30 +43,31 @@
 	font-size: 1.2em;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-	li {
-		&.tab-count {
-			.curr-count {
-				@extend %carousel-nav-font-size;
-			}
-		}
-		&.plypause {
-			a {
-				@extend %carousel-nav-font-size;
-			}
-		}
-	}
-}
+.wb-tabs {
+	&.carousel-s2 {
+		[role="tablist"] {
+			li {
+				&.tab-count {
+					.curr-count {
+						@extend %carousel-nav-font-size;
+					}
+				}
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-	li {
-		&.nxt, &.prv {
-			a {
-				.glyphicon {
-					font-size: 1.65em;
+				&.plypause {
+					a {
+						@extend %carousel-nav-font-size;
+					}
+				}
+
+				&.nxt,
+				&.prv {
+					a {
+						.glyphicon {
+							font-size: 1.65em;
+						}
+					}
 				}
 			}
 		}
 	}
 }
-

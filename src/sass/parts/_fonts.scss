@@ -1,30 +1,30 @@
 @font-face {
-    font-family: "gcweb";
-    src: url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.eot");
-    src: url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.eot?#iefix") format("embedded-opentype"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.woff") format("woff"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.ttf") format("truetype"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.svg#gcweb") format("svg");
-    font-weight: normal;
-    font-style: normal;
+	font-family: "gcweb";
+	src: url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.eot");
+	src: url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.eot?#iefix") format("embedded-opentype"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.woff") format("woff"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.ttf") format("truetype"), url("../fonts/gcweb_0c4a4eb7974d0a7287c93c02965f9b3f.svg#gcweb") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
-
 %basic-font-format {
-    font-family: "gcweb";
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    transform: rotate(0deg);
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-    -webkit-text-stroke: 1px transparent;
-    display: block;
-    text-decoration: none;
+	display: block;
+	font-family: "gcweb";
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	text-decoration: none;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+	-webkit-text-stroke: 1px transparent;
+	text-transform: none;
+	transform: rotate(0);
 }
 
 header {
 	.brand {
 		padding-bottom: 0;
+
 		a {
 			position: relative;
 			text-decoration: none;
@@ -32,18 +32,21 @@ header {
 	}
 }
 
-.icn-sig-en, .icn-sig-fr {
-    color: #fff;
-    display: inline-block;
-    font-size: 1.5em;
-    padding: 0.7em 0 0.5em;
-    &:before {
-        @extend %basic-font-format;
-        position: relative;
-    }
+.icn-sig-en,
+.icn-sig-fr {
+	color: #fff;
+	display: inline-block;
+	font-size: 1.5em;
+	padding: 0.7em 0 0.5em;
+
+	&:before {
+		@extend %basic-font-format;
+		position: relative;
+	}
 }
 
-:root .icn-sig-en, .icn-sig-fr {
+:root .icn-sig-en,
+.icn-sig-fr {
 	&:before {
 		left: -10em;
 	}
@@ -62,23 +65,27 @@ header {
 }
 
 .cndwrdmrk {
-    position: relative;
-    min-width: 100%;
-    font-size: 3.5em;
-    text-decoration: none;
-    &:before, &:after {
-        @extend %basic-font-format;
-        display: inline;
-        position: relative;
-    }
-    &:before {
-        content: "\f100";
-        color: #000;
-    }
-    &:after {
-        @extend %basic-font-format;
-        content: "\f101";
-        color: #f00;
-        left: -1em;
-    }
+	font-size: 3.5em;
+	min-width: 100%;
+	position: relative;
+	text-decoration: none;
+
+	&:before,
+	&:after {
+		@extend %basic-font-format;
+		display: inline;
+		position: relative;
+	}
+
+	&:before {
+		color: #000;
+		content: "\f100";
+	}
+
+	&:after {
+		@extend %basic-font-format;
+		color: #f00;
+		content: "\f101";
+		left: -1em;
+	}
 }
