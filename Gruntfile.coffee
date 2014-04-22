@@ -29,6 +29,7 @@ module.exports = (grunt) ->
 		[
 			"build"
 			"assemble:demos"
+			"assemble:ajax"
 			"assemble:experimental"
 			"assemble:index"
 			"assemble:partners"
@@ -147,6 +148,22 @@ module.exports = (grunt) ->
 				layoutdir: "site/layouts"
 				layout: "default.hbs"
 
+			ajax:
+				options:
+					layoutdir: "lib/wet-boew/site/layouts"
+					layout: "ajax.hbs"
+					assets: "dist/unmin"
+					environment:
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
+				cwd: "site/pages/ajax"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/unmin/ajax/"
+				expand: true
+				flatten: true
+
 			demos:
 				options:
 					assets: "dist/unmin"
@@ -159,6 +176,8 @@ module.exports = (grunt) ->
 						cwd: "site/pages"
 						src: [
 							"**/*.hbs"
+							"!ajax/**.hbs"
+							"!index.hbs"
 						]
 						dest: "dist/unmin"
 					,
@@ -257,6 +276,23 @@ module.exports = (grunt) ->
 				dest: "dist/unmin/partners/"
 				expand: true
 
+			ajax_min:
+				options:
+					layoutdir: "lib/wet-boew/site/layouts"
+					layout: "ajax.hbs"
+					environment:
+						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
+					assets: "dist"
+				cwd: "site/pages/ajax"
+				src: [
+					"*.hbs"
+				]
+				dest: "dist/ajax/"
+				expand: true
+				flatten: true
+
 			demos_min:
 				options:
 					environment:
@@ -270,6 +306,7 @@ module.exports = (grunt) ->
 						cwd: "site/pages"
 						src: [
 							"**/*.hbs",
+							"!ajax/**.hbs"
 							"!index.hbs"
 						]
 						dest: "dist"
@@ -449,6 +486,19 @@ module.exports = (grunt) ->
 				expand: true
 
 		htmllint:
+			ajax:
+				options:
+					ignore: [
+						"XHTML element “head” is missing a required instance of child element “title”."
+						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
+						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
+						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
+					]
+				src: [
+					"dist/unmin/ajax/**/*.html"
+					"dist/unmin/demos/menu/demo/*.html"
+
+				]
 			all:
 				options:
 					ignore: [
