@@ -29,7 +29,6 @@ module.exports = (grunt) ->
 		[
 			"build"
 			"assemble:demos"
-			"assemble:ajax"
 			"assemble:experimental"
 			"assemble:index"
 			"assemble:partners"
@@ -215,21 +214,6 @@ module.exports = (grunt) ->
 						flatten: true
 				]
 
-			ajax:
-				options:
-					layout: "ajax.hbs"
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-				cwd: "site/pages/ajax"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/unmin/ajax/"
-				expand: true
-				flatten: true
-
 			experimental:
 				options:
 					experimental: true
@@ -350,22 +334,6 @@ module.exports = (grunt) ->
 						flatten: true
 				]
 
-			ajax_min:
-				options:
-					layout: "ajax.hbs"
-					environment:
-						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
-				cwd: "site/pages/ajax"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/ajax/"
-				expand: true
-				flatten: true
-
 			experimental_min:
 				options:
 					experimental: true
@@ -479,29 +447,6 @@ module.exports = (grunt) ->
 				expand: true
 
 		htmllint:
-			ajax:
-				options:
-					ignore: [
-						"XHTML element “head” is missing a required instance of child element “title”."
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-					]
-				src: [
-					"dist/unmin/ajax/**/*.html"
-					"dist/unmin/demos/menu/demo/*.html"
-
-				]
-			ajaxFragments:
-				options:
-					ignore: [
-						"XHTML element “head” is missing a required instance of child element “title”."
-						"XHTML element “li” not allowed as child of XHTML element “body” in this context. (Suppressing further errors from this subtree.)"
-						"The “aria-controls” attribute must point to an element in the same document."
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-					]
-				src: [
-					"dist/unmin/demos/cal-events/ajax/**/*.html"
-					"dist/unmin/assets/*.html"
-				]
 			all:
 				options:
 					ignore: [
