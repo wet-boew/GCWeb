@@ -339,6 +339,8 @@ module.exports = (grunt) ->
 					experimental: true
 					environment:
 						suffix: ".min"
+						jqueryVersion: "<%= jqueryVersion.version %>"
+						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 					assets: "dist"
 				cwd: "site/pages"
 				src: [
