@@ -294,12 +294,6 @@
 	float: right;
 }
 
-:target {
-	.record-close {
-		@extend %data-visible-block;
-	}
-}
-
 /* Data visibility */
 
 .product-data-hidden {
@@ -310,18 +304,21 @@
 	@extend %data-visible-block;
 }
 
-:target {
-	.product-data-compressed {
-		@extend %data-hidden;
-	}
-}
-
 .product-data-expanded {
 	@extend %data-hidden;
 }
 
+// Target psuedo rules for visibility
 :target {
+	.record-close {
+		@extend %data-visible-block;
+	}
+
 	.product-data-expanded {
 		@extend %data-visible-block;
+	}
+
+	.product-data-compressed {
+		@extend %data-hidden;
 	}
 }
