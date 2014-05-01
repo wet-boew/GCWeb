@@ -1,15 +1,7 @@
 @charset "utf-8";
 
-/*
- *
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- *
- */
+// GCWeb Theme
 
-/*
-  GCWeb Theme
- */
 @import "variables";
 @import "defaults";
 @import "parts/language";
@@ -34,96 +26,93 @@
 @import "parts/promo";
 @import "parts/socialmediaicons";
 
-/*
- Views
- */
-/* All screen views */
+// All screen views
 @media screen {
 	@import "views/allScreenViews";
 	@import "parts/carousel-allScreenViews";
 }
- 
-/* Extra-small view and under */
+
+// Extra-small view and under
 @media screen and (max-width: $xSmallViewMax) {
 	@import "views/xSmallViewUnder";
 }
- 
-/* Small view and under */
+
+// Small view and under
 @media screen and (max-width: $smallViewMax) {
 	@import "views/smallViewUnder";
 	@import "parts/banner-smallViewUnder";
 	@import "parts/examples-smallViewUnder";
 }
 
-/* Medium view and under */
+// Medium view and under
 @media screen and (max-width: $mediumViewMax) {
 	@import "views/mediumViewUnder";
 }
 
-/* Large view and under */
+// Large view and under
 @media screen and (max-width: $largeViewMax) {
 	@import "views/largeViewUnder";
 }
 
-/* Extra-small view and over */
+// Extra-small view and over
 @media screen and (min-width: $xSmallViewMin) {
 	@import "views/xSmallViewOver";
 }
 
-/* Small view and over */
+// Small view and over
 @media screen and (min-width: $smallViewMin) {
 	@import "views/smallViewOver";
 }
 
-/* Medium view and over */
+// Medium view and over
 @media screen and (min-width: $mediumViewMin) {
 	@import "views/mediumViewOver";
 	@import "parts/siteMenu-mediumViewOver";
 	@import "parts/socialmediaicons-mediumViewOver";
 }
 
-/* Large view and over */
+// Large view and over
 @media screen and (min-width: $largeViewMin) {
 	@import "views/largeViewOver";
 	@import "parts/equalheights-largeViewOver";
 }
- 
-/* Extra-extra-small view */
+
+// Extra-extra-small view
 @media screen and (max-width: $xxSmallViewMax) {
 	@import "views/xxSmallView";
 	@import "parts/carousel-xxSmallView";
 	@import "parts/banner-xxSmallView";
 	@import "parts/siteInfo-xxSmallView";
 }
- 
-/* Extra-small view */
+
+// Extra-small view
 @media screen and (min-width: $xSmallViewMin) and (max-width: $xSmallViewMax) {
 	@import "views/xSmallView";
 }
 
-/* Small view */
+// Small view
 @media screen and (min-width: $smallViewMin) and (max-width: $smallViewMax) {
 	@import "views/smallView";
 }
 
-/* Medium view */
+// Medium view
 @media screen and (min-width: $mediumViewMin) and (max-width: $mediumViewMax) {
 	@import "views/mediumView";
 	@import "parts/siteMenu-mediumView";
 	@import "parts/equalheights-mediumView";
 }
 
-/* Large view */
+// Large view
 @media screen and (min-width: $largeViewMin) and (max-width: $largeViewMax) {
 	@import "views/largeView";
 }
 
-/* Extra-large view */
+// Extra-large view
 @media screen and (min-width: $xLargeViewMin) {
 	@import "views/xLargeView";
 }
 
-/* Print view */
+// Print view
 @media print {
 	@import "views/printView";
 	@import "parts/promo-printView";
