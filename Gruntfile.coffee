@@ -418,28 +418,28 @@ module.exports = (grunt) ->
 		sass:
 			base:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "theme.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			mobile_centre:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "mobile-centre*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			social_media_centre:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "social-media-centre*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			messages:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "messages*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
@@ -642,7 +642,10 @@ module.exports = (grunt) ->
 				options:
 					banner: "<%= banner %>"
 				expand: true
-				cwd: "src/js/"
+				# Should probably go in separate folders, but this keeps
+				# backwards compatibility
+				flatten: true
+				cwd: "src/"
 				src: "<%= copy.js.src %>"
 				dest: "dist/js/"
 				ext: ".min.js"
