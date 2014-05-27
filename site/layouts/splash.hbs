@@ -3,34 +3,35 @@
 <!--[if gt IE 8]><!-->
 <html lang="{{language}}">
 <!--<![endif]-->
-<head>
-<meta charset="utf-8"/>
-<title>{{title}}</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="description" content="{{decription-en}}" />
-<meta name="description" lang="fr" content="{{decription-fr}}" />
-<meta name="dcterms.creator" content="{{creator-en}}" />
-<meta name="dcterms.creator" lang="fr" content="{{creator-en}}" />
-<meta name="dcterms.title" content="{{title}}" />
-<meta name="dcterms.title" lang="fr" content="{{title}}" />
-<meta name="dcterms.issued" title="W3CDTF" content="2013-12-13" />
-<meta name="dcterms.modified" title="W3CDTF" content="{{modified}}" />
-<meta name="dcterms.subject" title="scheme" content="{{subject-en}}" />
-<meta name="dcterms.subject" lang="fr" title="scheme" content="{{subject-fr}}" />
-<meta name="dcterms.language" title="ISO639-2" content="eng" />
-<meta name="dcterms.language" lang="fr" title="ISO639-2" content="fra" />
-<meta name="robots" content="noindex, follow" />
-{{>headresources}}
+	<head>
+		<meta charset="utf-8"/>
+		<title>{{title}}</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta name="description" content="{{decription-en}}" />
+		<meta name="description" lang="fr" content="{{decription-fr}}" />
+		<meta name="dcterms.creator" content="{{creator-en}}" />
+		<meta name="dcterms.creator" lang="fr" content="{{creator-en}}" />
+		<meta name="dcterms.title" content="{{title}}" />
+		<meta name="dcterms.title" lang="fr" content="{{title}}" />
+		<meta name="dcterms.issued" title="W3CDTF" content="2013-12-13" />
+		<meta name="dcterms.modified" title="W3CDTF" content="{{modified}}" />
+		<meta name="dcterms.subject" title="scheme" content="{{subject-en}}" />
+		<meta name="dcterms.subject" lang="fr" title="scheme" content="{{subject-fr}}" />
+		<meta name="dcterms.language" title="ISO639-2" content="eng" />
+		<meta name="dcterms.language" lang="fr" title="ISO639-2" content="fra" />
+		<meta name="robots" content="noindex, follow" />
+		{{>headresources}}
+	</head>
 
-</head>
+	<body class="{{pageclass}}" vocab="http://schema.org/" typeof="WebPage">
+		{{>google}}
+		<div id="bg">
+			<img src="{{assets}}/img/splash/sp-bg-2.jpg" alt="" />
+		</div>
+		<main role="main">
+			{{>body}}
+		</main>
 
-<body class="{{pageclass}}" vocab="http://schema.org/" typeof="WebPage">
-	{{>google}}
-<div id="bg"><img src="{{assets}}/img/splash/sp-bg-2.jpg" alt=""></div>
-<main role="main">
-{{>body}}
-</main>
-
-{{>footerresources}}
-</body>
+		{{>footerresources}}
+	</body>
 </html>
