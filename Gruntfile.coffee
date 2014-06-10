@@ -557,14 +557,14 @@ module.exports = (grunt) ->
 				dest: "dist/assets"
 			json:
 				expand: true
-				cwd: "site/pages/ajax"
+				cwd: "site/pages/"
 				src: "**/*.json"
-				dest: "dist/unmin/ajax"
+				dest: "dist/unmin/"
 			json_min:
 				expand: true
-				cwd: "site/pages/ajax"
+				cwd: "site/pages/"
 				src: "**/*.json"
-				dest: "dist/ajax"
+				dest: "dist/"
 			fonts:
 				expand: true
 				cwd: "src/fonts"
