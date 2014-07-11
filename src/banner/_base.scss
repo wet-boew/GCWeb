@@ -42,23 +42,38 @@ header {
 	margin-top: 20px;
 
 	ul {
+		min-width: 150px;
+
 		&.chvrn {
 			background: $accent-blue;
-			height: 44px;
-			padding-right: 1.5em;
+			display: inline-block;
+			float: right;
+			height: 2.75em;
+			padding-right: 10px;
 
 			li {
+				padding-right: 0;
+
 				a {
+					background: $accent-blue;
 					color: #fff;
-					font-size: 1.5em;
-					line-height: 2;
+					font-size: 1.9em;
+					line-height: 1.7em;
+					padding: 5px 10px 0 0;
+				}
+			}
+
+			span {
+				.glyphicon-th-list {
+					padding-left: 10px;
+					top: 0;
 				}
 			}
 
 			&:before {
-				border-bottom: 22px solid transparent;
-				border-left: 11px solid #f8f8f8;
-				border-top: 22px solid transparent;
+				border-bottom: 1.375em solid transparent;
+				border-left: 0.6875em solid #f8f8f8;
+				border-top: 1.375em solid transparent;
 				content: " ";
 				display: block;
 				float: left;
@@ -98,6 +113,13 @@ header {
 				padding-left: 1.5em;
 				padding-right: 0;
 				text-align: left;
+
+				span {
+					.glyphicon-th-list {
+						padding-left: 0;
+						padding-right: 10px;
+					}
+				}
 
 				&:before {
 					border-left: 0;
