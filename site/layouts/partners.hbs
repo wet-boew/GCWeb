@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="{{language}}"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="{{language}}" dir="{{{i18n "lang-dir"}}}"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="{{language}}">
+<html class="no-js" lang="{{language}}" dir="{{{i18n "lang-dir"}}}">
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
@@ -10,55 +10,67 @@
 		<title>{{{title}}} - {{site.sitetitle}}</title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
-		<meta name="description" content="{{site.description}}" />
+		<meta name="description" content="{{#if page.description }}{{page.description}}{{else}}{{{i18n "site-description"}}}{{/if}}" />
 		<!-- Meta data-->
 		{{>headresources}}
 	</head>
-
 	<body {{#if pageclass}}class="{{pageclass}}" {{/if}}vocab="http://schema.org/" typeof="WebPage">
 		{{>google}}
 		<ul id="wb-tphp">
 			<li class="wb-slc">
 				<a class="wb-sl" href="#wb-cont">{{{i18n "tmpl-skip-cont"}}}</a>
 			</li>
-			<li class="wb-slc visible-md visible-lg">
-				<a class="wb-sl" href="#wb-info">{{{i18n "tmpl-skip-info"}}}</a>
+{{#isnt footer "false"}}
+			<li class="wb-slc visible-sm visible-md visible-lg">
+				<a class="wb-sl" href="#wb-info">{{{i18n "tmpl-skip-about-site"}}}</a>
 			</li>
+{{/isnt}}
+{{#is page.pageclass "secondary"}}
+			<li class="wb-slc visible-md visible-lg">
+				<a class="wb-sl" href="#wb-sec">{{{i18n "tmpl-skip-section"}}}</a>
+			</li>
+{{/is}}
 		</ul>
-
 		<header role="banner">
 			<div id="wb-bnr" class="container">
-
+{{#isnt languagetoggle "false"}}
 				<section id="wb-lng" class="visible-md visible-lg text-right">
 					<h2 class="wb-inv">{{{i18n "tmpl-lang-select"}}}</h2>
 					{{>languagetoggle}}
 				</section>
-
+{{/isnt}}
 				<div class="row">
 					{{>brand}}
+{{#isnt mobimenu "false"}}
 					<section class="wb-mb-links col-xs-3 visible-sm visible-xs" id="wb-glb-mn" >
-						<h2>{{{i18n "menu"}}}</h2>
+						<h2>{{{i18n "srch-menus"}}}</h2>
 						{{>mobimenu}}
 					</section>
-
+{{/isnt}}
+{{#isnt sitesearch "false"}}
 					<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
 						<h2 class="wb-inv">{{{i18n "tmpl-search"}}}</h2>
 						{{>sitesearch}}
 					</section>
+{{/isnt}}
 				</div>
 			</div>
-
+{{#isnt sitemenu "false"}}
 			<nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-fetch="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
-				<h2 class="wb-inv">{{{i18n "tmpl-site-menu"}}}</h2>
+				<h2 class="wb-inv">{{{i18n "tmpl-topics-menu"}}}</h2>
 				{{>sitemenu}}
 			</nav>
-
-			{{#unless_eq pageclass compare="home"}}
+{{else}}
+			<span data-trgt="mb-pnl" class="wb-menu hide"></span>
+{{/isnt}}
+{{#isnt breadcrumb "false"}}
+	{{#unless_eq pageclass compare="home"}}
 			<nav role="navigation" id="wb-bc" class="" property="breadcrumb">
 				<h2>{{{i18n "you-are-here"}}}</h2>
 				{{>breadcrumbs}}
 			</nav>
-			{{/unless_eq}}
+	{{/unless_eq}}
+{{/isnt}}
 		</header>
 		{{>promotion}}
 		<div class="container">
@@ -90,7 +102,7 @@
 				</main>
 {{#is page.pageclass "secondary"}}
 				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
-					<h2 id="wb-sec-h" class="wb-inv">{{{i18n "tmpl-sec-menu"}}}</h2>
+					<h2 id="wb-sec-h" class="wb-inv">{{{i18n "tmpl-section-menu"}}}</h2>
 					{{>secondarymenu}}
 				</nav>
 {{/is}}
@@ -103,14 +115,15 @@
 			{{>features}}
 		</aside>
 
+{{#isnt footer "false"}}
 		<footer role="contentinfo" id="wb-info">
 			<nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-				<h2 class="wb-inv">{{{i18n "tmpl-site-info"}}}</h2>
+				<h2 class="wb-inv">{{{i18n "tmpl-about-site"}}}</h2>
 				{{>footer}}
 			</nav>
 			{{>footerbrand}}
-
 		</footer>
+{{/isnt}}
 		{{>footerresources}}
 	</body>
 </html>

@@ -1,37 +1,29 @@
 /*
  Banner (extra-extra-small view)
  */
+
+%brand-screen-xxs-max-override-grid {
+	float: none !important;
+	width: auto !important;
+}
+ 
 header {
 	.brand {
+		@extend %brand-screen-xxs-max-override-grid;
+
 		object,
 		img {
-			height: auto;
-			max-height: 20px;
-		}
-
-		a {
-			margin-top: 15px;
+			max-height: 25px;
 		}
 	}
 }
 
 #wb-glb-mn {
-	.overlay-lnk {
-		font-size: 1.1em !important;
-	}
+	@extend %brand-screen-xxs-max-override-grid;
 
 	ul {
 		&.chvrn {
-			height: 33px;
 			margin-left: auto;
-			padding-right: 10px;
-			width: 3.5em;
-
-			&:before {
-				border-bottom: 16px solid transparent;
-				border-left: 8px solid #f8f8f8;
-				border-top: 16px solid transparent;
-			}
 		}
 	}
 }
