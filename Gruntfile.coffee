@@ -499,7 +499,6 @@ module.exports = (grunt) ->
 				src: [
 					"dist/unmin/ajax/**/*.html"
 					"dist/unmin/demos/menu/demo/*.html"
-
 				]
 			all:
 				options:
@@ -517,6 +516,7 @@ module.exports = (grunt) ->
 					"!dist/unmin/**/ajax/**/*.html"
 					"!dist/unmin/assets/**/*.html"
 					"!dist/unmin/demos/menu/demo/*.html"
+					"!dist/unmin/test/*.html"
 				]
 		copy:
 			wetboew:
