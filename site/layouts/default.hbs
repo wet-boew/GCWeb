@@ -81,6 +81,16 @@
 
 			{{>contentbuttons}}
 			{{>body}}
+<aside class="gc-nttvs">
+	<h2>{{{i18n "tmpl-features"}}}</h2>
+	<div class="wb-eqht row">
+		{{#startsWith "en" language }}
+		{{>features-en}}
+		{{else}}
+		{{>features-fr}}
+		{{/startsWith}}
+	</div>
+</aside>
 {{#if page.dateModified}}
 	{{#is page.share "true"}}
 			{{>datemodified-share}}
@@ -89,10 +99,6 @@
 	{{/is}}
 {{/if}}
 		</main>
-
-		<aside class="features">
-			{{>features}}
-		</aside>
 
 {{#isnt footer "false"}}
 		<footer role="contentinfo" id="wb-info">
