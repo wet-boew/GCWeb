@@ -175,22 +175,73 @@ aside {
 }
 
 /* Heading with links inside of rows */
-.sect-lnks h2 a,
-.sect-lnks h3 a,
-.sect-lnks h4 a,
-.departments a h4,
-.priorities a h2 {
-	font-size: 16px;
+
+.departments,
+.priorities {
+	a {
+		h2,
+		h3,
+		h4 {
+			font-size: $heading-link;
+		}
+	}
+}
+
+.sect-lnks {
+	h2,
+	h3,
+	h4 {
+		a {
+			font-size: $heading-link;
+		}
+	}
+}
+
+.gc-prtts,
+.gc-nttvs {
+	a {
+		h2,
+		h3,
+		h4 {
+			font-size: $heading-link;
+		}
+	}
+}
+
+.gc-nws {
+	a {
+		h2,
+		h3,
+		h4 {
+			font-size: $heading-link;
+			margin-top: 15px;
+		}
+	}
+}
+
+.secondary,
+.home {
+	.row {
+		h2,
+		h3,
+		h4 {
+			a {
+				font-size: $heading-link;
+			}
+		}
+	}
 }
 
 /* Home page */
 .home {
 	h2.h1,
-	.departments h3 {
-		border-bottom: 1px solid $border-red;
-		font-size: 27px;
-		margin-bottom: 0.2em;
-		padding-bottom: 0.2em;
+	.departments {
+		h3 {
+			border-bottom: 1px solid $border-red;
+			font-size: 27px;
+			margin-bottom: 0.2em;
+			padding-bottom: 0.2em;
+		}
 	}
 }
 
@@ -204,18 +255,6 @@ aside {
 	&:hover {
 		img {
 			box-shadow: 1px 1px 5px #999;
-		}
-	}
-}
-
-/* Secondary pages */
-.secondary {
-	section {
-		&.profile {
-			.thumbnail {
-				border: 0;
-				padding: 5px;
-			}
 		}
 	}
 }
