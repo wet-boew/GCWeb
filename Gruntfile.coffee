@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 			"assemble:demos"
 			"assemble:ajax"
 			"assemble:experimental"
-			"assemble:index"
+			"assemble:splash"
 			"assemble:partners"
 			"htmllint"
 		]
@@ -177,7 +177,7 @@ module.exports = (grunt) ->
 						src: [
 							"**/*.hbs"
 							"!ajax/**.hbs"
-							"!index.hbs"
+							"!splashpage.hbs"
 						]
 						dest: "dist/unmin"
 					,
@@ -243,12 +243,12 @@ module.exports = (grunt) ->
 				cwd: "site/pages"
 				src: [
 					"*.hbs",
-					"!index.hbs"
+					"!splashpage.hbs"
 				]
 				dest: "dist/unmin/experimental"
 				expand: true
 
-			index:
+			splash:
 				options:
 					layout: "splash.hbs"
 					assets: "dist/unmin"
@@ -257,7 +257,7 @@ module.exports = (grunt) ->
 						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
-					"index.hbs"
+					"splashpage.hbs"
 				]
 				dest: "dist/unmin/"
 				expand: true
@@ -307,7 +307,7 @@ module.exports = (grunt) ->
 						src: [
 							"**/*.hbs",
 							"!ajax/**.hbs"
-							"!index.hbs"
+							"!splashpage.hbs"
 						]
 						dest: "dist"
 					,
@@ -315,7 +315,7 @@ module.exports = (grunt) ->
 						expand: true
 						cwd: "site/pages"
 						src: [
-							"index.hbs"
+							"splashpage.hbs"
 						]
 						dest: "dist"
 					,
@@ -396,7 +396,7 @@ module.exports = (grunt) ->
 					assets: "dist"
 				cwd: "site/pages"
 				src: [
-					"index.hbs"
+					"splashpage.hbs"
 				]
 				dest: "dist"
 				expand: true
