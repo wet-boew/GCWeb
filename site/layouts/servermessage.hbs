@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="{{language}}" dir="{{{i18n "lang-dir"}}}"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="{{language}}" dir="{{{i18n "lang-dir"}}}">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>{{title}}</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<!-- Meta data -->
+		<meta name="robots" content="noindex, nofollow, noarchive" />
+		<!-- Meta data-->
+		{{>headresources}}
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<header role="banner" class="container">
+			<div id="wb-bnr" class="row">
+				<div class="row">
+					<div class="col-sm-6">
+						<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" data="{{assets}}/assets/sig-blk-{{language}}.svg" aria-label="{{{i18n "tmpl-gc-sig"}}}"></object>
+					</div>
+					<div class="col-sm-6">
+						<object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="{{assets}}/assets/wmms-blk.svg" aria-label="{{{i18n "tmpl-gc-wmms"}}}"></object>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main role="main" property="mainContentOfPage" class="container">
+			<div class="row mrgn-tp-lg">
+				{{>body}}
+			</div>
+		</main>
+		{{>footerresources}}
+	</body>
+</html>
