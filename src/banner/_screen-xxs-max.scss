@@ -1,0 +1,35 @@
+/*
+ Banner (extra-extra-small view)
+ */
+
+%brand-screen-xxs-max-override-grid {
+	float: none !important;
+	width: auto !important;
+}
+ 
+header {
+	.brand {
+		@extend %brand-screen-xxs-max-override-grid;
+
+		object,
+		img {
+			max-height: 25px;
+		}
+	}
+}
+
+#wb-glb-mn {
+	@extend %brand-screen-xxs-max-override-grid;
+
+	ul {
+		width: 100%;
+
+		&.chvrn {
+			margin-left: auto;
+
+			&:before {
+				border: 0;
+			}
+		}
+	}
+}

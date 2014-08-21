@@ -1,0 +1,324 @@
+/*
+ * Mobile centre
+ */
+
+
+/* Re-usable rules */
+
+%data-block-no-border {
+	border: 0;
+	display: block;
+}
+
+%data-hidden {
+	display: none;
+	visibility: hidden;
+}
+
+%data-visible-block {
+	display: block;
+	visibility: visible;
+}
+
+.backgroundsize.csstransitions {
+	#mobile-centre {
+		tbody {
+			padding-top: 2em;
+
+			tr {
+				background-clip: content-box;
+				background-color: #eee;
+				background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="), url("data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
+				background-origin: content-box;
+				background-position: top left, top left, bottom left, top right;
+				background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+				border: 0;
+				display: inline-block;
+				margin-bottom: 20px;
+				min-height: 20em;
+				padding: 5px;
+				vertical-align: middle;
+				width: 100%;
+
+				@media (min-width: 768px) {
+					width: 50%;
+				}
+
+				@media (min-width: 1200px) {
+					width: 33.333%;
+				}
+
+				.product-longdescription,
+				td.product-link-container,
+				.product-department {
+					@extend %data-hidden;
+				}
+
+				.product-platforms {
+					span {
+						margin-right: 5px;
+					}
+				}
+
+				&:target {
+					// !important is needed to override the fixed height set by DataTables.
+					height: auto !important;
+					width: 100%;
+
+					.product-longdescription,
+					td.product-link-container,
+					.product-department {
+						@extend %data-visible-block;
+					}
+
+					.product-longdescription {
+						float: none;
+					}
+
+					.product-link-container {
+						border: 0;
+						float: none;
+					}
+				}
+
+				&:hover {
+					background-color: darken(#f5f5f5, 5%);
+					border-color: darken(#e3e3e3, 5%);
+					cursor: pointer;
+				}
+
+			}
+		}
+	}
+}
+
+.no-backgroundsize.no-csstransitions,
+.backgroundsize.no-csstransitions {
+	#mobile-centre {
+		tr {
+			border-bottom: 1px solid #999 !important;
+			border-top: 1px solid #999 !important;
+		}
+
+		.product-name,
+		.product-platforms,
+		.product-shortdescription,
+		.product-longdescription,
+		.product-department,
+		.product-links {
+			float: left !important;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.product-name,
+		.product-platforms,
+		.product-shortdescription,
+		.product-longdescription,
+		.product-department {
+			width: 96% !important;
+		}
+
+		.product-name,
+		.product-platforms {
+			margin-top: 10px;
+		}
+
+		.product-name {
+			padding-bottom: 0;
+		}
+
+		.product-platforms {
+			padding-top: 0;
+		}
+
+		.product-platforms,
+		.product-shortdescription,
+		.product-longdescription,
+		.product-department,
+		.product-links {
+			clear: left;
+			margin-top: 0;
+		}
+
+		.product-shortdescription,
+		.record-close {
+			display: none !important;
+		}
+
+		.product-link-container {
+			border: none !important;
+		}
+
+		.product-link-list {
+			li {
+				display: inline;
+				float: left;
+			}
+		}
+
+	}
+
+}
+
+
+/* Layout of fields */
+
+.product-record {
+	display: inline-block;
+	margin-bottom: 20px;
+	width: 100%;
+
+	&:target {
+		// !important is needed to override the fixed height set by DataTables.
+		height: auto !important;
+	}
+
+	&:hover {
+		background-color: darken(#f5f5f5, 5%);
+		border-color: darken(#e3e3e3, 5%);
+		cursor: pointer;
+	}
+}
+
+.product-icon {
+	border: 0;
+	float: left;
+	height: 48px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+	width: 48px;
+}
+
+.product-name {
+	@extend %data-block-no-border;
+}
+
+.product-platforms {
+	@extend %data-block-no-border;
+}
+
+.product-links {
+	@extend %data-block-no-border;
+}
+
+.product-shortdescription,
+.product-longdescription {
+	@extend %data-block-no-border;
+	margin-top: 1em;
+}
+
+.product-department {
+	@extend %data-block-no-border;
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+.product-link-list {
+	list-style-type: none;
+	margin-top: 1em;
+	padding-left: 0;
+}
+
+.product-link-container {
+	margin-bottom: 1em;
+}
+
+.product-link {
+	display: block;
+	// Overrides for lack of specificity of main .btn-primary in theme.scss.
+	// Remove when theme.scss has been fixed.
+	padding: 6px 12px !important;
+	text-align: left;
+	text-decoration: none;
+	// Overrides for lack of specificity of main .btn-primary in theme.scss.
+	// Remove when theme.scss has been fixed.
+	text-transform: none !important;
+	// Override for bootstrap no-wrap on buttons
+	white-space: normal;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.product-record {
+		margin-left: 10px;
+		margin-right: 10px;
+		max-width: 47%;
+
+		&:target {
+			max-width: 100%;
+		}
+	}
+
+	.product-department,
+	.product-links {
+		margin-right: 10px;
+		width: 30%;
+	}
+
+	.product-longdescription {
+		float: right;
+		margin-left: 10px;
+		width: 67%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.product-record {
+		max-width: 31.5%;
+	}
+}
+
+
+/* Expand/collapse record functionality */
+
+.record-expand {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+.record-close {
+	@extend %data-hidden;
+	float: right;
+}
+
+
+:target {
+	.record-close {
+		@extend %data-visible-block;
+	}
+
+	.product-data-compressed {
+		@extend %data-hidden;
+	}
+
+	.product-data-expanded {
+		@extend %data-visible-block;
+	}
+}
+
+/* Data visibility */
+
+.product-data-hidden {
+	@extend %data-hidden;
+}
+
+.product-data-compressed {
+	@extend %data-visible-block;
+}
+
+.product-data-expanded {
+	@extend %data-hidden;
+}

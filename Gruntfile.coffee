@@ -31,7 +31,7 @@ module.exports = (grunt) ->
 			"assemble:demos"
 			"assemble:ajax"
 			"assemble:experimental"
-			"assemble:index"
+			"assemble:splash"
 			"assemble:partners"
 			"htmllint"
 		]
@@ -177,7 +177,7 @@ module.exports = (grunt) ->
 						src: [
 							"**/*.hbs"
 							"!ajax/**.hbs"
-							"!index.hbs"
+							"!splashpage.hbs"
 						]
 						dest: "dist/unmin"
 					,
@@ -243,12 +243,12 @@ module.exports = (grunt) ->
 				cwd: "site/pages"
 				src: [
 					"*.hbs",
-					"!index.hbs"
+					"!splashpage.hbs"
 				]
 				dest: "dist/unmin/experimental"
 				expand: true
 
-			index:
+			splash:
 				options:
 					layout: "splash.hbs"
 					assets: "dist/unmin"
@@ -257,7 +257,7 @@ module.exports = (grunt) ->
 						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
-					"index.hbs"
+					"splashpage.hbs"
 				]
 				dest: "dist/unmin/"
 				expand: true
@@ -307,7 +307,7 @@ module.exports = (grunt) ->
 						src: [
 							"**/*.hbs",
 							"!ajax/**.hbs"
-							"!index.hbs"
+							"!splashpage.hbs"
 						]
 						dest: "dist"
 					,
@@ -315,7 +315,7 @@ module.exports = (grunt) ->
 						expand: true
 						cwd: "site/pages"
 						src: [
-							"index.hbs"
+							"splashpage.hbs"
 						]
 						dest: "dist"
 					,
@@ -396,7 +396,7 @@ module.exports = (grunt) ->
 					assets: "dist"
 				cwd: "site/pages"
 				src: [
-					"index.hbs"
+					"splashpage.hbs"
 				]
 				dest: "dist"
 				expand: true
@@ -418,28 +418,28 @@ module.exports = (grunt) ->
 		sass:
 			base:
 				expand: true
-				cwd: "src/sass"
-				src: "theme.scss"
+				cwd: "src"
+				src: "theme*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			mobile_centre:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "mobile-centre*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			social_media_centre:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "social-media-centre*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
 
 			messages:
 				expand: true
-				cwd: "src/sass"
+				cwd: "src"
 				src: "messages*.scss"
 				dest: "dist/unmin/css"
 				ext: ".css"
@@ -469,13 +469,15 @@ module.exports = (grunt) ->
 					banner: "<%= banner %>"
 				expand: true
 				cwd: "dist/unmin/css/"
-				src: ["*theme*.css", "messages*.css"]
+				src: ["*theme*.css", "messages*.css", "mobile-centre*.css", "social-media-centre*.css"]
 				ext: ".min.css"
 				dest: "dist/css"
 
 		htmlcompressor:
 			options:
 				type: "html"
+				concurrentProcess: 5
+				preserveLineBreaks: true
 			all:
 				cwd: "dist"
 				src: [
@@ -497,7 +499,6 @@ module.exports = (grunt) ->
 				src: [
 					"dist/unmin/ajax/**/*.html"
 					"dist/unmin/demos/menu/demo/*.html"
-
 				]
 			all:
 				options:
@@ -515,6 +516,7 @@ module.exports = (grunt) ->
 					"!dist/unmin/**/ajax/**/*.html"
 					"!dist/unmin/assets/**/*.html"
 					"!dist/unmin/demos/menu/demo/*.html"
+					"!dist/unmin/test/*.html"
 				]
 		copy:
 			wetboew:
@@ -557,14 +559,14 @@ module.exports = (grunt) ->
 				dest: "dist/assets"
 			json:
 				expand: true
-				cwd: "site/pages/ajax"
+				cwd: "site/pages/"
 				src: "**/*.json"
-				dest: "dist/unmin/ajax"
+				dest: "dist/unmin/"
 			json_min:
 				expand: true
-				cwd: "site/pages/ajax"
+				cwd: "site/pages/"
 				src: "**/*.json"
-				dest: "dist/ajax"
+				dest: "dist/"
 			fonts:
 				expand: true
 				cwd: "src/fonts"
@@ -642,7 +644,10 @@ module.exports = (grunt) ->
 				options:
 					banner: "<%= banner %>"
 				expand: true
-				cwd: "src/js/"
+				# Should probably go in separate folders, but this keeps
+				# backwards compatibility
+				flatten: true
+				cwd: "src/"
 				src: "<%= copy.js.src %>"
 				dest: "dist/js/"
 				ext: ".min.js"
