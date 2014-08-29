@@ -264,7 +264,7 @@ module.exports = (grunt) ->
 
 			partners:
 				options:
-					layout: "partners.hbs"
+					layout: "default.hbs"
 					assets: "dist/unmin"
 					environment:
 						jqueryVersion: "<%= jqueryVersion.version %>"
@@ -403,7 +403,7 @@ module.exports = (grunt) ->
 
 			partners_min:
 				options:
-					layout: "partners.hbs"
+					layout: "default.hbs"
 					environment:
 						suffix: ".min"
 						jqueryVersion: "<%= jqueryVersion.version %>"
