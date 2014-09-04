@@ -681,6 +681,11 @@ module.exports = (grunt) ->
 					"**/*.*"
 				]
 
+			local:
+				src: [
+					"**/*.*"
+				]
+
 		connect:
 			options:
 				port: 8000
