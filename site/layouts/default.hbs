@@ -25,6 +25,11 @@
 				<a class="wb-sl" href="#wb-info">{{{i18n "tmpl-skip-about-site"}}}</a>
 			</li>
 {{/isnt}}
+{{#is page.partner "true"}}
+			<li class="wb-slc visible-md visible-lg">
+				<a class="wb-sl" href="#wb-sec">{{{i18n "tmpl-skip-section"}}}</a>
+			</li>
+{{/is}}
 		</ul>
 		<header role="banner">
 			<div id="wb-bnr" class="container">
@@ -68,16 +73,20 @@
 {{/isnt}}
 		</header>
 		{{>promotion}}
+{{#is page.partner "true"}}
+		<div class="container">
+			<div class="row">
+				<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main"> 
+{{else}}
 		<main role="main" property="mainContentOfPage" class="container">
-
-			{{#is page.pageclass "home"}}
+{{/is}}
+{{#is page.pageclass "home"}}
 				<h1 property="name" id="wb-cont" class="wb-inv">{{{title}}}</h1>
-			{{else}}
-				{{#is page.pageclass "secondary"}}
-				{{else}}
+{{else}}
+	{{#isnt page.pageclass "secondary"}}
 					<h1 property="name" id="wb-cont">{{{title}}}</h1>
-				{{/is}}
-			{{/is}}
+	{{/isnt}}
+{{/is}}
 
 			{{>contentbuttons}}
 			{{>body}}
@@ -90,6 +99,14 @@
 	{{/is}}
 {{/if}}
 		</main>
+{{#is page.partner "true"}}
+				<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
+					<h2 id="wb-sec-h" class="wb-inv">{{{i18n "tmpl-section-menu"}}}</h2>
+					{{>secondarymenu}}
+				</nav>
+			</div>
+		</div>
+{{/is}}
 
 {{#isnt footer "false"}}
 		<footer role="contentinfo" id="wb-info">
