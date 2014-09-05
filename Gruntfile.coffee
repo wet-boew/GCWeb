@@ -665,6 +665,7 @@ module.exports = (grunt) ->
 			options:
 				cwd: "lib/wet-boew"
 				failOnError: false
+				isDevelopment: true
 
 		"gh-pages":
 			options:
@@ -693,13 +694,11 @@ module.exports = (grunt) ->
 			server:
 				options:
 					base: "dist"
-					middleware: (connect, options) ->
-						middlewares = []
-						middlewares.push(connect.compress(
+					middleware: (connect, options, middlewares) ->
+						middlewares.unshift(connect.compress(
 							filter: (req, res) ->
 								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
 						))
-						middlewares.push(connect.static(options.base));
 						middlewares
 
 	# These plugins provide necessary tasks.
