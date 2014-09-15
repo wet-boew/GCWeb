@@ -213,24 +213,6 @@ module.exports = (grunt) ->
 						cwd: "lib/wet-boew/src/other"
 						src: "**/*.hbs"
 						dest: "dist/unmin/demos"
-					,
-						#mobile centre
-						expand: true
-						cwd: "site/pages/mobile-centre"
-						src: [
-							"*.hbs"
-						]
-						dest: "dist/unmin/mobile-centre/"
-						flatten: true
-					,
-						#social_media_centre
-						expand: true
-						cwd: "site/pages/social-media-centre"
-						src: [
-							"*.hbs"
-						]
-						dest: "dist/unmin/social-media-centre/"
-						flatten: true
 				]
 
 			experimental:
@@ -351,24 +333,6 @@ module.exports = (grunt) ->
 						cwd: "lib/wet-boew/src/other"
 						src: "**/*.hbs"
 						dest: "dist/demos"
-					,
-						#mobile centre
-						expand: true
-						cwd: "site/pages/mobile-centre"
-						src: [
-							"*.hbs"
-						]
-						dest: "dist/mobile-centre/"
-						flatten: true
-					,
-						#social_media_centre
-						expand: true
-						cwd: "site/pages/social-media-centre"
-						src: [
-							"*.hbs"
-						]
-						dest: "dist/social-media-centre/"
-						flatten: true
 				]
 
 			experimental_min:
@@ -469,7 +433,12 @@ module.exports = (grunt) ->
 					banner: "<%= banner %>"
 				expand: true
 				cwd: "dist/unmin/css/"
-				src: ["*theme*.css", "messages*.css", "mobile-centre*.css", "social-media-centre*.css"]
+				src: [
+					"*theme*.css",
+					"messages*.css",
+					"mobile-centre*.css",
+					"social-media-centre*.css"
+				]
 				ext: ".min.css"
 				dest: "dist/css"
 
