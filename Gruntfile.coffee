@@ -43,7 +43,6 @@ module.exports = (grunt) ->
 		[
 			"clean:dist"
 			"copy:wetboew"
-			"copy:json"
 			"assets"
 			"css"
 			"js"
@@ -548,7 +547,10 @@ module.exports = (grunt) ->
 			fonts_min:
 				expand: true
 				cwd: "src/fonts"
-				src: "**/*.*"
+				src: [
+					"**/*.*"
+					"!**/*.scss"
+				]
 				dest: "dist/fonts"
 			deploy:
 				src: [
