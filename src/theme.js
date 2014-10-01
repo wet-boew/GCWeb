@@ -8,24 +8,43 @@
 var $document = wb.doc,
 	searchSelector = "#wb-srch-q",
 	$search = $(searchSelector),
-	$searchDataList = $( "#" + $search.attr( "list" ) );
+	$searchDataList = $( "#" + $search.attr( "list" ) ),
 
 //Search Autocomplete
+	queryAutoComplete = function( query ) {
+		if ( query.length > 0 ) {
+			$document.trigger({
+				type: "ajax-fetch.wb",
+				element: this,
+				fetch: {
+					url: "http://clients1.google.com/complete/search?client=partner&sugexp=gsnos%2Cn%3D13&gs_rn=25&gs_ri=partner&partnerid=" + window.encodeURIComponent("008724028898028201144:knjjdikrhq0+lang:" + wb.lang) + "&types=t&ds=cse&cp=3&gs_id=b&hl=" + wb.lang + "&q=" + encodeURI( query ),
+					dataType: "jsonp",
+					jsonp: "callback"
+				}
+			});
+		}
+	};
 
 //Queries  the autocomplete API
-$document.on( "change keypress", searchSelector, function( event ) {
-	var query = event.target.value;
+$document.on( "change keyup", searchSelector, function( event ) {
+	var target = event.target,
+		query = event.target.value,
+		which = event.which;
 
-	if ( query.length > 0 ) {
-		$document.trigger({
-			type: "ajax-fetch.wb",
-			element: this,
-			fetch: {
-				url: "http://clients1.google.com/complete/search?client=partner&sugexp=gsnos%2Cn%3D13&gs_rn=25&gs_ri=partner&partnerid=" + window.encodeURIComponent("008724028898028201144:knjjdikrhq0+lang:" + wb.lang) + "&types=t&ds=cse&cp=3&gs_id=b&hl=" + wb.lang + "&q=" + encodeURI( query ),
-				dataType: "jsonp",
-				jsonp: "callback"
+	switch ( event.type ){
+	case "change":
+		queryAutoComplete.call( target, query );
+		break;
+	case "keyup":
+		if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
+
+			// Spacebar, a - z keys, 0 - 9 keys punctuation, and symbols
+			if ( which === 32 || ( which > 47 && which < 91 ) ||
+				( which > 95 && which < 112 ) || ( which > 159 && which < 177 ) ||
+				( which > 187 && which < 223 ) ) {
+				queryAutoComplete.call( target, query );
 			}
-		});
+		}
 	}
 });
 
