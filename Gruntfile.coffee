@@ -561,9 +561,9 @@ module.exports = (grunt) ->
 				expand: true
 			js:
 				expand: true
-				cwd: "src/js"
-				src: "*.js"
-				dest: "dist/unmin/js/customJS"
+				cwd: "src"
+				src: "**/*.js"
+				dest: "dist/unmin/js/"
 
 		clean:
 			dist: [ "dist"]
