@@ -69,10 +69,13 @@ module.exports = (grunt) ->
 	@registerTask(
 		"deploy"
 		"Build and deploy artifacts to wet-boew-dist"
-		[
-			"copy:deploy"
-			"gh-pages:travis"
-		]
+		->
+			if process.env.TRAVIS_PULL_REQUEST isnt true and process.env.DIST_REPO isnt `undefined` and ( process.env.TRAVIS_TAG isnt `undefined` or process.env.TRAVIS_BRANCH is "master" )
+				grunt.task.run [
+					"copy:deploy"
+					"gh-pages:travis"
+					"wb-update-examples"
+				]
 	)
 
 	@registerTask(
@@ -124,6 +127,7 @@ module.exports = (grunt) ->
 		jqueryOldIEVersion: grunt.file.readJSON("lib/jquery-oldIE/bower.json")
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * <%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
+		deployBranch: "<%= pkg.name %>"
 
 		assemble:
 			options:
@@ -644,10 +648,18 @@ module.exports = (grunt) ->
 
 			travis:
 				options:
-					repo: "https://" + process.env.GH_TOKEN + "@github.com/wet-boew/themes-dist.git"
-					branch: "<%= pkg.name %>"
-					message: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
-					silent: true
+					repo: process.env.DIST_REPO
+					branch: "<%= deployBranch %>"
+					message: ((
+						if process.env.TRAVIS_TAG
+							"Production files for the " + process.env.TRAVIS_TAG + " maintenance release"
+						else
+							"Travis build " + process.env.TRAVIS_BUILD_NUMBER
+					))
+					silent: true,
+					tag: ((
+						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG else false
+					))
 				src: [
 					"**/*.*"
 				]
@@ -656,6 +668,14 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.*"
 				]
+
+		"wb-update-examples":
+			travis:
+				options:
+					repo: process.env.DEMOS_REPO
+					branch: process.env.DEMOS_BRANCH
+					message: "<%= grunt.config('gh-pages.travis.options.message') %>"
+					silent: true
 
 		connect:
 			options:
@@ -687,6 +707,7 @@ module.exports = (grunt) ->
 	@loadNpmTasks "grunt-hub"
 	@loadNpmTasks "grunt-install-dependencies"
 	@loadNpmTasks "grunt-sass"
+	@loadNpmTasks "grunt-wet-boew-postbuild"
 
 	@
 

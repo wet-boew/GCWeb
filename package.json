@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "grunt",
-    "postinstall": "bower update"
+    "postinstall": "bower update",
+    "travis_script": "scss-lint . && grunt",
+    "travis_after_success": "grunt deploy"
   },
   "repository": {
     "type": "git",
@@ -47,6 +49,7 @@
     "grunt-i18n-csv": "0.1.0",
     "grunt-install-dependencies": "~0.2.0",
     "grunt-jscs-checker": "^0.4.2",
-    "grunt-sass": "^0.14.0"
+    "grunt-sass": "^0.14.0",
+    "grunt-wet-boew-postbuild": "wet-boew/grunt-wet-boew-postbuild#v0.1.2"
   }
 }
