@@ -72,7 +72,7 @@
 	{{/unless_eq}}
 {{/isnt}}
 		</header>
-		{{>promotion}}
+	{{>promotion}}
 {{#is page.partner "true"}}
 		<div class="container">
 			<div class="row">
@@ -90,6 +90,9 @@
 
 			{{>contentbuttons}}
 			{{>body}}
+{{#is page.deptfeature true}}
+	{{>deptfeatures}}
+{{/is}}		
 {{#if page.dateModified}}
 	{{#is page.share "true"}}
 			{{>datemodified-share}}
