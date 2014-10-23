@@ -4,9 +4,12 @@ node_js:
 cache: false
 
 install:
+  - npm -g install npm@next
   - gem install scss-lint --no-ri --version '=0.24.0'
   - scripts/setup
 
 script:
-  - scss-lint src site
-  - grunt && ./scripts/travis_artifacts.sh
+  - npm run-script travis_script
+
+after_success:
+  - npm run-script travis_after_success
