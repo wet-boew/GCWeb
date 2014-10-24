@@ -658,7 +658,7 @@ module.exports = (grunt) ->
 					))
 					silent: true,
 					tag: ((
-						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG else false
+						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG + "-" + "<%= pkg.name.toLowerCase() %>" else false
 					))
 				src: [
 					"**/*.*"
