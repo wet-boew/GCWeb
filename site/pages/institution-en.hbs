@@ -3,42 +3,50 @@
 	"title": "[Institution Name]",
 	"language": "en",
 	"altLangPrefix": "institution",
-	"pageclass": "secondary",
 	"breadcrumb": [
 		{ "title": "Home", "link": "http://www.canada.ca/en/index.html" },
 		{ "title": "Departments & Agencies", "link": "http://www.canada.ca/en/gov/dept/index.html" }
 	],
-	"dateModified": "2014-08-18",
+	"dateModified": "2014-10-24",
 	"share": "true"
 }
 ---
-<div class="profile">
-	<h1 property="name" id="wb-cont">{{{title}}}</h1>
-	<p class="pagetag">1-2 sentences that describe the institution’s mandate. Option to provide links to information about related GC portfolios and partnerships, e.g.  “{{{title}}} is a federal institution that leads/is part of the xxx portfolio, and works with its partners.”</p>
-	<p>{{{title}}} is a federal institution that leads/is part of the <a href="#">xxx portfolio</a>, and works with its <a href="#">partners</a>.</p>
-	<section class="followus mrgn-bttm-md">
-		<h2>Follow:</h2>
-		<ul>
-			<li><a href="#" class="youtube"><span class="wb-inv">YouTube</span></a></li>
-			<li><a href="#" class="twitter"><span class="wb-inv">Twitter</span></a></li>
-			<li><a href="#" class="flickr"><span class="wb-inv">Flickr</span></a></li>
-			<li><a href="#" class="facebook"><span class="wb-inv">Facebook</span></a></li>
-			<li><a href="#" class="foursquare"><span class="wb-inv">Foursquare</span></a></li>
-		</ul>
-	</section>
+<div class="row">
+	<div class="col-md-7">
+		<p class="pagetag">1-2 sentences that describe the institution’s mandate. Option to provide links to information about related GC portfolios and partnerships, e.g.  “{{{title}}} is a federal institution that leads/is part of the xxx portfolio, and works with its partners.”</p>
+		<p>{{{title}}} is a federal institution that leads/is part of the <a href="#">xxx portfolio</a>, and works with its <a href="#">partners</a>.</p>
+		<section class="followus mrgn-bttm-md">
+			<h2>Follow:</h2>
+			<ul>
+				<li><a href="#" class="youtube"><span class="wb-inv">YouTube</span></a></li>
+				<li><a href="#" class="twitter"><span class="wb-inv">Twitter</span></a></li>
+				<li><a href="#" class="flickr"><span class="wb-inv">Flickr</span></a></li>
+				<li><a href="#" class="facebook"><span class="wb-inv">Facebook</span></a></li>
+				<li><a href="#" class="foursquare"><span class="wb-inv">Foursquare</span></a></li>
+			</ul>
+		</section>
+	</div>
+	<div class="col-md-5">
+		<object data="{{assets}}/assets/sig-blk-{{language}}.svg" tabindex="-1" type="image/svg+xml"></object>
+		<span class="wb-inv">Government of Canada</span>
+	</div>
 </div>
 <div class="row">
 	<section class="gc-nws">
 		<h2 class="wb-inv">News</h2>
 		<section class="col-lg-4 col-md-6">
-			<h3><a href="#">[News title]</a></h3>
-			<img src="{{assets}}/img/cars.jpg" alt="" class="img-responsive"/>
+			<a href="#">
+				<h3>[News title]</h3>
+				<img src="{{assets}}/img/cars.jpg" alt="" class="img-responsive thumbnail"/>
+			</a>
 			<small>YYYY-MM-DD - Type of feature</small>
 			<p>Brief description of the news item.</p>
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3><a href="#">[News title]</a></h3>
-			<img src="{{assets}}/img/sports.jpg" alt="" class="img-responsive"/>
+			<a href="#">
+				<h3>[News title]</h3>
+				<img src="{{assets}}/img/sports.jpg" alt="" class="img-responsive thumbnail"/>
+			</a>
 			<small>YYYY-MM-DD - Type of feature</small>
 			<p>Brief description of the news item.</p>
 		</section>
@@ -151,29 +159,7 @@
 		</section>
 	</div>
 </section>
-<div class="wb-eqht row gc-prtts">
-	<section class="col-lg-4 col-md-6">
-		<a href="#">
-			<h2>[Promotional hyperlink text]</h2>
-			<img src="{{assets}}/img/cars.jpg" alt="" class="img-responsive"/>
-		</a>
-		<p>Brief description of the initiative, task or information being promoted.</p>
-	</section>
-	<section class="col-lg-4 col-md-6">
-		<a href="#">
-			<h2>[Promotional hyperlink text]</h2>
-			<img src="{{assets}}/img/sports.jpg" alt="" class="img-responsive"/>
-		</a>
-		<p>Brief description of the initiative, task or information being promoted.</p>
-	</section>
-	<section class="col-lg-4 col-md-6">
-		<a href="#">
-			<h2>[Promotional hyperlink text]</h2>
-			<img src="{{assets}}/img/cats.jpg" alt="" class="img-responsive"/>
-		</a>
-		<p>Brief description of the initiative, task or information being promoted.</p>
-	</section>
-</div>
+{{>deptfeatures}}
 <section>
 	<h2>Corporate Information</h2>
 	<div class="row">
@@ -193,7 +179,7 @@
 				<div class="col-md-4">
 					<a href="#">
 						<figure>
-							<img src="{{assets}}/img/220x220.png" alt="" class="img-responsive"/>
+							<img src="{{assets}}/img/silhouette.png" alt="" class="img-responsive thumbnail"/>
 							<figcaption>Our Minister</figcaption>
 						</figure>
 					</a>
@@ -201,7 +187,7 @@
 				<div class="col-md-4">
 					<a href="#">
 						<figure>
-							<img src="{{assets}}/img/220x220.png" alt="" class="img-responsive"/>
+							<img src="{{assets}}/img/silhouette.png" alt="" class="img-responsive thumbnail"/>
 							<figcaption>Our Minister 2</figcaption>
 						</figure>
 					</a>
@@ -209,7 +195,7 @@
 				<div class="col-md-4">
 					<a href="#">
 						<figure>
-							<img src="{{assets}}/img/220x220.png" alt="" class="img-responsive"/>
+							<img src="{{assets}}/img/silhouette.png" alt="" class="img-responsive thumbnail"/>
 							<figcaption>Our Minister 3</figcaption>
 						</figure>
 					</a>
