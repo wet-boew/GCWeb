@@ -72,4 +72,11 @@ $document.on( "ajax-fetched.wb", searchSelector, function( event ) {
 	$search.trigger( "wb-update.wb-datalist" );
 });
 
+window["wb-data-ajax"] = {
+	corsFallback: function( fetchObj ) {
+		fetchObj.url = fetchObj.url.replace(".html", ".htmlp");
+		return fetchObj;
+	}
+};
+
 })( jQuery, document, wb );
