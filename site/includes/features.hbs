@@ -1,10 +1,4 @@
 <aside class="gc-nttvs container">
 	<h2>{{{i18n "tmpl-features"}}}</h2>
-	<div class="wb-eqht row">
-		{{#startsWith "en" language }}
-			{{>features-en}}
-		{{else}}
-			{{>features-fr}}
-		{{/startsWith}}
-	</div>
+	<div class="wb-eqht row" data-ajax-append="http://travel.gc.ca/gcweb-cdn/features-{{language}}.html"></div>
 </aside>
