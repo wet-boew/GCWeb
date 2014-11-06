@@ -1,4 +1,13 @@
 <aside class="gc-nttvs container">
 	<h2>{{{i18n "tmpl-features"}}}</h2>
-	<div class="wb-eqht row" data-ajax-append="http://travel.gc.ca/gcweb-cdn/features-{{language}}.html"></div>
+{{#is page.toplevel true}}
+	<div class="wb-eqht row">
+	{{#is page.language "en"}}
+		{{>features-en}}
+	{{else}}
+		{{>features-fr}}
+	{{/is}}
+</div>
+{{/is}}
+	<div class="wb-eqht row" data-ajax-append="http://travel.gc.ca/gcweb-cdn/features/features-{{language}}.html"></div>
 </aside>
