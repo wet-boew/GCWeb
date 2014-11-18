@@ -1,18 +1,23 @@
 ---
 {
-	"title": "[Service name]",
+	"title": "[Overview (Section name)]",
 	"language": "fr",
-	"altLangPrefix": "service",
+	"altLangPrefix": "index",
 	"breadcrumb": [
 		{ "title": "Accueil", "link": "http://www.canada.ca/fr/index.html" },
 		{ "title": "Theme name", "link": "#" },
-		{ "title": "Topic name", "link": "#" }
+		{ "title": "Topic name", "link": "#" },
+		{ "title": "Service name", "link": "#" }
 	],
 	"secondlevel": false,
 	"dateModified": "2014-10-23",
-	"share": "true"
+	"share": "true",
+	"next": [
+		{ "title": "[Eligibility]", "link": "page2-fr.html" }
+	]
 }
 ---
+
 <div class="row mrgn-tp-lg mrgn-bttm-lg brdr-bttm">
 	<ol class="colcount-sm-2 colcount-md-3 lst-spcd">
 		<li class="active">[Overview]</li>
@@ -25,30 +30,26 @@
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<p class="pagetag">{{{ title }}}, lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ipsam deserunt, doloremque mollitia laudantium quas ut accusamus perspiciatis repellendus quaerat omnis corporis laborum quasi magni possimus qui necessitatibus, aperiam enim.</p>
+		<p class="pagetag">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ipsam deserunt, doloremque mollitia laudantium quas ut accusamus perspiciatis repellendus quaerat omnis corporis laborum quasi magni possimus qui necessitatibus, aperiam enim.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
 		<section>
-			<h2>[Eligibility details]</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti cupiditate voluptatem praesentium, facilis corporis magni esse reiciendis distinctio. Vitae totam iste porro, esse facere obcaecati? Laborum earum minus harum enim.</p>
+		<h2>[Sub heading]</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti cupiditate voluptatem praesentium, facilis corporis magni esse reiciendis distinctio. Vitae totam iste porro, esse facere obcaecati? Laborum earum minus harum enim.</p>
 		</section>
 		<section>
-			<h2>[What you need before you start]</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa hic minima magni nesciunt nam. Facilis perferendis, adipisci voluptates, enim illo perspiciatis molestias itaque iste qui distinctio asperiores quidem voluptatum sunt.</p>
+		<h2>[Sub heading]</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa hic minima magni nesciunt nam. Facilis perferendis, adipisci voluptates, enim illo perspiciatis molestias itaque iste qui distinctio asperiores quidem voluptatum sunt.</p>
 		</section>
-		<button class="btn btn-default">[Apply now]</button>
-		<section>
-			<h2>[Other ways to apply]</h2>
-			<dl class="dl-horizontal">
-				<dt>By phone:</dt>
-				<dd>Lorem ipsum dolor sit amet, consectetur.</dd>
-				<dt>In person:</dt>
-				<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.</dd>
-				<dt>By mail:</dt>
-				<dd>Lorem ipsum dolor sit amet<br />
-				1234 street ave.<br />
-				City, Province<br />
-				A1B 2C3</dd>
-			</dl>
-		</section>
+		<nav role="navigation" class="row pagntn-prv-nxt">
+			<h2 class="wb-inv">Document navigation</h2>
+			<ul class="list-unstyled">
+				{{#next}}
+				<li class="col-sm-6 col-sm-push-6 text-right"><a rel="next" href="{{link}}"><span class="glyphicon glyphicon-chevron-right"></span><span class="pgntn-lbl">Next</span> {{title}}</a></li>
+				{{/next}}
+			</ul>
+		</nav>
 	</div>
 	<div class="col-md-4">
 		<section>
