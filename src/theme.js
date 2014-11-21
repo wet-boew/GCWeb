@@ -13,9 +13,8 @@ var $document = wb.doc,
 //Search Autocomplete
 	queryAutoComplete = function( query ) {
 		if ( query.length > 0 ) {
-			$document.trigger({
+			$( this ).trigger({
 				type: "ajax-fetch.wb",
-				element: this,
 				fetch: {
 					url: "http://clients1.google.com/complete/search?client=partner&sugexp=gsnos%2Cn%3D13&gs_rn=25&gs_ri=partner&partnerid=" + window.encodeURIComponent("008724028898028201144:knjjdikrhq0+lang:" + wb.lang) + "&types=t&ds=cse&cp=3&gs_id=b&hl=" + wb.lang + "&q=" + encodeURI( query ),
 					dataType: "jsonp",
