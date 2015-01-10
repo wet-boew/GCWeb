@@ -84,6 +84,7 @@ module.exports = (grunt) ->
 		[
 			"sass"
 			"autoprefixer"
+			"usebanner:css"
 			"cssmin"
 		]
 	)
@@ -421,10 +422,16 @@ module.exports = (grunt) ->
 				dest: "dist/unmin/css"
 				expand: true
 
+		usebanner:
+			css:
+				options:
+					banner: "@charset \"utf-8\";\n<%= banner %>"
+				files:
+					src: "dist/unmin/css/*.*"
+
+
 		cssmin:
 			theme:
-				options:
-					banner: "<%= banner %>"
 				expand: true
 				cwd: "dist/unmin/css/"
 				src: [
@@ -685,6 +692,7 @@ module.exports = (grunt) ->
 	# These plugins provide necessary tasks.
 	@loadNpmTasks "assemble"
 	@loadNpmTasks "grunt-autoprefixer"
+	@loadNpmTasks "grunt-banner"
 	@loadNpmTasks "grunt-contrib-clean"
 	@loadNpmTasks "grunt-contrib-connect"
 	@loadNpmTasks "grunt-contrib-copy"
