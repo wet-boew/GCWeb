@@ -1,8 +1,8 @@
 ---
 {
-	"title": "[Nom de l’institution]",
+	"title": "[Nom de l’organisme]",
 	"language": "fr",
-	"altLangPrefix": "institution",
+	"altLangPrefix": "organizational-carousel",
 	"breadcrumb": [
 		{ "title": "Accueil", "link": "http://www.canada.ca/fr/index.html" },
 		{ "title": "Ministères et organismes", "link": "http://www.canada.ca/fr/gouv/min/index.html" }
@@ -13,34 +13,47 @@
 ---
 <div class="row">
 	<div class="col-md-9">
-		<p class="pagetag">[Nom de l’institution] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
+		<p class="pagetag">[Nom de l'organisme] fait partie du <a href="institution-fr.html">[ministère d'attache]</a> lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
 		<p>Nous sommes un organisme fédéral qui [mène/participe] dans <a href="#">le portefeuille [nom du portefeuille]</a> et qui travaille avec <a href="#">ses partenaires</a>. </p>
 	</div>
 </div>
-<section class="alert alert-info">
-	<h2 class="h3">Nous procédons actuellement au transfert de nos services et de nos informations vers Canada.ca. </h2>
-	<p>Le <a href="#">site Web actuel du/de [insert department name]</a> restera accessible jusqu’à ce que le transfert vers Canada.ca soit terminé.</p>
-</section>
 {{>follow}}
 <section>
 	<h2>Nouveautés</h2>
 	<div class="gc-nws row">
-		<div class="col-lg-4 col-md-6">
-			<a href="#">
-				<img src="{{assets}}/img/360x203.png" alt="" class="img-responsive thumbnail"/>
-				<p>[Titre de l’article]</p>
-			</a>
-			<small>[YYYY-MM-DD hh:mm] - Type de produit médiatique</small>
-			<p>Brève description des nouvelles.</p>
-		</div>
-		<div class="col-lg-4 col-md-6">
-			<a href="#">
-				<img src="{{assets}}/img/360x203.png" alt="" class="img-responsive thumbnail"/>
-				<p>[Titre de l’article]</p>
-			</a>
-			<small>[YYYY-MM-DD hh:mm] - Type de produit médiatique</small>
-			<p>Brève description des nouvelles.</p>
-		</div>
+		<section class="col-md-8">
+			<h3 class="wb-inv">Promotions</h3>
+			<div class="wb-tabs carousel-s2 playing" data-speed="slow">
+				<ul role="tablist">
+					<li class="active">
+						<a href="#tab1" title="Tab 1: [Nouvelles titre]"><img src="{{assets}}/img/promos/780x231-1.png" alt=""/></a>
+					</li>
+					<li>
+						<a href="#tab2" title="Tab 2: [Nouvelles titre]"><img src="{{assets}}/img/promos/780x231-2.png" alt=""/></a>
+					</li>
+				</ul>
+				<div role="tabpanel" id="tab1" class="in fade">
+					<figure>
+						<img src="{{assets}}/img/promos/780x231-1.png" alt=""/>
+						<figcaption>
+							<p><a href="#" class="learnmore">[Titre de la nouvelle]</a></p>
+							<small>YYYY-MM-DD - Type de nouvelle</small>
+							<p>Brève description des nouvelles.</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div role="tabpanel" id="tab2" class="out fade">
+					<figure>
+						<img src="{{assets}}/img/promos/780x231-2.png" alt=""/>
+						<figcaption>
+							<p><a href="#" class="learnmore">[Titre de la nouvelle]</a></p>
+							<small>YYYY-MM-DD - Type de nouvelle</small>
+							<p>Brève description des nouvelles.</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</section>
 		<div class="wb-feeds limit-3 col-lg-4 pull-right">
 			<ul class="feeds-cont list-unstyled lst-spcd">
 				<li>
@@ -158,9 +171,6 @@
 				<li><a href="#">Mandat</a></li>
 				<li><a href="#">Programmes</a></li>
 				<li><a href="#">Structure organisationnelle</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Partenaires</a></li>
-				<li><a href="#">Transparence</a></li>
 				<li><a href="#">Possibilités d’emplois</a></li>
 				<li><a href="#">Contactez-nous </a></li>
 			</ul>
@@ -171,28 +181,28 @@
 					<a href="#">
 						<figure>
 							<img src="{{assets}}/img/218x291.png" alt="" class="img-responsive thumbnail mrgn-bttm-sm"/>
-							<figcaption>[Nom du ministre]</figcaption>
+							<figcaption>[Président]</figcaption>
 						</figure>
 					</a>
-					<p>Titre</p>
+					<p>Chef de l’organisme</p>
 				</div>
 				<div class="col-md-4">
 					<a href="#">
 						<figure>
 							<img src="{{assets}}/img/218x291.png" alt="" class="img-responsive thumbnail mrgn-bttm-sm"/>
-							<figcaption>[Nom du ministre]</figcaption>
+							<figcaption>[Président]</figcaption>
 						</figure>
 					</a>
-					<p>Titre</p>
+					<p>Chef de l’organisme</p>
 				</div>
 				<div class="col-md-4">
 					<a href="#">
 						<figure>
 							<img src="{{assets}}/img/218x291.png" alt="" class="img-responsive thumbnail mrgn-bttm-sm"/>
-							<figcaption>[Nom du ministre]</figcaption>
+							<figcaption>[Président]</figcaption>
 						</figure>
 					</a>
-					<p>Titre</p>
+					<p>Chef de l’organisme</p>
 				</div>
 			</div>
 		</div>
