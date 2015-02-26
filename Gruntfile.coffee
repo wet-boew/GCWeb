@@ -41,6 +41,7 @@ module.exports = (grunt) ->
 		"build"
 		"Produces unminified files"
 		[
+			"checkDependencies"
 			"clean:dist"
 			"copy:wetboew"
 			"assets"
@@ -454,6 +455,7 @@ module.exports = (grunt) ->
 			options:
 				collapseWhitespace: true
 				preserveLineBreaks: true
+				preventAttributesEscaping: true
 			all:
 				cwd: "dist"
 				src: [
@@ -696,10 +698,16 @@ module.exports = (grunt) ->
 						))
 						middlewares
 
+		checkDependencies:
+			all:
+				options:
+					npmInstall: false
+
 	# These plugins provide necessary tasks.
 	@loadNpmTasks "assemble"
 	@loadNpmTasks "grunt-autoprefixer"
 	@loadNpmTasks "grunt-banner"
+	@loadNpmTasks "grunt-check-dependencies"
 	@loadNpmTasks "grunt-contrib-clean"
 	@loadNpmTasks "grunt-contrib-connect"
 	@loadNpmTasks "grunt-contrib-copy"
