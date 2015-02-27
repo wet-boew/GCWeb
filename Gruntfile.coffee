@@ -141,8 +141,8 @@ module.exports = (grunt) ->
 					"site/data/**/*.{yml,json}"
 				]
 				helpers: [
-					"lib/wet-boew/site/helpers/helper-*.js"
-					"site/helpers/helper-*.js"
+					"lib/wet-boew/site/helpers/helper{,s}-*.js"
+					"site/helpers/helper{,s}-*.js"
 				]
 				partials: [
 					"lib/wet-boew/site/includes/**/*.hbs"
