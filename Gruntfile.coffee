@@ -96,8 +96,6 @@ module.exports = (grunt) ->
 		"INTERNAL: Process non-CSS/JS assets to dist"
 		[
 			"copy:site_min"
-			"copy:assets_min"
-			"copy:fonts_min"
 			"copy:wetboew_demo_min"
 		]
 	)
@@ -132,6 +130,7 @@ module.exports = (grunt) ->
 				" * <%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 		deployBranch: "<%= pkg.name %>"
 
+		# TODO: Convert to useMinAssets like other themes to reduce the build time.
 		assemble:
 			options:
 				prettify:
@@ -153,15 +152,16 @@ module.exports = (grunt) ->
 				]
 				layoutdir: "site/layouts"
 				layout: "default.hbs"
+				environment:
+					jqueryVersion: "<%= jqueryVersion.version %>"
+					jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
+				assets: "dist"
 
 			ajax:
 				options:
 					layoutdir: "lib/wet-boew/site/layouts"
 					layout: "ajax.hbs"
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
+
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -171,11 +171,6 @@ module.exports = (grunt) ->
 				flatten: true
 
 			demos:
-				options:
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				files: [
 						#site
 						expand: true
@@ -224,10 +219,6 @@ module.exports = (grunt) ->
 			experimental:
 				options:
 					experimental: true
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
 					"*.hbs",
@@ -239,10 +230,6 @@ module.exports = (grunt) ->
 			splash:
 				options:
 					layout: "splash.hbs"
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages"
 				src: [
 					"splashpage.hbs"
@@ -251,12 +238,6 @@ module.exports = (grunt) ->
 				expand: true
 
 			partners:
-				options:
-					layout: "default.hbs"
-					assets: "dist/unmin"
-					environment:
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -270,9 +251,6 @@ module.exports = (grunt) ->
 					layout: "ajax.hbs"
 					environment:
 						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
 				cwd: "site/pages/ajax"
 				src: [
 					"*.hbs"
@@ -285,9 +263,6 @@ module.exports = (grunt) ->
 				options:
 					environment:
 						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
 				files: [
 						#site
 						expand: true
@@ -346,9 +321,6 @@ module.exports = (grunt) ->
 					experimental: true
 					environment:
 						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
 				cwd: "site/pages"
 				src: [
 					"*.hbs"
@@ -361,9 +333,6 @@ module.exports = (grunt) ->
 					layout: "splash.hbs"
 					environment:
 						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
 				cwd: "site/pages"
 				src: [
 					"splashpage.hbs"
@@ -373,12 +342,8 @@ module.exports = (grunt) ->
 
 			partners_min:
 				options:
-					layout: "default.hbs"
 					environment:
 						suffix: ".min"
-						jqueryVersion: "<%= jqueryVersion.version %>"
-						jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-					assets: "dist"
 				cwd: "site/pages/partners"
 				src: [
 					"*.hbs"
@@ -390,7 +355,7 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src"
 				src: "*.scss"
-				dest: "dist/unmin/css"
+				dest: "dist/css"
 				ext: ".css"
 
 		autoprefixer:
@@ -405,23 +370,23 @@ module.exports = (grunt) ->
 					"opera 12.1"
 				]
 			modern:
-				cwd: "dist/unmin/css"
+				cwd: "dist/css"
 				src: [
 					"*.css"
 					"!ie8*.css"
 				]
-				dest: "dist/unmin/css"
+				dest: "dist/css"
 				expand: true
 			oldIE:
 				options:
 					browsers: [
 						"ie 8"
 					]
-				cwd: "dist/unmin/css"
+				cwd: "dist/css"
 				src: [
 					"ie8*.css"
 				]
-				dest: "dist/unmin/css"
+				dest: "dist/css"
 				expand: true
 
 		usebanner:
@@ -429,13 +394,13 @@ module.exports = (grunt) ->
 				options:
 					banner: "@charset \"utf-8\";\n<%= banner %>"
 				files:
-					src: "dist/unmin/css/*.*"
+					src: "dist/css/*.*"
 
 
 		cssmin:
 			theme:
 				expand: true
-				cwd: "dist/unmin/css/"
+				cwd: "dist/css/"
 				src: [
 					"*.css",
 				]
@@ -529,11 +494,6 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/assets"
 				src: "**/*.*"
-				dest: "dist/unmin/assets"
-			assets_min:
-				expand: true
-				cwd: "src/assets"
-				src: "**/*.*"
 				dest: "dist/assets"
 			json:
 				expand: true
@@ -549,20 +509,12 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src/fonts"
 				src: "**/*.*"
-				dest: "dist/unmin/fonts"
+				dest: "dist/fonts"
 			site_min:
 				expand: true
 				cwd: "site/img"
 				src: "**/*.*"
 				dest: "dist/img"
-			fonts_min:
-				expand: true
-				cwd: "src/fonts"
-				src: [
-					"**/*.*"
-					"!**/*.scss"
-				]
-				dest: "dist/fonts"
 			deploy:
 				src: [
 					"*.txt"
@@ -574,7 +526,7 @@ module.exports = (grunt) ->
 				expand: true
 				cwd: "src"
 				src: "**/*.js"
-				dest: "dist/unmin/js/"
+				dest: "dist/js/"
 
 		clean:
 			dist: [ "dist"]
