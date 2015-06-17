@@ -19,6 +19,7 @@ module.exports = (grunt) ->
 			"assemble"
 			"htmlmin"
 			"htmllint"
+			"useMinAssets"
 		]
 	)
 
@@ -28,11 +29,7 @@ module.exports = (grunt) ->
 		"Produces unminified files"
 		[
 			"build"
-			"assemble:demos"
-			"assemble:ajax"
-			"assemble:experimental"
-			"assemble:splash"
-			"assemble:partners"
+			"assemble"
 			"htmllint"
 		]
 	)
@@ -60,14 +57,6 @@ module.exports = (grunt) ->
 	)
 
 	@registerTask(
-		"server"
-		"Run the Connect web server for local repo"
-		[
-			"connect:server:keepalive"
-		]
-	)
-
-	@registerTask(
 		"deploy"
 		"Build and deploy artifacts to wet-boew-dist"
 		->
@@ -77,6 +66,14 @@ module.exports = (grunt) ->
 					"gh-pages:travis"
 					"wb-update-examples"
 				]
+	)
+
+	@registerTask(
+		"server"
+		"Run the Connect web server for local repo"
+		[
+			"connect:server:keepalive"
+		]
 	)
 
 	@registerTask(
@@ -116,21 +113,218 @@ module.exports = (grunt) ->
 		"INTERNAL: Brings in the custom JavaScripts."
 		[
 			"copy:js"
-			"copy:json"
-			"copy:json_min"
 			"uglify"
 		]
 	)
 
+	@registerTask(
+		"useMinAssets"
+		"Replace unmin refrences with the min paths for HTML files"
+		() ->
+			htmlFiles = grunt.file.expand(
+				"dist/**/*.html"
+				"!dist/unmin/**/*.html"
+			);
+
+			htmlFiles.forEach(
+				( file ) ->
+					contents = grunt.file.read( file )
+					contents = contents.replace( /\.\.\/(wet\-boew|gcweb)/gi, "$1" )
+					contents = contents.replace( /\"(?!https:)([^\"]*)?\.(js|css)\"/g, "\"$1.min.$2\"" )
+
+					grunt.file.write(file, contents);
+			);
+	)
+
+
 	@initConfig
 		pkg: @file.readJSON "package.json"
+		themeDist: "dist/<%= pkg.name %>"
 		jqueryVersion: grunt.file.readJSON("lib/jquery/bower.json")
 		jqueryOldIEVersion: grunt.file.readJSON("lib/jquery-oldIE/bower.json")
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * <%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 		deployBranch: "<%= pkg.name %>"
 
-		# TODO: Convert to useMinAssets like other themes to reduce the build time.
+		checkDependencies:
+			all:
+				options:
+					npmInstall: false
+
+		clean:
+			dist: [ "dist"]
+			lib: ["lib"]
+
+		copy:
+			wetboew:
+				expand: true
+				cwd: "lib/wet-boew/dist"
+				src: [
+					"wet-boew/**/*.*"
+				]
+				dest: "dist"
+			wetboew_demo:
+				expand: true
+				cwd: "lib/wet-boew/dist/unmin"
+				src: [
+					"demos/**/*.*"
+					"docs/**/*.*"
+					"!**/*.html"
+					"demos/**/ajax/*.html"
+				]
+				dest: "dist/unmin"
+			wetboew_demo_min:
+				expand: true
+				cwd: "lib/wet-boew/dist"
+				src: "<%= copy.wetboew_demo.src %>"
+				dest: "dist"
+			site:
+				expand: true
+				cwd: "site/img"
+				src: "**/*.*"
+				dest: "dist/unmin/img"
+			site_min:
+				expand: true
+				cwd: "site/img"
+				src: "**/*.*"
+				dest: "dist/img"
+			assets:
+				expand: true
+				cwd: "src/assets"
+				src: "**/*.*"
+				dest: "<%= themeDist %>/assets"
+			js:
+				expand: true
+				cwd: "src"
+				src: "**/*.js"
+				dest: "<%= themeDist %>/js"
+			fonts:
+				expand: true
+				cwd: "src/fonts"
+				src: "**/*.*"
+				dest: "<%= themeDist %>/fonts"
+			deploy:
+				files: [
+					{
+						src: [
+							"*.txt"
+							"README.md"
+						]
+						dest: "dist"
+						expand: true
+					}
+
+					#Backwards compatibility.
+					#TODO: Remove in v4.1
+					{
+						cwd: "<%= themeDist %>"
+						src: "**/*.*"
+						dest: "dist"
+						expand: true
+					}
+					{
+						cwd: "dist/wet-boew"
+						src: "**/*.*"
+						dest: "dist"
+						expand: true
+					}
+				]
+
+				#Backwards compatibility.
+				#TODO: Remove in v4.1
+				options:
+					process: (content, filepath) ->
+						if filepath.match(/\.css/)
+							return content.replace(/\.\.\/\.\.\/wet-boew\/(assets|fonts)/g, '../$1')
+						content
+
+		sass:
+			all:
+				expand: true
+				cwd: "src"
+				src: "*.scss"
+				dest: "<%= themeDist %>/css"
+				ext: ".css"
+
+		autoprefixer:
+			options:
+				browsers: [
+					"last 2 versions"
+					"android >= 2.3"
+					"bb >= 7"
+					"ff >= 17"
+					"ie >= 8"
+					"ios 5"
+					"opera 12.1"
+				]
+			modern:
+				cwd: "<%= themeDist %>/css"
+				src: [
+					"*.css"
+					"!ie8*.css"
+				]
+				dest: "<%= themeDist %>/css"
+				expand: true
+			oldIE:
+				options:
+					browsers: [
+						"ie 8"
+					]
+				cwd: "<%= themeDist %>/css"
+				src: [
+					"ie8*.css"
+				]
+				dest: "<%= themeDist %>/css"
+				expand: true
+
+		usebanner:
+			css:
+				options:
+					banner: "@charset \"utf-8\";\n<%= banner %>"
+				files:
+					src: "<%= themeDist %>/css/*.*"
+
+		cssmin:
+			theme:
+				expand: true
+				cwd: "<%= themeDist %>/css/"
+				src: "*.css",
+				ext: ".min.css"
+				dest: "<%= themeDist %>/css"
+
+		cssmin_ie8_clean:
+			min:
+				expand: true
+				cwd: "<%= themeDist %>/css"
+				src: "**/ie8*.min.css"
+				dest: "<%= themeDist %>/css"
+
+		jshint:
+			options:
+				jshintrc: "lib/wet-boew/.jshintrc"
+
+			lib_test:
+				src: [
+					"src/**/*.js"
+				]
+
+		jscs:
+			all:
+				src: [
+					"src/**/*.js"
+				]
+
+		# Minify
+		uglify:
+			dist:
+				options:
+					banner: "<%= banner %>"
+				expand: true
+				cwd: "<%= themeDist %>/"
+				src: "**/*.js"
+				dest: "<%= themeDist %>/"
+				ext: ".min.js"
+
 		assemble:
 			options:
 				prettify:
@@ -155,7 +349,7 @@ module.exports = (grunt) ->
 				environment:
 					jqueryVersion: "<%= jqueryVersion.version %>"
 					jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-				assets: "dist"
+				assets: "dist/unmin"
 
 			ajax:
 				options:
@@ -229,7 +423,7 @@ module.exports = (grunt) ->
 
 			splash:
 				options:
-					layout: "splash.hbs"
+					layout: "splashpage.hbs"
 				cwd: "site/pages"
 				src: [
 					"splashpage.hbs"
@@ -245,184 +439,13 @@ module.exports = (grunt) ->
 				dest: "dist/unmin/partners/"
 				expand: true
 
-			ajax_min:
-				options:
-					layoutdir: "lib/wet-boew/site/layouts"
-					layout: "ajax.hbs"
-					environment:
-						suffix: ".min"
-				cwd: "site/pages/ajax"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/ajax/"
-				expand: true
-				flatten: true
-
-			demos_min:
-				options:
-					environment:
-						suffix: ".min"
-				files: [
-						#site
-						expand: true
-						cwd: "site/pages"
-						src: [
-							"**/*.hbs",
-							"!ajax/**.hbs"
-							"!splashpage.hbs"
-						]
-						dest: "dist"
-					,
-						#index
-						expand: true
-						cwd: "site/pages"
-						src: [
-							"splashpage.hbs"
-						]
-						dest: "dist"
-					,
-						#docs
-						expand: true
-						cwd: "lib/wet-boew/site/pages/docs"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/docs"
-					,
-						#plugins
-						expand: true
-						cwd: "lib/wet-boew/site/pages/demos"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/demos"
-					,
-						expand: true
-						cwd: "lib/wet-boew/src/plugins"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/demos"
-					,
-						expand: true
-						cwd: "lib/wet-boew/src/polyfills"
-						src: "**/*.hbs"
-						dest: "dist/demos"
-					,
-						expand: true
-						cwd: "lib/wet-boew/src/other"
-						src: "**/*.hbs"
-						dest: "dist/demos"
-				]
-
-			experimental_min:
-				options:
-					experimental: true
-					environment:
-						suffix: ".min"
-				cwd: "site/pages"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/experimental"
-				expand: true
-
-			index_min:
-				options:
-					layout: "splash.hbs"
-					environment:
-						suffix: ".min"
-				cwd: "site/pages"
-				src: [
-					"splashpage.hbs"
-				]
-				dest: "dist"
-				expand: true
-
-			partners_min:
-				options:
-					environment:
-						suffix: ".min"
-				cwd: "site/pages/partners"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/partners/"
-				expand: true
-		sass:
-			all:
-				expand: true
-				cwd: "src"
-				src: "*.scss"
-				dest: "dist/css"
-				ext: ".css"
-
-		autoprefixer:
-			options:
-				browsers: [
-					"last 2 versions"
-					"android >= 2.3"
-					"bb >= 7"
-					"ff >= 17"
-					"ie >= 8"
-					"ios 5"
-					"opera 12.1"
-				]
-			modern:
-				cwd: "dist/css"
-				src: [
-					"*.css"
-					"!ie8*.css"
-				]
-				dest: "dist/css"
-				expand: true
-			oldIE:
-				options:
-					browsers: [
-						"ie 8"
-					]
-				cwd: "dist/css"
-				src: [
-					"ie8*.css"
-				]
-				dest: "dist/css"
-				expand: true
-
-		usebanner:
-			css:
-				options:
-					banner: "@charset \"utf-8\";\n<%= banner %>"
-				files:
-					src: "dist/css/*.*"
-
-
-		cssmin:
-			theme:
-				expand: true
-				cwd: "dist/css/"
-				src: [
-					"*.css",
-				]
-				ext: ".min.css"
-				dest: "dist/css"
-
-		cssmin_ie8_clean:
-			min:
-				expand: true
-				cwd: "dist/css"
-				src: [
-					"**/ie8*.min.css"
-				]
-				dest: "dist/css"
-
 		htmlmin:
 			options:
 				collapseWhitespace: true
 				preserveLineBreaks: true
 				preventAttributesEscaping: true
 			all:
-				cwd: "dist"
+				cwd: "dist/unmin"
 				src: [
 					"**/*.html"
 					"!unmin/**/*.html"
@@ -453,6 +476,7 @@ module.exports = (grunt) ->
 						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
 						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
 						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
+						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
 					]
 				src: [
 					"dist/unmin/**/*.html"
@@ -461,83 +485,6 @@ module.exports = (grunt) ->
 					"!dist/unmin/demos/menu/demo/*.html"
 					"!dist/unmin/test/*.html"
 				]
-		copy:
-			wetboew:
-				expand: true
-				cwd: "lib/wet-boew/dist"
-				src: [
-					"**/*.*"
-					"!theme/**/*.*"
-					"!**/theme*.css"
-					"!demos/**/*.*"
-					"!unmin/demos/**/*.*"
-					"!**/logo.*"
-					"!**/favicon*.*"
-				]
-				dest: "dist/"
-			wetboew_demo:
-				expand: true
-				cwd: "lib/wet-boew/dist/unmin"
-				src: "demos/**/demo/*.*"
-				dest: "dist/unmin/"
-			wetboew_demo_min:
-				expand: true
-				cwd: "lib/wet-boew/dist"
-				src: "demos/**/demo/*.*"
-				dest: "dist/"
-			site:
-				expand: true
-				cwd: "site/img"
-				src: "**/*.*"
-				dest: "dist/unmin/img"
-			assets:
-				expand: true
-				cwd: "src/assets"
-				src: "**/*.*"
-				dest: "dist/assets"
-			json:
-				expand: true
-				cwd: "site/pages/"
-				src: "**/*.json"
-				dest: "dist/unmin/"
-			json_min:
-				expand: true
-				cwd: "site/pages/"
-				src: "**/*.json"
-				dest: "dist/"
-			fonts:
-				expand: true
-				cwd: "src/fonts"
-				src: "**/*.*"
-				dest: "dist/fonts"
-			site_min:
-				expand: true
-				cwd: "site/img"
-				src: "**/*.*"
-				dest: "dist/img"
-			deploy:
-				src: [
-					"*.txt"
-					"README.md"
-				]
-				dest: "dist"
-				expand: true
-			js:
-				expand: true
-				cwd: "src"
-				src: "**/*.js"
-				dest: "dist/js/"
-
-		clean:
-			dist: [ "dist"]
-			lib: ["lib"]
-			non_mincss:
-				expand: true
-				src: [
-					"dist/**/*.css"
-					"!dist/**/*.min.css"
-				]
-			jsUncompressed: ["dist/js/**/*.js", "!dist/js/**/*<%= environment.suffix %>.js"]
 
 		watch:
 			gruntfile:
@@ -559,32 +506,6 @@ module.exports = (grunt) ->
 					interval: 5007
 					livereload: true
 
-		jshint:
-			options:
-				jshintrc: ".jshintrc"
-
-			lib_test:
-				src: [
-					"src/**/*.js"
-					"theme/**/*.js"
-					"test/**/*.js"
-					"tasks/*.js"
-				]
-
-		# Minify
-		uglify:
-			dist:
-				options:
-					banner: "<%= banner %>"
-				expand: true
-				# Should probably go in separate folders, but this keeps
-				# backwards compatibility
-				flatten: true
-				cwd: "src/"
-				src: "<%= copy.js.src %>"
-				dest: "dist/js/"
-				ext: ".min.js"
-
 		hub:
 			"wet-boew":
 				src: [
@@ -599,6 +520,20 @@ module.exports = (grunt) ->
 				cwd: "lib/wet-boew"
 				failOnError: false
 				isDevelopment: true
+
+		connect:
+			options:
+				port: 8000
+
+			server:
+				options:
+					base: "dist"
+					middleware: (connect, options, middlewares) ->
+						middlewares.unshift(connect.compress(
+							filter: (req, res) ->
+								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
+						))
+						middlewares
 
 		"gh-pages":
 			options:
@@ -636,25 +571,6 @@ module.exports = (grunt) ->
 					message: "<%= grunt.config('gh-pages.travis.options.message') %>"
 					silent: true
 
-		connect:
-			options:
-				port: 8000
-
-			server:
-				options:
-					base: "dist"
-					middleware: (connect, options, middlewares) ->
-						middlewares.unshift(connect.compress(
-							filter: (req, res) ->
-								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
-						))
-						middlewares
-
-		checkDependencies:
-			all:
-				options:
-					npmInstall: false
-
 	# These plugins provide necessary tasks.
 	@loadNpmTasks "assemble"
 	@loadNpmTasks "grunt-autoprefixer"
@@ -673,6 +589,7 @@ module.exports = (grunt) ->
 	@loadNpmTasks "grunt-html"
 	@loadNpmTasks "grunt-hub"
 	@loadNpmTasks "grunt-install-dependencies"
+	@loadNpmTasks "grunt-json-minify"
 	@loadNpmTasks "grunt-sass"
 	@loadNpmTasks "grunt-wet-boew-postbuild"
 
