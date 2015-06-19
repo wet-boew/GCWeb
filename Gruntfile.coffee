@@ -233,10 +233,13 @@ module.exports = (grunt) ->
 				#Backwards compatibility.
 				#TODO: Remove in v4.1
 				options:
+					noProcess: [
+						'**/*.{png,gif,jpg,ico,ttf,otf,woff,svg,swf}'
+					]
 					process: (content, filepath) ->
 						if filepath.match(/\.css/)
 							return content.replace(/\.\.\/\.\.\/wet-boew\/(assets|fonts)/g, '../$1')
-						content
+						return content
 
 		sass:
 			all:
