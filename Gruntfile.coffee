@@ -64,6 +64,7 @@ module.exports = (grunt) ->
 				grunt.task.run [
 					"copy:deploy"
 					"gh-pages:travis"
+					"gh-pages:travis_cdn"
 					"wb-update-examples"
 				]
 	)
@@ -550,6 +551,26 @@ module.exports = (grunt) ->
 					message: ((
 						if process.env.TRAVIS_TAG
 							"Production files for the " + process.env.TRAVIS_TAG + " maintenance release"
+						else
+							"Travis build " + process.env.TRAVIS_BUILD_NUMBER
+					))
+					silent: true,
+					tag: ((
+						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG + "-" + "<%= pkg.name.toLowerCase() %>" else false
+					))
+				src: [
+					"**/*.*"
+				]
+
+			travis_cdn:
+				options:
+					repo: process.env.CDN_REPO
+					branch: "<%= deployBranch %>"
+					clone: "themes-cdn"
+					base: "<%= themeDist %>"
+					message: ((
+						if process.env.TRAVIS_TAG
+							"CDN files for the " + process.env.TRAVIS_TAG + " maintenance release"
 						else
 							"Travis build " + process.env.TRAVIS_BUILD_NUMBER
 					))
