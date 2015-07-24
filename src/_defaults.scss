@@ -18,35 +18,19 @@ a {
 			}
 		}
 	}
-	
+
 	&.no-undrln {
 		text-decoration: none;
 	}
 }
 
-.form-control {
-	&::-moz-placeholder {
-		color: #5c5c5c !important;
-	}
-
-	&::-webkit-input-placeholder {
-		color: #5c5c5c !important;
-	}
-
-	&:-moz-placeholder { /* Firefox 18- */
-		color: #5c5c5c !important;
-	}
-
-	&:-ms-input-placeholder {
-		color: #5c5c5c !important;
-	}
-}
-
+// scss-lint:disable QualifyingElement
 input[placeholder],
 [placeholder],
 *[placeholder] {
-	color: #5c5c5c !important;
+	color: $input-color-placeholder;
 }
+// scss-lint:enable QualifyingElement
 
 /* Theme base styles */
 %defaults-font-family {
@@ -205,12 +189,12 @@ aside {
 				font-size: $heading-link;
 			}
 		}
-		
+
 		a {
 			h2,
 			h3,
 			h4 {
-				font-size: $heading-link;				
+				font-size: $heading-link;
 			}
 		}
 	}
