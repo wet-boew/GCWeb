@@ -214,7 +214,7 @@ module.exports = (grunt) ->
 						dest: "dist"
 						expand: true
 					}
-					
+
 					{
 						src: "*.txt"
 						dest: "<%= themeDist %>"
@@ -602,26 +602,5 @@ module.exports = (grunt) ->
 					silent: true
 
 	# These plugins provide necessary tasks.
-	@loadNpmTasks "assemble"
-	@loadNpmTasks "grunt-autoprefixer"
-	@loadNpmTasks "grunt-banner"
-	@loadNpmTasks "grunt-check-dependencies"
-	@loadNpmTasks "grunt-contrib-clean"
-	@loadNpmTasks "grunt-contrib-connect"
-	@loadNpmTasks "grunt-contrib-copy"
-	@loadNpmTasks "grunt-contrib-cssmin"
-	@loadNpmTasks "grunt-contrib-jshint"
-	@loadNpmTasks "grunt-contrib-htmlmin"
-	@loadNpmTasks "grunt-contrib-uglify"
-	@loadNpmTasks "grunt-contrib-watch"
-	@loadNpmTasks "grunt-cssmin-ie8-clean"
-	@loadNpmTasks "grunt-gh-pages"
-	@loadNpmTasks "grunt-html"
-	@loadNpmTasks "grunt-hub"
-	@loadNpmTasks "grunt-install-dependencies"
-	@loadNpmTasks "grunt-json-minify"
-	@loadNpmTasks "grunt-sass"
-	@loadNpmTasks "grunt-wet-boew-postbuild"
-
+	require( "load-grunt-tasks")( grunt, { pattern: [ "grunt-*", "assemble" ] } )
 	@
-
