@@ -19,6 +19,7 @@ module.exports = (grunt) ->
 			"assemble"
 			"htmlmin"
 			"htmllint"
+			"bootlint"
 			"useMinAssets"
 		]
 	)
@@ -498,6 +499,31 @@ module.exports = (grunt) ->
 					"!dist/unmin/test/*.html"
 				]
 
+		bootlint:
+			all:
+				options:
+					stoponerror: true
+					relaxerror: [
+						# We recommend handling this through the server headers so it never appears in the markup
+						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
+						# TODO: The rules below should be resolved
+						"E013" # Only columns (`.col-*-*`) may be children of `.row`s
+						"E014" # Columns (`.col-*-*`) can only be children of `.row`s or `.form-group`s
+						"E031" # Glyphicon classes must only be used on elements that contain no text content and have no child elements.
+						"E023" # `.panel-body` must have a `.panel` or `.panel-collapse` parent
+						"E024" # `.panel-heading` must have a `.panel` parent
+						"W010" # Using `.pull-left` or `.pull-right` as part of the media object component is deprecated as of Bootstrap v3.3.0. Use `.media-left` or `.media-right` instead.
+						"E032" # `.modal-content` must be a child of `.modal-dialog`
+						"W009" # Using empty spacer columns isn't necessary with Bootstrap's grid. So instead of having an empty grid column with `class="col-xs-12"` , just add `class="col-xs-offset-12"` to the next grid column.
+						"E012" # `.input-group` and `.col-*-*` cannot be used directly on the same element. Instead, nest the `.input-group` within the `.col-*-*`
+					]
+				src: [
+					"dist/**/*.html"
+					# Ignore HTML fragments used for the menus
+					"!dist/**/assets/*.html"
+					"!dist/**/ajax/*.html"
+				]
+				
 		watch:
 			gruntfile:
 				files: "Gruntfile.coffee"
