@@ -4,62 +4,8 @@
 }
 ---
 {{>google}}
-<ul id="wb-tphp">
-	<li class="wb-slc">
-		<a class="wb-sl" href="#wb-cont">{{{i18n "tmpl-skip-cont"}}}</a>
-	</li>
-{{#isnt footer "false"}}
-	<li class="wb-slc visible-sm visible-md visible-lg">
-		<a class="wb-sl" href="#wb-info">{{{i18n "tmpl-skip-about-site"}}}</a>
-	</li>
-{{/isnt}}
-{{#is page.partner "true"}}
-	<li class="wb-slc visible-md visible-lg">
-		<a class="wb-sl" href="#wb-sec">{{{i18n "tmpl-skip-section"}}}</a>
-	</li>
-{{/is}}
-</ul>
-<header role="banner">
-	<div id="wb-bnr" class="container">
-{{#isnt languagetoggle "false"}}
-		<section id="wb-lng" class="visible-md visible-lg text-right">
-			<h2 class="wb-inv">{{{i18n "tmpl-lang-select"}}}</h2>
-			{{>languagetoggle}}
-		</section>
-{{/isnt}}
-		<div class="row">
-			{{>brand}}
-{{#isnt mobimenu "false"}}
-			<section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn" >
-				<h2>{{{i18n "srch-menus"}}}</h2>
-				{{>mobimenu}}
-			</section>
-{{/isnt}}
-{{#isnt sitesearch "false"}}
-			<section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-				<h2 class="wb-inv">{{{i18n "tmpl-search"}}}</h2>
-				{{>sitesearch}}
-			</section>
-{{/isnt}}
-		</div>
-	</div>
-{{#isnt sitemenu "false"}}
-	<nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-replace="{{assets}}/ajax/sitemenu-{{language}}.html" typeof="SiteNavigationElement">
-		<h2 class="wb-inv">{{{i18n "tmpl-topics-menu"}}}</h2>
-		{{>sitemenu}}
-	</nav>
-{{else}}
-	<span data-trgt="mb-pnl" class="wb-menu hide"></span>
-{{/isnt}}
-{{#isnt breadcrumb "false"}}
-	{{#unless_eq pageclass compare="home"}}
-	<nav role="navigation" id="wb-bc" class="" property="breadcrumb">
-		<h2 class="wb-inv">{{{i18n "you-are-here"}}}</h2>
-		{{>breadcrumbs}}
-	</nav>
-	{{/unless_eq}}
-{{/isnt}}
-</header>
+{{>skiplinks}}
+{{>header}}
 {{>promotion}}
 {{#is page.partner "true"}}
 <div class="container">
@@ -98,11 +44,5 @@
 {{/is}}
 	{{>features}}
 {{#isnt footer "false"}}
-<footer role="contentinfo" id="wb-info">
-	<nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-		<h2 class="wb-inv">{{{i18n "tmpl-about-site"}}}</h2>
-		{{>footer}}
-	</nav>
-	{{>footerbrand}}
-</footer>
+	{{>footer}}
 {{/isnt}}
