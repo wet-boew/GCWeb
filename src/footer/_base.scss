@@ -2,6 +2,8 @@
  Site information
 */
 
+
+
 #wb-info {
 	background: $wbGray;
 	position: relative;
@@ -13,6 +15,23 @@
 
 		&.wb-navcurr {
 			font-weight: 800;
+		}
+	}
+
+	.ftr-urlt-lnk {
+		ul {
+			li {
+				display: inline-block;
+				padding: 0;
+				margin-right: 1.0em;
+				&:before {
+					content: '\2022'; 
+					margin-right: 1.3em;
+				}
+				&:first-child:before {
+					content: none; 
+				}
+			}
 		}
 	}
 
@@ -40,10 +59,10 @@
 				text-decoration: none;
 			}
 		}
-	}
 
-	.tofpg {
-		line-height: 90px;
+		.tofpg {
+			line-height: 90px;
+		}
 	}
 
 	nav {
@@ -62,6 +81,7 @@
 				margin-top: 20px;
 			}
 		}
+
 	}
 }
 
