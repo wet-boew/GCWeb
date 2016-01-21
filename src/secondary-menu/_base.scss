@@ -13,19 +13,26 @@
 
 	h3 {
 		border: 1px solid #ddd;
-		border-bottom: 3px solid #666;
-		font-size: 1em;
-		margin: 0;
-		padding: 15px;
+		border-bottom: 5px solid $accent-blue;
+		margin: 0 0 1px;
 
 		a {
 			color: #333;
+			display: block;
+			font-size: .8em;
+			padding: 15px;
 			text-decoration: none;
+
+			&:hover {
+				background-color: $active-blue;
+				color: #fff;
+			}
 		}
 	}
 
 	.list-group {
 		margin-bottom: 0;
+		margin-left: 10px;
 
 		a {
 			&.list-group-item {
@@ -36,13 +43,20 @@
 				text-decoration: none;
 
 				&.wb-navcurr {
-					@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
+					background-color: $accent-blue;
+					color: #fff;
+					cursor: text;
+
+					&[href]:hover {
+						background-color: $accent-blue;
+					}
 				}
 
 				&[href] {
 					&:hover,
 					&:focus {
-						@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
+						background-color: $active-blue;
+						color: #fff;
 					}
 				}
 			}
@@ -53,6 +67,12 @@
 				background-color: darken($menu-background, 10%);
 				color: darken($menu-colour, 50%);
 				padding-left: 1.8em;
+			}
+
+			.list-group {
+				.list-group-item {
+					background-color: $menu-background;
+				}
 			}
 		}
 	}

@@ -8,15 +8,16 @@
 		{ "title": "Home", "link": "http://www.canada.ca/en/index.html" },
 		{ "title": "[Theme Name]", "link": "theme-en.html" }
 	],
-	"dateModified": "2014-10-24",
+	"dateModified": "2015-12-29",
 	"share": "true",
-	"deptfeature": true
+	"deptfeature": true,
+	"pagetag": "1-2 sentences that describe the topics and top tasks that can be accessed on this page."
 }
 ---
 <div class="row profile">
 	<div class="col-md-6 ">
 		<h1 property="name" id="wb-cont">{{{title}}}</h1>
-		<p class="pagetag">1-2 sentences that describe the topics and top tasks that can be accessed on this page.</p>
+		<p class="pagetag">{{pagetag}}</p>
 		{{>follow}}
 	</div>
 	<div class="col-md-6 margin-top-small hidden-sm hidden-xs">
@@ -24,124 +25,68 @@
 	</div>
 </div>
 <div class="row">
-	<aside class="col-md-4 col-md-push-8 mrgn-tp-lg" >
-		<div class="well">
-			<h2 class="mrgn-tp-0">Most requested</h2>
-			<ul class="lst-spcd">
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-				<li><a href="#">[Top task hyperlink text]</a></li>
-			</ul>
-		</div>
-		<div class="well">
-			<h2 class="mrgn-tp-0">More information for</h2>
-			<ul class="lst-spcd">
-				<li><a href="#">[Audience hyperlink text]</a></li>
-				<li><a href="#">[Audience hyperlink text]</a></li>
-				<li><a href="#">[Audience hyperlink text - double line hyperlink]</a></li>
-			</ul>
-		</div>
-	</aside>
-	<section class="col-md-8 col-md-pull-4">
-		<h2>Topics</h2>
-		<div class="row">
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<div class="clearfix"></div>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<div class="clearfix"></div>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<div class="clearfix"></div>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-			<section class="col-md-6">
-				<h3 class="h5"><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
-			</section>
-		</div>
+	<div class="col-md-4 col-md-push-8 mrgn-tp-lg" >
+		{{>most-requested}}
+		<section class="hidden-md hidden-lg">
+			<div id="ajaxTopics">
+				<h2>Services and information</h2>
+				<div class="row">
+					{{>topic-subtopic}}
+					{{>topic-subtopic}}
+					<div class="clearfix"></div>
+					{{>topic-subtopic}}
+					{{>topic-subtopic}}
+					<div class="clearfix"></div>
+					{{>topic-subtopic}}
+					{{>topic-subtopic}}
+					<div class="clearfix"></div>
+					{{>topic-subtopic}}
+					{{>topic-subtopic}}
+					<div class="clearfix"></div>
+					{{>topic-subtopic}}
+					{{>topic-subtopic}}
+					<div class="clearfix"></div>
+					<details class="mrgn-tp-md brdr-0">
+						<summary class="btn btn-default text-center">Show more services and information</summary>
+						<div class="row">
+							{{>topic-subtopic}}
+							{{>topic-subtopic}}
+							<div class="clearfix"></div>
+							{{>topic-subtopic}}
+							{{>topic-subtopic}}
+							<div class="clearfix"></div>
+							{{>topic-subtopic}}
+							{{>topic-subtopic}}
+							<div class="clearfix"></div>
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		{{>supported-by}}
+		{{>more-info}}
+	</div>
+	<section class="col-md-8 col-md-pull-4 hidden-sm hidden-xs">
+		<div data-ajax-append="topic-en.html#ajaxTopics"></div>
 	</section>
 </div>
 <section>
 	<h2>What we are doing</h2>
 	<div class="row wb-eqht">
 		<section class="col-lg-4 col-md-6">
-			<h3>Laws and regulations</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Regulation 1]</a></li>
-				<li><a href="#">[Law 1 with a long heading]</a></li>
-				<li><a href="#">[Regulation 2 with a long heading]</a></li>
-				<li><a href="#">[Regulation 3]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">All related laws and regulations</a></strong></p>
+			{{>law-regulations}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Publications</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Publication 1]</a></li>
-				<li><a href="#">[Publication 2 with a long heading]</a></li>
-				<li><a href="#">[Publication 3]</a></li>
-				<li><a href="#">[Publication 4]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">All related publications</a></strong></p>
+			{{>publications}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Consultations</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Consultation 1]</a></li>
-				<li><a href="#">[Consultation 2 with a long heading]</a></li>
-				<li><a href="#">[Consultation 3]</a></li>
-				<li><a href="#">[Consultation 4 with a long heading..and a bit longer]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">All related consultations</a></strong></p>
+			{{>consultations}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Open data</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Open data 1]</a></li>
-				<li><a href="#">[Open data 2 with a long heading]</a></li>
-				<li><a href="#">[Open data 3]</a></li>
-				<li><a href="#">[Open data 4 with a long heading..and a bit longer]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">All related open data</a></strong></p>
+			{{>open-data}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Statistics</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Statistic 1]</a></li>
-				<li><a href="#">[Statistic 2 with a long heading]</a></li>
-				<li><a href="#">[Statistic 3]</a></li>
-				<li><a href="#">[Statistic 4 with a long heading..and a bit longer]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">All related statistics</a></strong></p>
+			{{>statistics}}
 		</section>
 	</div>
 </section>

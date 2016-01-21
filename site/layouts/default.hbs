@@ -7,13 +7,13 @@
 {{>skiplinks}}
 {{>header}}
 {{>promotion}}
-{{#is page.partner "true"}}
+{{#if page.localnav}}
 <div class="container">
 	<div class="row">
 		<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
 {{else}}
 <main role="main" property="mainContentOfPage" class="container">
-{{/is}}
+{{/if}}
 {{#is page.pageclass "home"}}
 			<h1 property="name" id="wb-cont" class="wb-inv">{{{title}}}</h1>
 {{else}}
@@ -34,14 +34,14 @@
 	{{/is}}
 {{/if}}
 </main>
-{{#is page.partner "true"}}
+{{#if page.localnav }}
 		<nav class="wb-sec col-md-3  col-md-pull-9" typeof="SiteNavigationElement" id="wb-sec" role="navigation">
 			<h2 id="wb-sec-h" class="wb-inv">{{{i18n "tmpl-section-menu"}}}</h2>
-			{{>secondarymenu}}
+			{{>localnav}}
 		</nav>
 	</div>
 </div>
-{{/is}}
+{{/if}}
 	{{>features}}
 {{#isnt footer "false"}}
 	{{>footer}}
