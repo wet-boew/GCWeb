@@ -203,7 +203,10 @@ module.exports = (grunt) ->
 			fonts:
 				expand: true
 				cwd: "src/fonts"
-				src: "**/*.*"
+				src: [
+					"**/*.*"
+					"!**/*.scss"
+				]
 				dest: "<%= themeDist %>/fonts"
 			deploy:
 				files: [
