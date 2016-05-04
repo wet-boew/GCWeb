@@ -1,0 +1,10 @@
+<{{#is page.pageType "institution"}}section{{else}}div{{/is}} class="col-md-4">
+	{{#is page.pageType "institution"}}<h3 class="h4">{{{i18n "corp-info-job"}}}</h3>{{/is}}
+	<a href="#">
+		<figure>
+			<img src="{{assets}}/img/218x291.png" alt="" class="img-responsive thumbnail"/>
+			<figcaption>{{#is page.pageType "institution"}}{{{i18n "corp-info-institution-name"}}}{{else}}{{{i18n "corp-info-organization-name"}}}{{/is}}</figcaption>
+		</figure>
+	</a>
+	<p>{{#is page.pageType "institution"}}{{{i18n "corp-info-title"}}}{{else}}{{{i18n "corp-info-org-title"}}}{{/is}}</p>
+</{{#is page.pageType "institution"}}section{{else}}div{{/is}}>
