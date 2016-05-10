@@ -12,7 +12,7 @@
 	<div class="row">
 		<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
 {{else}}
-<main role="main" property="mainContentOfPage" class="container">
+<main role="main" property="mainContentOfPage" class="container{{#is page.pageType "institution"}} gc-instttn{{/is}}">
 {{/if}}
 {{#is page.pageclass "home"}}
 			<h1 property="name" id="wb-cont" class="wb-inv">{{{title}}}</h1>
