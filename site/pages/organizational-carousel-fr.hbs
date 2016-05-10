@@ -3,6 +3,7 @@
 	"title": "[Nom de l’organisme]",
 	"language": "fr",
 	"altLangPrefix": "organizational-carousel",
+	"pageType": "organization",
 	"breadcrumb": [
 		{ "title": "Accueil", "link": "http://www.canada.ca/fr/index.html" },
 		{ "title": "Ministères et organismes", "link": "http://www.canada.ca/fr/gouv/min/index.html" }
@@ -12,12 +13,14 @@
 }
 ---
 <div class="row">
-	<div class="col-md-9">
-		<p class="pagetag">[Nom de l'organisme] fait partie du <a href="institution-fr.html">[ministère d'attache]</a> lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
-		<p>Nous sommes un organisme fédéral qui [mène/participe] dans <a href="#">le portefeuille [nom du portefeuille]</a> et qui travaille avec <a href="#">ses partenaires</a>. </p>
+	<div class="col-sm-7 col-xs-12 pull-left">
+		<p>Nous sommes une institution fédérale qui fait partie du portefeuille du <a href="#">[nom du portfolio]</a>.</p>
+		<p class="pagetag">[Nom de l’institution] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
+	</div>
+	<div class="col-sm-5 col-xs-8 pull-right">
+		{{>follow}}
 	</div>
 </div>
-{{>follow}}
 <section>
 	<h2>Nouveautés</h2>
 	<div class="gc-nws row">
@@ -70,100 +73,98 @@
 	</div>
 </section>
 <div class="row">
-	<section class="col-md-8">
-		<h2>Nos services et renseignements</h2>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, praesentium est eius. Non, id. Totam ea saepe ipsa!</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis debitis, deserunt, temporibus rem saepe eligendi maxime nobis alias!</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, accusamus perferendis quia est sequi architecto illum ad laborum!</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro officiis voluptatibus reiciendis accusamus illum, consequuntur aliquam, animi dignissimos.</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit eligendi, quasi quia tenetur cum maiores. Voluptate, provident?</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui itaque nemo fuga officiis minima ducimus commodi eos tempora?</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius neque enim cum, facilis aut maiores quibusdam, ipsa quas?</p>
-		</section>
-		<section>
-			<h3 class="h5"><a href="#">[Lien à une principale tâche]</a></h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum perspiciatis ipsum non architecto nisi debitis omnis nam dolore!</p>
-		</section>
-		<p class="text-right"><strong><a href="#">Tous nos services et renseignements </a></strong></p>
+	<div class="col-md-4 mrgn-tp-lg pull-right">
+		{{>most-requested}}
+	</div>
+	<section class="col-md-8 pull-left mrgn-bttm-lg">
+		<h2>Services et renseignements</h2>
+		<div class="row">
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<details class="mrgn-tp-md brdr-0">
+				<summary class="btn btn-default text-center">Afficher plus de services et de renseignements</summary>
+				<div class="row">
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="col-md-6">
+						{{>task}}
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</details>
+		</div>
 	</section>
-	<aside class="col-md-4 mrgn-tp-lg">
-		<div class="well">
-			<h2 class="mrgn-tp-0">Sujets</h2>
-			<ul class="lst-spcd">
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-				<li><a href="#">[Lien à un sujet ou sous-sujet]</a></li>
-			</ul>
-		</div>
-		<div class="well">
-			<h2 class="mrgn-tp-0">Autres renseignements pour les</h2>
-			<ul class="lst-spcd">
-				<li><a href="#">[Lien à un sujet pour une auditoire ciblée]</a></li>
-				<li><a href="#">[Lien à un sujet pour une auditoire ciblée]</a></li>
-				<li><a href="#">[Lien à un sujet pour une auditoire ciblée]</a></li>
-			</ul>
-		</div>
-	</aside>
+	<div class="clr-rght-md clr-rght-lg"></div>
+	<div class="pull-right col-md-4">
+		{{>contact-us}}
+		{{>more-info}}
+	</div>
 </div>
-<section>
+<section class="whtwedo">
 	<h2>Ce que nous faisons</h2>
 	<div class="row wb-eqht">
 		<section class="col-lg-4 col-md-6">
-			<h3>Lois et règlements</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Règlement 1]</a></li>
-				<li><a href="#">[Lois 1 avec un long titre]</a></li>
-				<li><a href="#">[Règlement 2 avec un long titre]</a></li>
-				<li><a href="#">[Règlement 3]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">Tous les règlements et lois connexes</a></strong></p>
+			{{>law-regulations}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Publications</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Publication 1]</a></li>
-				<li><a href="#">[Publication 2 avec un long titre]</a></li>
-				<li><a href="#">[Publication 3]</a></li>
-				<li><a href="#">[Publication 4]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">Toutes les publications connexes</a></strong></p>
+			{{>publications}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			<h3>Consultations</h3>
-			<ul class="mrgn-bttm-lg lst-spcd">
-				<li><a href="#">[Consultation 1]</a></li>
-				<li><a href="#">[Consultation 2 avec un long titre]</a></li>
-				<li><a href="#">[Consultation 3]</a></li>
-				<li><a href="#">[Consultation 4 avec un long titre... et plus...]</a></li>
-			</ul>
-			<p class="text-right"><strong><a href="#">Toutes les consultations connexes</a></strong></p>
+			{{>consultations}}
+		</section>
+		<section class="col-lg-4 col-md-6">
+			{{>open-data}}
+		</section>
+		<section class="col-lg-4 col-md-6">
+			{{>statistics}}
 		</section>
 	</div>
 </section>
