@@ -78,4 +78,13 @@ window["wb-data-ajax"] = {
 	}
 };
 
+//Report a problem form - reveal textbox when checkbox is selected
+$("[data-reveal]").change(function() {
+	var $elm = $(this),
+		selector = $elm.attr('data-reveal'),
+		$reveal = $elm.find(selector);
+	return ( $elm.is(':checked') ) ? $(selector).removeClass('hide') : $(selector).addClass('hide');
+});
+
+
 })( jQuery, document, wb );
