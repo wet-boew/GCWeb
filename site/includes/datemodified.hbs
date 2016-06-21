@@ -1,10 +1,18 @@
 <div class="row pagedetails">
 	{{#is page.report "true"}}
-	{{>report-problem}}
+	<details class="brdr-0 col-sm-6 col-lg-4 mrgn-tp-sm">
+		<summary class="btn btn-default text-center">{{{i18n "tmpl-feedback"}}}</summary>
+		<div class="clearfix"></div>
+		<div class="well row">
+		{{>report-problem}}
+		</div>
+	</details>
 	{{else}}
+	{{#isnt page.report "false"}}
 	<div class="col-sm-6 col-lg-4 mrgn-tp-sm">
 		<a href="{{{i18n "tmpl-feedback-link"}}}" class="btn btn-default btn-block">{{{i18n "tmpl-feedback"}}}</a>
 	</div>
+	{{/isnt}}
 	{{/is}}
 	{{#is page.share "true"}}
 		<div class="col-sm-3 mrgn-tp-sm pull-right">
