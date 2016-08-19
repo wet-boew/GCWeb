@@ -526,7 +526,7 @@ module.exports = (grunt) ->
 					"!dist/**/assets/*.html"
 					"!dist/**/ajax/*.html"
 				]
-				
+
 		watch:
 			gruntfile:
 				files: "Gruntfile.coffee"
