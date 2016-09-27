@@ -634,4 +634,6 @@ module.exports = (grunt) ->
 
 	# These plugins provide necessary tasks.
 	require( "load-grunt-tasks")( grunt, { pattern: [ "grunt-*", "assemble" ] } )
+
+	require( "time-grunt" )( grunt )
 	@
