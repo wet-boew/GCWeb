@@ -628,7 +628,6 @@ module.exports = (grunt) ->
 			travis:
 				options:
 					repo: process.env.DEMOS_REPO
-					branch: process.env.DEMOS_BRANCH
 					message: "<%= grunt.config('gh-pages.travis.options.message') %>"
 					silent: true
 
