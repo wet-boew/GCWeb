@@ -3,8 +3,8 @@
 */
 
 %secmenu-canada-theme-menuitem-curr-hover-focus {
-	background-color: darken($menu-background, 60%);
-	color: lighten($menu-colour, 75%);
+	background-color: $active-blue;
+	color: #fff;
 }
 
 #wb-sec {
@@ -26,8 +26,7 @@
 			text-decoration: none;
 
 			&:hover {
-				background-color: $active-blue;
-				color: #fff;
+				@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
 			}
 		}
 	}
@@ -45,8 +44,7 @@
 				text-decoration: none;
 
 				&.wb-navcurr {
-					background-color: $accent-blue;
-					color: #fff;
+					@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
 					cursor: text;
 
 					&[href]:hover {
@@ -57,8 +55,7 @@
 				&[href] {
 					&:hover,
 					&:focus {
-						background-color: $active-blue;
-						color: #fff;
+						@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
 					}
 				}
 			}
@@ -76,8 +73,7 @@
 					background-color: $menu-background;
 
 					&.wb-navcurr {
-						background-color: $accent-blue;
-						color: #fff;
+						@extend %secmenu-canada-theme-menuitem-curr-hover-focus;
 						cursor: text;
 					}
 				}
