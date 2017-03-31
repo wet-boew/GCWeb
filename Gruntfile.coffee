@@ -632,7 +632,7 @@ module.exports = (grunt) ->
 					silent: true
 
 	# These plugins provide necessary tasks.
-	require( "load-grunt-tasks")( grunt, { pattern: [ "grunt-*", "assemble" ] } )
+	require( "load-grunt-tasks")( grunt )
 
 	require( "time-grunt" )( grunt )
 	@
