@@ -487,7 +487,7 @@ module.exports = (grunt) ->
 			ajax:
 				options:
 					ignore: [
-						"XHTML element “head” is missing a required instance of child element “title”."
+						"Element “head” is missing a required instance of child element “title”."
 						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
 						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
 						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
