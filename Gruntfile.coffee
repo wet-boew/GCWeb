@@ -141,7 +141,7 @@ module.exports = (grunt) ->
 		"INTERNAL: Brings in the custom JavaScripts."
 		[
 			"concat:plugins"
-			# "copy:js_lib"
+			"copy:js_lib"
 			"uglify"
 			"copy:deps"
 			"clean:deps"
@@ -263,14 +263,14 @@ module.exports = (grunt) ->
 				src: "**/*.*"
 				dest: "<%= themeDist %>/assets"
 			# Copy third party library
-			# js_lib:
-			#	expand: true
-			#	flatten: true
-			#	cwd: "lib"
-			#	src: [
-			#		"jsonpointer/src/jsonpointer.js"
-			#	]
-			#	dest: "<%= themeDist %>/theme-js-deps"
+			js_lib:
+				expand: true
+				flatten: true
+				cwd: "lib"
+				src: [
+					"jsonpointer/src/jsonpointer.js"
+				]
+				dest: "<%= themeDist %>/theme-js-deps"
 			test:
 				files: [
 					cwd: "src"
@@ -641,6 +641,20 @@ module.exports = (grunt) ->
 					"dist/unmin/ajax/**/*.html"
 					"dist/unmin/demos/menu/demo/*.html"
 				]
+			templates:
+				options:
+					ignore: [
+						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
+						"Element “dl” is missing a required instance of child element “dd”."
+						"XHTML element “dl” is missing a required instance of child element “dd”."
+						"Element “dl” is missing a required instance of child element “dt”."
+						"XHTML element “dl” is missing a required instance of child element “dt”."
+						"Empty heading."
+					]
+				src: [
+					"dist/unmin/demos/data-json/template-en.html"
+					"dist/unmin/demos/data-json/template-fr.html"
+				]
 			all:
 				options:
 					ignore: [
@@ -659,6 +673,8 @@ module.exports = (grunt) ->
 					"!dist/unmin/assets/**/*.html"
 					"!dist/unmin/demos/menu/demo/*.html"
 					"!dist/unmin/test/*.html"
+					"!dist/unmin/demos/data-json/template-en.html"
+					"!dist/unmin/demos/data-json/template-fr.html"
 				]
 
 		bootlint:
