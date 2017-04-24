@@ -269,6 +269,7 @@ module.exports = (grunt) ->
 				cwd: "lib"
 				src: [
 					"jsonpointer/src/jsonpointer.js"
+					"JSON-Patch/src/json-patch.js"
 				]
 				dest: "<%= themeDist %>/theme-js-deps"
 			test:
