@@ -42,6 +42,8 @@ module.exports = (grunt) ->
 			"checkDependencies"
 			"clean:dist"
 			"copy:wetboew"
+			"copy:demos"
+			"copy:demos_min"
 			"assets"
 			"css"
 			"js"
@@ -68,6 +70,30 @@ module.exports = (grunt) ->
 					"gh-pages:travis_cdn"
 					"wb-update-examples"
 				]
+	)
+
+	@registerTask(
+		"test-mocha"
+		"Run tests locally with Grunt Mocha"
+		[
+			"pre-mocha"
+			"mocha"
+		]
+	)
+
+	@registerTask(
+		"pre-mocha"
+		"INTERNAL: prepare for running Mocha unit tests"
+		() ->
+			grunt.task.run [
+				"concat:test"
+				"copy:test"
+				"assemble:test"
+			]
+
+			#Prevents multiple instances of connect from running
+			if grunt.config.get('connect.test.options.port') is `undefined`
+				grunt.task.run "connect:test"
 	)
 
 	@registerTask(
@@ -114,8 +140,11 @@ module.exports = (grunt) ->
 		"js"
 		"INTERNAL: Brings in the custom JavaScripts."
 		[
-			"copy:js"
+			"concat:plugins"
+			"copy:js_lib"
 			"uglify"
+			"copy:deps"
+			"clean:deps"
 		]
 	)
 
@@ -173,6 +202,27 @@ module.exports = (grunt) ->
 		clean:
 			dist: [ "dist"]
 			lib: ["lib"]
+			deps: ["<%= themeDist %>/theme-js-deps"]
+
+		concat:
+			plugins:
+				options:
+					stripBanners: false
+				src: [
+					"src/plugins/**/*.js"
+					"src/theme.js"
+					"!src/plugins/**/test.js"
+					"!src/plugins/**/assets/*.js"
+					"!src/plugins/**/demo/*.js"
+				]
+				dest: "<%= themeDist %>/js/theme.js"
+
+			test:
+				src: [
+					"lib/wet-boew/src/test.js"
+					"src/**/test.js"
+				]
+				dest: "dist/unmin/test/tests.js"
 
 		copy:
 			wetboew:
@@ -212,11 +262,72 @@ module.exports = (grunt) ->
 				cwd: "src/assets"
 				src: "**/*.*"
 				dest: "<%= themeDist %>/assets"
-			js:
+			# Copy third party library
+			js_lib:
 				expand: true
-				cwd: "src"
-				src: "**/*.js"
-				dest: "<%= themeDist %>/js"
+				flatten: true
+				cwd: "lib"
+				src: [
+					"jsonpointer/src/jsonpointer.js"
+					"JSON-Patch/src/json-patch.js"
+				]
+				dest: "<%= themeDist %>/theme-js-deps"
+			test:
+				files: [
+					cwd: "src"
+					src: [
+						"**/test/*.*"
+					]
+					dest: "dist/unmin/test"
+					rename: (dest, src) ->
+						dest + src.replace /plugins|polyfills|others/, ""
+					expand: true
+				,
+					cwd: "node_modules"
+					src: [
+						"mocha/mocha.js"
+						"mocha/mocha.css"
+						"expect.js/index.js"
+						"sinon/pkg/sinon.js"
+						"sinon/pkg/sinon-ie.js"
+					]
+					dest: "dist/unmin/test"
+					expand: true
+					flatten: true
+				]
+			deps:
+				expand: true
+				cwd: "<%= themeDist %>/theme-js-deps"
+				src: "**/*.*"
+				dest: "dist/wet-boew/js/deps"
+			demos:
+				expand:true
+				cwd: "src/plugins"
+				src: [
+					"**/*.{jpg,html,xml}"
+					"**/demo/*.*"
+					"**/ajax/*.*"
+					"**/img/*.*"
+					"!**/assets/*.*"
+					"!**/deps/*.*"
+					"!**/test/*.*"
+					"!**/*.scss"
+				]
+				dest: "dist/unmin/demos/"
+			demos_min:
+				expand:true
+				cwd: "src/plugins"
+				src: [
+					"**/*.{jpg,html,xml}"
+					"**/demo/*.*"
+					"**/ajax/*.*"
+					"**/img/*.*"
+					"!**/assets/*.*"
+					"!**/deps/*.*"
+					"!**/test/*.*"
+					"!**/*.scss"
+				]
+				dest: "dist/demos/"
 			fonts:
 				expand: true
 				cwd: "src/fonts"
@@ -347,14 +458,33 @@ module.exports = (grunt) ->
 
 		# Minify
 		uglify:
+			options:
+				preserveComments: (uglify,comment) ->
+					return comment.value.match(/^!/i)
 			dist:
 				options:
 					banner: "<%= banner %>"
 				expand: true
 				cwd: "<%= themeDist %>"
-				src: "**/*.js"
+				src: [
+					"**/*.js"
+					"!<%= themeDist %>/theme-js-deps"
+				]
 				dest: "<%= themeDist %>"
 				ext: ".min.js"
+
+			deps:
+				options:
+					preserveComments: "some"
+				expand: true
+				cwd: "<%= themeDist %>/theme-js-deps"
+				src: [
+					"*.js"
+					"!*.min.js"
+				]
+				dest: "<%= themeDist %>/theme-js-deps"
+				ext: ".min.js"
+				extDot: "last"
 
 		assemble:
 			options:
@@ -406,6 +536,14 @@ module.exports = (grunt) ->
 							"!splashpage.hbs"
 						]
 						dest: "dist/unmin"
+					,
+						#plugins with business logic (theme plugins)
+						expand: true
+						cwd: "src/plugins"
+						src: [
+							"**/*.hbs"
+						]
+						dest: "dist/unmin/demos"
 					,
 						#docs
 						expand: true
@@ -470,6 +608,14 @@ module.exports = (grunt) ->
 				dest: "dist/unmin/partners/"
 				expand: true
 
+			test:
+				options:
+					offline: true
+				expand: true
+				cwd: "site/pages"
+				src: "test/test.hbs"
+				dest: "dist/unmin"
+
 		htmlmin:
 			options:
 				collapseWhitespace: true
@@ -496,6 +642,20 @@ module.exports = (grunt) ->
 					"dist/unmin/ajax/**/*.html"
 					"dist/unmin/demos/menu/demo/*.html"
 				]
+			templates:
+				options:
+					ignore: [
+						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
+						"Element “dl” is missing a required instance of child element “dd”."
+						"XHTML element “dl” is missing a required instance of child element “dd”."
+						"Element “dl” is missing a required instance of child element “dt”."
+						"XHTML element “dl” is missing a required instance of child element “dt”."
+						"Empty heading."
+					]
+				src: [
+					"dist/unmin/demos/data-json/template-en.html"
+					"dist/unmin/demos/data-json/template-fr.html"
+				]
 			all:
 				options:
 					ignore: [
@@ -514,6 +674,8 @@ module.exports = (grunt) ->
 					"!dist/unmin/assets/**/*.html"
 					"!dist/unmin/demos/menu/demo/*.html"
 					"!dist/unmin/test/*.html"
+					"!dist/unmin/demos/data-json/template-en.html"
+					"!dist/unmin/demos/data-json/template-fr.html"
 				]
 
 		bootlint:
@@ -589,6 +751,22 @@ module.exports = (grunt) ->
 								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
 						))
 						middlewares
+
+			test:
+				options:
+					base: "."
+					middleware: (connect, options, middlewares) ->
+						middlewares.unshift(connect.compress(
+							filter: (req, res) ->
+								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test res.getHeader("Content-Type")
+						))
+						middlewares
+
+		mocha:
+			all:
+				options:
+					reporter: "Spec"
+					urls: ["http://localhost:8000/dist/unmin/test/test.html?txthl=just%20some%7Ctest"]
 
 		"gh-pages":
 			options:
