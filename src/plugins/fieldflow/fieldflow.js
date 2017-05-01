@@ -480,7 +480,7 @@ var componentName = "wb-fieldflow",
 				$labelExplicit, $firstChild,
 				labelSelector = data.lblselector || "." + labelClass,
 				labelTxt,
-				$items = getItemsData( $source.find( "ul:first() > li" ) ),
+				itmSelector = data.itmselector || "ul:first() > li", $items,
 				actions,
 				renderas;
 
@@ -512,7 +512,10 @@ var componentName = "wb-fieldflow",
 				labelSelector = null; // unset the label selector because it not needed for the control creation
 			} else {
 				labelTxt = $firstChild.html();
+				itmSelector = "." + headerClass + " + " + itmSelector;
 			}
+
+			$items = getItemsData( $source.find( itmSelector ) );
 
 			if ( !data.outputctnrid ) {
 				data.outputctnrid = data.provEvt.parentElement.id;
