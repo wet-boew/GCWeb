@@ -530,6 +530,7 @@ var componentName = "wb-fieldflow",
 				lblselector: labelSelector,
 				defaultselectedlabel: data.defaultselectedlabel,
 				required: !!!data.isoptional,
+				noreqlabel: data.noreqlabel,
 				items: $items,
 				inline: data.inline
 			} );
@@ -541,6 +542,7 @@ var componentName = "wb-fieldflow",
 			actions = data.actions,
 			lblselector = data.lblselector,
 			isReq = !!data.required,
+			useReqLabel = !!!data.noreqlabel,
 			items = data.items,
 			elm = event.target,
 			$elm = $( elm ),
@@ -556,7 +558,7 @@ var componentName = "wb-fieldflow",
 			i, i_len, j, j_len, cur_itm;
 
 		// Create the label
-		if ( isReq ) {
+		if ( isReq && useReqLabel ) {
 			labelPrefix += " class='required'";
 			labelSuffix += " <strong class='required'>(" + i18n.required + ")</strong>";
 		}
@@ -618,6 +620,7 @@ var componentName = "wb-fieldflow",
 			actions = data.actions,
 			lblselector = data.lblselector,
 			isReq = !!data.required,
+			useReqLabel = !!!data.noreqlabel,
 			items = data.items,
 			elm = event.target,
 			$elm = $( elm ),
@@ -646,7 +649,7 @@ var componentName = "wb-fieldflow",
 		$out = $( fieldsetHTML + "></fieldset>" );
 
 		// Create the legend
-		if ( isReq ) {
+		if ( isReq && useReqLabel ) {
 			fieldsetPrefix += " required";
 			fieldsetSuffix += " <strong class='required'>(" + i18n.required + ")</strong>";
 		}
