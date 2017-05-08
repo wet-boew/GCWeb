@@ -22,16 +22,17 @@
 		"name": "exemple1",
 		"patches": [
 			{ "op": "wb-count", "path": "/produits", "set": "/nbproduit" },
-			{ "op": "copy", "from": "/produits/0", "path": "/produit"}
+			{ "op": "copy", "from": "/produits/0", "path": "/produit"},
+			{ "op": "wb-nbtolocal", "path": "/prix", "suffix": "$" }
 		]
 	}'></div>
-<p>Il y a <span data-json-replace="#[exemple1]/nbproduit">un nombre inconnu de</span> produits.</p>
+<p>Il y a <span data-json-replace="#[exemple1]/nbproduit">un nombre inconnu de</span> produits à un tarif unitaire de <span data-json-replace="#[exemple1]/prix">(N/D)</span>.</p>
 <p>Mon premier produit est <span data-json-replace="#[exemple1]/produit">(inconnu)</span> et le produit original était <span data-json-replace="demo/data-fr.json#/produit">(inconnu)</span>.</p>
 
 <div data-wb-jsonmanager='{
 		"url": "demo/data-fr.json#/niveau1/niveau2",
 		"name": "exemple2",
-		"patches": [ 
+		"patches": [
 			{ "op": "wb-toDateISO", "path": "/itm1" }
 		]
 	}'>
@@ -57,16 +58,17 @@
 		&quot;name&quot;: &quot;exemple1&quot;,
 		&quot;patches&quot;: [
 			{ &quot;op&quot;: &quot;wb-count&quot;, &quot;path&quot;: &quot;/produits&quot;, &quot;set&quot;: &quot;/nbproduit&quot; },
-			{ &quot;op&quot;: &quot;copy&quot;, &quot;from&quot;: &quot;/produits/0&quot;, &quot;path&quot;: &quot;/produit&quot;}
+			{ &quot;op&quot;: &quot;copy&quot;, &quot;from&quot;: &quot;/produits/0&quot;, &quot;path&quot;: &quot;/produit&quot;},
+			{ &quot;op&quot;: &quot;wb-nbtolocal&quot;, &quot;path&quot;: &quot;/prix&quot;, &quot;suffix&quot;: &quot;$&quot; }
 		]
 	}'&gt;&lt;/div&gt;
-&lt;p&gt;Il y a &lt;span data-json-replace=&quot;#[exemple1]/nbproduit&quot;&gt;un nombre inconnu de&lt;/span&gt; produits.&lt;/p&gt;
+&lt;p&gt;Il y a &lt;span data-json-replace=&quot;#[exemple1]/nbproduit&quot;&gt;un nombre inconnu de&lt;/span&gt; produits à un tarif unitaire de &lt;span data-json-replace=&quot;#[exemple1]/prix&quot;&gt;(N/D)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Mon premier produit est &lt;span data-json-replace=&quot;#[exemple1]/produit&quot;&gt;(inconnu)&lt;/span&gt; et le produit original était &lt;span data-json-replace=&quot;demo/data-fr.json#/produit&quot;&gt;(inconnu)&lt;/span&gt;.&lt;/p&gt;
 
 &lt;div data-wb-jsonmanager='{
 		&quot;url&quot;: &quot;demo/data-fr.json#/niveau1/niveau2&quot;,
 		&quot;name&quot;: &quot;exemple2&quot;,
-		&quot;patches&quot;: [ 
+		&quot;patches&quot;: [
 			{ &quot;op&quot;: &quot;wb-toDateISO&quot;, &quot;path&quot;: &quot;/itm1&quot; }
 		]
 	}'&gt;
@@ -104,7 +106,8 @@
 				"itm1": "2013-09-08T14:14:14Z"
 			}
 		]
-	}
+	},
+	"prix": 1234.98
 }</code></pre>
 </details>
 
@@ -177,8 +180,8 @@
 &lt;div data-wb-jsonmanager='{
 		&quot;url&quot;: &quot;https://api.github.com/repos/wet-boew/wet-boew/issues?labels=General%3A+Accessibility&quot;,
 		&quot;name&quot;: &quot;github-src&quot;,
-		&quot;patches&quot;: [ 
-			
+		&quot;patches&quot;: [
+
 			{ &quot;op&quot;: &quot;wb-toDateISO&quot;, &quot;path&quot;: &quot;/updated_at&quot; }
 		]
 	}'&gt;&lt;/div&gt;
@@ -260,8 +263,8 @@
 <div data-wb-jsonmanager='{
 		"url": "https://api.github.com/repos/wet-boew/wet-boew/issues?labels=General%3A+Accessibility",
 		"name": "github-src",
-		"patches": [ 
-			
+		"patches": [
+
 			{ "op": "wb-toDateISO", "path": "/updated_at" }
 		]
 	}'></div>

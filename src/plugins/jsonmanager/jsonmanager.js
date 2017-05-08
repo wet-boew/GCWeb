@@ -68,6 +68,26 @@ var componentName = "wb-jsonmanager",
 				}
 			},
 			{
+				name: "wb-nbtolocal",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ],
+						loc = this.locale || window.wb.lang,
+						suffix = this.suffix || "",
+						prefix = this.prefix || ""
+
+					if ( typeof val === "string" ) {
+						val = parseFloat( val );
+						if ( isNaN( val ) ) {
+							return;
+						}
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "replace", path: this.path, value: prefix + val.toLocaleString( loc ) + suffix  }
+					] );
+				}
+			},
+			{
 				name: "wb-toDateISO",
 				fn: function( obj, key, tree ) {
 					if ( !this.set ) {
@@ -227,6 +247,33 @@ var componentName = "wb-jsonmanager",
 			} );
 		}
 	};
+
+// IE dedicated patch to support ECMA-402 but limited to English and French number formatting
+if ( wb.ie ) {
+	Number.prototype.toLocaleString = function( locale ){
+
+		var splitVal = this.toString().split( "." ),
+			integer = splitVal[ 0 ],
+			decimal = splitVal[ 1 ],
+			intLength = integer.length,
+			nbSection = intLength % 3 || 3,
+			strValue = integer.substr( 0, nbSection ),
+			isFrenchLoc = ( locale === "fr" ),
+			thousandSep = (isFrenchLoc ? " " : ",");
+
+		for (i = nbSection; i < intLength; i = i + 3) {
+			strValue = strValue + thousandSep + integer.substr( i, 3 );
+		}
+		if ( decimal.length ) {
+			if ( isFrenchLoc ) {
+				strValue = strValue + "," + decimal;
+			} else {
+				strValue = strValue + "." + decimal;
+			}
+		}
+		return strValue;
+	}
+}
 
 $document.on( "json-failed.wb", selector, function( event ) {
 	var elm = event.target,
