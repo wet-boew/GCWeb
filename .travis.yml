@@ -5,6 +5,9 @@ cache: false
 
 sudo: false
 
+before_install:
+  - echo "machine github.com login $GH_TOKEN" >> ~/.netrc
+
 install:
   - scripts/setup
   - bundle install
