@@ -1,9 +1,9 @@
 
 {{#contains page.src "site/pages/index-"}}
-<p>
-	<a class="btn btn-primary" href="docs/ref/{{site.repository}}/{{site.repository}}-{{language}}.html">{{{i18n "tmpl-documentation"}}}</a>
-	<a class="btn btn-primary" href="https://github.com/wet-boew/{{site.repository}}/issues/new?title={{encodeURI title}}:%20">{{{i18n "tmpl-questions-comments"}}}</a>
-</p>
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="docs/ref/{{site.repository}}/{{site.repository}}-{{language}}.html">{{{i18n "tmpl-documentation"}}}</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/{{site.repository}}/issues/new?title={{encodeURI title}}:%20">{{{i18n "tmpl-questions-comments"}}}</a></li>
+</ul>
 {{/contains}}
 {{#contains page.src "/docs/ref/"}}
 	{{#isnt assets "../.."}}
