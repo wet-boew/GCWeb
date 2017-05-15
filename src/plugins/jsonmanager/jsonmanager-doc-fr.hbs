@@ -57,7 +57,7 @@
 					<pre><code>&lt;div data-wb-jsonmanager='{
 		&quot;url&quot;: &quot;demo/data-en.json&quot;,
 		&quot;name&quot;: &quot;example1&quot;,
-		&quot;patches&quot;: [ 
+		&quot;patches&quot;: [
 			{ &quot;op&quot;: &quot;wb-count&quot;, &quot;path&quot;: &quot;/products&quot;, &quot;set&quot;: &quot;/nbproduct&quot; },
 			{ &quot;op&quot;: &quot;copy&quot;, &quot;from&quot;: &quot;/products/0&quot;, &quot;path&quot;: &quot;/product&quot;}
 		]
@@ -75,8 +75,8 @@
 		</li>
 		<li>Configure your patches as per the supported operation bellow</li>
 	</ol>
-	
-	<p>Note: The json manager can not be set on the same element that listen to <code>wb.jsonfetch</code> event, like data json.</p> 
+
+	<p>Note: The json manager can not be set on the same element that listen to <code>wb.jsonfetch</code> event, like data json.</p>
 
 </section>
 
@@ -135,19 +135,19 @@
 		<td><code>{ "op": "replace", "path": &lt;path&gt;", "path": &lt;value&gt;  }</code></td>
 		<td>Replaces the value at the target location with a new value.</td>
 	</tr>
-	
+
 	<tr>
 		<td>Move</td>
 		<td><code>{ "op": "move", "from": &lt;path&gt;, "path": &lt;path&gt; }</code></td>
 		<td>Removes the value at a specified location and adds it to the target location.</td>
 	</tr>
-	
+
 	<tr>
 		<td>Copy</td>
 		<td><code>{ "op": copy, "from": &lt;path&gt;, "path": &lt;path&gt; }</code></td>
 		<td>Copies the value at a specified location to the target location.</td>
 	</tr>
-	
+
 	<tr>
 		<td>Test</td>
 		<td><code>{ "op": "test", "path": &lt;path&gt;, "value": &lt;value&gt; }</code></td>
@@ -156,7 +156,7 @@
 			<p>Note by using test operation, it makes the pathes atomic. So that means that is one test operation fail, nothing will be executed otherwise all operation get executed. The execution of any test operation are prioritized before any other operation.</p>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<td>Counting items</td>
 		<td><code>{ "op": "wb-count", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
@@ -168,19 +168,36 @@
 		<td><code>{ "op": "wb-first", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
 		<td>Copy the first item from an array at a specified location.</td>
 	</tr>
-	
+
 	<tr>
 		<td>Last item</td>
 		<td><code>{ "op": "wb-last", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
 		<td>Copy the last item from an array at a specified location.</td>
 	</tr>
-	
+
+	<tr>
+		<td>Formatting a number</td>
+		<td><code>{ "op": "wb-nbtolocal", "path": &lt;path&gt; }</code></td>
+		<td>
+			<p>Replace the number at the &lt;path&gt; location that represents the number value formatted according to the conventions of the host environment's current locale.</p>
+			<p>Additional setting:</p>
+			<dl>
+				<dt><code>locale</code></dt>
+				<dd>Default is the current page language. You can set any valid locale, except IE only support "en" and "fr" locale. <code>{ "op": "wb-nbtolocal", "path": &lt;path&gt; "locale": "fr-CA" }</code></dd>
+				<dt><code>prefix</code></dt>
+				<dd>Default: empty string. This prepend a string before the formatted number. <code>{ "op": "wb-nbtolocal", "path": &lt;path&gt; "suffix": "$CAN " }</code></dd>
+				<dt><code>suffix</code></dt>
+				<dd>Default: empty string. This append a string after the formatted number. <code>{ "op": "wb-nbtolocal", "path": &lt;path&gt; "suffix": "$ CAN" }</code></dd>
+			</dl>
+		</td>
+	</tr>
+
 	<tr>
 		<td>Formating a date to ISO (YYYY-MM-DD)</td>
 		<td><code>{ "op": "wb-toDateISO", "path": &lt;path&gt; }</code><br/> or<br/><code>{ "op": "wb-toDateISO", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
 		<td>Format a date value to data ISO and copy the value at a specified location. If <code>set</code> is not defined, it will be the value located at <code>path</code> that will be replaced.</td>
 	</tr>
-	
+
 	<tr>
 		<td>Formating a date and time to ISO (YYYY-MM-DD HH:MM)</td>
 		<td><code>{ "op": "wb-toDateTimeISO", "path": &lt;path&gt; }</code><br/> or<br/><code>{ "op": "wb-toDateTimeISO", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
@@ -380,7 +397,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		
+
 
 			<tr>
 				<td><code>patches.wb-jsonmanager</code></td>
@@ -410,7 +427,7 @@
 				<td>Triggered manually (e.g., <code>$( ".wb-jsonmanager" ).trigger( "wb-init.wb-jsonmanager" );</code>).</td>
 				<td>Used to manually initialize the wb-jsonmanager plugin. <strong>Note:</strong> The wb-jsonmanager plugin will be initialized automatically unless the required markup is added after the page has already loaded.</td>
 			</tr>
-			
+
 			<tr>
 				<td><code>wb-init.wb-jsonmanager</code></td>
 				<td>Triggered manually (e.g., <code>$( ".wb-jsonmanager" ).trigger( "wb-init.wb-jsonmanager" );</code>).</td>
