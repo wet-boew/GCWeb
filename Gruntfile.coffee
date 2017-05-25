@@ -14,6 +14,7 @@ module.exports = (grunt) ->
 		"dist"
 		"Produces the production files"
 		[
+			"test"
 			"build"
 			"assets-dist"
 			"assemble"
@@ -133,6 +134,14 @@ module.exports = (grunt) ->
 			"copy:assets"
 			"copy:fonts"
 			"copy:wetboew_demo"
+		]
+	)
+
+	@registerTask(
+		"test"
+		"INTERNAL: Runs testing tasks except for SauceLabs testing"
+		[
+			"sasslint"
 		]
 	)
 
@@ -379,6 +388,18 @@ module.exports = (grunt) ->
 						if filepath.match /\.css/
 							return content.replace /\.\.\/\.\.\/wet-boew\/(assets|fonts)/g, '../$1'
 						content
+
+		sasslint:
+			options:
+				configFile: ".sass-lint.yml"
+			all:
+				expand: true
+				src: [
+						"**/*.scss"
+						"!lib/**"
+						"!node_modules/**"
+						"!dist/**"
+					]
 
 		sass:
 			all:
