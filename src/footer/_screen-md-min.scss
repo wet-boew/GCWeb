@@ -1,16 +1,27 @@
 /*
   WET-BOEW
-  @title: Medium view and over (screen only)
+  @title: Search medium view and over (screen only)
  */
 
 #wb-info {
 	.ftr-urlt-lnk {
 		li {
 			display: inline-block;
-			margin-right: .5em;
+			float: left;
+			margin-right: $footer-about-li-horizontal-spacing;
 
 			&:first-child:before {
 				content: none;
+			}
+		}
+	}
+}
+
+[dir=rtl] {
+	#wb-info {
+		.ftr-urlt-lnk {
+			li {
+				float: right;
 			}
 		}
 	}
