@@ -151,6 +151,7 @@ module.exports = (grunt) ->
 		[
 			"concat:plugins"
 			"copy:js_lib"
+			"copy:deps_custom"
 			"uglify"
 			"copy:deps"
 			"clean:deps"
@@ -304,6 +305,11 @@ module.exports = (grunt) ->
 					expand: true
 					flatten: true
 				]
+			deps_custom:
+				expand: true
+				cwd: "src/plugins/deps"
+				src: "**/*.*"
+				dest: "<%= themeDist %>/theme-js-deps"
 			deps:
 				expand: true
 				cwd: "<%= themeDist %>/theme-js-deps"
