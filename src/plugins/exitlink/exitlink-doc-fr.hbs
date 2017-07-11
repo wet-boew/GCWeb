@@ -1,0 +1,102 @@
+---
+{
+	"title": "Quitter la page - Documentation",
+	"language": "fr",
+	"category": "Plugiciels",
+	"categoryfile": "plugins",
+	"description": "Definie une conception uniformisé pour un lien qui quitte la page et supprime l'historique de navigation courrante.",
+	"altLangPrefix": "exitlink-doc",
+	"dateModified": "2017-02-02"
+}
+---
+
+<div lang="en">
+<p><strong>Needs translation</strong></p>
+
+<div class="wb-prettify all-pre"></div>
+<section>
+	<h2>Purpose</h2>
+	<p>Provide a common design pattern to an exit link and empty the current navigation history when used. There can only be one exit link per page.</p>
+	
+	<div class="alert alert-warning">
+		<p>This design pattern is currently in an experimental state. (Updated: <time datetime="2017-07">July 2017</time>)</p>
+	</div>
+</section>
+<section>
+	<h2>Use when</h2>
+	<p>When you need to provide a <strong>"quick escape"</strong> or a <strong>"leave this website"</strong> feature for your user because of the sensitivity of your content.</p>
+</section>
+<section>
+	<h2>Do not use when</h2>
+	<p>When it is not to provide a quick escape to your user.</p>
+	<p>To duplicate a link into bottom overlay, manually create your own bottom overlay with the data inview feature.</p>
+</section>
+<section>
+	<h2>Working example</h2>
+	<p>English:</p>
+	<ul>
+		<li><a href="exitlink-en.html">Exit link</a></li>
+	</ul>
+	<p>French:</p>
+	<ul>
+		<li><a href="exitlink-fr.html" hreflang="fr" lang="fr">Quitter la page</a></li>
+	</ul>
+</section>
+
+<section>
+	<h2>How to implement</h2>
+	<ol>
+		<li>Insert a paragraph. The data-inview will be attached to that element.</li>
+		<li>Insert a link pointing to the target escaping site.</li>
+		<li>Add the <code>wb-exitlink</code> class to the link to enable the exit link feature</li>
+	</ol>
+	<pre><code>&lt;p&gt;&lt;a class="wb-exitlink btn btn-success" href="<strong>[The external link like http://www.weather.gc.ca]</strong>" rel="external"&gt;<strong>[Text link]</strong>&lt;/a&gt;&lt;/p&gt;</code></pre>
+</section>
+
+
+<section>
+	<h2>Configuration options</h2>
+	
+	<p>There is no special configuration option.</p>
+</section>
+
+
+<section>
+	<h2>Events</h2>
+
+	<table id="events" class="table">
+		<thead>
+			<tr>
+				<th>Event</th>
+				<th>Trigger</th>
+				<th>What it does</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr>
+				<td><code>wb-ready.wb-exitlink</code></td>
+				<td>Triggered automatically after an wb-exitlink is initialized.</td>
+				<td>Used to identify when an wb-exitlink has initialized (target of the event)
+					<pre><code>$( document ).on( "wb-ready.wb-exitlink", ".wb-exitlink", function( event ) {
+});</code></pre>
+					<pre><code>$( ".wb-exitlink" ).on( "wb-ready.wb-exitlink", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb</code></td>
+				<td>Triggered automatically when WET has finished loading and executing.</td>
+				<td>Used to identify when all WET plugins and polyfills have finished loading and executing.
+				<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<section>
+	<h2>Source code</h2>
+	<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/exitlink">Exit link plugin source code on GitHub</a></p>
+</section>
+</div>
