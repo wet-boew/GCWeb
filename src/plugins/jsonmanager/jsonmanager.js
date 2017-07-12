@@ -31,11 +31,30 @@ var componentName = "wb-jsonmanager",
 				name: "wb-count",
 				fn: function( obj, key, tree ) {
 					var countme = obj[ key ],
-						len = 0;
-					if ( $.isArray( countme ) ) {
-						len = countme.length;
+						len = 0, i_len, i,
+						filter = this.filter || [ ],
+						filternot = this.filternot || [ ];
+
+					if ( !$.isArray( filter ) ) {
+						filter = [ filter ];
+					}
+					if ( !$.isArray( filternot ) ) {
+						filternot = [ filternot ];
 					}
 
+					if ( ( filter.length || filternot.length ) && $.isArray( countme ) ) {
+
+						// Iterate in obj[key] / item and check if is true for the given path is any.
+						i_len = countme.length;
+
+						for ( i = 0; i !== i_len; i = i + 1 ) {
+							if ( filterPassJSON( countme[ i ], filter, filternot ) ) {
+								len = len + 1;
+							}
+						}
+					} else if ( $.isArray( countme ) ) {
+						len = countme.length;
+					}
 					jsonpatch.apply( tree, [
 						{ op: "add", path: this.set, value: len }
 					] );
@@ -73,7 +92,7 @@ var componentName = "wb-jsonmanager",
 					var val = obj[ key ],
 						loc = this.locale || window.wb.lang,
 						suffix = this.suffix || "",
-						prefix = this.prefix || ""
+						prefix = this.prefix || "";
 
 					if ( typeof val === "string" ) {
 						val = parseFloat( val );
@@ -240,17 +259,148 @@ var componentName = "wb-jsonmanager",
 								nocachekey: elmData.nocachekey
 							}
 						} );
+
+						// If the URL is a dataset, make it ready
+						if ( url.charCodeAt( 0 ) === 35 && url.charCodeAt( 1 ) === 91 ) {
+							wb.ready( $elm, componentName );
+						}
 					} else {
 						wb.ready( $elm, componentName );
 					}
 				}
 			} );
 		}
+	},
+
+
+	// Filtering a JSON
+	// Return true if trueness && falseness
+	// Return false if !( trueness && falseness )
+	// trueness and falseness is an array of { "path": "", "value": "" } object
+	filterPassJSON = function( obj, trueness, falseness ) {
+		var i, i_cache,
+			trueness_len = trueness.length,
+			falseness_len = falseness.length,
+			compareResult = false,
+			isEqual;
+
+		if ( trueness_len || falseness_len ) {
+
+			for ( i = 0; i < trueness_len; i += 1 ) {
+				i_cache = trueness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( i_cache.optional ) {
+					compareResult = compareResult || isEqual;
+				} else if ( !isEqual ) {
+					return false;
+				} else {
+					compareResult = true;
+				}
+			}
+			if ( trueness_len && !compareResult ) {
+				return false;
+			}
+
+			for ( i = 0; i < falseness_len; i += 1 ) {
+				i_cache = falseness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( isEqual && !i_cache.optional || isEqual && i_cache.optional ) {
+					return false;
+				}
+			}
+
+		}
+		return true;
+	},
+
+	// Utility function to compare two JSON value
+	_equalsJSON = function( a, b ) {
+		switch ( typeof a ) {
+		case "undefined":
+			return false;
+		case "boolean":
+		case "string":
+		case "number":
+			return a === b;
+		case "object":
+			if ( a === null ) {
+				return b === null;
+			}
+			if ( $.isArray( a ) ) {
+				if (  $.isArray( b ) || a.length !== b.length ) {
+					return false;
+				}
+				for ( var i = 0, l = a.length; i < l; i++ ) {
+					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var bKeys = _objectKeys( b ),
+				bLength = bKeys.length;
+			if ( _objectKeys( a ).length !== bLength ) {
+				return false;
+			}
+			for ( var i = 0; i < bLength; i++ ) {
+				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		default:
+			return false;
+		}
+	},
+	_objectKeys = function( obj ) {
+		if ( $.isArray( obj ) ) {
+			var keys = new Array( obj.length );
+			for ( var k = 0; k < keys.length; k++ ) {
+				keys[ k ] = "" + k;
+			}
+			return keys;
+		}
+		if ( Object.keys ) {
+			return Object.keys( obj );
+		}
+		var keys = [];
+		for ( var i in obj ) {
+			if ( obj.hasOwnProperty( i ) ) {
+				keys.push( i );
+			}
+		}
+		return keys;
+	},
+
+	// Create series of patches for filtering
+	getPatchesToFilter = function( JSONsource, filterPath, filterTrueness, filterFaslseness ) {
+		var filterObj,
+			i, i_len;
+
+		if ( !$.isArray( filterTrueness ) ) {
+			filterTrueness = [ filterTrueness ];
+		}
+		if ( !$.isArray( filterFaslseness ) ) {
+			filterFaslseness = [ filterFaslseness ];
+		}
+
+		filterObj = jsonpointer.get( JSONsource, filterPath );
+		if ( $.isArray( filterObj ) ) {
+			i_len = filterObj.length - 1;
+			for ( i = i_len; i !== -1; i -= 1 ) {
+				if ( !filterPassJSON( filterObj[ i ], filterTrueness, filterFaslseness ) ) {
+					jsonpatch.apply( JSONsource, [ { op: "remove", path: filterPath + "/" + i } ] );
+				}
+			}
+		}
+		return JSONsource;
 	};
 
 // IE dedicated patch to support ECMA-402 but limited to English and French number formatting
 if ( wb.ie ) {
-	Number.prototype.toLocaleString = function( locale ){
+	Number.prototype.toLocaleString = function( locale ) {
 
 		var splitVal = this.toString().split( "." ),
 			integer = splitVal[ 0 ],
@@ -259,9 +409,10 @@ if ( wb.ie ) {
 			nbSection = intLength % 3 || 3,
 			strValue = integer.substr( 0, nbSection ),
 			isFrenchLoc = ( locale === "fr" ),
-			thousandSep = (isFrenchLoc ? " " : ",");
+			thousandSep = ( isFrenchLoc ? " " : "," ),
+			i;
 
-		for (i = nbSection; i < intLength; i = i + 3) {
+		for ( i = nbSection; i < intLength; i = i + 3 ) {
 			strValue = strValue + thousandSep + integer.substr( i, 3 );
 		}
 		if ( decimal.length ) {
@@ -272,7 +423,7 @@ if ( wb.ie ) {
 			}
 		}
 		return strValue;
-	}
+	};
 }
 
 $document.on( "json-failed.wb", selector, function( event ) {
@@ -297,7 +448,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		isArrayResponse = $.isArray( JSONresponse ),
 		resultSet,
 		i, i_len, i_cache, backlog, selector,
-		patches;
+		patches, filterTrueness, filterFaslseness, filterPath;
 
 
 	if ( elm === event.currentTarget ) {
@@ -305,6 +456,9 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		settings = wb.getData( $elm, componentName );
 		dsName = "[" + settings.name + "]";
 		patches = settings.patches || [];
+		filterPath = settings.fpath;
+		filterTrueness = settings.filter || [];
+		filterFaslseness = settings.filternot || [];
 
 		if ( !$.isArray( patches ) ) {
 			patches = [ patches ];
@@ -316,6 +470,12 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 			JSONresponse = $.extend( {}, JSONresponse );
 		}
 
+		// Apply a filtering
+		if ( filterPath ) {
+			JSONresponse = getPatchesToFilter( JSONresponse, filterPath, filterTrueness, filterFaslseness );
+		}
+
+		// Apply the patches
 		if ( patches.length ) {
 			if ( isArrayResponse && settings.wraproot ) {
 				i_cache = { };
@@ -373,6 +533,9 @@ $document.on( patchesEvent, selector, function( event ) {
 	var elm = event.target,
 		$elm = $( elm ),
 		patches = event.patches,
+		filterPath = event.fpath,
+		filterTrueness = event.filter || [],
+		filterFaslseness = event.filternot || [],
 		isCumulative = !!event.cumulative,
 		settings,
 		dsName,
@@ -395,6 +558,11 @@ $document.on( patchesEvent, selector, function( event ) {
 		dsJSON = datasetCache[ dsName ];
 		if ( !isCumulative ) {
 			dsJSON = $.extend( ( $.isArray( dsJSON ) ? [] : {} ), dsJSON );
+		}
+
+		// Apply a filtering
+		if ( filterPath ) {
+			dsJSON = getPatchesToFilter( dsJSON, filterPath, filterTrueness, filterFaslseness );
 		}
 
 		jsonpatch.apply( dsJSON, patches );

@@ -521,6 +521,60 @@
 		</td>
 	</tr>
 	<tr>
+		<td>fpath</td>
+		<td><p>Define a base path in order to apply a filter. This value is required when either or both configuration <code>filter</code> and <code>filternot</code> is used.</p>
+			<p>Available for:</p>
+			<ul>
+				<li>patch</li>
+			</ul>
+		</td>
+		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "patch", "source": "#myJSONmanager", "fpath": "<em>/data</em>" } }'</code></td>
+		<td>
+			<dl>
+				<dt>false (default):</dt>
+				<dd>Filtering is undefined and wont be applied.</dd>
+				<dt>JSON Pointer:</dt>
+				<dd>A valid <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC6901)</a></dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td>filter</td>
+		<td><p>A evaluation object as defined in the <a href="#evalobj">JSON manager documentation under the configuration option section</a> When this configuration is used, the <code>fpath</code> configuration must be set also.</p>
+			<p>Available for:</p>
+			<ul>
+				<li>patch</li>
+			</ul>
+		</td>
+		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "patch", "source": "#myJSONmanager", "fpath": "/data", "filter": "<em>{evaluation object}</em>" } }'</code></td>
+		<td>
+			<dl>
+				<dt>false (default):</dt>
+				<dd>Filtering is undefined and wont be applied.</dd>
+				<dt>Evaluation object:</dt>
+				<dd>See the <a href="../jsonmanager/jsonmanager-doc-en.html#evalobj">JSON manager documentation under the configuration option section</a></dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td>filternot</td>
+		<td><p>A evaluation object as defined in the <a href="#evalobj">JSON manager documentation under the configuration option section</a> When this configuration is used, the <code>fpath</code> configuration must be set also.</p>
+			<p>Available for:</p>
+			<ul>
+				<li>patch</li>
+			</ul>
+		</td>
+		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "patch", "source": "#myJSONmanager", "fpath": "/data", "filternot": "<em>{evaluation object}</em>" } }'</code></td>
+		<td>
+			<dl>
+				<dt>false (default):</dt>
+				<dd>Filtering is undefined and wont be applied.</dd>
+				<dt>Evaluation object:</dt>
+				<dd>See the <a href="../jsonmanager/jsonmanager-doc-en.html#evalobj">JSON manager documentation under the configuration option section</a></dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
 		<td>cumulative</td>
 		<td><p>Apply persistant patches for the current page instance. That means that patches exectued will remain when further patches modification is completed by the JSON manager during the current page load. When WET is re-executed (on page load) then all the permently change are ignored. It do not change the data source, it just apply the change in the dataset.</p>
 			<p>Available for:</p>
@@ -640,6 +694,6 @@
 </section>
 <section>
 	<h2>Source code</h2>
-	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/plugins/urlmapping">URL mapping manager plugin source code on GitHub</a></p>
+	<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/urlmapping">URL mapping manager plugin source code on GitHub</a></p>
 </section>
 </div>

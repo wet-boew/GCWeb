@@ -198,6 +198,9 @@ $document.on( "patch." + actionEvent, selector, function( event, data ) {
 	$( source ).trigger( {
 		type: "patches.wb-jsonmanager",
 		patches: ops,
+		fpath: data.fpath,
+		filter: data.filter || [],
+		filternot: data.filternot || [],
 		cumulative: isCumulative // Ensure the patches would remain as any other future update.
 	} );
 } );
