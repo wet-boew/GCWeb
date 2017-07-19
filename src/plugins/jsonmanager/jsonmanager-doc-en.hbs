@@ -156,7 +156,18 @@
 	<tr>
 		<td>Counting items</td>
 		<td><code>{ "op": "wb-count", "path": &lt;path&gt;, "set": &lt;path&gt; }</code></td>
-		<td>Count the number of items in an array and copy the value at a specified location.</td>
+		<td>
+			<p>Count the number of items in an array and copy the value at a specified location.</p>
+			<p>Filter can be used to count a specific subset.</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Counting items with filter</td>
+		<td><code>{ "op": "wb-count", "path": &lt;path&gt;, "set": &lt;path&gt;, "filter": &lt;evaluation object&gt;, "filternot": &lt;evaluation object&gt; }</code></td>
+		<td>
+			<p>Both attribute <code>filter</code> and <code>filternot</code> are optional. They will contain an array of "evaluation object" or one evaluation object defined in the filtering sub section of "Configuration options" bellow.</p>
+		</td>
 	</tr>
 
 	<tr>
@@ -336,6 +347,40 @@
 		</td>
 	</tr>
 	<tr>
+		<td><code>filter</code></td>
+		<td>Available for when selecting array only. Item that is true will be kept and item that is false will be removed.</td>
+		<td><code>data-wb-jsonmanager='{ "url": "", "filter": [ {evaluation object} ] }'</code></td>
+		<td>
+			<p>Evaluation object have the following property</p>
+			<dl>
+				<dt><code>path</code></dt>
+				<dd>Required. JSON pointer to the data being evaluated</dd>
+				<dt><code>value</code></dt>
+				<dd>Required. Value of witch the data would be evaluated</dd>
+				<dt><code>optional</code></dt>
+				<dd>Indicated if the evaluation is optional.</dd>
+			</dl>
+			<p>There is more details in the filter section bellow</p>
+		</td>
+	</tr>
+	<tr>
+		<td><code>filternot</code></td>
+		<td>Available for when selecting array only. Item that is true will be removed and item that is false will be kept. This filter happen after the configuration for the "filter" option has been evaluated.</td>
+		<td><code>data-wb-jsonmanager='{ "url": "", "filternot": [ {evaluation object} ] }'</code></td>
+		<td>
+			<p>Evaluation object have the following property</p>
+			<dl>
+				<dt><code>path</code></dt>
+				<dd>Required. JSON pointer to the data being evaluated</dd>
+				<dt><code>value</code></dt>
+				<dd>Required. Value of witch the data would be evaluated</dd>
+				<dt><code>optional</code></dt>
+				<dd>Indicated if the evaluation is optional.</dd>
+			</dl>
+			<p>There is more details in the filter section bellow</p>
+		</td>
+	</tr>
+	<tr>
 		<td><code>debug</code></td>
 		<td>Show the modified JSON object and his applied patches after there are applied.</td>
 		<td><code>data-wb-jsonmanager='{ "url": "", "name": "ADataSetName", "wraproot": "root" }'</code></td>
@@ -378,6 +423,36 @@
 	</tr>
 	</tbody>
 	</table>
+
+	<h3 id="evalobj">Filtering (evaluation object)</h3>
+	<p>The path selector must point to an valid JSON array object. All the option presented in the table bellow can be combined.</p>
+	<table class="table">
+	<thead>
+	<tr>
+		<th>Option</th>
+		<th>How to configure</th>
+		<th>Values and clarification</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>path</code></td>
+		<td><code>{ "filter": [ { "path": "/JSON Pointer" } ] &hellip;}</code> or <code>{ "filternot": [ { "path": "/JSON Pointer" } ] &hellip;}</code></td>
+		<td>A valid <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC6901)</a> to the data being evaluated..  It's must start with an "/".</td>
+	</tr>
+	<tr>
+		<td><code>value</code></td>
+		<td><code>{ "filter": [ { "value": "A value" } ] &hellip;}</code> or <code>{ "filternot": [ { "value": "A value" } ] &hellip;}</code> </td>
+		<td>Any value that could be compared with the information retreived form the path. An exact match is performed.</td>
+	</tr>
+	<tr class="text-muted">
+		<td><code>optional</code></td>
+		<td><code>{ "filter": [ { "optional": true } ] &hellip;}'</code> or <code>{ "filternot": [ { "optional": true } ] &hellip;}'</code></td>
+		<td>True or false. If omited it will be false by default.</td>
+	</tr>
+	</tbody>
+	</table>
+
 </section>
 
 
@@ -452,5 +527,5 @@
 </section>
 <section>
 	<h2>Source code</h2>
-	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/plugins/jsonmanager">JSON manager plugin source code on GitHub</a></p>
+	<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/jsonmanager">JSON manager plugin source code on GitHub</a></p>
 </section>

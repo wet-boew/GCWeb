@@ -16,7 +16,6 @@
 var componentName = "wb-urlmapping",
 	selector = "[data-" + componentName + "]",
 	initEvent = "wb-init." + componentName,
-	actionEvent = "action." + componentName,
 	doMappingEvent = "domapping." + componentName,
 	$document = wb.doc,
 	authTrigger,
@@ -73,9 +72,10 @@ var componentName = "wb-urlmapping",
 			actions = $.extend( [], actions );
 		}
 
+		// Fix any action that was defined as query dependent
 		i_len = actions.length;
 		for ( i = 0; i !== i_len; i += 1 ) {
-			i_cache = $.extend( {}, actions[ i ] );
+			i_cache = actions[ i ];
 
 			cache_action = i_cache.action;
 			if ( !cache_action ) {
@@ -106,9 +106,45 @@ var componentName = "wb-urlmapping",
 				i_cache.qval = cValueParsed;
 			}
 
-			$elm.trigger( cache_action + "." + actionEvent, i_cache );
+
+			switch ( cache_action ) {
+
+			case "patch":
+				var ops = i_cache.patches,
+					basePntr = i_cache.base || "/";
+				if ( !ops ) {
+					ops = [ patchDefault ];
+					i_cache.cumulative = true;
+				}
+				if ( !$.isArray( ops ) ) {
+					ops = [ ops ];
+				}
+				ops = patchFixArray( ops, i_cache.qval, basePntr );
+				i_cache.patches = ops;
+				break;
+			case "ajax":
+				if ( i_cache.trigger && $elm[ 0 ] !== authTrigger ) {
+					i_cache.trigger = false;
+				}
+				i_cache.url = replaceMappingKeys( i_cache.url, i_cache.qval );
+				break;
+			case "tblfilter":
+				i_cache.value = replaceMappingKeys( i_cache.value, i_cache.qval );
+				break;
+			default:
+
+				// Just do the action as defined.
+				break;
+
+			}
 		}
-		return true;
+
+
+		// Send the list of actions to be dispatched by the actionmng
+		$elm.trigger( {
+			type: "do.wb-actionmng.wb",
+			actions: actions
+		} );
 	},
 	patchFixArray = function( patchArray, val, basePointer ) {
 
@@ -175,108 +211,8 @@ $document.on( doMappingEvent, selector, function( event ) {
 	}
 } );
 
-$document.on( "patch." + actionEvent, selector, function( event, data ) {
-
-	// Prepare patches operation for execution by the json-manager
-	var source = data.source,
-		ops = data.patches,
-		basePntr = data.base || "/",
-		isCumulative = !!data.cumulative,
-		cValue = data.qval;
-
-	if ( !ops ) {
-		ops = [ patchDefault ];
-		isCumulative = true;
-	}
-
-	if ( !$.isArray( ops ) ) {
-		ops = [ ops ];
-	}
-
-	ops = patchFixArray( ops, cValue, basePntr );
-
-	$( source ).trigger( {
-		type: "patches.wb-jsonmanager",
-		patches: ops,
-		cumulative: isCumulative // Ensure the patches would remain as any other future update.
-	} );
-} );
-
-$document.on( "ajax." + actionEvent, selector, function( event, data ) {
-	var $container, containerID, ajxType;
-
-	if ( !data.container ) {
-		containerID = wb.getId();
-		$container = $( "<div id='" + containerID + "'></div>" );
-		$( event.target ).after( $container );
-	} else {
-		$container = $( data.container );
-	}
-
-	if ( data.trigger && event.target === authTrigger ) {
-		$container.attr( "data-trigger-wet", "true" );
-	}
-
-	ajxType = data.type ? data.type : "replace";
-	$container.attr( "data-ajax-" + ajxType, replaceMappingKeys( data.url, data.qval ) );
-
-	$container.one( "wb-contentupdated", function( event, data ) {
-		var updtElm = event.currentTarget,
-			trigger = updtElm.getAttribute( "data-trigger-wet" );
-
-		updtElm.removeAttribute( "data-ajax-" + data[ "ajax-type" ] );
-		if ( trigger ) {
-			$( updtElm )
-				.find( wb.allSelectors )
-					.addClass( "wb-init" )
-					.filter( ":not(#" + updtElm.id + " .wb-init .wb-init)" )
-						.trigger( "timerpoke.wb" );
-			updtElm.removeAttribute( "data-trigger-wet" );
-		}
-	} );
-	$container.trigger( "wb-update.wb-data-ajax" );
-} );
-
-// addClass action
-$document.on( "addClass." + actionEvent, selector, function( event, data ) {
-	if ( !data.source || !data.class ) {
-		return;
-	}
-	$( data.source ).addClass( data.class );
-} );
-
-// removeClass action
-$document.on( "removeClass." + actionEvent, selector, function( event, data ) {
-	if ( !data.source || !data.class ) {
-		return;
-	}
-	$( data.source ).removeClass( data.class );
-} );
-
-// Apply the filtering
-$document.on( "tblfilter." + actionEvent, selector, function( event, data ) {
-	if ( event.namespace === actionEvent ) {
-		var elm = event.target,
-			$source = $( data.source || elm ),
-			$datatable,
-			column = data.column,
-			colInt = parseInt( column, 10 ),
-			regex = !!data.regex,
-			smart = ( !data.smart ) ? true : !!data.smart,
-			caseinsen = ( !data.caseinsen ) ? true : !!data.caseinsen;
-
-		if ( $source.get( 0 ).nodeName !== "TABLE" ) {
-			throw "Table filtering can only applied on table";
-		}
-		$datatable = $source.dataTable( { "retrieve": true } ).api();
-		column = ( colInt === true ) ? colInt : column;
-		$datatable.column( column ).search( replaceMappingKeys( data.value, data.qval ), regex, smart, caseinsen ).draw();
-	}
-} );
-
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
-
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );

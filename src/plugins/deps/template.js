@@ -27,20 +27,23 @@ var componentName = "wb-template",
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector );
 
-		if ( elm && !elm.content ) {
+		if ( elm ) {
 
-			var elPlate = elm,
-				qContent,
-				docContent;
+			if ( !elm.content ) {
 
-			qContent = elPlate.childNodes;
-			docContent = document.createDocumentFragment();
+				var elPlate = elm,
+					qContent,
+					docContent;
 
-			while ( qContent[ 0 ] ) {
-				docContent.appendChild( qContent[ 0 ] );
+				qContent = elPlate.childNodes;
+				docContent = document.createDocumentFragment();
+
+				while ( qContent[ 0 ] ) {
+					docContent.appendChild( qContent[ 0 ] );
+				}
+
+				elPlate.content = docContent;
 			}
-
-			elPlate.content = docContent;
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );

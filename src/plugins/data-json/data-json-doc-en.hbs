@@ -353,7 +353,7 @@
 		<td><code>attr</code></td>
 		<td>Specify the element attribute name. Only required when <code>type="attr"</code>.</td>
 		<td><code>data-wb-json='{ "url": "", "type": "attr", "attr": "href" }'</code></td>
-		<td>A valid attribute name supported by the element and be one of the following <code>href, src, data-*, aria-*, role, pattern, min, max, step</code>.</td>
+		<td>A valid attribute name supported by the element and be one of the following <code>href, src, data-*, aria-*, role, pattern, min, max, step, low, high</code>.</td>
 	</tr>
 	<tr>
 		<td><code>prop</code></td>
@@ -380,9 +380,12 @@
 			</dl>
 		</td>
 	</tr>
-	<tr>
-		<td><code>filter</code></td>
-		<td>Template only. Validating for truthness to allow array items to be processed by the template. Contains an array of evaluation criteria for array items.</td>
+	<tr class="text-muted">
+		<td><code>filter</code> <span class="label label-warning">Deprecated</span></td>
+		<td>
+			<p><strong>Use the filtering feature from the JSON manager instead.</strong></p>
+			<p>Template only. Validating for truthness to allow array items to be processed by the template. Contains an array of evaluation criteria for array items.</p>
+		</td>
 		<td><code>data-wb-json='{ "url": "", "filter": [ {evaluation object} ] }'</code></td>
 		<td>
 			Evaluation object have the following property
@@ -396,27 +399,39 @@
 			</dl>
 		</td>
 	</tr>
-	<tr>
-		<td>Evaluation object <code>path</code></td>
-		<td>Template only, for evaluation object and required. JSON pointer to the data being evaluated. It's must start with an "/". </td>
+	<tr class="text-muted">
+		<td>Evaluation object <code>path</code> <span class="label label-warning">Deprecated</span></td>
+		<td>
+			<p><strong>Use the filtering feature from the JSON manager instead.</strong></p>
+			<p>Template only, for evaluation object and required. JSON pointer to the data being evaluated. It's must start with an "/".</p>
+		</td>
 		<td><code>data-wb-json='{ "url": "", "filter": [ { "path": "/JSON Pointer" } ] }'</code></td>
 		<td>A valid <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer (RFC6901)</a></td>
 	</tr>
-	<tr>
-		<td>Evaluation object <code>value</code></td>
-		<td>Template only, for evaluation object and required. </td>
+	<tr class="text-muted">
+		<td>Evaluation object <code>value</code> <span class="label label-warning">Deprecated</span></td>
+		<td>
+			<p><strong>Use the filtering feature from the JSON manager instead.</strong></p>
+			<p>Template only, for evaluation object and required.</p>
+		</td>
 		<td><code>data-wb-json='{ "url": "", "filter": [ { "value": "A value" } ] }'</code></td>
 		<td>Any value that could be compared with the information retreived form the path.</td>
 	</tr>
-	<tr>
-		<td>Evaluation object <code>optional</code></td>
-		<td>Template only and for evaluation object.</td>
+	<tr class="text-muted">
+		<td>Evaluation object <code>optional</code> <span class="label label-warning">Deprecated</span></td>
+		<td>
+			<p><strong>Use the filtering feature from the JSON manager instead.</strong></p>
+			<p>Template only and for evaluation object.</p>
+		</td>
 		<td><code>data-wb-json='{ "url": "", "filter": [ { "optional": true } ] }'</code></td>
 		<td>True or false. If omited it will be false by default.</td>
 	</tr>
-	<tr>
-		<td><code>filternot</code></td>
-		<td>Template only. Validating for falsness to disallow an array items to be processed by the template. Contains an array of evaluation criteria for array items.</td>
+	<tr class="text-muted">
+		<td><code>filternot</code> <span class="label label-warning">Deprecated</span></td>
+		<td>
+			<p><strong>Use the filtering feature from the JSON manager instead.</strong></p>
+			<p>Template only. Validating for falsness to disallow an array items to be processed by the template. Contains an array of evaluation criteria for array items.</p>
+		</td>
 		<td><code>data-wb-json='{ "url": "", "filternot": [ {evaluation object} ] }'</code></td>
 		<td>
 			Evaluation object have the following property
@@ -443,8 +458,6 @@
 		<td>When queryall is not specified, it's is an array of string with a the JSON pointer. (Equivalent to the value in the Mapping object)</td>
 	</tr>
 
-
-
 	<tr>
 		<td>Mapping object <code>selector</code></td>
 		<td>Template only, for mapping object and required when <code>queryall</code> is not specified. Should selects one element inside the cloned template.</td>
@@ -467,6 +480,12 @@
 		<td>Mapping object <code>attr</code></td>
 		<td>Template only, for mapping object and optional when <code>queryall</code> is not specified. Name of an attribute where the selected data will replace his value.</td>
 		<td><code>data-wb-json='{ "url": "", "mapping": [ { "attr": "href" } ] }'</code></td>
+		<td>A valid attribute of the selected element.</td>
+	</tr>
+	<tr>
+		<td>Mapping object <code>isHTML</code></td>
+		<td>Template only, for mapping object and optional when <code>queryall</code> is not specified. Flag indicating if the content to be mapped is a string HTML.</td>
+		<td><code>data-wb-json='{ "url": "", "mapping": [ { "isHTML": "true" } ] }'</code></td>
 		<td>A valid attribute of the selected element.</td>
 	</tr>
 	<tr>
@@ -555,5 +574,5 @@
 </section>
 <section>
 	<h2>Source code</h2>
-	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/plugins/data-json">Data JSON plugin source code on GitHub</a></p>
+	<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/data-json">Data JSON plugin source code on GitHub</a></p>
 </section>

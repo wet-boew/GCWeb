@@ -27,7 +27,7 @@ var componentName = "wb-data-json",
 		"[data-" + shortName + "]"
 	],
 	allowJsonTypes = [ "after", "append", "before", "prepend", "val" ],
-	allowAttrNames = /(href|src|data-*|pattern|min|max|step)/,
+	allowAttrNames = /(href|src|data-*|pattern|min|max|step|low|high)/,
 	allowPropNames = /(checked|selected|disabled|required|readonly|multiple)/,
 	selectorsLength = selectors.length,
 	selector = selectors.join( "," ),
@@ -79,6 +79,9 @@ var componentName = "wb-data-json",
 				}
 			}
 
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+
 			jsondata = wb.getData( $elm, shortName );
 
 			if ( jsondata && jsondata.url ) {
@@ -99,8 +102,6 @@ var componentName = "wb-data-json",
 				loadJSON( elm, i_cache.url, i, i_cache.nocache, i_cache.nocachekey );
 			}
 
-			// Identify that initialization has completed
-			wb.ready( $elm, componentName );
 		}
 	},
 
@@ -219,7 +220,7 @@ var componentName = "wb-data-json",
 		//  * The element need to be a table
 		//  * Data-table need to be initialized
 		//  * The mapping need to be an array of string
-		if ( elm.tagName === "TABLE" && mapping && elmClass.indexOf( "wb-tables.inited" ) !== -1 && typeof mapping[ 0 ] === "string" ) {
+		if ( elm.tagName === "TABLE" && mapping && elmClass.indexOf( "wb-tables-inited" ) !== -1 && typeof mapping[ 0 ] === "string" ) {
 			dataTable = $( elm ).dataTable( { "retrieve": true } ).api();
 			for ( i = 0; i < i_len; i += 1 ) {
 				i_cache = content[ i ];
@@ -257,39 +258,24 @@ var componentName = "wb-data-json",
 					clone = template.content.querySelector( selectorToClone ).cloneNode( true );
 				}
 
-				// clone = templateContent( template ); //template.content.cloneNode( true );
 				if ( queryAll ) {
 					selElements = clone.querySelectorAll( queryAll );
+				}
 
-					for ( j = 0; j < mapping_len; j += 1 ) {
-						j_cache = mapping[ j ];
+				for ( j = 0; j < mapping_len; j += 1 ) {
+					j_cache = mapping[ j ];
+
+					if ( selElements ) {
 						cached_node = selElements[ j ];
-						if ( typeof j_cache === "string" ) {
-							cached_value = jsonpointer.get( content, basePntr + j_cache );
-						} else {
-							if ( j_cache.attr ) {
-								cached_node =  cached_node.getAttributeNode( j_cache.attr );
-							}
-
-							cached_textContent = cached_node.textContent || "";
-							cached_value = jsonpointer.get( content, basePntr + j_cache.value );
-
-							if ( j_cache.placeholder ) {
-								cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
-							}
-						}
-						cached_node.textContent = cached_value;
+					} else if ( j_cache.selector ) {
+						cached_node = clone.querySelector( j_cache.selector );
+					} else {
+						cached_node = clone;
 					}
-				} else {
-					for ( j = 0; j < mapping_len; j += 1 ) {
-						j_cache = mapping[ j ];
 
-						if ( j_cache.selector ) {
-							cached_node = clone.querySelector( j_cache.selector );
-						} else {
-							cached_node = clone;
-						}
-
+					if ( typeof j_cache === "string" ) {
+						cached_value = jsonpointer.get( content, basePntr + j_cache );
+					} else {
 						if ( j_cache.attr ) {
 							cached_node =  cached_node.getAttributeNode( j_cache.attr );
 						}
@@ -300,8 +286,11 @@ var componentName = "wb-data-json",
 						if ( j_cache.placeholder ) {
 							cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
 						}
-
+					}
+					if ( !j_cache.isHTML ) {
 						cached_node.textContent = cached_value;
+					} else {
+						cached_node.innerHTML = cached_value;
 					}
 				}
 
