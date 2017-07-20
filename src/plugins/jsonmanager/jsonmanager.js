@@ -208,7 +208,9 @@ var componentName = "wb-jsonmanager",
 
 				// For loading multiple dependencies
 				load: "site!deps/json-patch" + wb.getMode() + ".js",
-
+				testReady: function() {
+					return window.jsonpatch;
+				},
 				complete: function() {
 					var elmData = wb.getData( $elm, componentName );
 
