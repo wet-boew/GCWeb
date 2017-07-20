@@ -557,7 +557,7 @@ $document.on( patchesEvent, selector, function( event ) {
 
 		dsJSON = datasetCache[ dsName ];
 		if ( !isCumulative ) {
-			dsJSON = $.extend( ( $.isArray( dsJSON ) ? [] : {} ), dsJSON );
+			dsJSON = $.extend( true, ( $.isArray( dsJSON ) ? [] : {} ), dsJSON );
 		}
 
 		// Apply a filtering
