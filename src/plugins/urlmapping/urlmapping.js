@@ -142,7 +142,7 @@ var componentName = "wb-urlmapping",
 
 		// Send the list of actions to be dispatched by the actionmng
 		$elm.trigger( {
-			type: "do.wb-actionmng.wb",
+			type: "do.wb-actionmng",
 			actions: actions
 		} );
 	},
