@@ -1,4 +1,11 @@
 <div class="row pagedetails">
+<div class="datemod col-xs-12 mrgn-tp-lg">
+		<dl id="wb-dtmd">
+			<dt>{{{i18n "tmpl-date-mod"}}}{{{i18n "space"}}}</dt>
+			<dd><time>{{page.dateModified}}</time></dd>
+		</dl>
+	</div>
+	<div class="clearfix"></div>
 	{{#is page.report "true"}}
 	<details class="brdr-0 col-sm-6 col-lg-4 mrgn-tp-sm">
 		<summary class="btn btn-default text-center">{{{i18n "tmpl-feedback"}}}</summary>
@@ -19,10 +26,4 @@
 			<div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
 		</div>
 	{{/is}}
-	<div class="datemod col-xs-12 mrgn-tp-lg">
-		<dl id="wb-dtmd">
-			<dt>{{{i18n "tmpl-date-mod"}}}{{{i18n "space"}}}</dt>
-			<dd><time property="dateModified">{{page.dateModified}}</time></dd>
-		</dl>
-	</div>
 </div>

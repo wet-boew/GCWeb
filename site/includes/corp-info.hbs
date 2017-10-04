@@ -10,6 +10,8 @@
 				{{#is page.pageType "institution"}}<li><a href="#">{{{i18n "corp-info-list-item5"}}}</a></li>{{/is}}
 				{{#is page.pageType "institution"}}<li><a href="#">{{{i18n "corp-info-list-item6"}}}</a></li>{{/is}}
 				<li><a href="#">{{{i18n "corp-info-list-item7"}}}</a></li>
+				{{#is page.pageType "institution"}}<li><a href="#">{{{i18n "corp-info-list-item8"}}}</a></li>{{/is}}
+				{{#is page.pageType "organization"}}<li><a href="#">{{{i18n "corp-info-list-item8"}}}</a></li>{{/is}}
 			</ul>
 		</div>
 		<div class="col-md-8">
@@ -17,9 +19,8 @@
 				{{>corp-info-roles}}
 			{{#is page.pageType "institution"}}
 				{{>corp-info-roles}}
-				{{>corp-info-roles}}
+				{{>corp-info-roles-management}}
 				<div class="clearfix"><!-- after every third section --></div>
-				{{>corp-info-roles}}
 			{{/is}}
 			</div>
 		</div>

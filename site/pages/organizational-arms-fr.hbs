@@ -1,20 +1,20 @@
 ---
 {
-	"title": "[Nom de l’institution]",
+	"title": "[Nom de l’organisme]",
 	"language": "fr",
-	"altLangPrefix": "institution-small",
-	"pageType": "institution",
+	"altLangPrefix": "organizational-arms",
+	"pageType": "organization",
 	"breadcrumb": [
 		{ "title": "Accueil", "link": "https://www.canada.ca/fr.html" },
 		{ "title": "Ministères et organismes", "link": "https://www.canada.ca/fr/gouvernement/min.html" }
 	],
-	"dateModified": "2014-10-24",
+	"dateModified": "2017-09-29",
 	"share": "true"
 }
 ---
 <div class="row">
 	<div class="col-sm-7 pull-left">
-		<p>Nous sommes une institution fédérale qui fait partie du portefeuille du <a href="#">[nom du portfolio]</a>.</p>
+		<p class="gc-byline">Nous sommes un organisme qui agissons indépendamment du gouvernement du Canada.</p>
 		<p>[Nom de l’institution] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
 	</div>
 	<div class="clr-rght-sm clr-rght-md clr-rght-lg"></div>
@@ -22,7 +22,6 @@
 		{{>follow}}
 	</div>
 </div>
-{{>alert}}
 <section>
 	<h2>Nouveautés</h2>
 	<div class="gc-nws row">
@@ -43,8 +42,8 @@
 								<img src="{{assets}}/img/promos/750x222-1.png" alt="" />
 								<figcaption>
 									<p>[Titre de la nouvelle]</p>
-									<small>[AAAA-MM-JJ hh:mm] - Type de nouvelle</small>
-									<p>Brève description de la nouvelle.</p>
+									<small>YYYY-MM-DD - Type de nouvelle</small>
+									<p>Brève description des nouvelles.</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -55,8 +54,8 @@
 								<img src="{{assets}}/img/promos/750x222-2.png" alt="" />
 								<figcaption>
 									<p>[Titre de la nouvelle]</p>
-									<small>[AAAA-MM-JJ hh:mm] - Type de nouvelle</small>
-									<p>Brève description de la nouvelle.</p>
+									<small>YYYY-MM-DD - Type de nouvelle</small>
+									<p>Brève description des nouvelles.</p>
 								</figcaption>
 							</figure>
 						</a>
@@ -64,7 +63,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="wb-feeds limit-3 col-lg-4">
+		<div class="wb-feeds limit-3 col-lg-4 pull-right">
 			<ul class="feeds-cont list-unstyled lst-spcd">
 				<li>
 					<a href="http://news.gc.ca/web/fd-fr.do?mthd=dpt&amp;ft=atom&amp;crtr.dpt1D=6675" rel="external">Nouvelles du Gouvernement du Canada </a>
@@ -75,33 +74,59 @@
 	</div>
 </section>
 <div class="row">
-	<section class="col-md-8 mrgn-bttm-lg">
+	<div class="col-md-4 pull-right">
+		{{>most-requested}}
+	</div>
+	<section class="col-md-8 pull-left mrgn-bttm-lg">
 		<h2>Services et renseignements</h2>
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		{{>task}}
-		<details class="mrgn-tp-md brdr-0">
-			<summary class="btn btn-default text-center">Afficher plus de services et de renseignements</summary>
-			<div class="row">
-				{{>task}}
-				{{>task}}
-				{{>task}}
-				{{>task}}
-				{{>task}}
+		<div class="row">
+			<div class="col-md-6">
 				{{>task}}
 			</div>
-		</details>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="col-md-6">
+				{{>task}}
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</section>
-	<div class="col-md-4 mrgn-tp-lg">
+	<div class="clr-rght-md clr-rght-lg"></div>
+	<div class="pull-right col-md-4">
 		{{>contact-us}}
-		{{>related-services}}
 		{{>more-info}}
 	</div>
 </div>
@@ -109,19 +134,13 @@
 	<h2>Ce que nous faisons</h2>
 	<div class="row wb-eqht">
 		<section class="col-lg-4 col-md-6">
-			{{>law-regulations}}
+			{{>research}}
 		</section>
 		<section class="col-lg-4 col-md-6">
-			{{>publications}}
+			{{>surveys}}
 		</section>
 		<section class="col-lg-4 col-md-6">
 			{{>consultations}}
-		</section>
-		<section class="col-lg-4 col-md-6">
-			{{>open-data}}
-		</section>
-		<section class="col-lg-4 col-md-6">
-			{{>statistics}}
 		</section>
 	</div>
 </section>
