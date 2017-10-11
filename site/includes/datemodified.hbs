@@ -1,29 +1,25 @@
-<div class="row pagedetails">
-<div class="datemod col-xs-12 mrgn-tp-lg">
-		<dl id="wb-dtmd">
-			<dt>{{{i18n "tmpl-date-mod"}}}{{{i18n "space"}}}</dt>
-			<dd><time property="dateModified">{{page.dateModified}}</time></dd>
-		</dl>
-	</div>
-	<div class="clearfix"></div>
-	{{#is page.report "true"}}
-	<details class="brdr-0 col-sm-6 col-lg-4 mrgn-tp-sm">
-		<summary class="btn btn-default text-center">{{{i18n "tmpl-feedback"}}}</summary>
-		<div class="clearfix"></div>
-		<div class="well">
-		{{>report-problem}}
+<div class="pagedetails">
+	<dl id="wb-dtmd">
+		<dt>{{{i18n "tmpl-date-mod"}}}{{{i18n "space"}}}</dt>
+		<dd><time property="dateModified">{{page.dateModified}}</time></dd>
+	</dl>
+	<div class="row">
+		{{#isnt page.report "false"}}
+		<div class="col-sm-6 col-md-5 col-lg-4">
+			{{#is page.report "true"}}
+			<details class="brdr-0">
+				<summary class="btn btn-default text-center">{{{i18n "tmpl-feedback"}}}</summary>
+				<div class="well row">
+				{{>report-problem}}
+				</div>
+			</details>
+			{{else}}
+			<a href="{{{i18n "tmpl-feedback-link"}}}" class="btn btn-default btn-block">{{{i18n "tmpl-feedback"}}}</a>
+			{{/is}}
 		</div>
-	</details>
-	{{else}}
-	{{#isnt page.report "false"}}
-	<div class="col-sm-6 col-lg-4 mrgn-tp-sm">
-		<a href="{{{i18n "tmpl-feedback-link"}}}" class="btn btn-default btn-block">{{{i18n "tmpl-feedback"}}}</a>
+		{{/isnt}}
+		{{#is page.share "true"}}
+		<div class="wb-share col-sm-4 col-md-3 {{#isnt page.report "false"}}col-sm-offset-2 col-md-offset-4 col-lg-offset-5{{else}}col-sm-offset-8 col-md-offset-9{{/isnt}}" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+		{{/is}}
 	</div>
-	{{/isnt}}
-	{{/is}}
-	{{#is page.share "true"}}
-		<div class="col-sm-3 mrgn-tp-sm pull-right">
-			<div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
-		</div>
-	{{/is}}
 </div>
