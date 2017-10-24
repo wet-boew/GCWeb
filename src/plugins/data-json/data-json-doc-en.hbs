@@ -460,7 +460,7 @@
 
 	<tr>
 		<td>Mapping object <code>selector</code></td>
-		<td>Template only, for mapping object and required when <code>queryall</code> is not specified. Should selects one element inside the cloned template.</td>
+		<td>Template only, for mapping object and required when <code>queryall</code> is not specified. Should selects one element inside the cloned template. When selecting an array, that allow you run sub-template. To configure a sub-template, the mapping object is extended like: you can optionnaly set the "source" configuration, optionnaly set the "queryall" configuration and you can also set a inner "mapping" object for the mapping of the sub-template.</td>
 		<td><code>data-wb-json='{ "url": "", "mapping": [ { "selector": "A CSS Selector" } ] }'</code></td>
 		<td>A valid <a href="https://www.w3.org/TR/selectors/">CSS selector</a>.</td>
 	</tr>
@@ -519,6 +519,19 @@
 				<dd>Will use "<code>wbCacheBust</code>" for the parameter name.</dd>
 				<dt>String</dt>
 				<dd>URL pre-encoded string</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td><code>trigger</code></td>
+		<td>Initiate WET features for the content rendered with a template.</td>
+		<td><code>data-wb-json='{ "url": "", "trigger": true }'</code></td>
+		<td>
+			<dl>
+				<dt>false (default):</dt>
+				<dd>Content is kept as is.</dd>
+				<dt>true:</dt>
+				<dd>Will initiate any WET feature on rendered content</dd>
 			</dl>
 		</td>
 	</tr>
