@@ -457,7 +457,10 @@ module.exports = (grunt) ->
 			theme:
 				expand: true
 				cwd: "<%= themeDist %>/css"
-				src: "*.css"
+				src: [
+					"*.css"
+					"!*.min.css"
+				]
 				ext: ".min.css"
 				dest: "<%= themeDist %>/css"
 
@@ -495,6 +498,7 @@ module.exports = (grunt) ->
 				cwd: "<%= themeDist %>"
 				src: [
 					"**/*.js"
+					"!**/*.min.js"
 					"!<%= themeDist %>/theme-js-deps"
 				]
 				dest: "<%= themeDist %>"
