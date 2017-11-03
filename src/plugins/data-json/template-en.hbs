@@ -43,7 +43,21 @@
 	],
 	&quot;offices&quot;: [
 		{ &quot;name&quot;: &quot;Jean Edmonds, North Tower&quot;, &quot;num&quot;: 300, &quot;street&quot;: &quot;Slater&quot;, &quot;city&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot; },
-		{ &quot;name&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;street&quot;: &quot;Victoria&quot;, &quot;city&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; },
+		{ &quot;name&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;street&quot;: &quot;Victoria&quot;, &quot;city&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; }
+	],
+	&quot;comments&quot;: [
+		{
+			&quot;name&quot;: &quot;Mr X&quot;,
+			&quot;city&quot;: &quot;Gatineau&quot;,
+			&quot;somethingHTML&quot;: &quot;&lt;strong&gt;Horay&lt;/strong&gt; here rich HTML content&quot;,
+			&quot;hobby&quot;: [ &quot;Car&quot;, &quot;Mechanic&quot;, &quot;Race&quot; ]
+		},
+		{
+			&quot;name&quot;: &quot;Mrs Y&quot;,
+			&quot;city&quot;: &quot;St-Pierre&quot;,
+			&quot;somethingHTML&quot;: &quot;&lt;strong&gt;Youpi&lt;/strong&gt; word should be with emphasis&quot;,
+			&quot;hobby&quot;: [ &quot;Spa&quot;, &quot;Nature&quot;, &quot;Bike&quot;, &quot;Reading&quot; ]
+		}
 	]
 }</code></pre>
 </details>
@@ -148,144 +162,211 @@
 &lt;/ol&gt;</code></pre>
 </details>
 
+<h2>Render JSON value as HTML</h2>
 
-<h2>Filtering</h2>
+
 
 <div class="row">
-<div class="col-md-3">
-
-<p>If <strong>positive</strong> condition:</p>
-
-<ul data-wb-json='{
-		"url": "demo/data-en.json#/anArray",
-		"queryall": "li",
-		"mapping": [
-			"/name"
-		],
-		"filter": [
-			{ "path": "/prop", "value": "blue" }
-		]
-
-	}'>
-	<template>
-		<li></li>
-	</template>
-</ul>
-
-
-</div>
-
-
-<div class="col-md-3">
-
-<p>If <strong>negative</strong> condition:</p>
-
-<ul data-wb-json='{
-		"url": "demo/data-en.json#/anArray",
-		"queryall": "li",
-		"mapping": [
-			"/name"
-		],
-		"filternot": [
-			{ "path": "/prop", "value": "blue" }
-		]
-
-	}'>
-	<template>
-		<li></li>
-	</template>
-</ul>
-
-
-</div>
-
-
 <div class="col-md-6">
 
-<p>Combinaison of both condition:</p>
+<table class="table">
+	<caption>With the HTML rendering</caption>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Something in HTML</th>
+		</tr>
+	</thead>
+	<tbody data-wb-json='{
+			"url": "demo/data-en.json#/comments",
+			"tobeclone": "tr",
+			"queryall": "td",
+			"source": "#tblHTMLRender",
+			"mapping": [
+				"/name",
+				"/city",
+				{ "value": "/somethingHTML", "isHTML": true }
+			]
+		}'>
+	</tbody>
+</table>
 
-<ul data-wb-json='{
-		"url": "demo/data-en.json#/anArray",
-		"queryall": "li",
-		"mapping": [
-			"/name"
-		],
-		"filter": [
-			{ "path": "/prop", "value": "yellow", "optional": true },
-			{ "path": "/prop", "value": "blue", "optional": true }
-		],
-		"filternot": [
-			{ "path": "/prop", "value": "blue" }
-		]
+<template id="tblHTMLRender">
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</template>
 
-	}'>
-	<template>
-		<li></li>
-	</template>
-</ul>
+</div>
+<div class="col-md-6">
 
+<table class="table">
+	<caption>Without the HTML rendering</caption>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Something in HTML</th>
+		</tr>
+	</thead>
+	<tbody data-wb-json='{
+			"url": "demo/data-en.json#/comments",
+			"tobeclone": "tr",
+			"queryall": "td",
+			"source": "#tblHTMLRender2",
+			"mapping": [
+				"/name",
+				"/city",
+				"/somethingHTML"
+			]
+		}'>
+	</tbody>
+</table>
+
+<template id="tblHTMLRender2">
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</template>
 
 </div>
 </div>
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;p&gt;If &lt;strong&gt;positive&lt;strong&gt; condition:&lt;/p&gt;
-&lt;ul data-wb-json='{
-		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
-		&quot;queryall&quot;: &quot;li&quot;,
-		&quot;mapping&quot;: [
-			&quot;/name&quot;
-		],
-		&quot;filter&quot;: [
-			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
-		]
+	<pre><code>&lt;table class=&quot;table&quot;&gt;
+	&lt;caption&gt;With the HTML rendering&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Name&lt;/th&gt;
+			&lt;th&gt;City&lt;/th&gt;
+			&lt;th&gt;Something in HTML&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody data-wb-json='{
+			&quot;url&quot;: &quot;demo/data-en.json#/comments&quot;,
+			&quot;tobeclone&quot;: &quot;tr&quot;,
+			&quot;queryall&quot;: &quot;td&quot;,
+			&quot;source&quot;: &quot;#tblHTMLRender&quot;,
+			&quot;mapping&quot;: [
+				&quot;/name&quot;,
+				&quot;/city&quot;,
+				{ &quot;value&quot;: &quot;/somethingHTML&quot;, &quot;isHTML&quot;: true }
+			]
+		}'&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 
-	}'&gt;
-	&lt;template&gt;
-		&lt;li&gt;&lt;/li&gt;
-	&lt;/template&gt;
-&lt;/ul&gt;
+&lt;template id=&quot;tblHTMLRender&quot;&gt;
+	&lt;table&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/template&gt;
 
-&lt;p&gt;If &lt;strong&gt;negative&lt;/strong&gt; condition:&lt;/p&gt;
-&lt;ul data-wb-json='{
-		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
-		&quot;queryall&quot;: &quot;li&quot;,
-		&quot;mapping&quot;: [
-			&quot;/name&quot;
-		],
-		&quot;filternot&quot;: [
-			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
-		]
+&lt;table class=&quot;table&quot;&gt;
+	&lt;caption&gt;Without the HTML rendering&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Name&lt;/th&gt;
+			&lt;th&gt;City&lt;/th&gt;
+			&lt;th&gt;Something in HTML&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody data-wb-json='{
+			&quot;url&quot;: &quot;demo/data-en.json#/comments&quot;,
+			&quot;tobeclone&quot;: &quot;tr&quot;,
+			&quot;queryall&quot;: &quot;td&quot;,
+			&quot;source&quot;: &quot;#tblHTMLRender2&quot;,
+			&quot;mapping&quot;: [
+				&quot;/name&quot;,
+				&quot;/city&quot;,
+				&quot;/somethingHTML&quot;
+			]
+		}'&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 
-	}'&gt;
-	&lt;template&gt;
-		&lt;li&gt;&lt;/li&gt;
-	&lt;/template&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Combinaison of both condition:&lt;/p&gt;
-&lt;ul data-wb-json='{
-		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
-		&quot;queryall&quot;: &quot;li&quot;,
-		&quot;mapping&quot;: [
-			&quot;/name&quot;
-		],
-		&quot;filter&quot;: [
-			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;yellow&quot;, &quot;optional&quot;: true },
-			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot;, &quot;optional&quot;: true }
-		],
-		&quot;filternot&quot;: [
-			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
-		]
-
-	}'&gt;
-	&lt;template&gt;
-		&lt;li&gt;&lt;/li&gt;
-	&lt;/template&gt;
-&lt;/ul&gt;</code></pre>
+&lt;template id=&quot;tblHTMLRender2&quot;&gt;
+	&lt;table&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/template&gt;</code></pre>
 </details>
 
+
+<h2>Sub template</h2>
+
+
+<div class="row" data-wb-json='{
+		"url": "demo/data-en.json#/comments",
+		"mapping": [
+			{ "selector": "h3", "value": "/name" },
+			{ "selector": ":nth-child(2)", "value": "/city", "placeholder": "[[city]]" },
+			{ "selector": ":nth-child(3)", "value": "/somethingHTML", "isHTML": true },
+
+			{ "selector": "ul", "value": "/hobby", "queryall": "li" }
+		]
+	}'>
+	<template>
+		<div class="col-md-6">
+			<h3></h3> <!-- Name -->
+			<p>From: [[city]]</p>
+			<p></p> <!-- Description -->
+			<h4>Hobby:</h4>
+			<ul class="lst-spcd"> <!-- Sub-template container -->
+				<template>
+					<li></li>
+				</template>
+			</ul>
+		</div>
+	</template>
+</div>
+
+
+<details>
+	<summary>Source code</summary>
+	<pre><code>&lt;div class=&quot;row&quot; data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-en.json#/comments&quot;,
+		&quot;mapping&quot;: [
+			{ &quot;selector&quot;: &quot;h3&quot;, &quot;value&quot;: &quot;/name&quot; },
+			{ &quot;selector&quot;: &quot;:nth-child(2)&quot;, &quot;value&quot;: &quot;/city&quot;, &quot;placeholder&quot;: &quot;[[city]]&quot; },
+			{ &quot;selector&quot;: &quot;:nth-child(3)&quot;, &quot;value&quot;: &quot;/somethingHTML&quot;, &quot;isHTML&quot;: true },
+
+			{ &quot;selector&quot;: &quot;ul&quot;, &quot;value&quot;: &quot;/hobby&quot;, &quot;queryall&quot;: &quot;li&quot; }
+		]
+	}'&gt;
+	&lt;template&gt;
+		&lt;div class=&quot;col-md-6&quot;&gt;
+			&lt;h3&gt;&lt;/h3&gt; &lt;!-- Name --&gt;
+			&lt;p&gt;From: [[city]]&lt;/p&gt;
+			&lt;p&gt;&lt;/p&gt; &lt;!-- Description --&gt;
+			&lt;h4&gt;Hobby:&lt;/h4&gt;
+			&lt;ul class=&quot;lst-spcd&quot;&gt; &lt;!-- Sub-template container --&gt;
+				&lt;template&gt;
+					&lt;li&gt;&lt;/li&gt;
+				&lt;/template&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/template&gt;
+&lt;/div&gt;</code></pre>
+</details>
 
 <h2>Table</h2>
 
@@ -369,7 +450,7 @@
 	<table>
 		<tr>
 			<td>Name is: [[name]]</td>
-			<td class=""></td>
+			<td></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -455,7 +536,7 @@
 	&lt;table&gt;
 		&lt;tr&gt;
 			&lt;td&gt;Name is: [[name]]&lt;/td&gt;
-			&lt;td class=&quot;&quot;&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 		&lt;/tr&gt;
@@ -463,6 +544,68 @@
 &lt;/template&gt;</code></pre>
 </details>
 
+
+<h2>Filtering</h2>
+
+<p><span class="label label-warning">Deprecated</span> Would still work, but we recommend to use the <a href="../jsonmanager/jsonmanager-doc-en.html">JSON manager</a> instead.</p>
+
+<details>
+	<summary>Source code for reference only</summary>
+	<pre><code>&lt;p&gt;If &lt;strong&gt;positive&lt;strong&gt; condition:&lt;/p&gt;
+&lt;ul data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
+		&quot;queryall&quot;: &quot;li&quot;,
+		&quot;mapping&quot;: [
+			&quot;/name&quot;
+		],
+		&quot;filter&quot;: [
+			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
+		]
+
+	}'&gt;
+	&lt;template&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/template&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If &lt;strong&gt;negative&lt;/strong&gt; condition:&lt;/p&gt;
+&lt;ul data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
+		&quot;queryall&quot;: &quot;li&quot;,
+		&quot;mapping&quot;: [
+			&quot;/name&quot;
+		],
+		&quot;filternot&quot;: [
+			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
+		]
+
+	}'&gt;
+	&lt;template&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/template&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Combinaison of both condition:&lt;/p&gt;
+&lt;ul data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-en.json#/anArray&quot;,
+		&quot;queryall&quot;: &quot;li&quot;,
+		&quot;mapping&quot;: [
+			&quot;/name&quot;
+		],
+		&quot;filter&quot;: [
+			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;yellow&quot;, &quot;optional&quot;: true },
+			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot;, &quot;optional&quot;: true }
+		],
+		&quot;filternot&quot;: [
+			{ &quot;path&quot;: &quot;/prop&quot;, &quot;value&quot;: &quot;blue&quot; }
+		]
+
+	}'&gt;
+	&lt;template&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/template&gt;
+&lt;/ul&gt;</code></pre>
+</details>
 
 <h2>Use <code>template</code> placeholder for appending to an element</h2>
 

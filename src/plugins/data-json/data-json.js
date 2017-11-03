@@ -164,6 +164,15 @@ var componentName = "wb-data-json",
 			if ( !jsonType ) {
 				jsonType = "template";
 				applyTemplate( elm, itmSettings, content );
+
+				// Trigger wet
+				if ( itmSettings.trigger ) {
+					$elm
+						.find( wb.allSelectors )
+							.addClass( "wb-init" )
+							.filter( ":not(#" + elm.id + " .wb-init .wb-init)" )
+								.trigger( "timerpoke.wb" );
+				}
 			} else if ( jsonType === "replace" ) {
 				$elm.html( content );
 			} else if ( jsonType === "replacewith" ) {
@@ -192,13 +201,13 @@ var componentName = "wb-data-json",
 	// Apply the template as per the configuration
 	applyTemplate = function( elm, settings, content ) {
 
-		var mapping = settings.mapping,
+		var mapping = settings.mapping || [ {} ],
 			mapping_len = mapping.length,
 			filterTrueness = settings.filter || [],
 			filterFaslseness = settings.filternot || [],
 			queryAll = settings.queryall,
 			i, i_len, i_cache,
-			j, j_cache,
+			j, j_cache, j_cache_attr,
 			basePntr,
 			clone, selElements,
 			cached_node,
@@ -262,9 +271,10 @@ var componentName = "wb-data-json",
 					selElements = clone.querySelectorAll( queryAll );
 				}
 
-				for ( j = 0; j < mapping_len; j += 1 ) {
+				for ( j = 0; j < mapping_len || j === 0; j += 1 ) {
 					j_cache = mapping[ j ];
 
+					// Get the node used to insert content
 					if ( selElements ) {
 						cached_node = selElements[ j ];
 					} else if ( j_cache.selector ) {
@@ -272,25 +282,36 @@ var componentName = "wb-data-json",
 					} else {
 						cached_node = clone;
 					}
+					j_cache_attr = j_cache.attr;
+					if ( j_cache_attr ) {
+						if ( !cached_node.hasAttribute( j_cache_attr ) ) {
+							cached_node.setAttribute( j_cache_attr, "" );
+						}
+						cached_node = cached_node.getAttributeNode( j_cache_attr );
+					}
 
-					if ( typeof j_cache === "string" ) {
+					// Get the value
+					if ( typeof i_cache === "string" ) {
+						cached_value = i_cache;
+					} else if ( typeof j_cache === "string" ) {
 						cached_value = jsonpointer.get( content, basePntr + j_cache );
 					} else {
-						if ( j_cache.attr ) {
-							cached_node =  cached_node.getAttributeNode( j_cache.attr );
-						}
-
-						cached_textContent = cached_node.textContent || "";
 						cached_value = jsonpointer.get( content, basePntr + j_cache.value );
-
-						if ( j_cache.placeholder ) {
-							cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
-						}
 					}
-					if ( !j_cache.isHTML ) {
-						cached_node.textContent = cached_value;
-					} else {
+
+					// Placeholder text replacement if any
+					if ( j_cache.placeholder ) {
+						cached_textContent = cached_node.textContent || "";
+						cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
+					}
+
+					// Set the value to the node
+					if ( $.isArray( cached_value ) ) {
+						applyTemplate( cached_node, j_cache, cached_value );
+					} else if ( j_cache.isHTML ) {
 						cached_node.innerHTML = cached_value;
+					} else {
+						cached_node.textContent = cached_value;
 					}
 				}
 
