@@ -2,25 +2,25 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-(function( $, document, wb ) {
+( function( $, document, wb ) {
 "use strict";
 
 var $document = wb.doc,
 	searchSelector = "#wb-srch-q",
-	$search = $(searchSelector),
+	$search = $( searchSelector ),
 	$searchDataList = $( "#" + $search.attr( "list" ) ),
 
 //Search Autocomplete
 	queryAutoComplete = function( query ) {
 		if ( query.length > 0 ) {
-			$( this ).trigger({
+			$( this ).trigger( {
 				type: "ajax-fetch.wb",
 				fetch: {
-					url: wb.pageUrlParts.protocol + "//clients1.google.com/complete/search?client=partner&sugexp=gsnos%2Cn%3D13&gs_rn=25&gs_ri=partner&partnerid=" + window.encodeURIComponent("008724028898028201144:knjjdikrhq0+lang:" + wb.lang) + "&types=t&ds=cse&cp=3&gs_id=b&hl=" + wb.lang + "&q=" + encodeURI( query ),
+					url: wb.pageUrlParts.protocol + "//clients1.google.com/complete/search?client=partner&sugexp=gsnos%2Cn%3D13&gs_rn=25&gs_ri=partner&partnerid=" + window.encodeURIComponent( "008724028898028201144:knjjdikrhq0+lang:" + wb.lang ) + "&types=t&ds=cse&cp=3&gs_id=b&hl=" + wb.lang + "&q=" + encodeURI( query ),
 					dataType: "jsonp",
 					jsonp: "callback"
 				}
-			});
+			} );
 		}
 	};
 
@@ -30,7 +30,7 @@ $document.on( "change keyup", searchSelector, function( event ) {
 		query = event.target.value,
 		which = event.which;
 
-	switch ( event.type ){
+	switch ( event.type ) {
 	case "change":
 		queryAutoComplete.call( target, query );
 		break;
@@ -45,7 +45,7 @@ $document.on( "change keyup", searchSelector, function( event ) {
 			}
 		}
 	}
-});
+} );
 
 //Processes the autocomplete API results
 $document.on( "ajax-fetched.wb", searchSelector, function( event ) {
@@ -59,7 +59,7 @@ $document.on( "ajax-fetched.wb", searchSelector, function( event ) {
 	for ( indIssue = 0; indIssue < lenSuggestions; indIssue += 1 ) {
 		issue = suggestions[ indIssue ];
 
-		options += "<option label=\"" + issue[0] + "\" value=\"" + issue[0] + "\"></option>";
+		options += "<option label=\"" + issue[ 0 ] + "\" value=\"" + issue[ 0 ] + "\"></option>";
 	}
 
 	if ( wb.ielt10 ) {
@@ -69,22 +69,21 @@ $document.on( "ajax-fetched.wb", searchSelector, function( event ) {
 	$searchDataList.append( options );
 
 	$search.trigger( "wb-update.wb-datalist" );
-});
+} );
 
-window["wb-data-ajax"] = {
+window[ "wb-data-ajax" ] = {
 	corsFallback: function( fetchObj ) {
-		fetchObj.url = fetchObj.url.replace(".html", ".htmlp");
+		fetchObj.url = fetchObj.url.replace( ".html", ".htmlp" );
 		return fetchObj;
 	}
 };
 
 //Report a problem form - reveal textbox when checkbox is selected
-$("[data-reveal]").change(function() {
-	var $elm = $(this),
-		selector = $elm.attr('data-reveal'),
-		$reveal = $elm.find(selector);
-	return ( $elm.is(':checked') ) ? $(selector).removeClass('hide') : $(selector).addClass('hide');
-});
+$( "[data-reveal]" ).change( function() {
+	var $elm = $( this ),
+		selector = $elm.attr( "data-reveal" );
+	return ( $elm.is( ":checked" ) ) ? $( selector ).removeClass( "hide" ) : $( selector ).addClass( "hide" );
+} );
 
 
-})( jQuery, document, wb );
+} )( jQuery, document, wb );
