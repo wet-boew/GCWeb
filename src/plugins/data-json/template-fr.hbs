@@ -46,20 +46,20 @@
 		{ &quot;nom&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;rue&quot;: &quot;Victoria&quot;, &quot;ville&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; }
 	],
 	&quot;auteur&quot;: &quot;&lt;a href=\&quot;https://github.com/duboisp/\&quot;&gt;Pierre Dubois&lt;/a&gt; a créé la fonctionalité data-json&quot;,
-	&quot;commentaire&quot;: [
-		{
+	&quot;commentaire&quot;: {
+		&quot;2017-1&quot;: {
 			&quot;nom&quot;: &quot;M. X&quot;,
 			&quot;ville&quot;: &quot;Gatineau&quot;,
 			&quot;quelquesChoseHTML&quot;: &quot;&lt;strong&gt;Horay&lt;/strong&gt; ici du contenu HTML enrichie&quot;,
 			&quot;passetemps&quot;: [ &quot;Voiture&quot;, &quot;Mécanique&quot;, &quot;Course&quot; ]
 		},
-		{
+		&quot;2017-2&quot;: {
 			&quot;nom&quot;: &quot;Mme. Y&quot;,
 			&quot;ville&quot;: &quot;St-Pierre&quot;,
 			&quot;quelquesChoseHTML&quot;: &quot;le mot &lt;strong&gt;Youpi&lt;/strong&gt; devrais avoir de la mise en évidence&quot;,
 			&quot;passetemps&quot;: [ &quot;Spa&quot;, &quot;Nature&quot;, &quot;Bicyclette&quot;, &quot;Lecture&quot; ]
 		}
-	]
+	}
 }</code></pre>
 </details>
 
@@ -371,6 +371,33 @@
 &lt;/div&gt;</code></pre>
 </details>
 
+<h2>Répéter à partir d'un objet JSON</h2>
+
+<p>Lorsqu'on selectionne un objet JSON à la place d'un tableau, celui va être transformé en tableau selon un style similaire au JSON-LD sous sa forme étendu. Vous trouverez dans la <a href="data-json-doc-fr.html#jsonObjToArr">documentation du data-json</a> des examples illustrant les transformations d'objet vers un tableau.</p>
+
+<ul class="lst-spcd" data-wb-json='{
+		"url": "demo/data-fr.json#/unTableau/2",
+		"queryall": "li",
+		"mapping": "/@value"
+	}'>
+	<template>
+		<li></li>
+	</template>
+</ul>
+
+<details>
+	<summary>Code source</summary>
+	<pre><code>&lt;ul class=&quot;lst-spcd&quot; data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-fr.json#/unTableau/2&quot;,
+		&quot;queryall&quot;: &quot;li&quot;,
+		&quot;mapping&quot;: &quot;/@value&quot;
+	}'&gt;
+	&lt;template&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/template&gt;
+&lt;/ul&gt;</code></pre>
+</details>
+
 <h2>Tableau</h2>
 
 <div class="alert alert-info">
@@ -614,22 +641,22 @@
 <h2>Utilisé l'espace réserver avec un <code>template</code> pour ajouter à un élément</h2>
 
 <template id="metadatacontent"  data-wb-json='{
-		"url": "demo/data-fr.json",
+		"url": "demo/data-fr.json#/produit",
 		"appendto": "title",
 		"source": "#metadatacontent",
 		"mapping": [
-			{ "value": "/produit", "placeholder": "[[fantastique]]" }
+			{ "placeholder": "[[fantastique]]" }
 		]
 	}'> *** [[fantastique]] ***</template>
 
 <p>(Pour voir cet example pratique, regarder le contenu de l'élément <code>title</code> de cette page)</p>
 
 <pre><code>&lt;template id=&quot;metadatacontent&quot;  data-wb-json='{
-		&quot;url&quot;: &quot;demo/data-fr.json&quot;,
+		&quot;url&quot;: &quot;demo/data-fr.json#/produit&quot;,
 		&quot;appendto&quot;: &quot;title&quot;,
 		&quot;source&quot;: &quot;#metadatacontent&quot;,
 		&quot;mapping&quot;: [
-			{ &quot;value&quot;: &quot;/produit&quot;, &quot;placeholder&quot;: &quot;[[fantastique]]&quot; }
+			{ &quot;placeholder&quot;: &quot;[[fantastique]]&quot; }
 		]
 	}'&gt; *** [[fantastique]] ***&lt;/template&gt;</code></pre>
 
