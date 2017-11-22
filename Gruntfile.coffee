@@ -141,6 +141,7 @@ module.exports = (grunt) ->
 		"test"
 		"INTERNAL: Runs testing tasks except for SauceLabs testing"
 		[
+			"eslint"
 			"sasslint"
 		]
 	)
@@ -468,21 +469,6 @@ module.exports = (grunt) ->
 				src: "**/ie8*.min.css"
 				dest: "<%= themeDist %>/css"
 
-		jshint:
-			options:
-				jshintrc: "lib/wet-boew/.jshintrc"
-
-			lib_test:
-				src: [
-					"src/**/*.js"
-				]
-
-		jscs:
-			all:
-				src: [
-					"src/**/*.js"
-				]
-
 		# Minify
 		uglify:
 			options:
@@ -737,19 +723,18 @@ module.exports = (grunt) ->
 				tasks: [
 					"build"
 				]
-			lib_test:
-				files: "<%= jshint.lib_test.src %>"
-				tasks: [
-					"jshint:lib_test"
+			js:
+				files: "<%= eslint.all.src %>"
+				tasks: "js"
+
+		eslint:
+			options:
+				configFile: if process.env.CI == "true" then "lib/wet-boew/.eslintrc.ci.json" else "lib/wet-boew/.eslintrc.json"
+				quiet: true
+			all:
+				src: [
+					"src/**/*.js"
 				]
-			source:
-				files: "<%= jshint.lib_test.src %>"
-				tasks: [
-					"build"
-				]
-				options:
-					interval: 5007
-					livereload: true
 
 		hub:
 			"wet-boew":
