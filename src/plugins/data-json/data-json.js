@@ -202,7 +202,7 @@ var componentName = "wb-data-json",
 	applyTemplate = function( elm, settings, content ) {
 
 		var mapping = settings.mapping || [ {} ],
-			mapping_len = mapping.length,
+			mapping_len,
 			filterTrueness = settings.filter || [],
 			filterFaslseness = settings.filternot || [],
 			queryAll = settings.queryall,
@@ -220,9 +220,30 @@ var componentName = "wb-data-json",
 			template = settings.source ? document.querySelector( settings.source ) : elm.querySelector( "template" );
 
 		if ( !$.isArray( content ) ) {
-			content = [ content ];
+			if ( typeof content !== "object" ) {
+				content = [ content ];
+			} else {
+				content = $.map( content, function( val, index ) {
+					if ( typeof val === "object" && !$.isArray( val ) ) {
+						if ( !val[ "@id" ] ) {
+							val[ "@id" ] = index;
+						}
+					} else {
+						val = {
+							"@id": index,
+							"@value": val
+						};
+					}
+					return [ val ];
+				} );
+			}
 		}
 		i_len = content.length;
+
+		if ( !$.isArray( mapping ) ) {
+			mapping = [ mapping ];
+		}
+		mapping_len = mapping.length;
 
 		// Special support for adding row to a wb-table
 		// Condition must be meet:
@@ -248,6 +269,11 @@ var componentName = "wb-data-json",
 
 		if ( !template ) {
 			return;
+		}
+
+		// Needed when executing sub-template that wasn't polyfill, like in IE11
+		if ( !template.content ) {
+			wb.tmplPolyfill( template );
 		}
 
 		if ( settings.appendto ) {

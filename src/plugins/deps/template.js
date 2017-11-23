@@ -10,11 +10,36 @@
 /*
  * Variable and function definitions.
  * These are global to the polyfill - meaning that they will be initialized once per page.
+ * This polyfill is mostly used to support <template> element in IE11
  */
 var componentName = "wb-template",
 	selector = "template",
 	initEvent = "wb-init." + componentName,
 	$document = wb.doc,
+
+	/**
+	 * @method polyfill
+	 * @param {DOM element} element that we need to apply the polyfill
+	 */
+	polyfill = function( elm ) {
+
+		if ( elm.content ) {
+			return;
+		}
+		var elPlate = elm,
+			qContent,
+			docContent;
+
+		qContent = elPlate.childNodes;
+		docContent = document.createDocumentFragment();
+
+		while ( qContent[ 0 ] ) {
+			docContent.appendChild( qContent[ 0 ] );
+		}
+
+		elPlate.content = docContent;
+
+	},
 
 	/**
 	 * @method init
@@ -29,26 +54,15 @@ var componentName = "wb-template",
 
 		if ( elm ) {
 
-			if ( !elm.content ) {
-
-				var elPlate = elm,
-					qContent,
-					docContent;
-
-				qContent = elPlate.childNodes;
-				docContent = document.createDocumentFragment();
-
-				while ( qContent[ 0 ] ) {
-					docContent.appendChild( qContent[ 0 ] );
-				}
-
-				elPlate.content = docContent;
-			}
+			polyfill( elm );
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );
 		}
 	};
+
+// Make it available of when template element is needed on the fly, like subtemplate support in IE11
+wb.tmplPolyfill = polyfill;
 
 // Bind the events of the polyfill
 $document.on( "timerpoke.wb " + initEvent, selector, init );

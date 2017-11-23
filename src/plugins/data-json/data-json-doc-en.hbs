@@ -265,6 +265,158 @@
 </section>
 
 <section>
+<h2 id="jsonObjToArr">Template - Transforming JSON object into an array</h2>
+
+<p>Since WET 4.0.27 it is now possible to iterate anything that is not an array to render content through a <code>&lt;template&gt;</code>. It simply get transformed into a array. There is a low risk of lost of information, only one specific use case. It's quite similar to the JSON-LD Expanded Form. In this transformation process, it assume the array key is an IRI. Then the will result include some property from JSON-LD such as <code>@id</code> and <code>@value</code>. The <code>@id</code> wont be overwritten, in those such case the array key will be discard after the transformation.</p>
+
+<h3>When the value is a sub-object</h3>
+<div class="row">
+<div class="col-sm-6">
+<p>Source</p>
+<pre><code>{
+	"key1": {
+		"keyA": "value1",
+		"keyB": "value2"
+	},
+	"key2": {
+		"keyA": "value3",
+		"keyB": "value4"
+	}
+}</code></pre>
+</div>
+<div class="col-sm-6">
+<p>After</p>
+<pre><code>[
+	{
+		"@id": "key1",
+		"keyA": "value1",
+		"keyB": "value2"
+	},
+	{
+		"@id": "key2",
+		"keyA": "value3",
+		"keyB": "value4"
+	}
+]</code></pre>
+</div></div>
+
+<h3>When the value are not an object</h3>
+<div class="row">
+<div class="col-sm-6">
+<p>Source</p>
+<pre><code>{
+	"key1": "value1",
+	"key2": "value2",
+	"key3": "value3"
+}</code></pre>
+</div>
+<div class="col-sm-6">
+<p>After</p>
+<pre><code>[
+	{
+		"@id": "key1",
+		"@value": "value1"
+	},
+	{
+		"@id": "key2",
+		"@value": "value2"
+	},
+	{
+		"@id": "key3",
+		"@value": "value3"
+	}
+]</code></pre>
+</div></div>
+
+<h3>When the value is a native data type</h3>
+<p>Selecting the value of <code>key1</code> to iterate.</p>
+<div class="row">
+<div class="col-sm-6">
+<p>Source</p>
+<pre><code>{
+	"key1": "value1"
+}</code></pre>
+</div>
+<div class="col-sm-6">
+<p>After</p>
+<pre><code>{
+	"key1": [
+		"value1"
+	]
+}</code></pre>
+</div></div>
+
+<h3>When the value is an array</h3>
+<div class="row">
+<div class="col-sm-6">
+<p>Source</p>
+<pre><code>{
+	"key1": [
+		{ "keyA": "value1" },
+		{ "keyA": "value2" }
+	],
+	"key2":  [
+		{ "keyA": "value3" },
+		{ "keyA": "value4" }
+	]
+}</code></pre>
+</div>
+<div class="col-sm-6">
+<p>After</p>
+<pre><code>[
+	{
+		"@id": "key1",
+		"@value": [
+			"keyA": "value1",
+			"keyA": "value2"
+		]
+	},
+	{
+		"@id": "key2",
+		"@value":
+			"keyA": "value3",
+			"keyA": "value4"
+		]
+	}
+]</code></pre>
+</div></div>
+
+<h3>When the array key information will be lost</h3>
+<div class="row">
+<div class="col-sm-6">
+<p>Source</p>
+<pre><code>{
+	"key1": {
+		"@id": "http://wet-boew.github.io/vocab/example/1",
+		"keyA": "value1",
+		"keyB": "value2"
+	},
+	"key2": {
+		"@id": "http://wet-boew.github.io/vocab/example/2",
+		"keyA": "value3",
+		"keyB": "value4"
+	}
+}</code></pre>
+</div>
+<div class="col-sm-6">
+<p>After</p>
+<pre><code>[
+	{
+		"@id": "http://wet-boew.github.io/vocab/example/1",
+		"keyA": "value1",
+		"keyB": "value2"
+	},
+	{
+		"@id": "http://wet-boew.github.io/vocab/example/2",
+		"keyA": "value3",
+		"keyB": "value4"
+	}
+]</code></pre>
+</div></div>
+
+</section>
+
+<section>
 <h2>Cache busting</h2>
 <p>Before to use the cache busting mechanism with your data json instance, it's highly recommended to configure your server properly instead.</p>
 <p>Various strategy can be set on the server side and those are communicated to the browser through an http header as defined in <a href="https://tools.ietf.org/html/rfc7234#section-5">section 5 of RFC7234</a>.</p>
@@ -455,7 +607,10 @@
 		<td><code>mapping</code></td>
 		<td>Template only. Array of string represeting a JSON pointer or object where it specify how to bind the data with the template content. If the configuration <code>queryall</code> is used, the number of items in the mapping must match the number of returning result of the queryall. In the other hand, if <code>queryall</code> configuration is not specified, than each mapping object must define a <code>selector</code> configuration.</td>
 		<td><code>data-wb-json='{ "url": "", "mapping": [ "JSON Pointer", "JSON Pointer" ] }'</code> or <code>data-wb-json='{ "url": "", "mapping": [ {mapping object}, {mapping object} ] }'</code></td>
-		<td>When queryall is not specified, it's is an array of string with a the JSON pointer. (Equivalent to the value in the Mapping object)</td>
+		<td>
+			<p>When queryall is not specified, it's is an array of string with a the JSON pointer. (Equivalent to the value in the Mapping object)</p>
+			<p>A mapping object can contain another mapping object to support sub-template. That inner mapping can also contain it's own <code>queryall</code> configuration.</p>
+		</td>
 	</tr>
 
 	<tr>
@@ -490,7 +645,7 @@
 	</tr>
 	<tr>
 		<td><code>appendto</code></td>
-		<td>Template only. When the elements are outside the editing area, this specified the element to use to append the template. Specifying the data-json directly of the elements should remain how it is used.</td>
+		<td>Template only. When the elements are outside the editing area, this specified the element to use to append the template. Specifying the data-json directly of the elements should remain how it is used. Note: Since WET 4.0.27 a bug fix has change the behavior of one usecase depending how the mapping is configured. Since WET 4.0.27, using the data-json template is always done against an JSON array.</td>
 		<td><code>data-wb-json='{ "url": "", "appendto": "title" }'</code></td>
 		<td>A valid jQuery selector.</td>
 	</tr>

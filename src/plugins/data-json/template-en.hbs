@@ -45,20 +45,20 @@
 		{ &quot;name&quot;: &quot;Jean Edmonds, North Tower&quot;, &quot;num&quot;: 300, &quot;street&quot;: &quot;Slater&quot;, &quot;city&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot; },
 		{ &quot;name&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;street&quot;: &quot;Victoria&quot;, &quot;city&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; }
 	],
-	&quot;comments&quot;: [
-		{
+	&quot;comments&quot;: {
+		&quot;2017-1&quot;: {
 			&quot;name&quot;: &quot;Mr X&quot;,
 			&quot;city&quot;: &quot;Gatineau&quot;,
 			&quot;somethingHTML&quot;: &quot;&lt;strong&gt;Horay&lt;/strong&gt; here rich HTML content&quot;,
 			&quot;hobby&quot;: [ &quot;Car&quot;, &quot;Mechanic&quot;, &quot;Race&quot; ]
 		},
-		{
+		&quot;2017-2&quot;: {
 			&quot;name&quot;: &quot;Mrs Y&quot;,
 			&quot;city&quot;: &quot;St-Pierre&quot;,
 			&quot;somethingHTML&quot;: &quot;&lt;strong&gt;Youpi&lt;/strong&gt; word should be with emphasis&quot;,
 			&quot;hobby&quot;: [ &quot;Spa&quot;, &quot;Nature&quot;, &quot;Bike&quot;, &quot;Reading&quot; ]
 		}
-	]
+	}
 }</code></pre>
 </details>
 
@@ -368,6 +368,33 @@
 &lt;/div&gt;</code></pre>
 </details>
 
+<h2>Iterate from a JSON Object</h2>
+
+<p>When iterating a JSON object it get transformed into an array of objects by following a JSON-LD extended form style. You will find in the <a href="data-json-doc-en.html#jsonObjToArr">data-JSON documentation</a> sample of JSON object before and after it's transformation into an array.</p>
+
+<ul class="lst-spcd" data-wb-json='{
+		"url": "demo/data-en.json#/anArray/2",
+		"queryall": "li",
+		"mapping": "/@value"
+	}'>
+	<template>
+		<li></li>
+	</template>
+</ul>
+
+<details>
+	<summary>Source code</summary>
+	<pre><code>&lt;ul class=&quot;lst-spcd&quot; data-wb-json='{
+		&quot;url&quot;: &quot;demo/data-en.json#/anArray/2&quot;,
+		&quot;queryall&quot;: &quot;li&quot;,
+		&quot;mapping&quot;: &quot;/@value&quot;
+	}'&gt;
+	&lt;template&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/template&gt;
+&lt;/ul&gt;</code></pre>
+</details>
+
 <h2>Table</h2>
 
 <div class="alert alert-info">
@@ -610,22 +637,22 @@
 <h2>Use <code>template</code> placeholder for appending to an element</h2>
 
 <template id="metadatacontent"  data-wb-json='{
-		"url": "demo/data-en.json",
+		"url": "demo/data-en.json#/product",
 		"appendto": "title",
 		"source": "#metadatacontent",
 		"mapping": [
-			{ "value": "/product", "placeholder": "[[great]]" }
+			{ "placeholder": "[[great]]" }
 		]
 	}'> *** [[great]] ***</template>
 
 <p>(To see this working example, take a look at the <code>title</code> element on this page)</p>
 
 <pre><code>&lt;template id=&quot;metadatacontent&quot;  data-wb-json='{
-		&quot;url&quot;: &quot;data-en.json&quot;,
+		&quot;url&quot;: &quot;data-en.json#/product&quot;,
 		&quot;appendto&quot;: &quot;title&quot;,
 		&quot;source&quot;: &quot;#metadatacontent&quot;,
 		&quot;mapping&quot;: [
-			{ &quot;value&quot;: &quot;/product&quot;, &quot;placeholder&quot;: &quot;[[great]]&quot; }
+			{ &quot;placeholder&quot;: &quot;[[great]]&quot; }
 		]
 	}'&gt; *** [[great]] ***&lt;/template&gt;</code></pre>
 
