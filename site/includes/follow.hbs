@@ -1,8 +1,9 @@
 {{#contains "theme, topic, gcaudience" page.pageType }}
-<section class="followus">
 {{else}}
-<section class="followus pull-right">
+<div class="row">
+<div class="col-xs-12 col-md-auto pull-right">
 {{/contains}}
+<section class="followus">
 	<h2>{{{i18n "so-title"}}}</h2>
 	<ul>
 		<li><a href="#facebook" class="facebook wb-lbx"><span class="wb-inv">Facebook</span></a></li>
@@ -38,3 +39,7 @@
 		</ul>
 	</div>
 </section>
+{{#contains "theme, topic, gcaudience" page.pageType }}
+{{else}}
+</div></div>
+{{/contains}}
