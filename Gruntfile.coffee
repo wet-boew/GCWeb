@@ -1,4 +1,6 @@
 #global module:false
+path = require("path")
+
 module.exports = (grunt) ->
 
 	# Default task.
@@ -174,8 +176,10 @@ module.exports = (grunt) ->
 		# Metadata.
 		pkg: @file.readJSON "package.json"
 		themeDist: "dist/<%= pkg.name %>"
-		#jqueryVersion: grunt.file.readJSON("lib/jquery/bower.json")
-		#jqueryOldIEVersion: grunt.file.readJSON("lib/jquery-oldIE/bower.json")
+		jqueryVersion: grunt.file.readJSON(
+			path.join require.resolve( "jquery" ), "../../package.json"
+		).version
+		jqueryOldIEVersion: "1.11.1"
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
