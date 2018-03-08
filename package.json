@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "grunt test",
-    "postinstall": "bower update",
+    "prepare": "grunt dist",
     "travis_script": "grunt dist test-mocha",
     "travis_after_success": "grunt deploy"
   },
@@ -29,13 +29,18 @@
   ],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "fast-json-patch": "github:wet-boew/JSON-Patch#wb1.0+1.1.4",
+    "jsonpointer.js": "^0.4.0",
+    "wet-boew": "wet-boew/wet-boew"
+  },
   "devDependencies": {
-    "assemble-contrib-i18n": "~0.1.2",
+    "assemble-contrib-i18n": "0.1.*",
     "eslint-config-jquery": "^1.0.0",
     "expect.js": "^0.3.1",
     "grunt": "~0.4.5",
     "grunt-assemble": "~0.6.3",
-    "grunt-autoprefixer": "^0.7.2",
+    "grunt-autoprefixer": "^3.0.3",
     "grunt-banner": "^0.3.1",
     "grunt-bootlint": "^0.9.1",
     "grunt-check-dependencies": "~0.6.0",
@@ -53,9 +58,8 @@
     "grunt-html": "^5.0.0",
     "grunt-hub": "~0.7.0",
     "grunt-i18n-csv": "0.1.0",
-    "grunt-install-dependencies": "~0.2.0",
     "grunt-mocha": "~0.4.12",
-    "grunt-sass": "^1.0.0",
+    "grunt-sass": "^2.0.0",
     "grunt-sass-lint": "^0.2.0",
     "grunt-wet-boew-postbuild": "^0.1.4",
     "load-grunt-tasks": "^3.2.0",

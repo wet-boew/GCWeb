@@ -1,4 +1,6 @@
 #global module:false
+path = require("path")
+
 module.exports = (grunt) ->
 
 	# Default task.
@@ -48,15 +50,6 @@ module.exports = (grunt) ->
 			"assets"
 			"css"
 			"js"
-		]
-	)
-
-	@registerTask(
-		"init"
-		"Only needed when the repo is first cloned"
-		[
-			"install-dependencies"
-			"hub"
 		]
 	)
 
@@ -183,8 +176,10 @@ module.exports = (grunt) ->
 		# Metadata.
 		pkg: @file.readJSON "package.json"
 		themeDist: "dist/<%= pkg.name %>"
-		jqueryVersion: @file.readJSON "lib/jquery/bower.json"
-		jqueryOldIEVersion: @file.readJSON "lib/jquery-oldIE/bower.json"
+		jqueryVersion: grunt.file.readJSON(
+			path.join require.resolve( "jquery" ), "../../package.json"
+		).version
+		jqueryOldIEVersion: "1.11.1"
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
@@ -212,7 +207,6 @@ module.exports = (grunt) ->
 
 		clean:
 			dist: [ "dist"]
-			lib: ["lib"]
 			deps: ["<%= themeDist %>/theme-js-deps"]
 
 		concat:
@@ -230,7 +224,7 @@ module.exports = (grunt) ->
 
 			test:
 				src: [
-					"lib/wet-boew/src/test.js"
+					"node_modules/wet-boew/src/test.js"
 					"src/**/test.js"
 				]
 				dest: "dist/unmin/test/tests.js"
@@ -238,14 +232,14 @@ module.exports = (grunt) ->
 		copy:
 			wetboew:
 				expand: true
-				cwd: "lib/wet-boew/dist"
+				cwd: "node_modules/wet-boew/dist"
 				src: [
 					"wet-boew/**/*.*"
 				]
 				dest: "dist"
 			wetboew_demo:
 				expand: true
-				cwd: "lib/wet-boew/dist/unmin"
+				cwd: "node_modules/wet-boew/dist/unmin"
 				src: [
 					"demos/**/*.*"
 					"docs/**/*.*"
@@ -255,7 +249,7 @@ module.exports = (grunt) ->
 				dest: "dist/unmin"
 			wetboew_demo_min:
 				expand: true
-				cwd: "lib/wet-boew/dist"
+				cwd: "node_modules/wet-boew/dist"
 				src: "<%= copy.wetboew_demo.src %>"
 				dest: "dist"
 			site:
@@ -277,7 +271,7 @@ module.exports = (grunt) ->
 			js_lib:
 				expand: true
 				flatten: true
-				cwd: "lib"
+				cwd: "node_modules"
 				src: [
 					"jsonpointer/src/jsonpointer.js"
 					"JSON-Patch/src/json-patch.js"
@@ -406,6 +400,10 @@ module.exports = (grunt) ->
 					]
 
 		sass:
+			options:
+				includePaths: [
+					"./node_modules"
+				]
 			all:
 				expand: true
 				cwd: "src"
@@ -508,15 +506,15 @@ module.exports = (grunt) ->
 					sanitize: false
 				production: false
 				data: [
-					"lib/wet-boew/site/data/**/*.{yml,json}"
+					"node_modules/wet-boew/site/data/**/*.{yml,json}"
 					"site/data/**/*.{yml,json}"
 				]
 				helpers: [
-					"lib/wet-boew/site/helpers/helper{,s}-*.js"
+					"node_modules/wet-boew/site/helpers/helper{,s}-*.js"
 					"site/helpers/helper{,s}-*.js"
 				]
 				partials: [
-					"lib/wet-boew/site/includes/**/*.hbs"
+					"node_modules/wet-boew/site/includes/**/*.hbs"
 					"site/includes/**/*.hbs"
 				]
 				layoutdir: "site/layouts"
@@ -528,7 +526,7 @@ module.exports = (grunt) ->
 
 			ajax:
 				options:
-					layoutdir: "lib/wet-boew/site/layouts"
+					layoutdir: "node_modules/wet-boew/site/layouts"
 					layout: "ajax.hbs"
 
 				cwd: "site/pages/ajax"
@@ -561,7 +559,7 @@ module.exports = (grunt) ->
 					,
 						#docs
 						expand: true
-						cwd: "lib/wet-boew/site/pages/docs"
+						cwd: "node_modules/wet-boew/site/pages/docs"
 						src: [
 							"**/*.hbs"
 						]
@@ -569,26 +567,26 @@ module.exports = (grunt) ->
 					,
 						#plugins
 						expand: true
-						cwd: "lib/wet-boew/site/pages/demos"
+						cwd: "node_modules/wet-boew/site/pages/demos"
 						src: [
 							"**/*.hbs"
 						]
 						dest: "dist/unmin/demos"
 					,
 						expand: true
-						cwd: "lib/wet-boew/src/plugins"
+						cwd: "node_modules/wet-boew/src/plugins"
 						src: [
 							"**/*.hbs"
 						]
 						dest: "dist/unmin/demos"
 					,
 						expand: true
-						cwd: "lib/wet-boew/src/polyfills"
+						cwd: "node_modules/wet-boew/src/polyfills"
 						src: "**/*.hbs"
 						dest: "dist/unmin/demos"
 					,
 						expand: true
-						cwd: "lib/wet-boew/src/other"
+						cwd: "node_modules/wet-boew/src/other"
 						src: "**/*.hbs"
 						dest: "dist/unmin/demos"
 				]
@@ -729,27 +727,12 @@ module.exports = (grunt) ->
 
 		eslint:
 			options:
-				configFile: if process.env.CI == "true" then "lib/wet-boew/.eslintrc.ci.json" else "lib/wet-boew/.eslintrc.json"
+				configFile: if process.env.CI == "true" then "node_modules/wet-boew/.eslintrc.ci.json" else "node_modules/wet-boew/.eslintrc.json"
 				quiet: true
 			all:
 				src: [
 					"src/**/*.js"
 				]
-
-		hub:
-			"wet-boew":
-				src: [
-					"lib/wet-boew/Gruntfile.coffee"
-				]
-				tasks: [
-					"dist"
-				]
-
-		"install-dependencies":
-			options:
-				cwd: "lib/wet-boew"
-				failOnError: false
-				isDevelopment: true
 
 		connect:
 			options:
