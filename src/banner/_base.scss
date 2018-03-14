@@ -27,10 +27,16 @@ header {
 			}
 		}
 
-		object,
-		img {
+		// Needed for backwards compatibility with GCWeb 4.0.27 and below's HTML markup.
+		// Remove object references from all of this theme's logo selectors in GCWeb 4.1+.
+		img,
+		object {
 			height: auto;
 			max-height: 40px;
+		}
+
+		img {
+			margin-bottom: .375em;
 		}
 	}
 }
