@@ -1,0 +1,147 @@
+---
+{
+	"title": "Suggestion pour datalist via JSON",
+	"language": "fr",
+	"category": "Plugiciels",
+	"categoryfile": "plugins",
+	"description": "Charge des suggestions d'un tableau de chaîne de caractère à partir d'un fichier JSON",
+	"altLangPrefix": "suggest-doc",
+	"dateModified": "2018-02-07"
+}
+---
+
+<div lang="en">
+<p><strong>Needs translation</strong></p>
+
+<section>
+	<h2>Purpose</h2>
+	<p>Load suggestions from an array of string in a JSON file.</p>
+</section>
+
+<section>
+	<h2>Use when</h2>
+	<ul>
+		<li>Use a centralized list of suggestion on multiple pages.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Don't use when</h2>
+	<ul>
+		<li>To provide a static list of suggestion/autocomple for one unique page. Instead add the option directly under the <code>datalist</code>.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Working example</h2>
+	<p><a href="suggest-en.html">English example</a></p>
+	<p><a href="suggest-fr.html">French example</a></p>
+</section>
+
+<section>
+	<h2>Feature template</h2>
+
+	<pre><code>{Pattern: <a href="#ptn-default">Default</a> }
+		
+		{Section: <a href="#ptn-default-input">Input with autocomplete options</a> }
+			&lt;label for=<a href="#ptn-default-id-input">@id-input</a>&gt;{ <a href="#ptn-default-label">label</a> }&lt;/label&gt;
+			&lt;input id=<a href="#ptn-default-id-input">@id-input</a> list=<a href="#ptn-default-id-datalist">@id-datalist</a> /&gt;
+		{/Section}
+
+		&lt;datalist id=<a href="#ptn-default-id-datalist">@id-datalist</a> data-wb-suggest=<a href="#ptn-default-json-url">@json-url</a> <a href="#ptn-default-wb-limit">%data-wb-limit</a> <a href="#ptn-default-wb-filter-type">%data-wb-filter-type</a>&gt;
+			{Optional: <a href="#ptn-default-datalist-template">Template for datalist option</a> }
+				&lt;template&gt;
+					&lt;option&gt;&lt;/option&gt;
+				&lt;/template&gt;
+			{/Optional}
+		&lt;/datalist&gt;
+	{/Pattern}</code></pre>
+
+
+	<p>Pattern</p>
+	<dl class="dl-horizontal">
+		<dt id="ptn-default">Default</dt>
+		<dd>Default template for datalist JSON suggestions features</dd>
+	</dl>
+
+	<p>Section:</p>
+	<dl class="dl-horizontal">
+		<dt id="ptn-default-input">input</dt>
+		<dd>Input that require suggestions/autocomplete. The suggestions is provided from option in a referenced datalist.</dd>
+		<dt id="ptn-default-datalist-template">Template for datalist option</dt>
+		<dd>Optional. Template used to add <code>option</code> element inside the <code>datalist</code></dd>
+	</dl>
+
+	<p>Attribute:</p>
+	<dl class="dl-horizontal">
+		<dt id="ptn-default-id-input">@id-input</dt>
+		<dd>Identifier of an input element</dd>
+		<dt id="ptn-default-id-datalist">@id-datalist</dt>
+		<dd>Identifier of a <code>datalist</code> element</dd>
+		<dt id="ptn-default-json-url">@json-url</dt>
+		<dd>xsd:anyURI which resolve to a JSON array of xsd:string which can be selected by using a JSON pointer</dd>
+		<dt id="ptn-default-wb-limit">%data-wb-limit</dt>
+		<dd>Optional: xsd:positiveInteger representing the limit of how many items are displayed. Note that some browser implementation of <code>datalist</code> may display less results. The HTML5 spec recommend to display between four to seven items.</dd>
+		<dt id="ptn-default-wb-filter-type">%data-wb-filter-type</dt>
+		<dd>Optional: Enumeration (any [default] | startWith | word). "any" (default and fallback) means anywhere the input text will be find against all datalist options. "startWith" means will only show options that start with the input text. "word" means a segment delimited with a preceding space character followed by the input string.</dd>
+	</dl>
+
+	<p>Variable:</p>
+	<dl class="dl-horizontal">
+		<dt id="ptn-default-label">{ label }</dt>
+		<dd>Text label</dd>
+	</dl>
+</section>
+
+<section>
+	<h2>Configuration options</h2>
+	<ul>
+		<li>Attribute <code>data-wb-limit</code> which contain a number of items to be displayed.</li>
+		<li>Attribute <code>data-wb-filter-type</code> which modify how to apply the filter (any [default] | startWith | word)</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Events</h2>
+	<p>Document the public events that can be used by implementers or developers.</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Event</th>
+				<th>Trigger</th>
+				<th>What it does</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>wb-init.wb-suggest</code></td>
+				<td>Triggered manually (e.g., <code>$( "[data-wb-suggest]" ).trigger( "wb-init.wb-suggest" );</code>).</td>
+				<td>Initializes the suggest plugin and will load the JSON file when the input field receive focus. <strong>Note:</strong> the suggest plugin will be initialized automatically unless the <code>[data-wb-suggest]</code> attribute is added to a datalist element after the page has already loaded.</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb-suggest</code></td>
+				<td>Triggered automatically after the suggest plugin initializes.</td>
+				<td>Used to identify when and where the suggest plugin initializes (target of the event).
+					<pre><code>$( document ).on( "wb-ready.wb-suggest", "[data-wb-suggest]", function( event ) {
+});</code></pre>
+					<pre><code>$elm.on( "wb-ready.wb-suggest", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb</code></td>
+				<td>Triggered automatically when WET has finished loading and executing.</td>
+				<td>Used to identify when all WET plugins and polyfills have finished loading and executing.
+					<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+<section>
+	<h2>Source code</h2>
+	<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/suggest">Suggest source code on GitHub</a></p>
+</section>
+</div>
