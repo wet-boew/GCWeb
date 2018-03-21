@@ -718,6 +718,8 @@ module.exports = (grunt) ->
 					# Ignore HTML fragments used for the menus
 					"!dist/**/assets/*.html"
 					"!dist/**/ajax/*.html"
+					# Ignore deprecated page as it is just for testing
+					"!dist/**/deprecated-*.html"
 				]
 
 		watch:
