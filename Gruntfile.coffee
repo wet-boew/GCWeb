@@ -273,8 +273,8 @@ module.exports = (grunt) ->
 				flatten: true
 				cwd: "node_modules"
 				src: [
-					"jsonpointer/src/jsonpointer.js"
-					"JSON-Patch/src/json-patch.js"
+					"jsonpointer.js/src/jsonpointer.js"
+					"fast-json-patch/src/json-patch.js"
 				]
 				dest: "<%= themeDist %>/theme-js-deps"
 			test:
