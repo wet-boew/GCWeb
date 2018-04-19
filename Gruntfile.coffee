@@ -663,13 +663,10 @@ module.exports = (grunt) ->
 						"Element “dl” is missing a required instance of child element “dt”."
 						"XHTML element “dl” is missing a required instance of child element “dt”."
 						"Empty heading."
-						"Element “option” without attribute “label” must not be empty."
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
 					"dist/unmin/demos/data-json/template-fr.html"
-					"dist/unmin/demos/suggest/suggest-en.html"
-					"dist/unmin/demos/suggest/suggest-fr.html"
 				]
 			all:
 				options:
@@ -691,8 +688,6 @@ module.exports = (grunt) ->
 					"!dist/unmin/test/*.html"
 					"!dist/unmin/demos/data-json/template-en.html"
 					"!dist/unmin/demos/data-json/template-fr.html"
-					"!dist/unmin/demos/suggest/suggest-en.html"
-					"!dist/unmin/demos/suggest/suggest-fr.html"
 				]
 
 		bootlint:
