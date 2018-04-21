@@ -403,6 +403,7 @@ module.exports = (grunt) ->
 			options:
 				includePaths: [
 					"./node_modules"
+					"./node_modules/wet-boew/node_modules"
 				]
 			all:
 				expand: true
