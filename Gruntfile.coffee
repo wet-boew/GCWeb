@@ -24,6 +24,7 @@ module.exports = (grunt) ->
 			"htmllint"
 			"bootlint"
 			"useMinAssets"
+			"sri"
 		]
 	)
 
@@ -809,6 +810,18 @@ module.exports = (grunt) ->
 					repo: process.env.DEMOS_REPO
 					branch: process.env.DEMOS_BRANCH
 					message: "<%= distDeployMessage %>"
+
+		sri:
+			options:
+				pretty: true
+			theme:
+				options:
+					dest: "<%= themeDist %>/payload.json"
+				cwd: "<%= themeDist %>"
+				src: [
+					"{js,css}/*.{js,css}"
+				]
+				expand: true
 
 	require( "load-grunt-tasks" )( grunt )
 
