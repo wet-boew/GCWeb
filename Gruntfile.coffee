@@ -104,7 +104,7 @@ module.exports = (grunt) ->
 		"INTERNAL: Compiles Sass and vendor prefixes the result"
 		[
 			"sass"
-			"autoprefixer"
+			"postcss"
 			"usebanner:css"
 			"cssmin"
 			"cssmin_ie8_clean"
@@ -413,16 +413,17 @@ module.exports = (grunt) ->
 				dest: "<%= themeDist %>/css"
 				ext: ".css"
 
-		autoprefixer:
+		postcss:
 			options:
-				browsers: [
-					"last 2 versions"
-					"android >= 2.3"
-					"bb >= 7"
-					"ff >= 17"
-					"ie >= 8"
-					"ios 5"
-					"opera 12.1"
+				processors: [
+					require("autoprefixer")(
+						browsers: [
+							"last 2 versions"
+							"bb >= 10"
+							"Firefox ESR"
+							"ie > 10"
+						]
+					)
 				]
 			modern:
 				cwd: "<%= themeDist %>/css"
