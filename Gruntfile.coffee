@@ -180,7 +180,7 @@ module.exports = (grunt) ->
 		jqueryVersion: grunt.file.readJSON(
 			path.join require.resolve( "jquery" ), "../../package.json"
 		).version
-		jqueryOldIEVersion: "1.11.1"
+		jqueryOldIEVersion: "1.12.4"
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
