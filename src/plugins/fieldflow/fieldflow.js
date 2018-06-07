@@ -1280,6 +1280,9 @@ $document.on( fieldflowActionsEvents, selector, function( event, data ) {
 		case "removeClass":
 			$( data.source ).removeClass( data.class );
 			break;
+		case "query":
+			actQuery( event, data );
+			break;
 		}
 		break;
 	}
