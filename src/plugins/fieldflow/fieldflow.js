@@ -115,6 +115,10 @@ var componentName = "wb-fieldflow",
 			}
 			config = $.extend( {}, defaults, wbDataElm );
 
+			if ( config.defaultIfNone && !$.isArray( config.defaultIfNone ) ) {
+				config.defaultIfNone = [ config.defaultIfNone ];
+			}
+
 			// Set the data to the component, if other event need to have access to it.
 			$elm.data( configData, config );
 			i18n = config.i18n;
@@ -1057,7 +1061,22 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 			$componentRegistered = $( "#" + componentRegistered[ j ] );
 			$origin = $( "#" + $componentRegistered.data( originData ) );
 			lstOrigin.push( $origin );
+			settings = $origin.data( configData );
 			actions = $componentRegistered.data( submitJQData );
+
+			// If there is If None setting
+			if ( !actions && settings.defaultIfNone ) {
+				actions = settings.defaultIfNone;
+				for ( m = 0, m_len = actions.length; m !== m_len; m += 1 ) {
+					m_cache = actions[ m ];
+					m_cache.origin = $origin.get( 0 );
+					m_cache.$selElm = $origin.prev().find( "input, select" ).eq( 0 );
+					m_cache.provEvt = m_cache.$selElm.get( 0 );
+					m_cache.form = elm;
+					$origin.trigger( m_cache.action + "." + actionEvent, m_cache );
+				}
+				actions = $componentRegistered.data( submitJQData );
+			}
 			if ( actions ) {
 				for ( m = 0, m_len = actions.length; m !== m_len; m += 1 ) {
 					m_cache = actions[ m ];
@@ -1260,6 +1279,9 @@ $document.on( fieldflowActionsEvents, selector, function( event, data ) {
 			break;
 		case "removeClass":
 			$( data.source ).removeClass( data.class );
+			break;
+		case "query":
+			actQuery( event, data );
 			break;
 		}
 		break;
