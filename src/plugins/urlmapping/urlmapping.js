@@ -180,32 +180,42 @@ var componentName = "wb-urlmapping",
 		} else {
 			return search.replace( /\{qval\}/, val ).replace( /\{base\}/, basePointer );
 		}
+	},
+	getUrlParams = function() {
+
+		// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript#answer-2880929
+		var urlParams = {},
+			pl = /\+/g, // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function( s ) {
+				return decodeURIComponent( s.replace( pl, " " ) );
+			},
+			query = window.location.search.substring( 1 ),
+			match = search.exec( query );
+
+		while ( match ) {
+			urlParams[ decode( match[ 1 ] ) ] = decode( match[ 2 ] );
+			match = search.exec( query );
+		}
+
+		return urlParams;
 	};
 
 $document.on( doMappingEvent, selector, function( event ) {
 
-	var elm = event.target,
-		$elm = $( elm ),
-		queryString = encodeURI( decodeURI( window.location.search.replace( /^\?/, "" ) ) ).replace( /'/g, "%27" ).split( "&" ),
-		i, i_len = queryString.length,
-		keyQuery, strings,
+	var $elm = $( event.target ),
+		urlParams = getUrlParams(),
 		cKey, cValue, settingQuery,
 		settings = $.extend( {}, window[ componentName ] || { }, wb.getData( $elm, componentName ) );
 
-	for ( i = 0; i !== i_len; i += 1 ) {
-		if ( ( keyQuery = queryString[ i ] ) !== null ) {
+	for ( cKey in urlParams ) {
+		cValue = urlParams[ cKey ];
+		settingQuery = settings[ cKey + "=" + cValue ] || settings[ cKey ];
 
-			strings = keyQuery.split( "=" );
-			cKey = decodeURI( strings[ 0 ] );
-			cValue = decodeURI( strings[ 1 ] );
-
-			settingQuery = settings[ keyQuery ] || settings[ cKey ];
-
-			if ( typeof settingQuery === "object" ) {
-				executeAction( $elm, cValue, settingQuery );
-				if ( !settings.multiplequery ) {
-					break;
-				}
+		if ( typeof settingQuery === "object" ) {
+			executeAction( $elm, cValue, settingQuery );
+			if ( !settings.multiplequery ) {
+				break;
 			}
 		}
 	}
