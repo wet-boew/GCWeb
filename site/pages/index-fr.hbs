@@ -1,137 +1,884 @@
 ---
 {
-	"title": "Thème Canada.ca",
-	"language": "fr",
-	"altLangPrefix": "index",
-	"breadcrumb": [
-		{ "title": "Accueil", "link": "https://www.canada.ca/fr.html" }
-	],
-	"tag": "GCWeb",
-	"dateModified": "2017-10-02",
-	"share": "true"
+  "title": "Thème Canada.ca",
+  "language": "fr",
+  "altLangPrefix": "index",
+  "breadcrumb": [
+    { "title": "Accueil", "link": "https://www.canada.ca/fr.html" }
+  ],
+  "tag": "GCWeb",
+  "dateModified": "2018-07-12",
+  "share": "true"
 }
 ---
+<p>Ce site est principalement une référence d'implémentation de la <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications.html">Spécifications du contenu et de l’architecture de l'information (C&amp;AI) pour Canada.ca</a> <strong>version 1.5 publié en mai 2018</strong>. Les ministères et organisme du gouvernement du Canada peuvent y contribuer, via le <a href="https://github.com/wet-boew/GCWeb">dépôt github de GCWeb</a>, en publiant leur modèle qui ne sont pas dans le champ d'application ou qui complémente la spécification C&amp;AI.</p>
+<p>Les <a href="#plugiciels">plugiciels exclusif à ce thème</a> sont énuméré après ce tableau.</p>
+<p>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribué au dévelopement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="http://wet-boew.github.io/wet-boew-documentation/index-en.html#wet-boew-code-sprint" hreflang="en"><span lang="en">code sprint</span> hedbomadaire à chaque mardi</a>.</p>
+<details>
+  <summary>Définition des états</summary>
+  <dl class="dl-horizontal mrgn-bttm-0">
+    <dt><span class="label label-success">Conforme</span></dt>
+    <dd>Conforme aux exigences définie par la dernière version publié des spécifications du C&amp;AI.</dd>
+
+    <dt><span class="label label-success">Stable</span></dt>
+    <dd>Rencontre les exigences d'une spécification.</dd>
+
+    <dt><span class="label label-info">Information</span></dt>
+    <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+
+    <dt><span class="label label-info">Revalidation requis</span></dt>
+    <dd>Précédemment conforme, mais requière une nouvelle validation manuel afin de s'assurer qu'il continue à rencontrer les exigences tel que définie par la dernière version publié de sa spécification.</dd>
+
+    <dt><span class="label label-warning">Partiel</span></dt>
+    <dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
+
+    <dt><span class="label label-warning">Désuet</span></dt>
+    <dd>N'est pas conforme à la dernière spécification, mais il l'a précedemment été. Son rétablisement à la conformité nécessite des changements immédiat.</dd>
+
+    <dt><span class="label label-default">Arriéré</span></dt>
+    <dd>Nécessite du dévelopement.</dd>
+
+    <dt><span class="label label-danger">Incomplet</span></dt>
+    <dd>Incomplet car il ne se conforme pas complétement à toute les exigences de la spécification. Nécessite encore des travaux de dévelopement.</dd>
+
+    <dt><span class="label label-danger">Obsolète</span></dt>
+    <dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
+  </dl>
+</details>
+
+<div id="tbl-flt-ctrl" class="wb-frmvld hidden">
+  <form>
+    <div class="wb-fieldflow" data-wb-fieldflow='{ "noForm": true, "isoptional": true, "unhideelm": "#tbl-flt-ctrl", "renderas": "radio", "inline": true, "actionData" : { "source":"#templates", "column": 2 }, "action": "tblfilter", "prop": "value" }'>
+      <p>Filtrer par catégorie:</p>
+      <ul>
+        <li data-wb-fieldflow="">Afficher toute les catégories</li>
+        <li data-wb-fieldflow="Modèles">Modèles</li>
+        <li data-wb-fieldflow="pieds">En-têtes, pieds de page et la navigation</li>
+        <li data-wb-fieldflow="Conception">Conception communes</li>
+      </ul>
+    </div>
+  </form>
+</div>
+
+<table id="templates" class="wb-tables table table-striped table-hover" data-wb-tables='{"ordering":false, "paging": false}'>
+  <thead>
+    <tr>
+      <th>Example pratique</th>
+      <th class="nowrap">Mise à jour</th>
+      <th>Catégorie</th>
+      <th>Description</th>
+      <th>État</th>
+      <th>Spécification</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="splashpage.html">Page d’entrée</a></td>
+      <td><time>2017-05-04</time></td>
+      <td>Modèles</td>
+      <td>La page de renvoi initiale d'un visiteur à Canada.ca, offrant l'option d'entrer dans le site en français ou en anglais.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="home-fr.html">Page d’accueil</a></td>
+      <td><time>2018-06-27</time></td>
+      <td>Modèles</td>
+      <td>Affiche les produits et services du gouvernement du Canada les plus vus et les plus importants.</td>
+      <td><span class="label label-warning">Désuet</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/page-accueil.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="">Page de thème</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles</td>
+      <td>Organise des sujets qui sont logiques pour les personnes afin qu'ils   puissent accéder aux renseignements et services à l'échelle du   gouvernement.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-theme.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="">Page de sujet</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles</td>
+      <td>Aident une personne à savoir tout ce que fait le gouvernement du Canada dans un domaine précis lié au sujet</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/page-sujet.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="">Page des ministères et organismes</a></td>
+      <td><time>2017-11-30</time></td>
+      <td>Modèles</td>
+      <td>Fournit des liens vers toutes les institutions fédérales</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/page-ministeres-organismes.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="institution-fr.html">Page de profil institutionnel</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles/Profile pages</td>
+      <td>Page d’accueil unique d’une institution du gouvernement du Canada sur Canada.ca.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-institutionnel.html#profil">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="institution-arms-fr.html">Page de profil institutionnel pour un organisme indépendant</a></td>
+      <td><time>2018-03-21</time></td>
+      <td>Modèles/Profile pages</td>
+      <td>Page d’accueil unique d’une institution qui satisfont aux critères d’indépendance du gouvernement du Canada sur Canada.ca.
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-institutionnel.html#identification">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="organizational-fr.html">Page de profil organisationnel</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles/Profile pages</td>
+      <td>Page d’accueil unique d’une organisation associée à une institution du gouvernement du Canada sur Canada.ca.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-organisationnel.html#profil">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="organizational-arms-fr.html">Page de profil organisationnel pour un organisme indépendant</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles/Profile pages</td>
+      <td>Page d’accueil unique d’une organisation qui satisfont aux critères d’indépendance associée à une institution du gouvernement du Canada sur Canada.ca.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-organisationnel.html#identification">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Profil de partenariat ou d’entente de collaboration</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Une page de profil de partenariat ou d'entente de collaboration représente une page d'accueil unique du site Canada.ca visant une entité associée à une ou plusieurs institutions du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/profil-partenariat-entente-collaboration.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="service-fr.html">Page de lancement d'un service: étape unique</a></td>
+      <td><time>2016-11-04</time></td>
+      <td>Modèles/Lancement d’un service</td>
+      <td>Aide les visiteurs de Canada.ca à lancer une tâche en une étape unique.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lancement-service.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="advancedservice/index-fr.html">Page de lancement d'un service</a></td>
+      <td><time>2017-04-07</time></td>
+      <td>Modèles/Lancement d’un service</td>
+      <td>Aide les visiteurs de Canada.ca à lancer une tâche.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lancement-service.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-comptes-rendu-rendement-services-insitutionnels.html">Page de compte rendu du rendement des services institutionnels</a></td>
+      <td>2017-09-29</td>
+      <td>Modèles</td>
+      <td>Les pages de compte rendu du rendement des services institutionnels   rassemblent toutes les normes de service d'une institution et   fournissent des renseignements sur le compte rendu du rendement annuel,   conformément aux exigences de la Politique sur les services.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-comptes-rendu-rendement-services-insitutionnels.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Page de description de programme</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Une page de description de programme fournit des informations sur une activité administrative interne qui offre un service.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-description-programme.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-ministres.html">Page de profil des ministres</a></td>
+      <td><time>2017-04-07</time></td>
+      <td>Modèles</td>
+      <td>Une page de profil de ministre représente la  page d'accueil unique pour   un ou une ministre du gouvernement du Canada et comprend des   renseignements biographiques ainsi que des liens renvoyant aux   initiatives et activités récentes du ou de la ministre.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-profil-ministres.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Page d’accueil de collection</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Agrégations de contenu commun produit par l’ensemble ou la plupart des institutions du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-cibles-collections.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Page de profil de consultation</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Les pages de profil de consultation offrent un accès aux consultations   et aux activités de mobilisation du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-consultations.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lois-reglements.html#profil-loi">Page de profil d’une loi</a></td>
+      <td><time>2014-10-23</time></td>
+      <td>Modèles/Lois et des règlements</td>
+      <td>Accès aux lois du gouvernement du Canada par l’intermédiaire de leur profil respectif.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lois-reglements.html#profil-loi">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lois-reglements.html#profil-reglement">Page de profil d’un règlement</a></td>
+      <td>2014-10-23</td>
+      <td>Modèles/Lois et des règlements</td>
+      <td>Accès aux règlements du gouvernement du Canada par l’intermédiaire de leur profil respectif.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-lois-reglements.html#profil-reglement">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Page de profil de directive relative à la législation</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Les directives sur les lois fournissent des renseignements afin de   faciliter la sensibilisation, la compréhension et la conformité en ce   qui a trait aux exigences légales et réglementaire. Elles peuvent aussi   décrire leur administration. Elles n'établissent pas de nouvelles   exigences et elles ne sont pas exécutoires.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-directives-lois.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-publics-cibles.html">Page des publics cibles du gouvernement</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Modèles</td>
+      <td>Donne accès aux renseignements et aux services pertinents pour le public cible de l'ensemble du gouvernement.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-publics-cibles.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="news-fr.html">Page d’accueil des nouvelles</a></td>
+      <td><time>2017-10-02</time></td>
+      <td>Modèles/Nouvelles</td>
+      <td>Agrégation de produits de nouvelles promus par l’ensemble ou la plupart des institutions du gouvernement du Canada.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-nouvelles.html#accueil">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Page de résultats des nouvelles</td>
+      <td></td>
+      <td>Modèles/Pages de nouvelles</td>
+      <td>Résultats de recherches parmis l'agrégation de produits de nouvelles promus par l’ensemble ou la plupart des institutions du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-nouvelles.html#resultats">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Page de nouvelles</td>
+      <td></td>
+      <td>Modèles/Pages de nouvelles</td>
+      <td>Présentation d'une nouvelles promus par une institutions du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-nouvelles.html#produit">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="campaign-fr.html">Page d'une campagne - Exemple 1</a></td>
+      <td><time>2017-10-02</time></td>
+      <td>Templates/Page d'une campagne</td>
+      <td>Les pages de campagne sont des pages promotionnelles à durée limitée qui répondent à la volonté de communication, de formation, de commercialisation, de sensibilisation et d'appel à l'action du gouvernement du Canada.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-campagnes.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="campaign2-fr.html">Page d'une campagne - Exemple 2</a></td>
+      <td><time>2017-08-18</time></td>
+      <td>Templates/Page d'une campagne</td>
+      <td></td>
+      <td><span class="label label-info">Information</span></td>
+      <td>ESDC</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-evenements-promotionnels.html">Page d’événements promotionnels</a></td>
+      <td><time>2017-10-02</time></td>
+      <td>Modèles</td>
+      <td>Une page d'événement promotionnel est une page de destination qui décrit   et explique un événement officiel organisé par le gouvernement et qui   se déroule dans un contexte promotionnel comme un festival, une   célébration ou une remise de prix.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-evenements-promotionnels.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="">Page de coordonnées</a></td>
+      <td>2017-12-05</td>
+      <td>Modèles</td>
+      <td>Page de coordonnées d'une institution</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-contactez-nous.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td>Page de recherche</td>
+      <td></td>
+      <td>Modèles</td>
+      <td>Fournit le modèle du moteur de recherche dans Canada.ca.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-recherche.html">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Page d’index court</td>
+      <td></td>
+      <td><a href="index/index.html" hreflang="en">Modèles/Index pages</a></td>
+      <td>Les pages d'index sont des pages de navigation présentant une liste   globale de titres assortis d'hyperliens menant à d'autres pages ou   documents.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-index.html#court">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/index.html#long">Page d’index long</a></td>
+      <td><time>2017-10-02</time></td>
+      <td><a href="index/index.html" hreflang="en">Modèles/Index pages</a></td>
+      <td>Contient une liste ayant plus de 50 éléments et nécessitant de faire défiler trois longueurs d’écran ou plus pour voir tout le contenu.</td>
+      <td><span class="label label-danger">Incomplet</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-index.html#long">C&amp;AI</a></td>
+      <td>v1.5</td>
+    </tr>
+    <tr>
+      <td>Page d’index de filtre</td>
+      <td></td>
+      <td><a href="index/index.html" hreflang="en">Modèles/Index pages</a></td>
+      <td>Filtrer un volumineux ensemble de pages, de documents ou de données ayant des caractéristiques communes.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-index.html#filtre">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Page d’index à facettes</td>
+      <td></td>
+      <td><a href="index/index.html">Modèles/Index pages</a></td>
+      <td>Listes comptant plus de 100 éléments et pour les collections de Canada.ca</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-index.html#facettes">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="content-fr.html">Page de contenu</a></td>
+      <td><time>2017-09-29</time></td>
+      <td>Modèles</td>
+      <td>Page de destination générique</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/modeles-specifications-detailles/pages-destination-generiques.html">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="archived-fr.html">Page archivée</a></td>
+      <td><time>2016-10-06</time></td>
+      <td>Modèles</td>
+      <td>Page archivée</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="content-signedoff-fr.html">Page de contenu - Session Fermée</a></td>
+      <td><time>2016-03-09</time></td>
+      <td>Modèles</td>
+      <td>Session Fermée/Session Ouverte</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="content-signedon-fr.html">Page de contenu - Session Ouverte</a></td>
+      <td><time>2016-03-09</time></td>
+      <td>Modèles</td>
+      <td>Session Fermée/Session Ouverte</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="feedback-fr.html">Formulaire de rétroaction</a></td>
+      <td><time>2014-02-28</time></td>
+      <td>Modèles</td>
+      <td>Formulaire de rétroaction</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="servermessage-fr.html">Page de message du serveur</a></td>
+      <td><time>2017-05-04</time></td>
+      <td>Modèles</td>
+      <td>Page de message du serveur</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="servermessage-en-fr.html">Page de message du serveur - anglais/français</a></td>
+      <td><time>2017-05-04</time></td>
+      <td>Modèles</td>
+      <td>Page de message du serveur</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="404-fr.html">Page d'erreur 404</a></td>
+      <td><time>2017-05-04</time></td>
+      <td>Modèles</td>
+      <td>Page d'erreur 404</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="404-en-fr.html">Page d'erreur 404 - anglais/français</a></td>
+      <td><time>2017-05-04</time></td>
+      <td>Modèles</td>
+      <td>Page d'erreur 404</td>
+      <td><span class="label label-info">Information</span></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>En-tête de la navigation générale</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Les tâches principales dans tous les sites Web du gouvernement du Canada sont organisées en sujets puis regroupées dans 15 thèmes principaux du site Canada.ca.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#toc1">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Autres éléments de l’en-tête</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Autres éléments d’image de marque et fonctionnels</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#toc2">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Pied de page du contenu principal</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>S’affiche après le contenu principal de la page, et au-dessus du pied de page global du site</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#toc3">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Pied de page de la navigation générale</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Qui se trouve au bas de chaque page Web contient les liens au contenu organisationnel ainsi que les dépôts de contenu du gouvernement du Canada.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#toc4">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>En-tête et pied de page simplifié</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Offre une souplesse pour des situations précises où l’application totale de l’en-tête et du pied de page généraux empêche la réussite de la tâche, tout en conservant l’uniformité globale de l’expérience</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#simplifie">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Scénarios d’opérations</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Où les personnes effectuent un processus opérationnel</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#operations">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="localnav/task1/index-fr.html">Menus de navigation locale</a></td>
+      <td><time>2017-09-29</time></td>
+      <td>En-têtes, pieds de page et la navigation</td>
+      <td>Établir des liens entre des groupes connexes de destinations et de tâches se trouvant dans une branche donnée du modèle de navigation de l’utilisateur de Canada.ca.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#toc7">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="components-fr.html">Table des matières à l’intérieur de la page</a></td>
+      <td><time>2018-03-02</time></td>
+      <td>En-têtes, pieds de page et la navigation/Intérieur de la page</td>
+      <td>Liste de liens dirigeant vers des sous-sections de la même page.</td>
+      <td><span class="label label-success">Conforme</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#interieur">C&amp;AI</a></td>
+      <td>v1.5</td>
+    </tr>
+    <tr>
+      <td>Navigation dans plusieurs pages ordonnées (étape par étape)</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation/Intérieur de la page</td>
+      <td>Configurations de navigation dans plusieurs pages ordonnées à l’intérieur de la page.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#navigation-plusieurs-pages-ordonnees">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Interface à onglets</td>
+      <td></td>
+      <td>En-têtes, pieds de page et la navigation/Intérieur de la page</td>
+      <td>Configurations de navigation qui répartit le contenu entre différentes fenêtres que l’on peut consulter une à la fois à l’intérieur de la page.</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/en-tetes-pieds-page-navigation.html#interieur">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>Alertes contextuelles (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/alerts-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter de nouveaux renseignements importants devant être affichés dans un contexte pré-existant.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#alertes-contextuelles">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Autres renseignements pour les (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour lier à un public cible à l’échelle du gouvernement</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#autres-renseignements">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><!--Disclaimer overlay-->Avertissement superposé (<a class="nowrap" href="demos/lightbox/lightbox-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td></td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#couche-avertissement">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Bannière promotionnelle</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour promouvoir les activités, initiatives, programmes et services des institutions ou à l’échelle du gouvernement</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#banniere-promotionnelle">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Bloc des réseaux de médias sociaux (fenêtre «&nbsp;Suivez&nbsp;») (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour permettre aux gens de suivre les comptes officiels de médias sociaux du gouvernement du Canada sur diverses plateformes de médias sociaux.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#bloc-medias-sociaux">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Boutons (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/buttons-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour inciter une personne à exécuter une action.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#boutons">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Carrousels (<a class="nowrap" href="demos/tabs/tabs-carousel-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour promouvoir de multiples activités, initiatives, programmes et services.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#carrousels">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Ce que nous faisons (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour lier à du contenu qui fournit des renseignements généraux ou des explications des activités du GC à l’appui de la création ou de l’amélioration des politiques publiques</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#ce-que-nous-faisons">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Collaborateurs (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour lier aux institutions ou organisations qui soutiennent le contenu sur la page</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#collaborateurs">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Collapsible content (<a class="nowrap" href="demos/details/details-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour cacher le contenu secondaire jusqu’à sa demande.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#contenu-reductible">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Coordonnées (<a class="nowrap" href="institution-contact-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter les coordonnées dans les pages de Canada.ca</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#coordonnees">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Diagrammes et graphiques (<a class="nowrap" href="demos/charts/charts-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser comme techniques de visualisation permettant de communiquer des données ou des statistiques.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#diagrammes-graphiques">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>En demande (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter les tâches principales liées à la page sur laquelle elle se trouve</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#en-demande">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Icônes (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/icons-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser comme des symboles pour signifier des actions à prendre ou des états.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#icones">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Images (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/images-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour embellir ou rehausser un texte.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#images">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><!--Institutional byline-->Institution responsable (<a class="nowrap" href="content-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour fournir un lien vers l’institution responsable du contenu</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#institution-responsable">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><!--Related links-->Liens connexes</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour lier à du contenu se rapportant à la page</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="components-fr.html">Liens de téléchargement</a></td>
+      <td><time>2017-12-05</time></td>
+      <td>Conception communes</td>
+      <td>Les liens de téléchargement servent à renvoyer ou à lier à des fichiers de format autre que HTML sur les pages Web de Canada.ca.</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#liens-telechargement">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="video-fr.html">Multimédia (vidéo et audio)</a></td>
+      <td><time>2014-08-26</time></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour embellir ou rehausser un texte</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#multimedia">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><!--Latest news-->Nouveautés (<a class="nowrap" href="institution-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter les nouvelles les plus récentes</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#nouveautes">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><!--Context-specific features--><a href="components-fr.html">Promotions contextuelles</a></td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour promouvoir les activités, initiatives programmes et services</td>
+      <td><span class="label label-success">Conforme</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#vignettes-promotionnelles">C&amp;AI</a></td>
+      <td>v1.5</td>
+    </tr>
+    <tr>
+      <td>Questions interactives</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter une séquence de questions simples qui mènent à la réponse précise dont elles ont besoin pour poursuivre leur tâche ou l’achever</td>
+      <td><span class="label label-default">Arriéré</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#questions-interactives">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Services et renseignements (<a class="nowrap" href="topic-fr.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour présenter des ensembles de liens avec des descriptions connexes</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#services-renseignements">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Tableaux de données (<a class="nowrap" href="demos/tables/tables-fr.html">BOEW alternative</a>)</td>
+      <td></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour communiquer des données</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Information</span></li>
+              <li><span class="label label-default">Arriéré</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#tableaux">C&amp;AI</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="widgets-fr.html">Widget des réseaux de médias sociaux</a></td>
+      <td><time>2014-06-12</time></td>
+      <td>Conception communes</td>
+      <td>Utiliser pour imbriquer les plus récents messages affichés sur les comptes de médias sociaux du gouvernement du Canada</td>
+      <td><span class="label label-info">Revalidation requis</span></td>
+      <td><a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada/configurations-conception-communes.html#widget-medias-sociaux">C&amp;AI</a></td>
+      <td>v1.4</td>
+    </tr>
+  </tbody>
+</table>
 <section>
-	<h2>Anglais</h2>
-	<div class="row"><div class="col-md-8">
-	<ul>
-		<li><a href="home-en.html">Page d’accueil<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="theme-en.html">Page de thème<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="topic-en.html">Page de sujet<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-en.html">Page de profil institutionnel<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-arms-en.html">Page de profil institutionnel pour un organisme indépendant<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-contact-en.html">Page de coordonnées d'une institution<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institutional-service-performance-en.html">Page de compte rendu du rendement des services institutionnels<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="gc-audience-en.html">Page des publics cibles<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="components-en.html">Page de composantes<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="splashpage.html">Page d’entrée<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="dept-en.html">Page des ministères et organismes<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="ministerial-en.html">Page de profil des ministres<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="organizational-en.html">Page profil organisationnel<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="organizational-arms-en.html">Page de profil organisationnel pour un organisme indépendant<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="content-en.html">Page de contenu<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="act-en.html">Page de profil d'une loi<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="regulations-en.html">Page de profil d'un règlement<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="content-signedoff-en.html">Page de contenu - Session Fermée<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="content-signedon-en.html">Page de contenu - Session Ouverte<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="video-en.html">Page de contenu vidéo<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="feedback-en.html">Formulaire de rétroaction<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="widgets-en.html">Page de gadgets<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="localnav/task1/index-en.html">Exemples avec un menu de navigation locale<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="servermessage-en.html">Page de message du serveur<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="servermessage-en-fr.html">Page de message du serveur - anglais/français</a></li>
-		<li><a href="campaign-en.html">Page d'une campagne - Exemple 1<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="campaign2-en.html">Page d'une campagne - Exemple 2<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="event-en.html">Page d'événement promotionnels<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="service-en.html">Page de lancement d'un service simple<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="advancedservice/index-en.html">Page de lancement d'un service avancé<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="news-en.html">Nouvelles<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="archived-en.html">Page archivée<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="404-en.html">Page d'erreur 404<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-		<li><a href="404-en-fr.html">Page d'erreur 404 - anglais/français</a></li>
-		<li><a href="longindex-en.html">Page d’index long<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a></li>
-	</ul>
-	</div><div class="col-md-4">
-		<section>
-			<h3>Plugiciel du thème</h3>
-			<ul>
-				<li><a href="demos/data-json/data-json-en.html" hreflang="en">Data JSON<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/data-json/data-json-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/doaction/tblfilter-en.html" hreflang="en">Exécuter des actions<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/doaction/doaction-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/data-json/template-en.html" hreflang="en">Gabarit HTML5<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/data-json/data-json-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/jsonmanager/jsonmanager-en.html" hreflang="en">Gestionnaire JSON<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/jsonmanager/jsonmanager-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/tblfilter-en.html" hreflang="en">Correspondance d'URL - Filtrage de tableau<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/ajax-en.html" hreflang="en">Correspondance d'URL - Ajax<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/patches-en.html" hreflang="en">Correspondance d'URL - Appliquer des correctifs JSON<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/urlmapping/urlmapping-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/fieldflow-en.html" hreflang="en">Déroulement de champs<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/basic-en.html" hreflang="en">Déroulement de champs avec des configurations de base<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/advanced-en.html" hreflang="en">Déroulement de champs avancé<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a> (<a hreflang="en" href="demos/fieldflow/fieldflow-doc-en.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr" language="en"}}</span></a>)</li>
-			</ul>
-		</section>
-	</div></div>
+  <h3 id="plugiciels">Plugiciel du thème</h3>
+  <ul>
+    <li><a href="demos/data-json/data-json-fr.html">Data JSON</a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/doaction/tblfilter-fr.html">Exécuter des actions</a> (<a href="demos/doaction/doaction-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/data-json/template-fr.html">Gabarit HTML5</a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/jsonmanager/jsonmanager-fr.html">Gestionnaire JSON</a> (<a href="demos/jsonmanager/jsonmanager-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/tblfilter-fr.html">Correspondance d'URL - Filtrage de tableau</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/ajax-fr.html">Correspondance d'URL - Ajax</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/patches-fr.html">Correspondance d'URL - Appliquer des correctifs JSON</a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/fieldflow-fr.html">Déroulement de champs</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/basic-fr.html">Déroulement de champs avec des configurations de base</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/advanced-fr.html">Déroulement de champs avancé</a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation</a>)</li>
+  </ul>
 </section>
 <section>
-	<h2>Français</h2>
-	<div class="row"><div class="col-md-8">
-	<ul>
-		<li><a href="home-fr.html">Page d’accueil<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="theme-fr.html">Page de thème<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="topic-fr.html">Page de sujet<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-fr.html">Page de profil institutionnel<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-arms-fr.html">Page de profil institutionnel pour un organisme indépendant<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>  ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institution-contact-fr.html">Page de coordonnées d'une institution<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="institutional-service-performance-fr.html">Page de compte rendu du rendement des services institutionnels<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="gc-audience-fr.html">Page des publics cibles<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="components-fr.html">Page de composantes<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="splashpage.html">Page d’entrée<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="dept-fr.html">Page des ministères et organismes<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="ministerial-fr.html">Page de profil des ministres<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="organizational-fr.html">Page profil organisationnel<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="organizational-arms-fr.html">Page de profil organisationnel pour un organisme indépendant<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="content-fr.html">Page de contenu<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="act-fr.html">Page de profil d'une loi<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="regulations-fr.html">Page de profil d'un règlement<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> ({{{i18n "cia-spec-version"}}})</li>
-		<li><a href="content-signedoff-fr.html">Page de contenu - Session Fermée<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="content-signedon-fr.html">Page de contenu - Session Ouverte<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="video-fr.html">Page de contenu vidéo<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="feedback-fr.html">Formulaire de rétroaction<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="widgets-fr.html">Page de gadgets<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="localnav/task1/index-fr.html">Exemples avec un menu de navigation locale<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="servermessage-fr.html">Page de message du serveur<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="servermessage-fr-en.html">Page de message du serveur - français/anglais</a></li>
-		<li><a href="campaign-fr.html">Page d'une campagne - Exemple 1<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="campaign2-fr.html">Page d'une campagne - Exemple 2<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="event-fr.html">Page d'événement promotionnels<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="service-fr.html">Page de lancement d'un service simple<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="advancedservice/index-fr.html">Page de lancement d'un service avancé<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="archived-fr.html">Page archivée<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="news-fr.html">Nouvelles<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="404-fr.html">Page d'erreur 404<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-		<li><a href="404-fr-en.html">Page d'erreur 404 - français/anglais</a></li>
-		<li><a href="longindex-fr.html">Page d’index long<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a></li>
-	</ul>
-	</div><div class="col-md-4">
-		<section>
-			<h3>Plugiciel du thème</h3>
-			<ul>
-				<li><a href="demos/data-json/data-json-fr.html">Data JSON<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/doaction/tblfilter-fr.html">Exécuter des actions<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/doaction/doaction-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/data-json/template-fr.html">Gabarit HTML5<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/data-json/data-json-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/jsonmanager/jsonmanager-fr.html">Gestionnaire JSON<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/jsonmanager/jsonmanager-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/tblfilter-fr.html">Correspondance d'URL - Filtrage de tableau<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/ajax-fr.html">Correspondance d'URL - Ajax<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/urlmapping/patches-fr.html">Correspondance d'URL - Appliquer des correctifs JSON<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/urlmapping/urlmapping-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/fieldflow-fr.html">Déroulement de champs<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/basic-fr.html">Déroulement de champs avec des configurations de base<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-				<li><a href="demos/fieldflow/advanced-fr.html">Déroulement de champs avancé<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a> (<a href="demos/fieldflow/fieldflow-doc-fr.html">Documentation<span class="wb-inv"> - {{i18n "lang-fr"}}</span></a>)</li>
-			</ul>
-		</section>
-	</div></div>
-</section>
-<section>
-	<h2>Notes et autres</h2>
-	<ul>
-		<li><a href="deprecated-fr.html">Balisage déconseillé</a></li>
-		<li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html">Thème FEGC - Français - Gabarit de profil institutionnel</a></li>
-		<li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-en.html" hreflang="en">Thème FEGC - Anglais - Gabarit de profil institutionnel</a></li>
-	</ul>
+  <h2>Notes et autres</h2>
+  <ul>
+    <li><a href="deprecated-fr.html">Balisage déconseillé</a></li>
+    <li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html">Thème FEGC - Français - Gabarit de profil institutionnel</a></li>
+    <li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-en.html" hreflang="en">Thème FEGC - Anglais - Gabarit de profil institutionnel</a></li>
+  </ul>
 </section>
