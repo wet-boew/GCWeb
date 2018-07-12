@@ -1,21 +1,70 @@
 ---
 {
-	"title": "Canada.ca theme",
-	"language": "en",
-	"altLangPrefix": "index",
-	"breadcrumb": [
-		{ "title": "Home", "link": "https://www.canada.ca/en.html" }
-	],
-	"tag": "GCWeb",
-	"dateModified": "2017-10-02",
-	"share": "true"
+  "title": "Canada.ca theme",
+  "language": "en",
+  "altLangPrefix": "index",
+  "breadcrumb": [
+    { "title": "Home", "link": "https://www.canada.ca/en.html" }
+  ],
+  "tag": "GCWeb",
+  "dateModified": "2018-07-12",
+  "share": "true"
 }
 ---
-<table class="wb-tables table table-striped table-hover">
+<p>The following are a implementation reference corresponding to the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications.html">Content and Information Architecture (C&amp;IA) Specification</a> <strong>version 1.5 released on May 2018</strong>. Government of Canada departments and agencies can add to this list by publishing their template, via <a href="https://github.com/wet-boew/GCWeb">GCWeb github repository</a>, which are out of scope or a complement the C&amp;IA specification.</p>
+<p><a href="#plugins">Plugins exclusif to this themes</a> are listed after the table.</p>
+<p>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submiting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our <a href="http://wet-boew.github.io/wet-boew-documentation/index-en.html#wet-boew-code-sprint">WET-BOEW weekly Tuesday code sprint</a>.</p>
+<details>
+  <summary>Meaning of statuses</summary>
+  <dl class="dl-horizontal mrgn-bttm-0">
+    <dt><span class="label label-success">Up to spec</span></dt>
+    <dd>Meet the latest published C&amp;IA specification.</dd>
+
+    <dt><span class="label label-success">Stable</span></dt>
+    <dd>Meet the latest published specification.</dd>
+
+    <dt><span class="label label-info">Informational</span></dt>
+    <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+
+    <dt><span class="label label-info">Need to revalidate</span></dt>
+    <dd>Was meeting the preceding published specification, but it need to be manually revalidated to ensure it continues to meet the latest published specification.</dd>
+
+    <dt><span class="label label-warning">Partial</span></dt>
+    <dd>Partially up to spec or partially stable in order to meet other core web standards such WCAG 2.0 Level AA.</dd>
+
+    <dt><span class="label label-warning">Outdated</span></dt>
+    <dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
+
+    <dt><span class="label label-default">Backlog</span></dt>
+    <dd>Need to be developped.</dd>
+
+    <dt><span class="label label-danger">Incomplete</span></dt>
+    <dd>Incomplete because it don't fully meet all the specification yet. Still need developpement work.</dd>
+
+    <dt><span class="label label-danger">Deprecated</span></dt>
+    <dd>Do not use because it's deprecated, but listed here for your information.</dd>
+  </dl>
+</details>
+
+<div id="tbl-flt-ctrl" class="wb-frmvld hidden">
+  <form>
+    <div class="wb-fieldflow" data-wb-fieldflow='{ "noForm": true, "isoptional": true, "unhideelm": "#tbl-flt-ctrl", "renderas": "radio", "inline": true, "actionData" : { "source":"#templates", "column": 2 }, "action": "tblfilter", "prop": "value" }'>
+      <p>Filter by category:</p>
+      <ul>
+        <li data-wb-fieldflow="">Show all category</li>
+        <li data-wb-fieldflow="Templates">Templates</li>
+        <li data-wb-fieldflow="Header">Header, footer, navigation</li>
+        <li data-wb-fieldflow="patterns">Common design patterns</li>
+      </ul>
+    </div>
+  </form>
+</div>
+
+<table id="templates" class="wb-tables table table-striped table-hover" data-wb-tables='{"ordering":false, "paging": false}'>
   <thead>
     <tr>
       <th>Working example</th>
-      <th>Last update</th>
+      <th class="nowrap">Last update</th>
       <th>Category</th>
       <th>Description</th>
       <th>Status</th>
@@ -30,14 +79,14 @@
       <td>Templates</td>
       <td>The initial landing page for a visitor to Canada.ca, allowing the option to enter the site in French or English</td>
       <td><span class="label label-info">Need to revalidate</span></td>
-      <td>C&amp;IA</td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications.html">C&amp;IA</a></td>
       <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="home-en.html">Home page</a></td>
       <td><time>2018-06-27</time></td>
       <td>Templates</td>
-      <td>Shows the Government of Canada&rsquo;s most visited and important products and services</td>
+      <td>Shows the Government of Canada's most visited and important products and services</td>
       <td><span class="label label-warning">Outdated</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/home-page.html">C&amp;IA</a></td>
       <td>v1.4</td>
@@ -49,7 +98,7 @@
       <td>Theme page types and templates are user-tested pages which provide   access to topics and destination pages that support task completion.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/theme-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="topic-en.html">Topic page</a></td>
@@ -58,7 +107,7 @@
       <td>Topic pages help people learn everything the Government of Canada is doing in relation to a specific topic area.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/topic-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="dept-en.html">Departments and agencies page</a></td>
@@ -67,7 +116,7 @@
       <td>Provides links to all federal government institutions</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/department-agencies-page.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="institution-en.html">Institutional profile page</a></td>
@@ -76,61 +125,61 @@
       <td>An institutional profile page represents the landing page for a Government of Canada institution on Canada.ca.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-profile-pages.html#profile">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="institution-arms-en.html">Institutional profile page for arm’s-length institutions</a></td>
       <td><time> 2018-03-21</time></td>
       <td>Templates/Profile pages</td>
-      <td>&nbsp;</td>
+      <td>An institutional profile page represents the landing page for a Government of Canada institution that meet the criteria for Arm’s Length on Canada.ca.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-profile-pages.html#branding">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="organizational-en.html">Organizational profile page </a></td>
       <td><time>2017-12-05</time></td>
       <td>Templates/Profile pages</td>
-      <td>An organizational profile page represents the single landing page on   Canada.ca for an organization that is associated with a Government of   Canada institution.</td>
+      <td>Single landing page on Canada.ca for an organization that is associated with a Government of Canada institution.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/organizational-profile-pages.html#use">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/organizational-profile-pages.html#branding">Organizational profile page for arm's-length institutions </a></td>
       <td><time>2017-12-05</time></td>
       <td>Templates/Profile pages</td>
-      <td>&nbsp;</td>
+      <td>An organizational profile page represents the single landing page on Canada.ca for an organization that meet the arm’s-length criteria.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/contact-us-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/organizational-profile-pages.html#branding">C&amp;IA</a></td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>Partnering and collaborative arrangement profile page</td>
       <td></td>
       <td>Templates</td>
       <td>A partnering/collaborative arrangement profile page represents the   single landing page on Canada.ca for an entity that is associated with 1   or more Government of Canada institutions.</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/partnering-collaborative-arrangement-profile-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="service-en.html">Simple service initiation page</a></td>
-      <td><time> 2016-11-04 </time></td>
-      <td>Templates/Service initiation pages</td>
-      <td>Service initiation pages focus on helping Canada.ca visitors start a   task. For some tasks, these pages allow for task completion as well.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/service-initiation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="advancedservice/index-en.html">Advanced service initiation page</a></td>
+      <td><a href="advancedservice/index-en.html">Service initiation page</a></td>
       <td><time> 2017-04-07</time></td>
       <td>Templates/Service initiation pages</td>
-      <td>&nbsp;</td>
+      <td>Focus on helping Canada.ca visitors start a task.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/service-initiation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
+    </tr>
+    <tr>
+      <td><a href="service-en.html">Service initiation page: single step only</a></td>
+      <td><time> 2016-11-04 </time></td>
+      <td>Templates/Service initiation pages</td>
+      <td>Focus on helping Canada.ca visitors start a single step only task.</td>
+      <td><span class="label label-info">Need to revalidate</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/service-initiation-pages.html">C&amp;IA</a></td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="institutional-service-performance-en.html">Institutional service performance reporting page </a></td>
@@ -139,16 +188,16 @@
       <td>Institutional service performance reporting pages collect all service   standards from an institution and provide annual performance reporting   information, as per the requirements of the Policy on Service.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-service-performance-reporting-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>Program description page</td>
       <td></td>
       <td>Templates</td>
       <td>A program description page provides information about an internal administrative activity that delivers a service.</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/program-description-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="ministerial-en.html">Ministerial profile page</a></td>
@@ -157,139 +206,115 @@
       <td>A ministerial profile page is the landing page for a minister in the Government of Canada, which includes biographical information along with links to initiatives and recent activities related to the minister.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/ministerial-profile-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>Collection landing page</td>
       <td></td>
       <td>Templates</td>
-      <td><ul>
-          <li>Allows people to search within a collection</li>
-          <li>Introduces the most popular items from a collection</li>
-          <li>Gives access to an collection of common content produced by all or most federal institutions</li>
-          <li>Gives access to contextual and historical content related to a collection such as reports and events</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Aggregations of common content produced by all or most Government of Canada institutions</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/collection-landing-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Consultation profile page</td>
       <td></td>
       <td>Templates</td>
       <td>Consultation profile pages provide access to Government of Canada consultations and engagement activities.</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/consultations-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="act-en.html">Act profile page </a></td>
+      <td><a href="act-en.html">Act profile page</a></td>
       <td><time> 2014-10-23</time></td>
       <td>Templates/Laws and regulations pages</td>
-      <td>The laws and regulations collection provides access to Government of   Canada acts and regulations through their individual profiles.</td>
+      <td>Provides access to Government of Canada acts.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/laws-regulations-pages.html#act-profile">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="regulations-en.html"> Regulation profile page </a></td>
       <td><time>2014-10-23</time></td>
       <td>Templates/Laws and regulations pages</td>
-      <td>&nbsp;</td>
+      <td>Provides access to Government of Canada regulations.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/laws-regulations-pages.html#regulation-profile">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>Guidance on legislation profile page</td>
       <td></td>
       <td>Templates</td>
       <td>Guidance on legislation provides information to facilitate awareness,   understanding, and compliance with statutory and regulatory requirements   and may also describe their administration. Guidance on legislation   does not establish new requirements and is not legally binding.</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/guidance-legislation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="gc-audience-en.html">Government-wide audience page </a></td>
       <td><time>2017-12-05</time></td>
       <td>Templates</td>
-      <td>Gives access to information and services relevant to a government-wide audience such as:
-        <ul>
-          <li>Indigenous peoples</li>
-          <li>youth</li>
-          <li>veterans</li>
-        </ul></td>
+      <td>Gives access to information and services relevant to a government-wide audience.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/audience-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="news-en.html">News landing page</a></td>
       <td><time>2017-10-02</time></td>
       <td>Templates/News pages</td>
-      <td>News is an aggregation of news-related content produced by all or most Government  of Canada  institutions.</td>
+      <td>Landing page for displaying News.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#landing">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>News results page</td>
-      <td>&nbsp;</td>
+      <td></td>
       <td>Templates/News pages</td>
-      <td>Enables people to efficiently find a specific news product by quickly filtering results based on:
-        <ul>
-          <li>keywords</li>
-          <li>pre-set metadata fields</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Search result pages when searching for news.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#results">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>News product page</td>
-      <td>&nbsp;</td>
+      <td></td>
       <td>Templates/News pages</td>
-      <td><ul>
-          <li>Allows people to read a news product</li>
-          <li>Relates a news product to:
-            <ul>
-              <li>topics</li>
-              <li>institutions</li>
-              <li>ministers</li>
-            </ul>
-          </li>
-          <li>Used to present the news products</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Single news page template</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#product">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="campaign-en.html">Campaign page - Example 1</a></td>
       <td><time>2017-10-02</time></td>
       <td>Templates/Campaign pages</td>
-      <td>Campaign pages are time-limited, promotional pages that respond to the   Government of Canada&rsquo;s desire to communicate, educate, influence,   market, raise awareness and call to action.</td>
+      <td>Campaign pages are time-limited, promotional pages that respond to the   Government of Canada's desire to communicate, educate, influence,   market, raise awareness and call to action.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/campaign-pages.html#full-header">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="campaign2-en.html">Campaign page - Example 2</a></td>
       <td><time>2017-08-18</time></td>
       <td>Templates/Campaign pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/campaign-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
+      <td><span class="label label-info">Informational</span></td>
+      <td>ESDC</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="event-en.html">Promotional events page</a></td>
-      <td><time> 2017-10-02</time></td>
+      <td><time>2017-10-02</time></td>
       <td>Templates</td>
-      <td>A promotional events page is a destination page that describes and   explains an official government-hosted event that occurs in a   promotional context, such as a festival, a celebration and an awards   ceremony.</td>
+      <td>A promotional events page is a destination page that describes and explains an official government-hosted event that occurs in a promotional context, such as a festival, a celebration and an awards ceremony.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/promotional-events-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="institution-contact-en.html">Contact us page</a></td>
@@ -298,77 +323,77 @@
       <td>Institutional contact page</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/contact-us-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td>Search page</td>
       <td></td>
       <td>Templates</td>
       <td>Provides the template for the search engine on Canada.ca</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/search-page.html">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Short index page</td>
       <td></td>
-      <td><a href="index/index.html">Templates/index</a></td>
-      <td>Index pages are navigation pages that provide a consolidated list of hyperlinked titles that link to other pages or documents.</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><a href="index/index.html">Templates/Index</a></td>
+      <td>Addresses lists of 10 to 50 items in length.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#short">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="index/longindex-en.html">Long index page</a></td>
       <td><time>2018-06-27</time></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
+      <td><a href="index/index.html">Templates/Index</a></td>
+      <td>Lists that have over 50 items, requiring 3 or more screen-lengths of scrolling.</td>
       <td><span class="label label-danger">Incomplete</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#long">C&amp;IA</a> v1.5</td>
-      <td> v1.4</td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#long">C&amp;IA</a></td>
+      <td>v1.5</td>
     </tr>
     <tr>
       <td>Finder page</td>
       <td></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><a href="index/index.html">Templates/Index</a></td>
+      <td>Common design template for filtering a large set of pages, documents or data with shared characteristics.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#finder">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Faceted finder page</td>
       <td></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td><a href="index/index.html">Templates/Index</a></td>
+      <td>Lists of over 100 items and for Canada.ca collections</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#faceted">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="content-en.html">Content page </a></td>
+      <td><a href="content-en.html">Content page</a></td>
       <td><time>2017-09-29</time></td>
       <td>Templates</td>
       <td>Generic destination pages</td>
       <td><span class="label label-info">Need to revalidate</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/generic-destination-pages.html#generic">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>v1.4</td>
     </tr>
     <tr>
       <td><a href="archived-en.html">Archived page</a></td>
       <td><time>2016-10-06</time></td>
       <td>Templates</td>
       <td>Archived page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="content-signedoff-en.html">Content page - Signed Off</a></td>
       <td><time> 2016-03-09</time></td>
       <td>Templates</td>
       <td>Signed Off/On</td>
-      <td><span class="label label-success">Informational</span></td>
+      <td><span class="label label-info">Informational</span></td>
       <td></td>
       <td></td>
     </tr>
@@ -377,7 +402,7 @@
       <td><time> 2016-03-09</time></td>
       <td>Templates</td>
       <td>Signed Off/On</td>
-      <td><span class="label label-success">Informational</span></td>
+      <td><span class="label label-info">Informational</span></td>
       <td></td>
       <td></td>
     </tr>
@@ -386,1149 +411,462 @@
       <td><time>2014-02-28</time></td>
       <td>Templates</td>
       <td>Feedback form</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="widgets-en.html">Widget page</a></td>
-      <td><time>2014-06-12</time></td>
-      <td>Templates</td>
-      <td>Widget page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="servermessage-en.html">Server message page</a></td>
       <td><time>2017-05-04</time></td>
       <td>Templates</td>
       <td>Server message page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="servermessage-en-fr.html">Server message page - English/French</a></td>
       <td><time>2017-05-04</time></td>
       <td>Templates</td>
       <td>Server message page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="404-en.html">404 error page</a></td>
       <td><time>2017-05-04</time></td>
       <td>Templates</td>
       <td>404 error page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="404-en-fr.html">404 error page - English/French</a></td>
       <td><time>2017-05-04</time></td>
       <td>Templates</td>
       <td>404 error page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="label label-info">Informational</span></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Global header navigation</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>The top tasks from all Government of Canada websites are organized into topics and then grouped into the 15 main themes of Canada.ca, represented in the header.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc1">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Other header elements</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>In addition to the global navigation menu, the header includes additional branding and functional elements.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc2">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Main content footer</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>The main content footer appears after the main content of the page, and above the global site footer.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc3">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Global footer navigation</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>The global (site-wide) footer at the bottom of each web page contains links to Government of Canada corporate content, and to Government of Canada content repositories.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc4">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Reduced header and footer</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Provides flexibility for specific situations in which full application of the global header and footer impede task success, while maintaining overall consistency in the experience</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#reduced">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
       <td>Transactional scenarios</td>
       <td></td>
-      <td>Theme</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Pages where people are engaged in a transactional process.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#transactional">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>In-page navigation</td>
       <td></td>
-      <td>Theme</td>
+    </tr>
+    <tr>
+      <td><a href="localnav/task1/index-en.html">Local navigation menus</a></td>
+      <td>2017-09-29</td>
       <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#inpage">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="localnav/task1/index-en.html">Section menu examples </a></td>
-      <td><time>2017-09-29</time></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc7">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="components-en.html">Components page </a></td>
-      <td><time>2018-03-02</time></td>
-      <td>Common design patterns </td>
-      <td>Components examples</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="video-en.html">Video content page</a></td>
-      <td><time>2014-08-26</time></td>
-      <td>Common design patterns </td>
-      <td>Video example</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/buttons-en.html">Buttons</a></td>
-      <td><time> 2016-10-17</time></td>
-      <td>Common design patterns </td>
-      <td>Use buttons to create a call to action that entices the user to  submit   content from a form. Also, use buttons  also take users to a webpage   that provides  additional information. </td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/demos/tabs/tabs-carousel-en.html">Carousels</a></td>
-      <td><time> 2018-04-18</time></td>
-      <td>Common design patterns </td>
-      <td>Dynamically stacks multiple images and captions into a carousel (or slider) widget.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/charts/charts-en.html">Charts and graphs</a></td>
-      3
-      <td><time>2015-03-10</time></td>
-      <td>Common design patterns </td>
-      <td>Dynamically generates charts and graphs from table data.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href=" 	http://wet-boew.github.io/themes-dist/GCWeb/demos/details/details-en.html">Collapsible content</a></td>
-      <td><time>2014-07-21</time></td>
-      <td>Common design patterns </td>
-      <td>The HTML5 details and summary elements are   used to provide expandable/collapsible content. This component adds   support for these elements in browsers that do not already have native   support.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/institution-contact-en.html">Contact information</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/theme-en.html">Context-specific features</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/alerts-en.html">Contextual alerts</a></td>
-      <td><time>2016-10-17</time></td>
-      <td>Common design patterns </td>
-      <td>Use  to provide  contextual feedback messages for typical user actions.   Choose from a handful of  available and flexible alert messages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Contributors</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/tables/tables-en.html">Data tables</a></td>
-      <td><time>2014-10-18</time></td>
-      <td>Common design patterns </td>
-      <td>Integrates the DataTables plugin into WET providing searching, sorting,   filtering, pagination and other advanced features for tables.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/demos/lightbox/lightbox-en.html">Disclaimer overlay</a></td>
-      <td><time>2015-05-12</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/components-en.html">Download links</a></td>
-      <td><time>2014-08-26</time></td>
-      <td>Common design patterns </td>
-      <td>Download links are used for referencing and linking to non-HTML files on Canada.ca web pages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/icons-en.html">Icons</a></td>
-      <td><time>2017-06-05</time></td>
-      <td>Common design patterns </td>
-      <td>Use  one of the two icon sets, Glyphicons or Font Awesome for decorative   purposes. Icons  are glyphs − picture-based fonts, similar to   wingdings.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/images-en.html">Images</a></td>
-      <td><time>2016-10-17</time></td>
-      <td>Common design patterns </td>
-      <td>Use  images to visually represent a noun (person, place, thing) or a   verb (action). An image is a static two dimensional visual artifact that   is a type of non-text content. It is classified as decorative, simple,   complex, or an image of text.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/content-en.html">Institutional byline</a></td>
-      <td><time>2017-09-29</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Interactive questions</td>
-      <td><time></time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/institution-en.html">Latest news</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">More information for</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Most requested</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/multimedia/multimedia-en.html">Multimedia (video and audio)</a></td>
-      <td><time>2018-04-18</time></td>
-      <td>Common design patterns </td>
-      <td>Provides an accessible multimedia player for embedding video and audio into web pages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Promotional feature banner </td>
-      <td><time></time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Related links</td>
-      <td><time></time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Services and information</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Social media channels block (follow box)</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/widgets-en.html">Social media feeds widget</a></td>
-      <td><time>2014-06-12</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">What we are doing</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
-<section>
----
-{
-	"title": "Canada.ca theme",
-	"language": "en",
-	"altLangPrefix": "index",
-	"breadcrumb": [
-		{ "title": "Home", "link": "https://www.canada.ca/en.html" }
-	],
-	"tag": "GCWeb",
-	"dateModified": "2017-10-02",
-	"share": "true"
-}
----
-<table class="wb-tables table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Working example</th>
-      <th>Last update</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Specification</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="splashpage.html">Splash page</a></td>
-      <td><time>2017-05-04</time></td>
-      <td>Templates</td>
-      <td>The initial landing page for a visitor to Canada.ca, allowing the option to enter the site in French or English</td>
+      <td>Local navigation menus are selectively used to establish connections between related groups of destinations and tasks within a given branch of the Canada.ca user navigation model.</td>
       <td><span class="label label-info">Need to revalidate</span></td>
-      <td>C&amp;IA</td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc7">C&amp;IA</a></td>
       <td>v1.4</td>
     </tr>
     <tr>
-      <td><a href="home-en.html">Home page</a></td>
-      <td><time>2018-06-27</time></td>
-      <td>Templates</td>
-      <td>Shows the Government of Canada&rsquo;s most visited and important products and services</td>
-      <td><span class="label label-warning">Outdated</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/home-page.html">C&amp;IA</a></td>
+      <td><a href="components-en.html">In-page table of contents</a></td>
+      <td>2018-03-02</td>
+      <td>Header, footer, navigation/In-page navigation</td>
+      <td>List of links that lead to subsections of the same page.</td>
+      <td><span class="label label-success">Up to spec</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#inpage">C&amp;IA</a></td>
       <td>v1.4</td>
     </tr>
     <tr>
-      <td><a href="theme-en.html">Theme page</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates</td>
-      <td>Theme page types and templates are user-tested pages which provide   access to topics and destination pages that support task completion.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/theme-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="topic-en.html">Topic page</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates</td>
-      <td>Topic pages help people learn everything the Government of Canada is doing in relation to a specific topic area.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/topic-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="dept-en.html">Departments and agencies page</a></td>
-      <td><time>2017-11-30</time></td>
-      <td>Templates</td>
-      <td>Provides links to all federal government institutions</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/department-agencies-page.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="institution-en.html">Institutional profile page</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates/Profile pages</td>
-      <td>An institutional profile page represents the landing page for a Government of Canada institution on Canada.ca.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-profile-pages.html#profile">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="institution-arms-en.html">Institutional profile page for arm’s-length institutions</a></td>
-      <td><time> 2018-03-21</time></td>
-      <td>Templates/Profile pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-profile-pages.html#branding">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="organizational-en.html">Organizational profile page </a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates/Profile pages</td>
-      <td>An organizational profile page represents the single landing page on   Canada.ca for an organization that is associated with a Government of   Canada institution.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/organizational-profile-pages.html#use">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/organizational-profile-pages.html#branding">Organizational profile page for arm's-length institutions </a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates/Profile pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/contact-us-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Partnering and collaborative arrangement profile page</td>
+      <td>Ordered multi-page navigation (step-by-step)</td>
       <td></td>
-      <td>Templates</td>
-      <td>A partnering/collaborative arrangement profile page represents the   single landing page on Canada.ca for an entity that is associated with 1   or more Government of Canada institutions.</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/partnering-collaborative-arrangement-profile-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="service-en.html">Simple service initiation page</a></td>
-      <td><time> 2016-11-04 </time></td>
-      <td>Templates/Service initiation pages</td>
-      <td>Service initiation pages focus on helping Canada.ca visitors start a   task. For some tasks, these pages allow for task completion as well.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/service-initiation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="advancedservice/index-en.html">Advanced service initiation page</a></td>
-      <td><time> 2017-04-07</time></td>
-      <td>Templates/Service initiation pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/service-initiation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="institutional-service-performance-en.html">Institutional service performance reporting page </a></td>
-      <td><time> 2017-09-29</time></td>
-      <td>Templates</td>
-      <td>Institutional service performance reporting pages collect all service   standards from an institution and provide annual performance reporting   information, as per the requirements of the Policy on Service.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/institutional-service-performance-reporting-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Program description page</td>
-      <td></td>
-      <td>Templates</td>
-      <td>A program description page provides information about an internal administrative activity that delivers a service.</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/program-description-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="ministerial-en.html">Ministerial profile page</a></td>
-      <td><time>2018-06-05</time></td>
-      <td>Templates</td>
-      <td>A ministerial profile page is the landing page for a minister in the Government of Canada, which includes biographical information along with links to initiatives and recent activities related to the minister.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/ministerial-profile-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Collection landing page</td>
-      <td></td>
-      <td>Templates</td>
-      <td><ul>
-          <li>Allows people to search within a collection</li>
-          <li>Introduces the most popular items from a collection</li>
-          <li>Gives access to an collection of common content produced by all or most federal institutions</li>
-          <li>Gives access to contextual and historical content related to a collection such as reports and events</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/collection-landing-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Consultation profile page</td>
-      <td></td>
-      <td>Templates</td>
-      <td>Consultation profile pages provide access to Government of Canada consultations and engagement activities.</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/consultations-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="act-en.html">Act profile page </a></td>
-      <td><time> 2014-10-23</time></td>
-      <td>Templates/Laws and regulations pages</td>
-      <td>The laws and regulations collection provides access to Government of   Canada acts and regulations through their individual profiles.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/laws-regulations-pages.html#act-profile">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="regulations-en.html"> Regulation profile page </a></td>
-      <td><time>2014-10-23</time></td>
-      <td>Templates/Laws and regulations pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/laws-regulations-pages.html#regulation-profile">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Guidance on legislation profile page</td>
-      <td></td>
-      <td>Templates</td>
-      <td>Guidance on legislation provides information to facilitate awareness,   understanding, and compliance with statutory and regulatory requirements   and may also describe their administration. Guidance on legislation   does not establish new requirements and is not legally binding.</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/guidance-legislation-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="gc-audience-en.html">Government-wide audience page </a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates</td>
-      <td>Gives access to information and services relevant to a government-wide audience such as:
-        <ul>
-          <li>Indigenous peoples</li>
-          <li>youth</li>
-          <li>veterans</li>
-        </ul></td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/audience-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="news-en.html">News landing page</a></td>
-      <td><time>2017-10-02</time></td>
-      <td>Templates/News pages</td>
-      <td>News is an aggregation of news-related content produced by all or most Government  of Canada  institutions.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#landing">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>News results page</td>
-      <td>&nbsp;</td>
-      <td>Templates/News pages</td>
-      <td>Enables people to efficiently find a specific news product by quickly filtering results based on:
-        <ul>
-          <li>keywords</li>
-          <li>pre-set metadata fields</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#results">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>News product page</td>
-      <td>&nbsp;</td>
-      <td>Templates/News pages</td>
-      <td><ul>
-          <li>Allows people to read a news product</li>
-          <li>Relates a news product to:
-            <ul>
-              <li>topics</li>
-              <li>institutions</li>
-              <li>ministers</li>
-            </ul>
-          </li>
-          <li>Used to present the news products</li>
-        </ul></td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/news-pages.html#product">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="campaign-en.html">Campaign page - Example 1</a></td>
-      <td><time>2017-10-02</time></td>
-      <td>Templates/Campaign pages</td>
-      <td>Campaign pages are time-limited, promotional pages that respond to the   Government of Canada&rsquo;s desire to communicate, educate, influence,   market, raise awareness and call to action.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/campaign-pages.html#full-header">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="campaign2-en.html">Campaign page - Example 2</a></td>
-      <td><time>2017-08-18</time></td>
-      <td>Templates/Campaign pages</td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/campaign-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="event-en.html">Promotional events page</a></td>
-      <td><time> 2017-10-02</time></td>
-      <td>Templates</td>
-      <td>A promotional events page is a destination page that describes and   explains an official government-hosted event that occurs in a   promotional context, such as a festival, a celebration and an awards   ceremony.</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/promotional-events-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="institution-contact-en.html">Contact us page</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Templates</td>
-      <td>Institutional contact page</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/contact-us-pages.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Search page</td>
-      <td></td>
-      <td>Templates</td>
-      <td>Provides the template for the search engine on Canada.ca</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/search-page.html">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Short index page</td>
-      <td></td>
-      <td><a href="index/index.html">Templates/index</a></td>
-      <td>Index pages are navigation pages that provide a consolidated list of hyperlinked titles that link to other pages or documents.</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#short">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="index/longindex-en.html">Long index page</a></td>
-      <td><time>2018-06-27</time></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
-      <td><span class="label label-danger">Incomplete</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#long">C&amp;IA</a> v1.5</td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Finder page</td>
-      <td></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#finder">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Faceted finder page</td>
-      <td></td>
-      <td><a href="index/index.html">Templatess/index</a></td>
-      <td>&nbsp;</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/pages-index.html#faceted">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="content-en.html">Content page </a></td>
-      <td><time>2017-09-29</time></td>
-      <td>Templates</td>
-      <td>Generic destination pages</td>
-      <td><span class="label label-info">Need to revalidate</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/templates-detailed-specifications/generic-destination-pages.html#generic">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td><a href="archived-en.html">Archived page</a></td>
-      <td><time>2016-10-06</time></td>
-      <td>Templates</td>
-      <td>Archived page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="content-signedoff-en.html">Content page - Signed Off</a></td>
-      <td><time> 2016-03-09</time></td>
-      <td>Templates</td>
-      <td>Signed Off/On</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="content-signedon-en.html">Content page - Signed On</a></td>
-      <td><time> 2016-03-09</time></td>
-      <td>Templates</td>
-      <td>Signed Off/On</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="feedback-en.html">Feedback form</a></td>
-      <td><time>2014-02-28</time></td>
-      <td>Templates</td>
-      <td>Feedback form</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="widgets-en.html">Widget page</a></td>
-      <td><time>2014-06-12</time></td>
-      <td>Templates</td>
-      <td>Widget page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="servermessage-en.html">Server message page</a></td>
-      <td><time>2017-05-04</time></td>
-      <td>Templates</td>
-      <td>Server message page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="servermessage-en-fr.html">Server message page - English/French</a></td>
-      <td><time>2017-05-04</time></td>
-      <td>Templates</td>
-      <td>Server message page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="404-en.html">404 error page</a></td>
-      <td><time>2017-05-04</time></td>
-      <td>Templates</td>
-      <td>404 error page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="404-en-fr.html">404 error page - English/French</a></td>
-      <td><time>2017-05-04</time></td>
-      <td>Templates</td>
-      <td>404 error page</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Global header navigation</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc1">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Other header elements</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc2">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Main content footer</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc3">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Global footer navigation</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc4">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Reduced header and footer</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#reduced">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>Transactional scenarios</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#transactional">C&amp;IA</a></td>
-      <td> v1.4</td>
-    </tr>
-    <tr>
-      <td>In-page navigation</td>
-      <td></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-info">Backlog</span></td>
+      <td>Header, footer, navigation/In-page navigation</td>
+      <td>Group of several pages intended to be read in a preferred order.</td>
+      <td><span class="label label-default">Backlog</span></td>
       <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#inpage">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="localnav/task1/index-en.html">Section menu examples </a></td>
-      <td><time>2017-09-29</time></td>
-      <td>Theme</td>
-      <td>Header, footer, navigation</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#toc7">C&amp;IA</a></td>
-      <td> v1.4</td>
+      <td>Tabbed interface</td>
+      <td></td>
+      <td>Header, footer, navigation/In-page navigation</td>
+      <td>Separates related content into different panes that are viewable one at a time when the respective tab is clicked.</td>
+      <td><span class="label label-default">Backlog</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/headers-footers-navigation.html#inpage">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="components-en.html">Components page </a></td>
+      <td>Buttons (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/buttons-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns </td>
+      <td>Use to encourage a person to take action</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#buttons">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Carousels (<a class="nowrap" href="demos/tabs/tabs-carousel-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns </td>
+      <td>Use to promote multiple different activities, initiatives, programs, and services</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#carousels">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Charts and graphs (<a class="nowrap" href="demos/charts/charts-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use as visualization techniques for communicating data or statistics</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#charts-graphs">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Collapsible content (<a class="nowrap" href="demos/details/details-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns </td>
+      <td>Use to hide secondary content until requested.</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#collapsible-content">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Contact information (<a class="nowrap" href="institution-contact-en.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns </td>
+      <td>Use to present contact information on Canada.ca page</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#contact-information">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="components-en.html">Context-specific features</a></td>
       <td><time>2018-03-02</time></td>
       <td>Common design patterns </td>
-      <td>Components examples</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to promote activities, initiatives, programs, and services</td>
+      <td><span class="label label-success">Up to spec</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#feature-tiles">C&amp;IA</a></td>
+      <td>v1.5</td>
     </tr>
     <tr>
-      <td><a href="video-en.html">Video content page</a></td>
+      <td>Contextual alerts (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/alerts-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to present important new information that needs to appear in a pre-existing context</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#contextual-alerts">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Contributors</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to link to institutions or organizations that support the content on the page</td>
+      <td><span class="label label-default">Backlog</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#contributors">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Data tables (<a class="nowrap" href="demos/tables/tables-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns </td>
+      <td>Use to communicate data</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#tables">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Disclaimer overlay (<a class="nowrap" href="demos/lightbox/lightbox-en.html">WET alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to display privacy statements and similar forms of disclaimer</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#disclaimer-overlay">C&amp;IA</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="components-en.html">Download links</a></td>
       <td><time>2014-08-26</time></td>
       <td>Common design patterns </td>
-      <td>Video example</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to reference and link to non-HTML files</td>
+      <td><span class="label label-info">Need to revalidate</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#download-links">C&amp;IA</a></td>
+      <td>v1.4</td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/buttons-en.html">Buttons</a></td>
-      <td><time> 2016-10-17</time></td>
+      <td>Icons (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/icons-en.html">WET alternative</a>)</td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>Use buttons to create a call to action that entices the user to  submit   content from a form. Also, use buttons  also take users to a webpage   that provides  additional information. </td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use as symbols to communicate actions or states</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#icons">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/demos/tabs/tabs-carousel-en.html">Carousels</a></td>
-      <td><time> 2018-04-18</time></td>
+      <td>Images (<a class="nowrap" href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/images-en.html">WET alternative</a>)</td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>Dynamically stacks multiple images and captions into a carousel (or slider) widget.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to complement or enhance text</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#images">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/charts/charts-en.html">Charts and graphs</a></td>
-      3
-      <td><time>2015-03-10</time></td>
-      <td>Common design patterns </td>
-      <td>Dynamically generates charts and graphs from table data.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href=" 	http://wet-boew.github.io/themes-dist/GCWeb/demos/details/details-en.html">Collapsible content</a></td>
-      <td><time>2014-07-21</time></td>
-      <td>Common design patterns </td>
-      <td>The HTML5 details and summary elements are   used to provide expandable/collapsible content. This component adds   support for these elements in browsers that do not already have native   support.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/institution-contact-en.html">Contact information</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/theme-en.html">Context-specific features</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/alerts-en.html">Contextual alerts</a></td>
-      <td><time>2016-10-17</time></td>
-      <td>Common design patterns </td>
-      <td>Use  to provide  contextual feedback messages for typical user actions.   Choose from a handful of  available and flexible alert messages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Contributors</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/tables/tables-en.html">Data tables</a></td>
-      <td><time>2014-10-18</time></td>
-      <td>Common design patterns </td>
-      <td>Integrates the DataTables plugin into WET providing searching, sorting,   filtering, pagination and other advanced features for tables.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/demos/lightbox/lightbox-en.html">Disclaimer overlay</a></td>
-      <td><time>2015-05-12</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/components-en.html">Download links</a></td>
-      <td><time>2014-08-26</time></td>
-      <td>Common design patterns </td>
-      <td>Download links are used for referencing and linking to non-HTML files on Canada.ca web pages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/icons-en.html">Icons</a></td>
-      <td><time>2017-06-05</time></td>
-      <td>Common design patterns </td>
-      <td>Use  one of the two icon sets, Glyphicons or Font Awesome for decorative   purposes. Icons  are glyphs − picture-based fonts, similar to   wingdings.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/wet-boew-styleguide/v4/design/images-en.html">Images</a></td>
-      <td><time>2016-10-17</time></td>
-      <td>Common design patterns </td>
-      <td>Use  images to visually represent a noun (person, place, thing) or a   verb (action). An image is a static two dimensional visual artifact that   is a type of non-text content. It is classified as decorative, simple,   complex, or an image of text.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/content-en.html">Institutional byline</a></td>
-      <td><time>2017-09-29</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Institutional byline (<a class="nowrap" href="content-en.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to link to the institution responsible for the content</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#institutional-byline">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
       <td>Interactive questions</td>
-      <td><time></time></td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to present a sequence of simple questions that leads to answer needed to continue or complete task</td>
+      <td><span class="label label-default">Backlog</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#interactive-questions">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/institution-en.html">Latest news</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Latest news (<a class="nowrap" href="institution-en.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to feature the most recent news items</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#latest-news">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">More information for</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>More information for (<a class="nowrap" href="topic-en.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to connect to a related government-wide audience</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#more-information">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Most requested</a></td>
-      <td><time>2017-12-05</time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Most requested (<a class="nowrap" href="topic-en.html">GCWeb alternative</a>)</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to feature top tasks related to the page it is on</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#most-requested">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/docs/ref/multimedia/multimedia-en.html">Multimedia (video and audio)</a></td>
+      <td><a href="video-en.html">Multimedia (video and audio)</a></td>
       <td><time>2018-04-18</time></td>
-      <td>Common design patterns </td>
-      <td>Provides an accessible multimedia player for embedding video and audio into web pages.</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Common design patterns</td>
+      <td>Use to complement or enhance text</td>
+      <td><span class="label label-info">Need to revalidate</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#multimedia">C&amp;IA</a></td>
+      <td>v1.4</td>
     </tr>
     <tr>
-      <td>Promotional feature banner </td>
-      <td><time></time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Promotional feature banner</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to promote government-wide and institution-specific activities, initiatives, programs, and services.</td>
+      <td><span class="label label-default">Backlog</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#feature-banner">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
       <td>Related links</td>
-      <td><time></time></td>
-      <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td></td>
+      <td>Common design patterns</td>
+      <td>Use to list links to content related to the page</td>
+      <td><span class="label label-default">Backlog</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#related-links">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Services and information</a></td>
-      <td><time>2017-12-05</time></td>
+      <td>Services and information (<a class="nowrap" href="topic-en.html">GCWeb alternative</a>)</td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to present sets of links with accompanying descriptions</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#services-information">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">Social media channels block (follow box)</a></td>
-      <td><time>2017-12-05</time></td>
+      <td>Social media channels block (follow box) (<a class="nowrap" href="topic-en.html">GCWeb alternative</a>)</td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to allow people to follow official Government of Canada social media accounts from various social media platforms</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#social-media-channels">C&amp;IA</a></td>
+      <td></td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/widgets-en.html">Social media feeds widget</a></td>
+      <td><a href="widgets-en.html">Social media feeds widget</a></td>
       <td><time>2014-06-12</time></td>
       <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to embed the latest posts from official Government of Canada social media accounts</td>
+      <td><span class="label label-info">Need to be revalidate</span></td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#social-media-feeds">C&amp;IA</a></td>
+      <td>v1.4</td>
     </tr>
     <tr>
-      <td><a href="http://wet-boew.github.io/themes-dist/GCWeb/topic-en.html">What we are doing</a></td>
-      <td><time>2017-12-05</time></td>
+      <td>What we are doing (<a class="nowrap" href="topic-en.html">GCWeb alternative</a>)</td>
+      <td></td>
       <td>Common design patterns </td>
-      <td>&nbsp;</td>
-      <td><span class="label label-success">Informational</span></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Use to link to content that provides background or explanations of GC activities in support of creating or improving public policy</td>
+      <td>
+          <ul class="list-unstyled">
+              <li><span class="label label-info">Informational</span></li>
+              <li><span class="label label-default">Backlog</span></li>
+          </ul>
+      </td>
+      <td><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification/common-design-patterns.html#what-we-are-doing">C&amp;IA</a></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
+
 <section>
-<h3>Themes plugins</h3>
-<ul>
-  <li><a href="demos/data-json/data-json-en.html">Data JSON</a></li>
-  <li><a href="demos/doaction/tblfilter-en.html">Do action</a></li>
-  <li><a href="demos/data-json/template-en.html">Template HTML5</a></li>
-  <li><a href="demos/jsonmanager/jsonmanager-en.html">JSON Manage</a></li>
-  <li><a href="demos/urlmapping/tblfilter-en.html">URL Mapping - Table filtering</a></li>
-  <li><a href="demos/urlmapping/ajax-en.html">URL Mapping - Ajax</a></li>
-  <li><a href="demos/urlmapping/patches-en.html">URL Mapping - Patching JSON</a></li>
-  <li><a href="demos/fieldflow/fieldflow-en.html">Field flow</a></li>
-  <li><a href="demos/fieldflow/basic-en.html">Field flow basic configuration</a></li>
-  <li><a href="demos/fieldflow/advanced-en.html">Field flow advanced</a></li>
-</ul>
-<section>
-  <h2>Notes and other</h2>
+  <h3 id="plugins">Themes plugins</h3>
   <ul>
-    <li><a href="deprecated-en.html">Deprecated markup</a></li>
-    <li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-en.html">GCWU theme - English institution template</a></li>
-    <li><a href="http://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html" hreflang="fr">GCWU theme - French institution template</a></li>
+    <li><a href="demos/data-json/data-json-en.html">Data JSON</a> (<a href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/doaction/tblfilter-en.html">Do action</a> (<a href="demos/doaction/doaction-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/data-json/template-en.html">Template HTML5</a> (<a href="demos/data-json/data-json-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/jsonmanager/jsonmanager-en.html">JSON Manager</a> (<a href="demos/jsonmanager/jsonmanager-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/tblfilter-en.html">URL Mapping - Table filtering</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/ajax-en.html">URL Mapping - Ajax</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/urlmapping/patches-en.html">URL Mapping - Patching JSON</a> (<a href="demos/urlmapping/urlmapping-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/fieldflow-en.html">Field flow</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/basic-en.html">Field flow basic configuration</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
+    <li><a href="demos/fieldflow/advanced-en.html">Field flow advanced</a> (<a href="demos/fieldflow/fieldflow-doc-en.html">Documentation</a>)</li>
   </ul>
 </section>
 <section>
