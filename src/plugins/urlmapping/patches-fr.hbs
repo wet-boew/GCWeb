@@ -70,12 +70,12 @@
 	}'></div>
 
 <ul>
-	<li><a href="?#ex1">Vide <code>?</code></a></li> 
+	<li><a href="?#ex1">Vide <code>?</code></a></li>
 	<li><a href="?exemple1a#ex1">Gatineau et Pomme <code>?exemple1a</code></a></li>
 	<li><a href="?exemple1b#ex1">Ottawa et Orange <code>?exemple1b</code></a></li>
 	<li><a href="?exemple1c&amp;exemple1d#ex1">Hull et Kiwi <code>?exemple1c&amp;exemple1d</code></a></li>
 </ul>
-	
+
 <section class="well" id="jmexemple1" data-wb-jsonmanager='{
 			"url": "demo/empty.json",
 			"name": "exemple1",
@@ -113,12 +113,12 @@
 	}'&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-	&lt;li&gt;&lt;a href=&quot;?#ex1&quot;&gt;Vide &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?#ex1&quot;&gt;Vide &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?exemple1a#ex1&quot;&gt;Gatineau et Pomme &lt;code&gt;?exemple1a&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?exemple1b#ex1&quot;&gt;Ottawa et Orange &lt;code&gt;?exemple1b&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?exemple1c&amp;amp;exemple1d#ex1&quot;&gt;Hull et Kiwi &lt;code&gt;?exemple1c&amp;amp;exemple1d&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-	
+
 &lt;section class=&quot;well&quot; id=&quot;jmexemple1&quot; data-wb-jsonmanager='{
 			&quot;url&quot;: &quot;demo/empty.json&quot;,
 			&quot;name&quot;: &quot;exemple1&quot;,
@@ -137,7 +137,7 @@
 <p>La valeur du paramètre sera utilisé en tant que clef afin de le l'objet vers l'objet parent.</p>
 
 <ul data-wb-urlmapping='{ "ville" : { "action": "patch", "source": "#jmexemple2", "base": "/ville", "match": "^[a-z][a-z][a-z]$", "default": "gat" } }'>
-	<li><a href="?#ex2">Vide <code>?</code></a></li> 
+	<li><a href="?#ex2">Vide <code>?</code></a></li>
 	<li><a href="?ville=gat#ex2">Gatineau <code>?ville=gat</code></a></li>
 	<li><a href="?ville=ott#ex2">Ottawa <code>?ville=ott</code></a></li>
 	<li><a href="?ville=vdm#ex2">Val-des-monts <code>?ville=vdm</code></a></li>
@@ -150,7 +150,7 @@
 <details>
 	<summary>Code source</summary>
 	<pre><code>&lt;ul data-wb-urlmapping='{ &quot;ville&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexemple2&quot;, &quot;base&quot;: &quot;/ville&quot;, &quot;match&quot;: &quot;^[a-z][a-z][a-z]$&quot;, &quot;default&quot;: &quot;gat&quot; } }'&gt;
-	&lt;li&gt;&lt;a href=&quot;?#ex2&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?#ex2&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ville=gat#ex2&quot;&gt;Gatineau &lt;code&gt;?ville=gat&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ville=ott#ex2&quot;&gt;Ottawa &lt;code&gt;?ville=ott&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ville=vdm#ex2&quot;&gt;Val-des-monts &lt;code&gt;?ville=vdm&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -165,13 +165,13 @@
 
 <p>Les configuration suivante vont écraser/contourner les fonctionalitées par défaut pour l'application des correctifs.</p>
 
-<ul data-wb-urlmapping='{ 
+<ul data-wb-urlmapping='{
 		"ex3a" : { "action": "patch", "source": "#jmexemple3", "base": "/ville", "match": "^[a-z][a-z][a-z]$", "default": "vdm" },
 		"ex3b" : { "action": "patch", "source": "#jmexemple3", "base": "/ville", "qval": "gat" },
 		"ex3c=exemple" : { "action": "patch", "source": "#jmexemple3", "base": "/ville", "qval": "ott" },
 		"ex3d" : { "action": "patch", "source": "#jmexemple3", "base": "/pays/province", "match": "^[a-z][a-z]$", "default": "ma" }
 	}'>
-	<li><a href="?#ex3">Vide <code>?</code></a></li> 
+	<li><a href="?#ex3">Vide <code>?</code></a></li>
 	<li><a href="?ex3a#ex3">La base est "/ville", repli sur le défaut <code>?ex3a</code></a></li>
 	<li><a href="?ex3a=gat#ex3">La base est "/ville", affiche Gatineau <code>?ex3a=gat</code></a></li>
 	<li><a href="?ex3a=ott#ex3">La base est "/ville", Affiche Ottawa <code>?ex3a=ott</code></a></li>
@@ -190,13 +190,13 @@
 
 <details>
 	<summary>Code source</summary>
-	<pre><code>&lt;ul data-wb-urlmapping='{ 
+	<pre><code>&lt;ul data-wb-urlmapping='{
 		&quot;ex3a&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexemple3&quot;, &quot;base&quot;: &quot;/ville&quot;, &quot;match&quot;: &quot;^[a-z][a-z][a-z]$&quot;, &quot;default&quot;: &quot;vdm&quot; },
 		&quot;ex3b&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexemple3&quot;, &quot;base&quot;: &quot;/ville&quot;, &quot;qval&quot;: &quot;gat&quot; },
 		&quot;ex3c=exemple&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexemple3&quot;, &quot;base&quot;: &quot;/ville&quot;, &quot;qval&quot;: &quot;ott&quot; },
 		&quot;ex3d&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexemple3&quot;, &quot;base&quot;: &quot;/pays/province&quot;, &quot;match&quot;: &quot;^[a-z][a-z]$&quot;, &quot;default&quot;: &quot;ma&quot; }
 	}'&gt;
-	&lt;li&gt;&lt;a href=&quot;?#ex3&quot;&gt;Vide &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?#ex3&quot;&gt;Vide &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a#ex3&quot;&gt;La base est &quot;/ville&quot;, repli sur le défaut &lt;code&gt;?ex3a&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a=gat#ex3&quot;&gt;La base est &quot;/ville&quot;, affiche Gatineau &lt;code&gt;?ex3a=gat&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a=ott#ex3&quot;&gt;La base est &quot;/ville&quot;, Affiche Ottawa &lt;code&gt;?ex3a=ott&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -213,4 +213,3 @@
 	&lt;li&gt;Province: &lt;span data-json-replace=&quot;#[exemple4]/country/province&quot;&gt;non défini&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 </details>
-
