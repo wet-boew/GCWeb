@@ -10,9 +10,14 @@ insert_final_newline = true
 indent_style = tab
 indent_size = 4
 
-[package.json]
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+[{.*,*.json,*.md,Gemfile.lock}]
 indent_style = space
 indent_size = 2
+
+# External font
+[!src/fonts/*.svg]
+charset = unset
+trim_trailing_whitespace = unset
+insert_final_newline = unset
+indent_style = unset
+indent_size = unset
