@@ -70,12 +70,12 @@
 	}'></div>
 
 <ul>
-	<li><a href="?#ex1">Empty <code>?</code></a></li> 
+	<li><a href="?#ex1">Empty <code>?</code></a></li>
 	<li><a href="?example1a#ex1">Gatineau and Apple <code>?example1a</code></a></li>
 	<li><a href="?example1b#ex1">Ottawa and Orange <code>?example1b</code></a></li>
 	<li><a href="?example1c&amp;example1d#ex1">Hull and Kiwi <code>?example1c&amp;example1d</code></a></li>
 </ul>
-	
+
 <section class="well" id="jmexample1" data-wb-jsonmanager='{
 			"url": "demo/empty.json",
 			"name": "example1",
@@ -113,12 +113,12 @@
 	}'&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-	&lt;li&gt;&lt;a href=&quot;?&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?example1a&quot;&gt;Gatineau and Apple &lt;code&gt;?example1a&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?example1b&quot;&gt;Ottawa and Orange &lt;code&gt;?example1b&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?example1c&amp;amp;example1d&quot;&gt;Hull and Kiwi &lt;code&gt;?example1c&amp;amp;example1d&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-	
+
 &lt;section class=&quot;well&quot; id=&quot;jmexample1&quot; data-wb-jsonmanager='{
 			&quot;url&quot;: &quot;demo/empty.json&quot;,
 			&quot;name&quot;: &quot;example1&quot;,
@@ -137,7 +137,7 @@
 <p>It uses the value of the parameter as a key for copying to the parent element.</p>
 
 <ul data-wb-urlmapping='{ "city" : { "action": "patch", "source": "#jmexample2", "base": "/city", "match": "^[a-z][a-z][a-z]$", "default": "gat" } }'>
-	<li><a href="?#ex2">Empty <code>?</code></a></li> 
+	<li><a href="?#ex2">Empty <code>?</code></a></li>
 	<li><a href="?city=gat#ex2">Gatineau <code>?city=gat</code></a></li>
 	<li><a href="?city=ott#ex2">Ottawa <code>?city=ott</code></a></li>
 	<li><a href="?city=vdm#ex2">Val-des-monts <code>?city=vdm</code></a></li>
@@ -150,7 +150,7 @@
 <details>
 	<summary>Source code</summary>
 	<pre><code>&lt;ul data-wb-urlmapping='{ &quot;city&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexample2&quot;, &quot;base&quot;: &quot;/city&quot;, &quot;match&quot;: &quot;^[a-z][a-z][a-z]$&quot;, &quot;default&quot;: &quot;gat&quot; } }'&gt;
-	&lt;li&gt;&lt;a href=&quot;?#ex2&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?#ex2&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?city=gat#ex2&quot;&gt;Gatineau &lt;code&gt;?city=gat&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?city=ott#ex2&quot;&gt;Ottawa &lt;code&gt;?city=ott&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?city=vdm#ex2&quot;&gt;Val-des-monts &lt;code&gt;?city=vdm&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -165,13 +165,13 @@
 
 <p>Defining the following configuration will overwrite/control how the page query could interact with the patches action.</p>
 
-<ul data-wb-urlmapping='{ 
+<ul data-wb-urlmapping='{
 		"ex3a" : { "action": "patch", "source": "#jmexample3", "base": "/city", "match": "^[a-z][a-z][a-z]$", "default": "vdm" },
 		"ex3b" : { "action": "patch", "source": "#jmexample3", "base": "/city", "qval": "gat" },
 		"ex3c=example" : { "action": "patch", "source": "#jmexample3", "base": "/city", "qval": "ott" },
 		"ex3d" : { "action": "patch", "source": "#jmexample3", "base": "/country/province", "match": "^[a-z][a-z]$", "default": "ma" }
 	}'>
-	<li><a href="?#ex3">Empty <code>?</code></a></li> 
+	<li><a href="?#ex3">Empty <code>?</code></a></li>
 	<li><a href="?ex3a#ex3">base is "/city", fallback on default <code>?ex3a</code></a></li>
 	<li><a href="?ex3a=gat#ex3">base is "/city", showing Gatineau <code>?ex3a=gat</code></a></li>
 	<li><a href="?ex3a=ott#ex3">base is "/city", showing Ottawa <code>?ex3a=ott</code></a></li>
@@ -190,13 +190,13 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;ul data-wb-urlmapping='{ 
+	<pre><code>&lt;ul data-wb-urlmapping='{
 		&quot;ex3a&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexample3&quot;, &quot;base&quot;: &quot;/city&quot;, &quot;match&quot;: &quot;^[a-z][a-z][a-z]$&quot;, &quot;default&quot;: &quot;vdm&quot; },
 		&quot;ex3b&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexample3&quot;, &quot;base&quot;: &quot;/city&quot;, &quot;qval&quot;: &quot;gat&quot; },
 		&quot;ex3c=example&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexample3&quot;, &quot;base&quot;: &quot;/city&quot;, &quot;qval&quot;: &quot;ott&quot; },
 		&quot;ex3d&quot; : { &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#jmexample3&quot;, &quot;base&quot;: &quot;/country/province&quot;, &quot;match&quot;: &quot;^[a-z][a-z]$&quot;, &quot;default&quot;: &quot;ma&quot; }
 	}'&gt;
-	&lt;li&gt;&lt;a href=&quot;?#ex3&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt; 
+	&lt;li&gt;&lt;a href=&quot;?#ex3&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a#ex3&quot;&gt;base is &quot;/city&quot;, fallback on default &lt;code&gt;?ex3a&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a=gat#ex3&quot;&gt;base is &quot;/city&quot;, showing Gatineau &lt;code&gt;?ex3a=gat&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;?ex3a=ott#ex3&quot;&gt;base is &quot;/city&quot;, showing Ottawa &lt;code&gt;?ex3a=ott&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -213,4 +213,3 @@
 	&lt;li&gt;Province: &lt;span data-json-replace=&quot;#[example4]/country/province&quot;&gt;not defined&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 </details>
-

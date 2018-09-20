@@ -4,7 +4,7 @@
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @duboisp
  */
- /*global jsonpointer, jsonpatch */
+/*global jsonpointer, jsonpatch */
 ( function( $, window, wb ) {
 "use strict";
 

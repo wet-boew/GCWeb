@@ -40,7 +40,7 @@
 <section>
 	<h2>How to implement</h2>
 	<p>The url mapping support three type of action. It is possible to add support for additional action.</p>
-	
+
 	<h3>Ajaxing</h3>
 	<p>On an element</p>
 	<pre><code>&lt;div data-wb-urlmapping='{
@@ -59,7 +59,7 @@
 		<dt><code>&quot;url&quot;: &quot;ajax/ajax-1.html&quot;</code></dt>
 		<dd>URL of the ajax file.</dd>
 	</dl>
-	
+
 	<h3>Table filtering</h3>
 	<p>On an element with a source refering to a table or directly on a table element</p>
 	<pre><code>&lt;table class=&quot;wb-tables table&quot; data-wb-urlmapping='{
@@ -81,7 +81,7 @@
 		<dt><code>&quot;value&quot;: &quot;2016-07-26&quot;</code></dt>
 		<dd>The filter value will be the string &quot;2016-07-26&quot;.</dd>
 	</dl>
-	
+
 	<h3>Patching</h3>
 	<p>On an element</p>
 	<pre><code>&lt;div data-wb-urlmapping='{
@@ -123,15 +123,15 @@
 		<dt>{base} string</dt>
 		<dd>Only for patches. Define the base string of a JSON pointer. Default value is <code>/</code>. It can be specified by setting the parameter <code>base</code>.</dd>
 	</dl>
-	
+
 	<h3><code>match</code> and <code>default</code> configuration</h3>
 
 	<p>If <code>match</code> is defined in your configuration, then the <code>default</code> configuration <strong>must</strong> be also defined.</p>
 
 	<p>For security reason, any value retreived from the page URL always require to configure <code>match</code> that will contain a regular expresion. If there no match or the matching result is an empty string, the <code>default</code> configuration will be used as the value fallback.</p>
-	
+
 	<p>When you specify a regular expression, it is recommended to have it prefixed with "<code>^</code>" and suffixed with "<code>$</code>". Be careful to not use regular expression that could compromise the security.</p>
-	
+
 	<h3>Example 1 - Ajax</h3>
 	<p><code>data-wb-urlmapping='{ &quot;ajx&quot;: { &quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-{qval}.html&quot;, &quot;match&quot;: &quot;[A-Z][a-z][A-Z][a-z][A-Z][a-z]&quot;, &quot;default&quot;: &quot;default&quot; } }'</code></p>
 	<p>Means that:</p>
@@ -178,7 +178,7 @@
 		<dd>Will load ajax file: <code>ajax/ajax-TEST.html</code></dd>
 	</dl>
 	<p>Note: The result of <code>match</code> configuration is ignored when the query value is set.</p>
-	
+
 	<h3>Example 4 - Table filtering</h3>
 	<pre><code>data-wb-urlmapping='{
 	&quot;date-search&quot;:
@@ -217,9 +217,9 @@
 
 <section>
 	<h2>Configuration options</h2>
-	
+
 	<p>The <code>data-wb-urlmapping</code> attribute must contain an JSON object where all top level property represent the mapping of the url query. Each of those property will contain an object "<code>{ Mapping object }</code>"defined in the table bellow.</p>
-	
+
 	<pre><code>data-wb-urlmapping='
 	{
 		"urlQueryMapping" : { Mapping object },
@@ -227,23 +227,23 @@
 		"urlQueryMapping" : { Mapping object },
 		"urlQueryMapping" : { Mapping object }
 	}</code></pre>
-	
+
 	<p>Note that only the first "<code>urlQueryMapping</code>" mapping object found will be executed, that restriction can be removed by adding the configuration <code>"multiplequery": true"</code> along with the other urlQueryMapping mapping object.</p>
-	
-	
+
+
 	<form id="frmActionConfig">
 	<div class="wb-fieldflow" data-wb-fieldflow='{
-		"noForm": true, 
-		"unhideelm": 
+		"noForm": true,
+		"unhideelm":
 		"#frmActionConfig",
-		"srctype":"tblfilter", 
-		"source":"#actionConfig", 
-		"column":1, 
-		"defaultselectedlabel": "All the configuration options", 
+		"srctype":"tblfilter",
+		"source":"#actionConfig",
+		"column":1,
+		"defaultselectedlabel": "All the configuration options",
 		"label":"Filter by type of action:"
 	}'></div>
 </form>
-	
+
 	<table id="actionConfig" class="table wb-tables" data-wb-tables='{ "ordering" : false, "paging": false }'>
 	<thead>
 	<tr>
@@ -417,7 +417,7 @@
 			<dl>
 				<dt>Number</dt>
 				<dd>Integer representing the column number where the first column of table is the number &quot;0&quot;</dd>
-				
+
 				<dt>Column selector</dt>
 				<dd>A valid <a href="https://datatables.net/reference/type/column-selector">DataTable column selector</a></dd>
 			</dl>
@@ -479,7 +479,7 @@
 		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "addClass", "source": "#id", "class": "myclass" } }'</code></td>
 		<td>A CSS class name</td>
 	</tr>
-	
+
 	<tr>
 		<td>base</td>
 		<td><p>Define exactly the value of the query parameter to use when replacing with <code>{base}</code>.</p>
@@ -592,10 +592,10 @@
 </table>
 </section>
 
-	
+
 <section>
 	<h2>Events</h2>
-		
+
 	<table id="events" class="table wb-tables" data-wb-tables='{ "ordering" : false, "paging": false }'>
 		<thead>
 			<tr>
