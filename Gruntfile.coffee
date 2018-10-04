@@ -137,6 +137,7 @@ module.exports = (grunt) ->
 		[
 			"eslint"
 			"sasslint"
+			"lintspaces"
 		]
 	)
 
@@ -399,6 +400,45 @@ module.exports = (grunt) ->
 				src: [
 						"src/**/*.scss"
 					]
+
+		lintspaces:
+			all:
+				src: [
+						# Root files
+						".editorconfig"
+						".git*"
+						".*rc"
+						".*.yml"
+						"Gemfile*"
+						"Gruntfile.coffee"
+						"Licen?e-*.txt"
+						"*.{json,md}"
+						"Rakefile"
+
+						# Folders
+						"script/**"
+						"site/**"
+						"src/**"
+
+						# Exemptions...
+
+						# Images
+						"!site/img/**/*.{jpg,png}"
+						"!src/assets/*.{ico,jpg,png}"
+
+						# External fonts
+						"!src/fonts/*.{eot,svg,ttf,woff}"
+
+						# Docker environment file
+						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
+						"!script/docker/env"
+					],
+				options:
+					editorconfig: ".editorconfig",
+					ignores: [
+						"js-comments"
+					],
+					showCodes: true
 
 		sass:
 			options:
