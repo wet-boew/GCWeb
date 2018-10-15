@@ -1,0 +1,330 @@
+---
+{
+	"title": "Float column in a data table",
+	"language": "en",
+	"altLangPrefix": "tbl-floatcolumn",
+	"css": ["https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome"],
+	"breadcrumb": [
+		{ "title": "Home", "link": "https://www.canada.ca/en.html" }
+	],
+	"dateModified": "2018-10-10",
+	"share": "true"
+}
+---
+<ul>
+	<li><a href="#purpose">Purpose</a></li>
+	<li><a href="#design">Design and coding</a>
+	<ul>
+		<li><a href="#basic">Basic use</a></li>
+		<li><a href="#enhanced">Enhanced use</a>
+		<ul>
+			<li><a href="#striped">Striped rows (zebra stripe) and hover rows</a></li>
+			<li><a href="#bordered">Bordered rows</a></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><a href="#issues">Known issues</a></li>
+</ul>
+<h2 id="purpose"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-info fa-stack-1x fa-inverse"></span></span> Purpose</h2>
+<p class="pagetag">A data table cell on a specific column floats under the preceding column.</p>
+<div class="alert alert-info">
+	<p>Only supported by simple data table, structured with the explicit row group thead, tbody and tfoot.</p>
+</div>
+<h2 id="design"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-paint-brush fa-stack-1x fa-inverse"></span></span> Design and coding</h2>
+<h3 id="basic">Basic use</h3>
+<p>Use to display a table data in a user friendly manner.</p>
+<h4 id="default"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-gears fa-stack-1x fa-inverse"></span></span> Default</h4>
+<p>Wrapping the following <code>&lt;td&gt;</code> of the <code>&lt;th&gt;</code> under that <code>&lt;th&gt;</code> element. It is expected that the column header (<code>&lt;th&gt;</code> in <code>&lt;thead&gt;</code>) of the column being wrapped would be invisible to users but readable by screen readers.</p>
+<p>In order to float a <code>&lt;td&gt;</code> element under the preceding <code>&lt;th&gt;</code> element,  CSS classes <code>.table-columnfloat</code> and <code>.table</code> must be set on the <code>&lt;table&gt;</code>.</p>
+<div class="alert alert-info">
+	<p>The heading of the floated column is hidden, so there is a risk where the column heading of the preceding column don’t represent the content that was floated under. Please set column title wisely or if that column is a column header (link to technique about column header) then it can be deducted the content that is moved under is a middle description for that row cell heading.</p>
+</div>
+<div class="mrgn-tp-lg">
+	<pre class="prettyprint prettyprinted"><code>&lt;table class="table-columnfloat table"&gt;</code></pre>
+	<span class="wb-prettify all-pre"></span></div>
+<table class="table-columnfloat table">
+	<caption>
+	Top departments
+	</caption>
+	<thead>
+		<tr>
+			<th>Departments</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Coulmn 4</th>
+			<th>Coulmn 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>National Defence</th>
+			<td>Data Column 2</td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+		<tr>
+			<th>Employment and Social</th>
+			<td>Data Column 2</td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Total</th>
+			<td>Data Column 2</td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tfoot>
+</table>
+<h3 id="enhanced"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-gears fa-stack-1x fa-inverse"></span></span>Enhanced use</h3>
+<h4 id="striped"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-bars fa-stack-1x fa-inverse"></span></span> Striped rows (zebra stripe) and	hover rows</h4>
+<p>Use to add a zebra-striped hover effect to any table row within the <code>&lt;tbody&gt;</code>.</p>
+<div class="mrgn-tp-lg">
+	<pre class="prettyprint prettyprinted"><code>&lt;table class="table-columnfloat table table-striped table-hover"&gt;</code></pre>
+</div>
+<table class="table-columnfloat table table-striped table-hover">
+	<caption>
+	Top departments
+	</caption>
+	<thead>
+		<tr>
+			<th>Departments</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Coulmn 4</th>
+			<th>Coulmn 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>National Defence</th>
+			<td><meter min="0" value="65" max="100">65% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+		<tr>
+			<th>Employment and Social</th>
+			<td><meter min="0" value="75" max="100">75% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+		<tr>
+			<th>Canada Revenue</th>
+			<td><meter min="0" value="85" max="100">85% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Total</th>
+			<td><meter min="0" value="95" max="100">95% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tfoot>
+</table>
+<h4 id="bordered"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-table fa-stack-1x fa-inverse"></span></span> Bordered rows </h4>
+<p>Use <code>.table-bordered</code> to separate information when the table cells have a lot of data in them, and word wrap.</p>
+<p>This makes it easy for the user to tell what information belongs to which cell.</p>
+<div class="mrgn-tp-lg">
+	<pre class="prettyprint prettyprinted"><code>&lt;table class="table-columnfloat table table-striped table-hover table-bordered"&gt;</code></pre>
+</div>
+<table class="table-columnfloat table table-striped table-hover table-bordered">
+	<caption>
+	Top departments
+	</caption>
+	<thead>
+		<tr>
+			<th>Departments</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Coulmn 4</th>
+			<th>Coulmn 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>National Defence</th>
+			<td><meter min="0" value="65" max="100">65% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+		<tr>
+			<th>Employment and Social</th>
+			<td><meter min="0" value="75" max="100">75% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+		<tr>
+			<th>Canada Revenue</th>
+			<td><meter min="0" value="85" max="100">85% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Total</th>
+			<td><meter min="0" value="95" max="100">95% (normal)</meter></td>
+			<td>3%</td>
+			<td>4%</td>
+			<td>5%</td>
+		</tr>
+	</tfoot>
+</table>
+<h2 id="issues"><span class="fa-stack"><span class="fa fa-circle fa-stack-2x"></span><span class="fa fa-paint-brush fa-stack-1x fa-inverse"></span></span>Known issues</h2>
+<ul>
+	<li>Complex table structure – It is not supported
+		<details class="mrgn-bttm-md mrgn-tp-md">
+			<summary>View example</summary>
+			<div class="mrgn-tp-lg">
+				<pre class="prettyprint prettyprinted"><code>&lt;table class="table-columnfloat table"&gt;</code></pre>
+			</div>
+			<table class="table-columnfloat table">
+				<caption>
+				Top departments
+				</caption>
+				<thead>
+					<tr>
+						<th rowspan="2">Departments</th>
+						<th colspan="3">Column 2</th>
+					</tr>
+					<tr>
+						<th>Column 3</th>
+						<th>Coulmn 4</th>
+						<th>Coulmn 5</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>National Defence</th>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+					<tr>
+						<th>Employment and Social</th>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>HTML</h3>
+			<pre><code>
+			&lt;table class="table-columnfloat table"&gt;
+				&lt;caption&gt;Top departments&lt;/caption&gt;
+				&lt;thead&gt;
+					&lt;tr&gt;
+						&lt;th rowspan="2"&gt;Departments&lt;/th&gt;
+						&lt;th colspan="3"&gt;Column 2&lt;/th&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;th&gt;Column 3&lt;/th&gt;
+						&lt;th&gt;Coulmn 4&lt;/th&gt;
+						&lt;th&gt;Coulmn 5&lt;/th&gt;
+					&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;th&gt;National Defence&lt;/th&gt;
+						&lt;td&gt;3%&lt;/td&gt;
+						&lt;td&gt;4%&lt;/td&gt;
+						&lt;td&gt;5%&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;th&gt;Employment and Social&lt;/th&gt;
+						&lt;td&gt;3%&lt;/td&gt;
+						&lt;td&gt;4%&lt;/td&gt;
+						&lt;td&gt;5%&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		</code></pre>
+		</details>
+	</li>
+	<li>Vertical alignment – The issue became prominent when a cell have variation for its height compare to the other cells in the table.
+		<details class="mrgn-bttm-md mrgn-tp-md">
+			<summary>View example</summary>
+			<table class="table-columnfloat table">
+				<caption>
+				Top departments
+				</caption>
+				<thead>
+					<tr>
+						<th>Departments</th>
+						<th>Column 2</th>
+						<th>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</th>
+						<th>Coulmn 4</th>
+						<th>Coulmn 5</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>National Defence</th>
+						<td><meter min="0" value="65" max="100">65% (normal)</meter></td>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+					<tr>
+						<th>Employment and Social</th>
+						<td><meter min="0" value="75" max="100">75% (normal)</meter></td>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+				</tbody>
+			</table>
+		</details>
+	</li>
+	<li>Parent HTML element that contains floated children elements is the resulting height is no longer <code>auto</code>, but instead renders as <code>height: 0;</code>
+		<details class="mrgn-bttm-md mrgn-tp-md">
+			<summary>View example</summary>
+			<table class="table-columnfloat table">
+				<caption>
+				Top departments
+				</caption>
+				<thead>
+					<tr>
+						<th style="border-bottom: solid 1px #F50307;">Departments</th>
+						<th>Column 2</th>
+						<th>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</th>
+						<th>Coulmn 4</th>
+						<th>Coulmn 5</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>National Defence</th>
+						<td><meter min="0" value="65" max="100">65% (normal)</meter></td>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+					<tr>
+						<th>Employment and Social</th>
+						<td><meter min="0" value="75" max="100">75% (normal)</meter></td>
+						<td>3%</td>
+						<td>4%</td>
+						<td>5%</td>
+					</tr>
+				</tbody>
+			</table>
+		</details>
+	</li>
+</ul>
