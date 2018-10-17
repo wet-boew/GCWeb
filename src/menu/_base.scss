@@ -13,14 +13,15 @@
 	background-color: #fff;
 	border: none;
 	color: #284162;
-	font-size: 16px;
-	padding: 16px;
+	font-size: 20px;
+	padding: .5em 1em;
 	text-transform: uppercase;
 }
 
 /* The container <div> - needed to position the dropdown content */
 #gc-drpdown {
 	display: inline-block;
+	margin-left:-15px;
 	position: relative;
 
 	/* Show the dropdown menu on hover */
@@ -47,35 +48,33 @@
 	position: absolute;
 	z-index: 1;
 
-	/* List items inside the dropdown */
-	li {
-		list-style: none;
-	}
-
 	> li {
+
+		/* List items inside the dropdown */
+		list-style: none;
 
 		/* Links inside the dropdown */
 		> a {
 			border-bottom: 1px solid #555;
 			color: #fff;
 			display: block;
-			min-width: 250px; /* Need a better approach for this...em? rem? */
+			font-size:18px;
+			font-weight:400;
 			padding: 14px 30px;
 			text-decoration: none;
+			width: 360px; /* Need a better approach for this...em? rem? */
+
+			/* Change color of dropdown links on hover */
+			&:hover {
+				background-color: #fff;
+				color: #333;
+			}
 		}
 
 		&:last-child {
 			> a {
 				border-bottom:none;
 			}
-		}
-	}
-
-	a {
-		/* Change color of dropdown links on hover */
-		&:hover {
-			background-color: #fff;
-			color: #333;
 		}
 	}
 }
@@ -87,20 +86,42 @@ a:hover + div[id^="gc-menu-itm"] {
 	background: #fff;
 	box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
 	display: block;
-	left: 310px; /* need to fix this approach....it's the 250px with of the menu link put the 30px padding left +30px padding right */
-	padding: 25px;
+	left: 360px;
+	margin-bottom:25px;
+	padding: 24px 39px;
 	position: absolute;
 	top: 0;
-	width: 755px;
+	width: 810px;
 }
 
 div[id^="gc-menu-itm"] {
 	> div[role=row] {
 		> div[role=gridcell] {
 			float: right;
+			margin-top: 20px;
 			width: 50%;
 		}
 	}
+}
+div[role=gridcell] {
+	li {
+		padding:6px 0;
+	}
+
+	a {
+		color:#124b81;
+		font-size:22px;
+	}
+}
+a[id^="mnuitm"] {
+	color:#124b81;
+	font-size: 32px;
+	font-weight:600;
+}
+.mostrequested {
+	font-size:22px;
+	font-weight:600;
+	padding:0;
 }
 
 /* GCWeb version 1.0 megamenu */
