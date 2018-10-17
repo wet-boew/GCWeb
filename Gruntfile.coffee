@@ -710,6 +710,7 @@ module.exports = (grunt) ->
 						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
 						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
 						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
+						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -730,6 +731,7 @@ module.exports = (grunt) ->
 						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
 						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
 						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
+						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
 					]
 				src: [
 					"dist/unmin/**/*.html"
@@ -758,6 +760,8 @@ module.exports = (grunt) ->
 						"E032" # `.modal-content` must be a child of `.modal-dialog`
 						"W009" # Using empty spacer columns isn't necessary with Bootstrap's grid. So instead of having an empty grid column with `class="col-xs-12"` , just add `class="col-xs-offset-12"` to the next grid column.
 						"E012" # `.input-group` and `.col-*-*` cannot be used directly on the same element. Instead, nest the `.input-group` within the `.col-*-*`
+						"E003" # This exception need to be removed when the FIP banner markup are updated
+						"E029" # This exception need to be removed when the FIP banner markup are updated
 					]
 				src: [
 					"dist/**/*.html"

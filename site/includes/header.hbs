@@ -1,4 +1,4 @@
-<header role="banner">
+<header role="banner" style="margin-left:5%; margin-right:5%;">
 	<div id="wb-bnr" class="container">
 {{#isnt languagetoggle "false"}}
 	{{>languagetoggle}}
@@ -13,11 +13,28 @@
 {{/isnt}}
 		</div>
 	</div>
-{{#isnt sitemenu "false"}}
-	{{>sitemenu}}
-{{else}}
-	<span data-trgt="mb-pnl" class="wb-menu hide"></span>
-{{/isnt}}
+
+<!-- banner between FIP and menu -->
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div style="background-image:url({{assets}}/../{{site.theme}}/assets/your-gov2.jpg); background-repeat:no-repeat; background-size: cover; height:200px; padding-top:1.25%;">
+			<section style="margin-left:5%; background-color: #002B92; color:#FFFFFF;  min-height:150px; width:225px; padding:8px; ">
+				<h1 style="border:none;" class="mrgn-tp-0 mrgn-bttm-0">Canada.ca</h1>
+				<p><b>sample text here</b></p>
+			</section>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="mrgn-lft-md">
+		{{#isnt sitemenu "false"}}
+			{{>sitemenu}}
+		{{else}}
+			<span data-trgt="mb-pnl" class="wb-menu hide"></span>
+		{{/isnt}}
+	</div>
+</div>
 {{#isnt breadcrumb "false"}}
 	{{>breadcrumbs}}
 {{/isnt}}
