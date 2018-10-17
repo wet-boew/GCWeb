@@ -706,6 +706,10 @@ module.exports = (grunt) ->
 						"Element “dl” is missing a required instance of child element “dt”."
 						"XHTML element “dl” is missing a required instance of child element “dt”."
 						"Empty heading."
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." #menu designed with WAI-ARIA 1.1
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
+						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
+						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -722,6 +726,10 @@ module.exports = (grunt) ->
 						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
 						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
 						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." #menu designed with WAI-ARIA 1.1
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
+						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
+						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
 					]
 				src: [
 					"dist/unmin/**/*.html"
