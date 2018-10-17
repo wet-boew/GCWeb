@@ -1,6 +1,109 @@
 /*
  * Site menu
  */
+
+/* Review note:
+	* Try to less specific with the CSS selector, do we need the immediate child selector everywhere? ">"
+	* Replace that selector ```div[id^="gc-menu-itm"]``` by a CSS class or something else.
+	* Review the id selector inside a id selector, see #gc-drpdown section.
+*/
+
+/* Dropdown Button */
+#gc-menubtn {
+	background-color: #fff;
+	border: none;
+	color: #284162;
+	font-size: 16px;
+	padding: 16px;
+	text-transform: uppercase;
+}
+
+/* The container <div> - needed to position the dropdown content */
+#gc-drpdown {
+	display: inline-block;
+	position: relative;
+
+	/* Show the dropdown menu on hover */
+	&:hover {
+		#gc-menu {
+			display: block;
+		}
+
+		/* Change the background color of the dropdown button when the dropdown content is shown */
+		#gc-menubtn {
+			background-color: #444;
+			color:#fff;
+		}
+	}
+}
+
+/* Dropdown Content (Hidden by Default) */
+#gc-menu {
+	background-color: #444;
+	box-shadow: 0px 15px 15px 5px rgba(0,0,0,.1);
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+
+	/* List items inside the dropdown */
+	li {
+		list-style: none;
+	}
+
+	> li {
+
+		/* Links inside the dropdown */
+		> a {
+			border-bottom: 1px solid #555;
+			color: #fff;
+			display: block;
+			min-width: 250px; /* Need a better approach for this...em? rem? */
+			padding: 14px 30px;
+			text-decoration: none;
+		}
+
+		&:last-child {
+			> a {
+				border-bottom:none;
+			}
+		}
+	}
+
+	a {
+		/* Change color of dropdown links on hover */
+		&:hover {
+			background-color: #fff;
+			color: #333;
+		}
+	}
+}
+
+div[id^="gc-menu-itm"] {
+	display: none;
+}
+a:hover + div[id^="gc-menu-itm"] {
+	background: #fff;
+	box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
+	display: block;
+	left: 310px; /* need to fix this approach....it's the 250px with of the menu link put the 30px padding left +30px padding right */
+	padding: 25px;
+	position: absolute;
+	top: 0;
+	width: 755px;
+}
+
+div[id^="gc-menu-itm"] {
+	> div[role=row] {
+		> div[role=gridcell] {
+			float: right;
+			width: 50%;
+		}
+	}
+}
+
+/* GCWeb version 1.0 megamenu */
 #wb-sm {
 	background: $accent-blue;
 
