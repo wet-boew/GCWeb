@@ -1,6 +1,130 @@
 /*
  * Site menu
  */
+
+/* Review note:
+	* Try to less specific with the CSS selector, do we need the immediate child selector everywhere? ">"
+	* Replace that selector ```div[id^="gc-menu-itm"]``` by a CSS class or something else.
+	* Review the id selector inside a id selector, see #gc-drpdown section.
+*/
+
+/* Dropdown Button */
+#gc-menubtn {
+	background-color: #fff;
+	border: none;
+	color: #284162;
+	font-size: 20px;
+	padding: .5em 1em;
+	text-transform: uppercase;
+}
+
+/* The container <div> - needed to position the dropdown content */
+#gc-drpdown {
+	display: inline-block;
+	margin-left:-15px;
+	position: relative;
+
+	/* Show the dropdown menu on hover */
+	&:hover {
+		#gc-menu {
+			display: block;
+		}
+
+		/* Change the background color of the dropdown button when the dropdown content is shown */
+		#gc-menubtn {
+			background-color: #444;
+			color:#fff;
+		}
+	}
+}
+
+/* Dropdown Content (Hidden by Default) */
+#gc-menu {
+	background-color: #444;
+	box-shadow: 0px 15px 15px 5px rgba(0,0,0,.1);
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+
+	> li {
+
+		/* List items inside the dropdown */
+		list-style: none;
+
+		/* Links inside the dropdown */
+		> a {
+			border-bottom: 1px solid #555;
+			color: #fff;
+			display: block;
+			font-size:18px;
+			font-weight:400;
+			padding: 14px 30px;
+			text-decoration: none;
+			width: 360px; /* Need a better approach for this...em? rem? */
+
+			/* Change color of dropdown links on hover */
+			&:hover {
+				background-color: #fff;
+				color: #333;
+			}
+		}
+
+		&:last-child {
+			> a {
+				border-bottom:none;
+			}
+		}
+	}
+}
+
+div[id^="gc-menu-itm"] {
+	display: none;
+}
+a:hover + div[id^="gc-menu-itm"] {
+	background: #fff;
+	box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
+	display: block;
+	left: 360px;
+	margin-bottom:25px;
+	padding: 24px 39px;
+	position: absolute;
+	top: 0;
+	width: 810px;
+}
+
+div[id^="gc-menu-itm"] {
+	> div[role=row] {
+		> div[role=gridcell] {
+			float: right;
+			margin-top: 20px;
+			width: 50%;
+		}
+	}
+}
+div[role=gridcell] {
+	li {
+		padding:6px 0;
+	}
+
+	a {
+		color:#124b81;
+		font-size:22px;
+	}
+}
+a[id^="mnuitm"] {
+	color:#124b81;
+	font-size: 32px;
+	font-weight:600;
+}
+.mostrequested {
+	font-size:22px;
+	font-weight:600;
+	padding:0;
+}
+
+/* GCWeb version 1.0 megamenu */
 #wb-sm {
 	background: $accent-blue;
 
