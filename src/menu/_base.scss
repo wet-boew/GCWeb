@@ -8,6 +8,16 @@
 	* Review the id selector inside a id selector, see #gc-drpdown section.
 */
 
+.open, #gc-menu.open, .active, [aria-expanded=true] {
+	display: block;
+}
+
+/* When the button menu are still active */
+#gc-menubtn[aria-expanded=true], #gc-menubtn:focus {
+	background-color: #444;
+	color: #fff;
+}
+
 /* Dropdown Button */
 #gc-menubtn {
 	background-color: #fff;
@@ -25,7 +35,7 @@
 	position: relative;
 
 	/* Show the dropdown menu on hover */
-	&:hover {
+	&:hover, [aria-expanded=true], &:focus, &.activeItem, &.active {
 		#gc-menu {
 			display: block;
 		}
@@ -65,7 +75,7 @@
 			width: 360px; /* Need a better approach for this...em? rem? */
 
 			/* Change color of dropdown links on hover */
-			&:hover {
+			&:hover, [aria-expanded=true], &.activeItem, &.active {
 				background-color: #fff;
 				color: #333;
 			}
@@ -82,7 +92,7 @@
 div[id^="gc-menu-itm"] {
 	display: none;
 }
-a:hover + div[id^="gc-menu-itm"] {
+a:hover + div[id^="gc-menu-itm"], div[id^="gc-menu-itm"].open {
 	background: #fff;
 	box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
 	display: block;
