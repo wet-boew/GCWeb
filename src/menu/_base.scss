@@ -8,6 +8,16 @@
 	* Review the id selector inside a id selector, see #gc-drpdown section.
 */
 
+.open, #gc-menu.open, .active, [aria-expanded=true] {
+	display: block;
+}
+
+/* When the button menu are still active */
+#gc-menubtn[aria-expanded=true], #gc-menubtn:focus {
+	background-color: #444;
+	color: #fff;
+}
+
 /* Dropdown Button */
 #gc-menubtn {
 	background-color: #fff;
@@ -25,7 +35,7 @@
 	position: relative;
 
 	/* Show the dropdown menu on hover */
-	&:hover {
+	&:hover, [aria-expanded=true], &:focus, &.activeItem, &.active {
 		#gc-menu {
 			display: block;
 		}
@@ -55,17 +65,13 @@
 
 		/* Links inside the dropdown */
 		> a {
-			border-bottom: 1px solid #555;
-			color: #fff;
 			display: block;
 			font-size:18px;
 			font-weight:400;
-			padding: 14px 30px;
 			text-decoration: none;
-			width: 360px; /* Need a better approach for this...em? rem? */
 
 			/* Change color of dropdown links on hover */
-			&:hover {
+			&:hover, [aria-expanded=true], &.activeItem, &.active {
 				background-color: #fff;
 				color: #333;
 			}
@@ -80,37 +86,27 @@
 }
 
 div[id^="gc-menu-itm"] {
+	background: #fff;
 	display: none;
 }
-a:hover + div[id^="gc-menu-itm"] {
+a:hover + div[id^="gc-menu-itm"], div[id^="gc-menu-itm"].open {
 	background: #fff;
-	box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
 	display: block;
-	left: 360px;
-	margin-bottom:25px;
-	padding: 24px 39px;
-	position: absolute;
-	top: 0;
-	width: 810px;
 }
 
-div[id^="gc-menu-itm"] {
-	> div[role=row] {
-		> div[role=gridcell] {
-			float: right;
-			margin-top: 20px;
-			width: 50%;
-		}
-	}
-}
 div[role=gridcell] {
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
 	li {
 		padding:6px 0;
 	}
 
 	a {
 		color:#124b81;
-		font-size:22px;
+		font-size:18px;
 	}
 }
 a[id^="mnuitm"] {
@@ -123,6 +119,115 @@ a[id^="mnuitm"] {
 	font-weight:600;
 	padding:0;
 }
+
+/* To be move in _screen-sm-min.scss and insert in https://github.com/wet-boew/wet-boew/blob/master/src/base/_wet-boew.scss#L189
+ * $screen-sm-min = 768px
+ */
+@media only screen and (min-width: $screen-sm-min) {
+	#gc-menu {
+		box-shadow: 0px 15px 15px 5px rgba(0, 0, 0, .1);
+		position: absolute;
+
+		> li {
+			> a {
+				border-bottom: 1px solid #555;
+				color: #fff;
+				display: block;
+				font-size:18px;
+				font-weight:400;
+				padding: 14px 30px;
+				text-decoration: none;
+				width: 360px;
+			}
+		}
+	}
+	a:hover + div[id^="gc-menu-itm"], div[id^="gc-menu-itm"].open {
+		box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
+		left: 360px;
+		margin-bottom:25px;
+		padding: 24px 39px;
+		position: absolute;
+		top: 0;
+		width: 810px;
+	}
+
+	.mostrequested {
+
+		&+ div[role="gridcell"] {
+			ul {
+				list-style: outside circle none;
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+/* To be move in _screen-sm-max.scss */
+@media only screen and (max-width: $screen-sm-max) {
+	#gc-menu {
+		> li {
+			> a {
+				color: #999;
+				padding: 10px 15px;
+			}
+		}
+	}
+
+	.mostrequested + div[role=gridcell] {
+		background: #f1f1f1;
+
+		li {
+			border-bottom: 1px solid #ccc;
+			padding: 15px 15px 15px 55px;
+		}
+
+		a {
+			color: #444;
+			text-decoration: none;
+		}
+	}
+
+	a[id^="mnuitm"] {
+		display: none;
+	}
+
+	div[role=gridcell] {
+		li {
+			border-bottom: 1px solid #ccc;
+			padding: 10px 15px;
+		}
+	}
+
+	.mostrequested {
+		background: #f1f1f1;
+		border-bottom: 1px solid #ccc;
+		font-size: 19px;
+		font-weight: normal;
+		padding: 10px 15px 10px 55px;
+
+		&+ div[role="gridcell"] {
+			ul {
+				margin-left: 55px;
+				padding-left: 30px;
+			}
+		}
+	}
+}
+
+/* To be move in _screen-lg-min.scss (1200px) */
+@media only screen and (min-width: $screen-lg-min) {
+
+	div[id^="gc-menu-itm"] {
+		> div[role=row] {
+			> div[role=gridcell] {
+				float: right;
+				margin-top: 20px;
+				width: 50%;
+			}
+		}
+	}
+}
+
 
 /* GCWeb version 1.0 megamenu */
 #wb-sm {
