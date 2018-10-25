@@ -1,28 +1,20 @@
-<header role="banner" style="margin-left:5%; margin-right:5%;">
+<header role="banner">
 	<div id="wb-bnr" class="container">
 {{#isnt languagetoggle "false"}}
 	{{>languagetoggle}}
 {{/isnt}}
 		<div class="row">
 			{{>brand}}
-{{#isnt mobimenu "false"}}
-	{{>mobimenu}}
-{{/isnt}}
 {{#isnt sitesearch "false"}}
 	{{>sitesearch}}
 {{/isnt}}
 		</div>
 	</div>
-
-<div class="row">
-	<div class="mrgn-lft-md">
-		{{#isnt sitemenu "false"}}
-			{{>sitemenu}}
-		{{else}}
-			<span data-trgt="mb-pnl" class="wb-menu hide"></span>
-		{{/isnt}}
-	</div>
-</div>
+{{#isnt sitemenu "false"}}
+	{{>sitemenu}}
+{{else}}
+	<span data-trgt="mb-pnl" class="wb-menu hide"></span>
+{{/isnt}}
 {{#isnt breadcrumb "false"}}
 	{{>breadcrumbs}}
 {{/isnt}}
