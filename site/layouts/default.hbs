@@ -13,9 +13,10 @@
 {{#if page.secondarymenu}}
 <div class="container">
 	<div class="row">
-		<main property="mainContentOfPage" class="col-md-9 col-md-push-3" role="main">
+		<main property="mainContentOfPage" class="col-md-9 col-md-push-3">
 {{else}}
-<main role="main" property="mainContentOfPage" class="container
+<main property="mainContentOfPage" class="
+{{#unless page.noMainContainer}}container{{/unless}}
 {{#is page.pageType "institution"}} gc-instttn{{/is}}
 {{#is page.pageType "organization"}} gc-orgnztn{{/is}}
 {{#is page.pageType "theme"}} gc-theme{{/is}}
@@ -23,13 +24,11 @@
 {{#is page.pageType "advance service"}} gc-advnc-srvc{{/is}}
 ">
 {{/if}}
-{{#is page.pageclass "home"}}
-			<h1 property="name" id="wb-cont" class="wb-inv">{{{title}}}</h1>
-{{else}}
+{{#unless page.noContentTitle}}
 {{#isnt page.pageclass "secondary"}}
 			<h1 property="name" id="wb-cont">{{{title}}}</h1>
 {{/isnt}}
-{{/is}}
+{{/unless}}
 			{{>contentbuttons}}
 			{{>body}}
 {{#is page.deptfeature true}}
