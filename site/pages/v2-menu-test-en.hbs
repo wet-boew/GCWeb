@@ -1,0 +1,945 @@
+---
+{
+	"title": "GCWeb v2 Menu Test",
+	"language": "en",
+	"altLangPrefix": "gcweb2-menu-test",
+	"breadcrumb": [
+		{ "title": "Home", "link": "https://www.canada.ca/en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2018-10-29",
+	"share": "true"
+}
+---
+
+<h2>Default state</h2>
+
+<nav class="gcweb-v2" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="false"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+			<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+			<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-desktop"> and citizenship</span><span class="visible-mobile">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+			<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a class="h3" href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+			<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div>
+	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />
+</div>
+
+
+
+
+<h2>First level</h2>
+
+<nav class="gcweb-v2" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div>
+	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />
+</div>
+
+
+
+
+
+
+
+<h2>Second Level</h2>
+
+<nav class="gcweb-v2" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="true" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true" tabindex="-1">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div>
+	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />
+</div>
+
+
+
+
+
+<h2>Tablet - Second Level</h2>
+
+<nav class="gcweb-v2 mediumview" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="true" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true" tabindex="-1">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div>
+	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />	<br />
+</div>
+
+
+
+
+
+<h2>Mobile - First Level</h2>
+
+<nav class="gcweb-v2 smallview" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<!-- In mobile, the following content should be visible -->
+<div class="nocontainer"><section><h2>First Heading&#32;2&#32;(<code>h2</code>)</h2><section><h3>Heading&#32;3&#32;(<code>h3</code>)</h3><section><h4>Heading&#32;4&#32;(<code>h4</code>)</h4><section><h5>Heading&#32;5&#32;(<code>h5</code>)</h5><section><h6>Heading&#32;6&#32;(<code>h6</code>)</h6><p>Paragraph - default appearance</p></section></section></section></section></section><p><a href="#">Link</a></p><ul><li>unordered list&#32;(<code>ul</code>) - level&#32;1<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;2<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;3</li></ul></li></ul></li></ul><ol><li>ordered list&#32;(<code>ol</code>) - level&#32;1</li><li>ordered list&#32;(<code>ol</code>) - level&#32;1<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;2</li><li>ordered list&#32;(<code>ol</code>) - level&#32;2<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li></ol></li></ol></li></ol></div>
+
+
+
+
+<h2>Mobile - Second Level</h2>
+
+<nav class="gcweb-v2 smallview" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="true" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="false">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<!-- In mobile, the following content should be visible -->
+<div class="nocontainer"><section><h2>Heading&#32;2&#32;(<code>h2</code>)</h2><section><h3>Heading&#32;3&#32;(<code>h3</code>)</h3><section><h4>Heading&#32;4&#32;(<code>h4</code>)</h4><section><h5>Heading&#32;5&#32;(<code>h5</code>)</h5><section><h6>Heading&#32;6&#32;(<code>h6</code>)</h6><p>Paragraph - default appearance</p></section></section></section></section></section><p><a href="#">Link</a></p><ul><li>unordered list&#32;(<code>ul</code>) - level&#32;1<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;2<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;3</li></ul></li></ul></li></ul><ol><li>ordered list&#32;(<code>ol</code>) - level&#32;1</li><li>ordered list&#32;(<code>ol</code>) - level&#32;1<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;2</li><li>ordered list&#32;(<code>ol</code>) - level&#32;2<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li></ol></li></ol></li></ol></div>
+
+
+
+
+<h2>Mobile - Third Level</h2>
+
+<nav class="gcweb-v2 smallview" typeof="SiteNavigationElement">
+	<div class="nocontainer">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-expanded="true"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul role="menu" aria-orientation="vertical">
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<!-- The following block is invisible -->
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="true" href="#">Immigration and citizenship</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration<span class="hidden-xs hidden-sm"> and citizenship</span><span class="visible-xs visible-sm">: home</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application.html">My application</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html">Visit</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html">Immigrate</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/work/index.asp">Work</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/study/index.asp">Study</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/citizenship/index.asp">Citizenship</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/residents/new_immigrants.asp">New immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/travel/passports.html">Canadians</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/refugees/index.asp">Refugees and asylum</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/enforcement/index.asp">Enforcement and violations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html">Sign in or create an account to apply online</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-status.html">Check your application status</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html">Check application processing times</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/helpcentre/index-featured-can.asp?_ga=2.223348956.618486753.1536582544-47044295.1531227039">Get answers to your questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">Immigrate as a skilled worker through Express Entry</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/english/visit/visas.asp?_ga=2.60907627.618486753.1536582544-47044295.1531227039">Find out if you need an eTA or a visa to visit Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides.html">Find an application form</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-expanded="false" href="#">Jobs and the workplace</a>
+
+				<ul role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/opportunities.html">Find a job</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/training.html">Training</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/hire.html">Hire and manage employees</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://gc-proto.github.io/design-refresh/tests/cleanup4/services/business/start.html">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs/workplace.html">Workplace standards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance/pensions.html">Pensions and retirement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Education</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+					<li role="none presentation">
+						<!-- Remove the Anchor effect on desktop/tablet mode -->
+						<a href="#" role="menuitem" aria-haspopup="menu" aria-expanded="true">Most requested</a>
+						<ul role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-apply-online.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei/ei-internet-reporting.html">Submit EI report</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/federal-skilled-workers.html">Federal Skilled Workers Program eligibility</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/hire-foreign-worker/temporary.html">Hire Temporary Foreign Workers</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security.html">Information about CPP and OAS</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/public-service-commission/jobs/services/recruitment/students/federal-student-work-program.html">Federal Student Work Experience Program (FSWEP)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+<!-- In mobile, the following content should be visible -->
+<div class="nocontainer"><section><h2>Heading&#32;2&#32;(<code>h2</code>)</h2><section><h3>Heading&#32;3&#32;(<code>h3</code>)</h3><section><h4>Heading&#32;4&#32;(<code>h4</code>)</h4><section><h5>Heading&#32;5&#32;(<code>h5</code>)</h5><section><h6>Heading&#32;6&#32;(<code>h6</code>)</h6><p>Paragraph - default appearance</p></section></section></section></section></section><p><a href="#">Link</a></p><ul><li>unordered list&#32;(<code>ul</code>) - level&#32;1<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;2<ul><li>unordered list&#32;(<code>ul</code>) - level&#32;3</li></ul></li></ul></li></ul><ol><li>ordered list&#32;(<code>ol</code>) - level&#32;1</li><li>ordered list&#32;(<code>ol</code>) - level&#32;1<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;2</li><li>ordered list&#32;(<code>ol</code>) - level&#32;2<ol><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li><li>ordered list&#32;(<code>ol</code>) - level&#32;3</li></ol></li></ol></li></ol></div>
