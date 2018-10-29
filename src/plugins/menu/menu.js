@@ -1,11 +1,78 @@
 
-var globalTimeout,
+var hoverDelay = 350;
+
+function OpenMenu( elm ) {
+	elm.setAttribute( "aria-expanded", "true" );
+}
+function CloseMenu( elm ) {
+	elm.setAttribute( "aria-expanded", "false" );
+}
+
+/*
+var globalTimeoutOn, globalTimeoutOut,
 	hoverDelay = 350;
+// On hover, wait for the delay before to open the menu
+wb.doc.on( "mouseenter", "[aria-haspopup]", function( event ) {
+
+	var elm = event.currentTarget;
+
+	clearTimeout( globalTimeoutOn );
+
+	globalTimeoutOn = setTimeout( function() {
+		OpenMenu( elm );
+	}, hoverDelay );
+} );
+
+wb.doc.on( "mouseleave", "[aria-haspopup]", function( event ) {
+
+	var elm = event.currentTarget;
+
+	clearTimeout( globalTimeoutOut );
+
+	globalTimeoutOut = setTimeout( function() {
+		CloseMenu( elm );
+	}, hoverDelay );
+
+} );
+*/
+wb.doc.on( "focusin", "[aria-haspopup]", function( event ) {
+
+	var elm = event.currentTarget;
+	OpenMenu( elm );
+} );
+
+/*
+wb.doc.on( "focusout", "[aria-haspopup]", function( event ) {
+
+	var elm = event.currentTarget;
+	CloseMenu( elm );
+} );*/
+
+wb.doc.on( "click", "[aria-haspopup]", function( event ) {
+
+	var elm = event.currentTarget;
+
+	if ( elm.getAttribute( "tabindex" ) === "-1" ) {
+		return;
+	}
+
+	// Toggle
+	if ( elm.getAttribute( "aria-expanded" ) === "true" ) {
+		CloseMenu( elm );
+	} else {
+		OpenMenu( elm );
+	}
+
+} );
+
+var menuBtn = document.getElementById( "gc-menubtn" );
+
+/*
+var globalTimeout,
 
 // Hook on the "click or hover" of the menu button.
 
 // Then follow children and apply action based on it's attribute.
-
 
 var menuBtn = document.getElementById( "gc-menubtn" );
 
@@ -36,7 +103,7 @@ wb.doc.on( "mouseenter focusin click", "[aria-haspopup]", function( event ) {
 	elm.setAttribute( "aria-expanded", "true" );
 
 } );
-
+*/
 function CloseMeInternal( elm ) {
 	var attrControls = elm.getAttribute( "aria-controls" ),
 		isActive = elm.classList.contains( "active" );
@@ -58,7 +125,8 @@ function CloseMeInternal( elm ) {
 	}
 
 	elm.setAttribute( "aria-expanded", "false" );
-	onImmediateClose = false;
+
+	//onImmediateClose = false;
 
 	if ( elm === menuBtn ) {
 		var activeItem = elm.parentNode.querySelector( ".activeItem" );
@@ -69,12 +137,13 @@ function CloseMeInternal( elm ) {
 
 };
 
-var onImmediateClose = false;
+//var onImmediateClose = false;
 
 function CloseMe( elm, ifOut ) {
 
 	if ( ifOut ) {
-		onImmediateClose = true;
+
+		//onImmediateClose = true;
 		setTimeout( function() {
 			CloseMeInternal( elm );
 		}, hoverDelay );
@@ -83,6 +152,7 @@ function CloseMe( elm, ifOut ) {
 	}
 }
 
+/*
 wb.doc.on( "mouseleave focusout", "[aria-haspopup]", function( event ) {
 
 	var elm = event.currentTarget;

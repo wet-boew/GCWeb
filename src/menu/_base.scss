@@ -2,255 +2,393 @@
  * Site menu
  */
 
-/* Review note:
-	* Try to less specific with the CSS selector, do we need the immediate child selector everywhere? ">"
-	* Replace that selector ```div[id^="gc-menu-itm"]``` by a CSS class or something else.
-	* Review the id selector inside a id selector, see #gc-drpdown section.
-*/
-
-.open, #gc-menu.open, .active, [aria-expanded=true] {
-	display: block;
-}
-
-/* When the button menu are still active */
-#gc-menubtn[aria-expanded=true], #gc-menubtn:focus {
-	background-color: #444;
-	color: #fff;
-}
-
-/* Dropdown Button */
-#gc-menubtn {
-	background-color: #26374a; /* Validated */
-	border: none;
-	color: #fff; /* Validated */
-	font-size: 20px;
-	padding: .5em 1em;
-	text-transform: uppercase; /* Validated */
-
-	&:hover {
-		background-color: #444; /* Validated */
-	}
-}
-
-/* Special style for the home page */ /* Validated */
+/* Special style for the home page - GCWeb v2 */
 .home {
-	#gc-drpdown {
+	.gcweb-v2 {
 		border-top: 1px solid #ddd;
 		color: #284162;
-		margin-left: 0px; /* Validated */
+		margin-left: 0px;
 	}
 
-	#gc-menubtn {
-		background-color: #fff; /* Validated */
+	.gcweb-v2 button[aria-haspopup=menu] {
+		background-color: #fff;
+		border-color: #fff;
 		color: #284162;
 
 		&:hover {
-			background-color: #444; /* Validated */
-			color: #fff; /* Validated */
-		}
-	}
-}
-/* The container <div> - needed to position the dropdown content */
-#gc-drpdown {
-	border-top: 3px solid #38414d; /* Validated */
-	margin-left: -20px; /* Validated */
-	margin-top: 10px; /* Validated */
-	position: relative;
-
-	/* Show the dropdown menu on hover */
-	&:hover, [aria-expanded=true], &:focus, &.activeItem, &.active {
-		#gc-menu {
-			display: block;
-		}
-
-		/* Change the background color of the dropdown button when the dropdown content is shown */
-		#gc-menubtn {
 			background-color: #444;
-			color:#fff;
+			color: #fff;
 		}
 	}
 }
 
-/* Dropdown Content (Hidden by Default) */
-#gc-menu {
+/*
+ * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ *
+ * GCWeb v2 (markup reviewed)
+ *
+ */
+
+/* The following is to enable testing with "v2-menu-test-en.html" and need to be removed */
+/* visibility / hidden emulation */
+.smallview .hidden-xs,
+.smallview .hidden-sm {
+	display: none !important;
+}
+.smallview .visible-xs,
+.smallview .visible-sm {
+	display: inline !important;
+}
+/* end emulation */
+
+
+/*
+ * Level 0 - button menu
+ */
+.gcweb-v2 {
+	border-top: 3px solid #38414d;
+	font-size: 20px;
+}
+
+.gcweb-v2 button[aria-haspopup=menu] {
+	background-color: #26374a;
+	border: 1px solid #26374a;
+	color: #fff;
+	padding: .5em 1em;
+	text-transform: uppercase;
+}
+
+.gcweb-v2 button[aria-haspopup=menu]:hover,
+.gcweb-v2 button[aria-haspopup=menu][aria-expanded=true] {
 	background-color: #444;
-	box-shadow: 0px 15px 15px 5px rgba(0,0,0,.1);
+	border-color: #444;
+	color: #fff;
+}
+
+.gcweb-v2 button[aria-haspopup=menu]:focus {
+	background-color: #fff;
+	border: 1px dotted #555;
+	color: #333;
+}
+
+[aria-haspopup=menu][aria-expanded=false] + [role=menu] {
 	display: none;
-	margin: 0;
+}
+
+.gcweb-v2 button[aria-haspopup=menu][aria-expanded=true] + [role=menu]  {
+	z-index: 9999;
+}
+
+/*
+ * Level 1
+ */
+[role=menu] {
+	background-color: #444;
+	color: #fff;
 	padding: 0;
 	position: absolute;
-	z-index: 1;
-
-	> li {
-
-		/* List items inside the dropdown */
-		list-style: none;
-
-		/* Links inside the dropdown */
-		> a {
-			display: block;
-			font-size:18px;
-			font-weight:400;
-			text-decoration: none;
-
-			/* Change color of dropdown links on hover */
-			&:hover, [aria-expanded=true], &.activeItem, &.active {
-				background-color: #fff;
-				color: #333;
-			}
-		}
-
-		&:last-child {
-			> a {
-				border-bottom:none;
-			}
-		}
-	}
 }
 
-div[id^="gc-menu-itm"] {
-	background: #fff;
-	display: none;
+[role=menu] {
+	list-style: none;
 }
-a:hover + div[id^="gc-menu-itm"], div[id^="gc-menu-itm"].open {
-	background: #fff;
+
+[role=menuitem] {
 	display: block;
+	padding: 14px 30px;
+	width: 360px;
 }
 
-div[role=gridcell] {
-	ul {
-		list-style: none;
-		padding: 0;
-	}
+[role=menuitem],
+[role=menuitem]:visited {
+	border-bottom: 1px solid #555;
+	color: #fff;
+	font-size:18px;
+	text-decoration:none;
 
-	li {
-		padding:6px 0;
-	}
-
-	a {
-		color:#124b81;
-		font-size:18px;
-	}
-}
-a[id^="mnuitm"] {
-	color:#124b81;
-	font-size: 32px;
-	font-weight:600;
-}
-.mostrequested {
-	font-size:22px;
-	font-weight:600;
-	padding:0;
 }
 
-/* To be move in _screen-sm-min.scss and insert in https://github.com/wet-boew/wet-boew/blob/master/src/base/_wet-boew.scss#L189
- * $screen-sm-min = 768px
+li:last-child [role=menuitem] {
+	border-bottom: none;
+}
+
+[role=menuitem]:hover,
+[role=menuitem]:focus,
+[role=menuitem][aria-expanded=true] {
+	background-color: #fff;
+	color: #333;
+}
+
+/*
+ * Level 2
  */
-@media only screen and (min-width: $screen-sm-min) {
-	#gc-menu {
-		box-shadow: 0px 15px 15px 5px rgba(0, 0, 0, .1);
-		position: absolute;
 
-		> li {
-			> a {
-				border-bottom: 1px solid #555;
-				color: #fff;
-				display: block;
-				font-size:18px;
-				font-weight:400;
-				padding: 14px 30px;
-				text-decoration: none;
-				width: 360px;
-			}
-		}
-	}
-	a:hover + div[id^="gc-menu-itm"], div[id^="gc-menu-itm"].open {
-		box-shadow: 10px 10px 10px 5px rgba(0,0,0,.1);
-		left: 360px;
-		margin-bottom:25px;
-		padding: 24px 39px;
-		position: absolute;
-		top: 0;
-		width: 810px;
-	}
-
-	.mostrequested {
-
-		&+ div[role="gridcell"] {
-			ul {
-				list-style: outside circle none;
-				margin-left: 30px;
-			}
-		}
-	}
+[role=menu] [role=menu] {
+	background-color: #fff;
+	box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, .1);
+	color: #000;
+	left:360px;
+	margin-bottom: 25px;
+	min-height: 525px;
+	padding: 24px 39px;
+	top: 0;
+	width: 810px;
 }
 
-/* To be move in _screen-sm-max.scss */
-@media only screen and (max-width: $screen-sm-max) {
-	#gc-menu {
-		> li {
-			> a {
-				color: #999;
-				padding: 10px 15px;
-			}
-		}
-	}
-
-	.mostrequested + div[role=gridcell] {
-		background: #f1f1f1;
-
-		li {
-			border-bottom: 1px solid #ccc;
-			padding: 15px 15px 15px 55px;
-		}
-
-		a {
-			color: #444;
-			text-decoration: none;
-		}
-	}
-
-	a[id^="mnuitm"] {
-		display: none;
-	}
-
-	div[role=gridcell] {
-		li {
-			border-bottom: 1px solid #ccc;
-			padding: 10px 15px;
-		}
-	}
-
-	.mostrequested {
-		background: #f1f1f1;
-		border-bottom: 1px solid #ccc;
-		font-size: 19px;
-		font-weight: normal;
-		padding: 10px 15px 10px 55px;
-
-		&+ div[role="gridcell"] {
-			ul {
-				margin-left: 55px;
-				padding-left: 30px;
-			}
-		}
-	}
+[role=menu] [role=menu] [role=menu] {
+	min-height: auto;
 }
 
-/* To be move in _screen-lg-min.scss (1200px) */
-@media only screen and (min-width: $screen-lg-min) {
-
-	div[id^="gc-menu-itm"] {
-		> div[role=row] {
-			> div[role=gridcell] {
-				float: right;
-				margin-top: 20px;
-				width: 50%;
-			}
-		}
-	}
+[role=menu] [role=menu] [role=menuitem] {
+	border-bottom: none;
+	color: #000;
+	width: auto;
 }
 
+
+[role=menu] [role=menu] [role=menu] {
+	left: auto;
+	top: auto;
+}
+
+
+/* The rest of items */
+[role=menu] [role=menu] li [role=menuitem] {
+	color: #284162;
+	padding: 6px 0;
+	text-decoration:underline;
+}
+[role=menu] [role=menu] li [role=menuitem]:hover {
+	color: #0535d2;
+}
+
+/* First menu item (represent the home link */
+[role=menu] [role=menu] li:first-child [role=menuitem] {
+	font-size: 32px;
+	font-weight: 600;
+	text-decoration: underline;
+}
+/* Undo for lower level */
+[role=menu] [role=menu] [role=menu] li:first-child [role=menuitem] {
+	font-size: 18px;
+	font-weight: 400;
+	text-decoration: underline;
+	width: auto;
+}
+
+
+/* SubSubMenu (MostRequested) for more iteroperability, use CSS class */
+[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu][tabindex="-1"],
+[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu][tabindex="-1"]:hover {
+	color: #000;
+	font-size: 20px;
+	font-weight: 600;
+	text-decoration: none;
+}
+[role=menu] [role=menu] li:last-child [role=menu] {
+	list-style: disc;
+	padding-top: 0px;
+}
+[role=menu] [role=menu] [role=menu] {
+	box-shadow: none;
+	width: auto;
+}
+
+
+/* Grid of the submenu panel */
+[role=menu] [role=menu] li {
+	width: 45%;
+}
+[role=menu] [role=menu] li:first-child {
+	margin-bottom: 1em;
+	width: 100%;
+}
+[role=menu] [role=menu] [role=menu] li:first-child {
+	margin-bottom: 0px;
+}
+[role=menu] [role=menu] li:last-child {
+	left: 400px;
+	position: absolute;
+	top: 5em;
+}
+[role=menu] [role=menu] [role=menu] li:last-child {
+	left: auto;
+	position: relative;
+	top: auto;
+}
+[role=menu] [role=menu] [role=menu] li {
+	width: 100%;
+}
+
+/*
+ * Tablet mode
+ *
+ * (Grid of the submenu panel)
+ */
+
+.mediumview [role=menu] [role=menu] li {
+	width: 100%;
+}
+.mediumview [role=menu] [role=menu] li:last-child {
+	left: auto;
+	margin-top: 1em;
+	position: relative;
+	top: auto;
+}
+.mediumview [role=menu] [role=menu] [role=menu] li:last-child {
+	margin-top: 0px;
+}
+.mediumview [role=menu] [role=menu] [role=menu] {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	position: relative;
+}
+
+/*
+ * Mobile - first level
+ */
+
+.smallview [role=menu] {
+	position: static;
+}
+
+.smallview button[aria-haspopup=menu][aria-expanded=true] + [role=menu] {
+	width:95%;
+}
+
+.smallview [role=menuitem] {
+	width: auto;
+}
+
+
+/*
+ * Mobile - Second level
+ */
+
+/* Reset the style set by the panel */
+.smallview [role=menu] [role=menu] li:first-child [role=menuitem] {
+	font-size: 18px;
+	font-weight: 400;
+	text-decoration: underline;
+	width: auto;
+}
+.smallview [role=menu] {
+	width: auto;
+}
+.smallview [role=menu] [role=menu] {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.smallview [role="menu"] [role="menu"] li {
+	width: auto;
+}
+.smallview button:hover {
+	text-decoration: underline;
+}
+.smallview button + [role=menu] [role="menuitem"][aria-expanded=false]:hover,
+.smallview button + [role=menu] [role="menuitem"][aria-expanded=false]:focus {
+	background: transparent;
+	color:#fff;
+}
+.smallview button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:hover,
+.smallview button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:focus {
+	color:#000;
+}
+
+
+.smallview [role="menu"] [role="menu"] li:first-child {
+	margin-bottom:0px;
+}
+
+.smallview [role="menu"] [role="menu"] li [role="menuitem"] {
+	padding-bottom: 14px;
+	padding-left: 0;
+	padding-right: 30px;
+	padding-top: 14px;
+}
+
+
+.smallview [aria-expanded=true]:not(button) + [role=menu] li {
+	margin-left: 65px;
+}
+
+.smallview [aria-expanded=true]:not(button) + [role=menu] li:first-child [role=menuitem],
+.smallview [aria-expanded=true]:not(button) + [role=menu] li:last-child [role=menuitem] {
+	padding-left: 65px;
+}
+
+.smallview [aria-expanded=true]:not(button) + [role=menu] li:first-child,
+.smallview [aria-expanded=true]:not(button) + [role=menu] li:last-child {
+	margin-left: 0px;
+}
+
+/* Arrow for menu item with submenu */
+.smallview [aria-haspopup]:not(button)::before,
+.smallview [role=treegrid] > [role=row] > [role=rowheader]::before {
+	content: "\25BA\a0";
+}
+.smallview [aria-haspopup][aria-expanded=true]:not(button)::before,
+.smallview [role=treegrid] > [role=row][aria-expanded=true] > [role=rowheader]::before {
+	content: "\25BC\a0";
+}
+
+/* Menu text style */
+.smallview [role=menu] [role=menu] [role=menuitem], /* default style */
+.smallview [role=menu] [role=menu] li:first-child [role=menuitem] /*this line is an overwride*/ {
+	border-bottom: 1px solid #ccc;
+	color: #000;
+	text-decoration: none;
+}
+.smallview [role=menu] [role=menu] [role=menuitem]:hover, /* default style */
+.smallview [role=menu] [role=menu] [role=menuitem]:focus, /* default style */
+.smallview [role=menu] [role=menu] li:first-child [role=menuitem]:hover, /*this line is an overwride*/
+.smallview [role=menu] [role=menu] li:first-child [role=menuitem]:focus /*this line is an overwride*/ {
+	color: #000;
+	text-decoration: underline;
+}
+
+
+.smallview [role=menu] [role=menu] li:first-child [role=menuitem],
+.smallview [role=menu] [role=menu] li:last-child [role=menuitem] {
+	/*
+		Put it to this BG color when to validate in SCSS
+	background-color: #f1f1f1; */
+	background-color: #e1e1e1;
+}
+
+/* Mobile - Third level */
+
+.smallview [role="menu"] [role="menu"] li:last-child {
+	left: auto;
+	position: static;
+	top: auto;
+}
+.smallview [role="menu"] [role="menu"] li:last-child [role="menu"] {
+	list-style: none;
+}
+
+.smallview [aria-expanded=true] + [role=menu] [role=menu] [role=menu] {
+	/*
+		Put it to this BG color when to validate in SCSS
+	background-color: #f1f1f1; */
+	background-color: #e1e1e1;
+}
+
+.smallview [aria-expanded=true]:not(button) + [role=menu] [role=menu] li {
+	margin-left: 100px;
+}
+
+.smallview [aria-expanded=true]:not(button) + [role=menu] li:last-child [role=menu] [role=menuitem] {
+	padding-left: 0px;
+}
+
+/*
+ *
+ * GCWeb v2 - END
+ *
+ * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ */
 
 /* GCWeb version 1.0 megamenu */
 #wb-sm {

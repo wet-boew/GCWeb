@@ -711,6 +711,9 @@ module.exports = (grunt) ->
 						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
 						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
 						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # W3C validation don't complain
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -733,6 +736,9 @@ module.exports = (grunt) ->
 						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
 						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
 						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # This rule are not true anymore, see HTML 5.3
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # W3C validation don't complain
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
 					]
 				src: [
 					"dist/unmin/**/*.html"
