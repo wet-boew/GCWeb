@@ -1,14 +1,41 @@
 /*
 	Global Default Body styling
 */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin,latin-ext");
 
 %gcweb-pagedetails-children-margin-top {
 	margin-top: .5em;
 }
 
-body {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 16px;
+main {
+	font-size: 20px;
+
+	.pagedetails {
+		font-size: 16px;
+	}
+}
+
+.cnt-width {
+	p, li, dt, dd {
+		width: 70ch;
+	}
+
+	p {
+		margin-bottom: 27.5;
+	}
+
+	li {
+		margin-bottom: 10px;
+	}
+
+	.lst-spcd > li {
+		margin-bottom: 20px;
+	}
+
+	.lst-dblspcd > li {
+		margin-bottom: 40px;
+	}
 }
 
 a {
@@ -37,51 +64,55 @@ input[placeholder],
 // scss-lint:enable QualifyingElement
 /* Theme base styles */
 %defaults-font-family {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "Noto sans", sans-serif;
+}
+%defaults-alternative-font-family {
+	font-family: Lato, sans-serif;
 }
 
 h1 {
-	@extend %defaults-font-family;
 	border-bottom: 1px solid $border-red;
-	font-size: 34px;
 	margin-bottom: .2em;
 	margin-top: 1.25em;
 	padding-bottom: .2em;
 }
 
+//Heading font-sizes
+h1,
 .h1 {
-	@extend %defaults-font-family;
+	font-size: 38px;
 }
 
-//Heading font-sizes
 h2,
 .h2 {
-	@extend %defaults-font-family;
-	font-size: 26px;
+	font-size: 37px;
 }
 
 h3,
 .h3 {
-	@extend %defaults-font-family;
-	font-size: 22px;
+	font-size: 28px;
 }
 
 h4,
 .h4 {
-	@extend %defaults-font-family;
-	font-size: 18px;
+	font-size: 23px;
 }
 
 h5,
 .h5 {
-	@extend %defaults-font-family;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 h6,
 .h6 {
-	@extend %defaults-font-family;
-	font-size: 14px;
+	font-size: 16px;
+}
+
+// Common heading style
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
+{
+	@extend %defaults-alternative-font-family;
+	font-weight: 600;
 }
 
 .h3,
@@ -128,6 +159,47 @@ aside {
 			}
 		}
 	}
+}
+
+/* Home page banner
+ *
+ * Reference in:
+ * - views/_screen-lg-min
+ * - views/_screen-xs-min-to-screen-xs-max
+ * - views/_screen-md-min-to-screen-md-max
+ * - views/_screen-xs-max
+ */
+.home-banner {
+	background-image: url(../assets/bkg-home-banner.jpg);
+	background-repeat: no-repeat;
+	padding: 3em 0px;
+
+	.innerbox {
+		background-color: #26374a;
+		color:#fff;
+		padding: 20px;
+		width: 50%;
+
+		h1 {
+			font-weight: 500;
+			margin-top: 10px;
+		}
+		p {
+			margin-top: 15px;
+		}
+	}
+}
+
+/* Home page your gov
+ *
+ * Reference in:
+ * - views/_screen-sm-max
+ */
+.home-your-gov {
+	background-image: url(../assets/bkg-home-yourgov.jpg);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 35%;
 }
 
 /* Heading with links inside of rows */
@@ -197,8 +269,7 @@ aside {
 	}
 }
 
-.secondary,
-.home {
+.secondary {
 	.h1 {
 		border-bottom: 1px solid $border-red;
 		font-size: 27px;
@@ -241,6 +312,61 @@ details {
 			}
 		}
 	}
+}
+
+/*
+ * List responsive style
+ *
+ * It has variant defined for some specific views
+ * - views/_screen-lg-min
+ * - views/_screen-xs-max
+ */
+.list-responsive {
+
+	li {
+		float: left;
+		width: 50%;
+
+		&:nth:child(2n+2) {
+			clear:right;
+		}
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+/* Double space list items
+	Might worth to publish it upstream here instead: https://github.com/wet-boew/wet-boew/blob/master/src/base/lists/_base.scss#L30
+ */
+
+.lst-dblspcd {
+	> {
+		li {
+			margin-bottom: 20px;
+		}
+	}
+
+	ul,
+	ol {
+		margin-top: 20px;
+	}
+}
+
+/* Style only the figcaption as the link */
+a.figcaption {
+
+	text-decoration: none;
+
+	* :not( figcaption ) {
+		color: #000;
+	}
+
+	figcaption {
+		text-decoration: underline;
+	}
+
 }
 
 /* Thumbnail Treatments */

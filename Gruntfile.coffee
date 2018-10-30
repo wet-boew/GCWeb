@@ -706,6 +706,11 @@ module.exports = (grunt) ->
 						"Element “dl” is missing a required instance of child element “dt”."
 						"XHTML element “dl” is missing a required instance of child element “dt”."
 						"Empty heading."
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-expanded” not allowed on element “a” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -722,6 +727,12 @@ module.exports = (grunt) ->
 						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
 						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
 						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-expanded” not allowed on element “a” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # as per HTML 5.3 spec, figcaption just need to be a children of figure element
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/**/*.html"
