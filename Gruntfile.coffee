@@ -706,14 +706,11 @@ module.exports = (grunt) ->
 						"Element “dl” is missing a required instance of child element “dt”."
 						"XHTML element “dl” is missing a required instance of child element “dt”."
 						"Empty heading."
-						"Bad value “menu” for attribute “aria-haspopup” on element “button”." #menu designed with WAI-ARIA 1.1
-						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
-						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
-						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
-						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
-						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # W3C validation don't complain
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-expanded” not allowed on element “a” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -730,15 +727,12 @@ module.exports = (grunt) ->
 						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
 						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
 						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
-						"Bad value “menu” for attribute “aria-haspopup” on element “button”." #menu designed with WAI-ARIA 1.1
-						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." #menu designed with WAI-ARIA 1.1
-						"Bad value “treegrid” for attribute “aria-haspopup” on element “a”." #menu designed with WAI-ARIA 1.1
-						"Attribute “aria-expanded” not allowed on element “a” at this point." #menu designed with WAI-ARIA 1.1
-						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)." # This exception need to be removed when the FIP banner markup are updated
-						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # This rule are not true anymore, see HTML 5.3
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
-						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # W3C validation don't complain
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # W3C validation don't complain
+						"Bad value “menu” for attribute “aria-haspopup” on element “button”." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
+						"Attribute “aria-expanded” not allowed on element “a” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # as per HTML 5.3 spec, figcaption just need to be a children of figure element
+						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Bad value “menu” for attribute “aria-haspopup” on element “a”." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/**/*.html"
@@ -767,8 +761,6 @@ module.exports = (grunt) ->
 						"E032" # `.modal-content` must be a child of `.modal-dialog`
 						"W009" # Using empty spacer columns isn't necessary with Bootstrap's grid. So instead of having an empty grid column with `class="col-xs-12"` , just add `class="col-xs-offset-12"` to the next grid column.
 						"E012" # `.input-group` and `.col-*-*` cannot be used directly on the same element. Instead, nest the `.input-group` within the `.col-*-*`
-						"E003" # This exception need to be removed when the FIP banner markup are updated
-						"E029" # This exception need to be removed when the FIP banner markup are updated
 					]
 				src: [
 					"dist/**/*.html"
