@@ -1,5 +1,4 @@
-<!-- Nav id that was used before <nav id="wb-sm" > -->
-<!-- Nav id that was used before <nav id="wb-sm" > -->
+{{#isnt language "fr"}}
 <nav class="gcweb-v2" typeof="SiteNavigationElement">
 	<div class="container">
 		<h2 class="wb-inv">Menu</h2>
@@ -92,7 +91,7 @@
 
 				<ul id="gc-mnu-travel" role="menu" aria-orientation="vertical">
 					<li role="none presentation">
-						<a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Travel and tourism</a>
+						<a role="menuitem" href="https://travel.gc.ca/">Travel and tourism</a>
 					</li>
 
 					<li role="separator"></li>
@@ -189,7 +188,6 @@
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/ei.html">Employment Insurance and leave</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/family.html">Family and caregiving benefits</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/publicpensions.html">Public pensions</a></li>
-					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/business/federal-corporations.html">Federal corporations</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/education.html">Education and training</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/housing.html">Housing benefits</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits/disability.html">Disability benefits</a></li>
@@ -252,6 +250,7 @@
 				</ul>
 			</li>
 
+
 			<li role="none presentation">
 				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Taxes</a>
 
@@ -300,7 +299,7 @@
 
 					<li role="separator"></li>
 
-					<li role="none presentation"><a role="menuitem" href="https://weather.gc.ca/canada_e.html">Weather, climate and hazards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment/weather.html">Weather, climate and hazards</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment/energy.html">Energy</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment/natural-resources.html">Natural resources</a></li>
 					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment/agricultural-practices.html">Agricultural practices</a></li>
@@ -322,6 +321,7 @@
 							<li role="none presentation"><a role="menuitem" href="http://www.dfo-mpo.gc.ca/fm-gp/sdc-cps/licence-permis-eng.htm">Get your commercial fishing licence online</a></li>
 							<li role="none presentation"><a role="menuitem" href="http://oee.nrcan.gc.ca/pml-lmp/">Find an energy efficient appliance or other product</a></li>
 							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/environment-climate-change/services/science-technology/arctic-marine-oilspill-program.html">41st AMOP technical seminar on environmental contamination and response</a></li>
+
 						</ul>
 					</li>
 				</ul>
@@ -352,7 +352,6 @@
 						<!-- Add tabindex=-1 for tablet and desktop mode -->
 						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-defence-sub" aria-expanded="true">Most requested</a>
 						<ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
-
 							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/department-national-defence/services/caf-jobs/browse-jobs.html">Find a job in the Canadian Armed Forces</a></li>
 							<li role="none presentation"><a role="menuitem" href="http://www.forces.gc.ca/en/caf-community-pay/pay-rates.page">Canadian Armed Forces pay rates</a></li>
 							<li role="none presentation"><a role="menuitem" href="https://www.cbsa-asfc.gc.ca/job-emploi/bso-asf/menu-eng.html">Become a Border services officer</a></li>
@@ -397,6 +396,7 @@
 							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/canadian-heritage/services/important-commemorative-days.html">Important and commemorative days</a></li>
 							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/canadian-heritage/campaigns/winterlude.html">Winterlude</a></li>
 							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/canadian-heritage/campaigns/canada-day.html">Canada Day in the Capital</a></li>
+
 						</ul>
 					</li>
 				</ul>
@@ -482,7 +482,7 @@
 
 				<ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical">
 					<li role="none presentation">
-						<a role="menuitem" href="https://www.canada.ca/en/services/transport.html">Canada and the world</a>
+						<a role="menuitem" href="http://international.gc.ca/world-monde/index.aspx?lang=eng">Canada and the world</a>
 					</li>
 
 					<li role="separator"></li>
@@ -604,3 +604,611 @@
 		</ul>
 	</div>
 </nav>
+{{else}}
+<nav class="gcweb-v2" typeof="SiteNavigationElement">
+	<div class="container">
+		<h2 class="wb-inv">Menu</h2>
+		<button type="button" aria-haspopup="menu" aria-controls="gc-mnu" aria-expanded="false">Menu<span class="wb-inv"> principal</span> <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+
+		<ul id="gc-mnu" role="menu" aria-orientation="vertical">
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-jobs" aria-expanded="false" href="#">Emplois et milieu de travail</a>
+
+				<!-- The following block is invisible -->
+				<ul id="gc-mnu-jobs" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Emplois et milieu de travail</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="http://www.guichetemplois.gc.ca/accueil-fra.do?lang=fra">Guichet-Emplois</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/emplois/opportunites.html">Trouver un emploi</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/emplois/formation.html">Formation</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.canada.ca/gestion-entreprise">Embauche et gestion de personnel</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.canada.ca/demarrage-entreprise">Starting a business</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/emplois/milieu-travail.html">Normes en milieu de travail</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/ae.html">Employment Insurance and leave</a></li>
+
+					<!-- Invisible vertical marker -->
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-jobs-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-jobs-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/ae.html">Apply for Employment Insurance</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Soumettre le déclaration d'assurance-emploi</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express/admissibilite/travailleurs-qualifies-federal.html">Admissibilité au Programme des travailleurs qualifiés</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada/embaucher-travailleur-etranger/temporaire.html">Embaucher un travailleur temporaire</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/pensionspubliques/rpc/securite-vieillesse.html">Pension de la Sécurité de vieillesse – Aperçu</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/commission-fonction-publique/emplois/services/recrutement/etudiants/programme-federal-experience-travail-etudiant.html">Programme fédéral d'expérience de travail étudiant</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END visible block -->
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-cit" aria-expanded="false" href="#">Immigration et citoyenneté</a>
+
+				<ul id="gc-mnu-cit" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration <span class="hidden-desktop"> et citoyenneté</span><span class="visible-mobile">: accueil</span></a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande.html">Ma demande</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html">Visiter</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada.html">Immigrer</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/travailler-canada.html">Travailler</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada.html">Étudier</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/citoyennete-canadienne.html">Citoyenneté</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/nouveaux-immigrants.html">Nouveaux immigrants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/canadiens.html">Canadiens</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/refugies.html">Réfugiés et octroi de l’asile</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/immigration-citoyennete/application-loi-infractions.html">Application de la loi et infractions</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-cit-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-cit-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/compte.html">Se connecter ou créer un compte pour présenter une demande en ligne</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/verifier-etat.html">Vérifier l’état de sa demande</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/francais/information/delais/index.asp">Vérifier les délais de traitement des demandes</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/francais/centre-aide/index-en-vedette-can.asp">Trouver réponse à ses questions</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html">Immigrer à titre de travailleur qualifié par le biais d’Entrée express</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cic.gc.ca/francais/visiter/visas.asp">Déterminer si vous avez besoin d’une AVE ou d’un visa pour visiter le Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/demande/formulaires-demande-guides.html">Trouver un formulaire de demande</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-travel" aria-expanded="false" href="#">Voyage et tourisme</a>
+
+				<ul id="gc-mnu-travel" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://voyage.gc.ca/">Voyage et tourisme</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/tourisme-canadien">Attraits touristiques, événements et expériences au Canada</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/passeports-canadiens.html">Passeports canadiens</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/voyager">Voyager à l’étranger</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/avion">Voyager en avion</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/retour">Retour au Canada</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/assistance">Assistance à l’étranger</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://voyage.gc.ca/restez-branches">Restez branchés</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.canada.ca/visiter">Visiter le Canada</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-travel-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-travel-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/avertissements">Conseils aux voyageurs et avertissements</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/enfant/lettre-de-consentement">Lettre de consentement recommandée pour les enfants voyageant à l’étranger</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/assistance/ambassades-consulats">Ambassades et consulats</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/assistance/info-d-urgence">Assistance d’urgence à l’étranger</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/retour/douane/ce-que-vous-pouvez-ramener-au-canada">Ce que vous pouvez ramener au Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/inscription">Inscription des Canadiens à l’étranger</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/sante-securite/maladies">Maladies</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/le-cannabis-et-les-voyages-a-l-etranger">Le cannabis et les voyages à l’étranger</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/avion/faites-vos-bagages">Ce que vous pouvez apporter en avion</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://otc-cta.gc.ca/fra/air-averti">Prenez l'air averti : Du point A au point B et de retour à la maison</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/temps-aux-frontieres-us">Temps d’attente à la frontière américaine</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/documents/visas">Visas</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://voyage.gc.ca/voyager/documents/passeport">Passeports canadiens</a></li>
+							</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-biz" aria-expanded="false" href="#">Entreprises et industrie</a>
+
+				<ul id="gc-mnu-biz" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/entreprises.html">Entreprises et industrie</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/lancer.html">Démarrage d&#39;entreprise</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/impots.html">Taxes et impôt des entreprises</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/societes-de-regime-federal.html">Sociétés de régime fédéral</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/engager.html">Embauche et gestion de personnel</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/commerce.html">Commerce international et investissements</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/permis.html">Permis, licences et règlements</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/faire-affaire.html">Faire affaire avec le gouvernement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/innovation.html">Recherche-développement et innovation</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/recherche.html">Recherche et renseignements d&#39;affaires</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d&#39;auteur</a></li>	<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/maintenirfairecroitreameliorerentreprise.html">Administration de votre entreprise</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/proteger.html">Protection de votre entreprise</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/faillites.html">Insolvabilité pour les entreprises</a></li>
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-biz-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-biz-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://achatsetventes.gc.ca/donnees-sur-l-approvisionnement/appels-d-offres">Rechercher des appels d'offres du gouvernement du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/app/scr/cc/CorporationsCanada/fdrlCrpSrch.html?f=&amp;metricsId=GTM-WQQH22">Recherche d'une société de régime fédéralprincipale</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/fra/h_wr00002.html">Marques de commerce</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://fightspam.gc.ca/eic/site/030.nsf/fra/accueil">Loi canadienne anti-pourriel</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/opic-cipo/cpd/fra/introduction.html">Base de données sur les brevets canadiens</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/app/scr/bsf-osb/ins/connexion.html?lang=fra">Recherche de dossiers de faillite et d'insolvabilité</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/app/scr/cc/CorporationsCanada/hm.html?locale=fr_CA">Corporations Canada centre de dépôt en ligne</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://entreprisescanada.ca/fr/histoires-de-reussite/">Histoires de réussite en affaires</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://entreprisescanada.ca/fr/blogue/">Blogue : Améliorer son entreprise</a></li>
+							</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-benny" aria-expanded="false" href="#">Prestations</a>
+
+				<ul id="gc-mnu-benny" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/benefits.html">Prestations</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/ae.html">Assurance-emploi et congés</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/famille.html">Prestations pour familles et proches aidants</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/pensionspubliques.html">Pensions publiques</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/etudes.html">Études et formation</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/logement.html">Prestations relatives au logement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/handicap.html">Prestations relatives aux personnes handicapées</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.prestationsducanada.gc.ca/">Chercheur de prestations</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-benny-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-benny-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-declaration-internet.html">Remplissez votre déclaration d'assurance-emploi</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tpsgc-pwgsc.gc.ca/recgen/txt/depot-deposit-fra.html">Inscrivez-vous au dépôt direct</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/emploi-developpement-social/services/mon-dossier.html">Accédez à Mon dossier Service Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cra-arc.gc.ca/esrvc-srvce/tx/ndvdls/myccnt/menu-fra.html">Mon dossier pour les particuliers (Agence du revenu du Canada)</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/emploi-developpement-social/services/education/pret-etudiants.html">Demande de prêt d'études</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.veterans.gc.ca/fra/endirect">Mon dossier ACC (Anciens Combattants Canada)</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cra-arc.gc.ca/bnfts/clcltr/cfbc-fra.html">Calculateurs de prestations pour enfants et familles</a></li>
+							</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-health" aria-expanded="false" href="#">Santé</a>
+
+				<ul id="gc-mnu-health" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/sante.html">Santé</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/aliments-et-nutrition.html">Aliments et nutrition</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-publique/services/maladies.html">Maladies et affections</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-publique/sujets/immunisation-et-vaccins.html">Vaccins et immunisation</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/medicaments-et-produits-sante.html">Médicaments et produits de santé</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/securite-produits.html">Sécurité des produits</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/securite-et-risque-pour-sante.html">Sécurité et risque pour la santé</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/vie-saine.html">Vie saine</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/sante-autochtones.html">Santé des Autochtones</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/systeme-et-services-sante.html">" Système et services de santé</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/sante/science-recherche-et-donnees.html">Science, recherche et données</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-health-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-health-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/usage-marijuana-fins-medicales/producteurs-autorises/producteurs-autorises-approves-medicales.html">Producteurs de cannabis à des fins médicales approuvés</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.canadiensensante.gc.ca/recall-alert-rappel-avis/index-fra.php">Rappels et avis</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-canada/services/guides-alimentaires-canada.html">Guides alimentaires du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-publique/services/maladies/maladie-lyme.html">Maladie de Lyme</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/base-donnees-produits-pharmaceutiques.html">Base de données sur les produits pharmaceutiques</a></li>
+							</ul>
+					</li>
+				</ul>
+			</li>
+
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-taxes" aria-expanded="false" href="#">Impôts</a>
+
+				<ul id="gc-mnu-taxes" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/impots.html">Impôts</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/impot-sur-le-revenu.html">Impôt sur le revenu</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/tpstvh.html">TPS/TVH</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/retenues-sur-la-paie.html">Retenues sur la paie</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/numero-dentreprise.html">Numéro d’entreprise</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/regimes-depargne-et-de-pension.html">Régimes d’épargne et de pension</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/prestations-pour-enfants-et-familles.html">Prestations pour enfants et familles</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/taxes-daccise-droits-et-prelevements.html">Taxes d’accise, droits et prélèvements</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots/bienfaisance.html">Organismes de bienfaisance et dons</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-taxes-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-taxes-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html">Mon dossier</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-entreprises/dossier-entreprise.html">Mon dossier d'entreprise</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/representer-client.html">Représenter un client</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques.html">Tous les services en ligne </a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-entreprises/impotnet-tps-tvh.html">IMPÔTNET TPS/TVH</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/faire-paiement-a-agence-revenu-canada.html">Paiements</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-revenu/services/formulaires-publications.html">Formulaires et publications</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-enviro" aria-expanded="false" href="#">Environnement et ressources naturelles</a>
+
+				<ul id="gc-mnu-enviro" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/environnement.html">Environnement et ressources naturelles</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://weather.gc.ca/canada_e.html">Weather, climate and hazards</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/energie.html">Énergie</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/ressources-naturelles.html">Ressources naturelles</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/pratiques-agricoles.html">Pratiques agricoles</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment/fisheries.html">Fisheries</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/faune-flore-especes.html">Faune, flore et espèces</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/pollution-gestion-dechets.html">Pollution et gestion des déchets</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/environnement/conservation.html">Conservation et protection de l'environnement</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-enviro-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-enviro-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="http://meteo.gc.ca/">Météo actuelle et prévisions pour ma communauté </a></li>
+							<li role="none presentation"><a role="menuitem" href="http://meteo.gc.ca/radar/index_f.html">Radar pour ma région</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/environnement-changement-climatique/services/programme-urgences-environnementales/personnes-ressources-province.html">Urgences environnementales : personnes-ressources par province </a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.dfo-mpo.gc.ca/fm-gp/sdc-cps/licence-permis-fra.htm">Obtenez votre permis de pêche commerciale en ligne</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://oee.nrcan.gc.ca/pml-lmp/index.cfm?language_langue=fr&amp;action=app.welcome-bienvenue&amp;attr=0">Trouvez un appareil à haut rendement énergétique ou un autre produit </a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/environnement-changement-climatique/services/sciences-technologies/programme-deversements-hydrocarbures-mer-arctique.html">41e Colloque technique de l’AMOP sur la contamination de l’environnement et l’intervention </a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-defence" aria-expanded="false" href="#">Sécurité nationale et défense</a>
+
+				<ul id="gc-mnu-defence" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/defense.html">Sécurité nationale et défense</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/securitenationale.html">Sécurité nationale</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/fac.html">Forces armées canadiennes</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/achat-mise-a-niveau-equipement-defense.html">Achat et mise à niveau d’équipement de la Défense</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/surete-transports.html">Sûreté des transports</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/securiserfrontiere.html">Sécuriser la frontière</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/cybersecurite.html">Cybersécurité</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/defense/emplois.html">Emplois en sécurité nationale et en défense</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/gouvernement/fonctionpublique/avantagesmilitaires.html">Services et avantages sociaux du personnel militaire</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-defence-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-defence-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/ministere-defense-nationale/services/emplois-fac/trouver-un-emploi.html">Trouver un emploi dans les FAC</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.forces.gc.ca/fr/communaute-fac-paye/solde-taux.page">Taux de solde des militaires</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cbsa-asfc.gc.ca/job-emploi/bso-asf/menu-fra.html">Devenir agent de l’Agence des services frontaliers du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.rcmp-grc.gc.ca/recruiting-recrutement/index-fra.htm">Carrières à la Gendarmerie royale du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.cse-cst.gc.ca/fr/careers-carrieres/professionals-professionnels/opportunities">Possibilités d’emploi au Centre de la sécurité des télécommunications</a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-culture" aria-expanded="false" href="#">Culture, histoire et sport</a>
+
+				<ul id="gc-mnu-culture" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/culture.html">Culture, histoire et sport</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/patrimoine-canadien/services/financement.html">Financement - Culture, histoire et sport</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/evenements-celebrations-commemorations.html">Événements, célébrations et commémorations</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/attraits-culturels.html">Lieux et attraits culturels</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/identite-canadienne-societe.html">Identité canadienne et société</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/sport.html">Sport</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine.html">Histoire et patrimoine</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/arts-media.html">Arts et média</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/programmes-culturels-jeunes.html">Programmes culturels pour les jeunes</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/commerce-investissement-culturels.html">Commerce et investissement culturels</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-culture-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-culture-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/culture/histoire-patrimoine/genealogie-histoire-familiale.html">Généalogie et histoire familiale</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.pc.gc.ca/fr/pn-np/recherche-parcs-parks-search">Trouvez un parc national</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/patrimoine-canadien/services/hymnes-canada.html">Hymnes du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/patrimoine-canadien/services/journees-importantes-commemoratives.html">Journées importantes et commémoratives</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/patrimoine-canadien/campagnes/bal-neige.htmll">Bal de Neige</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/patrimoine-canadien/campagnes/fete-canada.html">La fête du Canada dans la capitale</a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-policing" aria-expanded="false" href="#">Services de police, justice et urgences</a>
+
+				<ul id="gc-mnu-policing" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/police.html">Services de police, justice et urgences</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/servicespolice.html">Services de police</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/justice.html">Justice</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/urgences.html">Urgences</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/correctionnels.html">Services correctionnels</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/liberationconditionnelle.html">Libération conditionnelle, suspension du casier, radiation et clémence</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/police/victimes.html">Victimes d'actes criminels</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-policing-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-policing-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="http://www.rcmp-grc.gc.ca/cfp-pcaf/online_en-ligne/index-eng.htm">Demander ou renouveler un permis d'arme à feu</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.rcmp-grc.gc.ca/cr-cj/index-fra.htm">Obtenir une attestation de vérification de casier judiciaire</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.rcmp-grc.gc.ca/cont/index-fra.htm">Signaler un crime</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.getprepared.gc.ca/cnt/plns/index-en.aspx">Make a family emergency plan</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.preparez-vous.gc.ca/cnt/plns/index-fr.aspx">Préparez un plan d'urgence familial</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.justice.gc.ca/fra/jp-cj/rc-ccr/index.html">Présenter une demande de révision d'une condamnation au criminel</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.csc-scc.gc.ca/famille/003004-0002-fra.shtml">Formulaires à remplir pour visiter un délinquantr</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.csc-scc.gc.ca/liberation-conditionnelle/002007-0009-fra.shtml">Embaucher un délinquant d'un bassin de travailleurs hautement qualifiés</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-trans" aria-expanded="false" href="#">Transport et infrastructure</a>
+
+				<ul id="gc-mnu-trans" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/en/services/transport.html">Transport et infrastructure</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/aviation.html">Aviation</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/maritime.html">Transport maritime</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/routier.html">Transport routier</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/ferroviaire.html">Transport ferroviaire</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/marchandises-dangereuses.html">Marchandises dangereuses</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/infrastructures.html">Infrastructure</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-trans-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-trans-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fra/securiteautomobile/VehiculesSecuritaires-Enquetes-index-76.htm">Rappels de véhicules</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/routier/securite-sieges-auto-enfants.html">Sécurité des sièges d'auto pour enfants</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fr/services/aviation/securite-drones.html">Drone safety</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.dfo-mpo.gc.ca/contact/emergency-urgence-fra.htm">Report marine emergencies and concerns</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fra/lois-reglements/reglements-dors96-433.html">Règlement de l'aviation canadien (RAC)</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.marinfo.gc.ca/e-nav/index-fra.php">Navigation par région</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tc.gc.ca/fra/securiteautomobile/vehiculessecuritaires-importation-index-443.htm">Importer un véhicule</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.otc-cta.gc.ca/fra/decisions">Décisions de l'Office des transports du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.bst-tsb.gc.ca/fra/rapports-reports/index.asp">Enquêtes de sécurité des transports</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-canworld" aria-expanded="false" href="#">Canada et le monde</a>
+
+				<ul id="gc-mnu-canworld" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="http://international.gc.ca/world-monde/index.aspx?lang=fra">Canada et le monde</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/offices-bureaux/index.aspx?lang=fra">Bureaux internationaux et contacts d’urgence</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/index.aspx?lang=eng">Study, work and travel worldwide</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/funding-financement/index.aspx?lang=frag">Financement d’initiatives internationales</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/issues_development-enjeux_developpement/index.aspx?lang=fra">Enjeux mondiaux et aide internationale</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://www.canada.ca/fr/services/entreprises/commerce/index.html">Commerce international et investissement</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/international_relations-relations_internationales/index.aspx?lang=fra">Relations internationales</a></li>
+					<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/country-pays/index.aspx?lang=fra">Information par pays et territoires</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://international.gc.ca/world-monde/stories-histoires/index.aspx?lang=fra">Histoires</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-canworld-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-canworld-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/study_work_travel-etude_travail_voyage/authentication-authentification/index.aspx?lang=fra">Authentification des documents</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/issues_development-enjeux_developpement/response_conflict-reponse_conflits/help-aider.aspx?lang=fra">Comment vous pouvez aider en cas de catastrophe à l’étranger</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://w05.international.gc.ca/projectbrowser-banqueprojets/?lang=fra">Banque de projets</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://educanada.ca/study-etudes/index.aspx?lang=fra">Étudier au Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tradecommissioner.gc.ca/eng/home.jsp">Export and expand my business abroad</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.international.gc.ca/investors-investisseurs/index.aspx?lang=fra">Investir ou accroître mes activités au Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.international.gc.ca/sanctions/index.aspx?lang=fra">Information sur les sanctions économiques</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/issues_development-enjeux_developpement/involved-participer/index.aspx?lang=fra">Participer au développement international</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-money" aria-expanded="false" href="#">Argent et finances</a>
+
+				<ul id="gc-mnu-money" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/finance.html">Argent et finances</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/gerer.html">Gérer votre argent</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/dettes.html">Dettes et emprunts</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/epargne.html">Épargne et investissement</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/financementetudes.html">Financement des études</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/pensions.html">Pensions et retraite</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/fraude.html">Protection contre la fraude et les escroqueries</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/outils.html">Calculatrices et outils financiers</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/programmes-litteratie-financiere.html">Programmes de littératie financière</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance/faillite.html">Insolvabilité</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/gouvernement/systeme/finances.html">Finances publiques</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/subventions.html">Subventions et financement pour les entreprises</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/permis/secteursindustriereglementationfederale/regleservicesfinanciers.html">Réglementation des services financiers et monétaires</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-money-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-money-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="http://www.fin.gc.ca/treaties-conventions/in_force--fra.asp">Conventions fiscales : En vigueur</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tbs-sct.gc.ca/rpp/index-fra.asp">Rapports sur les plans et les priorités</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.osfi-bsif.gc.ca/fra/fi-if/amlc-clrpc/atf-fat/Pages/default.aspx">Lutte contre de financement d'activités terroristes</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tbs-sct.gc.ca/dpr-rmr/index-fra.asp">Rapports ministériels sur le rendement</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cra-arc.gc.ca/tx/rgstrd/papspapar-fefespfer/lmts-fra.html">Taux du plafond des cotisations déterminées, plafond des REER, MGAP, plafond des prestations déterminées</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.fin.gc.ca/treaties-conventions/treatystatus_-fra.asp">État des conventions fiscales</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.tbs-sct.gc.ca/ems-sgd/index-fra.asp">Gestion des dépenses</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.osfi-bsif.gc.ca/fra/fi-if/rg-ro/gdn-ort/gl-ld/Pages/default.aspx">Lignes directrices du Bureau du surintendant des institutions financières</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.cra-arc.gc.ca/tx/rgstrd/menu-fra.html">Administrateurs de régimes enregistrés</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://itools-ioutils.fcac-acfc.gc.ca/BC-CB/NetInc-RevNet-fra.aspx">Calculatrice budgétaire</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li role="none presentation">
+				<a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-science" aria-expanded="false" href="#">Science et innovation</a>
+
+				<ul id="gc-mnu-science" role="menu" aria-orientation="vertical">
+					<li role="none presentation">
+						<a role="menuitem" href="https://www.canada.ca/fr/services/science.html">Science et innovation</a>
+					</li>
+
+					<li role="separator"></li>
+
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/financementrecherche.html">Financement, subventions et prix pour la recherche</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/themesscientifiques.html">Thèmes scientifiques</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/donnees-ouvertes.html">Données ouvertes, statistiques et archives</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/instituts.html">Instituts et établissements de recherches</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/innovation.html">R-D et innovation</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/entreprises/pi.html">Propriété intellectuelle et droit d'auteur</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/repertoirescientifiques.html">Répertoire des scientifiques et des professionnels de la recherche</a></li>
+					<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science/ressourcespedagogiques.html">Ressources pédagogiques scientifiques</a></li>
+
+					<li role="separator" aria-orientation="vertical"></li> <!-- Orientation must be horizontal in mobile -->
+
+					<li role="none presentation">
+						<!-- Add tabindex=-1 for tablet and desktop mode -->
+						<a tabindex="-1" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-science-sub" aria-expanded="true">En demande</a>
+						<ul id="gc-mnu-science-sub" role="menu" aria-orientation="vertical"> <!-- Menu is default  aria-orientation="vertical", but in WAI-ARIA 1.0 the default is horizontal, so it may impact -->
+
+							<li role="none presentation"><a role="menuitem" href="https://www.canada.ca/fr/innovation-sciences-developpement-economique/programmes/partenariats-science-technologie/fonds-investissement.html">Fonds d'investissement stratégique pour les établissements postsecondaires</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://bibliotheques-scientifiques.canada.ca/fra/accueil/">Bibliothèque scientifique fédérale</a></li>
+							<li role="none presentation"><a role="menuitem" href="https://www.ic.gc.ca/eic/site/063.nsf/fra/h_A0A2F2CB.html">Collaboration entre les organismes fédéraux de financement de la recherche</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.nrc-cnrc.gc.ca/fra/pari/index.html">Programme d'aide à la recherche industrielle</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://atlas.gc.ca/site/francais/index.html">L'Atlas du Canada</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.charts.gc.ca/index-fra.asp">Cartes marines et services</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.waterlevels.gc.ca/fra/accueil">Marées, courants et niveaux d'eau</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.rncan.gc.ca/sciences-terre/geomatique/systemes-reference-geodesique/10799">Systèmes de référence géodésiques</a></li>
+							<li role="none presentation"><a role="menuitem" href="http://www.nrc-cnrc.gc.ca/fra/services/heure/horloge_web.html">Horloge du web (Les heures officielles au Canada)</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+{{/isnt}}
