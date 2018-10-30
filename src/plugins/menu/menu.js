@@ -6,37 +6,101 @@
 
 var globalTimeoutOn = {},
 	globalTimeoutOff = {},
-	hoverDelay = 350;
+	globalTimeoutOnTry2,
+	globalTimeoutOffTry2,
+	hoverDelay = 350,
+	docRootNode = document.getRootNode().children[ 0 ],
+	justOpened;
 
 function OpenMenu( elm ) {
+
+	// Close the one that is currently open for this level and deeper
+	var parentMenu = elm.parentElement.parentElement;
+
+	var menuOpen = parentMenu.querySelector( "[aria-haspopup][aria-expanded=true]:not(.gcweb-v2-not-tabble-persist)" );
+
+	// Only close other menu in tablet and desktop mode
+	if ( menuOpen && docRootNode.className.indexOf( "smallview" ) === -1 ) {
+		CloseMenu( menuOpen, true );
+	}
+
+	// Open the menu
 	elm.setAttribute( "aria-expanded", "true" );
+
+	justOpened = elm;
+	setTimeout( function() {
+		justOpened = false;
+	}, 200 );
+
 }
-function CloseMenu( elm ) {
+function CloseMenu( elm, force ) {
+
+	if ( !force ) {
+
+		// Can the menu be closed?
+		// Get the menu item that has the focus.
+		var currentFocusIsOn = elm.nextElementSibling.querySelector( "[role=menuitem]:focus" );
+		var siblingHasFocus = elm.parentElement.parentElement.querySelector( "[role=menuitem]:focus" );
+
+		// Check if we keep the menu opon
+		if ( currentFocusIsOn || siblingHasFocus === elm ) {
+			return;
+		}
+	}
 
 	elm.setAttribute( "aria-expanded", "false" );
 }
 
-
 // On hover, wait for the delay before to open the menu
-wb.doc.on( "mouseenter focusin", "[aria-haspopup]", function( event ) {
-
-	var elm = event.currentTarget;
+function OpenMenuWithDelay( elm ) {
 
 	if ( elm.classList.contains( "gcweb-v2-not-tabble-persist" ) ) { // elm.getAttribute( "tabindex") === "-1" ) {
 		return;
 	}
 
-	if ( !elm.id ) {
-		elm.id = wb.getId();
-	}
+	// Prevent any pending to be open to trigger
+	clearTimeout( globalTimeoutOnTry2 );
 
-	clearTimeout( globalTimeoutOn[ elm.id ] );
-
-	globalTimeoutOn[ elm.id ] = setTimeout( function() {
+	globalTimeoutOnTry2 = setTimeout( function() {
 		OpenMenu( elm );
 	}, hoverDelay );
+}
+function CloseMenuWithDelay( elm ) {
+
+	if ( elm.classList.contains( "gcweb-v2-not-tabble-persist" ) ) { // elm.getAttribute( "tabindex") === "-1" ) {
+		return;
+	}
+
+	clearTimeout( globalTimeoutOffTry2 );
+
+	globalTimeoutOffTry2 = setTimeout( function() {
+		CloseMenu( elm );
+	}, hoverDelay );
+}
+
+// Open menu on mouse hovering
+wb.doc.on( "mouseenter", "[aria-haspopup]", function( event ) {
+
+	// There is no "mouseenter" in mobile
+	if ( docRootNode.className.indexOf( "smallview" ) === -1 ) {
+		OpenMenuWithDelay( event.currentTarget );
+	}
+} );
+
+
+wb.doc.on( "focusin", "[aria-haspopup]", function( event ) {
+
+	// Don't open the submenu
+	if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
+		return;
+	}
+
+	// Open the menu, no delay
+	OpenMenu( event.currentTarget );
 
 } );
+
+// The user get inside the submenu, we should cancel the "close" with delay event
 wb.doc.on( "mouseenter focusin", "[aria-haspopup] + [role=menu]", function( event ) {
 
 	// Prevent the menu to collapse
@@ -48,26 +112,34 @@ wb.doc.on( "mouseenter focusin", "[aria-haspopup] + [role=menu]", function( even
 		return;
 	}
 
-	clearTimeout( globalTimeoutOff[ elm.id ] );
+	// There is no "mouseenter" in mobile
+	if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
+		return;
+	}
+	clearTimeout( globalTimeoutOnTry2 );
+	clearTimeout( globalTimeoutOffTry2 );
 } );
 
-wb.doc.on( "mouseleave focusout", "[aria-haspopup]", function( event ) {
 
-	var elm = event.currentTarget;
+wb.doc.on( "mouseleave", "[aria-haspopup]", function( event ) {
 
-	// Note: elm.id is already defined because of the mouseenter event
+	// There is no "mouseenter" in mobile
+	if ( docRootNode.className.indexOf( "smallview" ) === -1 ) {
+		CloseMenuWithDelay( event.currentTarget );
+	}
+} );
 
-	if ( elm.classList.contains( "gcweb-v2-not-tabble-persist" ) ) { // elm.getAttribute( "tabindex") === "-1" ) {
+wb.doc.on( "focusout", "[aria-haspopup]", function( event ) {
+
+	// Don't close the submenu
+	if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
 		return;
 	}
 
-	clearTimeout( globalTimeoutOff[ elm.id ] );
-
-	globalTimeoutOff[ elm.id ] = setTimeout( function() {
-		CloseMenu( elm );
-	}, hoverDelay );
-
+	// Don't close it if the user go in the submenu
+	CloseMenuWithDelay( event.currentTarget );
 } );
+
 wb.doc.on( "mouseleave focusout", "[aria-haspopup] + [role=menu]", function( event ) {
 
 	// Collapse the menu
@@ -79,6 +151,11 @@ wb.doc.on( "mouseleave focusout", "[aria-haspopup] + [role=menu]", function( eve
 		return;
 	}
 
+	// There is no "mouseleave" in mobile
+	if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
+		return;
+	}
+
 	clearTimeout( globalTimeoutOn[ elm.id ] );
 
 	globalTimeoutOff[ elm.id ] = setTimeout( function() {
@@ -86,28 +163,73 @@ wb.doc.on( "mouseleave focusout", "[aria-haspopup] + [role=menu]", function( eve
 	}, hoverDelay );
 } );
 
+
+/* **** Do we need to handle the click??? that will be handled by the "focusin" and "focusout" if something */
+/*
+   Menu current state is...       | Action
+  --------------------------------+------------------
+    Open                          |  Close the menu
+  --------------------------------+------------------
+    Delay to be open              |  Open the menu right now
+  --------------------------------+------------------
+    Short delay after it was open |  Keep the menu open
+  --------------------------------+------------------
+    Close                         |  Open the menu
+  --------------------------------+------------------
+*/
+
 // Open right away the popup
 wb.doc.on( "click", "[aria-haspopup]", function( event ) {
 
 	var elm = event.currentTarget;
 
-	// Note: elm.id is already defined because of the mouseenter event
+	// Only for mobile view
+	if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
 
-	if ( elm.classList.contains( "gcweb-v2-not-tabble-persist" ) ) { // elm.getAttribute( "tabindex") === "-1" ) {
-		return;
+		// Toggle
+		if ( elm.getAttribute( "aria-expanded" ) === "true" ) {
+			if ( justOpened !== elm ) {
+				CloseMenu( elm, true );
+			}
+		} else {
+			OpenMenu( elm );
+		}
+
+		// Stop default behaviour
+		event.stopImmediatePropagation();
+		event.preventDefault();
 	}
-
-	// Toggle
-	if ( elm.getAttribute( "aria-expanded" ) === "true" ) {
-		clearTimeout( globalTimeoutOn[ elm.id ] );
-		CloseMenu( elm );
-	} else {
-		clearTimeout( globalTimeoutOff[ elm.id ] );
-		OpenMenu( elm );
-	}
-
 } );
 
+function CollapseThirdMenuLevel() {
+
+	// Expand the "most requested" link
+	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu]" ),
+		i, i_len = mnu3Level.length;
+
+	for ( i = 0; i < i_len; i++ ) {
+		mnu3Level[ i ].setAttribute( "aria-expanded", "false" );
+	}
+}
+
+function ExpandThirdMenuLevel() {
+
+	// Expand the "most requested" link
+	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu]" ),
+		i, i_len = mnu3Level.length;
+
+	for ( i = 0; i < i_len; i++ ) {
+		mnu3Level[ i ].setAttribute( "aria-expanded", "true" );
+	}
+}
+
+wb.doc.on( "mediumview.wb largeview.wb xlargeview.wb", ExpandThirdMenuLevel );
+wb.doc.on( "smallview.wb xsmallview.wb", CollapseThirdMenuLevel );
+
+// If we are in mobile, collapse the third menu level
+if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
+	CollapseThirdMenuLevel();
+}
 
 //
 // Initialisation of the keyboard navigation
@@ -131,11 +253,11 @@ function keycode( code ) {
 		return "tab";
 	}
 
-	if ( code === 13 ) {
+	if ( code === 13 || code === 32 ) {
 		return "enter";
 	}
 	if ( code === 27 ) {
-		return "exit";
+		return "esc";
 	}
 	if ( code === 39 ) { //right arrow
 		return "right";
@@ -221,21 +343,46 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 		}
 	}
 
-	if ( key === "down" && nextSiblingMenuItem ) {
-		nextSiblingMenuItem.focus();
+	var elmToGiveFocus;
+
+	if ( key === "down" && nextSiblingMenuItem  ) {
+		elmToGiveFocus = nextSiblingMenuItem;
 	} else if ( key === "up" && previousSiblingMenuItem ) {
-		previousSiblingMenuItem.focus();
-	} else if ( key === "right" && firstChildPopup ) {
-		firstChildPopup.focus();
-	} else if ( key === "left" ) {
-		parentPopupBtn.focus();
+		elmToGiveFocus = previousSiblingMenuItem;
+	} else if ( key === "right" && firstChildPopup || key === "enter" && firstChildPopup ) {
+		elmToGiveFocus = firstChildPopup;
+	} else if ( key === "left" ||  key === "esc" ) {
+		elmToGiveFocus = parentPopupBtn;
 	} else if ( key  === "tab"  ) {
 		return;
+	}
+
+	if ( key === "left" ||  key === "esc" ) {
+
+		// Close the menu
+		if ( docRootNode.className.indexOf( "smallview" ) !== -1 &&
+				elmToGiveFocus.getAttribute( "aria-expanded" ) === "true" ) {
+			elmToGiveFocus.setAttribute( "aria-expanded", "false" );
+		}
+	}
+
+	// Focus on the element, check if visible before if we are on mobile
+
+	if ( elmToGiveFocus ) {
+		if ( docRootNode.className.indexOf( "smallview" ) !== -1 ) {
+			var popup = elmToGiveFocus.parentElement.parentElement.previousElementSibling;
+			if ( popup.getAttribute( "aria-expanded" ) !== "true" ) {
+
+				// Open the menu, no delay
+				OpenMenu( popup );
+			}
+		}
+
+		elmToGiveFocus.focus();
 	}
 
 	// Stop default behaviour
 	event.stopImmediatePropagation();
 	event.preventDefault();
-
 
 } );

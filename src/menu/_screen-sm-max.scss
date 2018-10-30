@@ -1,0 +1,143 @@
+/*
+  WET-BOEW
+  @title: Small view and under (screen only)
+ */
+
+.gcweb-v2 {
+
+	/*
+	 * Mobile - first level
+	 */
+
+	[role=menu] {
+		position: static;
+	}
+
+	button[aria-haspopup=menu][aria-expanded=true] + [role=menu] {
+		width:95%;
+	}
+
+	[role=menuitem] {
+		width: auto;
+	}
+
+	/*
+	 * Mobile - Second level
+	 */
+
+	/* Reset the style set by the panel */
+	[role=menu] [role=menu] li:first-child [role=menuitem] {
+		font-size: 18px;
+		font-weight: 400;
+		text-decoration: underline;
+		width: auto;
+	}
+	[role=menu] {
+		width: auto;
+	}
+	[role=menu] [role=menu] {
+		box-shadow: none;
+		margin-bottom: 0;
+		min-height: auto;
+		padding: 0;
+		width: auto;
+	}
+
+	[role="menu"] [role="menu"] li {
+		width: auto;
+	}
+	button:hover {
+		text-decoration: underline;
+	}
+	button + [role=menu] [role="menuitem"][aria-expanded=false]:hover,
+	button + [role=menu] [role="menuitem"][aria-expanded=false]:focus {
+		background: transparent;
+		color:#fff;
+	}
+	button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:hover,
+	button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:focus {
+		color:#000;
+	}
+
+	[role="menu"] [role="menu"] li:first-child {
+		margin-bottom:0px;
+	}
+
+	[role="menu"] [role="menu"] li [role="menuitem"] {
+		padding-bottom: 14px;
+		padding-left: 0;
+		padding-right: 30px;
+		padding-top: 14px;
+	}
+
+	[aria-expanded=true]:not(button) + [role=menu] li {
+		margin-left: 65px;
+	}
+
+	[aria-expanded=true]:not(button) + [role=menu] li:first-child [role=menuitem],
+	[aria-expanded=true]:not(button) + [role=menu] li:last-child [role=menuitem] {
+		padding-left: 65px;
+	}
+
+	[aria-expanded=true]:not(button) + [role=menu] li:first-child,
+	[aria-expanded=true]:not(button) + [role=menu] li:last-child {
+		margin-left: 0px;
+	}
+
+	/* Arrow for menu item with submenu */
+	[aria-haspopup]:not(button)::before,
+	[role=treegrid] > [role=row] > [role=rowheader]::before {
+		content: "\25BA\a0";
+	}
+	[aria-haspopup][aria-expanded=true]:not(button)::before,
+	[role=treegrid] > [role=row][aria-expanded=true] > [role=rowheader]::before {
+		content: "\25BC\a0";
+	}
+
+	/* Menu text style */
+	[role=menu] [role=menu] [role=menuitem], /* default style */
+	[role=menu] [role=menu] li:first-child [role=menuitem] /*this line is an overwride*/ {
+		border-bottom: 1px solid #ccc;
+		color: #000;
+		text-decoration: none;
+	}
+	[role=menu] [role=menu] [role=menuitem]:hover, /* default style */
+	[role=menu] [role=menu] [role=menuitem]:focus, /* default style */
+	[role=menu] [role=menu] li:first-child [role=menuitem]:hover, /*this line is an overwride*/
+	[role=menu] [role=menu] li:first-child [role=menuitem]:focus /*this line is an overwride*/ {
+		color: #000;
+		text-decoration: underline;
+	}
+
+	[role=menu] [role=menu] li:first-child [role=menuitem],
+	[role=menu] [role=menu] li:last-child [role=menuitem] {
+		background-color: #e1e1e1;
+	}
+
+	/* Mobile - Third level */
+
+	[role="menu"] [role="menu"] li:last-child {
+		left: auto;
+		position: static;
+		top: auto;
+	}
+	[role="menu"] [role="menu"] li:last-child [role="menu"] {
+		list-style: none;
+	}
+
+	[aria-expanded=true] + [role=menu] [role=menu] [role=menu] {
+		background-color: #e1e1e1;
+	}
+
+	[aria-expanded=true]:not(button) + [role=menu] [role=menu] li {
+		margin-left: 100px;
+	}
+
+	[aria-expanded=true]:not(button) + [role=menu] li:last-child [role=menu] [role=menuitem] {
+		padding-left: 0px;
+	}
+
+	[role=menu] [role=menu] [role=menu] li {
+		width: auto;
+	}
+}
