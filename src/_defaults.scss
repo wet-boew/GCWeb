@@ -16,9 +16,9 @@ main {
 	}
 }
 
-.cnt-width {
+.cnt-width main {
 	p, li, dt, dd {
-		width: 70ch;
+		max-width: 70ch;
 	}
 
 	p {
@@ -323,17 +323,17 @@ details {
  */
 .list-responsive {
 
-	li {
+	> li {
 		float: left;
+		padding-right: 5px;
 		width: 50%;
 
 		&:nth:child(2n+2) {
 			clear:right;
 		}
-	}
-
-	&:after {
-		clear: both;
+		&:last-child:after {
+			clear: both;
+		}
 	}
 }
 
