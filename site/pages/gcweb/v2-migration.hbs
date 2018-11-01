@@ -1,0 +1,410 @@
+---
+{
+	"title": "Migration instruction - GCWeb theme V2",
+	"language": "en",
+	"altLangPrefix": "v2-migration",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "http://wet-boew.github.io/themes-dist/GCWeb/index-en.html" },
+		{ "title": "Theme meta", "link": "http://wet-boew.github.io/themes-dist/GCWeb/gcweb/index.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2018-11-01",
+	"share": "true"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<p>On this page:</p>
+
+<ul>
+	<li><a href="#pg-footer">Page footer</a></li>
+	<li><a href="#pg-header">Page header</a></li>
+	<li><a href="#pg-menu">Menu</a></li>
+	<li><a href="#pg-home">Home Page</a></li>
+	<li><a href="#pg-dblspcd">Double space for list</a></li>
+	<li><a href="#pg-list">Responsive list</a></li>
+	<li><a href="#pg-linkfigure">Linked figure design pattern</a></li>
+</ul>
+
+
+<h2 id="pg-footer">Page footer</h2>
+
+<h3>How to update</h3>
+<ul>
+	<li>Wrap the first navigation with a "div.landscape"</li>
+	<li>Cleanup: Remove the aria role "contentinfo" on the footer element</li>
+	<li>Cleanup: Remove the aria role "navigation" on the nav element</li>
+</ul>
+
+<h3>Migration notes</h3>
+<ul>
+	<li>The new look would be only effective after the markup change is completed</li>
+	<li>If the markup change is not completed, the original style will continue to be applied</li>
+</ul>
+
+<h3>Markup before</h3>
+<pre><code>&lt;footer role="contentinfo" id="wb-info"&gt;
+	&lt;nav role="navigation" class="container wb-navcurr"&gt;
+		&lt;h2 class="wb-inv"&gt;[[{i18n "tmpl-about-government"]]}&lt;/h2&gt;
+		[[footercontent]]
+	&lt;/nav&gt;
+	[[footerbrand]]
+&lt;/footer&gt;</code></pre>
+
+<h3>Updated markup</h3>
+<pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="landscape"&gt;
+		&lt;nav class="container wb-navcurr"&gt;
+			&lt;h2 class="wb-inv"&gt;[[{i18n "tmpl-about-government"]]}&lt;/h2&gt;
+			[[footercontent]]
+		&lt;/nav&gt;
+	&lt;/div&gt;
+	[[footerbrand]]
+&lt;/footer&gt;</code></pre>
+
+
+<h2 id="pg-header">Page header</h2>
+
+<h3>Note to designer</h3>
+<ul>
+	<li>Can't use "font-smoothing:antialiased" not standard and is currently not on the standard track.</li>
+	<li>The Custom Google Font may represent a Privacy issue. An alternative must be found.</li>
+	<li>We were not able to reproduce the larger width of the search field.</li>
+</ul>
+
+<h3>How to update</h3>
+<ul>
+	<li>Change the CSS class on the left top FIP and on the Search section</li>
+	<li>Remove the "mobile menu" div placeholder.</li>
+	<li>Update the JS</li>
+	<li>Update the markup for the menu, the new menu are independent from the previous one</li>
+	<li>Update the attribute on the input search field.</li>
+</ul>
+
+<h3>Migration notes</h3>
+<ul>
+	<li>The home page need to include an additional CSS class in order to style the menu differently. Like to add the CSS class "home" to the "<code>&lt;body&gt;</code>" element.</li>
+	<li>The color for the search button would be automated updated when the new style is applied.</li>
+	<li>Menu
+		<ul>
+			<li>Need to use a migration strategy and continu to support the old menu style.</li>
+			<li>Currently in our demo, the menu have a new ID which will apply
+				<ul>
+					<li>the "border-top" added at the top of the menu.</li>
+					<li>Styling of the menu button.</li>
+					<li>The new menu require to update the theme.min.js</li>
+					<li>It don't use the menu plugin in WET.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Main body remove the unnecessary aria role [role=main] set on the &lt;main&gt; element.</li>
+	<li>Review the text for skip link, they were a change a year ago to change 'Skip: "About this site"' for 'Skip: "About government"'. In French it is from 'Passer à « À propos de ce site »' for 'Passer à « Au sujet du gouvernement »'</li>
+</ul>
+
+<h3>Markup before</h3>
+<pre><code>&lt;header role="banner"&gt;
+	&lt;div id="wb-bnr" class="container"&gt;
+		&lt;section id="wb-lng" class="visible-md visible-lg text-right"&gt;
+			&lt;h2 class="wb-inv"&gt;Language selection&lt;/h2&gt;
+			&lt;div class="row"&gt;
+				&lt;div class="col-md-12"&gt;
+					&lt;ul class="list-inline margin-bottom-none"&gt;
+						[[List of available language]]
+					&lt;/ul&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/section&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="brand col-xs-8 col-sm-9 col-md-6"&gt;
+				&lt;a href="https://www.canada.ca/en.html"&gt;&lt;img src="./GCWeb/assets/sig-blk-en.svg" alt=""&gt;&lt;span class="wb-inv"&gt; Government of Canada / &lt;span lang="fr"&gt;Gouvernement du Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn"&gt;
+				&lt;h2&gt;Search and menus&lt;/h2&gt;
+				&lt;ul class="list-inline text-right chvrn"&gt;
+				&lt;li&gt;&lt;a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk" role="button"&gt;&lt;span class="glyphicon glyphicon-search"&gt;&lt;span class="glyphicon glyphicon-th-list"&gt;&lt;span class="wb-inv"&gt;Search and menus&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;div id="mb-pnl"&gt;&lt;/div&gt;
+			&lt;/section&gt;
+			&lt;section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg"&gt;
+				&lt;h2&gt;Search&lt;/h2&gt;
+				&lt;form action="#" method="post" name="cse-search-box" role="search" class="form-inline"&gt;
+					[[Begin top right search UI]]
+					&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="[[{i18n "tmpl-search-placeholder"]]}" /&gt;
+					[[End top right search UI]]
+				&lt;/form&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	[[ Menu]]
+	&lt;nav role="navigation" id="wb-bc" property="breadcrumb"&gt;
+		&lt;h2&gt;You are here:&lt;/h2&gt;
+		&lt;div class="container"&gt;
+			&lt;div class="row"&gt;
+				&lt;ol class="breadcrumb"&gt;
+					[[ Breadcrumb items]]
+				&lt;/ol&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+<h3>Updated markup</h3>
+<ul>
+	<li>Removal of CSS visibility class to #wb-lng</li>
+	<li>Removal of the CSS grid (2 div) in #wb-lng</li>
+	<li>Remove unnecessary role (banner, navigation)</li>
+	<li>Search and menus section (.wb-mb-links) was removed</li>
+	<li>Column definition (CSS class) was updated on the top left brand logo</li>
+	<li>Removal of the "div.row" wrapping the breadcrumb ordered list</li>
+	<li>Major remake of the Menu. The menu bar (mega menu) has changed to a menu button (top menu).</li>
+	<li>On the input search field, change the attribute maxlength to "170"</li>
+	<li>On the input search field, change the attribute size to "34"</li>
+</ul>
+
+<p>Note: The breadcrumb re-styling and the markup change would impact the switch over, the breadcrumb might be off from 15 px to the left and to the right. Expected that change would have minor/trivial impact on the user.</p>
+
+<pre><code>&lt;header role="banner"&gt;
+	&lt;div id="wb-bnr" class="container"&gt;
+		&lt;section id="wb-lng" class="text-right"&gt;
+			&lt;h2 class="wb-inv"&gt;Language selection&lt;/h2&gt;
+			&lt;ul class="list-inline margin-bottom-none"&gt;
+				[[List of available language]]
+			&lt;/ul&gt;
+		&lt;/section&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="brand col-xs-5 col-md-4"&gt;
+				&lt;a href="https://www.canada.ca/en.html"&gt;&lt;img src="./GCWeb/assets/sig-blk-en.svg" alt=""&gt;&lt;span class="wb-inv"&gt; Government of Canada / &lt;span lang="fr"&gt;Gouvernement du Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;section id="wb-srch" class="col-lg-8 text-right visible-md visible-lg"&gt;
+				&lt;h2&gt;Search&lt;/h2&gt;
+				&lt;form action="#" method="post" name="cse-search-box" role="search" class="form-inline"&gt;
+					[[Begin top right search UI]]
+					&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="[[{i18n "tmpl-search-placeholder"]]}" /&gt;
+					[[End top right search UI]]
+				&lt;/form&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	[[ Menu]]
+	&lt;nav id="wb-bc" property="breadcrumb"&gt;
+		&lt;h2&gt;You are here:&lt;/h2&gt;
+		&lt;div class="container"&gt;
+			&lt;ol class="breadcrumb"&gt;
+				[[ Breadcrumb items]]
+			&lt;/ol&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+
+
+<h2 id="#pg-menu">Menu</h2>
+
+<h3>How to update</h3>
+<ul>
+	<li>An initial menu with the content and the markup would be available</li>
+	<li>The following is to provide guidance on how it can be updated</li>
+</ul>
+
+<h3>Migration notes</h3>
+<ul>
+	<li>The new markup would be provided</li>
+</ul>
+
+<h3>Technical notes</h3>
+<ul>
+	<li>
+		<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
+		<ul>
+			<li>
+				<p>it's said: WAI-ARIA practice <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12">https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12</a></p>
+				<p><q>5th bullet items that the [role=menuitem] has the [aria-expanded] state</q></p>
+			</li>
+			<li>
+				<p>it's said: <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded">https://www.w3.org/TR/wai-aria-1.1/#aria-expanded</a></p>
+				<p><q>That states is only applicable (Inherits into Roles) for [role=menu] and [role=menubar]. This don't include [role=menuitem]</q></p>
+			</li>
+			<li>
+				<p>it's illustrated: <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html</a></p>
+				<p><q>That the item with the [role=menuitem] has the [aria-expanded] state.</q></p>
+			</li>
+		</ul>
+		<p>So, we need to check the mailing list and the bug list to know if that was notified to W3C WAI group. If not we need to notify them.</p>
+		<p>For now, I implement the pattern as illustrated by WAI-ARIA Practice 1.1</p>
+	</li>
+</ul>
+
+<h3>Menu markup before</h3>
+<pre><code>&lt;nav role="navigation" id="wb-sm" data-ajax-replace="./ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement"&gt;
+	&lt;div class="container nvbar"&gt;
+	&lt;h2&gt;Topics menu&lt;/h2&gt;
+	&lt;div class="row"&gt;
+	&lt;ul class="list-inline menu"&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/jobs.html"&gt;Jobs&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://travel.gc.ca/"&gt;Travel&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/business.html"&gt;Business&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/benefits.html"&gt;Benefits&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/health.html"&gt;Health&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/taxes.html"&gt;Taxes&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="https://www.canada.ca/en/services.html"&gt;More services&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>Updated baseline markup for the menu</h3>
+<ul>
+	<li>The id "wb-sm" removed.</li>
+	<li>The class attribute on the &lt;nav&gt; element is replaced by a new CSS class</li>
+	<li>The CSS class "nvbar" removed from the inner &lt;div&gt;</li>
+	<li>Complete new markup for menu item (Details to be provided separately)</li>
+	<li>There is some translation string and markup variation between language for the button. It's the invisible complementary text.</li>
+</ul>
+
+<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
+		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="menu" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul id="gc-menu" role="menu" aria-labelledby="gc-menubtn"&gt;
+
+		[[ Menu items ]]
+
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>French version</h3>
+<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
+		&lt;button type="button" aria-haspopup="menu" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical"&gt;
+
+		[[ Menu items ]]
+
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>Menu items template</h3>
+<ul>
+	<li>There is one menu item per theme, repeat the following pattern for each theme.</li>
+	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. Example following.</li>
+	<li>The label [[ Most requested text ]] are "En demande" in French</li>
+</ul>
+
+<pre><code>&lt;li role="none presentation"&gt;
+	&lt;a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-" aria-expanded="false" href="#"&gt;[[Theme title]]&lt;/a&gt;
+	&lt;ul id="gc-mnu-" role="menu" aria-orientation="vertical"&gt;
+		&lt;li role="none presentation"&gt;
+			&lt;a role="menuitem" href="https://www.canada.ca/[[path to the theme]]"&gt;[[Theme linked title]]&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li role="separator"&gt;&lt;/li&gt;
+
+[[ For each sub menu for that theme ]]
+		&lt;li role="none presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
+[[ End for each ]]
+
+		&lt;li role="separator" aria-orientation="vertical"&gt;&lt;/li&gt;
+		&lt;li role="none presentation"&gt;
+			&lt;a data-keep-expanded="md-min" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu--sub" aria-expanded="true"&gt;[[ Most requested text ]]&lt;/a&gt;
+			&lt;ul id="gc-mnu--sub" role="menu" aria-orientation="vertical"&gt;
+
+[[ For each most requested item for that theme ]]
+				&lt;li role="none presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
+[[ End for each ]]
+
+			&lt;/ul&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/li&gt;</code></pre>
+
+<h2 id="pg-home">Home Page</h2>
+
+<h3>Note to designer</h3>
+<ul>
+	<li>Both promotion at the bottom would need to be updated to correspond to current one.</li>
+	<li>The promotion markup follow a new design pattern for linked figure.</li>
+	<li>New/added:
+		<ul>
+			<li>Double spacing list for ordered and unordered list: ".lst-dblspcd"</li>
+			<li>Responsive list by applying the CSS class ".list-responsive" on "ol,ul" forth column in large and extra large view; two column for medium and small view; one column for extra small view;</li>
+			<li>Styling for linked figure</li>
+		</ul>
+	</li>
+	<li>The home page top banner background image can be updated through CSS by changing the URL or by replacing the image file "assets/bkg-home-banner.jpg". Idem for the "Your government" section.</li>
+</ul>
+
+<h3>Technical notes</h3>
+<ul>
+	<li>Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</li>
+</ul>
+
+<h3>How to update</h3>
+<ul>
+	<li>Remove the [role=main] set on the &lt;main&gt; element</li>
+	<li>Remove the CSS class "container" on the main element, "container" css class would be manually added in the content.</li>
+	<li>Add the CSS class "home" to the body element</li>
+</ul>
+
+<h3>Migration notes</h3>
+<ul>
+	<li>Add the CSS class "home" to the body element</li>
+	<li>Remove the promotional "&lt;aside&gt;" that was prior the main element.</li>
+	<li>Ensure the &lt;h1&gt; element are included in the editable area. That element is moved inside nested &lt;div&gt; element in the main section.</li>
+	<li>Remove the CSS class "container" on the main element, "container" css class would be manually added in the content.</li>
+</ul>
+
+<h3>Updated markup</h3>
+<p>See the new markup here:</p>
+<ul>
+	<li><a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-en.hbs">https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-en.hbs</a></li>
+	<li><a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-fr.hbs">https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-fr.hbs</a></li>
+</ul>
+
+<h2 id="pg-dblspcd">Double space for list</h2>
+
+<p>Double spacing list for ordered and unordered list is now available. It can be applied by using the CSS class ".lst-dblspcd".</p>
+<p>Note: This feature was introduced with his re-design and are currently only for this theme.</p>
+
+<h2 id="pg-list">Responsive list</h2>
+<p>Responsive list by applying the CSS class ".list-responsive" on "ol,ul".</p>
+<p>The behavior is:</p>
+<ul>
+	<li>The list is rendered in forth column in large and extra large view.</li>
+	<li>The list is rendered in two column for medium and small view.</li>
+	<li>The list is rendered in one column for extra small view.</li>
+</ul>
+
+<p>Tips: If some of your items in your list are rendered in two line or more, use the WET equal height plugin (wb-eqht) on the "ol,ul" element.</p>
+<p>Note: This feature was introduced with his re-design and are currently only for this theme.</p>
+
+<h2 id="pg-linkfigure">Linked figure design pattern</h2>
+<p>This pattern is to have the whole figure to be a clickable area, but to only style the figcaption as a link. The focus visible area is the whole figure.</p>
+
+<h3>How to use it</h3>
+<ul>
+	<li>Wrap an anchor on a figure element</li>
+	<li>Add the CSS class ".figcaption" to the anchor</li>
+	<li>The &lt;figcaption&gt; as a child to the &lt;figure&gt; element are required.</li>
+	<li>This style must not be used if the figcaption are missing from the figure element.</li>
+</ul>
+
+<p>Minimal example:</p>
+<pre><code>&lt;a class="figcaption" href="#"&gt;
+	&lt;figure&gt;
+		&lt;figcaption&gt;A figure caption linked&lt;/figcaption&gt;
+		[[ content ]]
+	&lt;/figure&gt;
+&lt;/a&gt;</code></pre>
+
+<p>Example with the home page use case:</p>
+<pre><code>&lt;a class="figcaption" href="#"&gt;
+	&lt;figure class="well well-sm brdr-rds-0"&gt;
+		&lt;img class="img-responsive full-width" src="[[assets]]/img/520x200.png" alt=""/&gt;
+		&lt;figcaption class="h5"&gt;A figure caption linked&lt;/figcaption&gt;
+		&lt;p class="small"&gt;Short description or intro linked paragraph that correspond to this figure&lt;/p&gt;
+	&lt;/figure&gt;
+&lt;/a&gt;</code></pre>
