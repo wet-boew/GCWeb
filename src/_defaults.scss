@@ -105,7 +105,7 @@ h5,
 
 h6,
 .h6 {
-	font-size: 16px;
+	font-size: 17px;
 }
 
 // Common heading style
@@ -167,6 +167,7 @@ aside {
  * - views/_screen-lg-min
  * - views/_screen-xs-min-to-screen-xs-max
  * - views/_screen-md-min-to-screen-md-max
+ * - views/_screen-md-max
  * - views/_screen-xs-max
  */
 .home-banner {
@@ -181,6 +182,7 @@ aside {
 		width: 50%;
 
 		h1 {
+			border-bottom-width: 4px;
 			font-weight: 500;
 			margin-top: 10px;
 		}
@@ -448,75 +450,6 @@ a.figcaption {
 			.wb-share-inited {
 				@extend %gcweb-pagedetails-children-margin-top;
 			}
-		}
-	}
-}
-
-/* IE */
-.lt-ie9 {
-	h1,
-	.h1 {
-		font-size: 27px !important;
-	}
-
-	h2,
-	.h2 {
-		font-size: 25px;
-	}
-
-	h3,
-	.h3 {
-		font-size: 22px;
-	}
-
-	h4,
-	.h4 {
-		font-size: 20px;
-	}
-
-	h5,
-	.h5 {
-		font-size: 18px;
-	}
-
-	h6,
-	.h6 {
-		font-size: 16px;
-		font-weight: bold;
-	}
-
-	// overrides from ie8-wet-boew.css for thumbnails
-	.priorities,
-	.features {
-		.thumbnail {
-			display: inline-block;
-
-			> img,
-			a > img {
-				display: inline-block;
-			}
-		}
-	}
-
-	.priorities {
-		.thumbnail {
-			background-color: $profile-gray;
-		}
-	}
-
-	/*
-	 Normalizes IE8 behaviour with floated boxes and border-box model. IE without it reports back an incorrect Offset.
-	 */
-	.sect-lnks {
-		vertical-align: top !important;
-	}
-
-	/*
-	* Fixes width of FIP PNG on Institutional pages
-	*/
-	.inst-brand {
-		img {
-			width: 100%;
 		}
 	}
 }
