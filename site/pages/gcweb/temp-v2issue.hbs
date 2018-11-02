@@ -8,7 +8,7 @@
 		{ "title": "Theme meta", "link": "http://wet-boew.github.io/themes-dist/GCWeb/gcweb/index.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2018-11-01",
+	"dateModified": "2018-11-02",
 	"share": "true"
 }
 ---
@@ -23,7 +23,8 @@
 	<li>Item 18. Fixed on November 2, 2018 - The CSS class <code>.h6</code> was applied for each dormat link title and the initiative item title.</li>
 	<li>Item 19. Fixed on November 2, 2018 - A large margin bottom was added to the "Focus on" section.</li>
 	<li>Item 20. Fixed on November 2, 2018 - Yes the image wasn't tall enought, I croped the image to a size 465x750 and now it scale and take the full height.</li>
-	<li>Item 22. Comment on November 2, 2018 - (Going to be fix later) We will apply a temporary an automated solution only for WMS, but for implementer outside WMS, this update will require a markup change for all Topic pages/Institutional/Theme pages. etc... because the dormat link size was set to the same height of an heading level 5, now if the requirement is to have it at 17px, that means they need to match the size of heading level 6 (<code>.h6</code>).</li>
+	<li>Item 21. Fixed on November 2, 2018 - To note that in the Content and IA spec, figure 1 is outdated as per this requirement. See location of the illustrated date modified.</li>
+	<li>Item 22. Fixed on November 2, 2018 - (Going to be fix later) We will apply a temporary an automated solution only for WMS, but for implementer outside WMS, this update will require a markup change for all Topic pages/Institutional/Theme pages. etc... because the dormat link size was set to the same height of an heading level 5, now if the requirement is to have it at 17px, that means they need to match the size of heading level 6 (<code>.h6</code>).</li>
 	<li>
 		<p>Item 23. Comment on November 2, 2018 - Before to use it, I recommend to look at it further. It is explicitly said that anti-aliasing CSS is not in a standard track and it is recommended to avoid. Currently that feature is only limited to webkit browser and FF by applying some prefix vendor. I didn't deeply research, but I can easily assume that if that feature was drop it is because maybe a similar effect can be acheived by using another methodoly. My recommendation before to set that CSS is to do a little bit more research and try to find out if there alternative solution that would be cross-browser compatible.</p>
 		<p>See:</p>
@@ -94,8 +95,8 @@
 	<li>Fixed - Item 18. Home page: Doormat font size - 20px in WET, should be 17px</li>
 	<li>Fixed - Item 19. Home page: Missing spacing between end of "Focus on" doormats and "Your government" section.</li>
 	<li>Fixed - Item 20. Home page: On tablet view, the "Your government image" should run to the top and bottom edge, not create a gap, is this because the image provided is not tall enough?</li>
-	<li>Item 21. Home page: Date modified goes under Report a problem, as per latest spec</li>
-	<li>Comments - Item 22. Topic pages/Institutional/Theme pages, etc: Doormat font size – 20px in WET, should be 17px</li>
+	<li>Fixed - Item 21. Home page: Date modified goes under Report a problem, as per latest spec</li>
+	<li>Fixed - Item 22. Topic pages/Institutional/Theme pages, etc: Doormat font size – 20px in WET, should be 17px</li>
 	<li>Comments/Won't fix - Item 23. General fonts and such: Seems like anti-aliasing isn’t on – there are various settings in https://gc-proto.github.io/design-refresh/tests/cleanup4/css/desktop-mm.css related to that...like -webkit-font-smoothing: antialiased;</li>
 	<li>Comments - Item 24. The particularly important ones: We had headers/doormat paragraph change size for mobile to make them larger and easier to use:
 		<ul>
@@ -106,4 +107,6 @@
 	</li>
 	<li>Comment - Item 28: Also on pages other than the homepage, the menu opens really wide before you select a theme.</li>
 	<li>Fixed - Item 29: Typo: was "The official website of the Governement of Canada"; should be: "The official website of the Government of Canada", There in not "e" between "n" and "m" in "Government"</li>
+	<li>Item 30: In GCWeb for maintenance - Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</li>
+	<li>Item 31: Format the date modified like "{Full month} {Day number}, {4 digit year}". The previous date format would need to be set to the <code>datetime</code> attribute of the current <code>&lt;time&gt;</code> element.</li>
 </ul>
