@@ -201,38 +201,46 @@ wb.doc.on( "click", "[aria-haspopup]", function( event ) {
 	}
 } );
 
-function CollapseThirdMenuLevel() {
+function transformForMobileMode() {
 
 	isMobileMode = true;
 
+	// CollapseThirdMenuLevel
 	// Expand the "most requested" link
 	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu]" ),
 		i, i_len = mnu3Level.length;
 
 	for ( i = 0; i < i_len; i++ ) {
 		mnu3Level[ i ].setAttribute( "aria-expanded", "false" );
+
+		// Change the orientation of the preceding separator
+		mnu3Level[ i ].parentElement.previousElementSibling.setAttribute( "aria-orientation", "horizontal" );
 	}
 }
 
-function ExpandThirdMenuLevel() {
+function transformForDesktopMode() {
 
 	isMobileMode = false;
 
+	// ExpandThirdMenuLevel
 	// Expand the "most requested" link
 	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu]" ),
 		i, i_len = mnu3Level.length;
 
 	for ( i = 0; i < i_len; i++ ) {
 		mnu3Level[ i ].setAttribute( "aria-expanded", "true" );
+
+		// Change the orientation of the preceding separator
+		mnu3Level[ i ].parentElement.previousElementSibling.setAttribute( "aria-orientation", "vertical" );
 	}
 }
 
-wb.doc.on( "mediumview.wb largeview.wb xlargeview.wb", ExpandThirdMenuLevel );
-wb.doc.on( "smallview.wb xsmallview.wb", CollapseThirdMenuLevel );
+wb.doc.on( "mediumview.wb largeview.wb xlargeview.wb", transformForDesktopMode );
+wb.doc.on( "smallview.wb xsmallview.wb", transformForMobileMode );
 
 // If we are in mobile, collapse the third menu level
 if ( isMobileMode ) {
-	CollapseThirdMenuLevel();
+	transformForMobileMode();
 }
 
 //
@@ -287,13 +295,10 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 
 
 	// Get the menu item that has the focus.
-	var currentFocusIsOn = document.querySelector( "[role=menuitem]:focus" );
-
-	if ( !currentFocusIsOn ) {
-		currentFocusIsOn = elm;
-	}
-
-	var isCurrentButtonMenu = ( currentFocusIsOn.nodeName === "BUTTON" );
+	var currentFocusIsOn = document.querySelector( "[role=menuitem]:focus" ) || elm,
+		parent = currentFocusIsOn.parentElement,
+		grandParent = parent.parentElement,
+		isCurrentButtonMenu = ( currentFocusIsOn.nodeName === "BUTTON" );
 
 	// FIRST CHILD POPOP
 	var firstChildPopup;
@@ -303,12 +308,12 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 
 	// NEXT MENU ITEM
 	var nextSiblingMenuItem;
-	if ( currentFocusIsOn.parentElement.nextElementSibling ) {
-		nextSiblingMenuItem = currentFocusIsOn.parentElement.nextElementSibling.querySelector( "[role=menuitem]" );
+	if ( parent.nextElementSibling ) {
+		nextSiblingMenuItem = parent.nextElementSibling.querySelector( "[role=menuitem]" );
 
 		// Check if we have hit a separator, go to the next one. The separator can't be the last item and are not followed by another separator.
 		if ( !nextSiblingMenuItem ) {
-			nextSiblingMenuItem = currentFocusIsOn.parentElement.nextElementSibling.nextElementSibling.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = parent.nextElementSibling.nextElementSibling.querySelector( "[role=menuitem]" );
 		}
 	} else {
 
@@ -317,37 +322,37 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 
 			// The current focus is on a persistant open menu item, the next menu item is the first child
 			nextSiblingMenuItem = firstChildPopup;
-		} else if ( !isMobileMode && currentFocusIsOn.parentElement.parentElement.previousElementSibling.dataset.keepExpanded ) {
+		} else if ( !isMobileMode && grandParent.previousElementSibling.dataset.keepExpanded ) {
 
 			// The current focus is on the last item of the persistant menu
 			// Should go the next item of the parent menu item (not supported),
 			// but in our use case this is the first item of the parent men
-			nextSiblingMenuItem = currentFocusIsOn.parentElement.parentElement.parentElement.parentElement.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = grandParent.parentElement.parentElement.querySelector( "[role=menuitem]" );
 		} else {
-			nextSiblingMenuItem = currentFocusIsOn.parentElement.parentElement.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = grandParent.querySelector( "[role=menuitem]" );
 		}
 	}
 
 	// PARENT
-	var parentPopupBtn = currentFocusIsOn.parentElement.parentElement.previousElementSibling;
+	var parentPopupBtn = grandParent.previousElementSibling;
 
 	// PREVIOUS MENU ITEM
 	var previousSiblingMenuItem;
-	if ( currentFocusIsOn.parentElement.previousElementSibling ) {
-		previousSiblingMenuItem = currentFocusIsOn.parentElement.previousElementSibling.querySelector( "[role=menuitem]" );
+	if ( parent.previousElementSibling ) {
+		previousSiblingMenuItem = parent.previousElementSibling.querySelector( "[role=menuitem]" );
 
 		// Check if we have hit a separator. A separator is not the first items
 		if ( !previousSiblingMenuItem ) {
-			previousSiblingMenuItem = currentFocusIsOn.parentElement.previousElementSibling.previousElementSibling.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = parent.previousElementSibling.previousElementSibling.querySelector( "[role=menuitem]" );
 		}
 	} else {
 
 		// Get the last item, take in consideration one level of persistant open menu
-		if ( !isMobileMode && currentFocusIsOn.parentElement.parentElement.lastElementChild.querySelector( "[role=menuitem]" ).dataset.keepExpanded ) {
+		if ( !isMobileMode && grandParent.lastElementChild.querySelector( "[role=menuitem]" ).dataset.keepExpanded ) {
 
 			// The last item is persistant open, get it's last children
-			previousSiblingMenuItem = currentFocusIsOn.parentElement.parentElement.lastElementChild.querySelector( "[role=menuitem]" ).nextElementSibling.lastElementChild.querySelector( "[role=menuitem]" );
-		} else if ( !isMobileMode && currentFocusIsOn.parentElement.parentElement.previousElementSibling.dataset.keepExpanded && parentPopupBtn ) {
+			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( "[role=menuitem]" ).nextElementSibling.lastElementChild.querySelector( "[role=menuitem]" );
+		} else if ( !isMobileMode && grandParent.previousElementSibling.dataset.keepExpanded && parentPopupBtn ) {
 
 			// Get the parent, this is the first items of a persistant open menu
 			previousSiblingMenuItem = parentPopupBtn;
@@ -358,9 +363,55 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 		} else {
 
 			// Get the last item of the current menu
-			previousSiblingMenuItem = currentFocusIsOn.parentElement.parentElement.lastElementChild.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( "[role=menuitem]" );
 		}
 
+	}
+
+	// NEXT Menu item after the Separator
+	// Next Separator Orientation
+	var isNextSeparatorOrientationVertical,
+		nextSeparatorMenuItem,
+		iteratedItem = parent;
+	while ( iteratedItem.nextElementSibling ) {
+		iteratedItem = iteratedItem.nextElementSibling;
+		if ( iteratedItem.getAttribute( "role" ) === "separator" ) {
+			if ( iteratedItem.hasAttribute( "aria-orientation" ) && iteratedItem.getAttribute( "aria-orientation" ) === "vertical" ) {
+				isNextSeparatorOrientationVertical = true;
+			} else {
+				isNextSeparatorOrientationVertical = false;
+			}
+			nextSeparatorMenuItem = iteratedItem.nextElementSibling.querySelector( "[role=menuitem]" );
+			break;
+		}
+	}
+
+	// Previous Menu item after the Separator
+	// Previous Separator Orientation
+	var isPreviousSeparatorOrientationVertical,
+		previousSeparatorMenuItem;
+	iteratedItem = parent;
+	while ( iteratedItem.previousElementSibling ) {
+		iteratedItem = iteratedItem.previousElementSibling;
+		if ( iteratedItem.getAttribute( "role" ) === "separator" ) {
+			if ( previousSeparatorMenuItem ) {
+				break; // Run until we reach the first item or the next separator.
+			}
+			if ( iteratedItem.hasAttribute( "aria-orientation" ) && iteratedItem.getAttribute( "aria-orientation" ) === "vertical" ) {
+				isPreviousSeparatorOrientationVertical = true;
+			} else {
+				isPreviousSeparatorOrientationVertical = false;
+			}
+			previousSeparatorMenuItem = iteratedItem.previousElementSibling;
+		}
+		if ( previousSeparatorMenuItem ) {
+			previousSeparatorMenuItem = iteratedItem; // Run until we reach the first item or the next separator.
+		}
+	}
+
+	// Ensure we are pointing to the first menu item
+	if ( previousSeparatorMenuItem ) {
+		previousSeparatorMenuItem = previousSeparatorMenuItem.querySelector( "[role=menuitem]" );
 	}
 
 	/*
@@ -382,6 +433,10 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 		elmToGiveFocus = previousSiblingMenuItem;
 	} else if ( ( !isCurrentButtonMenu && key === "right" && firstChildPopup ) || key === "enter" && firstChildPopup ) {
 		elmToGiveFocus = firstChildPopup;
+	} else if ( isNextSeparatorOrientationVertical && key === "right" ) {
+		elmToGiveFocus = nextSeparatorMenuItem;
+	} else if ( isPreviousSeparatorOrientationVertical && key === "left" ) {
+		elmToGiveFocus = previousSeparatorMenuItem;
 	} else if ( ( !isCurrentButtonMenu && key === "left" ) || ( !isCurrentButtonMenu && key === "esc" ) ) {
 		elmToGiveFocus = parentPopupBtn;
 	} else if ( key  === "tab"  ) {

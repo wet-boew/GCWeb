@@ -8,7 +8,7 @@
 		{ "title": "Theme meta", "link": "http://wet-boew.github.io/themes-dist/GCWeb/gcweb/index.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2018-11-01",
+	"dateModified": "2018-11-02",
 	"share": "true"
 }
 ---
@@ -24,6 +24,8 @@
 	<li><a href="#pg-dblspcd">Double space for list</a></li>
 	<li><a href="#pg-list">Responsive list</a></li>
 	<li><a href="#pg-linkfigure">Linked figure design pattern</a></li>
+	<li><a href="#content-limit">Limited width content</a></li>
+	<li><a href="#otherDiff">Other notable difference</a></li>
 </ul>
 
 
@@ -65,13 +67,6 @@
 
 <h2 id="pg-header">Page header</h2>
 
-<h3>Note to designer</h3>
-<ul>
-	<li>Can't use "font-smoothing:antialiased" not standard and is currently not on the standard track.</li>
-	<li>The Custom Google Font may represent a Privacy issue. An alternative must be found.</li>
-	<li>We were not able to reproduce the larger width of the search field.</li>
-</ul>
-
 <h3>How to update</h3>
 <ul>
 	<li>Change the CSS class on the left top FIP and on the Search section</li>
@@ -85,14 +80,13 @@
 <ul>
 	<li>The home page need to include an additional CSS class in order to style the menu differently. Like to add the CSS class "home" to the "<code>&lt;body&gt;</code>" element.</li>
 	<li>The color for the search button would be automated updated when the new style is applied.</li>
-	<li>Menu
+	<li>Menu, see the following section for more details
 		<ul>
-			<li>Need to use a migration strategy and continu to support the old menu style.</li>
-			<li>Currently in our demo, the menu have a new ID which will apply
+			<li>The new menu style is applied when the CSS class <code>gcweb-v2</code> is applied to the navigation section of the main menu.
 				<ul>
-					<li>the "border-top" added at the top of the menu.</li>
-					<li>Styling of the menu button.</li>
-					<li>The new menu require to update the theme.min.js</li>
+					<li>You will notice the "border-top" is added at the top of the menu.</li>
+					<li>You will notice the new styling for the menu button.</li>
+					<li>This new menu require to update theme.min.js</li>
 					<li>It don't use the menu plugin in WET.</li>
 				</ul>
 			</li>
@@ -209,7 +203,7 @@
 
 <h3>Migration notes</h3>
 <ul>
-	<li>The new markup would be provided</li>
+	<li>The new markup are provided in the following section.</li>
 </ul>
 
 <h3>Technical notes</h3>
@@ -231,7 +225,7 @@
 			</li>
 		</ul>
 		<p>So, we need to check the mailing list and the bug list to know if that was notified to W3C WAI group. If not we need to notify them.</p>
-		<p>For now, I implement the pattern as illustrated by WAI-ARIA Practice 1.1</p>
+		<p>For now, we implement the pattern as illustrated by WAI-ARIA Practice 1.1.</p>
 	</li>
 </ul>
 
@@ -291,7 +285,7 @@
 <h3>Menu items template</h3>
 <ul>
 	<li>There is one menu item per theme, repeat the following pattern for each theme.</li>
-	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. Example following.</li>
+	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. See the following example.</li>
 	<li>The label [[ Most requested text ]] are "En demande" in French</li>
 </ul>
 
@@ -335,11 +329,6 @@
 		</ul>
 	</li>
 	<li>The home page top banner background image can be updated through CSS by changing the URL or by replacing the image file "assets/bkg-home-banner.jpg". Idem for the "Your government" section.</li>
-</ul>
-
-<h3>Technical notes</h3>
-<ul>
-	<li>Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</li>
 </ul>
 
 <h3>How to update</h3>
@@ -408,3 +397,34 @@
 		&lt;p class="small"&gt;Short description or intro linked paragraph that correspond to this figure&lt;/p&gt;
 	&lt;/figure&gt;
 &lt;/a&gt;</code></pre>
+
+<h2 id="content-limit">Limited width content</h2>
+
+<p>With this new look, new generic pages created should limit the width of paragraph and list. Further guidance are going to be provided in the Content and IA spec.</p>
+
+<p>To enable that design, the implementer can add the following CSS class <code>.cnt-width</code> to the <code>&lt;body&gt;</code> or the <code>&lt;main&gt;</code> element of the page where the width of paragraph and list item need to be limited.</p>
+
+
+<h2 id="otherDiff">Other notable difference</h2>
+
+<p>Here a list of difference that we have noted when you are going to apply this new design</p>
+
+
+
+<h3>Difference if there no markup change - Incomplete</h3>
+<p>Note: as Nov 2, we didn't compared both version, like how the previous markup (from GCWeb 4.0.29) would be different from this new design</p>
+<ul>
+	<li>Breadcrumb: You will notice the breadcrumb are moved 15 pixel right and 15 pixel left. We expected that change would have minor/trivial impact on the user. If needed, a solution can be provided but migth require some additional markup change for implementor.</li>
+</ul>
+
+
+<h3>Change or review to makes when applying this design -</h3>
+
+<p>Note: Other requirement might get added, at this time of implementing this new look in GCWeb github repos it wasn't fully compliant to Content and IA spec 1.5.1.</p>
+
+<p>Some of the items bellow might be related to being conform to Content and IA spec 1.5.1 or to ensure previous change made to GCWeb are applied. Those change might not neccessary directly applicable with applying the new look.</p>
+<ul>
+	<li>Review the text for skip link, they were a change a year ago to change 'Skip: "About this site"' for 'Skip: "About government"'. In French it is from 'Passer à « À propos de ce site »' for 'Passer à « Au sujet du gouvernement »'</li>
+	<li>The size of the heading of any dormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each dormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
+	<li>Ensure the date modified is after the "Report a probleme" instead of being before.</li>
+</ul>
