@@ -287,6 +287,7 @@
 	<li>There is one menu item per theme, repeat the following pattern for each theme.</li>
 	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. See the following example.</li>
 	<li>The label [[ Most requested text ]] are "En demande" in French</li>
+	<li>The [[Theme linked title]] include markup to display a special short title in extra small and small view port. It's behaviour are described in the following sub-section</li>
 </ul>
 
 <pre><code>&lt;li role="none presentation"&gt;
@@ -314,6 +315,47 @@
 		&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/li&gt;</code></pre>
+
+<h4>Theme linked title</h4>
+<p>Behaviour:</p>
+<ul>
+	<li>Provide a short title in mobile, but keep the long title in tablet and desktop view (medium and upper)</li>
+	<li>The short title finish with ": home" text. French equivalent hasn't been provided yet.</li>
+	<li>Try to reuse the same word of the title when only the short title is displayed.</li>
+</ul>
+
+<h5>Example 1</h5>
+<p>Reuse some wording</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>Immigration and citizenship</dd>
+	<dt>Short title</dt>
+	<dd>Immigration: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>Immigration&lt;span class="hidden-xs hidden-sm"&gt; and citizenship&lt;/span&gt;&lt;span class="visible-xs-inline visible-sm-inline"&gt;: home&lt;/span&gt;</code></pre></dd>
+</dl>
+
+<h5>Example 2</h5>
+<p>Append ":home" at the end</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>Benefits</dd>
+	<dt>Short title</dt>
+	<dd>Benefits: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>Benefits&lt;span class="visible-xs-inline visible-sm-inline"&gt;: home&lt;/span&gt;</code></pre></dd>
+</dl>
+
+<h5>Example 3</h5>
+<p>Provide short title that is not the first capitalized word.</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>National security and defence</dd>
+	<dt>Short title</dt>
+	<dd>Defence: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>&lt;span class="hidden-xs hidden-sm"&gt;National security and defence&lt;/span&gt;&lt;span class="visible-xs-inline visible-sm-inline"&gt;Defence: home&lt;/span&gt;</code></pre></dd>
+</dl>
 
 <h2 id="pg-home">Home Page</h2>
 
