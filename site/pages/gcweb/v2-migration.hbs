@@ -287,6 +287,7 @@
 	<li>There is one menu item per theme, repeat the following pattern for each theme.</li>
 	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. See the following example.</li>
 	<li>The label [[ Most requested text ]] are "En demande" in French</li>
+	<li>The [[Theme linked title]] include markup to display a special short title in extra small and small view port. It's behaviour are described in the following sub-section</li>
 </ul>
 
 <pre><code>&lt;li role="none presentation"&gt;
@@ -314,6 +315,47 @@
 		&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/li&gt;</code></pre>
+
+<h4>Theme linked title</h4>
+<p>Behaviour:</p>
+<ul>
+	<li>Provide a short title in mobile, but keep the long title in tablet and desktop view (medium and upper)</li>
+	<li>The short title finish with ": home" text. French equivalent hasn't been provided yet.</li>
+	<li>Try to reuse the same word of the title when only the short title is displayed.</li>
+</ul>
+
+<h5>Example 1</h5>
+<p>Reuse some wording</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>Immigration and citizenship</dd>
+	<dt>Short title</dt>
+	<dd>Immigration: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>Immigration&lt;span class="hidden-xs hidden-sm"&gt; and citizenship&lt;/span&gt;&lt;span class="visible-xs-inline visible-sm-inline"&gt;: home&lt;/span&gt;</code></pre></dd>
+</dl>
+
+<h5>Example 2</h5>
+<p>Append ":home" at the end</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>Benefits</dd>
+	<dt>Short title</dt>
+	<dd>Benefits: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>Benefits&lt;span class="visible-xs-inline visible-sm-inline"&gt;: home&lt;/span&gt;</code></pre></dd>
+</dl>
+
+<h5>Example 3</h5>
+<p>Provide short title that is not the first capitalized word.</p>
+<dl class="dl-horizontal">
+	<dt>Title</dt>
+	<dd>National security and defence</dd>
+	<dt>Short title</dt>
+	<dd>Defence: home</dd>
+	<dt>Code sample</dt>
+	<dd><pre><code>&lt;span class="hidden-xs hidden-sm"&gt;National security and defence&lt;/span&gt;&lt;span class="visible-xs-inline visible-sm-inline"&gt;Defence: home&lt;/span&gt;</code></pre></dd>
+</dl>
 
 <h2 id="pg-home">Home Page</h2>
 
@@ -415,6 +457,7 @@
 <p>Note: as Nov 2, we didn't compared both version, like how the previous markup (from GCWeb 4.0.29) would be different from this new design</p>
 <ul>
 	<li>Breadcrumb: You will notice the breadcrumb are moved 15 pixel right and 15 pixel left. We expected that change would have minor/trivial impact on the user. If needed, a solution can be provided but migth require some additional markup change for implementor.</li>
+	<li>For implementation that didn't moved the date modified under the "Report a problem" row as per C&amp;IA v1.5.1, there will be a larger top margin at the bottom of each pages.</li>
 </ul>
 
 
@@ -425,6 +468,6 @@
 <p>Some of the items bellow might be related to being conform to Content and IA spec 1.5.1 or to ensure previous change made to GCWeb are applied. Those change might not neccessary directly applicable with applying the new look.</p>
 <ul>
 	<li>Review the text for skip link, they were a change a year ago to change 'Skip: "About this site"' for 'Skip: "About government"'. In French it is from 'Passer à « À propos de ce site »' for 'Passer à « Au sujet du gouvernement »'</li>
-	<li>The size of the heading of any dormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each dormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
-	<li>Ensure the date modified is after the "Report a probleme" instead of being before.</li>
+	<li>(Under review - See item 33) The size of the heading of any dormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each dormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
+	<li>Ensure the date modified is after the "Report a probleme" instead of being before. The top margin was added to that field.</li>
 </ul>
