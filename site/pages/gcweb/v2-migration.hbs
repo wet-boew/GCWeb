@@ -21,10 +21,11 @@
 	<li><a href="#pg-header">Page header</a></li>
 	<li><a href="#pg-menu">Menu</a></li>
 	<li><a href="#pg-home">Home Page</a></li>
-	<li><a href="#pg-dblspcd">Double space for list</a></li>
+	<li><a href="#pg-spcd-2">Double space for list</a></li>
 	<li><a href="#pg-list">Responsive list</a></li>
 	<li><a href="#pg-linkfigure">Linked figure design pattern</a></li>
 	<li><a href="#content-limit">Limited width content</a></li>
+	<li><a href="#pg-type">Navigation pages, Theme, Topic, Home,...</a></li>
 	<li><a href="#otherDiff">Other notable difference</a></li>
 </ul>
 
@@ -365,7 +366,7 @@
 	<li>The promotion markup follow a new design pattern for linked figure.</li>
 	<li>New/added:
 		<ul>
-			<li>Double spacing list for ordered and unordered list: ".lst-dblspcd"</li>
+			<li>Double spacing list for ordered and unordered list: ".lst-spcd-2"</li>
 			<li>Responsive list by applying the CSS class ".list-responsive" on "ol,ul" forth column in large and extra large view; two column for medium and small view; one column for extra small view;</li>
 			<li>Styling for linked figure</li>
 		</ul>
@@ -383,9 +384,17 @@
 <h3>Migration notes</h3>
 <ul>
 	<li>Add the CSS class "home" to the body element</li>
+	<li>Add the CSS class "page-type-nav" to the body element</li>
 	<li>Remove the promotional "&lt;aside&gt;" that was prior the main element.</li>
 	<li>Ensure the &lt;h1&gt; element are included in the editable area. That element is moved inside nested &lt;div&gt; element in the main section.</li>
 	<li>Remove the CSS class "container" on the main element, "container" css class would be manually added in the content.</li>
+	<li>The home page style define the following not re-usable style:
+		<ul>
+			<li><code>.home-banner</code>: Set background style, like an image, around the heading level 1</li>
+			<li><code>.home-most-requested</code>: Set font-size, non-standard, to the most requested list item</li>
+			<li><code>.home-your-gov</code>: Set a floating background image for the your government section</li>
+		</ul>
+	</li>
 </ul>
 
 <h3>Updated markup</h3>
@@ -395,9 +404,9 @@
 	<li><a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-fr.hbs">https://github.com/wet-boew/GCWeb/blob/master/site/pages/home-fr.hbs</a></li>
 </ul>
 
-<h2 id="pg-dblspcd">Double space for list</h2>
+<h2 id="pg-spcd-2">Double space for list</h2>
 
-<p>Double spacing list for ordered and unordered list is now available. It can be applied by using the CSS class ".lst-dblspcd".</p>
+<p>Double spacing list for ordered and unordered list is now available. It can be applied by using the CSS class ".lst-spcd-2".</p>
 <p>Note: This feature was introduced with his re-design and are currently only for this theme.</p>
 
 <h2 id="pg-list">Responsive list</h2>
@@ -442,15 +451,41 @@
 
 <h2 id="content-limit">Limited width content</h2>
 
-<p>With this new look, new generic pages created should limit the width of paragraph and list. Further guidance are going to be provided in the Content and IA spec.</p>
+<p>With this new look, new generic pages created should limit the width of paragraph and list. Further guidance are going to be provided by the Content and IA spec.</p>
 
-<p>To enable that design, the implementer can add the following CSS class <code>.cnt-width</code> to the <code>&lt;body&gt;</code> or the <code>&lt;main&gt;</code> element of the page where the width of paragraph and list item need to be limited.</p>
+<p>To enable that design, the implementer can add the following CSS class <code>.cnt-wdth-lmtd</code> to the <code>&lt;body&gt;</code> element of the page where the width of paragraph and list item need to be limited. Also, this can be set by adding the CSS class name <code>.cnt-wdth-lmtd</code> to a sectioning element <code>&lt;section class="cnt-wdth-lmtd"&gt;...&lt;section&gt;</code> inside the main content of your page.</p>
 
+<h2 id="pg-type">Navigation pages, Theme, Topic, Home,...</h2>
+
+<p>Navigation page need to be identified by adding a global class. Before it was <code>.secondary</code> which are now deprecated because of the ambuiguity of it's purpose. It don't represent secondary content, but it was representing navigational page type. So the new name is now <code>.page-type-nav</code> which make it clear it's purpose.</p>
+
+<p>The following change apply for any navigation page identified by the content and IA spec such:</p>
+<ul>
+	<li>Home page</li>
+	<li>Topic page</li>
+	<li>Theme page</li>
+	<li>...</li>
+</ul>
+
+
+<h3>Changes:</h3>
+<ul>
+	<li>
+		<p><code>.secondary</code> for <code>.page-type-nav</code>.</p>
+		<p><small>The older CSS class would still work, but it should be updated</small></p>
+	</li>
+	<li>
+		<p>Remove the custom CSS class set on in-page section header and on dormat link header. Now the customize sizing are managed by adding the CSS class <code>.page-type-nav</code></p>
+		<ul>
+			<li>For dormat link: <code>&lt;h3 class="h5"&gt;...&lt;/h3&gt;</code> are changed to: <code>&lt;h3&gt;...&lt;/h3&gt;</code>. Using the class "h5" on dormat link are deprecated for navigation page type.</li>
+			<li>For section title: remain <code>&lt;h2&gt;...&lt;/h2&gt;</code> but it will render with a new font-size</li>
+		</ul>
+	</li>
+</ul>
 
 <h2 id="otherDiff">Other notable difference</h2>
 
 <p>Here a list of difference that we have noted when you are going to apply this new design</p>
-
 
 
 <h3>Difference if there no markup change - Incomplete</h3>
