@@ -13,11 +13,37 @@
 }
 ---
 
+<h2>Open item (15 of 38)</h2>
+<ul class="list-responsive">
+	<li>Item 3 (Low)</li>
+	<li>Item 4 (High)</li>
+	<li>Item 5 (Low)</li>
+	<li>Item 8 (Low)</li>
+	<li>Item 9 (Medium)</li>
+	<li>Item 12 (Low)</li>
+	<li>Item 13 (Low)</li>
+	<li>Item 30 (Low)</li>
+	<li>Item 36 (Medium)</li>
+	<li>Item 37 (Medium)</li>
+	<li>Item 38 (Low)</li>
+</ul>
+<p>Wait for something...</p>
+<ul class="list-responsive">
+	<li>Item 1 (High)</li>
+	<li>Item 11 (Low)</li>
+	<li>Item 32 (High)</li>
+	<li>Item 34 (High)</li>
+</ul>
 
-<p>Fixed or commented issue</p>
+<h2>Fixed or commented issues</h2>
 
 <ul>
-	<li>Item 17, 18, 22, 24. Fixed on November 7, 2018 - Font size was adusted according to the specification sent by email. The "Theme, Home, Topic" is know as "secondary" content, but it might need to be reviewed to "page-type-nav" as that is more significative.</li>
+	<li>Item 35. Fixed on November 9, 2018 - New CSS class added with working example and documentation. See the migration instruction for more details.</li>
+	<li>Item 28. Not reproducible November 8, 2018 - Not able to reproduce that issue, it might got indirectly fixed by another fixed issue.</li>
+	<li>Item 11. Comment on November 8, 2018 - The spacing are going to be confirmed by TBS if it is wrong.</li>
+	<li>Item 31. Won't fix November 8, 2018 - That change are now scoped out because first that requirement don't belong to this new look and second, significant effort might be needed to resolve it.</li>
+	<li>Item 23. Won't fix November 8, 2018 - Unless if we receive an official directive, this item would not be fixed</li>
+	<li>Item 17, 18, 22, 24, 25, 26, 27, 33. Fixed on November 7, 2018 - Font size was adusted according to the specification sent by email. The "Theme, Home, Topic" is know as "secondary" content, but it might need to be reviewed to "page-type-nav" as that is more significative.</li>
 	<li>Item 1. Partially fixed on November 5, 2018 - Short title for mobile was added in English, but we don't have yet the short menu item title for the French content.</li>
 	<li>Item 33. Parially fixed on November 5, 2018 - The doormats heading size was put as the same as the heading level 5 (h5). Should we scope/wrap all those component with an unique CSS class in order to control more precisely their styling? That is not how it is currently done.</li>
 	<li>Item 2. Fixed on November 2, 2018 - See Item 14</li>
@@ -65,20 +91,20 @@
 <h2>Reported issue list</h2>
 
 <ul>
-	<li>Partially fixed - Item 1. <strong>Content</strong>: Ensure the text for each first link change properly in mobile vs deskop. That is the first menu item in the popup side panel. (Menu level 2)</li>
-	<li><del>Fixed - Item 2. <strong>UX</strong>: On desktop, when the user click on the right arrow from an sub-menu item, excluding the first link, it go inside the first item in  the "most requested" sub-sub-menu. This need to be documented and described better</del></li>
-	<li>Item 3. <strong>Bug</strong>: Trivial/Minor. In FF only when we are in mobile mode. When navigation with a combinaison of keyboard and mouse, then we click on an menu item with the mouse, then the new page it show, then we use the "back" button of the browser. The focus are lost in FF. This is not happening in IE11. As FF for mobile have a low market share and this bug is only related to FF and this bug was only tested in desktop by trying to emulate mobile That is the reason it is a trivial priority bug.</li>
-	<li>Item 4. <strong>Bug</strong>: The first menu item don't open on mouse hover. To reproduce: 1. Load the page; 2. Mouse hover the menu button; 3. Move the mouse gently to the first immediate menu item; 4. it's expected the sub menu will open; 5. The sub menu don't open; 6. If you hover any subsequent top menu item (like the following one) and then go back to the first menu item, the sub-menu open as it should be.</li>
-	<li>Item 5. <strong>UI ~Bug or UX</strong>: On mobile mode (small view and bellow) the search button appear bellow the search field. It might be expected to always appear beside the search input field.</li>
-	<li><del>Fixed - Item 6. <strong>Bug</strong>: On the "Content limited width" page, the forced width conflict with the menu. The width should be changed for "max-width" and the effect should be limited to the content inside the main element.</del></li>
-	<li><del>Fixed - Item 7. <strong>Bug</strong>: On the "Content limited width" page, the hidden top skip link are not centered, but left aligned. Idem for when that page is in "Basic HTML mode", all the warning message are left aligned. It might be related to the other bug related ot the "Content limited width"</del></li>
-	<li>Item 8. <strong>Bug</strong>: On the main index page of GCWEb (/themes-dist/GCWeb/index-en.html) Using Chrome for mobile with a Samsung Galaxy S7 phone: An expanded menu item can't be collapsed. The most requested sub-menu should be collapsed by default in mobile, but it is expanded. That means the JS that colapse the most-requested menu do not fired correctly. However, there is no issue when mobile is emulated through desktop.</li>
-	<li>Item 9. <strong>~Style</strong>: There is some blue mouse hover that appear, idem for when the link is mark as visited. I briefly saw that issue in IE11 but it need to be investigated more.</li>
-	<li><del>Fixed - Item 10. <strong>UI ~Bug</strong>: Inconsistent spacing between section. There is almost no space when you look at the right floating image after the section "On Focus" followed by the section "Your government". Suggestion to increase the spacing.</del></li>
-	<li>Item 11. <strong>~Style</strong>: There is a large spacing between the main menu and the h1 of a content page in large/extra large view.</li>
-	<li>Item 12. <strong>Bug</strong>: The text can't be enlarged at 200% in IE11, but it work in FF. I got the same behaviour with WET theme and with the previous GCWeb theme.</li>
+	<li><strong>Partially fixed - Item 1.</strong> Content: Ensure the text for each first link change properly in mobile vs deskop. That is the first menu item in the popup side panel. (Menu level 2)</li>
+	<li><del><strong>Fixed - Item 2.</strong> UX: On desktop, when the user click on the right arrow from an sub-menu item, excluding the first link, it go inside the first item in  the "most requested" sub-sub-menu. This need to be documented and described better</del></li>
+	<li><strong>Item 3.</strong> Bug: Trivial/Minor. In FF only when we are in mobile mode. When navigation with a combinaison of keyboard and mouse, then we click on an menu item with the mouse, then the new page it show, then we use the "back" button of the browser. The focus are lost in FF. This is not happening in IE11. As FF for mobile have a low market share and this bug is only related to FF and this bug was only tested in desktop by trying to emulate mobile That is the reason it is a trivial priority bug.</li>
+	<li><strong>Item 4.</strong> Bug: The first menu item don't open on mouse hover. To reproduce: 1. Load the page; 2. Mouse hover the menu button; 3. Move the mouse gently to the first immediate menu item; 4. it's expected the sub menu will open; 5. The sub menu don't open; 6. If you hover any subsequent top menu item (like the following one) and then go back to the first menu item, the sub-menu open as it should be.</li>
+	<li><strong>Item 5.</strong> UI: On mobile mode (small view and bellow) the search button appear bellow the search field. It might be expected to always appear beside the search input field.</li>
+	<li><del><strong>Fixed - Item 6.</strong> Bug: On the "Content limited width" page, the forced width conflict with the menu. The width should be changed for "max-width" and the effect should be limited to the content inside the main element.</del></li>
+	<li><del><strong>Fixed - Item 7.</strong> Bug: On the "Content limited width" page, the hidden top skip link are not centered, but left aligned. Idem for when that page is in "Basic HTML mode", all the warning message are left aligned. It might be related to the other bug related ot the "Content limited width"</del></li>
+	<li><strong>Item 8.</strong> Bug: On the main index page of GCWEb (/themes-dist/GCWeb/index-en.html) Using Chrome for mobile with a Samsung Galaxy S7 phone: An expanded menu item can't be collapsed. The most requested sub-menu should be collapsed by default in mobile, but it is expanded. That means the JS that colapse the most-requested menu do not fired correctly. However, there is no issue when mobile is emulated through desktop.</li>
+	<li><strong>Item 9.</strong> ~Style: There is some blue mouse hover that appear, idem for when the link is mark as visited. I briefly saw that issue in IE11 but it need to be investigated more.</li>
+	<li><del><strong>Fixed - Item 10.</strong> UI ~Bug: Inconsistent spacing between section. There is almost no space when you look at the right floating image after the section "On Focus" followed by the section "Your government". Suggestion to increase the spacing.</del></li>
+	<li><strong>Comment - Item 11.</strong> ~Style: There is a large spacing between the main menu and the h1 of a content page in large/extra large view.</li>
+	<li><strong>Item 12.</strong> Bug: The text can't be enlarged at 200% in IE11, but it work in FF. I got the same behaviour with WET theme and with the previous GCWeb theme.</li>
 	<li>
-		<p>Item 13.</p>
+		<p><strong>Item 13.</strong></p>
 		<ul>
 			<li>Home page : http://wet-boew.github.io/themes-dist/GCWeb/home-en.html</li>
 			<li>Page d’accueil : http://wet-boew.github.io/themes-dist/GCWeb/home-fr.html</li>
@@ -86,7 +112,7 @@
 		<p>The issue is encountered in the Firefox browser. The pages will lose the focus when I am using alternatively between the mouse and the keyboard navigation at the same time. For example: I load a page in the browser then navigate by keyboard and switch to the mouse. There is no problem but when I switch back to the keyboard the focus will be lost on the menubar (neither submenu). I will have nowhere to go unless I am refreshing the page. Good news is everything works fine in the IE.</p>
 	</li>
 	<li>
-		<p><del>Fixed - Item 14.</del></p>
+		<p><del><strong>Fixed - Item 14.</strong></del></p>
 		<ul>
 			<li><del>Content limited width : http://wet-boew.github.io/themes-dist/GCWeb/content-limit-en.html</del></li>
 			<li><del>Contenue de largeur limité : http://wet-boew.github.io/themes-dist/GCWeb/content-limit-fr.html</del></li>
@@ -95,27 +121,39 @@
 		<p><del>(Note that if the focus is either on any “item” in the submenu or on the “Most requested” then I hit Left Arrow that brings me back to the menuitem)</del></p>
 	</li>
 
-	<li><del>Fixed - Item 15. Home page: red line under Canada.ca is supposed to be 4px thick</del></li>
-	<li><del>Fixed - Item 16. Home page: Tablet view - there's a point where the Canada.ca banner is cutting too small and the header is smaller than the body copy - it should still be running more or less full width.</del></li>
-	<li><del>Fixed - Item 17. Home page: Most requested font size - 16px in WET, should be 17px</del></li>
-	<li><del>Fixed - Item 18. Home page: Doormat font size - 20px in WET, should be 17px</del></li>
-	<li><del>Fixed - Item 19. Home page: Missing spacing between end of "Focus on" doormats and "Your government" section.</del></li>
-	<li><del>Fixed - Item 20. Home page: On tablet view, the "Your government image" should run to the top and bottom edge, not create a gap, is this because the image provided is not tall enough?</del></li>
-	<li><del>Fixed - Item 21. Home page: Date modified goes under Report a problem, as per latest spec</del></li>
-	<li><del>Fixed - Item 22. Topic pages/Institutional/Theme pages, etc: Doormat font size – 20px in WET, should be 17px</del></li>
-	<li><strong>Comments/Won't fix - Item 23.</strong> General fonts and such: Seems like anti-aliasing isn’t on – there are various settings in https://gc-proto.github.io/design-refresh/tests/cleanup4/css/desktop-mm.css related to that...like -webkit-font-smoothing: antialiased;</li>
-	<li><strong>Comments - Item 24.</strong> The particularly important ones: We had headers/doormat paragraph change size for mobile to make them larger and easier to use:
+	<li><del><strong>Fixed - Item 15.</strong> Home page: red line under Canada.ca is supposed to be 4px thick</del></li>
+	<li><del><strong>Fixed - Item 16.</strong> Home page: Tablet view - there's a point where the Canada.ca banner is cutting too small and the header is smaller than the body copy - it should still be running more or less full width.</del></li>
+	<li><del><strong>Fixed - Item 17.</strong> Home page: Most requested font size - 16px in WET, should be 17px</del></li>
+	<li><del><strong>Fixed - Item 18.</strong> Home page: Doormat font size - 20px in WET, should be 17px</del></li>
+	<li><del><strong>Fixed - Item 19.</strong> Home page: Missing spacing between end of "Focus on" doormats and "Your government" section.</del></li>
+	<li><del><strong>Fixed - Item 20.</strong> Home page: On tablet view, the "Your government image" should run to the top and bottom edge, not create a gap, is this because the image provided is not tall enough?</del></li>
+	<li><del><strong>Fixed - Item 21.</strong> Home page: Date modified goes under Report a problem, as per latest spec</del></li>
+	<li><del><strong>Fixed - Item 22.</strong> Topic pages/Institutional/Theme pages, etc: Doormat font size – 20px in WET, should be 17px</del></li>
+	<li><del><strong>Won't fix - Item 23.</strong> General fonts and such: Seems like anti-aliasing isn’t on – there are various settings in https://gc-proto.github.io/design-refresh/tests/cleanup4/css/desktop-mm.css related to that...like -webkit-font-smoothing: antialiased;</del></li>
+	<li><del><strong>Comments - Item 24.</strong> The particularly important ones: We had headers/doormat paragraph change size for mobile to make them larger and easier to use:</del>
 		<ul>
-			<li>Item 25: Right now on mobile the most requested is so small it’s difficult to use, it's supposed to scale up to 19px on mobile</li>
-			<li>Item 26: Doormat text is supposed to scale up to 19px on mobile</li>
-			<li>Item 27: Headers also have font size changes specified when on mobile.</li>
+			<li><del><strong>Item 25:</strong> Right now on mobile the most requested is so small it’s difficult to use, it's supposed to scale up to 19px on mobile</del></li>
+			<li><del><strong>Item 26:</strong> Doormat text is supposed to scale up to 19px on mobile</del></li>
+			<li><del><strong>Item 27:</strong> Headers also have font size changes specified when on mobile.</del></li>
 		</ul>
 	</li>
-	<li><strong>Comment - Item 28:</strong> Also on pages other than the homepage, the menu opens really wide before you select a theme.</li>
-	<li><del>Fixed - Item 29: Typo: was "The official website of the Governement of Canada"; should be: "The official website of the Government of Canada", There in not "e" between "n" and "m" in "Government"</del></li>
-	<li><del>Item 30: In GCWeb for maintenance - Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</del></li>
-	<li>Item 31: Format the date modified like "{Full month} {Day number}, {4 digit year}". The previous date format would need to be set to the <code>datetime</code> attribute of the current <code>&lt;time&gt;</code> element.</li>
-	<li>Item 32: Identify any potential conflict between this redesign and other WET plugin in this theme. Full list of plugins with this themes available : <a href="../demos/index-en.html">GCWeb - WET Plugin demos</a></li>
-	<li>Parially fixed - Item 33: Font size on the home page doormats. The link should be 21px in the prototype, and the description text 19px. In the WET version the description is larger than the heading, which makes it seems like something's wrong.</li>
-	<li>Item 34: Do a comparaison between the GCWeb markup as released with v4.0.29 vs only the new CSS+JS applied with this new look. Add new item/issue here for each noticable difference.</li>
+	<li><del><strong>Comment - Item 28:</strong> Also on pages other than the homepage, the menu opens really wide before you select a theme.</del></li>
+	<li><del><strong>Fixed - Item 29:</strong> Typo: was "The official website of the Governement of Canada"; should be: "The official website of the Government of Canada", There in not "e" between "n" and "m" in "Government"</del></li>
+	<li><strong>Item 30:</strong> In GCWeb for maintenance - Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</li>
+	<li><del><strong>Won't fix Item 31:</strong> Format the date modified like "{Full month} {Day number}, {4 digit year}". The previous date format would need to be set to the <code>datetime</code> attribute of the current <code>&lt;time&gt;</code> element.</del></li>
+	<li><strong>Item 32:</strong> Identify any potential conflict between this redesign and other WET plugin in this theme. Full list of plugins with this themes available : <a href="../demos/index-en.html">GCWeb - WET Plugin demos</a></li>
+	<li><del><strong>Fixed - Item 33:</strong> Font size on the home page doormats. The link should be 21px in the prototype, and the description text 19px. In the WET version the description is larger than the heading, which makes it seems like something's wrong.</del></li>
+	<li><strong>Item 34:</strong> Do a comparaison between the GCWeb markup as released with v4.0.29 vs only the new CSS+JS applied with this new look. Add new item/issue here for each noticable difference.</li>
+	<li><del><strong>Fixed Item 35:</strong> Add the "call-to-action" lime-green button. Wait for TBS confirmation is we are going to change the btn-primary or if we are going to create a new one.</del></li>
+	<li><strong>Item 36:</strong> Change the minimum size of the search button and the input search field to meet WCAG 2.1 2.5.5 Target Size (Level AAA)</li>
+	<li><strong>Item 37:</strong> Look at changes required to meet WCAG 2.1 for the following item
+		<ul>
+			<li>1.4.11: Non-text Contrast</li>
+			<li>1.4.12: Text spacing</li>
+			<li>1.4.13: Content on Hover or Focus</li>
+			<li>2.5.3: Label in Name</li>
+			<li>2.5.5: Targe Size</li>
+		</ul>
+	</li>
+	<li><strong>Item 38:</strong> Add keyboard shorcut nav, like focusing on menu item that match the keystrok. (Then SC 2.1.4 apply)</li>
 </ul>
