@@ -210,6 +210,10 @@
 
 <h3>Technical notes</h3>
 <ul>
+	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1</li>
+	<li>The double role on list item in the menu was added as suggested by the W3C validator because the <code>role=none</code> are not widely supported yet.</li>
+	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the whatwg validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
+	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
 	<li>
 		<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
 		<ul>
@@ -250,19 +254,19 @@
 	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
 
-<h3>Updated baseline markup for the menu</h3>
+<h3>Hardcoded menu item baseline markup</h3>
 <ul>
 	<li>The id "wb-sm" removed.</li>
 	<li>The class attribute on the &lt;nav&gt; element is replaced by a new CSS class</li>
 	<li>The CSS class "nvbar" removed from the inner &lt;div&gt;</li>
-	<li>Complete new markup for menu item (Details to be provided separately)</li>
+	<li>Complete new markup for menu item (Details in following section)</li>
 	<li>There is some translation string and markup variation between language for the button. It's the invisible complementary text.</li>
 </ul>
 
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="menu" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
 		&lt;ul id="gc-menu" role="menu" aria-labelledby="gc-menubtn"&gt;
 
 		[[ Menu items ]]
@@ -275,7 +279,7 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button type="button" aria-haspopup="menu" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;button type="button" aria-haspopup="true" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
 		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical"&gt;
 
 		[[ Menu items ]]
@@ -284,16 +288,54 @@
 	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
 
+
+<h3>Fetching the menu item baseline markup</h3>
+<ul>
+	<li>All the items for the hardcoded menu applies.</li>
+	<li>The CDN / central link where all the menu is centrally managed are going to be provided by the Principal Publisher.</li>
+	<li>The unordered list <code>&lt;ul&gt;</code> is intentionally empty</li>
+	<li>Change the value of the attribute <code>data-ajax-append</code> to match the URL of your menu</li>
+	<li>The menu support the following fetch method:
+		<ul>
+			<li><code>[data-ajax-append]</code></li>
+			<li><code>[data-ajax-prepend]</code></li>
+			<li><code>[data-wb-ajax]</code></li>
+			<li><code>[data-ajax-replace]</code></li>
+		</ul>
+	</li>
+</ul>
+
+<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
+		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul id="gc-menu" role="menu" aria-labelledby="gc-menubtn" <strong>data-ajax-append="../ajax/sitemenu-v2-en.html"</strong>&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>French version</h3>
+<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
+		&lt;button type="button" aria-haspopup="true" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical" <strong>data-ajax-append="../ajax/sitemenu-v2-fr.html"</strong>&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+
 <h3>Menu items template</h3>
 <ul>
 	<li>There is one menu item per theme, repeat the following pattern for each theme.</li>
 	<li>Each theme title that is linked to the actual theme has an adaptable text between "medium to over" view compare to "small and under" view. See the following example.</li>
 	<li>The label [[ Most requested text ]] are "En demande" in French</li>
 	<li>The [[Theme linked title]] include markup to display a special short title in extra small and small view port. It's behaviour are described in the following sub-section</li>
+	<li>This template can be use for the HTML fragment to fetch all menu items.</li>
 </ul>
 
 <pre><code>&lt;li role="none presentation"&gt;
-	&lt;a role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu-" aria-expanded="false" href="#"&gt;[[Theme title]]&lt;/a&gt;
+	&lt;a role="menuitem" aria-haspopup="true" aria-controls="gc-mnu-" aria-expanded="false" href="#"&gt;[[Theme title]]&lt;/a&gt;
 	&lt;ul id="gc-mnu-" role="menu" aria-orientation="vertical"&gt;
 		&lt;li role="none presentation"&gt;
 			&lt;a role="menuitem" href="https://www.canada.ca/[[path to the theme]]"&gt;[[Theme linked title]]&lt;/a&gt;
@@ -306,7 +348,7 @@
 
 		&lt;li role="separator" aria-orientation="vertical"&gt;&lt;/li&gt;
 		&lt;li role="none presentation"&gt;
-			&lt;a data-keep-expanded="md-min" href="#" role="menuitem" aria-haspopup="menu" aria-controls="gc-mnu--sub" aria-expanded="true"&gt;[[ Most requested text ]]&lt;/a&gt;
+			&lt;a data-keep-expanded="md-min" href="#" role="menuitem" aria-haspopup="true" aria-controls="gc-mnu--sub" aria-expanded="true"&gt;[[ Most requested text ]]&lt;/a&gt;
 			&lt;ul id="gc-mnu--sub" role="menu" aria-orientation="vertical"&gt;
 
 [[ For each most requested item for that theme ]]
