@@ -367,9 +367,14 @@ details {
 		&:nth-child(2n+2) {
 			clear:right;
 		}
-		&:last-child:after {
-			clear: both;
-		}
+	}
+
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
 	}
 }
 
