@@ -7,18 +7,54 @@
 ( function( $, wb ) {
 "use strict";
 
-var globalTimeoutOn,
+var componentName = "gcweb-v2",
+	selector = ".gcweb-v2",
+	initEvent = "wb-init" + selector,
+	$document = wb.doc,
+	selectorAjaxed = selector + " [data-ajax-append]," + selector + " [data-ajax-prepend]," + selector + " [data-wb-ajax]," + selector + " [data-ajax-replace]",
+	globalTimeoutOn,
 	globalTimeoutOff,
 	hoverDelay = 350,
 	justOpened,
 	isMobileMode, // Mobile vs Desktop
-	isMediumView;
+	isMediumView,
 
-function initIsMobileMode() {
-	var htmlClassName = document.querySelector( "html" ).className;
-	isMobileMode = htmlClassName.indexOf( "smallview" ) !== -1;
-	isMediumView = htmlClassName.indexOf( "mediumview" ) !== -1;
-}
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			ajaxFetch;
+		if ( elm ) {
+
+			// If the menu item are ajaxed in, initialize after the ajax is completed
+			ajaxFetch = elm.querySelector( selectorAjaxed );
+
+			if ( !ajaxFetch ) {
+				onAjaxLoaded( elm.firstChild );
+			}
+
+
+		}
+	},
+	onAjaxLoaded = function( subElm ) {
+		var $elm = $( subElm ).parentsUntil( selector ).parents(),
+			htmlClassName = document.querySelector( "html" ).className;
+		isMobileMode = htmlClassName.indexOf( "smallview" ) !== -1;
+		isMediumView = htmlClassName.indexOf( "mediumview" ) !== -1;
+
+		if ( isMobileMode || isMediumView ) {
+			setMnu3LevelOrientationExpandState( false, isMediumView );
+		}
+
+		// Identify that initialization has completed
+		wb.ready( $elm, componentName );
+	};
 
 function OpenMenu( elm ) {
 
@@ -97,7 +133,7 @@ function CloseMenuWithDelay( elm ) {
 }
 
 // Open menu on mouse hovering
-wb.doc.on( "mouseenter", "[aria-haspopup]", function( event ) {
+$document.on( "mouseenter", ".gcweb-v2 [aria-haspopup]", function( event ) {
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
@@ -107,7 +143,7 @@ wb.doc.on( "mouseenter", "[aria-haspopup]", function( event ) {
 } );
 
 
-wb.doc.on( "focusin", "[aria-haspopup]", function( event ) {
+$document.on( "focusin", ".gcweb-v2 [aria-haspopup]", function( event ) {
 
 	// Don't open the submenu
 	if ( isMobileMode ) {
@@ -120,7 +156,7 @@ wb.doc.on( "focusin", "[aria-haspopup]", function( event ) {
 } );
 
 // The user get inside the submenu, we should cancel the "close" with delay event
-wb.doc.on( "mouseenter focusin", "[aria-haspopup] + [role=menu]", function( event ) {
+$document.on( "mouseenter focusin", ".gcweb-v2 [aria-haspopup] + [role=menu]", function( event ) {
 
 	// Prevent the menu to collapse
 	// Note: elm.id is already defined because of the mouseenter event of the parent menu element
@@ -140,7 +176,7 @@ wb.doc.on( "mouseenter focusin", "[aria-haspopup] + [role=menu]", function( even
 } );
 
 
-wb.doc.on( "mouseleave", "[aria-haspopup]", function( event ) {
+$document.on( "mouseleave", ".gcweb-v2 [aria-haspopup]", function( event ) {
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
@@ -149,7 +185,7 @@ wb.doc.on( "mouseleave", "[aria-haspopup]", function( event ) {
 	}
 } );
 
-wb.doc.on( "focusout", "[aria-haspopup]", function( event ) {
+$document.on( "focusout", ".gcweb-v2 [aria-haspopup]", function( event ) {
 
 	// Don't close the submenu
 	if ( isMobileMode ) {
@@ -160,7 +196,7 @@ wb.doc.on( "focusout", "[aria-haspopup]", function( event ) {
 	CloseMenuWithDelay( event.currentTarget );
 } );
 
-wb.doc.on( "mouseleave focusout", "[aria-haspopup] + [role=menu]", function( event ) {
+$document.on( "mouseleave focusout", ".gcweb-v2 [aria-haspopup] + [role=menu]", function( event ) {
 
 	// Collapse the menu
 	// Note: elm.id is already defined because of the mouseenter event
@@ -195,7 +231,7 @@ wb.doc.on( "mouseleave focusout", "[aria-haspopup] + [role=menu]", function( eve
 */
 
 // Open right away the popup
-wb.doc.on( "click", "[aria-haspopup]", function( event ) {
+$document.on( "click", ".gcweb-v2 [aria-haspopup]", function( event ) {
 
 	var elm = event.currentTarget;
 
@@ -210,16 +246,16 @@ wb.doc.on( "click", "[aria-haspopup]", function( event ) {
 		} else {
 			OpenMenu( elm );
 		}
-
-		// Stop default behaviour
-		event.stopImmediatePropagation();
-		event.preventDefault();
 	}
+
+	// Stop default behaviour
+	event.stopImmediatePropagation();
+	event.preventDefault();
 } );
 
 // This is for the "most requested" menu item
 function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
-	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=menu]" ),
+	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=true]" ),
 		i, i_len = mnu3Level.length,
 		expandState = ( isExpanded ? "true" : "false" ),
 		orientation = ( isVertical ? "vertical" : "horizontal" ),
@@ -236,7 +272,7 @@ function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
 }
 
 // Change the main menu mode
-wb.doc.on( wb.resizeEvents, function( event ) {
+$document.on( wb.resizeEvents, function( event ) {
 
 	switch ( event.type ) {
 	case "xxsmallview":
@@ -295,14 +331,14 @@ function keycode( code ) {
 };
 
 // Global hook, close the menu on "ESC" when its state are open.
-wb.doc.on( "keydown", function( event ) {
+$document.on( "keydown", function( event ) {
 	if ( event.keyCode === 27 ) {
 		CloseMenu( document.querySelector( ".gcweb-v2 button" ) );
 	}
 } );
 
 // Keyboard navigation for each menu item
-wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( event ) {
+$document.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( event ) {
 
 	var elm = event.currentTarget,
 		key = keycode( event.charCode || event.keyCode );
@@ -489,13 +525,22 @@ wb.doc.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( e
 
 } );
 
-// Initialization of the main
+// When the menu item are ajaxed in
+$document.on( "ajax-fetched.wb ajax-failed.wb", selectorAjaxed, function( event ) {
 
-initIsMobileMode();
+	var elm = event.target;
 
-if ( isMobileMode || isMediumView ) {
-	setMnu3LevelOrientationExpandState( false, isMediumView );
-}
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === elm ) {
+		onAjaxLoaded( elm );
+	}
+} );
 
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb " + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
 
 } )( jQuery, wb );

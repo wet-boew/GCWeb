@@ -39,6 +39,38 @@
 	<li>Oct 22-26: Partial screen reader compatibility test has been made to the new menu, but for a different markup compared to the one published as Oct 31. From that test, the recommendation was to replace the button text "top menu" by "main menu".</li>
 </ul>
 
+<h3>Reference and notes</h3>
+<ul>
+	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1</li>
+	<li>The double role on list item in the menu was added as suggested by the W3C validator because the <code>role=none</code> are not widely supported yet.</li>
+	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the whatwg validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
+	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
+	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton">WAI-ARIA Practices 1.1 - 3.15 Menu Button</a></li>
+	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">WAI-ARIA Practices 1.1 - 3.14 Menu or Menu bar</a></li>
+	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">WAI-ARIA Practices 1.1 - Editor Menubar Example</a></li>
+	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menu-button/menu-button-actions.html">WAI-ARIA Practices 1.1 - Action Menu button using <code>element.focus()</code></a></li>
+</ul>
+
+<h4>Confusion about how to implement <code>[aria-expanded]</code></h4>
+
+<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
+<ul>
+	<li>
+		<p>it's said: WAI-ARIA practice <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12">https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12</a></p>
+		<p><q>5th bullet items that the [role=menuitem] has the [aria-expanded] state</q></p>
+	</li>
+	<li>
+		<p>it's said: <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded">https://www.w3.org/TR/wai-aria-1.1/#aria-expanded</a></p>
+		<p><q>That states is only applicable (Inherits into Roles) for [role=menu] and [role=menubar]. This don't include [role=menuitem]</q></p>
+	</li>
+	<li>
+		<p>it's illustrated: <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html</a></p>
+		<p><q>That the item with the [role=menuitem] has the [aria-expanded] state.</q></p>
+	</li>
+</ul>
+<p>The next step will be to check throuly the W3C mailing list, errata, filled bug and other ressource to know if that was notified to W3C WAI group and to understand better the rational behind. Then, the next action will be to fix this design pattern if it needed and to ensure the w3c documents would be fixed in the near future.</p>
+<p>For now, we implemented the pattern as illustrated by WAI-ARIA Practice 1.1.</p>
+
 <h2>Accessiblity</h2>
 <p>Not evaluated for WCAG 2.1 Level AA conformance.</p>
 
