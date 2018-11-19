@@ -103,6 +103,43 @@
 	<li>October 22-26, 2018: Partial screen reader compatibility test has been made to the new menu, but for a different markup compared to the one published as Oct 31. From that test, the recommendation was to replace the button text "top menu" by "main menu".</li>
 </ul>
 
+<h2>Special notes</h2>
+
+<h3 id="antialiasing">Use of font smoothing anti-aliasing</h3>
+
+<h4>Requirement</h4>
+<p>Configure the font smoothing anti-aliasing CSS for GCWeb theme v2.</p>
+
+<h4>Background</h4>
+<p><time datetime="2018-11-02">November 2<sup>nd</sup>, 2018</time></p>
+<p>It is explicitly said that anti-aliasing CSS is not in a standard track and it is recommended to avoid. Currently that feature is only limited to webkit browser and FF by applying some prefix vendor.</p>
+
+<p>It was an experimental feature that was removed from an old CSS W3C editor draft. It is only supported by Chrome browser. That feature wasn't consistently supported by Chrome. Considering the published article referenced by Mozila that support to avoid font smoothing and it's removal from the old editor draft specification, the wet-boew team lead consider that feature at risk and recommend to avoid it. At the time of publishing this, no extensive research was made to find an alternative solution that would meet the above requirement.</p>
+
+<ul>
+	<li><q>Though present in early (2002) drafts of CSS3 Fonts, font-smooth has been removed from this specification and is currently not on the standard track.</q> - <a href="https://caniuse.com/#search=font-smoothing">https://caniuse.com/#search=font-smoothing</a></li>
+	<li><q>This feature is non-standard and is not on a standards track. Do not use it on production sites facing the Web: it will not work for every user. There may also be large incompatibilities between implementations and the behavior may change in the future.</q> - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth">https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth</a></li>
+	<li>Outdated working draft - W3C CSS font - <a href="https://www.w3.org/TR/WD-font/#font-smooth">https://www.w3.org/TR/WD-font/#font-smooth</a></li>
+	<li>See also: <a href="http://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/">Please Stop "Fixing" Font Smoothing – UsabilityPost</a></li>
+	<li>See also: <a href="https://www.zachleat.com/web/font-smooth/">Laissez-faire font smoothing and anti-aliasing</a></li>
+</ul>
+<p>The above article makes reference that playing with the anti-aliasing feature make the font more blury for use, so less readable.</p>
+
+<h4>Rational / Justification</h4>
+
+<p><time datetime="2018-11-16">November 16, 2018</time></p>
+
+<blockquote>
+	<p>[...] we seem to be unsure if there is actually a technical or other issue with implementing the font smoothing for various browsers. Right now there are two calls to font smoothing -  code for smoothing which is for several browsers (Chrome, etc), and then code for the Mozilla specific smoothing for Firefox.</p>
+	<p>We would like to pursue this because the smoothed fonts are what we've been showing everyone in for approval, and it’s what we’ve been testing positively with users (across many browsers).</p>
+	<p>We should also mention that the majority of our users see the site in Chrome so we want to give them the best experience possible.</p>
+	<p>Not having the font smoothing available to EI users does not cause them any harm.</p>
+	<p>We would like to pursue the implementation in a way that could be done immediately, but we understand it may need to be implemented differently long-term.</p>
+	<footer>
+		<p>by <cite>@jmealing</cite> on behalf of Treasury Board Secretariat</p>
+	</footer>
+</blockquote>
+
 <h2>Previous version</h2>
 <ul>
 	<li>See GCWeb released with WET 4.0.29. All code change are documented in the migration instruction of GCWeb new look - V2.</li>
