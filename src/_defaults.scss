@@ -32,10 +32,10 @@ main {
 .cnt-wdth-lmtd main,
 main .cnt-wdth-lmtd {
 	p, li, dt, dd {
-		max-width: 70ch;
+		max-width: 65ch;
 	}
 
-	p {
+	p, ul, ol, dl {
 		margin-bottom: 27.5px;
 	}
 
@@ -162,7 +162,7 @@ h6,
 
 
 // Common heading style
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 {
 	@extend %defaults-alternative-font-family;
 	font-weight: 600;
@@ -255,6 +255,7 @@ aside {
 	 */
 	.home-most-requested {
 		li {
+			@extend %defaults-alternative-font-family;
 			font-size: 17px;
 			font-weight: 600;
 			line-height: 26px;
@@ -412,6 +413,11 @@ a.figcaption {
 
 	* :not( figcaption ) {
 		color: #000;
+	}
+
+	figure > *:not( blockquote):not( img ):not( table):not( div ) {
+		margin-left: .8ch;
+		margin-right: .8ch;
 	}
 
 	figcaption {
