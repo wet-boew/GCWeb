@@ -74,26 +74,6 @@
 	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menu-button/menu-button-actions.html">WAI-ARIA Practices 1.1 - Action Menu button using <code>element.focus()</code></a></li>
 </ul>
 
-<h4>Confusion about how to implement <code>[aria-expanded]</code></h4>
-
-<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
-<ul>
-	<li>
-		<p>it's said: WAI-ARIA practice <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12">https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12</a></p>
-		<p><q>5th bullet items that the [role=menuitem] has the [aria-expanded] state</q></p>
-	</li>
-	<li>
-		<p>it's said: <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded">https://www.w3.org/TR/wai-aria-1.1/#aria-expanded</a></p>
-		<p><q>That states is only applicable (Inherits into Roles) for [role=menu] and [role=menubar]. This don't include [role=menuitem]</q></p>
-	</li>
-	<li>
-		<p>it's illustrated: <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html</a></p>
-		<p><q>That the item with the [role=menuitem] has the [aria-expanded] state.</q></p>
-	</li>
-</ul>
-<p>The next step will be to check throuly the W3C mailing list, errata, filled bug and other ressource to know if that was notified to W3C WAI group and to understand better the rational behind. Then, the next action will be to fix this design pattern if it needed and to ensure the w3c documents would be fixed in the near future.</p>
-<p>For now, we implemented the pattern as illustrated by WAI-ARIA Practice 1.1.</p>
-
 <h2>Evaluation and report</h2>
 
 <ul>
@@ -139,6 +119,20 @@
 		<p>by <cite>@jmealing</cite> on behalf of Treasury Board Secretariat</p>
 	</footer>
 </blockquote>
+
+<h3 id="menu-ariaexpanded">The use of <code>[aria-expanded]</code> in the menu</h3>
+
+<p>The menu was designed as per the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">WAI-ARIA Practice 1.1 for the Menu or Menu bar</a>. In the section <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12">WAI-ARIA roles states and properties</a> the fifth bullet items say the element with the role <code>menuitem</code> has the <code>aria-expanded</code> state. The use of that state is illustrated by the WAI-ARIA Practice 1.1 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">menu bar example 2</a>.</p>
+
+<p>It was noted that as per the description of the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded"><code>aria-expanded</code> attribute in WAI-ARIA 1.1 spec</a> it don't allow to have the attribute <code>aria-expanded</code> set on element with the role <code>menuitem</code>.</p>
+
+<p>However, a research revealed the WAI-ARIA specification 1.2 (working draft) have an updated definition for <code>aria-expanded</code>. It now allow to use that state on on element with the role <code>menuitem</code>. Here some reference:</p>
+
+<ul>
+	<li><a href="https://www.w3.org/TR/wai-aria-1.2/#aria-expanded">W3C Working Draft - Accessible Rich Internet Application (WAI-ARIA) 1.2 - <code>aria-expanded</code> (state)</a></li>
+	<li><a href="https://github.com/w3c/aria/issues/454">w3c/aria github issue #454 - ARIA 1.1: aria-expanded is not supported on menuitem roles</a></li>
+	<li><a href="https://github.com/w3c/aria-practices/issues/630">w3c/aria-practices github issue #630 - For Navigation Menubar Example, aria-expanded should go on menu, not menuitem</a></li>
+</ul>
 
 <h2>Previous version</h2>
 <ul>
