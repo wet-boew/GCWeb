@@ -10,16 +10,20 @@ main {
 }
 
 .btn {
-	@export %defaults-alternative-font-family;
+	font-family: Lato, sans-serif; // same font as %defaults-alternative-font-family
+	font-size: 1.1em;
+	padding: .58em 1em;
+}
+
+input.btn {
+	padding-bottom: 2em;
 }
 
 /* Call-to-action button style - new with GCWeb v2 */
 .btn-call-to-action {
 	@include button-variant( #fff, #318000, #458259 );
-	font-size: 1.1em;
 	margin-bottom: 25px;
 	margin-top: 15px;
-	padding: 10px 20px;
 	text-shadow: 1px 2px #333;
 }
 .btn-call-to-action:visited {

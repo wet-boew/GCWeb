@@ -163,6 +163,7 @@
 	<li>On the input search field, change the attribute size to "34"</li>
 	<li>The label for the search input field has changed to be same as the placeholder text.</li>
 	<li>The IE 9 conditional comment inside the datalist element was removed because IE 9 is not supported</li>
+	<li>The CSS class <code>wb-inv</code> are removed from the breadcrumb. It's not required because it's default style is the same as applying the CSS class <code>wb-inv</code>.</li>
 </ul>
 
 <p>Note: The breadcrumb re-styling and the markup change would impact the switch over, the breadcrumb might be off from 15 px to the left and to the right. Expected that change would have minor/trivial impact on the user.</p>
@@ -276,8 +277,8 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul id="gc-menu" role="menu" aria-labelledby="gc-menubtn"&gt;
+		&lt;button type="button" aria-controls="gc-mnu" aria-haspopup="true" aria-expanded="false"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical"&gt;
 
 		[[ Menu items ]]
 
