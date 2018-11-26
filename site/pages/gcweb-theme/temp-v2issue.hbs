@@ -13,7 +13,7 @@
 }
 ---
 
-<h2>Open item (18 of 64)</h2>
+<h2>Open item (17 of 64)</h2>
 <ul class="list-responsive">
 	<li>Item 3 (Low)</li>
 	<li>Item 8 (Low)</li>
@@ -25,8 +25,6 @@
 	<li>Item 51 (Medium)</li>
 	<li>Item 53 (Medium)</li>
 	<li>Item 55 (Medium)</li>
-	<li>Item 60 (Medium)</li>
-	<li>Item 61 (Medium)</li>
 	<li>Item 62 (Low)</li>
 </ul>
 <p>Wait for something...</p>
@@ -34,12 +32,16 @@
 	<li>Item 1 (High)</li>
 	<li>Item 11 (Low)</li>
 	<li>Item 41 (Medium)</li>
-	<li>Item 63 (Low)</li>
+	<li>Item 60 (Medium)</li>
+	<li>Item 61 (Medium)</li>
 	<li>Item 64 (Low)</li>
 </ul>
 
 <h2>Fixed or commented issues</h2>
 <ul>
+	<li>Item 63. Fixed on November 26</li>
+	<li>Item 60. Comment on November 26 - What this means exactly? "Set no common ligatures for all headers/Lato fonts"</li>
+	<li>Item 61. Comment on November 26 - We would need to develop a few test cases because it might hard to target the first h2 because publisher use different implement in the content area. Like "h1 ~ h2:nth-of-type(1)"; "h1 ~ div:nth-of-type(1) h2:nth-of-type(1)"; "h1 ~ section:nth-of-type(1) h2:nth-of-type(1)". But those selector can be very unstable. Like "h1, h2, section>h2" OR the first h2 is an alert box??. Those special test case need to be reviewed and tested before.</li>
 	<li>Item 60. Comment on November 26 - For the default limited width, as discussed, that would happend when new pages would automatically include the content limited width special class. We are not going to enforce that behaviour on any existing content. Only newly created content should contain that class, and the publisher would be able to remove it. Minimize the risk of breaking the layout of existing content. If that need to be enforced by default and the feature removed upon request, then we would need a massive list of test case to ensure the stability of that new feature.</li>
 	<li>Item 5. Fixed on November 22 - The max width of the input was adjusted for extra small view port. An optimal value was set to avoid the search button being under the search input field. Idem for the extra-extra small view port.</li>
 	<li>Item 30. Fixed on November 22</li>
@@ -272,7 +274,7 @@
 					<li><del>Add char width restriction to this page</del></li>
 				</ul>
 			</li>
-			<li><strong>Item 60:</strong> General:
+			<li><strong>Comment Item 60:</strong> General:
 				<ul>
 					<li><del>Additional space needed between "Menu" button and the breadcrumb trail  (img attached)</del></li>
 					<li><del>Submit buttons should be styled the same as the "call to action".</del> See Item 64.</li>
@@ -280,7 +282,7 @@
 					<li><del>The char max-width should be the default for any pages that have paragraphs currently running the full width</del></li>
 				</ul>
 			</li>
-			<li><strong>Item 61:</strong> Special CSS style consideration for defined content-width restriction pages:
+			<li><strong>Comment Item 61:</strong> Special CSS style consideration for defined content-width restriction pages:
 				<ul>
 					<li>When a page has the <code>&lt;body class=”cnt-wdth-lmtd”&gt;</code> we’d like all the h2s, except the first child (the first h2 on the page), to have additional spacing at the top (all other h2s below). See example here of what that looks like: <a href="https://gc-proto.github.io/student-loans/scenarioA/services/benefits/student-aid/repay-student-loan.html">https://gc-proto.github.io/student-loans/scenarioA/services/benefits/student-aid/repay-student-loan.html</a></li>
 				</ul>
@@ -288,7 +290,16 @@
 		</ul>
 	</li>
 	<li><strong>Item 62</strong> I remarked a font blinking on page force reload. I think it is cause by the delay to download and apply the google font at the current page. So it need to be investigated but for people with slow internet connection might perceive a font blinking. It is just blinking once so it don't necessary fail SC 2.3.1.</li>
-	<li><strong>Item 63</strong> Set a max-width for heading for pages with content width limited. The exact value are going to be provided by TBS.</li>
+	<li><del><strong>Fixed Item 63</strong> Set a max-width for heading for pages with content width limited. The value are the following:</del>
+		<ul>
+			<li><del>h2 - 33ch</del></li>
+			<li><del>h3 - 50ch</del></li>
+			<li><del>h4 - 59ch</del></li>
+			<li><del>h5 - 65ch</del></li>
+			<li><del>h6 - 65ch</del></li>
+			<li><del>li - 63ch</del></li>
+		</ul>
+	</li>
 	<li><strong>Item 64</strong> Set the submit buttons style the same as the "call to action". It will be preferable to get a confirmation if we force that style to any submit button, even if they already have a style like "btn-primary" on it.
 		<p>Styling by default any submit button might had a huge impact on overall form. Additional test case is required showing all the various way a submit button can be used. The current issue is the new margin specified with the "call-to-action" button style conflict how the margin is done for other "input/select/..." forms elements</p>
 		<ul>
