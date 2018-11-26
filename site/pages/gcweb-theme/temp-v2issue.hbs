@@ -13,21 +13,18 @@
 }
 ---
 
-<h2>Open item (18 of 63)</h2>
+<h2>Open item (17 of 64)</h2>
 <ul class="list-responsive">
 	<li>Item 3 (Low)</li>
 	<li>Item 8 (Low)</li>
 	<li>Item 12 (Low)</li>
 	<li>Item 13 (Low)</li>
-	<li>Item 30 (Low)</li>
 	<li>Item 38 (Low)</li>
 	<li>Item 43 (Medium)</li>
 	<li>Item 46 (High)</li>
 	<li>Item 51 (Medium)</li>
 	<li>Item 53 (Medium)</li>
 	<li>Item 55 (Medium)</li>
-	<li>Item 60 (Medium)</li>
-	<li>Item 61 (Medium)</li>
 	<li>Item 62 (Low)</li>
 </ul>
 <p>Wait for something...</p>
@@ -35,18 +32,25 @@
 	<li>Item 1 (High)</li>
 	<li>Item 11 (Low)</li>
 	<li>Item 41 (Medium)</li>
-	<li>Item 63 (Low)</li>
+	<li>Item 60 (Medium)</li>
+	<li>Item 61 (Medium)</li>
+	<li>Item 64 (Low)</li>
 </ul>
 
 <h2>Fixed or commented issues</h2>
-
 <ul>
+	<li>Item 63. Fixed on November 26</li>
+	<li>Item 60. Comment on November 26 - What this means exactly? "Set no common ligatures for all headers/Lato fonts"</li>
+	<li>Item 61. Comment on November 26 - We would need to develop a few test cases because it might hard to target the first h2 because publisher use different implement in the content area. Like "h1 ~ h2:nth-of-type(1)"; "h1 ~ div:nth-of-type(1) h2:nth-of-type(1)"; "h1 ~ section:nth-of-type(1) h2:nth-of-type(1)". But those selector can be very unstable. Like "h1, h2, section>h2" OR the first h2 is an alert box??. Those special test case need to be reviewed and tested before.</li>
+	<li>Item 60. Comment on November 26 - For the default limited width, as discussed, that would happend when new pages would automatically include the content limited width special class. We are not going to enforce that behaviour on any existing content. Only newly created content should contain that class, and the publisher would be able to remove it. Minimize the risk of breaking the layout of existing content. If that need to be enforced by default and the feature removed upon request, then we would need a massive list of test case to ensure the stability of that new feature.</li>
 	<li>Item 5. Fixed on November 22 - The max width of the input was adjusted for extra small view port. An optimal value was set to avoid the search button being under the search input field. Idem for the extra-extra small view port.</li>
+	<li>Item 30. Fixed on November 22</li>
 	<li>Item 50. Fixed on November 22 - The size of the first paragraph, following the h1 was set to match the default paragraph font-size. Those page are now marked as navigation page type.</li>
 	<li>Item 52. Fixed on November 22 - Added content width limited</li>
 	<li>Item 54. Fixed on November 22 - Marked as navigation page type and added content width limited</li>
 	<li>Item 56. Fixed on November 22 - Marked as navigation page type</li>
 	<li>Item 57, 58, 59. Fixed on November 22 - Added content width limited</li>
+	<li>Item 60. Partially fixed on November 22 - Breadcrumb spacing is fix and also it's left/right margin. Submit button wont be styled, by default as the call-to-action button - See Item 64.</li>
 	<li>Item 49. Fixed on November 20, 2018 - All fixed and note that all button font-familly was set to Lato in order to be consitent with that component.</li>
 	<li>Item 48. Fixed on November 20, 2018</li>
 	<li>Item 47. Fixed on November 19, 2018 - All fix, except no change was made to the font size because the font-smoothing was added as per fixing Item 23.</li>
@@ -120,8 +124,8 @@
 	<li><strong>Partially fixed - Item 1.</strong> Content: Ensure the text for each first link change properly in mobile vs deskop. That is the first menu item in the popup side panel. (Menu level 2)</li>
 	<li><del><strong>Fixed - Item 2.</strong> UX: On desktop, when the user click on the right arrow from an sub-menu item, excluding the first link, it go inside the first item in  the "most requested" sub-sub-menu. This need to be documented and described better</del></li>
 	<li><strong>Item 3.</strong> Bug: Trivial/Minor. In FF only when we are in mobile mode. When navigation with a combinaison of keyboard and mouse, then we click on an menu item with the mouse, then the new page it show, then we use the "back" button of the browser. The focus are lost in FF. This is not happening in IE11. As FF for mobile have a low market share and this bug is only related to FF and this bug was only tested in desktop by trying to emulate mobile That is the reason it is a trivial priority bug.</li>
-	<li><del><strong>Item 4.</strong> Bug: The first menu item don't open on mouse hover. To reproduce: 1. Load the page; 2. Mouse hover the menu button; 3. Move the mouse gently to the first immediate menu item; 4. it's expected the sub menu will open; 5. The sub menu don't open; 6. If you hover any subsequent top menu item (like the following one) and then go back to the first menu item, the sub-menu open as it should be.</del></li>
-	<li><del><strong>Item 5.</strong> UI: On mobile mode (small view and bellow) the search button appear bellow the search field. It might be expected to always appear beside the search input field.</del></li>
+	<li><del><strong>Fixed - Item 4.</strong> Bug: The first menu item don't open on mouse hover. To reproduce: 1. Load the page; 2. Mouse hover the menu button; 3. Move the mouse gently to the first immediate menu item; 4. it's expected the sub menu will open; 5. The sub menu don't open; 6. If you hover any subsequent top menu item (like the following one) and then go back to the first menu item, the sub-menu open as it should be.</del></li>
+	<li><del><strong>Fixed - Item 5.</strong> UI: On mobile mode (small view and bellow) the search button appear bellow the search field. It might be expected to always appear beside the search input field.</del></li>
 	<li><del><strong>Fixed - Item 6.</strong> Bug: On the "Content limited width" page, the forced width conflict with the menu. The width should be changed for "max-width" and the effect should be limited to the content inside the main element.</del></li>
 	<li><del><strong>Fixed - Item 7.</strong> Bug: On the "Content limited width" page, the hidden top skip link are not centered, but left aligned. Idem for when that page is in "Basic HTML mode", all the warning message are left aligned. It might be related to the other bug related ot the "Content limited width"</del></li>
 	<li><strong>Item 8.</strong> Bug: On the main index page of GCWEb (/themes-dist/GCWeb/index-en.html) Using Chrome for mobile with a Samsung Galaxy S7 phone: An expanded menu item can't be collapsed. The most requested sub-menu should be collapsed by default in mobile, but it is expanded. That means the JS that colapse the most-requested menu do not fired correctly. However, there is no issue when mobile is emulated through desktop.</li>
@@ -165,11 +169,11 @@
 	</li>
 	<li><del><strong>Comment - Item 28:</strong> Also on pages other than the homepage, the menu opens really wide before you select a theme.</del></li>
 	<li><del><strong>Fixed - Item 29:</strong> Typo: was "The official website of the Governement of Canada"; should be: "The official website of the Government of Canada", There in not "e" between "n" and "m" in "Government"</del></li>
-	<li><strong>Item 30:</strong> In GCWeb for maintenance - Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</li>
+	<li><del><strong>Fixed Item 30:</strong> In GCWeb for maintenance - Remove any reference to "focuson" (files and i18n data) because that information wont be re-use.</del></li>
 	<li><del><strong>Won't fix Item 31:</strong> Format the date modified like "{Full month} {Day number}, {4 digit year}". The previous date format would need to be set to the <code>datetime</code> attribute of the current <code>&lt;time&gt;</code> element.</del></li>
 	<li><del><strong>Completed Item 32:</strong> Identify any potential conflict between this redesign and other WET plugin in this theme. Full list of plugins with this themes available : <a href="../demos/index-en.html">GCWeb - WET Plugin demos</a></del></li>
 	<li><del><strong>Fixed - Item 33:</strong> Font size on the home page doormats. The link should be 21px in the prototype, and the description text 19px. In the WET version the description is larger than the heading, which makes it seems like something's wrong.</del></li>
-	<li><del><strong>Item 34:</strong> Do a comparaison between the GCWeb markup as released with v4.0.29 vs only the new CSS+JS applied with this new look. Add new item/issue here for each noticable difference.</del></li>
+	<li><del><strong>Done - Item 34:</strong> Do a comparaison between the GCWeb markup as released with v4.0.29 vs only the new CSS+JS applied with this new look. Add new item/issue here for each noticable difference.</del></li>
 	<li><del><strong>Fixed Item 35:</strong> Add the "call-to-action" lime-green button. Wait for TBS confirmation is we are going to change the btn-primary or if we are going to create a new one.</del></li>
 	<li><del><strong>Fixed Item 36:</strong> Change the minimum size of the search button and the input search field to meet WCAG 2.1 2.5.5 Target Size (Level AAA)</del></li>
 	<li><del><strong>Partially fixed/Comment Item 37:</strong> Look at changes required to meet WCAG 2.1 for the following item</del>
@@ -270,15 +274,15 @@
 					<li><del>Add char width restriction to this page</del></li>
 				</ul>
 			</li>
-			<li><strong>Item 60:</strong> General:
+			<li><strong>Comment Item 60:</strong> General:
 				<ul>
-					<li>Additional space needed between "Menu" button and the breadcrumb trail  (img attached)</li>
-					<li>Submit buttons should be styled the same as the "call to action".</li>
+					<li><del>Additional space needed between "Menu" button and the breadcrumb trail  (img attached)</del></li>
+					<li><del>Submit buttons should be styled the same as the "call to action".</del> See Item 64.</li>
 					<li>Set no common ligatures for all headers/Lato fonts</li>
-					<li>The char max-width should be the default for any pages that have paragraphs currently running the full width</li>
+					<li><del>The char max-width should be the default for any pages that have paragraphs currently running the full width</del></li>
 				</ul>
 			</li>
-			<li><strong>Item 61:</strong> Special CSS style consideration for defined content-width restriction pages:
+			<li><strong>Comment Item 61:</strong> Special CSS style consideration for defined content-width restriction pages:
 				<ul>
 					<li>When a page has the <code>&lt;body class=”cnt-wdth-lmtd”&gt;</code> we’d like all the h2s, except the first child (the first h2 on the page), to have additional spacing at the top (all other h2s below). See example here of what that looks like: <a href="https://gc-proto.github.io/student-loans/scenarioA/services/benefits/student-aid/repay-student-loan.html">https://gc-proto.github.io/student-loans/scenarioA/services/benefits/student-aid/repay-student-loan.html</a></li>
 				</ul>
@@ -286,5 +290,87 @@
 		</ul>
 	</li>
 	<li><strong>Item 62</strong> I remarked a font blinking on page force reload. I think it is cause by the delay to download and apply the google font at the current page. So it need to be investigated but for people with slow internet connection might perceive a font blinking. It is just blinking once so it don't necessary fail SC 2.3.1.</li>
-	<li><strong>Item 63</strong> Set a max-width for heading for pages with content width limited. The exact value are going to be provided by TBS.</li>
+	<li><del><strong>Fixed Item 63</strong> Set a max-width for heading for pages with content width limited. The value are the following:</del>
+		<ul>
+			<li><del>h2 - 33ch</del></li>
+			<li><del>h3 - 50ch</del></li>
+			<li><del>h4 - 59ch</del></li>
+			<li><del>h5 - 65ch</del></li>
+			<li><del>h6 - 65ch</del></li>
+			<li><del>li - 63ch</del></li>
+		</ul>
+	</li>
+	<li><strong>Item 64</strong> Set the submit buttons style the same as the "call to action". It will be preferable to get a confirmation if we force that style to any submit button, even if they already have a style like "btn-primary" on it.
+		<p>Styling by default any submit button might had a huge impact on overall form. Additional test case is required showing all the various way a submit button can be used. The current issue is the new margin specified with the "call-to-action" button style conflict how the margin is done for other "input/select/..." forms elements</p>
+		<ul>
+			<li>Get a confirmation if that style must overwrite any existing style</li>
+			<li>Create a series of test cases</li>
+			<li>Adjust the style for a smooth migration</li>
+		</ul>
+		<p>Here the CSS when we all the test case would be ready:</p>
+		<pre><code>// File: src/buttons/_base.scss
+.btn, button[type=submit].btn, input[type=submit].btn {
+	font-family: Lato, sans-serif; // same font as %defaults-alternative-font-family
+	font-size: 1.1em;
+	margin-bottom: 25px;
+	margin-top: 15px;
+	padding: .5em 1em;
+}
+
+input[type=submit].btn {
+	padding-bottom: 2em;
+}
+
+/* Call-to-action button style - new with GCWeb v2 */
+.btn-call-to-action, button[type=submit].btn, input[type=submit].btn {
+	@include button-variant( #fff, #318000, #458259 );
+	text-shadow: 1px 2px #333;
+}</code></pre>
+<p>Code for <code>content-en.html</code> file</p>
+<pre><code>&lt;h3&gt;Submit button&lt;/h3&gt;
+&lt;p&gt;Submit button are now enforced with the "Call to action" button style&lt;/p&gt;
+&lt;div class="row"&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;h3&gt;With a &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; element&lt;/h3&gt;
+		&lt;button class="btn" type="submit"&gt;[Submit (with btn class)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button class="btn" type="submit"&amp;gt;[Submit (with btn class)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;button type="submit"&gt;[Submit (no CSS class)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button type="submit"&amp;gt;[Submit (no CSS class)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;button class="btn btn-primary" type="submit"&gt;[Submit (primary class)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button class="btn btn-primary" type="submit"&amp;gt;[Submit (primary class)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+	&lt;/div&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;h3&gt;With a &lt;code&gt;&amp;lt;input /&amp;gt;&lt;/code&gt; element&lt;/h3&gt;
+		&lt;input class="btn" type="submit" value="[Submit (with btn class)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input class="btn" type="submit" value="[Submit (with btn class)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;input type="submit" value="[Submit (no CSS class)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input type="submit" value="[Submit (no CSS class)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;input class="btn btn-primary" type="submit" value="[Submit (primary class)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input class="btn btn-primary" type="submit" value="[Submit (primary class)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Code for <code>content-fr.html</code> file</p>
+<pre><code>&lt;h3&gt;Bouton de soumission&lt;/h3&gt;
+&lt;p&gt;Le style des boutons de soumission sont mise en force avec le style du bouton d'appel à l'action.&lt;/p&gt;
+&lt;div class="row"&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;h3&gt;With a &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; element&lt;/h3&gt;
+		&lt;button class="btn" type="submit"&gt;[Soumission (avec la classe CSS btn)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button class="btn" type="submit"&amp;gt;[Soumission (avec la classe CSS btn)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;button type="submit"&gt;[Soumission (sans classe CSS)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button type="submit"&amp;gt;[Soumission (sans classe CSS)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;button class="btn btn-primary" type="submit"&gt;[Soumission (primary classe CSS)]&lt;/button&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;button class="btn btn-primary" type="submit"&amp;gt;[Soumission (primary classe CSS)]&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+	&lt;/div&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;h3&gt;With a &lt;code&gt;&amp;lt;input /&amp;gt;&lt;/code&gt; element&lt;/h3&gt;
+		&lt;input class="btn" type="submit" value="[Soumission (avec la classe CSS btn)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input class="btn" type="submit" value="[Soumission (avec la classe CSS btn)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;input type="submit" value="[Soumission (sans classe CSS)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input type="submit" value="[Soumission (sans classe CSS)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+		&lt;input class="btn btn-primary" type="submit" value="[Soumission (primary classe CSS)]" /&gt;
+		&lt;pre&gt;&lt;code&gt;&amp;lt;input class="btn btn-primary" type="submit" value="[Soumission (primary classe CSS)]" /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</li>
 </ul>
