@@ -13,15 +13,15 @@
 }
 ---
 
-<h2>Open item (17 of 64)</h2>
+<h2>Open item (16 of 64)</h2>
 <ul class="list-responsive">
 	<li>Item 3 (Low)</li>
 	<li>Item 8 (Low)</li>
 	<li>Item 12 (Low)</li>
 	<li>Item 13 (Low)</li>
 	<li>Item 38 (Low)</li>
-	<li>Item 43 (Medium)</li>
-	<li>Item 46 (High)</li>
+	<li>Item 43 (High/Medium)</li>
+	<li>Item 46 (Medium)</li>
 	<li>Item 51 (Medium)</li>
 	<li>Item 53 (Medium)</li>
 	<li>Item 55 (Medium)</li>
@@ -31,14 +31,14 @@
 <ul class="list-responsive">
 	<li>Item 1 (High)</li>
 	<li>Item 11 (Low)</li>
-	<li>Item 41 (Medium)</li>
-	<li>Item 60 (Medium)</li>
+	<li>Item 41 (High)</li>
 	<li>Item 61 (Medium)</li>
 	<li>Item 64 (Low)</li>
 </ul>
 
 <h2>Fixed or commented issues</h2>
 <ul>
+	<li>Item 60. Fixed on November 27</li>
 	<li>Item 63. Fixed on November 26</li>
 	<li>Item 60. Comment on November 26 - What this means exactly? "Set no common ligatures for all headers/Lato fonts"</li>
 	<li>Item 61. Comment on November 26 - We would need to develop a few test cases because it might hard to target the first h2 because publisher use different implement in the content area. Like "h1 ~ h2:nth-of-type(1)"; "h1 ~ div:nth-of-type(1) h2:nth-of-type(1)"; "h1 ~ section:nth-of-type(1) h2:nth-of-type(1)". But those selector can be very unstable. Like "h1, h2, section>h2" OR the first h2 is an alert box??. Those special test case need to be reviewed and tested before.</li>
@@ -188,7 +188,15 @@
 	<li><strong>Item 38:</strong> Add keyboard shorcut nav, like focusing on menu item that match the keystrok. (Then SC 2.1.4 apply)</li>
 	<li><del><strong>Fixed Item 39:</strong> Optimize the Menu caching and loading by using an AJAX call. This solution would also provide a way for implementer to insert the menu provided by the canada.ca content delivery network.</del></li>
 	<li><del><strong>Fixed Item 40:</strong> Ensure the server served content for the gcweb theme validate against W3C and Whatwg validator</del></li>
-	<li><strong>Partially fixed Item 41:</strong> Define CDN URL <del>for the home page banner background image (see item 44) and</del> for the new menu</li>
+	<li><strong>Item 41:</strong> Define CDN URL for the home page banner background image <del>(see item 44)</del> and for the new menu. A permanent path is needed for the following selector:
+		<ul>
+			<li><code>.home .home-banner { background-image:url(/content/dam/servcan/bkg-home-banner.jpg); }</code></li>
+			<li><code>.home .home-your-gov { background-image:url(/content/dam/servcan/bkg-home-yourgov.jpg); }</code></li>
+			<li><code>#wb-info .landscape { background-image:url(/content/dam/servcan/landscape.png); }</code></li>
+			<li>Main menu English: <code>./ajax/sitemenu-v2-en.html</code></li>
+			<li>Main menu French: <code>./ajax/sitemenu-v2-fr.html</code></li>
+		</ul>
+	</li>
 	<li><del><strong>Completed Item 42:</strong> Do a WCAG assesment.</del></li>
 	<li><strong>Item 43:</strong> Fix WCAG SC 1.4.4 Resize text issue with the select element. This issue need to be fixed upstream in wet-boew main project. Related to github issue <a href="https://github.com/wet-boew/wet-boew/issues/7884">#7884</a></li>
 	<li><del><strong>Fixed Item 44:</strong> Update the home page banner background image</del></li>
@@ -278,7 +286,7 @@
 				<ul>
 					<li><del>Additional space needed between "Menu" button and the breadcrumb trail  (img attached)</del></li>
 					<li><del>Submit buttons should be styled the same as the "call to action".</del> See Item 64.</li>
-					<li>Set no common ligatures for all headers/Lato fonts</li>
+					<li><del>Set no common ligatures for all headers/Lato fonts [Clarification (Nov 27): add the CSS <code>font-variant-ligatures: no-common-ligatures;</code> to heading elements]</del></li>
 					<li><del>The char max-width should be the default for any pages that have paragraphs currently running the full width</del></li>
 				</ul>
 			</li>
