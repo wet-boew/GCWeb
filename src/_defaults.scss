@@ -193,6 +193,98 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 	border: 0;
 }
 
+
+/* Exclude temporary the form element from the font update, keep same style as before
+ *
+ * - Rational: More testing and various adjustment need to be completed before to apply it
+ */
+:not(#wb-srch) .form-inline, .form-horizontal, .checkbox, .checkbox-inline, .radio, .radio-inline {
+	font-size: 16px;
+	line-height: 23px;
+}
+
+
+/* Force GCWeb release 4.0.29 font style
+ *
+ * This undo the font style introduced with gcweb v2 new look
+ *
+ * - Rational: This is to help the adoption of the new desing by allowing adopter to use
+ * a special CSS class on content like the one optimized for a desktop at 100% view port
+ * Example of content: high profile pages, campaign, application, .....
+ *
+ * This CSS are going to be removed in a future version
+ * Using this CSS hack should be temporary and be used to get some time to adapt the content
+ * as per the new font size parameter
+ *
+ */
+
+.force-style-gcweb-4-0-29 {
+
+	h1 {
+		margin-top: 1.25em;
+	}
+
+	h1,
+	.h1 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 34px;
+	}
+
+	h2,
+	.h2 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 26px;
+	}
+
+	h3,
+	.h3 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 22px;
+	}
+
+	h4,
+	.h4 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 18px;
+	}
+
+	h5,
+	.h5 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 16px;
+	}
+
+	h6,
+	.h6 {
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+	}
+
+	.btn, .form-control {
+		padding: 6px 12px;
+	}
+}
+
+.force-style-gcweb-4-0-29 main,
+main.force-style-gcweb-4-0-29 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	line-height: 1.4375em;
+}
+
+main .force-style-gcweb-4-0-29,
+.force-style-gcweb-4-0-29 .btn {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 23px;
+}
+/*
+ * END - Force GCWeb release 4.0.29 font style
+ *
+ */
+
+
 aside {
 	//Related site links before the footer features and after the main
 	&.site-related {
