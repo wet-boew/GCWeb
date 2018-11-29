@@ -41,6 +41,12 @@
 			<li><a href="../theme-en.html">Theme template</a></li>
 		</ul>
 	</li>
+	<li>Workaround for implementer:
+		<ul>
+			<li>See the section bellow <a href="#temp-avoid-visual">Temporary avoiding the visual difference</a></li>
+			<li><a href="../content-gcweb-4-0-29-font-style-en.html">Content page - GCWeb 4.0.29 font style</a></li>
+		</ul>
+	</li>
 	<li><a href="temp-v2issue.html">Temporary internal list of issues and todo</a></li>
 </ul>
 
@@ -61,6 +67,26 @@
 	<li><strong><code>&lt;h2&gt;</code>:</strong> Smaller font</li>
 	<li><strong><code>&lt;p&gt;</code>:</strong> Larger font</li>
 </ul>
+
+<h3 id="temp-avoid-visual">Temporary avoiding the visual difference</h3>
+
+<p>The increased font size and the new line-height might impact some visual design. Mostly the one where it was thighly designed for desktop first, like some campaign pages.</p>
+
+<p>Here a list of design items to look at:</p>
+<ul>
+	<li>Pages where the number of characted (like in a title) are closely counted to ensure it fit in a specific container, like to remain in one single line. For example the title of a feature tile.</li>
+	<li>Pages where there is textual content inside a column of a width of 1 and 2. Textual content inside a column of width of 3 might or might not cause issue. Those cases might require you to re-think how to present the information.</li>
+	<li>Pages where datatables was intentionally skrinked in order to fit all columns inside the extra-large view port (desktop). For example a datatable with 10 columns or more in a report.</li>
+</ul>
+
+<p>The visual difference is avoided for:</p>
+<ul>
+	<li>Form content inside a form</li>
+	<li>Button (exception of the new call to action button)</li>
+	<li>Content inside a container with the CSS class <code>force-style-gcweb-4-0-29</code></li>
+</ul>
+
+<p>Here a working example: <a href="../content-gcweb-4-0-29-font-style-en.html">Content page - GCWeb 4.0.29 font style</a></p>
 
 <h3>Reference and notes</h3>
 <ul>
