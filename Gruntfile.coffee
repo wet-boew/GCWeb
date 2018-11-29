@@ -712,6 +712,7 @@ module.exports = (grunt) ->
 						"XHTML element “dl” is missing a required instance of child element “dt”."
 						"Empty heading."
 						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -730,6 +731,7 @@ module.exports = (grunt) ->
 						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
 						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # as per HTML 5.3 spec, figcaption just need to be a children of figure element
 						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
+						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
 					]
 				src: [
 					"dist/unmin/**/*.html"
