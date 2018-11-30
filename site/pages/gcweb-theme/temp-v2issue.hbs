@@ -13,32 +13,43 @@
 }
 ---
 
-<h2>Open item (17 of 67)</h2>
+<h2>Open item (16 of 68)</h2>
 <ul class="list-responsive">
-	<li>Item 3 (Low)</li>
-	<li>Item 8 (Low)</li>
-	<li>Item 12 (Low)</li>
-	<li>Item 13 (Low)</li>
-	<li>Item 38 (Low)</li>
-	<li>Item 43 (High/Medium)</li>
-	<li>Item 46 (Medium)</li>
-	<li>Item 51 (Medium)</li>
-	<li>Item 53 (Medium)</li>
-	<li>Item 55 (Medium)</li>
-	<li>Item 62 (Low)</li>
-	<li>Item 66 (Low)</li>
+	<li>[No active item]</li>
 </ul>
 <p>Wait for something...</p>
 <ul class="list-responsive">
 	<li>Item 1 (High)</li>
-	<li>Item 11 (Low)</li>
 	<li>Item 41 (High)</li>
-	<li>Item 61 (Medium)</li>
-	<li>Item 64 (Low)</li>
+</ul>
+
+<p>Might be still in-scope of the new look or to be fixed later</p>
+<ul>
+	<li><strong>Item 51 (Medium) -</strong> Request to modify the Service initiation template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
+	<li><strong>Item 53 (Medium) -</strong> This require to modify the Act profile and Regulation profile template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
+	<li><strong>Item 55 (Medium) -</strong> This require to modify the Campaing page example 1 and 2 template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
+	<li><strong>Item 64 (Low) -</strong> Apply new font to button and submit button. To be done later when more test case is created. Forcing the style to submit button are now out of scope.</li>
+	<li><strong>Item 66 (Low) -</strong> Apply new font to form and button. To be done later when more test case is created.</li>
+</ul>
+
+<p>To be fixed/addressed later on</p>
+<ul>
+	<li><strong>Item 3 (Low) -</strong> Need to re-test and be reproducible, might not be an issue anymore</li>
+	<li><strong>Item 8 (Low) -</strong> Still a weird issue that are happening on that device, but it might related to the use of datatable which have a large width and the media query. More testing need to be done. Don't see that issue on desktop when reducing the browser width.</li>
+	<li><strong>Item 61 (Medium) - </strong>Styling differently the first h2 in the main contain could be quite chanlanging. Need to create a few test case, see comments bellow.</li>
+	<li><strong>Item 12 (Low) -</strong> This issue is specific to IE11 and the wet-boew theme have the same issue. So a fix must be made upstream instead. This might be related to the use of fix font size instead of relative font-size.</li>
+	<li><strong>Item 13 (Low) -</strong> Need to re-test and be reproducible, might not be an issue anymore or this scenario are realy specific to FF when it is use in a special way.</li>
+	<li><strong>Item 38 (Low) -</strong> It will be a nice feature to have, but not part of the requirement.</li>
+	<li><strong>Item 43 (High/Medium) -</strong> That issue need to be fixed upstream or it's going to be fixed when the new font size would be also applied to forms.</li>
+	<li><strong>Item 46 (Medium) -</strong> This is just a group of reported issue identify from item 47 to 61 inclusivly.</li>
+	<li><strong>Item 62 (Low) -</strong> This would require more testing from various device and from various internet speed.</li>
 </ul>
 
 <h2>Fixed or commented issues</h2>
 <ul>
+	<li>Item 11. Comments November 11 - That item it is just a comments/opinion, TBS testing didn't reported that as an error so we can assume that was the intend.</li>
+	<li>Item 68. Fixed November 30 - Blockquote font size was set to 1em.</li>
+	<li>Item 65. Comment November 30 - Fixed a small issue with font-size on button, it's now reset to old size only when button are in a form, this was creating some conflic with some WET plugin.</li>
 	<li>Item 65. Completed November 29 - Documentation, working example and instruction was added</li>
 	<li>Item 67. Fixed November 29 - Each page have an hard coded inline copy of the top menu items (themes).</li>
 	<li>Item 65. Partially fix on November 28 - The new CSS was added <code>force-style-gcweb-4-0-29</code>, it still need to be documented.</li>
@@ -136,7 +147,7 @@
 	<li><strong>Item 8.</strong> Bug: On the main index page of GCWEb (/themes-dist/GCWeb/index-en.html) Using Chrome for mobile with a Samsung Galaxy S7 phone: An expanded menu item can't be collapsed. The most requested sub-menu should be collapsed by default in mobile, but it is expanded. That means the JS that colapse the most-requested menu do not fired correctly. However, there is no issue when mobile is emulated through desktop.</li>
 	<li><del><strong>Unreproducible Item 9.</strong> ~Style: There is some blue mouse hover that appear, idem for when the link is mark as visited. I briefly saw that issue in IE11 but it need to be investigated more.</del></li>
 	<li><del><strong>Fixed - Item 10.</strong> UI ~Bug: Inconsistent spacing between section. There is almost no space when you look at the right floating image after the section "On Focus" followed by the section "Your government". Suggestion to increase the spacing.</del></li>
-	<li><strong>Comment - Item 11.</strong> ~Style: There is a large spacing between the main menu and the h1 of a content page in large/extra large view.</li>
+	<li><del><strong>Comment - Item 11.</strong> ~Style: There is a large spacing between the main menu and the h1 of a content page in large/extra large view.</del></li>
 	<li><strong>Item 12.</strong> Bug: The text can't be enlarged at 200% in IE11, but it work in FF. I got the same behaviour with WET theme and with the previous GCWeb theme.</li>
 	<li>
 		<p><strong>Item 13.</strong></p>
@@ -389,4 +400,5 @@ input[type=submit].btn {
 	<li><del><strong>Fixed Item 65</strong> Add and documents a new CSS class to undo the new font-style in order to let implementer to adapt their content to the new font.</del></li>
 	<li><strong>Item 66</strong> Apply the new font style to form and to all buttons. <del>Remove the style as temporary measure</del> because label didn't aligned well with their input controler, idem for check box of an input type checkbox/radio.</li>
 	<li><del><strong>Fixed Item 67</strong> Improve the SEO for the menu button. Add at least, in each page, the top menu item (themes)</del></li>
+	<li><del><strong>Fixed Item 68</strong> Font size of blockquote content didn't match the new default text-size.</del></li>
 </ul>
