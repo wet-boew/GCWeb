@@ -609,3 +609,44 @@
 	<li>(Under review - See item 33) The size of the heading of any dormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each dormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
 	<li>Ensure the date modified is after the "Report a probleme" instead of being before. The top margin was added to that field.</li>
 </ul>
+
+<h4>Page details section (before the end of the main)</h4>
+
+<p>History:</p>
+<ul>
+	<li>Major - visual v2 - Move of the date modified after button as per the Content and IA spec.</li>
+	<li>Major - visual v2 - Include the CSS class container (only for the home page) when the CSS class container is not added to the main element.</li>
+	<li>Minor - v.4.0.28 - April 27, 2018 - Removal of the Privacy statement</li>
+	<li>Major - v.4.0.27 - December 14, 2017: Markup restructuration - Grid cell are now independant from the interactive elements to display the report a problem inline form.</li>
+	<li>Major - v.4.0.22 - August 9, 2016: Markup restructuration - Feedback link was change into an inline report a problem form.</li>
+	<li>Initial markup - v4.0.0 - Date modified followed by feedback form link.</li>
+</ul>
+
+<p>Lastest markup:</p>
+<pre><code>&lt;div class="pagedetails"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
+			&lt;details class="brdr-0"&gt;
+				&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
+				&lt;div class="well row"&gt;
+
+					&lt;!-- Report a probleme inline form code here --&gt;
+
+				&lt;/div&gt;
+			&lt;/details&gt;
+		&lt;/div&gt;
+		&lt;!-- Share button --&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'&gt;&lt;/div&gt;
+		&lt;!-- END Share button --&gt;
+	&lt;/div&gt;
+	&lt;dl id="wb-dtmd"&gt;
+		&lt;dt&gt;Date modified:&#32;&lt;/dt&gt;
+		&lt;dd&gt;&lt;time property="dateModified"&gt;YYYY-MM-DD&lt;/time&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Some rules:</p>
+<ul>
+	<li>If the main element don't have the "container" CSS class, page details need to have that class set in order to keep it's content centered. Like for the home page with the visual v2.</li>
+	<li>If the page can be shared, the share button is added</li>
+</ul>
