@@ -423,7 +423,7 @@ module.exports = (grunt) ->
 						# Exemptions...
 
 						# Images
-						"!site/img/**/*.{jpg,png}"
+						"!site/**/*.{jpg,png}"
 						"!src/assets/*.{ico,jpg,png}"
 
 						# External fonts
@@ -741,6 +741,7 @@ module.exports = (grunt) ->
 					"!dist/unmin/test/*.html"
 					"!dist/unmin/demos/data-json/template-en.html"
 					"!dist/unmin/demos/data-json/template-fr.html"
+					"!dist/unmin/gcweb-theme/test-case-1.html"
 				]
 
 		bootlint:
