@@ -71,10 +71,11 @@
 
 <h3>How to update</h3>
 <ul>
-	<li>Change the CSS class on the left top FIP and on the Search section</li>
+	<li>Change the CSS class on the top left FIP and on the Search section</li>
 	<li>Remove the "mobile menu" div placeholder.</li>
 	<li>Update the JS</li>
 	<li>Update the markup for the menu, the new menu are independent from the previous one</li>
+	<li>Minor markup update for the language section.</li>
 	<li>Update the attribute on the input search field.</li>
 </ul>
 
@@ -159,7 +160,7 @@
 <h3>Updated markup</h3>
 <ul>
 	<li>Removal of CSS visibility class to #wb-lng</li>
-	<li>Removal of the CSS grid (2 div) in #wb-lng</li>
+	<li>Removal of the CSS grid (div.row and div.col-md-12) in #wb-lng</li>
 	<li>Remove unnecessary role (banner, navigation)</li>
 	<li>Search and menus section (.wb-mb-links) was removed</li>
 	<li>Column definition (CSS class) was updated on the top left brand logo</li>
@@ -289,8 +290,8 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button type="button" aria-controls="gc-mnu" aria-haspopup="true" aria-expanded="false"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical"&gt;
+		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role="menu" aria-orientation="vertical"&gt;
 
 		[[ Menu items ]]
 
@@ -302,8 +303,8 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button type="button" aria-haspopup="true" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical"&gt;
+		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role="menu" aria-orientation="vertical"&gt;
 
 		[[ Menu items ]]
 
@@ -332,8 +333,8 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button id="gc-menubtn" aria-controls="gc-menu" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul id="gc-menu" role="menu" aria-labelledby="gc-menubtn" <strong>data-ajax-replace="../ajax/sitemenu-v2-en.html"</strong>&gt;
+		&lt;button id="gc-menubtn" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role="menu" aria-labelledby="gc-menubtn" <strong>data-ajax-replace="../ajax/sitemenu-v2-en.html"</strong>&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Jobs and the workplace&lt;/a&gt;&lt;/li&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration and citizenship&lt;/a&gt;&lt;/li&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://travel.gc.ca/"&gt;Travel and tourism&lt;/a&gt;&lt;/li&gt;
@@ -357,8 +358,8 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button type="button" aria-haspopup="true" aria-controls="gc-mnu" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul id="gc-mnu" role="menu" aria-orientation="vertical" <strong>data-ajax-replace="../ajax/sitemenu-v2-fr.html"</strong>&gt;
+		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role="menu" aria-orientation="vertical" <strong>data-ajax-replace="../ajax/sitemenu-v2-fr.html"</strong>&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Emplois et milieu de travail&lt;/a&gt;&lt;/li&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration et citoyenneté&lt;/a&gt;&lt;/li&gt;
 			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/"&gt;Voyage et tourisme&lt;/a&gt;&lt;/li&gt;

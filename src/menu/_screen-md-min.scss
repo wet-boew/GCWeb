@@ -18,3 +18,23 @@
 	}
 
 }
+
+// Open by default in basic HTML mode into 3 column
+.wb-disable .gcweb-v2 [role=menu] > li {
+	float: left;
+	padding-right: 5px;
+	width: 30%;
+
+	&:nth-child(3n+3) {
+		clear:right;
+	}
+	&:nth-child(3n+4) {
+		clear:left;
+	}
+	&:nth-child(2n+2) {
+		clear:none;
+	}
+	&:nth-child(2n+3) {
+		clear:none;
+	}
+}
