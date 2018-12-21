@@ -1,0 +1,253 @@
+---
+{
+	"title": "Résultats de la recherche",
+	"language": "fr",
+	"altLangPrefix": "recherche",
+	"pageType": "recherche",
+	"pageclass": "page-type-search",
+	"breadcrumb": [
+		{ "title": "Accueil", "link": "https://www.canada.ca/fr.html" }
+	],
+	"dateModified": "2018-12-21",
+	"share": "false",
+	"deptfeature": false
+}
+---
+<!--Note: visual example with styles applied: https://gc-proto.github.io/student-loans/scenarioA/services/search-results-contextual-visual.html-->
+<!--Note 2: this template should only be used for contextual search results from a single institution-->
+<!--Note 3: until radio buttons pattern works, please simply include 'All government of Canada websites' link in the well, under the search box-->
+<div class="row profile">
+	<div class="col-md-12">
+		<h1 property="name" id="wb-cont">Résultats de la recherche</h1>
+		<div class="well">
+			<form name="cse-search-box" method="{{method}}" action="{{action}}" id="cse-search-box" role="form">
+				<label class="wb-inv" for="sch-inp">Recherchez le site Web</label>
+				<input type="hidden" name="st" value="s" />
+				<input type="hidden" name="s5bm3ts21rch" value="x" />
+				<input type="hidden" name="num" value="10" />
+				<input type="hidden" name="st1rt" value="0" />
+				<input type="hidden" name="langs" value="eng" />
+				<input type="hidden" name="cdn" value="canada" />
+				<input type="hidden" name="hq" value="" />
+				<div class="input-group mrgn-tp-lg">
+					<input value="{{value}}" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" class="form-control" type="search">
+					<span class="input-group-btn">
+						<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Recherche</span></button>
+					</span>
+				</div>
+			</form>
+			<div class="row mrgn-tp-md">
+				<div class="col-md-4 nowrap">
+					<input type="radio" name="searchscope" id="radio-allresults" value="allresults"  /> <label id="label-alldepartments" for="radio-alldepartments">Tous les sites Web du gouvernement du Canada</label>
+				</div>
+				<div class="col-md-8 nowrap">
+					<input type="radio" name="searchscope" id="radio-context" value="context" checked="checked" /> <label id="label-singledepartment" for="radio-singledepartment"><strong>{{context label}}</strong></label>
+				</div>
+			 </div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h2>{{#}} résultats de recherché pour "{{search term}}"</h2>
+		<p class="gc-byline"><strong>From {{Institution name}}</a></strong></p>
+		<!--Note: byline is only included in contextual versions of the results page-->
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<section>
+			<h3><a href="{{link}}">{{Search result page title (not including '- Canada.ca' or other institutional suffix)}}</a></h3>
+			<ul>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<li class="label">{{institution name}}</li>
+				<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+				<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+			<ul>
+			<ol class="breadcrumb">
+				<li class="{{link}}">{{domain name of search result}}</li>
+				<li class="{{link}}">{{parent breadcrumb of page}}</li>
+				<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+			<ol>
+			<p><time datetime="{{dateModified of search result}}">{{DD MMM. YYYY}}</time> - {{description/highlight of search result. Search terms in <strong>}}</p>
+		</section>
+		<div class="text-center brdr-tp mrgn-tp-lg">
+			<ul class="pagination">
+				<li class="active">
+					<a href="#">1<span class="wb-inv">&#58;&#160;Page&#160;1&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#">2<span class="wb-inv">&#58;&#160;Page&#160;2&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="hidden-sm hidden-xs">3<span class="wb-inv">&#58;&#160;Page&#160;3&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="hidden-sm hidden-xs">4<span class="wb-inv">&#58;&#160;Page&#160;4&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">5<span class="wb-inv">&#58;&#160;Page&#160;5&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">6<span class="wb-inv">&#58;&#160;Page&#160;6&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">7<span class="wb-inv">&#58;&#160;Page&#160;7&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">8<span class="wb-inv">&#58;&#160;Page&#160;8&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">9<span class="wb-inv">&#58;&#160;Page&#160;9&#160;of search results</span></a>
+				</li>
+				<li>
+					<a href="#" class="visible-lg">10<span class="wb-inv">&#58;&#160;Page&#160;10&#160;of search results</span></a>
+				</li>
+				<li>
+					<a rel="next" href="#">Next<span class="wb-inv">page of search results</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
