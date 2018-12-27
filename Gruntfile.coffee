@@ -742,6 +742,7 @@ module.exports = (grunt) ->
 					"!dist/unmin/demos/data-json/template-en.html"
 					"!dist/unmin/demos/data-json/template-fr.html"
 					"!dist/unmin/gcweb-theme/test-case-1.html"
+					"!dist/unmin/home/test-1.html"
 				]
 
 		bootlint:

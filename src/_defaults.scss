@@ -322,13 +322,14 @@ aside {
 	 * - views/_screen-xs-max
 	 */
 	.home-banner {
-		background-image: url(https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg), url(../assets/bkg-home-banner.jpg);
+		background-color: #eee;
+		background-image: url(https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg);
 		background-repeat: no-repeat;
 		background-size: 100% auto;
+		color:#fff;
 
-		.innerbox {
+		.innerbox, &.sky .innerbox {
 			background-color: #26374a;
-			color:#fff;
 			margin: 3em 0px;
 			padding: 20px;
 			width: 50%;
@@ -341,6 +342,62 @@ aside {
 			p {
 				margin-top: 15px;
 			}
+		}
+		.promo {
+			background-color: #355688;
+			opacity: .9;
+		}
+
+		// Other color theme for promotion
+		// - note: Sky (blue) is the default
+		// Earth (brown)
+		&.earth {
+			.innerbox {
+				background-color: #26374a;
+			}
+			.promo {
+				background-color: #26374a;
+			}
+		}
+		// Vegetation (green)
+		&.vegetation {
+			.innerbox {
+				background-color: #1a3902;
+			}
+			.promo {
+				background-color: #295e01;
+			}
+		}
+		// Night (black)
+		&.night {
+			.innerbox {
+				background-color: #0d0c0b;
+			}
+			.promo {
+				background-color: #000;
+			}
+		}
+		// Forest (brown-yellow)
+		&.forest {
+			.innerbox {
+				background-color: #5a3700;
+			}
+			.promo {
+				background-color: #745001;
+			}
+		}
+		// Autumn (orange)
+		&.autumn {
+			.innerbox {
+				background-color: #4a1a00;
+			}
+			.promo {
+				background-color: #7a3900;
+			}
+		}
+
+		a.figcaption *, a:visited.figcaption * {
+			color: #fff;
 		}
 	}
 
@@ -369,21 +426,6 @@ aside {
 		background-position: right center;
 		background-repeat: no-repeat;
 		background-size: 35%;
-	}
-}
-/* well-dark */
-.well-dark, .well-dark a.figcaption * :not(figcaption) {
-	background-color: #222;
-	border-color: #000;
-	color: #fff;
-}
-.well-dark {
-	a {
-		color: #BCC9D7;
-	}
-
-	a:visited {
-		color: #D8BFED;
 	}
 }
 
