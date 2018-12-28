@@ -234,9 +234,7 @@
 
 <h3>Technical notes</h3>
 <ul>
-	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1</li>
-	<li>The double role on list item in the menu was added as suggested by the W3C validator because the <code>role=none</code> are not widely supported yet.</li>
-	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the whatwg validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
+	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1. See the technical notes in the gcweb theme meta page.</li>
 	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
 	<li>
 		<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
@@ -333,23 +331,23 @@
 <pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
-		&lt;button id="gc-menubtn" aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
-		&lt;ul role="menu" aria-labelledby="gc-menubtn" <strong>data-ajax-replace="../ajax/sitemenu-v2-en.html"</strong>&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Jobs and the workplace&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration and citizenship&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://travel.gc.ca/"&gt;Travel and tourism&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/business.html"&gt;Business and industry&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/benefits.html"&gt;Benefits&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/health.html"&gt;Health&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/taxes.html"&gt;Taxes&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/environment.html"&gt;Environment and natural resources&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/defence.html"&gt;National security and defence&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/culture.html"&gt;Culture, history and sport&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/policing.html"&gt;Policing, justice and emergencies&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/transport.html"&gt;Transport and infrastructure&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="http://international.gc.ca/world-monde/index.aspx?lang=eng"&gt;Canada and the world&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/finance.html"&gt;Money and finances&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/finance.html"&gt;Science and innovation&lt;/a&gt;&lt;/li&gt;
+		&lt;button aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role="menu" <strong>data-ajax-replace="../ajax/sitemenu-v2-en.html"</strong>&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Jobs and the workplace&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration and citizenship&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://travel.gc.ca/"&gt;Travel and tourism&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/business.html"&gt;Business and industry&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/benefits.html"&gt;Benefits&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/health.html"&gt;Health&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/taxes.html"&gt;Taxes&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/environment.html"&gt;Environment and natural resources&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/defence.html"&gt;National security and defence&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/culture.html"&gt;Culture, history and sport&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/policing.html"&gt;Policing, justice and emergencies&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/transport.html"&gt;Transport and infrastructure&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="http://international.gc.ca/world-monde/index.aspx?lang=eng"&gt;Canada and the world&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/finance.html"&gt;Money and finances&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/finance.html"&gt;Science and innovation&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
@@ -360,21 +358,21 @@
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
 		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
 		&lt;ul role="menu" aria-orientation="vertical" <strong>data-ajax-replace="../ajax/sitemenu-v2-fr.html"</strong>&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Emplois et milieu de travail&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration et citoyenneté&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/"&gt;Voyage et tourisme&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html"&gt;Entreprises et industrie&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/benefits.html"&gt;Prestations&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html"&gt;Santé&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html"&gt;Impôts&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html"&gt;Environnement et ressources naturelles&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"&gt;Sécurité nationale et défense&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html"&gt;Culture, histoire et sport&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html"&gt;Services de police, justice et urgences&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/transport.html"&gt;Transport et infrastructure&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="http://international.gc.ca/world-monde/index.aspx?lang=fra"&gt;Canada et le monde&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"&gt;Argent et finances&lt;/a&gt;&lt;/li&gt;
-			&lt;li role="none presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html"&gt;Science et innovation&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/jobs.html"&gt;Emplois et milieu de travail&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration et citoyenneté&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://voyage.gc.ca/"&gt;Voyage et tourisme&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/entreprises.html"&gt;Entreprises et industrie&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/benefits.html"&gt;Prestations&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/sante.html"&gt;Santé&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/impots.html"&gt;Impôts&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/environnement.html"&gt;Environnement et ressources naturelles&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/defense.html"&gt;Sécurité nationale et défense&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/culture.html"&gt;Culture, histoire et sport&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/police.html"&gt;Services de police, justice et urgences&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/en/services/transport.html"&gt;Transport et infrastructure&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="http://international.gc.ca/world-monde/index.aspx?lang=fra"&gt;Canada et le monde&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/finance.html"&gt;Argent et finances&lt;/a&gt;&lt;/li&gt;
+			&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="https://www.canada.ca/fr/services/science.html"&gt;Science et innovation&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
@@ -389,25 +387,25 @@
 	<li>This template can be use for the HTML fragment to fetch all menu items.</li>
 </ul>
 
-<pre><code>&lt;li role="none presentation"&gt;
-	&lt;a role="menuitem" aria-haspopup="true" aria-controls="gc-mnu-" aria-expanded="false" href="#"&gt;[[Theme title]]&lt;/a&gt;
-	&lt;ul id="gc-mnu-" role="menu" aria-orientation="vertical"&gt;
-		&lt;li role="none presentation"&gt;
+<pre><code>&lt;li role="presentation"&gt;
+	&lt;a role="menuitem" aria-haspopup="true" aria-expanded="false" href="#"&gt;[[Theme title]]&lt;/a&gt;
+	&lt;ul role="menu" aria-orientation="vertical"&gt;
+		&lt;li role="presentation"&gt;
 			&lt;a role="menuitem" href="https://www.canada.ca/[[path to the theme]]"&gt;[[Theme linked title]]&lt;/a&gt;
 		&lt;/li&gt;
 		&lt;li role="separator"&gt;&lt;/li&gt;
 
 [[ For each sub menu for that theme ]]
-		&lt;li role="none presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
+		&lt;li role="presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
 [[ End for each ]]
 
 		&lt;li role="separator" aria-orientation="vertical"&gt;&lt;/li&gt;
-		&lt;li role="none presentation"&gt;
-			&lt;a data-keep-expanded="md-min" href="#" role="menuitem" aria-haspopup="true" aria-controls="gc-mnu--sub" aria-expanded="true"&gt;[[ Most requested text ]]&lt;/a&gt;
-			&lt;ul id="gc-mnu--sub" role="menu" aria-orientation="vertical"&gt;
+		&lt;li role="presentation"&gt;
+			&lt;a data-keep-expanded="md-min" href="#" role="menuitem" aria-haspopup="true" aria-expanded="true"&gt;[[ Most requested text ]]&lt;/a&gt;
+			&lt;ul role="menu" aria-orientation="vertical"&gt;
 
 [[ For each most requested item for that theme ]]
-				&lt;li role="none presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
+				&lt;li role="presentation"&gt;&lt;a role="menuitem" href="[[Link to the page associated with this menu item ]]"&gt;[[ Menu item text ]]&lt;/a&gt;&lt;/li&gt;
 [[ End for each ]]
 
 			&lt;/ul&gt;
