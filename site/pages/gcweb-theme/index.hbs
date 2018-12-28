@@ -175,6 +175,15 @@
 	</footer>
 </blockquote>
 
+<h3>Technical note about the design of the menu</h3>
+<ul>
+	<li>The orientation of the sperator before the most requested sub-menu change from vertical to horizontal in tablet/mobile view</li>
+	<li>The most requested sub-menu has an attribute to indicate the JS plugin that sub-menu need to remain expanded in medium and large device. <code>data-keep-expanded="md-min"</code></li>
+	<li>The use of the <code>aria-controls</code> on menu item that open sub-menu might not required. Before to take a decision, we should do more testing to confirm the useless of that property on sub-menu items. Comments received from one user testing with a screen reader has recommended to remove it for the menu button.</li>
+	<li><code>role=none</code>: As per WAI-ARIA 1.1 practice, there example use the <code>role=none</code> for each list item. The W3C validator has recommended to use both role "none" and "presentation" because the role "none" is not yet widely supported. The use of the role "none" currently (2018-12-28) trigger an error by the validator.nu but not by the W3C validator. The issue is the validator.nu don't support yet WAI-ARIA 1.1 and because of that we would only keep one role <code>role=presentation</code> instead of having a dual role. The list item role should be updated once the role "none" would be widely supported.</li>
+	<li><code>aria-haspopup=menu</code>: As per WAI-ARIA 1.1, the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">aria-haspopup</a> property can have multiple value other than "true". The value set to "true" is the same as being set to "menu". Ideally, the menu design would use aria-haspopop=menu instead of aria-haspopup=true because it is more explicit. The validator.nu trigger an error when the aria-haspopup is set to menu instead of true because it don't support WAI-ARIA 1.1. The anchor and the button with the attribute aria-haspopup should be updated once validator.nu support WAI-ARIA 1.1. Using "menu" instead of "true" shouldn't impact assisstive technology that only support WAI-ARIA 1.0</li>
+</ul>
+
 <h2>Previous version</h2>
 <ul>
 	<li>See GCWeb released with WET 4.0.29. All code change are documented in the migration instruction of GCWeb new look - V2.</li>
