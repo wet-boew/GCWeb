@@ -9,6 +9,9 @@
  */
 
 .redacted {
+	display: inline-block; // Fix a word wrapping issue in IE11 and redacted content in a table with FF
+	line-break: anywhere;
+	overflow-wrap: break-word;
 	word-break: break-all;
 	word-wrap: break-word;
 }
