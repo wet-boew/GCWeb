@@ -1,0 +1,86 @@
+---
+{
+	"title": "Résultats de la recherche",
+	"language": "fr",
+	"altLangPrefix": "recherche",
+	"pageType": "recherche",
+	"pageclass": "page-type-search",
+	"breadcrumb": [
+		{ "title": "Accueil", "link": "https://www.canada.ca/fr.html" }
+	],
+	"dateModified": "2018-12-21",
+	"share": "false",
+	"deptfeature": false
+}
+---
+<!--Note: visual example with styles applied: https://gc-proto.github.io/student-loans/scenarioA/services/search-results-visual.html-->
+<!--Note 2: this template should not be used for contextual search results from a single institution-->
+<h1 property="name">Résultats de la recherche</h1>
+<form name="cse-search-box" method="GET" action="/en/sr/srb.html" id="cse-search-box">
+	<label class="wb-inv" for="sch-inp">Recherchez le site Web</label>
+	<!--search engine form submission code-->
+	<div class="input-group mrgn-tp-lg">
+		<input value="[value]" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" class="form-control" type="search">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-primary btn-small" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Recherche</span></button>
+		</span>
+	</div>
+</form>
+<div class="col-xs-12">
+	<h2>[number] résultats de recherché pour "[search term]"</h2>
+	<section>
+		<h3><a href="#">[Search result page title (not including '- Canada.ca' or other institutional suffix)]</a></h3>
+		<ul class="label">
+			<li>[institution name]</li>
+			<li>[institution name]</li>
+			<li>[institution name]</li>
+			<!--Note: if labels go past 1 row, then option a) cut off at end of row, option b) do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP-->
+			<!--Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.-->
+		</ul>
+		<ol class="breadcrumb">
+			<li>[domain name of search result]</li>
+			<li>[parent breadcrumb of page]</li>
+			<!--Note: this always has 2 list items. Does not include other breadcrumb items.-->
+		</ol>
+		<!--when the breadcrumb is not available to the search engine, use the URL instead-->
+		<p><cite><a href="#">[url of the search result]</a></cite></p>
+		<p><time datetime="2018-01-01">[DD MMM. YYYY]</time> - [description/highlight of search result. Search terms in strong]</p>
+	</section>
+	<div class="text-center brdr-tp mrgn-tp-lg">
+		<ul class="pagination">
+			<li class="active">
+				<a href="#">1<span class="wb-inv">&#58;&#160;Page&#160;1&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#">2<span class="wb-inv">&#58;&#160;Page&#160;2&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="hidden-sm hidden-xs">3<span class="wb-inv">&#58;&#160;Page&#160;3&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="hidden-sm hidden-xs">4<span class="wb-inv">&#58;&#160;Page&#160;4&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">5<span class="wb-inv">&#58;&#160;Page&#160;5&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">6<span class="wb-inv">&#58;&#160;Page&#160;6&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">7<span class="wb-inv">&#58;&#160;Page&#160;7&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">8<span class="wb-inv">&#58;&#160;Page&#160;8&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">9<span class="wb-inv">&#58;&#160;Page&#160;9&#160;of search results</span></a>
+			</li>
+			<li>
+				<a href="#" class="visible-lg">10<span class="wb-inv">&#58;&#160;Page&#160;10&#160;of search results</span></a>
+			</li>
+			<li>
+				<a rel="next" href="#">Next<span class="wb-inv">page of search results</span></a>
+			</li>
+		</ul>
+	</div>
+</div>
