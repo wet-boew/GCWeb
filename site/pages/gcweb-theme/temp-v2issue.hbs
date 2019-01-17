@@ -13,27 +13,28 @@
 }
 ---
 
-<h2>Open item (20 of 90)</h2>
+<h2>Open item (19 of 91)</h2>
 <ul class="list-responsive">
-	<li>Item 73 (Medium)</li>
-	<li>Item 74 (Medium)</li>
-	<li>Item 86 (Medium)</li>
-	<li>Item 87 (Medium)</li>
-	<li>Item 90 (Medium)</li>
-	<!-- <li>[No active item]</li> -->
+	<li>[No active item]</li>
 </ul>
 <p>Wait for something...</p>
 <ul class="list-responsive">
-	<li>Item 41 (High)</li>
+	<li>[No active item]</li>
 </ul>
 
-<p>Might be still in-scope of the new look or to be fixed later (5 issues)</p>
+<p>Might be still in-scope of the new look or to be fixed later (10 issues)</p>
 <ul>
+	<li>Item 41 (High) - This is high priority for other that are implementing the new look, this issue is to ensure the latest version of the menu is published on the CDN at a stable location and are made available for other implementation.</li>
 	<li><strong>Item 51 (Medium) -</strong> Request to modify the Service initiation template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
 	<li><strong>Item 53 (Medium) -</strong> This require to modify the Act profile and Regulation profile template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
 	<li><strong>Item 55 (Medium) -</strong> This require to modify the Campaing page example 1 and 2 template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
 	<li><strong>Item 64 (Low) -</strong> Apply new font to button and submit button. To be done later when more test case is created. Forcing the style to submit button are now out of scope.</li>
 	<li><strong>Item 66 (Low) -</strong> Apply new font to form and button. To be done later when more test case is created.</li>
+	<li><strong>Item 73 (Medium) -</strong> The menu behaviour would be post launched updated.</li>
+	<li><strong>Item 74 (Medium) -</strong> The menu behaviour would be post launched updated.</li>
+	<li><strong>Item 86 (Medium) -</strong> The same issue happen with the WET-BOEW theme when the page is resized to it's minimal width. Fixing that would require further investigation and it is not related at the new look.</li>
+	<li><strong>Item 91 (Low) -</strong> Documenting the multi-page navigation would be done post launch.</li>
+
 </ul>
 
 <p>To be fixed/addressed later on (9 issues)</p>
@@ -51,6 +52,8 @@
 
 <h2>Fixed or commented issues</h2>
 <ul>
+	<li>Item 87. Fixed January 16 - Search input size was ajusted to fit better when the page width is at its minimal width size. A right border was added too.</li>
+	<li>Item 90. Fixed January 16 - A reduced relative font-size was applied to toc. Also we discover the CSS class <code>.gc-stp-stp</code> seems to not be used.</li>
 	<li>Item 85. Fixed January 16 - Template was updated with the latest markup</li>
 	<li>Item 88. Fixed January 16 - Tested the multimedia player and the youtube player, the overlay look centered.</li>
 	<li>Item 84. Fixed January 16 - New font-size are applied.</li>
@@ -581,5 +584,6 @@ input[type=submit].btn {
 	<li><strong>Item 87</strong> On iPhone device - Top search bar overflow to the right and the search button are render bellow it.</li>
 	<li><del><strong>Fixed Item 88</strong> Multimedia player - Small device and desktop - Review how overlay (with the pause button) are still rendered in the middle and centered.</del></li>
 	<li><del><strong>Fixed Item 89</strong> Form validation - Error label that are appearing when validating checkboxes overlay the legend text. <a href="../demos/formvalid/formvalid-en.html">Form validation</a>. How to reproduce: 1. Go in the form validation example page. 2. Click on submit to trigger the form validation plugin. 3. See the error label are over the legend text. - There probably a fix for it in the PR #8397</del></li>
-	<li><strong>Item 90</strong> The new font-size conflict for the in-page navigation. Suggest to use a font-size of 17px instead of 20px. <code>ul.toc { font-size:17px }</code></li>
+	<li><del><strong>Item 90</strong> The new font-size conflict for the in-page navigation. Suggest to use a font-size of 17px instead of 20px. <code>ul.toc { font-size:17px }</code></del></li>
+	<li><strong>Item 91</strong> Document the API for the "Multi-page" navigation (Step-by-step) and remove the used CSS class "gc-stp-stp" because implementer has used a combination of CSS like "mrgn-tp-md mrgn-bttm-lg brdr-bttm" instead.</li>
 </ul>
