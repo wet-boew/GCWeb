@@ -222,6 +222,20 @@ main .force-style-gcweb-4-0-29,
  *
  */
 
+form .btn.btn-lg,
+.force-style-gcweb-4-0-29 .btn.btn-lg {
+	// line-height: ensure even-numbered height of button next to large input
+	@include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+}
+form .btn.btn-sm,
+.force-style-gcweb-4-0-29 .btn.btn-sm {
+	// line-height: ensure proper height of button next to small input
+	@include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+form .btn.btn-xs,
+.force-style-gcweb-4-0-29 .btn.btn-xs {
+	@include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
 
 aside {
 	//Related site links before the footer features and after the main
