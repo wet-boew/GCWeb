@@ -1,8 +1,8 @@
 ---
 {
-	"title": "Migration instruction - GCWeb theme V2",
+	"title": "Migration instruction - GCWeb theme V5",
 	"language": "en",
-	"altLangPrefix": "v2-migration",
+	"altLangPrefix": "v5-migration",
 	"breadcrumb": [
 		{ "title": "GCWeb home", "link": "../index-en.html" },
 		{ "title": "Theme meta", "link": "index.html" }
@@ -30,6 +30,8 @@
 	<li><a href="#otherDiff">Other notable difference</a></li>
 </ul>
 
+
+<p><strong>Note for implementer that has used the GCWeb developer build on or before January 30, 2019</strong>. (This is not applicable for implemeter that has use the official GCWeb v5 release.) The top menu is now identified by using the CSS class <code>gcweb-menu</code> instead of <code>gcweb-v2</code>.</p>
 
 <h2 id="pg-footer">Page footer</h2>
 
@@ -85,7 +87,7 @@
 	<li>The color for the search button would be automated updated when the new style is applied.</li>
 	<li>Menu, see the following section for more details
 		<ul>
-			<li>The new menu style is applied when the CSS class <code>gcweb-v2</code> is applied to the navigation section of the main menu.
+			<li>The new menu style is applied when the CSS class <code>gcweb-menu</code> is applied to the navigation section of the main menu.
 				<ul>
 					<li>You will notice the "border-top" is added at the top of the menu.</li>
 					<li>You will notice the new styling for the menu button.</li>
@@ -285,7 +287,7 @@
 	<li>There is some translation string and markup variation between language for the button. It's the invisible complementary text.</li>
 </ul>
 
-<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+<pre><code>&lt;nav class="gcweb-menu" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
 		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
@@ -298,7 +300,7 @@
 &lt;/nav&gt;</code></pre>
 
 <h3>French version</h3>
-<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+<pre><code>&lt;nav class="gcweb-menu" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
 		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
@@ -328,7 +330,7 @@
 	<li>In the following working example, you can see a list of the top menu items which represents each theme.</li>
 </ul>
 
-<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+<pre><code>&lt;nav class="gcweb-menu" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
 		&lt;button aria-haspopup="true" type="button"&gt;&lt;span class="wb-inv"&gt;Main &lt;/span&gt;Menu &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
@@ -353,7 +355,7 @@
 &lt;/nav&gt;</code></pre>
 
 <h3>French version</h3>
-<pre><code>&lt;nav class="gcweb-v2" typeof="SiteNavigationElement"&gt;
+<pre><code>&lt;nav class="gcweb-menu" typeof="SiteNavigationElement"&gt;
 	&lt;div class="container"&gt;
 		&lt;h2 class="wb-inv"&gt;Menu&lt;/h2&gt;
 		&lt;button type="button" aria-haspopup="true" aria-expanded="false"&gt;Menu&lt;span class="wb-inv"&gt; principal&lt;/span&gt; &lt;span class="expicon glyphicon glyphicon-chevron-down"&gt;&lt;/span&gt;&lt;/button&gt;
@@ -613,8 +615,8 @@
 
 <p>History:</p>
 <ul>
-	<li>Major - visual v2 - Move of the date modified after button as per the Content and IA spec.</li>
-	<li>Major - visual v2 - Include the CSS class container (only for the home page) when the CSS class container is not added to the main element.</li>
+	<li>Major - visual update v5 - Move of the date modified after button as per the Content and IA spec.</li>
+	<li>Major - visual update v5 - Include the CSS class container (only for the home page) when the CSS class container is not added to the main element.</li>
 	<li>Minor - v.4.0.28 - April 27, 2018 - Removal of the Privacy statement</li>
 	<li>Major - v.4.0.27 - December 14, 2017: Markup restructuration - Grid cell are now independant from the interactive elements to display the report a problem inline form.</li>
 	<li>Major - v.4.0.22 - August 9, 2016: Markup restructuration - Feedback link was change into an inline report a problem form.</li>
@@ -646,6 +648,6 @@
 
 <p>Some rules:</p>
 <ul>
-	<li>If the main element don't have the "container" CSS class, page details need to have that class set in order to keep it's content centered. Like for the home page with the visual v2.</li>
+	<li>If the main element don't have the "container" CSS class, page details need to have that class set in order to keep it's content centered. Like for the home page with the visual update v5.</li>
 	<li>If the page can be shared, the share button is added</li>
 </ul>

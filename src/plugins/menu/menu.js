@@ -1,5 +1,5 @@
 /**
- * @title Menu for GCWeb v2
+ * @title Menu for GCWeb v5
  * @overview Menu keyboard and mouse interaction with supporting responsiveness
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @duboisp
@@ -7,8 +7,8 @@
 ( function( $, wb ) {
 "use strict";
 
-var componentName = "gcweb-v2",
-	selector = ".gcweb-v2",
+var componentName = "gcweb-menu",
+	selector = ".gcweb-menu",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	selectorAjaxed =  selector + " [data-ajax-replace]," + selector + " [data-ajax-append]," + selector + " [data-ajax-prepend]," + selector + " [data-wb-ajax]",
@@ -133,7 +133,7 @@ function CloseMenuWithDelay( elm ) {
 }
 
 // Open menu on mouse hovering
-$document.on( "mouseenter", ".gcweb-v2 [aria-haspopup]", function( event ) {
+$document.on( "mouseenter", selector + " [aria-haspopup]", function( event ) {
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
@@ -143,7 +143,7 @@ $document.on( "mouseenter", ".gcweb-v2 [aria-haspopup]", function( event ) {
 } );
 
 
-$document.on( "focusin", ".gcweb-v2 [aria-haspopup]", function( event ) {
+$document.on( "focusin", selector + " [aria-haspopup]", function( event ) {
 
 	// Don't open the submenu
 	if ( isMobileMode ) {
@@ -156,7 +156,7 @@ $document.on( "focusin", ".gcweb-v2 [aria-haspopup]", function( event ) {
 } );
 
 // The user get inside the submenu, we should cancel the "close" with delay event
-$document.on( "mouseenter focusin", ".gcweb-v2 [aria-haspopup] + [role=menu]", function( event ) {
+$document.on( "mouseenter focusin", selector + " [aria-haspopup] + [role=menu]", function( event ) {
 
 	// Prevent the menu to collapse
 	// Note: elm.id is already defined because of the mouseenter event of the parent menu element
@@ -176,7 +176,7 @@ $document.on( "mouseenter focusin", ".gcweb-v2 [aria-haspopup] + [role=menu]", f
 } );
 
 
-$document.on( "mouseleave", ".gcweb-v2 [aria-haspopup]", function( event ) {
+$document.on( "mouseleave", selector + " [aria-haspopup]", function( event ) {
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
@@ -185,7 +185,7 @@ $document.on( "mouseleave", ".gcweb-v2 [aria-haspopup]", function( event ) {
 	}
 } );
 
-$document.on( "focusout", ".gcweb-v2 [aria-haspopup]", function( event ) {
+$document.on( "focusout", selector + " [aria-haspopup]", function( event ) {
 
 	// Don't close the submenu
 	if ( isMobileMode ) {
@@ -196,7 +196,7 @@ $document.on( "focusout", ".gcweb-v2 [aria-haspopup]", function( event ) {
 	CloseMenuWithDelay( event.currentTarget );
 } );
 
-$document.on( "mouseleave focusout", ".gcweb-v2 [aria-haspopup] + [role=menu]", function( event ) {
+$document.on( "mouseleave focusout", selector + " [aria-haspopup] + [role=menu]", function( event ) {
 
 	// Collapse the menu
 	// Note: elm.id is already defined because of the mouseenter event
@@ -231,7 +231,7 @@ $document.on( "mouseleave focusout", ".gcweb-v2 [aria-haspopup] + [role=menu]", 
 */
 
 // Open right away the popup
-$document.on( "click", ".gcweb-v2 [aria-haspopup]", function( event ) {
+$document.on( "click", selector + " [aria-haspopup]", function( event ) {
 
 	var elm = event.currentTarget;
 
@@ -333,12 +333,12 @@ function keycode( code ) {
 // Global hook, close the menu on "ESC" when its state are open.
 $document.on( "keydown", function( event ) {
 	if ( event.keyCode === 27 ) {
-		CloseMenu( document.querySelector( ".gcweb-v2 button" ) );
+		CloseMenu( document.querySelector( selector + " button" ) );
 	}
 } );
 
 // Keyboard navigation for each menu item
-$document.on( "keydown", ".gcweb-v2 button, .gcweb-v2 [role=menuitem]", function( event ) {
+$document.on( "keydown", selector + " button, " + selector + " [role=menuitem]", function( event ) {
 
 	var elm = event.currentTarget,
 		key = keycode( event.charCode || event.keyCode );
