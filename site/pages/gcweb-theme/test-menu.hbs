@@ -1,0 +1,214 @@
+---
+{
+	"title": "Menu - test",
+	"language": "fr",
+	"altLangPrefix": "test-menu",
+	"breadcrumb": [
+		{ "title": "GCWeb accueil", "link": "../index-fr.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2019-01-20",
+	"share": "true"
+}
+---
+
+<p>But: Mettre à l'essaie l'aspect fonctionelle du gcweb-menu (v5).</p>
+
+<h2>Conception du menu</h2>
+
+<ul>
+	<li>Le menu est navigation par l'activation d'un bouton.</li>
+	<li>Si la page est en mode de navigation simple, le premier niveau du menu sera visible et le bouton sera dépourvue de fonctionalité</li>
+	<li>Le menu comporte trois niveau de menu</li>
+	<li>Le premier niveau c'est les 12 thèmes</li>
+	<li>Le deuxième niveau c'est un lien vers le thèmes, suivis de ses service/info, suivis d'un sous menu pour les plus demandé.</li>
+	<li>Le troisième niveau c'est les liens les plus demandé qui est le dernier menu du deuxième niveau</li>
+	<li>Pour les écrans large, Le premier niveau est vertical et le deuxième niveau s'affiche à droit du premier item dumême menu. Le deuxième niveau est affiché en 3 groupe, dont le premier (lien vers le thème) prend toute l'espace horizontal en haut. Les deux autre groupe sont cote à coté en dessous, la première colonne c'est le deuxième groupe (service et info) et la deuxième colonne c'est les liens les plus demandé.</li>
+	<li>Pour les écrans moyenne. C'est la même chose que les écrans larges, mais le liens les plus demandé sont en dessous du group (service et info)</li>
+	<li>Pour les petites écrans. Le menu est entièrement linéaire avec les sous menu imbriqué dans la même colonne. Les sous menu sont caché par défaut et peuvent être ouvert. Tout les sous menu sont caché par défaut.</li>
+	<li>Pour les érans large et moyenne, le menu est affiché au dessus du contenu de la page web</li>
+	<li>Pour les petits écran, le menu est inséré entre l'entête de page et le contenu de la page.</li>
+</ul>
+
+<h2>Procédure de mise à l'essaie</h2>
+
+<ol>
+	<li>Ouvrir n'importe lequel page qui contient le menu principal</li>
+	<li>Utiliser la touche de tabulation du clavier afin de naviguer autour du menu. Le menu devrait être focussable mais il ne devrait pas s'ouvrir.</li>
+	<li>Converger sur le menu et appuyer sur "retour" ou la bare d'espacement afin de l'ouvrir.</li>
+	<li>À tout moment l'utilisation de la tabulation lors de la navigation des items du menu, le focus sera convergé à l'extérieur du menu, soit l'élement précédent ou suivant.</li>
+	<li>Les flèches haut et bas devrais permettre de naviguer les items au premier niveau.</li>
+	<li>Mode large écran:
+		<ol>
+			<li>Du premier niveau, la touche retour ou la flèche de droite va convergé vers le sous menu affiché à droite.</li>
+			<li>On est dans le premier groupe. Il n'est pas possible de naviguer à droite car ce menu item est suivi d'un séparateur horizontal.</li>
+			<li>Flèche bas, le focus converge vers le premier item de la première colonne.</li>
+			<li>À ce moment, la flèche de droite va aller vers le premier item de la deuxième colonne.</li>
+			<li>Flèche haut/bas permet de naviguer l'ensemble des sous menu, et le focus converge en boucle.</li>
+		</ol>
+	</li>
+	<li>Mode écran moyen
+		<ol>
+			<li>Similaire à l'écran large mais:</li>
+			<li>Le séparateur vertical entre les deux colonne est changé en séparateur horizontal, donc la touche du clavier droite et gauche devient non opérationelle.</li>
+		</ol>
+	</li>
+	<li>Mode petit écran
+		<ol>
+			<li>Le menu étant entièrement vertical, les flèches haut bas permet de navigué les items du menu.</li>
+			<li>L'ouverture des sous menu est activé par un click ou par la touche "retour" ou la bar d'espacement du clavier</li>
+			<li>Le menu devrait être inséré entre l'entêtre et le contenu de la page</li>
+		</ol>
+	</li>
+</ol>
+
+<h2>Référence</h2>
+<ul>
+	<li><a href="index.html">Notes technique de migration</a> (En anglais seulement)</li>
+	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">Modèle de navigation clavier pour un menu (Practique WAI-ARIA 1.1)</a> (En anglais seulement)</li>
+</ul>
+
+<h2>Résultats de mise à l'essaie</h2>
+
+<h3>Avant le lancement de GCWeb version 5</h3>
+<p>L'opérabilité du menu a été mise à l'essaie sur la majorité des furteurs tel que IE11, Chrome, Firefox, Edge.</p>
+<p>Il y a aussi eu un test avec un lecteur d'écran dont les résultats n'affichait pas de problèmatique d'opérabilité mais plustôt des problématique principalement lié à sa conception complexe et contenais des idées d'amélioration. Ce rapport est disponible en anglais ici: <a href="https://github.com/wet-boew/GCWeb/issues/1458">Github wet-boew/gcweb #1458</a></p>
+<p>Plusieurs commentaire avait été fait à propos de sa conception visuel complexes suggérant d'adopter une conception plus simple.</p>
+<p>Certaine amélioration avait été suggérer et ils ont été reporté pour être fait après le lancement. Ces demande d'amélioration sont énuméré dans le <a hreflang="en" href="temp-v5issue.html">documents temporaire du suivi des problématique</a> maintenu pendant le dévelopment de v5.</p>
+
+<h3>5 février 2019</h3>
+<p>George (ognil) a reporté une problématique avec une apparence d'envergures considérable avec Chrome et NVDA et JAWS 18. Voir <a href="https://github.com/wet-boew/wet-boew/issues/8556">Github wet-boew/wet-boew #8556</a>.</p>
+
+<h3>19 Février 2019</h3>
+
+<h4>Mise à l'essai par: Pierre Dubois (@duboisp)</h4>
+
+<p>(Les résultats suivant sont publié en anglais seulement)</p>
+<table lang="en">
+<thead>
+	<tr>
+		<th>Browser</th>
+		<th>Screen reader</th>
+		<th>Date</th>
+		<th>Test page</th>
+		<th>Results</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Chrome</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Chrome</td>
+		<td>JAWS</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Chrome</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>Buggy, The menu are keyboard operable but the user need to go through all the menu item. Down and up arrow work, but not right and left arrow</td>
+	</tr>
+	<tr>
+		<td>Chrome</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Chrome</td>
+		<td>JAWS</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Chrome</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>JAWS</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>Buggy, The menu are keyboard operable but the user need to go through all the menu item. Down and up arrow work, but not right and left arrow</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>JAWS</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Edge</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>Buggy, The menu are keyboard operable but the user need to go through all the menu item. Down and up arrow work, but not right and left arrow</td>
+	</tr>
+	<tr>
+		<td>Firefox</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Firefox</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Current menu</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Firefox</td>
+		<td>(none)</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+	<tr>
+		<td>Firefox</td>
+		<td>NVDA</td>
+		<td>2019-02-19</td>
+		<td>Test page with the <a href="https://github.com/wet-boew/GCWeb/pull/1511">PR #1511</a> fix</td>
+		<td>OK, The menu are keyboard operable as expected</td>
+	</tr>
+</tbody>
+</table>
+
+<h4>Mise à l'essaie par le groupe de travail sur l'accessibilité web</h4>
+<p>Par Guy: Confirmation d'aucune problèmatique avec Firefox et NVDA.</p>

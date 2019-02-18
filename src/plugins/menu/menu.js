@@ -133,7 +133,7 @@ function CloseMenuWithDelay( elm ) {
 }
 
 // Open menu on mouse hovering
-$document.on( "mouseenter", selector + " [aria-haspopup]", function( event ) {
+$document.on( "mouseenter", selector + " ul [aria-haspopup]", function( event ) {
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
@@ -143,7 +143,7 @@ $document.on( "mouseenter", selector + " [aria-haspopup]", function( event ) {
 } );
 
 
-$document.on( "focusin", selector + " [aria-haspopup]", function( event ) {
+$document.on( "focusin", selector + " ul [aria-haspopup]", function( event ) {
 
 	// Don't open the submenu
 	if ( isMobileMode ) {
@@ -167,8 +167,8 @@ $document.on( "mouseenter focusin", selector + " [aria-haspopup] + [role=menu]",
 		return;
 	}
 
-	// There is no "mouseenter" in mobile
-	if ( isMobileMode ) {
+	// There is no "mouseenter" in mobile and ensure it don't get trigger when activating the button menu
+	if ( isMobileMode || justOpened === event.currentTarget ) {
 		return;
 	}
 
@@ -233,7 +233,8 @@ $document.on( "mouseleave focusout", selector + " [aria-haspopup] + [role=menu]"
 // Open right away the popup
 $document.on( "click", selector + " [aria-haspopup]", function( event ) {
 
-	var elm = event.currentTarget;
+	var elm = event.currentTarget,
+		elmToGiveFocus;
 
 	// Only for mobile view or the menu button
 	if ( isMobileMode || elm.nodeName === "BUTTON" ) {
@@ -245,6 +246,12 @@ $document.on( "click", selector + " [aria-haspopup]", function( event ) {
 			}
 		} else {
 			OpenMenu( elm );
+
+			// Focus on the first menu item
+			elmToGiveFocus = elm.nextElementSibling.querySelector( "[role=menuitem]" );
+			elmToGiveFocus.focus();
+			elmToGiveFocus.setAttribute( "tabindex", "0" );
+
 		}
 	}
 
