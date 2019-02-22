@@ -210,5 +210,205 @@
 </tbody>
 </table>
 
-<h4>Mise à l'essaie par le groupe de travail sur l'accessibilité web</h4>
-<p>Par Guy: Confirmation d'aucune problèmatique avec Firefox et NVDA.</p>
+<div lang="en">
+
+<h4 id="WAWG-test-result">Test result by the Web Accessibility Working Group</h4>
+
+<p>Summary of 2019-02-22 test</p>
+<ul>
+	<li>The menu are prevented from being navigated by some screen reader and browser combinaison</li>
+	<li>The patch of <a href="https://github.com/wet-boew/GCWeb/pull/1511">GCWeb PR #1511</a> made the menu navigable with by all screen reader</li>
+	<li>The menu would highly benefit if it is accompagned of operability instruction</li>
+	<li>The state of the menu (expand/collapse) are not very well comunicated to the user.</li>
+	<li>For some combination of screen reader and browser provide a poor menu navigation experience where the user seems to go through all the menu item sequentially</li>
+</ul>
+
+
+<h5>Using the menu of Canada.ca with a screen reader.</h5>
+<p>As per the menu in GCWeb v5.0.0</p>
+
+<table>
+<thead>
+	<tr>
+		<th>Screen reader</th>
+		<th>Browser</th>
+		<th>Date</th>
+		<th>Results/Comments</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>JAWS</td>
+		<td>Firefox</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>No instructions to expand or collapse the main menu.(Example: Press the spacebar to expand or Escape to collapse the menu)</li>
+			<li>Main menu item status is not heard. (Example, Collapsed or Expanded)</li>
+			<li>No instructions to access the submenu. If you do not think of arrowing right, you miss the submenu completely.</li>
+			<li>No start and end marks to the submenu item. Unless you pay attention, you end up going around and around.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>JAWS</td>
+		<td>IE</td>
+		<td>2019-02-22</td>
+		<td>Same as Firefox</td>
+	</tr>
+	<tr>
+		<td>JAWS</td>
+		<td>Chrome</td>
+		<td>2019-02-22</td>
+		<td>Same as Firefox</td>
+	</tr>
+	<tr>
+		<td>JAWS</td>
+		<td>Safari</td>
+		<td>2019-02-22</td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>Firefox</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>No instructions to navigate the menu.</li>
+			<li>Main menu item status is not heard. (Example, Collapsed or Expanded)</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>IE</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Menu expands and collapses but no items appear.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>Chrome</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Menu does not open with spacebar or Enter key.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>Safari</td>
+		<td>2019-02-22</td>
+		<td>Not available</td>
+	</tr>
+</tbody>
+</table>
+
+<h5>Using the enhanced menu with the fix from <a href="https://github.com/wet-boew/GCWeb/pull/1511">GCWeb PR #1511</a> with a screen reader.</h5>
+<p>As per the menu compiled with <a href="https://github.com/wet-boew/GCWeb/pull/1511">GCWeb PR #1511</a> and going to be released in GCWeb v5.0.1</p>
+
+<table>
+<thead>
+	<tr>
+		<th>Screen reader</th>
+		<th>Browser</th>
+		<th>Date</th>
+		<th>Results/Comments</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>NVDA</td>
+		<td>Firefox</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Missing instructions to open and close the menu.</li>
+			<li>No menu status such as expanded or collapsed.</li>
+			<li>Best menu encountered so far.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>IE</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Missing instructions to open and close the menu.</li>
+			<li>No menu status such as expanded or collapsed.</li>
+			<li>No item number to help with navigation. Example 1 of 12.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>Chrome</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Missing instructions to open and close the menu.</li>
+			<li>No menu status such as expanded or collapsed.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>NVDA</td>
+		<td>Safari</td>
+		<td>2019-02-22</td>
+		<td>Not available.</td>
+	</tr>
+	<tr>
+		<td>Voiceover</td>
+		<td>Firefox</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>nstructions are not clear for a novice user, right pointing pointer and down pointing pointer are all you hear. No instructions to open the menu</li>
+			<li>Once you are at the end of the submenu, you fall back to the main menu without warning.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Voiceover</td>
+		<td>IE</td>
+		<td>2019-02-22</td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td>Voiceover</td>
+		<td>Chrome</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Instructions are not clear for a novice user, right pointing pointer and down pointing pointer are all you hear. No instructions to open the menu</li>
+			<li>Once you are at the end of the submenu, you fall back to the main menu without warning.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Voiceover</td>
+		<td>Safari</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Instructions are not clear for a novice user, right pointing pointer and down pointing pointer are all you hear. No instructions to open the menu</li>
+			<li>Once you are at the end of the submenu, you fall back to the main menu without warning.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Talkback</td>
+		<td>Firefox</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Difficult to focus on the menu button. Once you focus on it, double tapping will not open it.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Talkback</td>
+		<td>IE</td>
+		<td>2019-02-22</td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td>Talkback</td>
+		<td>Chrome</td>
+		<td>2019-02-22</td>
+		<td><ul>
+			<li>Instructions are not clear for a novice user, right pointing pointer and down pointing pointer are all you hear. No instructions to open the menu</li>
+			<li>Once you are at the end of the submenu, you fall back to the main menu without warning.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Talkback</td>
+		<td>Safari</td>
+		<td>2019-02-22</td>
+		<td>Not available</td>
+	</tr>
+</tbody></table>
+</div>
