@@ -1,0 +1,323 @@
+---
+{
+	"title": "Test - Pagination for search template",
+	"language": "en",
+	"altLangPrefix": "test-pagination",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "../index-en.html" },
+		{ "title": "Search templat", "link": "index-en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2019-03-01",
+	"share": "true"
+}
+---
+
+<p><strong>This is a test page to assess multiple search result pagignation scenario</strong></p>
+
+<p>As per March 1, 2019</p>
+
+<p>Rules</p>
+<ul>
+	<li>Show "Previous" and "Next" button when available in the scope of the current page</li>
+	<li>Small device: Show up to 3 page more the previous and the next button if in scope</li>
+	<li>Small device: Current page will be lock at position 2 (in the middle) when navigating through multiple page.</li>
+	<li>Medium device: Show up to 5 pages more the previous and the next button if in scope</li>
+	<li>Medium device: Current page will be lock at position 3 (in the middle) when navigating through multiple page.</li>
+	<li>Large device: Show up to 10 pages more the previous and the next button if in scope</li>
+	<li>Large device: Current page will be lock at position 5 (in the middle) when navigating through multiple page.</li>
+</ul>
+
+<h2>Scenario</h2>
+<ol>
+	<li><a href="#s1">The first page is current and there is more than 50 results page</a></li>
+	<li><a href="#s2">The second page is current and there is more than 50 results page</a></li>
+	<li><a href="#s3">The fifth page is current and there is more than 50 results page</a></li>
+	<li><a href="#s4">The twelfth page is current and there is more than 50 results page</a></li>
+	<li><a href="#s5">The forthy-eighth page is current and there is more than 50 results page</a></li>
+	<li><a href="#s6">The last page is current and there is more than 50 results page</a></li>
+	<li><a href="#s7">The third page is current and there is 6 results page</a></li>
+</ol>
+
+<h3 id="s1">Scenario 1: The first page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li class="active" aria-current="page">
+			<a href="#">1<span class="wb-inv">: Page 1 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">2<span class="wb-inv">: Page 2 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">3<span class="wb-inv">: Page 3 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">4<span class="wb-inv">: Page 4 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">5<span class="wb-inv">: Page 5 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">6<span class="wb-inv">: Page 6 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">7<span class="wb-inv">: Page 7 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">8<span class="wb-inv">: Page 8 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">9<span class="wb-inv">: Page 9 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">10<span class="wb-inv">: Page 10 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s2">Scenario 2: The second page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li>
+			<a href="#">1<span class="wb-inv">: Page 1 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">2<span class="wb-inv">: Page 2 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">3<span class="wb-inv">: Page 3 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">4<span class="wb-inv">: Page 4 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">5<span class="wb-inv">: Page 5 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">6<span class="wb-inv">: Page 6 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">7<span class="wb-inv">: Page 7 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">8<span class="wb-inv">: Page 8 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">9<span class="wb-inv">: Page 9 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">10<span class="wb-inv">: Page 10 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s3">Scenario 3: The fifth page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">1<span class="wb-inv">: Page 1 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">2<span class="wb-inv">: Page 2 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">3<span class="wb-inv">: Page 3 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">4<span class="wb-inv">: Page 4 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">5<span class="wb-inv">: Page 5 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">6<span class="wb-inv">: Page 6 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">7<span class="wb-inv">: Page 7 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">8<span class="wb-inv">: Page 8 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">9<span class="wb-inv">: Page 9 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">10<span class="wb-inv">: Page 10 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s4">Scenario 4: The twelfth page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">8<span class="wb-inv">: Page 8 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">9<span class="wb-inv">: Page 9 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">10<span class="wb-inv">: Page 10 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">11<span class="wb-inv">: Page 11 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">12<span class="wb-inv">: Page 12 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">13<span class="wb-inv">: Page 13 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">14<span class="wb-inv">: Page 14 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">15<span class="wb-inv">: Page 15 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">16<span class="wb-inv">: Page 16 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">17<span class="wb-inv">: Page 17 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s5">Scenario 5: The forthy-eighth page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">41<span class="wb-inv">: Page 41 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">42<span class="wb-inv">: Page 42 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">43<span class="wb-inv">: Page 43 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">44<span class="wb-inv">: Page 44 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">45<span class="wb-inv">: Page 45 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">46<span class="wb-inv">: Page 46 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">47<span class="wb-inv">: Page 47 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">48<span class="wb-inv">: Page 48 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">49<span class="wb-inv">: Page 49 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">50<span class="wb-inv">: Page 50 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s6">Scenario 6: The last page is current and there is more than 50 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">41<span class="wb-inv">: Page 41 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">42<span class="wb-inv">: Page 42 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">43<span class="wb-inv">: Page 43 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">44<span class="wb-inv">: Page 44 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">45<span class="wb-inv">: Page 45 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">46<span class="wb-inv">: Page 46 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">47<span class="wb-inv">: Page 47 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">48<span class="wb-inv">: Page 48 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">49<span class="wb-inv">: Page 49 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">50<span class="wb-inv">: Page 50 of search results</span></a>
+		</li>
+	</ul>
+</div>
+
+<h3 id="s7">Scenario 7: The third page is current and there is 6 results page</h3>
+<div class="text-center">
+	<p class="wb-inv">Search results pages</p>
+	<ul class="pagination">
+		<li>
+			<a rel="prev" href="#">Previous<span class="wb-inv"> page of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">1<span class="wb-inv">: Page 1 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">2<span class="wb-inv">: Page 2 of search results</span></a>
+		</li>
+		<li class="active" aria-current="page">
+			<a href="#">3<span class="wb-inv">: Page 3 of search results</span></a>
+		</li>
+		<li>
+			<a href="#">4<span class="wb-inv">: Page 4 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm">
+			<a href="#">5<span class="wb-inv">: Page 5 of search results</span></a>
+		</li>
+		<li class="hidden-xs hidden-sm hidden-md">
+			<a href="#">6<span class="wb-inv">: Page 6 of search results</span></a>
+		</li>
+		<li>
+			<a rel="next" href="#">Next<span class="wb-inv"> page of search results</span></a>
+		</li>
+	</ul>
+</div>
