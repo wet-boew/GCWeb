@@ -50,3 +50,89 @@
 		}
 	}
 }
+
+
+//
+// Search template
+//
+.page-type-search {
+
+	label {
+		font-weight: normal;
+	}
+
+	.current, .current label {
+		font-weight: 700;
+	}
+
+	.location {
+		color: #006621;
+		padding-left: 0px;
+
+		li {
+			display: inline-block;
+
+			+ li:before {
+				content: "> ";
+			}
+		}
+
+		cite {
+			font-style: normal;
+		}
+	}
+
+	.context-labels {
+		font-size: .8em;
+		list-style: none;
+		padding-left: 0px;
+
+		li {
+			background-color: #5e738b;
+			color:#fff;
+			display: inline-block;
+			font-weight: 600;
+			margin-bottom: 1px;
+			padding: 0 5px;
+		}
+	}
+
+
+	.results > section {
+		border-bottom: solid 1px #000;
+		margin-bottom: 1.5em;
+		padding-bottom: 1.5em;
+	}
+
+	.label li {
+		background-color: #5e738b;
+		color: white;
+		font-size: .8em; //16px
+		font-weight: bold;
+		margin-top: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
+		//this should also include CSS to cut off and add an expand/collapse, when there are more labels than fit on 1 row
+	}
+
+	.expand-collapse-buttons {
+		color: white;
+		font-size: .8em; //16px
+		font-weight: bold;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	cite a {
+		color: #006621;
+		display: inline-block;
+		font-size: 1em; //20px
+		margin-top: 10px;
+	}
+
+	.search-description { //should be in noto sans, 20px, like standard p tag
+		line-height: 34px;
+		padding-bottom: 8px;
+		padding-top: 8px;
+	}
+}
