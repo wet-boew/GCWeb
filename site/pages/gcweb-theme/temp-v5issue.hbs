@@ -1,8 +1,8 @@
 ---
 {
-	"title": "Temporary issue and todo list - GCWeb theme V2",
+	"title": "Temporary issue and todo list - GCWeb theme V5",
 	"language": "en",
-	"altLangPrefix": "temp-v2issue",
+	"altLangPrefix": "temp-v5issue",
 	"breadcrumb": [
 		{ "title": "GCWeb home", "link": "../index-en.html" },
 		{ "title": "Theme meta", "link": "index.html" }
@@ -13,7 +13,7 @@
 }
 ---
 
-<h2>Open item (19 of 93)</h2>
+<h2>Open item (23 of 102)</h2>
 <ul class="list-responsive">
 	<li>[No active item]</li>
 </ul>
@@ -22,9 +22,9 @@
 	<li>[No active item]</li>
 </ul>
 
-<p>Might be still in-scope of the new look or to be fixed later (10 issues)</p>
+<p>Might be still in-scope of the new look or to be fixed later (13 issues)</p>
 <ul>
-	<li>Item 41 (High) - This is high priority for other that are implementing the new look, this issue is to ensure the latest version of the menu is published on the CDN at a stable location and are made available for other implementation.</li>
+	<li><strong>Item 41 (High)</strong> - This is high priority for other that are implementing the new look, this issue is to ensure the latest version of the menu is published on the CDN at a stable location and are made available for other implementation.</li>
 	<li><strong>Item 51 (Medium) -</strong> Request to modify the Service initiation template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
 	<li><strong>Item 53 (Medium) -</strong> This require to modify the Act profile and Regulation profile template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
 	<li><strong>Item 55 (Medium) -</strong> This require to modify the Campaing page example 1 and 2 template. To be done after at the same time of making GCWeb template conforming to content and IA spec 1.5 or if the new page type structure work is completed and well defined.</li>
@@ -34,7 +34,9 @@
 	<li><strong>Item 74 (Medium) -</strong> The menu behaviour would be post launched updated.</li>
 	<li><strong>Item 86 (Medium) -</strong> The same issue happen with the WET-BOEW theme when the page is resized to it's minimal width. Fixing that would require further investigation and it is not related at the new look.</li>
 	<li><strong>Item 91 (Low) -</strong> Documenting the multi-page navigation would be done post launch.</li>
-
+	<li><strong>Item 94 (Medium) -</strong> This is a new requirement. It would be applied at a later date</li>
+	<li><strong>Item 95 (High) -</strong> More testing should be planned and executed prior to apply globally the limited content width.</li>
+	<li><strong>Item 96 (High) -</strong> This is a new requirement.</li>
 </ul>
 
 <p>To be fixed/addressed later on (9 issues)</p>
@@ -52,6 +54,12 @@
 
 <h2>Fixed or commented issues</h2>
 <ul>
+	<li>Item 102. Fixed January 25 - Fix the button size overwride in forms and for the force-style-gcweb-4-0-29</li>
+	<li>Item 101. Fixed January 23 - The max-size of the filter input was set for the data table.</li>
+	<li>Item 100. Fixed January 23 - Added a CSS for the multimedia player controls to keep the separator beside the times.</li>
+	<li>Item 99. Fixed January 21 - The font-size for the data table filter control was set to 17px, the same size as used for the doormat link.</li>
+	<li>Item 98. Fixed January 21 - The print stylesheet was update to remove the "menu" button.
+	<li>Item 97. Fixed January 18 - A special line height was set for description in the services and information component. and the spacing the "your government" section was adjusted.</li>
 	<li>Item 92. Fixed January 17 - Spacing in the banner, promos and for the most requested section was adjusted in the home page.</li>
 	<li>Item 93. Fixed January 17 - The spacing for the doormat title in the "Services and information" component was adjusted and applied globably</li>
 	<li>Item 87. Fixed January 16 - Search input size was ajusted to fit better when the page width is at its minimal width size. A right border was added too.</li>
@@ -590,4 +598,23 @@ input[type=submit].btn {
 	<li><strong>Item 91</strong> Document the API for the "Multi-page" navigation (Step-by-step) and remove the used CSS class "gc-stp-stp" because implementer has used a combination of CSS like "mrgn-tp-md mrgn-bttm-lg brdr-bttm" instead.</li>
 	<li><del><strong>Fixed Item 92</strong> From a comparaison between the <a href="https://gc-proto.github.io/design-refresh/tests/cleanup4/home-en.html">gc-proto</a> and <a href="https://wet-boew.github.io/themes-dist/GCWeb/home-en.html">gc-web</a> example, the following ajustment was suggested for the home page: Reduce the spacing (top and bottom) for the home page banner, reduce the spacing (top and bottom) for the promos text and reduce the spacing (top and bottom) for the most requested section</del></li>
 	<li><del><strong>Fixed Item 93</strong> From a comparaison between the <a href="https://gc-proto.github.io/design-refresh/tests/cleanup4/home-en.html">gc-proto</a> and <a href="https://wet-boew.github.io/themes-dist/GCWeb/home-en.html">gc-web</a> example, the following ajustment was suggested for the Services and information component: reducing the spacing for doormats titles.</del></li>
+	<li><strong>Item 94</strong> Heading size in for alert component. The undesirable effect is on the form validation, the h2 inside the alert-error are big. It was at a similar size before. TBS suggeste to have it the same style as an h3 or h5 by default. The scope would need to be clarified to know if that overwrite is applied to all heading size and to all type of alert.</li>
+	<li>
+		<p><strong>Item 95</strong> Apply content limited widht by default to all pages. Then overwride the following default spacing because they were removed as per <a href="https://github.com/wet-boew/GCWeb/issues/1486">github issue #1486</a>:</p>
+		<ul>
+			<li><code>p, ul, ol, dl { margin-bottom: 27.5px; }</code></li>
+			<li><code>li { margin-bottom: 10px; }</code></li>
+			<li><code>.lst-spcd > li { margin-bottom: 20px; }</code></li>
+			<li><code>.lst-spcd-2 { > li { margin-bottom: 40px; } }</code></li>
+			<li><code>.lst-spcd-2 { ul, ol { margin-top: 40px; } }</code></li>
+		</ul>
+		<p>Then do a test to ensure the margin overwride still work as expected.</p>
+	</li>
+	<li><strong>Item 96</strong> Home page feature style. Modify the "Governement initiative" style to match up the doormat link style. The same style must be applied to all contextual feature.</li>
+	<li><del><strong>Fixed Item 97</strong> Reduce the line-height spacing for doormat link and add more space at the bottom of hte link in the "Your government" section in the home page.</del></li>
+	<li><del><strong>Fixed Item 98</strong> Remove the "menu" in the printable version of the page</del></li>
+	<li><del><strong>Fixed Item 99</strong> The data table filtering interface render into two row instead of one for the pattern when there is filters on the left. Like the last working example in the enhanced table working example.</del></li>
+	<li><del><strong>Fixed Item 100</strong> Multimedia player used in 4 a column width, the times lapse controls are rendered into 3 lines instead of two. The separator is alone on its own line.</del></li>
+	<li><del><strong>Fixed Item 101</strong> Data table, in Firefox, the filter bar in the french version render on two line when the table width is set to 8 colonnes.</del></li>
+	<li><del><strong>Fixed Item 102</strong> The CSS class <code>.btn-lg</code> don't work, that CSS are overwritten.</del></li>
 </ul>
