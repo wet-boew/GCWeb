@@ -713,7 +713,6 @@ module.exports = (grunt) ->
 						"Empty heading."
 						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
 						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
-						"Attribute “integrity” not allowed on element “link” at this point."
 					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
@@ -734,7 +733,6 @@ module.exports = (grunt) ->
 						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
 						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
 						"Attribute “aria-current” not allowed on element “li” at this point."
-						"Attribute “integrity” not allowed on element “link” at this point."
 					]
 				src: [
 					"dist/unmin/**/*.html"
