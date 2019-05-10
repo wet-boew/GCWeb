@@ -1,0 +1,139 @@
+---
+{
+	"title": "Fonctionalité expérimental - Thème de GCWeb",
+	"language": "fr",
+	"altLangPrefix": "experimental",
+	"breadcrumb": [
+		{ "title": "Accueil GCWeb", "link": "http://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2019-05-08",
+	"share": "true"
+}
+---
+
+<div class="alert alert-warning">
+	<h2>Fonctionalité instable</h2>
+	<p>À être utilisé <strong>à vos propre risque</strong>. Toute les fonctionalité décris ci-dessous peut être retiré dans n'importe lequel version mineur/majeur et l'ensemble de ces fonctionalité sont exclus de l'API publique.</p>
+	<p>La documentation et/ou les examples pratique pourait être incomplete ou être non disponible.</p>
+</div>
+
+<h2>Disponibilité des fonctionalités</h2>
+
+<p>Le tableau suivant décris jusqu'à quelle version de GCWeb chaque fonctionalité expérimental sera disponible. La disponibilité des fonctionalité sera ré-évalué a chaque publication de GCWeb. Les fonctionalités expérimental retirées sera identifié une version au préalable de son retrait définitif.</p>
+
+<details>
+	<summary>Description des états</summary>
+	<dl class="dl-horizontal">
+		<dt>&lt;non spécifié&gt;</dt>
+		<dd>Expérimental</dd>
+		<dt>Retiré</dt>
+		<dd>La fonctionalité n'est plus disponible</dd>
+		<dt>Supporté</dt>
+		<dd>La fonctionalité est maintenu inclus et supporté par l'API publique de GCWeb.</dd>
+		<dt>Retiré après v.Majeur.Mineur</dt>
+		<dd>La version v.Major.Minor représente la dernière version que cette fonctionalité sera disponible. Les auteurs doit considérer une solution alternative ou de faire le retrait de l'utilisation de cette fonctionalité.</dd>
+	</dl>
+</details>
+
+<table class="table table-bordered">
+<thead>
+	<tr>
+		<th>Nom</th>
+		<th>Description</th>
+		<th class="nowrap">Disponible dans</th>
+		<th>État</th>
+	</tr>
+</thead>
+<tbody>
+	<tr lang="en">
+		<th>CSS <code>.p-0</code></th>
+		<td>Set a padding of 0px</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.p-sm-3</code></th>
+		<td>Set a padding of 15px for view port from small screen and up</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.px-sm</code></th>
+		<td>Set a left and right padding of 15px for view port from small screen and up</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.bg-darker</code></th>
+		<td>Full black background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.bg-gctheme</code> and <code>.bg-gctheme.well.header-rwd</code></th>
+		<td>GCWeb theme default background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.bg-pnkDy</code> and <code>.bg-pnkDy.well.header-rwd</code></th>
+		<td>Pink day background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>CSS <code>.bg-cover</code></th>
+		<td>Background size cover</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr lang="en">
+		<th>Plugin <code>[data-bgimg]</code></th>
+		<td>Take the URL value and set it as the background image. To be replaced by CSS4 selector.</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+</tbody>
+</table>
+
+<h2>Documentation des fonctionalités expérimentaux</h2>
+
+<p>Les fonctionalités CSS experimentaux doivent être accompagné avec la classe <code>.experimental</code> dans le context d'utilisation.</p>
+
+<h2>Example pratique expérimentaux</h2>
+
+<div class="en">
+
+<h3 id="well-header-rwd-bgimg">Well header responsive with a background image</h3>
+
+<div class="experimental bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
+		<h4 class="mrgn-tp-md">Heading</h4>
+		<p>Secondary title</p>
+	</div>
+</div>
+
+
+<h3 id="well-header-rwd-dark">Well header responsive with background image and padding controls</h3>
+<p>Mostly for campaing page with content-fluid width.</p>
+
+<div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="container p-0 p-sm-3">
+		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
+			<h4 class="mrgn-tp-md">Heading</h4>
+			<p>Secondary title</p>
+		</div>
+	</div>
+</div>
+
+<pre><code>&lt;div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="container p-0 p-sm-3"&gt;
+		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
+			&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+			&lt;p&gt;Secondary title&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+</div>

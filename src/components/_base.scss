@@ -34,18 +34,31 @@
 }
 
 // colour
+.text-white, a.text-white:visited {
+	color: #fff;
+}
+a {
+	&.text-white {
+		&:hover, &:focus {
+			color: #b3ffff;
+		}
+	}
+}
+
 .bg-dark {
-	background-color: #343a40 !important;
+	background-color: #343a40;
+}
+button {
+	&.bg-dark {
+		&:hover, &:focus {
+			background-color: #1d2124;
+		}
+	}
 }
 
-a.bg-dark: hover, a.bg-dark: focus {
-	color: #b3ffff !important;
-}
-
-button.bg-dark: hover, button.bg-dark: focus {
-	background-color: #1d2124 !important;
-}
-
-.text-white {
-	color: #fff !important;
+/*
+ * Well header responsive
+ */
+.well.header-rwd {
+	width: 100%;
 }

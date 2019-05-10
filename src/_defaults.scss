@@ -279,6 +279,12 @@ aside {
 // Exclusive home page style
 .home {
 
+	h1 {
+		border-bottom-width: 4px;
+		font-weight: 500;
+		margin-top: 10px;
+	}
+
 	h2 {
 		font-size: 1.2em;
 	}
@@ -286,91 +292,16 @@ aside {
 	/* Home page banner
 	 *
 	 * Reference in:
-	 * - views/_screen-lg-min
-	 * - views/_screen-xs-min-to-screen-xs-max
-	 * - views/_screen-md-min-to-screen-md-max
-	 * - views/_screen-md-max
-	 * - views/_screen-xs-max
+	 * - components/_screen-xxs-max
+	 * - components/_screen-xs-min-to-screen-xs-max
+	 * - components/_screen-md-min-to-screen-md-max
+	 * - components/_screen-md-max
+	 * - components/_screen-lg-min
 	 */
-	.home-banner {
-		background-color: #eee;
-		background-image: url(https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg);
-		background-repeat: no-repeat;
-		background-size: 100% auto;
-		color:#fff;
-
-		.innerbox, &.sky .innerbox {
-			background-color: #26374a;
-			margin: 2em 0px;
-			padding: 20px;
-			width: 50%;
-
-			h1 {
-				border-bottom-width: 4px;
-				font-weight: 500;
-				margin-top: 10px;
-			}
-			p {
-				margin-top: 15px;
-			}
-		}
-		.promo {
-			background-color: #355688;
-			opacity: .9;
-		}
-
-		// Other color theme for promotion
-		// - note: Sky (blue) is the default
-		// Earth (brown)
-		&.earth {
-			.innerbox {
-				background-color: #2b1900;
-			}
-			.promo {
-				background-color: #5c3e18;
-			}
-		}
-		// Vegetation (green)
-		&.vegetation {
-			.innerbox {
-				background-color: #1a3902;
-			}
-			.promo {
-				background-color: #295e01;
-			}
-		}
-		// Night (black)
-		&.night {
-			.innerbox {
-				background-color: #0d0c0b;
-			}
-			.promo {
-				background-color: #000;
-			}
-		}
-		// Forest (brown-yellow)
-		&.forest {
-			.innerbox {
-				background-color: #5a3700;
-			}
-			.promo {
-				background-color: #745001;
-			}
-		}
-		// Autumn (orange)
-		&.autumn {
-			.innerbox {
-				background-color: #4a1a00;
-			}
-			.promo {
-				background-color: #7a3900;
-			}
-		}
-
-		a.figcaption *, a:visited.figcaption * {
-			color: #fff;
-		}
+	.header-rwd {
+		margin: 2em 0px;
 	}
+
 
 	/* Home page Most requested section
 	 *
@@ -535,8 +466,8 @@ a.figcaption {
 
 	text-decoration: none;
 
-	* :not( figcaption ) {
-		color: #000;
+	&:not( [class*="text-"] ) * :not( figcaption ) {
+		color: $text-color;
 	}
 
 	figure > *:not( blockquote):not( img ):not( table):not( div ) {
@@ -657,4 +588,41 @@ h6,
 .h6 {
 	font-size: .95em; // expected 19px;
 	font-weight: 400;
+}
+
+/*
+ * Experimental feature
+ */
+.experimental {
+
+	.bg-darker {
+		background-color: #000;
+	}
+
+	// theme default color
+	.bg-gctheme {
+		background-color: #355688;
+
+		&.well.header-rwd {
+			background-color: #26374a;
+		}
+	}
+
+	.bg-cover, & {
+		background-size: cover;
+	}
+
+	// PinkDay color
+	.bg-pnkDy {
+		background-color: #AD005F;
+
+		&.well.header-rwd {
+			background-color: #570030;
+		}
+	}
+
+	// Padding control
+	.p-0 {
+		padding: 0px;
+	}
 }

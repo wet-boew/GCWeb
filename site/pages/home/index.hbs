@@ -21,7 +21,7 @@
 	<dd>Template <!-- Common design patter --></dd>
 
 	<dt>Last review</dt>
-	<dd>2018-12-27</dd>
+	<dd>2019-05-09</dd>
 
 	<dt>Conforming to</dt>
 	<dd>Going to be: Content and IA spec 2.0</dd>
@@ -34,13 +34,64 @@
 
 <h3>Home page banner</h3>
 
-<p>The default background is gray (#eee) without image. The background image is hosted in the WMS at this location. <code>https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg</code>.</p>
+<dl>
+	<dt>Version</dt>
+	<dd>2</dd>
+	<dt>Updated</dt>
+	<dd>2019-05-09</dd>
+</dl>
+
+<p>The background image is loaded with the experimental plugin bgimg which set the background image. The background image is hosted in the WMS at this location. <code>https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg</code>.</p>
 
 <p>The intend is to publish background image that represent natural Canadian landscape and may get updated montly or seasonal.</p>
+
+<h4>Previous version</h4>
+
+<details>
+	<summary>Version 1 - 2018-12-27</summary>
+
+	<p>The default background is gray (#eee) without image. The background image is hosted in the WMS at this location. <code>https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg</code>.</p>
+
+	<p>The intend is to publish background image that represent natural Canadian landscape and may get updated montly or seasonal.</p>
+
+</details>
 
 <h3>Promotional banner</h3>
 
 <p>The promotional banner are over, at the bottom, of the home page banner background image.</p>
+
+<dl>
+	<dt>Version</dt>
+	<dd>2</dd>
+	<dt>Updated</dt>
+	<dd>2019-05-09</dd>
+	<dt>Notes</dt>
+	<dd>Experimental color was removed.</dd>
+</dl>
+
+<pre><code>&lt;div class="experimental bg-cover" data-bgimg="https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg"&gt;
+	&lt;div class="container p-0 p-sm-3"&gt;
+		&lt;div class="well header-rwd brdr-0 brdr-rds-0 text-white bg-gctheme"&gt;
+			&lt;h1 property="name" id="wb-cont"&gt;Canada.ca&lt;/h1&gt;
+			&lt;p class="mrgn-tp-md"&gt;The official website of the Government of Canada&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="bg-gctheme opct-90"&gt;
+		&lt;div class="container"&gt;
+			&lt;a class="figcaption text-white" href="#"&gt;
+				&lt;figure class="clearfix"&gt;
+					&lt;div&gt;&lt;p class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;Featured:&lt;/p&gt;&lt;/div&gt;
+					&lt;figcaption class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;[Promotion title]&lt;/figcaption&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Previous version</h4>
+
+<details>
+	<summary>Version 1 - 2018-12-27</summary>
 
 <pre><code>&lt;div class="home-banner"&gt;
 	&lt;div class="container"&gt;
@@ -61,7 +112,7 @@
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-<h4>Experimental</h4>
+<h5>Experimental</h5>
 <p>Support for a set of predefined color to match the season. The intend is to set the color of the inner box with the site title to match the promotional banner background color.</p>
 
 <p>The promotional color theme are set on the <code>div.home-banner</code>. Here the supported theme with their corresponding CSS class name</p>
@@ -74,6 +125,8 @@
 	<li>Autumn - <code>autumn</code></li>
 </ul>
 
+</details>
+
 <h2>Evaluation and report</h2>
 <p>There is no report</p>
 
@@ -84,5 +137,5 @@
 
 <h2>Test cases</h2>
 <ul>
-	<li>Experimental - <a href="test-1.html">Test-1: Promotional color theme</a></li>
+	<li>Removed: <del>Experimental - Test-1: Promotional color theme</del></li>
 </ul>
