@@ -1,0 +1,158 @@
+---
+{
+	"title": "Experimental functionality - GCWeb theme",
+	"language": "en",
+	"altLangPrefix": "experimental",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "http://wet-boew.github.io/themes-dist/GCWeb/index-en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2019-05-14",
+	"share": "true"
+}
+---
+
+<div class="alert alert-warning">
+	<h2>Unstable feature</h2>
+	<p>To be used at <strong>your own risk</strong>. All functionality described bellow can be removed in any subsequent minor/major release and are excluded from the gcweb public API.</p>
+	<p>The documentation and/or a working example for those feature could be incomplete or not available.</p>
+</div>
+
+<h2>Feature availability</h2>
+
+<p>The following table describe until which version of GCWeb each experimental feature are going to be available. The feature availability are going to be re-evaluated at every release. A widthdraw experimental feature would be notify one version in advance.</p>
+
+<details>
+	<summary>Status description</summary>
+	<dl class="dl-horizontal">
+		<dt>&lt;not specified&gt;</dt>
+		<dd>Experimental</dd>
+		<dt>Withdrawn</dt>
+		<dd>The feature are not available</dd>
+		<dt>Supported</dt>
+		<dd>The feature are included and supported by the GCWeb public API.</dd>
+		<dt>Withdrawn after v.Major.Minor</dt>
+		<dd>The v.Major.Minor represent the last version where that feature is available. Authors must consider an alternative or remove that feature.</dd>
+	</dl>
+</details>
+
+<table class="table table-bordered">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th class="nowrap">Available in</th>
+		<th>Status</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>CSS <code>.p-0</code></th>
+		<td>Set a padding of 0px</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.mb-sm-5</code></th>
+		<td>Set a margin bottom of 50px for view port from small screen and up</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.p-sm-3</code></th>
+		<td>Set a padding of 15px for view port from small screen and up</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.px-sm-3</code></th>
+		<td>Set a left and right padding of 15px for view port from small screen and up</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.bg-darker</code></th>
+		<td>Full black background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.bg-gctheme</code> and <code>.bg-gctheme.well.header-rwd</code></th>
+		<td>GCWeb theme default background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.bg-pnkDy</code> and <code>.bg-pnkDy.well.header-rwd</code></th>
+		<td>Pink day background color</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.bg-cover</code></th>
+		<td>Background size cover</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Plugin <code>[data-bgimg]</code></th>
+		<td>Take the URL value and set it as the background image. To be replaced by CSS4 selector.</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+</tbody>
+</table>
+
+<h2>Experimental feature documentation</h2>
+
+<p>CSS experimental feature must be accompagnied with the class <code>.experimental</code> within his context of use.</p>
+
+
+<h2>Experimental working example</h2>
+
+<h3 id="well-header-rwd-bgimg">Well header responsive with a background image</h3>
+
+<div class="experimental bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
+		<h4 class="mrgn-tp-md">Heading</h4>
+		<p>Secondary title</p>
+	</div>
+</div>
+
+
+<h3 id="well-header-rwd-dark">Well header responsive with background image and padding controls</h3>
+<p>Mostly for campaing page with content-fluid width.</p>
+
+<div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="container p-0 p-sm-3">
+		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
+			<h4 class="mrgn-tp-md">Heading</h4>
+			<p>Secondary title</p>
+		</div>
+	</div>
+</div>
+
+<pre><code>&lt;div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="container p-0 p-sm-3"&gt;
+		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
+			&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+			&lt;p&gt;Secondary title&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Margin bottom small view port and up</h3>
+<div class="row">
+	<div class="col-xs-12 experimental">
+		<div>
+			<img class="img-responsive full-width" src="demos/tabs/img/investinourfuture.jpg" alt="">
+			<div class="well pstn-bttm-sm mrgn-bttm-0 mb-sm-5">
+				<h4 class="mrgn-tp-md">Heading</h4>
+				<p>Secondary title</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="well">
+	<p>Second well</p>
+</div>
