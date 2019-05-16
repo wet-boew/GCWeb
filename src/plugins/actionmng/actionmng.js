@@ -24,6 +24,7 @@ var $document = wb.doc,
 	postponeActions = { },
 	groupPostAction = { },
 	actionMngEvent = [
+		"mapfilter",
 		"patch",
 		"ajax",
 		"addClass",
@@ -177,6 +178,23 @@ var $document = wb.doc,
 		column = ( colInt === true ) ? colInt : column;
 		$datatable.column( column ).search( data.value, regex, smart, caseinsen ).draw();
 	},
+	geomapAOIAct = function( event, data ) {
+		var $source = $( data.source || event.target ),
+			map = $source.get( 0 ).geomap,
+			tpFilter = data.filter,
+			value = data.value;
+
+		// if aoi => There will be 4 coordinate space separated (Sequence: N E S W)
+		if ( tpFilter === "aoi" ) {
+			map.zoomAOI( value );
+		}
+
+		// if layer => The layer name
+		if ( tpFilter === "layer" ) {
+			map.showLayer( value, true );
+		}
+
+	},
 	runAct = function( event, data ) {
 
 		var elm = event.target,
@@ -306,6 +324,9 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 			break;
 		case "patch":
 			patchAct( event, data );
+			break;
+		case "mapfilter":
+			geomapAOIAct( event, data );
 			break;
 		}
 	}
