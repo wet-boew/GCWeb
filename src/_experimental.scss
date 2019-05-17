@@ -1,0 +1,151 @@
+/*
+	Global Experimental styling
+
+	- Experimental  CSSspecific for view port are defined in the "views/[view port]" theme CSS
+*/
+
+.experimental {
+
+	/* ------------
+	 * Background color
+	 *
+	 */
+
+	.bg-darker {
+		background-color: #000;
+
+		&.well.header-rwd h1 {
+			border-bottom-color: #6f6f6f;
+		}
+	}
+
+	// theme default color
+	.bg-gctheme {
+		background-color: #355688;
+
+		&.well.header-rwd {
+			background-color: #26374a;
+		}
+	}
+
+	// PinkDay color
+	.bg-pnkDy {
+		background-color: #AD005F;
+
+		&.well.header-rwd {
+			background-color: #570030;
+		}
+	}
+
+	/* ------------
+	 * Utility
+	 *
+	 */
+
+	.bg-cover, &.bg-cover {
+		background-size: cover;
+	}
+
+	.p-0 {
+		padding: 0px;
+	}
+
+
+	/* ------------
+	 * Theme color
+	 *
+	 */
+
+	/* Pink day - One day event in April
+	 * (with a contrast conforming to Level AAA)
+	 */
+	&.pnkDy-theme {
+
+		// Page header and Menu
+		.gcweb-menu button[aria-haspopup=true],
+		#wb-srch button,
+		.srchbox button {
+			background-color: #AD005F;
+			border-color:#AD005F;
+		}
+		.gcweb-menu button[aria-haspopup=true]:focus, .gcweb-menu button[aria-haspopup=true]:hover,
+		#wb-srch button:focus, #wb-srch button:hover,
+		.srchbox button:focus, .srchbox button:hover {
+			background-color: #570030;
+			color: #fff;
+		}
+		.gcweb-menu,
+		.home .gcweb-menu {
+			border-top-color: #AD005F;
+		}
+
+		// Home page Menu
+		.home .gcweb-menu {
+			button[aria-haspopup=true] {
+				background-color: #ffffff;
+				border-color:#ffffff;
+			}
+			button[aria-haspopup=true] {
+				color: #AD005F;
+			}
+			button[aria-haspopup=true]:focus,
+			button[aria-haspopup=true]:hover {
+				background-color: #AD005F;
+				border-color:#AD005F;
+				color: #ffffff;
+			}
+		}
+
+		// Footer
+		#wb-info .landscape {
+			background-color: #AD005F;
+		}
+	}
+
+	/* Dark theme
+	 */
+	&.dark-theme {
+
+		// Page header and Menu
+		.gcweb-menu button[aria-haspopup=true],
+		#wb-srch button,
+		.srchbox button {
+			background-color: #000;
+			border-color: #000;
+			color: #fff;
+		}
+		.gcweb-menu button[aria-haspopup=true]:focus, .gcweb-menu button[aria-haspopup=true]:hover,
+		#wb-srch button:focus, #wb-srch button:hover,
+		.srchbox button:focus, .srchbox button:hover {
+			background-color: #000;
+			color: #fff;
+		}
+		.gcweb-menu,
+		.home .gcweb-menu {
+			border-top-color: #000;
+		}
+
+		// Home page Menu
+		.home .gcweb-menu {
+			button[aria-haspopup=true] {
+				background-color: #fff;
+				border-color:#fff;
+			}
+			button[aria-haspopup=true] {
+				color: #000;
+			}
+			button[aria-haspopup=true]:focus,
+			button[aria-haspopup=true]:hover {
+				background-color: #000;
+				border-color:#000;
+				color: #fff;
+			}
+		}
+
+		// Footer
+		#wb-info .landscape {
+			background-color: #000;
+			color: #fff;
+		}
+	}
+}
