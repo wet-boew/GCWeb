@@ -62,6 +62,14 @@
 @import "experimental";
 
 /*
+ * GCWeb custom iumplementation
+ *
+ * Copy and rename the folder "variant-default" to "variant".
+ * - the "variant" folder should not GIT conflict with your custom implementation when updating to the latest gcweb
+ */
+@import "variant-default";
+
+/*
  Views
  */
 /* All screen views */
@@ -70,6 +78,7 @@
 	@import "views/screen";
 	@import "tabs/screen";
 	@import "priorities/screen"; /* Deprecated as v4.0.28 */
+	@import "variant-screen";
 }
 
 /* Extra-small view and under */
@@ -82,6 +91,7 @@
 	@import "share/screen-xs-max";
 	@import "toc/screen-xs-max";
 	@import "campaign/screen-xs-max";
+	@import "variant-screen-xs-max";
 }
 
 /* Small view and under */
@@ -92,6 +102,7 @@
 	@import "search/screen-sm-max";
 	@import "footer/screen-sm-max";
 	@import "menu/screen-sm-max";
+	@import "variant-screen-sm-max";
 }
 
 /* Medium view and under */
@@ -99,16 +110,19 @@
 	@import "components/screen-md-max";
 	@import "views/screen-md-max";
 	@import "menu/screen-md-max";
+	@import "variant-screen-md-max";
 }
 
 /* Large view and under */
 @media screen and (max-width: $screen-lg-max) {
 	@import "views/screen-lg-max";
+	@import "variant-screen-lg-max";
 }
 
 /* Extra-small view and over */
 @media screen and (min-width: $screen-xs-min) {
 	@import "views/screen-xs-min";
+	@import "variant-screen-xs-min";
 }
 
 /* Small view and over */
@@ -117,6 +131,7 @@
 	@import "components/screen-sm-min";
 	@import "news/screen-sm-min";
 	@import "campaign/screen-sm-min";
+	@import "variant-screen-sm-min";
 }
 
 /* Medium view and over */
@@ -125,6 +140,7 @@
 	@import "social-media-icons/screen-md-min";
 	@import "footer/screen-md-min";
 	@import "menu/screen-md-min";
+	@import "variant-screen-md-min";
 }
 
 /* Large view and over */
@@ -132,6 +148,7 @@
 	@import "components/screen-lg-min";
 	@import "views/screen-lg-min";
 	@import "equalheight/screen-lg-min";
+	@import "variant-screen-lg-min";
 }
 
 /* Extra-extra-small view */
@@ -141,12 +158,14 @@
 	@import "banner/screen-xxs-max";
 	@import "footer/screen-xxs-max";
 	@import "tabs/screen-xxs-max";
+	@import "variant-screen-xxs-max";
 }
 
 /* Extra-small view */
 @media screen and (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
 	@import "views/screen-xs-min-to-screen-xs-max";
 	@import "components/screen-xs-min-to-screen-xs-max";
+	@import "variant-screen-xs-min-to-screen-xs-max";
 }
 
 /* Small view */
@@ -154,6 +173,7 @@
 	@import "views/screen-sm-min-to-screen-sm-max";
 	@import "search/screen-sm-min-to-screen-sm-max";
 	@import "campaign/screen-sm-min-to-screen-sm-max";
+	@import "variant-screen-sm-min-to-screen-sm-max";
 }
 
 /* Medium view */
@@ -162,16 +182,19 @@
 	@import "views/screen-md-min-to-screen-md-max";
 	@import "equalheight/screen-md-min-to-screen-md-max";
 	@import "menu/screen-md-min-to-screen-md-max";
+	@import "variant-screen-md-min-to-screen-md-max";
 }
 
 /* Large view */
 @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
 	@import "views/screen-lg-min-to-screen-lg-max";
+	@import "variant-screen-lg-min-to-screen-lg-max";
 }
 
 /* Extra-large view */
 @media screen and (min-width: $screen-xl-min) {
 	@import "views/screen-xl-min";
+	@import "variant-screen-xl-min";
 }
 
 /* Print view */
@@ -186,4 +209,5 @@
 	@import "share/print";
 	@import "social-media-icons/print";
 	@import "campaign/print";
+	@import "variant-print";
 }
