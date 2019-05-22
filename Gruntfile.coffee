@@ -739,6 +739,18 @@ module.exports = (grunt) ->
 					"dist/unmin/demos/data-json/template-en.html"
 					"dist/unmin/demos/data-json/template-fr.html"
 				]
+			experimental:
+				options:
+					ignore: [
+						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
+						"Attribute “integrity” not allowed on element “link” at this point."
+						"Attribute “aria-orientation” not allowed on element “ul” at this point."
+						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)."
+					]
+				src: [
+					"dist/unmin/xprmntl/pink-day-en.html"
+					"dist/unmin/xprmntl/pink-day-fr.html"
+				]
 			all:
 				options:
 					ignore: [
@@ -765,7 +777,8 @@ module.exports = (grunt) ->
 					"!dist/unmin/demos/data-json/template-en.html"
 					"!dist/unmin/demos/data-json/template-fr.html"
 					"!dist/unmin/gcweb-theme/test-case-1.html"
-					"!dist/unmin/home/test-1.html"
+					"!dist/unmin/xprmntl/pink-day-en.html"
+					"!dist/unmin/xprmntl/pink-day-fr.html"
 				]
 
 		bootlint:

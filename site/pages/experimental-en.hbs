@@ -89,6 +89,18 @@
 		<td></td>
 	</tr>
 	<tr>
+		<th>CSS <code>.pnkDy-theme</code> set global</th>
+		<td>Apply template color global changed for the pink day color. Globally as that property is defined on the <code>&lt;html&gt;</code> or  <code>&lt;body&gt;</code> element</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.dark-theme</code> set global</th>
+		<td>Apply template color global changed for full black. Globally as that property is defined on the <code>&lt;html&gt;</code> or  <code>&lt;body&gt;</code> element</td>
+		<td>v5.1</td>
+		<td></td>
+	</tr>
+	<tr>
 		<th>CSS <code>.bg-cover</code></th>
 		<td>Background size cover</td>
 		<td>v5.1</td>
@@ -156,3 +168,27 @@
 <div class="well">
 	<p>Second well</p>
 </div>
+
+<h3>Theme template colors</h3>
+<ul>
+	<li><a href="xprmntl/pink-day-en.html">Pink day</a></li>
+	<li><a href="xprmntl/dark-theme-en.html">Dark theme</a></li>
+</ul>
+
+<details>
+	<summary>Javascript code sample to schedule the CSS addition for pink day</summary>
+	<p>The following script add the CSS class only for April 10, 2019 based on local time.</p>
+<pre><code>( function( d ) {
+"use strict";
+
+var t = new Date(),
+	msT = t.getTime(),
+	s = new Date( 2019, 3, 10, 0, 1 ),
+	e = new Date( 2019, 3, 10, 23, 59 );
+
+if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
+	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "experimental");
+}
+
+} )( document );</code></pre>
+</details>
