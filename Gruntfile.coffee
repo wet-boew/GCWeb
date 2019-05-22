@@ -465,6 +465,7 @@ module.exports = (grunt) ->
 				includePaths: [
 					"./node_modules"
 					"./node_modules/wet-boew/node_modules"
+					if grunt.file.exists( "src/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
 				]
 			all:
 				expand: true

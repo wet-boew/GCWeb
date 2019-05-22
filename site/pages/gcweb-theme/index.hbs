@@ -12,7 +12,26 @@
 }
 ---
 
-<h2>GCWeb Canada.ca theme) visual update - V5</h2>
+<p>On this page:</p>
+<ul>
+	<li><a href="#menuCDN">Menu CDN</a></li>
+	<li><a href="#gcweb-v5">GCWeb Canada.ca theme) visual update - V5</a></li>
+	<li><a href="#evaluation">Evaluation and report</a></li>
+	<li><a href="#special-notes">Special notes</a></li>
+	<li><a href="#customGCWebVariant">Customizing GCWeb for your implementation variant</a></li>
+	<li><a href="#previousVersion">Previous version</a></li>
+	<li><a href="#testCases">Test cases</a></li>
+</ul>
+
+<h2 id="menuCDN">Menu CDN</h2>
+<p>Principal publisher udpate those following HTML fragment file every time there is a change to Canada.ca top menu.</p>
+<ul>
+	<li>English: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html</a></li>
+	<li>French: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html</a></li>
+</ul>
+
+
+<h2 id="gcweb-v5">GCWeb Canada.ca theme) visual update - V5</h2>
 
 <p>The GCWeb v5 (Canada.ca theme) visual update are supporting the Canada.ca Content and Information Architecture Specification 2.0.</p>
 
@@ -50,13 +69,6 @@
 		</ul>
 	</li>
 	<li><a href="temp-v5issue.html">Temporary internal list of issues and todo</a></li>
-</ul>
-
-<h3>Menu CDN</h3>
-<p>Principal publisher udpate those following HTML fragment file every time there is a change to Canada.ca top menu.</p>
-<ul>
-	<li>English: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html</a></li>
-	<li>French: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html</a></li>
 </ul>
 
 <h3>Noticable visual difference with no markup change</h3>
@@ -109,7 +121,7 @@
 	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menu-button/menu-button-actions.html">WAI-ARIA Practices 1.1 - Action Menu button using <code>element.focus()</code></a></li>
 </ul>
 
-<h2>Evaluation and report</h2>
+<h2 id="evaluation">Evaluation and report</h2>
 
 <ul>
 	<li>February 20, 2019: <a href="test-menu.html" hreflang="fr">Test on the menu component</a> (French only)</li>
@@ -211,11 +223,21 @@
 	<li><code>aria-haspopup=menu</code>: As per WAI-ARIA 1.1, the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">aria-haspopup</a> property can have multiple value other than "true". The value set to "true" is the same as being set to "menu". Ideally, the menu design would use aria-haspopop=menu instead of aria-haspopup=true because it is more explicit. The validator.nu trigger an error when the aria-haspopup is set to menu instead of true because it don't support WAI-ARIA 1.1. The anchor and the button with the attribute aria-haspopup should be updated once validator.nu support WAI-ARIA 1.1. Using "menu" instead of "true" shouldn't impact assisstive technology that only support WAI-ARIA 1.0</li>
 </ul>
 
-<h2>Previous version</h2>
+<h2 id="customGCWebVariant">Customizing GCWeb for your implementation variant</h2>
+<p>The build script of GCWeb has been adapted to allow implementation variant to include their specific CSS with the gcweb CSS in a way that reduce potential git conflict when updating to the latest version of gcweb.</p>
+
+<ul>
+	<li>Create a fork or an clone of GCWeb project.</li>
+	<li>Custom Style: Copy and rename the folder <code>src/variant-default</code> for <code>src/variant</code>. The custom SCSS added in <code>variant</code> would not conflict when updating your GCWeb version.</li>
+	<li>Custom plugin: Follow the wet-boew plugin guidance/structure and add your code in <code>src/plugin</code> folder.</li>
+	<li>Building: Use the GCWeb build system, all your custom CSS and custom plugin for your variant would be packaged together with GCWeb compiled files.</li>
+</ul>
+
+<h2 id="previousVersion">Previous version</h2>
 <ul>
 	<li>See GCWeb released with WET 4.0.29. All code change are documented in the migration instruction of GCWeb new look - V5.</li>
 </ul>
-<h2>Test cases</h2>
+<h2 id="testCases">Test cases</h2>
 <ul>
 	<li><a href="test-case-1.hbs">From examples - test cases</a></li>
 </ul>
