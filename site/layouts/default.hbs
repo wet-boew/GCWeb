@@ -12,7 +12,7 @@
 {{#if page.secondarymenu}}
 <div class="container">
 	<div class="row">
-		<main property="mainContentOfPage" class="col-md-9 col-md-push-3">
+		<main property="mainContentOfPage" class="col-md-9 col-md-push-3" typeof="WebPageElement">
 {{else}}
 <main property="mainContentOfPage" class="
 {{#unless page.noMainContainer}}container{{/unless}}
@@ -21,7 +21,7 @@
 {{#is page.pageType "theme"}} gc-theme{{/is}}
 {{#is page.pageType "news"}} gc-news{{/is}}
 {{#is page.pageType "advance service"}} gc-advnc-srvc{{/is}}
-">
+" typeof="WebPageElement">
 {{/if}}
 {{#unless page.noContentTitle}}
 {{#isnt page.pageclass "page-type-nav"}}
