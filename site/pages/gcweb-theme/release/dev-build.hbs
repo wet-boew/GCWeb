@@ -9,7 +9,7 @@
 		{ "title": "GCWeb theme", "link": "../index-en.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2019-06-06",
+	"dateModified": "2019-06-20",
 	"share": "true"
 }
 ---
@@ -17,212 +17,35 @@
 <div class="row">
 	<div class="col-md-7 col-lg-8">
 		<div class="alert alert-warning">
-			<p>The release note bellow can be incomplete and awaiting for official translation until the official release.</p>
+			<p>The release notes below can be incomplete and awaiting for official translation until the official release.</p>
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-auto pull-right">
-		<p><a href="https://github.com/wet-boew/GCWeb/archive/v5.0.1.zip" class="btn btn-primary">Download the latest developper build</a><br />
+		<p><a href="https://github.com/wet-boew/themes-dist/archive/GCWeb.zip" class="btn btn-primary">Download the latest developper build</a><br />
 			<small>(<a href="https://github.com/wet-boew/GCWeb/">Source code</a>)</small></p>
 	</div>
 </div>
 
 <ul>
-	<li><strong>Planned release date:</strong> <time datetime="2019-06-17">June 17 2019</time></li>
-	<li><strong>Going to be released under version:</strong> v5.1</li>
+	<li><strong>Planned release date:</strong> <time datetime="2019-10-14">October 14, 2019</time></li>
+	<li><strong>Going to be released under version:</strong> v5.2</li>
 </ul>
 
 <section>
 <h2>What's new?</h2>
 <ul>
-	<li>Template
-		<ul>
-			<li>Minor - <a href="../../search/">Search template</a> - New template for pages with search results.</li>
-			<li>Minor - Navigation element - A <code>&lt;nav&gt;</code> element was added for the skip nav link, <a href="#nav-ex">as shown here</a>.</li>
-			<li>Minor - Font Awesome - A reference to font-awesome 5.8.1 was added inside the <code>&lt;head&gt;</code> tag (<a href="#fa-ex">see snippet</a>).</li>
-			<li>Minor - RDFa + schema.org improvement to Canada wordmark - The RDFa markup has been modified, new property added, to improve SEO and how search engine interprete some information included in our template (<a href="#rdfa-ex">more details</a>).</li>
-			<li>Patch - RDFa markup for main element - Fixed RDFa markup issue on the main element by adding <code>typeof="WebPageElement"</code> attribute to the <code>&lt;main&gt;</code> element, <a href="#rdfa2-ex">as shown here</a>.</li>
-		</ul>
-	</li>
-	<li>Styles and plugins
-		<ul>
-			<li>Minor - Custom CSS variant - New concept that allows integration of custom CSS for implementation variant of GCWeb by writing styles inside	new SASS files that are included in the build for pick-up (<a href="#variant-ex">more details</a>).</li>
-			<li>Minor - Background colour -	Set a dark background to an element (e.g. well) with the class <code>.bg-dark</code> or a completely black one with <code>.bg-darker</code>.</li>
-			<li>Minor - Text colour- Set text in white with a CSS class called <code>text-white</code>. Works jointly with dark backgrounds.</li>
-			<li>Minor - Redacted text - Change of redacted text character to a full block when <code>.redacted</code> is in use.</li>
-			<li>Minor - Well - Provide a responsive well that takes the full width of its parent by adding the <code>.header-rwd</code> class to it.</li>
-			<li>Minor - URL manager and geomap - Added the possibility to prefill geomap configurations with action management, <a href="#url-ex">as shown here</a>.</li>
-			<li>Patch - Footer background image - Canadian flag was added on the top of the parliament on the landscpae image.</li>
-			<li>Patch - Carousel - Link underline override was removed on carousel.</li>
-			<li>Patch - Multimedia player - Top margin override was removed on multimedia player.</li>
-			<li>Patch - Menu - Fix menu navigation on different browsers when using a screen reader by running rigorous operability tests with JAWS and NVDA.</li>
-		</ul>
-	</li>
-	<li><a href="https://wet-boew.github.io/themes-dist/GCWeb/experimental-en.html">Experimental</a> (NEW)
-		<ul>
-			<li>Minor - Bootstrap 4 spacers - CSS classes added for padding and margin spacing, e.g. <code>.p-0</code> for no padding and <code>.mb-sm-5</code> for extra-large bottom margin for small devices and up.</li>
-			<li>Minor - Background image size - CSS class added for a background image to cover the boxes size with <code>.bg-cover</code>.</li>
-			<li>Minor - Background image URL - New plugin that allows to set a background image from a data attribute called <code>data-bgimg</code>. It was introduced in the specifications but is not yet supported by browsers.</li>
-			<li>Minor - Theme colours - Provides the ability to change theme colours to pink or dark.</li>
-		</ul>
-	</li>
-	<li>Maintenance
-		<ul>
-			<li>Build script - HTMLlint exception was added to prohibit integrity attribute in link tags until adopted in the HTML specifications.</li>
-			<li>WET-BOEW dependency - Bumped WET-BOEW dependency in the "package.json" to 2019-05-22 build, which includes build fixes related to sprites and closure dependency for geomap, and also backward compatibility with the zoom feature on geomap.</li>
-			<li>GCWeb install from other repository - Allows to install GCWeb from "themes-cdn_GCWeb" repository.</li>
-		</ul>
-	</li>
+	<li>Template</li>
+	<li>Styles and plugins</li>
+	<li><a href="https://wet-boew.github.io/themes-dist/GCWeb/experimental-en.html">Experimental</a></li>
+	<li>Maintenance</li>
 </ul>
 </section>
 
 <section>
-	<h2>Browsers supported:</h2>
-	<p>As per the rule defined by <a href="http://wet-boew.github.io/wet-boew-documentation/decision/2.html">Design decision 2: Browser supported</a></p>
-	<ul>
-		<li>Chrome 71</li>
-		<li>Chrome 70</li>
-		<li>Safari 12.0</li>
-		<li>Firefox 65</li>
-		<li>Firefox 64.0.2</li>
-		<li>Firefox ESR - 60.5.0</li>
-		<li>IE 11</li>
-		<li>Edge 18</li>
-	</ul>
-</section>
-
-<section>
 		<h2 id="details">Details</h2>
-		<p><strong>Number of commits:</strong> 48</p>
-		<ul>
-			<li><a href="https://github.com/duboisp">Pierre Dubois (@duboisp)</a>: 25 commits</li>
-			<li><a href="https://github.com/patlaj">Patrick Lajeunesse (@patlaj)</a>: 6 commits</li>
-			<li><a href="https://github.com/GormFrank">Francis Gorman (@GormFrank)</a>: 3 commits</li>
-			<li><a href="https://github.com/thangle2013">Thang Le (@thangle2013)</a>: 3 commits</li>
-			<li><a href="https://github.com/xiayitan">Xiayitan (@xiayitan)</a>: 3 commits</li>
-			<li><a href="https://github.com/EricDunsworth">Eric Dunsworth (@EricDunsworth)</a>: 3 commits</li>
-			<li><a href="https://github.com/ipaksc">Ilya Pak (@ipaksc)</a>: 1 commit</li>
-			<li><a href="https://github.com/shawnthompson">Shawn Thompson (@shawnthompson)</a>: 1 commit</li>
-			<li><a href="https://github.com/Borges-Porteous">Borges-Porteous (@Borges-Porteous)</a>: 1 commit</li>
-			<li>Stephane Ducharme: 1 commit</li>
-			<li><a href="https://github.com/quidampepin">David Pepin (@quidampepin)</a>: 1 commit</li>
-		</ul>
+		<p><strong>Number of commits:</strong> X</p>
 </section>
 
 <section>
 	<h2>More details and examples</h2>
-
-	<h3>Related to template</h3>
-
-	<h4 id="nav-ex">Navigation element</h4>
-	<div class="row">
-		<div class="col-md-6">
-			<h5>Now</h5>
-			<pre><code><strong>&lt;nav&gt;</strong>
-		&lt;ul id="wb-tphp"&gt;
-			[...]
-		&lt;/ul&gt;
-	<strong>&lt;/nav&gt;</strong></code></pre>
-		</div>
-		<div class="col-md-6">
-			<h5>Was</h5>
-			<pre><code>&lt;ul id="wb-tphp"&gt;
-		[...]
-	&lt;/ul&gt;</code></pre>
-		</div>
-	</div>
-
-	<h4 id="#fa-ex">Font awesome</h4>
-	<p>The following snippet needs to be inserted above or under the "theme.min.css" link stylesheet call:</p>
-	<pre><code>&lt;link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /&gt;</code></pre>
-
-	<h4 id="rdfa-ex">RDFa + schema.org improvement to Canada wordmark</h4>
-	<ul>
-		<li>Set the "publisher" property of the "WebPage" to be a "Governement Organization"</li>
-		<li>Define the following property for the Governement Organization:
-			<dl class="dl-horizontal">
-				<dt><code>url</code></dt>
-				<dd>Link to the home page</dd>
-				<dt><code>logo</code></dt>
-				<dd>Top left image logo</dd>
-				<dt><code>name</code></dt>
-				<dd>Government of Canada</dd>
-				<dt><code>areaServed</code></dt>
-				<dd>Set to the country "Canada"</dd>
-				<dt><code>logo</code></dt>
-				<dd>Link representing the bottom right logo</dd>
-			</dl>
-		</li>
-	</ul>
-	<p>Note: The following markup was limited to scope of RDFa 1.1 lite and that is why a link, the same as the bottom logo was added.</p>
-
-	<h5>English</h5>
-	<div class="row">
-		<div class="col-md-6">
-			<h6>Now</h6>
-			<pre><code>&lt;div class="brand col-xs-5 col-md-4" <strong>property="publisher" typeof="GovernmentOrganization"</strong>&gt;
-		&lt;a href="https://www.canada.ca/en.html" <strong>property="url"</strong>&gt;&lt;img src="./../GCWeb/assets/sig-blk-en.svg" alt="" <strong>property="logo"</strong> /&gt;&lt;span class="wb-inv" <strong>property="name"</strong>&gt; Government of Canada / &lt;span lang="fr"&gt;Gouvernement du Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-		<strong>&lt;meta property="areaServed" typeOf="Country" content="Canada" /&gt;
-		&lt;link property="logo" href="./../GCWeb/assets/wmms-blk.svg" /&gt;</strong>
-	&lt;/div&gt;</code></pre>
-		</div>
-		<div class="col-md-6">
-			<h6>Was</h6>
-			<pre><code>&lt;div class="brand col-xs-5 col-md-4"&gt;
-		&lt;a href="https://www.canada.ca/en.html"&gt;&lt;img src="./../GCWeb/assets/sig-blk-en.svg" alt="" /&gt;&lt;span class="wb-inv"&gt; Government of Canada / &lt;span lang="fr"&gt;Gouvernement du Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-	&lt;/div&gt;</code></pre>
-		</div>
-	</div>
-
-	<h5>French</h5>
-	<div class="row">
-		<div class="col-md-6">
-			<h6>Now</h6>
-			<pre><code>&lt;div class="brand col-xs-5 col-md-4" <strong>property="publisher" typeof="GovernmentOrganization"</strong>&gt;
-		&lt;a href="https://www.canada.ca/fr.html" <strong>property="url"</strong>&gt;&lt;img src="./../GCWeb/assets/sig-blk-fr.svg" alt="" <strong>property="logo"</strong> /&gt;&lt;span class="wb-inv" <strong>property="name"</strong>&gt; Gouvernement du Canada / &lt;span lang="en"&gt;Government of Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-		<strong>&lt;meta property="areaServed" typeOf="Country" content="Canada" /&gt;
-		&lt;link property="logo" href="./../GCWeb/assets/wmms-blk.svg" /&gt;</strong>
-	&lt;/div&gt;</code></pre>
-		</div>
-		<div class="col-md-6">
-			<h6>Was</h6>
-			<pre><code>&lt;div class="brand col-xs-5 col-md-4"&gt;
-		&lt;a href="https://www.canada.ca/fr.html"&gt;&lt;img src="./../GCWeb/assets/sig-blk-fr.svg" alt="" /&gt;&lt;span class="wb-inv"&gt; Gouvernement du Canada / &lt;span lang="en"&gt;Government of Canada&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-	&lt;/div&gt;</code></pre>
-		</div>
-	</div>
-
-	<h4 id="rdfa2-ex">RDFa markup for main element</h4>
-	<div class="row">
-		<div class="col-md-6">
-			<h6>Now</h6>
-			<pre><code>&lt;main property="mainContentOfPage" <strong>typeof="WebPageElement"</strong> class="container"&gt;
-	&lt;h1 property="name" id="wb-cont"&gt;[...]&lt;/h1&gt;
-	&lt;/main&gt;</code></pre>
-		</div>
-		<div class="col-md-6">
-			<h6>Was</h6>
-			<pre><code>&lt;main property="mainContentOfPage" class="container"&gt;
-	&lt;h1 property="name" id="wb-cont"&gt;[...]&lt;/h1&gt;
-	&lt;/main&gt;</code></pre>
-		</div>
-	</div>
-
-	<h3>Related to styles and plugins</h3>
-
-	<h4 id="variant-ex">Custom CSS variant</h4>
-	<p>If you would want to use your own variant of GCWeb to ease implementation, then rename the following folder in order to be caught by the build script:</p>
-	<div class="row">
-		<div class="col-md-6">
-			<h5>After</h5>
-			<p class="well">"src/variant"</p>
-		</div>
-		<div class="col-md-6">
-			<h5>Before</h5>
-			<p class="well">"src/variant-default"</p>
-		</div>
-	</div>
-	<p>Note: "variant-default.scss" is the SASS file to edit for custom styles, but others inside the same folder are also available for different viewports.</p>
-
-	<h4 id="url-ex">Action manager and geomap</h4>
-	<p>As an example, the following parameters &lt;code&gt;?aoi=qc&amp;layout=pt&lt;/code&gt; would zoom on Quebec and activate the Points layer after the URL manager is initiated.<code></code> Check out the <a href="https://wet-boew.github.io/themes-dist/GCWeb/demos/urlmapping/geomap-en.html">URL mapping documentation</a> for more information.</p>
 </section>
