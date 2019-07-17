@@ -1,5 +1,6 @@
 #global module:false
 path = require("path")
+sass = require("node-sass")
 
 module.exports = (grunt) ->
 
@@ -462,6 +463,7 @@ module.exports = (grunt) ->
 
 		sass:
 			options:
+				implementation: sass,
 				includePaths: [
 					"./node_modules"
 					"./node_modules/wet-boew/node_modules"
