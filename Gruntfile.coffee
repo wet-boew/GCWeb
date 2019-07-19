@@ -512,6 +512,8 @@ module.exports = (grunt) ->
 			css:
 				options:
 					banner: "@charset \"utf-8\";\n<%= banner %>"
+					position: "replace"
+					replace: "@charset \"UTF-8\";"
 				files:
 					src: "<%= themeDist %>/css/*.*"
 
