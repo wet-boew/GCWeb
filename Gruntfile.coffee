@@ -444,7 +444,7 @@ module.exports = (grunt) ->
 						# Exemptions...
 
 						# Images
-						"!site/**/*.{jpg,png}"
+						"!site/img/**/*.{jpg,png}"
 						"!src/assets/*.{ico,jpg,png}"
 
 						# External fonts
