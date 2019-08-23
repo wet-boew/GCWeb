@@ -5,6 +5,11 @@
 
 .gcweb-menu {
 
+	.container {
+		padding: 0;
+		width: 100%;
+	}
+
 	/*
 	 * Mobile - first level
 	 */
@@ -13,9 +18,12 @@
 		position: static;
 	}
 
-	button[aria-haspopup=true][aria-expanded=true] + [role=menu] {
-		border-right: #eee solid 1px;
-		width:95%;
+	button[aria-haspopup=true] {
+		margin-left: calc( 50% - 360px ); /* 360px is half the container, minus the padding */
+
+		&[aria-expanded=true] + [role=menu] {
+			border-right: #eee solid 1px;
+		}
 	}
 
 	[role=menuitem] {
@@ -101,16 +109,22 @@
 	[role=menu] [role=menu] li:first-child [role=menuitem] /*this line is an overwride*/ {
 		border-bottom: 1px solid #ccc;
 		color: #000;
+	}
+	[role=menu] [role=menu] [role=menuitem],
+	[role=menu] [role=menu] li:last-child [role=menuitem],
+	[role=menu] [role=menu] [role=menu] li:first-child [role=menuitem] {
+		color: #284162;
 		text-decoration: none;
 	}
 	[role=menu] [role=menu] [role=menuitem]:hover, /* default style */
 	[role=menu] [role=menu] [role=menuitem]:focus, /* default style */
 	[role=menu] [role=menu] li:first-child [role=menuitem]:hover, /*this line is an overwride*/
-	[role=menu] [role=menu] li:first-child [role=menuitem]:focus /*this line is an overwride*/ {
+	[role=menu] [role=menu] li:first-child [role=menuitem]:focus, /*this line is an overwride*/
+	[role=menu] [role=menu] li:last-child [role=menuitem]:hover,
+	[role=menu] [role=menu] li:last-child [role=menuitem]:focus {
 		color: #000;
 		text-decoration: underline;
 	}
-
 	[role=menu] [role=menu] li:first-child [role=menuitem],
 	[role=menu] [role=menu] li:last-child [role=menuitem] {
 		background-color: #e1e1e1;
