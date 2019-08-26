@@ -4,6 +4,141 @@
  * Use this style sheet to define style for small component
  */
 
+
+.gc-form {
+	clear: both;
+	padding-top: 6px;
+}
+.gc-form {
+	.checkbox, .radio, .form-checkbox, .form-radio {
+	position: relative;
+	cursor: pointer;
+	font-weight: normal;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	}
+	.checkbox, .radio {
+	padding-left: 30px;
+	margin-bottom: 35px;
+	}
+	.checkbox input[type="checkbox"]:focus + label::before, .form-checkbox input[type="checkbox"]:focus + label::before, .form-radio input[type="radio"]:focus + label::before, .radio input[type="radio"]:focus + label::before	{
+	box-shadow: 0 0 3pt 2pt rgb(59, 153, 252);
+	}
+	.checkbox label::after, .form-checkbox label::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 12px;
+	top: 0px;
+	width: 13px;
+	height: 22px;
+	border: solid #333;
+	border-width: 0 5px 5px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+	.checkbox label::before, .radio label::before, .form-checkbox label::before, .form-radio label::before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	border: 2px solid #333;
+	margin-top: -4px;
+	}
+	.checkbox-green input[type="checkbox"]:checked + label:before {
+	background-color: #318000;
+	}
+	.checkbox-green label::after {
+	content: "";
+	border: solid white;
+	border-width: 0 5px 5px 0;
+	}
+	.checkbox-small {
+	padding-left: 16px;
+	margin-bottom: 25px;
+	}
+	.checkbox-small label {
+	font-size: 18px !important;
+	}
+	.checkbox-small label::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 8px;
+	top: 2px;
+	width: 8px;
+	height: 14px;
+	border: solid #333;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+	.checkbox-small label::before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+	border: 2px solid #333;
+	margin-top: 0;
+	}
+	.form-checkbox, .form-radio {
+	margin-right: 30px;
+	margin-bottom: 25px;
+	min-width: 26%; /* prevents weird overlapping */
+	}
+	.form-checkbox input[type="checkbox"] + label::after, .form-radio input[type="radio"] + label::after, .checkbox input[type="checkbox"] + label::after, .radio input[type="radio"] + label::after {
+	content: none;
+	}
+	.form-checkbox label, .form-radio label {
+	padding-left: 50px;
+	}
+	input {
+	position: absolute;
+	opacity: 0;
+	}
+	label {
+	font-size: 20px;
+	}
+	.radio input[type="radio"]:checked + label::after, .checkbox input[type="checkbox"]:checked + label::after, .form-radio input[type="radio"]:checked + label::after, .form-checkbox input[type="checkbox"]:checked + label::after, {
+	content: "";
+	}
+	.radio label::after, .form-radio label::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 4px;
+	left: 8px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #333;
+	}
+	.radio label::before, .form-radio label::before {
+	content: "";
+	border-radius: 50%;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+
+.gc-form .form-checkbox,
+.gc-form .form-radio {
+	min-width: 50%;
+	}
+}
+
 /*
  * Redacted inline text style
  */
@@ -16,158 +151,16 @@
 	word-wrap: break-word;
 }
 
-.wb-fieldflow-form legend.h5 {
-  margin-top: 0px;
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
 .wb-fieldflow-form .btn {
-  font-size: 20px;
-  font-variant-ligatures: no-common-ligatures;
+	font-size: 20px;
+	font-variant-ligatures: no-common-ligatures;
 }
-
 .wb-fieldflow-form input[type="reset"], input[type="button"], input[type="submit"]
-
 {
-  height: 50px;
+	height: 50px;
 }
-
-
-.gc-form {
-    clear: both;
-    padding-top: 6px;
-}
-
-.gc-form {
-
-  label {
-    font-size: 20px;
-  }
-  .checkbox-small label {
-    font-size: 18px !important;
-  }
-  input {
-    position: absolute;
-    opacity: 0;
-  }
-  .checkbox, .radio, .form-checkbox, .form-radio {
-    position: relative;
-    cursor: pointer;
-    font-weight: normal;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .checkbox, .radio {
-    padding-left: 30px;
-    margin-bottom: 35px;
-  }
-  .checkbox-small {
-    padding-left: 16px;
-    margin-bottom: 25px;
-  }
-  .form-checkbox, .form-radio {
-    margin-right: 30px;
-    margin-bottom: 25px;
-    min-width: 26%; /* prevents weird overlapping */
-  }
-  .form-checkbox label, .form-radio label {
-    padding-left: 50px;
-  }
-  .checkbox label::before, .radio label::before, .form-checkbox label::before, .form-radio label::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 36px;
-    border: 2px solid #333;
-    margin-top: -4px;
-   }
-  .checkbox-small label::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    left: 0;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #333;
-    margin-top: 0;
-  }
-  .radio label::before, .form-radio label::before {
-    content: "";
-    border-radius: 50%;
-  }
-  .checkbox label::after, .form-checkbox label::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 12px;
-    top: 0px;
-    width: 13px;
-    height: 22px;
-    border: solid #333;
-    border-width: 0 5px 5px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .checkbox-small label::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 8px;
-    top: 2px;
-    width: 8px;
-    height: 14px;
-    border: solid #333;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .radio label::after, .form-radio label::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 4px;
-    left: 8px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #333;
-  }
-  .form-checkbox input[type="checkbox"] + label::after, .form-radio input[type="radio"] + label::after, .checkbox input[type="checkbox"] + label::after, .radio input[type="radio"] + label::after {
-    content: none;
-  }
-  .radio input[type="radio"]:checked + label::after, .checkbox input[type="checkbox"]:checked + label::after, .form-radio input[type="radio"]:checked + label::after, .form-checkbox input[type="checkbox"]:checked + label::after, {
-      content: "";
-  }
-  .checkbox input[type="checkbox"]:focus + label::before, .form-checkbox input[type="checkbox"]:focus + label::before, .form-radio input[type="radio"]:focus + label::before, .radio input[type="radio"]:focus + label::before  {
-    box-shadow: 0 0 3pt 2pt rgb(59, 153, 252);
-  }
-  .checkbox-green label::after {
-    content: "";
-    border: solid white;
-    border-width: 0 5px 5px 0;
-  }
-  .checkbox-green input[type="checkbox"]:checked + label:before {
-    background-color: #318000;
-  }
-}
-
-
- @media only screen and (max-width: 1200px) {
-
-.gc-form .form-checkbox,
-.gc-form .form-radio {
-    min-width: 50%;
-  }
-
+.wb-fieldflow-form legend.h5 {
+	margin-top: 0px;
+	font-size: 22px;
+	margin-bottom: 15px;
 }
