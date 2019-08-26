@@ -670,30 +670,30 @@ var componentName = "wb-fieldflow",
 		}
 
 		// Create radio
-		for (i = 0, i_len = items.length; i !== i_len; i += 1) {
-			cur_itm = items[i];
+		for ( i = 0, i_len = items.length; i !== i_len; i += 1 ) {
+			cur_itm = items[ i ];
 
-			if (!cur_itm.group) {
-				radCheckOut += buildCheckboxRadio(cur_itm, fieldName, typeRadCheck, isInline, isReq, i + 1);
+			if ( !cur_itm.group ) {
+				radCheckOut += buildCheckboxRadio( cur_itm, fieldName, typeRadCheck, isInline, isReq, i + 1 );
 			} else {
 
 				// We have a group of sub-items, the cur_itm are a group
 				radCheckOut += "<p>" + cur_itm.label + "</p>";
 				j_len = cur_itm.group.length;
-				for (j = 0; j !== j_len; j += 1) {
-					radCheckOut += buildCheckboxRadio(cur_itm.group[j], fieldName, typeRadCheck, isInline, isReq);
+				for ( j = 0; j !== j_len; j += 1 ) {
+					radCheckOut += buildCheckboxRadio( cur_itm.group[ j ], fieldName, typeRadCheck, isInline, isReq );
 				}
 			}
 		}
-		if (isInline) {
+		if ( isInline ) {
 			radCheckOut = "<div class='gc-form'>" + radCheckOut;
 		} else {
 			radCheckOut = "<ul class='list-unstyled gc-form'>" + radCheckOut;
 		}
-		$out.append(radCheckOut);
-		$("#" + bodyId).append($out);
-		if ($prevContent) {
-			$out.before($prevContent);
+		$out.append( radCheckOut );
+		$("#" + bodyId).append( $out );
+		if ( $prevContent ) {
+			$out.before( $prevContent );
 		}
 
 		// Set post action if any
@@ -814,23 +814,23 @@ var componentName = "wb-fieldflow",
 
 		return out;
 	},
-	buildCheckboxRadio = function(data, fieldName, inputType, isInline, isReq, iLoopBuilder) {
+	buildCheckboxRadio = function( data, fieldName, inputType, isInline, isReq ) {
 		var label = data.label,
 			fieldID = wb.getId(),
 			inline = isInline ? "-inline" : "",
-			out = "<"
-		if (isInline) {
+			out = "<";
+		if ( isInline ) {
 			out += "span class='form-" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'"; //used to have + out - what is this inline thing?
 		} else {
 			out += "li class='" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'";
 		}
-		out += buildDataAttribute(data);
+		out += buildDataAttribute( data );
 
-		if (isReq) {
+		if ( isReq ) {
 			out += " required='required'";
 		}
 
-		if (isInline) {
+		if ( isInline ) {
 			out += "/><label class='form-" + inputType + " " + "form-" + inputType + "-inline'" + "for='" + fieldID + "'";
 			out += " >" + label + "</label></span>";
 
