@@ -12,8 +12,8 @@
 .gc-form {
 	.checkbox, .radio, .form-checkbox, .form-radio {
 		-moz-user-select: none;
-		-webkit-user-select: none;
 		-ms-user-select: none;
+		-webkit-user-select: none;
 		cursor: pointer;
 		font-weight: normal;
 		position: relative;
@@ -84,18 +84,18 @@
 	.checkbox-small label::before {
 		border: 2px solid #333;
 		box-sizing: border-box;
-		display: inline-block;
 		content: "";
-		position: absolute;
+		display: inline-block;
 		height: 24px;
 		left: 0;
+		margin-top: 0;
+		position: absolute;
 		top: 0;
 		width: 24px;
-		margin-top: 0;
 	}
 	.form-checkbox, .form-radio {
-		margin-right: 30px;
 		margin-bottom: 25px;
+		margin-right: 30px;
 		min-width: 26%; /* prevents weird overlapping */
 	}
 	.form-checkbox input[type="checkbox"] + label::after, .form-radio input[type="radio"] + label::after, .checkbox input[type="checkbox"] + label::after, .radio input[type="radio"] + label::after {
@@ -132,7 +132,7 @@
 	}
 }
 
-	@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
 
 	.gc-form .form-checkbox,
 	.gc-form .form-radio {
