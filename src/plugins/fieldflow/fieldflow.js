@@ -691,7 +691,7 @@ var componentName = "wb-fieldflow",
 			radCheckOut = "<ul class='list-unstyled gc-form'>" + radCheckOut;
 		}
 		$out.append( radCheckOut );
-		$("#" + bodyId).append( $out );
+		$( "#" + bodyId ).append( $out );
 		if ( $prevContent ) {
 			$out.before( $prevContent );
 		}
@@ -817,10 +817,9 @@ var componentName = "wb-fieldflow",
 	buildCheckboxRadio = function( data, fieldName, inputType, isInline, isReq ) {
 		var label = data.label,
 			fieldID = wb.getId(),
-			inline = isInline ? "-inline" : "",
 			out = "<";
 		if ( isInline ) {
-			out += "span class='form-" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'"; //used to have + out - what is this inline thing?
+			out += "span class='form-" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'";
 		} else {
 			out += "li class='" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'";
 		}
