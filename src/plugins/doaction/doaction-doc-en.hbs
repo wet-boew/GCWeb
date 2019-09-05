@@ -6,7 +6,7 @@
 	"categoryfile": "plugins",
 	"description": "Execute action, like filter a table, based on pre-established set of configuration.",
 	"altLangPrefix": "doaction-doc",
-	"dateModified": "2017-07-16"
+	"dateModified": "2019-09-04"
 }
 ---
 <div class="wb-prettify all-pre"></div>
@@ -148,6 +148,7 @@
 				<li>run</li>
 				<li>removeClass</li>
 				<li>mapfilter</li>
+				<li>tocsv</li>
 			</ul>
 		</td>
 		<td><code>data-wb-doaction='{ "action": "<em>[Name of the action]</em>" }</code></td>
@@ -167,6 +168,8 @@
 				<dd>Remove a class to an element</dd>
 				<dt>mapfilter</dt>
 				<dd>Apply a geomap filter</dd>
+				<dt>tocsv</dt>
+				<dd>Download an HTML table in CSV</dd>
 			</dl>
 		</td>
 	</tr>
@@ -243,6 +246,7 @@
 				<li>run</li>
 				<li>addClass</li>
 				<li>removeClass</li>
+				<li>tocsv</li>
 			</ul>
 		</td>
 		<td><code>data-wb-doaction='{ "action": "ajax", "target": "<em>[an ID]</em>" } }'</code></td>
@@ -267,6 +271,7 @@
 				<li>addClass</li>
 				<li>removeClass</li>
 				<li>mapfilter</li>
+				<li>tocsv</li>
 			</ul>
 		</td>
 		<td><code>data-wb-doaction='{ "action": "ajax", "target": "[an ID]", "trgbefore": <em>true</em> } }'</code></td>
@@ -306,6 +311,7 @@
 				<li>addClass</li>
 				<li>removeClass</li>
 				<li>mapfilter</li>
+				<li>tocsv</li>
 			</ul>
 		</td>
 		<td><code>data-wb-doaction='{ "action": "tblfilter", "source": "#jQuerySelector" }'</code></td>
@@ -507,6 +513,24 @@
 			</dl>
 		</td>
 	</tr>
+	<tr>
+		<td>filename</td>
+		<td><p>Define the filename to use for downloading</p>
+			<p>Available for:</p>
+			<ul>
+				<li>tocsv</li>
+			</ul>
+		</td>
+		<td><code>data-wb-doaction='{ "action": "tocsv", "source": "#myTable", "filename": "an awsome name.csv" }'</code></td>
+		<td>
+			<dl>
+				<dt>false (default):</dt>
+				<dd>It will use the table caption + ".csv", if not available it will fallback on "table.csv"</dd>
+				<dt>String:</dt>
+				<dd>The filename to use including the file extension, like <code>.csv</code></dd>
+			</dl>
+		</td>
+	</tr>
 	</tbody>
 </table>
 </section>
@@ -524,6 +548,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td><code>tocsv.wb-actionmng</code>
+					<ul>
+						<li>tocsv</li>
+					</ul>
+				</td>
+				<td>Triggered automatically on tocsv action execution.</td>
+				<td>Read the HTML table and initiate a file download.</td>
+			</tr>
 			<tr>
 				<td><code>patch.wb-actionmng</code>
 					<ul>
