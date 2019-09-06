@@ -1,0 +1,101 @@
+---
+{
+	"title": "Do action - JSON",
+	"language": "en",
+	"category": "Plugins",
+	"description": "Execute JSON loading and patching action through the JSON manager",
+	"tag": "doaction",
+	"parentdir": "doaction",
+	"altLangPrefix": "json",
+	"dateModified": "2019-09-05"
+}
+---
+
+<p>This plugin is used in conjonction with the JSON-Manager and the Data-JSON. Documentation on how to apply the patch is documented in the JSON manager and in the URL mapping patching.</p>
+
+
+<h2>Load a JSON file on demand</h2>
+
+<p>Load JSON files:</p>
+<ul>
+	<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-1.json" }'>JSON file 1</button></li>
+	<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-2.json" }'>JSON file 2</button></li>
+	<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-3.json" }'>JSON file 3</button></li>
+	<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-4.json" }'>JSON file 4</button></li>
+</ul>
+
+<div id="testLoader" data-wb-jsonmanager='{
+		"url": "demo/empty.json",
+		"name": "jmanager"
+	}'></div>
+
+<p>Data loaded: <span data-json-replace="#[jmanager]/data">Nothing loaded yet</span></p>
+
+
+<h2>Apply a JSON patch</h2>
+
+<p>Same configuration as described by the URL mapping</p>
+
+<button type="button" data-wb-doaction='{ "action": "patch", "source": "#testLoader", "patches": [
+	{ "op": "add", "path": "/data", "value": "Patched Data" }
+] }'>Apply a patch</button>
+
+<p>Data loaded or patched: <span data-json-replace="#[jmanager]/data">Nothing loaded yet</span></p>
+
+
+<h2>Apply a JSON patch based on a value on an input</h2>
+
+<p>Similar as the URL mapping patch working example, and it share the same requirement like a default + a regular expression for parsing.</p>
+
+<label>Enter either of the following 3 value "vdm" | "gat" | "ott"
+<input id="myinput" value="" />
+</label>
+
+<button type="button" data-wb-doaction='{ "action": "withInput", "srcInput": "#myinput", "actions": [
+	{
+		"action": "patch", "source": "#jmexample3", "base": "/city", "match": "^[a-z][a-z][a-z]$", "default": "vdm",
+
+		"patches" : {
+			"op": "move",
+			"path": "{base}",
+			"from": "{base}/{qval}"
+		}
+	}
+] }'>Apply a patch based on User Input</button>
+
+
+
+
+<p id="jmexample3" data-wb-jsonmanager='{ "url": "../urlmapping/demo/data-en.json", "name": "example4", "wait": true }'>Data patched as per the value of the input: <span data-json-replace="#[example4]/city">Nothing loaded yet</span></p>
+
+
+
+<h2>Combination of Load and Apply a patch</h2>
+
+
+<label>Enter either of the following 3 value "vdm" | "gat" | "ott"
+<input id="myinputCombinedExample" value="" />
+</label>
+
+<button type="button" data-wb-doaction='[
+
+	{ "action": "loadJSON", "source": "#jmexampleCombined", "url": "../urlmapping/demo/data-en.json" },
+
+
+	{ "action": "withInput", "srcInput": "#myinputCombinedExample", "actions": [
+		{
+			"action": "patch", "source": "#jmexampleCombined", "base": "/city", "match": "^[a-z][a-z][a-z]$", "default": "vdm",
+
+			"patches" : {
+				"op": "move",
+				"path": "{base}",
+				"from": "{base}/{qval}"
+			}
+		}
+	] }
+]'>Apply a patch based on User Input</button>
+
+
+
+
+<p id="jmexampleCombined" data-wb-jsonmanager='{ "url": "demo/empty.json", "name": "combined", "wait": true }'>Data patched as per the value of the input: <span data-json-replace="#[combined]/city">Nothing loaded yet</span></p>
