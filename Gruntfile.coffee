@@ -22,6 +22,7 @@ module.exports = (grunt) ->
 			"assets-dist"
 			"assemble"
 			"htmlmin"
+			"copy:site_assets_dist"
 			"htmllint"
 			"bootlint"
 			"useMinAssets"
@@ -146,6 +147,8 @@ module.exports = (grunt) ->
 		"INTERNAL: Process non-CSS/JS assets to dist"
 		[
 			"copy:site"
+			"copy:site_html"
+			"copy:site_assets"
 			"copy:assets"
 			"copy:fonts"
 			"copy:wetboew_demo"
@@ -280,11 +283,26 @@ module.exports = (grunt) ->
 				cwd: "site/img"
 				src: "**/*.*"
 				dest: "dist/unmin/img"
+			site_html:
+				expand: true
+				cwd: "site/pages"
+				src: "**/*.html"
+				dest: "dist/unmin"
+			site_assets:
+				expand: true
+				cwd: "site/pages"
+				src: "**/site-assets/*.*"
+				dest: "dist/unmin"
 			site_min:
 				expand: true
 				cwd: "site/img"
 				src: "**/*.*"
 				dest: "dist/img"
+			site_assets_dist:
+				expand: true
+				cwd: "dist/unmin"
+				src: "**/site-assets/*.*"
+				dest: "dist"
 			assets:
 				expand: true
 				cwd: "src/assets"
