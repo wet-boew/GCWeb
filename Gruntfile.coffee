@@ -732,13 +732,6 @@ module.exports = (grunt) ->
 				options:
 					ignore: [
 						"Element “head” is missing a required instance of child element “title”."
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
-						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
-						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
-						"Attribute “aria-expanded” not allowed on element “a” at this point." # menu designed as per WAI-ARIA 1.1 practice
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practicee
-						"An element with “role=menuitem” must be contained in, or owned by, an element with “role=menubar” or “role=menu”." # the menu item (li) in the AJAX fragment are not contained in a UL (menu)
 						"Element “li” not allowed as child of element “body” in this context. (Suppressing further errors from this subtree.)" # the menu item (li) in the AJAX fragment are not contained in a UL (menu)
 					]
 				src: [
@@ -746,18 +739,6 @@ module.exports = (grunt) ->
 					"dist/unmin/demos/menu/demo/*.html"
 				]
 			templates:
-				options:
-					ignore: [
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-						"Element “dl” is missing a required instance of child element “dd”."
-						"XHTML element “dl” is missing a required instance of child element “dd”."
-						"Element “dl” is missing a required instance of child element “dt”."
-						"XHTML element “dl” is missing a required instance of child element “dt”."
-						"Empty heading."
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
-						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
-						"Attribute “integrity” not allowed on element “link” at this point."
-					]
 				src: [
 					"dist/unmin/demos/data-json/template-en.html"
 					"dist/unmin/demos/data-json/template-fr.html"
@@ -765,9 +746,6 @@ module.exports = (grunt) ->
 			experimental:
 				options:
 					ignore: [
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-						"Attribute “integrity” not allowed on element “link” at this point."
-						"Attribute “aria-orientation” not allowed on element “ul” at this point."
 						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)."
 					]
 				src: [
@@ -777,19 +755,11 @@ module.exports = (grunt) ->
 			all:
 				options:
 					ignore: [
-						"The “details” element is not supported properly by browsers yet. It would probably be better to wait for implementations."
-						"The “date” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill."
-						"The “track” element is not supported by browsers yet. It would probably be better to wait for implementations."
-						"The “time” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill."
-						"The value of attribute “title” on element “a” from namespace “http://www.w3.org/1999/xhtml” is not in Unicode Normalization Form C." #required for vietnamese translations
-						"Text run is not in Unicode Normalization Form C." #required for vietnamese translations
-						"The “longdesc” attribute on the “img” element is obsolete. Use a regular “a” element to link to the description."
-						/Bad value “\.\/\.\.\/[^”]*” for attribute “[^”]*” on XHTML element “[^”]*”: Path component contains a segment “\/\.\.\/” not at the beginning of a relative reference, or it contains a “\/\.\/”. These should be removed./
-						"Element “p” not allowed as child of element “figure” in this context. (Suppressing further errors from this subtree.)" # as per HTML 5.3 spec, figcaption just need to be a children of figure element
-						"Attribute “aria-orientation” not allowed on element “ul” at this point." # menu designed as per WAI-ARIA 1.1 practice
-						"Discarding unrecognized token “none” from value of attribute “role”. Browsers ignore any token that is not a defined ARIA non-abstract role." # menu designed as per WAI-ARIA 1.1 practice
-						"Attribute “aria-current” not allowed on element “li” at this point."
-						"Attribute “integrity” not allowed on element “link” at this point."
+						"A document must not include more than one “meta” element with its “name” attribute set to the value “description”."
+						# TODO: Should be removed and fixed now that HTML5 specs updated
+						"The “banner” role is unnecessary for element “header”."
+						"The “main” role is unnecessary for element “main”."
+						"The “navigation” role is unnecessary for element “nav”."
 					]
 				src: [
 					"dist/unmin/**/*.html"
