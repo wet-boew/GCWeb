@@ -98,6 +98,11 @@ function OpenMenu( elm ) {
 }
 function CloseMenu( elm, force ) {
 
+	//Ensure elm isn't null
+	if ( !elm ) {
+		return;
+	}
+
 	// Ensure elm is targeted on the haspopup element
 	if ( !elm.hasAttribute( "aria-haspopup" ) ) {
 		elm = elm.previousElementSibling;
@@ -117,6 +122,7 @@ function CloseMenu( elm, force ) {
 	}
 
 	elm.setAttribute( "aria-expanded", "false" );
+
 }
 
 // On hover, wait for the delay before to open the menu
