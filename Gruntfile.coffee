@@ -799,6 +799,22 @@ module.exports = (grunt) ->
 					"!dist/**/ajax/*.html"
 					# Ignore deprecated page as it is just for testing
 					"!dist/**/deprecated-*.html"
+					# Ignore Bootstrap 4 test page
+					"!dist/**/gcweb-theme/static-header-footer/bootstrap-4.html"
+				]
+			bootstrap4:
+				options:
+					stoponerror: true
+					relaxerror: [
+						# We recommend handling this through the server headers so it never appears in the markup
+						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
+						# Ignore jQuery missing warning
+						"W005" # Unable to locate jQuery, which is required for Bootstrap's JavaScript plugins to work; however, you might not be using Bootstrap's JavaScript
+						# Ignore Bootstrap 4 usage warning
+						"W015" # Detected what appears to be Bootstrap v4 or later. This version of Bootlint only supports Bootstrap v3.
+					]
+				src: [
+					"dist/**/gcweb-theme/static-header-footer/bootstrap-4.html"
 				]
 
 		watch:
