@@ -778,6 +778,8 @@ module.exports = (grunt) ->
 			all:
 				options:
 					stoponerror: true
+					stoponwarning: true
+					showallerrors: true
 					relaxerror: [
 						# We recommend handling this through the server headers so it never appears in the markup
 						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
@@ -805,6 +807,8 @@ module.exports = (grunt) ->
 			bootstrap4:
 				options:
 					stoponerror: true
+					stoponwarning: true
+					showallerrors: true
 					relaxerror: [
 						# We recommend handling this through the server headers so it never appears in the markup
 						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
