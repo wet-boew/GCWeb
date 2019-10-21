@@ -135,6 +135,87 @@
 <p>For security reason, any value retreived from the page URL always require to configure <code>match</code> that will contain a regular expresion. If there no match or the matching result is an empty string, the <code>default</code> configuration will be used as the value fallback.</p>
 <p>When you specify a regular expression, it is recommended to have it prefixed with "<code>^</code>" and suffixed with "<code>$</code>". Be careful to not use regular expression that could compromise the security.</p>
 </section>
+<h3>Example 1 - Ajax</h3>
+	<p><code>data-wb-urlmapping='{ &quot;ajx&quot;: { &quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-{qval}.html&quot;, &quot;match&quot;: &quot;[A-Z][a-z][A-Z][a-z][A-Z][a-z]&quot;, &quot;default&quot;: &quot;default&quot; } }'</code></p>
+	<p>Means that:</p>
+	<dl class="dl-horizontal">
+		<dt><code>?ajx</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-default.html</code></dd>
+		<dt><code>?ajx=2</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-default.html</code></dd>
+		<dt><code>?ajx=wetboew</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-default.html</code></dd>
+		<dt><code>?ajx=canada</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-default.html</code></dd>
+		<dt><code>?ajx=CaNaDa</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-CaNaDa.html</code></dd>
+	</dl>
+
+	<h3>Example 2 - Ajax</h3>
+	<p><code>data-wb-urlmapping='{ &quot;ajx=2&quot;: { &quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-{qval}.html&quot;, &quot;match&quot;: &quot;[0-9]&quot;, &quot;default&quot;: &quot;null&quot; } }'</code></p>
+	<p>Means that:</p>
+	<dl class="dl-horizontal">
+		<dt><code>?ajx</code></dt>
+		<dd>Do nothing</dd>
+		<dt><code>?ajx=2</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-2.html</code></dd>
+		<dt><code>?ajx=wetboew</code></dt>
+		<dd>Do nothing</dd>
+		<dt><code>?ajx=CaNaDa</code></dt>
+		<dd>Do nothing</dd>
+		<dt><code>?ajx=5</code></dt>
+		<dd>Do nothing</dd>
+	</dl>
+
+	<h3>Example 3 - Ajax</h3>
+	<p><code>data-wb-urlmapping='{ &quot;ajx&quot;: { &quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-{qval}.html&quot;, &quot;qval&quot;: &quot;TEST&quot; } }'</code></p>
+	<p>Means that:</p>
+	<dl class="dl-horizontal">
+		<dt><code>?ajx</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-TEST.html</code></dd>
+		<dt><code>?ajx=2</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-TEST.html</code></dd>
+		<dt><code>?ajx=wetboew</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-TEST.html</code></dd>
+		<dt><code>?ajx=CaNaDa</code></dt>
+		<dd>Will load ajax file: <code>ajax/ajax-TEST.html</code></dd>
+	</dl>
+	<p>Note: The result of <code>match</code> configuration is ignored when the query value is set.</p>
+
+	<h3>Example 4 - Table filtering</h3>
+	<pre><code>data-wb-urlmapping='{
+	&quot;date-search&quot;:
+		{
+			&quot;action&quot;: &quot;tblfilter&quot;,
+			&quot;source&quot;: &quot;#myDataTable&quot;,
+			&quot;column&quot;: 1,
+			&quot;value&quot;: &quot;{qval}&quot;,
+			&quot;match&quot;: &quot;[1-2][0-9][0-9][0-9]-[0,1][0-9]-[0-3][0-9]&quot;,
+			&quot;default&quot;: &quot;2016-07-23&quot;
+		}
+	}'</code></pre>
+	<p>Means that:</p>
+	<dl class="dl-horizontal">
+		<dt><code>?</code></dt>
+		<dd>Will show all result</dd>
+		<dt><code>?date-search</code></dt>
+		<dd>Will show result that match the default "2016-07-23" in the second column.</dd>
+		<dt><code>?date-search=</code></dt>
+		<dd>Will show result that match the default "2016-07-23" in the second column.</dd>
+		<dt><code>?date-search=2016-07-26</code></dt>
+		<dd>Will show result that match the string "2016-07-26" in the second column.</dd>
+		<dt><code>?date-search=YYYY-MM-DD</code></dt>
+		<dd>Will show result that match the default "2016-07-23" in the second column.</dd>
+	</dl>
+</section>
+
+
+<h2>Default patch operation</h2>
+<pre><code>{
+	op: "move",
+	path: "{base}",
+	from: "{base}/{qval}"
+}</code></pre>
 <section>
 <h2>Add pre-defined action identified by a group name</h2>
 <p>Defined in a attribute <code>data-wb-actionmng</code> set on an element.</p>
@@ -212,7 +293,7 @@
 <dt>tocsv</dt>
 <dd>Download an HTML table in CSV</dd>
 <dt>loadJSON</dt>
-	<dd>Load a JSON file into a specified <a href="../jsonmanager/jsonmanager-doc-en.html">JSON manager</a></dd>
+<dd>Load a JSON file into a specified <a href="../jsonmanager/jsonmanager-doc-en.html">JSON manager</a></dd>
 <dt>withInput</dt>
 <dd>Specify the value of an input field available to the action</dd>
 </dl>
@@ -293,6 +374,8 @@
 <li>addClass</li>
 <li>removeClass</li>
 <li>tocsv</li>
+<li>loadJSON</li>
+<li>withInput</li>
 </ul>
 </td>
 <td><code>data-wb-doaction='{ "action": "ajax", "target": "<em>[an ID]</em>" } }'</code></td>
@@ -318,6 +401,8 @@
 <li>removeClass</li>
 <li>mapfilter</li>
 <li>tocsv</li>
+<li>loadJSON</li>
+<li>withInput</li>
 </ul>
 </td>
 <td><code>data-wb-doaction='{ "action": "ajax", "target": "[an ID]", "trgbefore": <em>true</em> } }'</code></td>
@@ -342,6 +427,8 @@
 <li>addClass</li>
 <li>removeClass</li>
 <li>mapfilter</li>
+<li>loadJSON</li>
+<li>withInput</li>
 </ul>
 </td>
 <td><code>data-wb-doaction='{ "action": "ajax", "target": "[an ID]", "trggroup": "<em>[a name]</em>" } }'</code></td>
@@ -736,6 +823,24 @@
 <pre><code>$( document ).on( "wb-ready.wb", function( event ) {
 });</code></pre>
 </td>
+</tr>
+<tr>
+<td><code>withInput.wb-actionmng</code>
+<ul>
+<li>withInput</li>
+</ul>
+</td>
+<td>Triggered automatically on withInput action execution.</td>
+<td>Used so that subsequent actions may use data from input field designated by srcInput.</td>
+</tr>
+<tr>
+<td><code>loadJSON.wb-actionmng</code>
+<ul>
+<li>loadJSON</li>
+</ul>
+</td>
+<td>Triggered automatically on loadJSON action execution.</td>
+<td>Load a JSON file designated by the url onto a JSON manager specified by source.</td>
 </tr>
 </tbody>
 </table>
