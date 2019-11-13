@@ -16,10 +16,10 @@
 <p>Télécharger les fichiers</p>
 
 <ul>
-<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-1.json" }'>JSON fichier 1</button></li>
-<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-2.json" }'>JSON fichier 2</button></li>
-<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-3.json" }'>JSON fichier 3</button></li>
-<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-4.json" }'>JSON fichier 4</button></li>
+<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-1-fr.json" }'>JSON fichier 1</button></li>
+<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-2-fr.json" }'>JSON fichier 2</button></li>
+<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-3-fr.json" }'>JSON fichier 3</button></li>
+<li><button type="button" data-wb-doaction='{ "action": "loadJSON", "source": "#testLoader", "url": "demo/file-4-fr.json" }'>JSON fichier 4</button></li>
 </ul>
 
 <div id="testLoader" data-wb-jsonmanager='{
@@ -44,28 +44,24 @@
 <h3>HTML</h3>
 <pre><code>&lt;p&gt;Télécharger les fichiers:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-1.json&quot; }'&gt;JSON fichier 1&lt;/button&gt;&lt;/li&gt;
-&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-2.json&quot; }'&gt;JSON fichier 2&lt;/button&gt;&lt;/li&gt;
-&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-3.json&quot; }'&gt;JSON fichier 3&lt;/button&gt;&lt;/li&gt;
-&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-4.json&quot; }'&gt;JSON fichier 4&lt;/button&gt;&lt;/li&gt;
+&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-1-fr.json&quot; }'&gt;JSON fichier 1&lt;/button&gt;&lt;/li&gt;
+&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-2-fr.json&quot; }'&gt;JSON fichier 2&lt;/button&gt;&lt;/li&gt;
+&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-3-fr.json&quot; }'&gt;JSON fichier 3&lt;/button&gt;&lt;/li&gt;
+&lt;li&gt;&lt;button type=&quot;button&quot; data-wb-doaction='{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#testLoader&quot;, &quot;url&quot;: &quot;demo/file-4-fr.json&quot; }'&gt;JSON fichier 4&lt;/button&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&quot;testLoader&quot; data-wb-jsonmanager='{
 		&quot;url&quot;: &quot;demo/empty.json&quot;,
 		&quot;name&quot;: &quot;jmanager&quot;
 	}'&gt;&lt;/div&gt;
 &lt;p&gt;Téléchargement des données: &lt;span data-json-replace=&quot;#[jmanager]/data&quot;&gt;rien n'est encore télechargé&lt;/span&gt;&lt;/p&gt;</code></pre>
-<h3>Fichier <code>demo/file-1.json</code></h3>
-<pre><code>{"data": "From JSON file 1"}</code></pre>
-<h3>Fichier <code>demo/file-2.json</code></h3>
-<pre><code>{"data": "+From JSON file 2"}</code></pre>
-<h3>Fichier <code>demo/file-3.json</code></h3>
-<pre><code>{
-"data": "-From JSON file 3"
-}</code></pre>
-<h3>Fichier <code>demo/file-4.json</code></h3>
-<pre><code>{
-"data": "*From JSON file 4"
-}</code></pre>
+<h3>Fichier <code>demo/file-1-fr.json</code></h3>
+<pre><code>{"data": "Du fichier JSON 1"}</code></pre>
+<h3>Fichier <code>demo/file-2-fr.json</code></h3>
+<pre><code>{"data": "+Du fichier JSON 2"}</code></pre>
+<h3>Fichier <code>demo/file-3-fr.json</code></h3>
+<pre><code>{"data": "-Du fichier JSON 3"}</code></pre>
+<h3>Fichier <code>demo/file-4-fr.json</code></h3>
+<pre><code>{"data": "&amp;Du fichier JSON 4"}</code></pre>
 </details>
 <h2>Appliquer un correctif JSON</h2>
 <p>Utiliser la même configuration que celle décrite par le mappage d'URL</p>
@@ -120,7 +116,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 	}
 ] }'>Appliquer un correctif basé sur l'entrée d'utilisateur</button>
 </div>
-<p id="jmexample3" data-wb-jsonmanager='{ "url": "../urlmapping/demo/data-en.json", "name": "example4", "wait": true }'>Données corrigées selon la valeur de l'entrée: <span data-json-replace="#[example4]/city">Rien n'est encore chargé</span></p>
+<p id="jmexample3" data-wb-jsonmanager='{ "url": "../urlmapping/demo/data-fr.json", "name": "example4", "wait": true }'>Données corrigées selon la valeur de l'entrée: <span data-json-replace="#[example4]/city">Rien n'est encore chargé</span></p>
 <div>
 	<ul data-wb-json='{
 		"url": "#[example2]",
@@ -150,7 +146,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 		}
 	}
 ] }'&gt;Appliquer un correctif basé sur l'entrée d'utilisateur&lt;/button&gt;
-&lt;p id=&quot;jmexample3&quot; data-wb-jsonmanager='{ &quot;url&quot;: &quot;../urlmapping/demo/data-en.json&quot;, &quot;name&quot;: &quot;example4&quot;, &quot;wait&quot;: true }'&gt;Données corrigées selon la valeur de l'entrée: &lt;span data-json-replace=&quot;#[example4]/city&quot;&gt;Rien n'est encore chargé&lt;/span&gt;&lt;/p&gt;</code></pre>
+&lt;p id=&quot;jmexample3&quot; data-wb-jsonmanager='{ &quot;url&quot;: &quot;../urlmapping/demo/data-fr.json&quot;, &quot;name&quot;: &quot;example4&quot;, &quot;wait&quot;: true }'&gt;Données corrigées selon la valeur de l'entrée: &lt;span data-json-replace=&quot;#[example4]/city&quot;&gt;Rien n'est encore chargé&lt;/span&gt;&lt;/p&gt;</code></pre>
 <h3>Fichier <code>demo/data-en.json</code></h3>
 <pre><code>
 {
@@ -163,7 +159,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 "country": {
 "name": "Canada",
 "province": {
-"qc": "Quebec",
+"qc": "Québec",
 "on": "Ontario",
 "ma": "Manitoba"
 }
@@ -217,7 +213,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 	<input type="date" id="expressdatefield" min="2019-06-10" max="2019-06-12" value="">
 </label>
 <button type="button" data-wb-doaction='[
-	{ "action": "loadJSON", "source": "#smallLoader", "url": "demo/doaction-date-en.json" },
+	{ "action": "loadJSON", "source": "#smallLoader", "url": "demo/doaction-date-fr.json" },
 	{ "action": "withInput", "srcInput": "#expressdatefield", "actions": [
 		{
 			"action": "patch", "source": "#smallLoader", "match": "^20[1,2][8,9,0]-[1,0][0-9]-[0,1,2,3][0-9]$", "default": "bad-date",
@@ -275,7 +271,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 	&lt;input type=&quot;date&quot; id=&quot;standarddatefield&quot; min=&quot;2019-06-10&quot; max=&quot;2019-06-12&quot; value=&quot;&quot;&gt;
 &lt;/label&gt;
 &lt;button type=&quot;button&quot; data-wb-doaction='[
-{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;url&quot;: &quot;demo/doaction-date-en.json&quot; },
+{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;url&quot;: &quot;demo/doaction-date-fr.json&quot; },
 { &quot;action&quot;: &quot;withInput&quot;, &quot;srcInput&quot;: &quot;#standarddatefield&quot;, &quot;actions&quot;: [
 {
 &quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;match&quot;: &quot;^20[1,2][8,9,0]-[1,0][0-9]-[0,1,2,3][0-9]$&quot;, &quot;default&quot;: &quot;bad-date&quot;,
@@ -296,7 +292,7 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 	&lt;input type=&quot;date&quot; id=&quot;expressdatefield&quot; min=&quot;2019-06-10&quot; max=&quot;2019-06-12&quot; value=&quot;&quot;&gt;
 &lt;/label&gt;
 &lt;button type=&quot;button&quot; data-wb-doaction='[
-	{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;url&quot;: &quot;demo/doaction-date-en.json&quot; },
+	{ &quot;action&quot;: &quot;loadJSON&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;url&quot;: &quot;demo/doaction-date-fr.json&quot; },
 	{ &quot;action&quot;: &quot;withInput&quot;, &quot;srcInput&quot;: &quot;#expressdatefield&quot;, &quot;actions&quot;: [
 		{
 			&quot;action&quot;: &quot;patch&quot;, &quot;source&quot;: &quot;#smallLoader&quot;, &quot;match&quot;: &quot;^20[1,2][8,9,0]-[1,0][0-9]-[0,1,2,3][0-9]$&quot;, &quot;default&quot;: &quot;bad-date&quot;,
@@ -329,18 +325,18 @@ correctif de mappage d'URL, elle partage les mêmes exigences qu'une expression 
 		]
 	}'&gt;
 </code></pre>
-<h3>Fichier <code>demo/doaction-date-en.json</code></h3>
+<h3>Fichier <code>demo/doaction-date-fr.json</code></h3>
 <pre><code>
 {
-	"test" : "test found!",
+	"test" : "test trouvé!",
 	"express" : {
-		"bad-date" : "Date not found",
+		"bad-date" : "Date introuvable",
 		"2019-06-10" : "2019-06-13",
 		"2019-06-11" : "2019-06-14",
 		"2019-06-12" : "2019-06-15"
 	},
 	"standard" : {
-		"bad-date" : "Date not found",
+		"bad-date" : "Date introuvable",
 		"2019-06-10" : "2019-06-20",
 		"2019-06-11" : "2019-06-21",
 		"2019-06-12" : "2019-06-22"
