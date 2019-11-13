@@ -20,10 +20,12 @@ var componentName = "wb-jsonmanager",
 	postponeEvent = "postpone." + componentName,
 	patchesEvent = "patches." + componentName,
 	jsonFailedClass = "jsonfail",
+	reloadFlag = "data-" + componentName + "-reload",
 	dsNameRegistered = [],
 	datasetCache = {},
 	datasetCacheSettings = {},
 	dsDelayed = {},
+	dsPostponePatches = {},
 	$document = wb.doc,
 	defaults = {
 		ops: [
@@ -498,6 +500,14 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		}
 		datasetCacheSettings[ dsName ] = settings;
 
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			elm.removeAttribute( reloadFlag );
+			i_cache = dsPostponePatches[ dsName ];
+			if ( i_cache ) {
+				$elm.trigger( i_cache );
+			}
+		}
+
 		if ( !settings.wait && dsDelayed[ dsName ] ) {
 			backlog = dsDelayed[ dsName ];
 			i_len = backlog.length;
@@ -552,6 +562,12 @@ $document.on( patchesEvent, selector, function( event ) {
 			return true;
 		}
 		dsName = "[" + settings.name + "]";
+
+		// Check if the patches need to be hold until the next json-fetch event
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			dsPostponePatches[ dsName ] = event;
+			return true;
+		}
 
 		if ( !dsDelayed[ dsName ] ) {
 			throw "Applying patched on undefined dataset name: " + dsName;

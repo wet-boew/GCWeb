@@ -32,6 +32,10 @@ $document.on( "click", selector, function( event ) {
 	// Ensure that we only execute for anchor and button
 	if ( elm.nodeName === "BUTTON" || elm.nodeName === "A" ) {
 
+		if ( !elm.id ) {
+			elm.id = wb.getId();
+		}
+
 		if ( wb.isReady ) {
 
 			// Execute actions if any.
