@@ -65,7 +65,7 @@ module.exports = (grunt) ->
 				addToRepo = "themes-cdn";
 				writeTo = "dist/GCWeb/package.json";
 				pkg = {
-					name: "wet-boew-theme-canada.ca",
+					name: "gcweb",
 					version: pkgOriginal.version,
 					description: pkgOriginal.name.toLowerCase() + " theme"
 					repository: {
