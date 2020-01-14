@@ -1,8 +1,8 @@
 ---
 {
-	"title": "Fonctionalités expérimentales - Thème de GCWeb",
+	"title": "Fonctionalités provisoires - Thème de GCWeb",
 	"language": "fr",
-	"altLangPrefix": "experimental",
+	"altLangPrefix": "provisional",
 	"breadcrumb": [
 		{ "title": "Accueil GCWeb", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" }
 	],
@@ -15,11 +15,17 @@
 <div class="alert alert-warning">
 	<h2>Fonctionalité instable</h2>
 	<p>À être utilisée <strong>à vos propre risque</strong>. Toutes les fonctionnalités décrites ci-dessous pourraient être retirées lors du lancement d'une version mineure ou majeure et sont exclues de l'API publique GCWeb.</p>
-	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html" lang="en">Renseignez-vous davantage sur la décision sur la conception en matière des fonctionnalités expérimentales.</a></small></p>
+	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html" lang="en">Renseignez-vous davantage sur la décision sur la conception en matière des fonctionnalités provisoires.</a></small></p>
 	<p>Les documents et les exemples pratiques de ces fonctionnalités pourraient être incomplets ou non disponibles.</p>
 </div>
 
 <h2>Disponibilité des fonctionalités</h2>
+
+<div class="alert alert-info">
+	<h2><code>.experimental</code> depricated</h2>
+	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months.
+	It has to be replaced by <code>.provisional</code></p>
+</div>
 
 <p>Le tableau suivant décrit jusqu’à quelle version de GCWeb chaque fonctionnalité sera disponible. La disponibilité des fonctionnalités sera réévaluée chaque fois qu’une version est publiée. Une fonctionnalité expérimentale retirée sera communiquée une version à l’avance.</p>
 
@@ -27,7 +33,7 @@
 	<summary>Description des états</summary>
 	<dl class="dl-horizontal">
 		<dt>&lt;non spécifié&gt;</dt>
-		<dd>Expérimental</dd>
+		<dd>Provisoires</dd>
 		<dt>Retiré</dt>
 		<dd>La fonctionalité n'est plus disponible</dd>
 		<dt>Supporté</dt>
@@ -105,13 +111,13 @@
 		<th>CSS <code>.bg-cover</code></th>
 		<td>Image de fond de taille "couvrir"</td>
 		<td>v5.1</td>
-		<td></td>
+		<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
 	</tr>
 	<tr>
 		<th>Plugin <code>[data-bgimg]</code></th>
 		<td>Prendre la valeur URL et la fixer en tant qu’image de fond. Il faut le remplacer par le sélecteur CSS4</td>
 		<td>v5.1</td>
-		<td></td>
+		<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
 	</tr>
 	<tr>
 		<th>CSS <code>.bg-img-hdng</code></th>
@@ -128,15 +134,15 @@
 </tbody>
 </table>
 
-<h2>Documentation des fonctionalités expérimentales</h2>
+<h2>Documentation des fonctionalités provisoires</h2>
 
-<p>Les fonctionalités CSS experimentaux doivent être accompagné avec la classe <code>.experimental</code> au sein de leur contexte d'utilisation.</p>
+<p>Les fonctionalités CSS provisoires doivent être accompagné avec la classe <code>.provisional</code> au sein de leur contexte d'utilisation.</p>
 
-<h2>Examples pratiques expérimentaux</h2>
+<h2>Examples pratiques provisoires</h2>
 
 <h3 id="well-header-rwd-bgimg">En-tête adaptable de la boîte grise avec une image de fond</h3>
 
-<div class="experimental bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+<div class="provisional bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
 		<h4 class="mrgn-tp-md">En-tête</h4>
 		<p>En-tête secondaire</p>
@@ -147,7 +153,7 @@
 <h3 id="well-header-rwd-dark">En-tête adaptable de la boîte grise avec une image de fond et des contrôles de remplissage</h3>
 <p>Principalement pour des pages de campagne ayant une largeur adaptable au contenu.</p>
 
-<div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+<div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="container p-0 p-sm-3">
 		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
 			<h4 class="mrgn-tp-md">En-tête</h4>
@@ -156,7 +162,7 @@
 	</div>
 </div>
 
-<pre><code>&lt;div class="experimental bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
+<pre><code>&lt;div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
 	&lt;div class="container p-0 p-sm-3"&gt;
 		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
 			&lt;h4 class="mrgn-tp-md"&gt;En-tête&lt;/h4&gt;
@@ -167,7 +173,7 @@
 
 <h3>Marge du bas pour la vue à partir d'un petit écran et plus</h3>
 <div class="row">
-	<div class="col-xs-12 experimental">
+	<div class="col-xs-12 provisional">
 		<div>
 			<img class="img-responsive full-width" src="demos/tabs/img/investinourfuture.jpg" alt="">
 			<div class="well pstn-bttm-sm mrgn-bttm-0 mb-sm-5">
@@ -199,7 +205,7 @@ var t = new Date(),
 	e = new Date( 2019, 3, 10, 23, 59 );
 
 if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
-	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "experimental");
+	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "provisional");
 }
 
 } )( document );</code></pre>
@@ -207,7 +213,7 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 
 <h3>Image de fond sur l'en-tête</h3>
 <p>Principalement pour la section Services et information.</p>
-<div class="row experimental" lang="en">
+<div class="row provisional" lang="en">
 	<div class="col-md-6 col-xs-12">
 		<h2 class="h3 full-width bg-img-hdng mrgn-tp-0">Impact Assessment</h2>
 		<h3 class="h5 mrgn-tp-sm"><a href="https://www.canada.ca/en/environmental-assessment-agency/services/environmental-assessments/basics-environmental-assessment.html">Impact assessments process</a></h3>
@@ -226,7 +232,7 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 
 <h3 id="stretched-link">Section <span lang="en">Features</span> avec des liens élargis</h3>
 <p>Dans l'exemple suivant, ajouter la classe <code>.stretched-link</code> à l'hyperlien situé à l'intérieur de la balise <code>&lt;h3&gt;</code> résulera en une propagation de la zone cliquable jusqu'au <code>&lt;div&gt;</code> parent qui contient la classe <code>.col-xy-z</code> parce que celui-ci est en position &laquo;&nbsp;relative&nbsp;&raquo;.</p>
-<div class="row wb-eqht experimental" lang="en">
+<div class="row wb-eqht provisional" lang="en">
 	<div class="col-sm-6">
 		<div class="well well-sm brdr-rds-0 eqht-trgt">
 			<img class="img-responsive full-width" src="https://www.canada.ca/content/dam/canada/activities/20190603-1-520x200.jpg" alt="">
