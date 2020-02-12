@@ -4,6 +4,12 @@
 	- Provisional  CSSspecific for view port are defined in the "views/[view port]" theme CSS
 */
 
+// $alert-green--color: #2b542c;
+$green-color: #2b542c;
+%alert-details-summary {
+	font-weight: 700;
+}
+
 .provisional, .experimental {
 
 	/* ------------
@@ -28,14 +34,14 @@
 		}
 	}
 
-	// // PinkDay color NA
-	// .bg-pnkDy {
-	// 	background-color: #AD005F;
+	// PinkDay color NA
+	.bg-pnkDy {
+		background-color: #AD005F;
 
-	// 	&.well.header-rwd {
-	// 		background-color: #570030;
-	// 	}
-	// }
+		&.well.header-rwd {
+			background-color: #570030;
+		}
+	}
 
 	/* ------------
 	 * Background image for heading
@@ -237,7 +243,7 @@
 
 			details > summary {
 				color: #245269;
-				font-weight: 700;
+				@extend %alert-details-summary;
 			}
 		}
 	}
@@ -255,8 +261,8 @@
 			background-color: #d8eeca;
 
 			details > summary {
-				color: #2b542c;
-				font-weight: 700;
+				color: $green-color;
+				@extend %alert-details-summary;
 			}
 		}
 	}
@@ -275,7 +281,7 @@
 
 			details > summary {
 				color: #66512c;
-				font-weight: 700;
+				@extend %alert-details-summary;
 			}
 		}
 	}
