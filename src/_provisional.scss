@@ -165,4 +165,133 @@
 	//This color will eventually be replaced by the new colors from the alert revamp PR.
 	&.icon-warning-light, .icon-warning-light {
 		color: #DF7200;
-}}
+	}
+
+	.alert-info > :first-child::before, .alert-success > :first-child::before, .alert-warning > :first-child::before, .alert-danger > :first-child::before {
+		content: none;
+	}
+
+	.alert {
+		background-color: inherit;
+		margin-left: 10px;
+		border-left: 6px solid #000;
+		padding: 0 0 0 15px;
+		background-clip: content-box;
+		margin-bottom: 23px;
+
+		> {
+			p, .ul, .ol {
+				margin-bottom: 0px;
+			}
+
+			* {
+				margin-left: 15px;
+			}
+		}
+
+		details {
+			margin-left: 0.5em;
+			padding-top: 15px;
+		}
+
+		> {
+			:first-child:not(details) {
+				padding-top: 15px;
+				margin-top: auto;
+			}
+
+			:last-child {
+				padding-bottom: 25px;
+			}
+		}
+
+		&:before {
+			font-size: 26px;
+			margin-left: -1.27em;
+			padding: 2px;
+			line-height: 2.3em;
+			font-family: "Glyphicons Halflings";
+			position: absolute;
+		}
+
+		> :first-child {
+			margin-left: 15px;
+		}
+	}
+
+	.alert-info {
+		border-image: linear-gradient(to bottom, #269abc 16px, #269abc 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #269abc 48px, #269abc 48px) 1 100%;
+		border-color: #269abc;
+
+		&::before {
+			content: "\e086";
+			color: #269abc;
+		}
+
+		.alert-bg {
+			background-color: #d7faff;
+
+			details > summary {
+				color: #245269;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.alert-success {
+		border-image: linear-gradient(to bottom, #278400 16px, #278400 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #278400 48px, #278400 48px) 1 100%;
+		border-color: #278400;
+
+		&::before {
+			content: "\e084";
+			color: #278400;
+		}
+
+		.alert-bg {
+			background-color: #d8eeca;
+
+			details > summary {
+				color: #2b542c;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.alert-warning {
+		border-image: linear-gradient(to bottom, #f90 16px, #f90 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #f90 48px, #f90 48px) 1 100%;
+		border-color: #f90;
+
+		&::before {
+			content: "\e107";
+			color: #f90;
+		}
+
+		.alert-bg {
+			background-color: #f9f4d4;
+
+			details > summary {
+				color: #66512c;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.alert-danger {
+		border-image: linear-gradient(to bottom, #d3080c 16px, #d3080c 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #d3080c 48px, #d3080c 48px) 1 100%;
+		border-color: #d3080c;
+
+		&::before {
+			content: "\e101";
+			color: #d3080c;
+		}
+
+		.alert-bg {
+			background-color: #f3e9e8;
+
+			details > summary {
+				color: #843534;
+				font-weight: 700;
+			}
+		}
+	}
+}
