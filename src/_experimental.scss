@@ -5,7 +5,11 @@
 */
 
 // $alert-green--color: #2b542c;
-$green-color: #2b542c;
+$danger-color: #d3080c;
+$warning-color: #f90;
+$info-color: #269abc;
+$success-color: #278400;
+
 %alert-details-summary {
 	font-weight: 700;
 }
@@ -224,79 +228,43 @@ $green-color: #2b542c;
 	}
 
 	.alert-info {
-		border-color: #269abc;
-		border-image: linear-gradient(to bottom, #269abc 16px, #269abc 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #269abc 48px, #269abc 48px) 1 100%;
+		border-color: $info-color;
+		border-image: linear-gradient(to bottom, $info-color 16px, $info-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $info-color 48px, $info-color 48px) 1 100%;
 
 
 		&::before {
-			color: #269abc;
+			color: $info-color;
 			content: "\e086";
-		}
-
-		&.alert-bg {
-			background-color: #d7faff;
-
-			details > summary {
-				color: #245269;
-				@extend %alert-details-summary;
-			}
 		}
 	}
 
 	.alert-success {
-		border-color: #278400;
-		border-image: linear-gradient(to bottom, #278400 16px, #278400 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #278400 48px, #278400 48px) 1 100%;
+		border-color: $success-color;
+		border-image: linear-gradient(to bottom, $success-color 16px, $success-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $success-color 48px, $success-color 48px) 1 100%;
 
 		&::before {
-			color: #278400;
+			color: $success-color;
 			content: "\e084";
-		}
-
-		&.alert-bg {
-			background-color: #d8eeca;
-
-			details > summary {
-				color: $green-color;
-				@extend %alert-details-summary;
-			}
 		}
 	}
 
 	.alert-warning {
-		border-color: #f90;
-		border-image: linear-gradient(to bottom, #f90 16px, #f90 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #f90 48px, #f90 48px) 1 100%;
+		border-color: $warning-color;
+		border-image: linear-gradient(to bottom, $warning-color 16px, $warning-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $warning-color 48px, $warning-color 48px) 1 100%;
 
 		&::before {
-			color: #f90;
+			color: $warning-color;
 			content: "\e107";
-		}
-
-		&.alert-bg {
-			background-color: #f9f4d4;
-
-			details > summary {
-				color: #66512c;
-				@extend %alert-details-summary;
-			}
 		}
 	}
 
 	.alert-danger {
-		border-color: #d3080c;
-		border-image: linear-gradient(to bottom, #d3080c 16px, #d3080c 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, #d3080c 48px, #d3080c 48px) 1 100%;
+		border-color: $danger-color;
+		border-image: linear-gradient(to bottom, $danger-color 16px, $danger-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $danger-color 48px, #$danger-color 48px) 1 100%;
 
 		&::before {
-			color: #d3080c;
+			color: $danger-color;
 			content: "\e101";
-		}
-
-		&.alert-bg {
-			background-color: #f3e9e8;
-
-			details > summary {
-				color: #843534;
-				font-weight: 700;
-			}
 		}
 	}
 }
