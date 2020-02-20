@@ -4,15 +4,11 @@
 	- Provisional  CSSspecific for view port are defined in the "views/[view port]" theme CSS
 */
 
-// $alert-green--color: #2b542c;
-$danger-color: #d3080c;
-$warning-color: #f90;
-$info-color: #269abc;
-$success-color: #278400;
-
-%alert-details-summary {
-	font-weight: 700;
-}
+// Colours for the provisional alert styles
+$provisional-danger-color: #d3080c;
+$provisional-warning-color: #f90;
+$provisional-info-color: #269abc;
+$provisional-success-color: #278400;
 
 .provisional, .experimental {
 
@@ -177,6 +173,7 @@ $success-color: #278400;
 		color: #DF7200;
 	}
 
+	// Removes styling from the current WET4 Alert
 	.alert-info > :first-child::before,
 	.alert-success > :first-child::before,
 	.alert-warning > :first-child::before,
@@ -233,42 +230,42 @@ $success-color: #278400;
 	}
 
 	.alert-info {
-		border-color: $info-color;
-		border-image: linear-gradient(to bottom, $info-color 16px, $info-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $info-color 48px, $info-color 48px) 1 100%;
+		border-color: $provisional-info-color;
+		border-image: linear-gradient(to bottom, $provisional-info-color 16px, $provisional-info-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-info-color 48px, $provisional-info-color 48px) 1 100%;
 
 
 		&::before {
-			color: $info-color;
+			color: $provisional-info-color;
 			content: "\e086";
 		}
 	}
 
 	.alert-success {
-		border-color: $success-color;
-		border-image: linear-gradient(to bottom, $success-color 16px, $success-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $success-color 48px, $success-color 48px) 1 100%;
+		border-color: $provisional-success-color;
+		border-image: linear-gradient(to bottom, $provisional-success-color 16px, $provisional-success-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-success-color 48px, $provisional-success-color 48px) 1 100%;
 
 		&::before {
-			color: $success-color;
+			color: $provisional-success-color;
 			content: "\e084";
 		}
 	}
 
 	.alert-warning {
-		border-color: $warning-color;
-		border-image: linear-gradient(to bottom, $warning-color 16px, $warning-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $warning-color 48px, $warning-color 48px) 1 100%;
+		border-color: $provisional-warning-color;
+		border-image: linear-gradient(to bottom, $provisional-warning-color 16px, $provisional-warning-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-warning-color 48px, $provisional-warning-color 48px) 1 100%;
 
 		&::before {
-			color: $warning-color;
+			color: $provisional-warning-color;
 			content: "\e107";
 		}
 	}
 
 	.alert-danger {
-		border-color: $danger-color;
-		border-image: linear-gradient(to bottom, $danger-color 16px, $danger-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $danger-color 48px, $danger-color 48px) 1 100%;
+		border-color: $provisional-danger-color;
+		border-image: linear-gradient(to bottom, $provisional-danger-color 16px, $provisional-danger-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-danger-color 48px, $provisional-danger-color 48px) 1 100%;
 
 		&::before {
-			color: $danger-color;
+			color: $provisional-danger-color;
 			content: "\e101";
 		}
 	}
