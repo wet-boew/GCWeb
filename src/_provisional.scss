@@ -25,7 +25,7 @@ $provisional-alert-success-color: #278400;
 	}
 }
 
-@mixin provisional-alert($color, $content) {
+@mixin provisional-alert-type($color, $content) {
 	border-image: linear-gradient(to bottom, $color 16px, $color 16px, transparent 16px, transparent 48px, $color 48px, $color 48px) 1 100%;
 	border-color: $color;
 
@@ -247,22 +247,22 @@ $provisional-alert-success-color: #278400;
 	}
 
 	&.alert-info {
-		@include provisional-alert($provisional-alert-info-color, "\e086");
+		@include provisional-alert-type($provisional-alert-info-color, "\e086");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-success {
-		@include provisional-alert($provisional-alert-success-color, "\e084");
+		@include provisional-alert-type($provisional-alert-success-color, "\e084");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-warning {
-		@include provisional-alert($provisional-alert-warning-color, "\e107");
+		@include provisional-alert-type($provisional-alert-warning-color, "\e107");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-danger {
-		@include provisional-alert($provisional-alert-danger-color, "\e101");
+		@include provisional-alert-type($provisional-alert-danger-color, "\e101");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 }
