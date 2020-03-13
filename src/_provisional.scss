@@ -6,10 +6,10 @@
 
 // Colours for the provisional alert styles
 // TODO: Rename and migrate these into _variables.scss if the provisional alert styles become official in the future
-$provisional-danger-color: #d3080c;
-$provisional-warning-color: #ee7100;
-$provisional-info-color: #269abc;
-$provisional-success-color: #278400;
+$provisional-alert-danger-color: #d3080c;
+$provisional-alert-warning-color: #ee7100;
+$provisional-alert-info-color: #269abc;
+$provisional-alert-success-color: #278400;
 
 // Removes styling from the current WET4 Alert
 %provisional-alert-first-child-before-disable {
@@ -247,22 +247,22 @@ $provisional-success-color: #278400;
 	}
 
 	&.alert-info {
-		@include provisional-alert($provisional-info-color, "\e086");
+		@include provisional-alert($provisional-alert-info-color, "\e086");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-success {
-		@include provisional-alert($provisional-success-color, "\e084");
+		@include provisional-alert($provisional-alert-success-color, "\e084");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-warning {
-		@include provisional-alert($provisional-warning-color, "\e107");
+		@include provisional-alert($provisional-alert-warning-color, "\e107");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 
 	&.alert-danger {
-		@include provisional-alert($provisional-danger-color, "\e101");
+		@include provisional-alert($provisional-alert-danger-color, "\e101");
 		@extend %provisional-alert-first-child-before-disable;
 	}
 }
