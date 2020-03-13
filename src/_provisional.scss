@@ -25,8 +25,14 @@ $provisional-success-color: #278400;
 	}
 }
 
-@mixin provisional-alert-border-image($color) {
+@mixin provisional-alert($color, $content) {
 	border-image: linear-gradient(to bottom, $color 16px, $color 16px, transparent 16px, transparent 48px, $color 48px, $color 48px) 1 100%;
+	border-color: $color;
+
+	&::before {
+		color: $color;
+		content: $content;
+	}
 }
 
 .provisional, .experimental {
@@ -242,45 +248,21 @@ $provisional-success-color: #278400;
 
 	&.alert-info {
 		@extend %provisional-alert-first-child-before-disable;
-		@include provisional-alert-border-image($provisional-info-color);
-		border-color: $provisional-info-color;
-
-		&::before {
-			color: $provisional-info-color;
-			content: "\e086";
-		}
+		@include provisional-alert($provisional-info-color, "\e086");
 	}
 
 	&.alert-success {
 		@extend %provisional-alert-first-child-before-disable;
-		@include provisional-alert-border-image($provisional-success-color);
-		border-color: $provisional-success-color;
-
-		&::before {
-			color: $provisional-success-color;
-			content: "\e084";
-		}
+		@include provisional-alert($provisional-success-color, "\e084");
 	}
 
 	&.alert-warning {
 		@extend %provisional-alert-first-child-before-disable;
-		@include provisional-alert-border-image($provisional-warning-color);
-		border-color: $provisional-warning-color;
-
-		&::before {
-			color: $provisional-warning-color;
-			content: "\e107";
-		}
+		@include provisional-alert($provisional-warning-color, "\e107");
 	}
 
 	&.alert-danger {
 		@extend %provisional-alert-first-child-before-disable;
-		@include provisional-alert-border-image($provisional-danger-color);
-		border-color: $provisional-danger-color;
-
-		&::before {
-			color: $provisional-danger-color;
-			content: "\e101";
-		}
+		@include provisional-alert($provisional-danger-color, "\e101");
 	}
 }
