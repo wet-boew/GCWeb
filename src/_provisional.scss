@@ -25,6 +25,10 @@ $provisional-success-color: #278400;
 	}
 }
 
+@mixin provisional-alert-border-image($color) {
+	border-image: linear-gradient(to bottom, $color 16px, $color 16px, transparent 16px, transparent 48px, $color 48px, $color 48px) 1 100%;
+}
+
 .provisional, .experimental {
 
 	/* ------------
@@ -238,8 +242,8 @@ $provisional-success-color: #278400;
 
 	&.alert-info {
 		@extend %provisional-alert-first-child-before-disable;
+		@include provisional-alert-border-image($provisional-info-color);
 		border-color: $provisional-info-color;
-		border-image: linear-gradient(to bottom, $provisional-info-color 16px, $provisional-info-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-info-color 48px, $provisional-info-color 48px) 1 100%;
 
 		&::before {
 			color: $provisional-info-color;
@@ -249,8 +253,8 @@ $provisional-success-color: #278400;
 
 	&.alert-success {
 		@extend %provisional-alert-first-child-before-disable;
+		@include provisional-alert-border-image($provisional-success-color);
 		border-color: $provisional-success-color;
-		border-image: linear-gradient(to bottom, $provisional-success-color 16px, $provisional-success-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-success-color 48px, $provisional-success-color 48px) 1 100%;
 
 		&::before {
 			color: $provisional-success-color;
@@ -260,8 +264,8 @@ $provisional-success-color: #278400;
 
 	&.alert-warning {
 		@extend %provisional-alert-first-child-before-disable;
+		@include provisional-alert-border-image($provisional-warning-color);
 		border-color: $provisional-warning-color;
-		border-image: linear-gradient(to bottom, $provisional-warning-color 16px, $provisional-warning-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-warning-color 48px, $provisional-warning-color 48px) 1 100%;
 
 		&::before {
 			color: $provisional-warning-color;
@@ -271,8 +275,8 @@ $provisional-success-color: #278400;
 
 	&.alert-danger {
 		@extend %provisional-alert-first-child-before-disable;
+		@include provisional-alert-border-image($provisional-danger-color);
 		border-color: $provisional-danger-color;
-		border-image: linear-gradient(to bottom, $provisional-danger-color 16px, $provisional-danger-color 16px, rgba(0, 0, 0, 0) 16px, rgba(0, 0, 0, 0) 48px, $provisional-danger-color 48px, $provisional-danger-color 48px) 1 100%;
 
 		&::before {
 			color: $provisional-danger-color;
