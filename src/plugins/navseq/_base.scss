@@ -1,0 +1,145 @@
+/*
+	Local experimental styling
+
+	- Experimental CSS specific for view port are defined in the "views/[view port]" theme CSS
+*/
+
+.experimental,
+.provisional {
+	 section.gc-nav h1 {
+		border-bottom: none;
+		color: #666;
+		font-size: 1.3em;
+	}
+
+	#gc-navseq-header {
+		font-size: 1.2em;
+		margin-top: 0px;
+	}
+
+	.gc-navseq {
+		padding-left: 0.9em;
+		.small,
+		small {
+			line-height: 0em;
+		}
+		* {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+		> li {
+			border-left: 5px solid #26374a;
+			list-style: none;
+			padding-bottom: 20px;
+			padding-left: 1.2em;
+			position: relative;
+			> :first-child::before {
+				background-color: #fff;
+				border-radius: 50%;
+				border: 3px solid #26374a;
+				box-sizing: content-box;
+				float: left;
+				height: 1.3em;
+				line-height: 1.3em;
+				margin-left: -2.3em;
+				padding: 3px;
+				text-decoration: none;
+				text-align: center;
+				-webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
+				transition: all 0.2s;
+				width: 1.3em;
+			}
+			&:last-child,
+			&.completed:last-child {
+				border-left: 5px solid transparent;
+				padding-bottom: 0;
+			}
+		}
+
+		li {
+			&.active > :first-child::before {
+				background-color: #26374a;
+				color: #fff;
+			}
+			&.completed {
+				border-color: #555;
+				> :first-child::before {
+					border-color: #555;
+				}
+			}
+			a {
+				color: #333;
+				cursor: default;
+				text-decoration: none;
+				&::before {
+					text-decoration: underline;
+				}
+			}
+			:first-child::before {
+				content: counter(step-counter);
+			}
+		}
+	}
+
+	ol.gc-navseq {
+		counter-reset: step-counter;
+		> li {
+			counter-increment: step-counter;
+			:first-child::before {
+				content: counter(step-counter);
+			}
+			&:not(.active) > a:hover::before {
+				font-size: 1.2em;
+				height: 1.33em;
+				line-height: 1.3;
+				margin-top: -0.1em;
+				margin-left: -2.05em;
+				width: 1.33em;
+			}
+		}
+		&.lst-lwr-rmn > li > :first-child::before {
+			content: counter(step-counter, lower-roman);
+		}
+		&.lst-upr-rmn > li > :first-child::before {
+			content: counter(step-counter, upper-roman);
+		}
+		&.lst-upr-alph > li > :first-child::before {
+			content: counter(step-counter, upper-alpha);
+		}
+		&.lst-lwr-alph > li > :first-child::before {
+			content: counter(step-counter, lower-alpha);
+		}
+		&.lst-num > li > :first-child::before {
+			content: counter(step-counter);
+		}
+	}
+
+	ul.gc-navseq {
+		> li {
+			> :first-child::before {
+				content: "";
+				height: 0.8em;
+				margin-left: -2.05em;
+				width: 0.8em;
+			}
+			&:not(.active) > a:hover::before {
+				font-size: 1.2em;
+				height: 0.83em;
+				line-height: 1.55;
+				margin-top: -0.1em;
+				margin-left: -1.775em;
+				width: 0.83em;
+			}
+		}
+		&.noline > li {
+			border-left: 5px solid transparent;
+			> :first-child::before {
+				margin-top: 0.2em
+			}
+			&:not(.active) > a:hover::before {
+				margin-top: 0.15em;
+			}
+		}
+	}
+}
