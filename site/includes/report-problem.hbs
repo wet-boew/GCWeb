@@ -3,42 +3,42 @@
 		<form action="#">
 			<fieldset>
 				<legend><span class="field-name">{{#is page.language "en"}}Please select all that apply: {{else}}Veuillez cocher toutes les réponses pertinentes&nbsp;:{{/is}}</span></legend>
-					<div class="checkbox">
-						<label for="problem1">
-							<input type="checkbox" data-reveal="#broken" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem1" />{{#is page.language "en"}}A link, button or video is not working{{else}}Un lien, un bouton ou une vidéo ne fonctionne pas{{/is}}
-						</label>
-						<input name="problem1" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
-					<div class="checkbox">
-						<label for="problem2">
-							<input type="checkbox" data-reveal="#spelling" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem2" />{{#is page.language "en"}}It has a spelling mistake{{else}}Il y a une erreur d'orthographe ou de grammaire{{/is}}
-						</label>
-						<input name="problem2" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
-					<div class="checkbox">
-						<label for="problem3">
-							<input type="checkbox" data-reveal="#wrong" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem3" />{{#is page.language "en"}}Information is missing{{else}}Les renseignements sont incomplets{{/is}}
-						</label>
-						<input name="problem3" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
-					<div class="checkbox">
-						<label for="problem4">
-							<input type="checkbox" data-reveal="#outdated" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem4" />{{#is page.language "en"}}Information is outdated or wrong{{else}}L'information n'est plus à jour ou est erronée{{/is}}
-						</label>
-						<input name="problem4" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
-					<div class="checkbox">
-						<label for="problem5">
-							<input type="checkbox" data-reveal="#find" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem5" />{{#is page.language "en"}}I can't find what I'm looking for{{else}}Je n'arrive pas à trouver ce que je cherche{{/is}}
-						</label>
-						<input name="problem5" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
-					<div class="checkbox">
-						<label for="problem6">
-							<input type="checkbox" data-reveal="#confusing" name="problem" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="problem6" />{{#is page.language "en"}}Other issue not in this list{{else}}Autre problème qui ne figure pas sur cette liste{{/is}}
-						</label>
-						<input name="problem6" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}">
-					</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f1">
+						<input type="checkbox" name="problem1" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f1" />{{#is page.language "en"}}A link, button or video is not working{{else}}Un lien, un bouton ou une vidéo ne fonctionne pas{{/is}}
+					</label>
+					<input name="problem1" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f2">
+						<input type="checkbox" name="problem2" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f2" />{{#is page.language "en"}}It has a spelling mistake{{else}}Il y a une erreur d'orthographe ou de grammaire{{/is}}
+					</label>
+					<input name="problem2" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f3">
+						<input type="checkbox" name="problem3" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f3" />{{#is page.language "en"}}Information is missing{{else}}Les renseignements sont incomplets{{/is}}
+					</label>
+					<input name="problem3" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f4">
+						<input type="checkbox" name="problem4" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f4" />{{#is page.language "en"}}Information is outdated or wrong{{else}}L'information n'est plus à jour ou est erronée{{/is}}
+					</label>
+					<input name="problem4" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f5">
+						<input type="checkbox" name="problem5" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f5" />{{#is page.language "en"}}I can't find what I'm looking for{{else}}Je n'arrive pas à trouver ce que je cherche{{/is}}
+					</label>
+					<input name="problem5" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
+				<div class="checkbox">
+					<label for="gc-rprt-prblm-f6">
+						<input type="checkbox" name="problem6" value="{{#is page.language "en"}}Yes{{else}}Oui{{/is}}" id="gc-rprt-prblm-f6" />{{#is page.language "en"}}Other issue not in this list{{else}}Autre problème qui ne figure pas sur cette liste{{/is}}
+					</label>
+					<input name="problem6" type="hidden" value="{{#is page.language "en"}}No{{else}}Non{{/is}}" />
+				</div>
 			</fieldset>
 			<button type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'>{{#is page.language "en"}}Submit{{else}}Soumettre{{/is}}</button>
 		</form>
