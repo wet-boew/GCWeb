@@ -677,15 +677,15 @@ module.exports = (grunt) ->
 						dest: "dist/unmin/demos"
 				]
 
-			experimental:
+			provisional:
 				options:
-					experimental: true
+					provisional: true
 				cwd: "site/pages"
 				src: [
 					"*.hbs",
 					"!splashpage.hbs"
 				]
-				dest: "dist/unmin/experimental"
+				dest: "dist/unmin/provisional"
 				expand: true
 
 			splash:
@@ -743,7 +743,7 @@ module.exports = (grunt) ->
 					"dist/unmin/demos/data-json/template-en.html"
 					"dist/unmin/demos/data-json/template-fr.html"
 				]
-			experimental:
+			provisional:
 				options:
 					ignore: [
 						"Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools)."

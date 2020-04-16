@@ -15,7 +15,7 @@
  */
 var $document = wb.doc,
 	componentName = "wb-bgimg",
-	selector = "[data-bgimg]",
+	selector = ".provisional[data-bgimg], .experimental[data-bgimg]",
 
 	init = function( event ) {
 
