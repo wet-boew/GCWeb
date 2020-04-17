@@ -1,7 +1,7 @@
 ---
 {
-	"title": "v7.0 - Notes de version",
-	"description": "v7.0 - Notes de version - Historique des versions - Thème de Canada.ca (GCWeb)",
+	"title": "v7.0 (DCT) - Notes de version",
+	"description": "v7.0 (DCT) - Notes de version - Historique des versions - Thème de Canada.ca (GCWeb)",
 	"language": "fr",
 	"altLangPrefix": "v7.0",
 	"breadcrumb": [
@@ -9,17 +9,17 @@
 		{ "title": "Thème de GCWeb", "link": "../index-fr.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2020-04-15",
+	"dateModified": "2020-04-16",
 	"share": "true"
 }
 ---
 
 <div class="row">
 	<div class="col-md-7 col-lg-8">
-		<p>Version 7.0</p>
+		<p>Version 7.0 (DCT)</p>
 		<ul>
-			<li><strong>Date de lancement&#160;:</strong> <time>2020-04-15</time></li>
-			<li><strong>Compiler avec:</strong> <a href="https://wet-boew.github.io/wet-boew/docs/versions/v4.0/v4.0.34.1-fr.html">WET-BOEW v4.0.34.1</a></li>
+			<li><strong>Date de lancement&#160;:</strong> <time>2020-04-16</time></li>
+			<li><strong>Compiler avec:</strong> <a href="https://wet-boew.github.io/wet-boew/docs/versions/v4.0/v4.0.35-fr.html">WET-BOEW v4.0.35</a></li>
 		</ul>
 	</div>
 	<div class="col-xs-12 col-md-auto pull-right">
@@ -32,61 +32,67 @@
 <h2>Quoi de neuf?</h2>
 <ul>
 	<li>Gabarit
-		<ul lang="en">
-			<li>Minor - Menu - Menu items replaced by CDN (Canada.ca).</li>
-			<li>Minor - Search template - Added advanced Search in the new template for search results.</li>
-			<li>Minor - GC Features - Change of template to use stretched-link class.</li>
+		<ul>
+			<li>Majeur - Fil d'ariane - Changement du premier item d'"accueil" à "Canada.ca". (<a href="#bc-update" lang="en">See changes</a>)</li>
+			<li>Majeur - Signaler un problème - Alignment du gabarit avec la version actuellement publié sur  Canada.ca (<a href="#rap-update" lang="en">See changes</a>)</li>
+		</ul>
+	</li>
+	<li>Documentation
+		<ul>
+			<li>Fieldflow - Correction d'erreur grammaticale et d'orthographe sur la page anglaise</li>
+		</ul>
+	</li>
+	<li>Provisionnel
+		<ul>
+			<li>Changement de l'appélation pour utiliser le terme "provisionel" dans la documentation et le code.</li>
+			<li>Ajout - Renouvellement de la conception des alertes</li>
+			<li>Ajout - Couleur pour l'icone d'avertissement</li>
+			<li>Ajout - Plugiciel - Chatwizard (<code>wb-chtwzrd</code>)</li>
+			<li>Gabarit pour <span lang="en">"Was this page helpful"</span> en remplacement éventuelle du "signaler un problème"</li>
 		</ul>
 	</li>
 	<li>Maintenance
-		<ul lang="en">
-			<li>Build script - Permission errors fixed</li>
+		<ul>
+			<li>Mise à jour des dépendance relié au script de construction</li>
 		</ul>
 	</li>
 </ul>
-<p>WET-BOEW v4.0.34.1 (<a href="https://wet-boew.github.io/wet-boew/docs/versions/v4.0/v4.0.34.1-fr.html">voir les notes de version</a>)</p>
+<p>WET-BOEW v4.0.35 (<a href="https://wet-boew.github.io/wet-boew/docs/versions/v4.0/v4.0.35-fr.html">voir les notes de version</a>)</p>
 <ul>
-	<li>Styles et plugiciels
+	<li>Coeur
 		<ul>
-			<li>Share widget</li>
-			<li>Filter</li>
-			<li>Bootstrap overrides</li>
-			<li>Text highlight</li>
-			<li>Table</li>
-			<li>Footnotes</li>
-			<li>Light box</li>
-			<li>Toggle</li>
+			<li>Mineur - Ajout d'une fonction d'assistance pour mélanger des éléments (<code>wb.shuffleDOM</code>)</li>
+			<li>Mineur - Ajout d'une fonction d'assistance pour sélection un ou des éléments (<code>wb.pickElements</code>)</li>
 		</ul>
 	</li>
-	<li>Maintenance
+	<li><a href="https://wet-boew.github.io/wet-boew/docs/ref/provisional-fr.html">Provisoire</a>
 		<ul>
-			<li>Build script</li>
-		</ul>
-	</li>
-	<li>Provisoire
-		<ul>
-			<li><code>[bgimg-srcset]</code> plugin</li>
+			<li>Ajout - Plugiciel de formulaire à étapes (<code>wb-steps</code>)</li>
+			<li>Ajout - Plugiciel d'aléatoire (<code>wb-randomize</code>)</li>
+			<li>Ajout - Plugiciel de formulaire soumis sur la même page (<code>wb-postback</code>)</li>
 		</ul>
 	</li>
 </ul>
 <section>
 	<h3 id="implementation">Fichiers modifiés pour implémentation</h3>
 	<ul>
-		<li>JavaScript primaire&nbsp;:
+		<li>JavaScript principaux&nbsp;:
 			<ul>
+				<li>wet-boew/js/wet-boew.js</li>
+				<li>wet-boew/js/wet-boew.min.js</li>
 				<li>GCWeb/js/theme.js</li>
 				<li>GCWeb/js/theme.min.js</li>
 			</ul>
 		</li>
-		<li>CSS primaire&nbsp;:
+		<li>CSS pricipal&nbsp;:
 			<ul>
 				<li>GCWeb/css/theme.css</li>
 				<li>GCWeb/css/theme.min.css</li>
 			</ul>
 		</li>
-		<li>Ressources&nbsp;:
+		<li>Image:
 			<ul>
-				<li>wet-boew/assets/sprites_share.png</li>
+				<li>GCWeb/assets/default-avatar.png</li>
 			</ul>
 		</li>
 	</ul>
@@ -109,28 +115,35 @@
 
 <section>
 	<h2 id="details">Détails</h2>
-	<p><strong>Nombre de contributions&nbsp;:</strong> 10</p>
+	<p><strong>Nombre de contributions&nbsp;:</strong> 16</p>
 	<ul>
-		<li><a href="https://github.com/GormFrank">Francis Gorman (@GormFrank)</a>: 3 contributions</li>
-		<li><a href="https://github.com/namjohn920">John Nam (@namjohn920)</a>: 2 contributions</li>
-		<li><a href="https://github.com/EricDunsworth">Eric Dunsworth (@EricDunsworth)</a>: 1 contributions</li>
-		<li><a href="https://github.com/duboisp">Pierre Dubois (@duboisp)</a>: 1 contributions</li>
-		<li><a href="https://github.com/shawnthompson">Shawn Thompson (@shawnthompson)</a>: 1 contributions</li>
+		<li><a href="https://github.com/duboisp">@duboisp</a>: 4 contributions</li>
+		<li><a href="https://github.com/namjohn920">@namjohn920</a>: 3 contributions</li>
+		<li><a href="https://github.com/dependabot">@dependabot</a>: 2 contributions</li>
+		<li><a href="https://github.com/GormFrank">@GormFrank</a>: 2 contributions</li>
+		<li><a href="https://github.com/delisma">@delisma</a>: 1 contribution</li>
+		<li><a href="https://github.com/wonggra">@wonggra</a>: 1 contribution</li>
+		<li><a href="https://github.com/RobJohnston">@RobJohnston</a>: 1 contribution</li>
+		<li><a href="https://github.com/Borges-Porteous">@Borges-Porteous</a>: 1 contribution</li>
+		<li><a href="https://github.com/EricDunsworth">@EricDunsworth</a>: 1 contribution</li>
 	</ul>
 	<h3>Liste des contributions</h3>
 	<ul lang="en">
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/f3045bf">Bump nokogiri from 1.6.6.2 to 1.10.5</a> - dependabot[bot], 2019-11-06 16:36:40 +0000</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/ee963c3">Bump stringstream from 0.0.5 to 0.0.6</a> - dependabot[bot], 2019-11-06 16:36:50 +0000</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/e9f8c77">Bump handlebars from 4.0.11 to 4.5.1</a> - dependabot[bot], 2019-11-06 16:36:50 +0000</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/fd2b67b">Fieldflow: Fix source code link in documentation</a> - Eric Dunsworth, 2019-11-08 10:24:25 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/203853c">Bump extend from 3.0.1 to 3.0.2</a> - dependabot[bot], 2019-11-14 15:44:08 +0000</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/2de4139">Documentation - Add instruction on how to implement GCWeb (#1624)</a> - Pierre Dubois, 2019-12-11 09:58:19 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/0591a8a">WET-BOEW Dependency Bump to v4.0.33</a> - Francis Gorman, 2020-01-02 14:28:21 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/4f3e350">update name of GCWeb cdn package</a> - Shawn Thompson, 2020-01-02 16:43:25 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/4ec20cb">menu items replaced by cdn</a> - John Nam, 2020-01-27 10:25:16 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/0855a73">Build permissions fix</a> - Francis Gorman, 2020-02-24 15:26:09 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/0f37a88">GC features pattern update and fixes build</a> - Francis Gorman, 2020-02-25 14:14:55 -0500</li>
-		<li><a href="https://github.com/wet-boew/wet-boew/commit/2718610">advanced search added</a> - John Nam, 2020-02-28 08:14:34 -0500</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/4dead14581a9b4be0c04b8829d8cb90056969cb4">refactor: Report a problem alignment with AEM</a> - delisma, 2019-11-20</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/e1c346abaabf8db14a54b612648afa03ee051e5f">Experimental changed to Provisional</a> - namjohn920, 2020-01-14</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/caf73f72ee72fca7580da4a752eabd61868c6c76">Provisional feature - Alert component redesign</a> - Borges-Porteous; EricDunsworth, 2020-02-12</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/53143d04c7b52b3f7cd2500e99ca6bb3e11cd36b">Correct spelling and grammar on English page</a> - RobJohnston, 2020-02-20</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/41b620636dad45db6b0c7e5674d6c8a3efa63ed1">Bump rake from 10.4.2 to 12.3.3</a> - dependabot, 2020-02-29</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/056a64c18c61e0c5c4466c7afe7107289916c914">Add Reddit Icon for Social Media</a> - wonggra, 2020-03-03</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/6afc0478303d138e3ba5a02d54b9cc3553328b45">Bump nokogiri from 1.10.5 to 1.10.9</a> - dependabot, 2020-03-11</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/c128260de7100b357ead279e41cc32a7864d77ed">color for warning icon added</a> - namjohn920, 2020-03-03</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/7035b11de6147287620bf1fd02b387205d6429cd">GCWeb v7.0 release note</a> - namjohn920, 2020-04-15</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/3248f3c47a3d7955043e3b23256e37a456472284">Report a problem - polishing markup</a> - duboisp, 2020-04-16</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/0f08a10c1ebe4ed80360cdc86f8db54c6cc6cac9">Change breadcrumb "Home" for Canada.ca</a> - duboisp, 2020-04-16</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/99bb1a641e9ea5654b7e8a72832088a691e00bb0">Postback provisional update with wet bump</a> - GormFrank, 2020-04-16</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/731f78fb96ba08260f44327e9c1363a2b6c914ed">Bump wet-boew version to 4.0.35</a> - duboisp, 2020-04-16</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/9cb166e3ce4935c32a1b5ac9bd977de10c52979d">Chat wizard provisional plugin</a> - GormFrank, 2020-04-16</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/commit/f4dd6ac47645e5a046cfcaa50ac456ba33ec76db">Chat wizard - Make it provisional and add working example</a> - duboisp, 2020-04-16</li>
 	</ul>
 </section>
 
