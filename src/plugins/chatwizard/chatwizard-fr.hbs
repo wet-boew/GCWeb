@@ -1,0 +1,158 @@
+---
+{
+	"title": "Chat wizard - Fonctionalité provisoire",
+	"language": "fr",
+	"category": "Plugiciels",
+	"description": "Example pratique d'utilisation du chat wizard",
+	"tag": "chatwizard",
+	"parentdir": "chatwizard",
+	"altLangPrefix": "chatwizard",
+	"dateModified": "2020-04-16"
+}
+---
+{{>alert-provisional-demos}}
+
+<div class="wb-prettify all-pre"></div>
+<div lang="en">
+<p><strong>Need translation</strong></p>
+
+<ul>
+	<li><a href="chatwizard-en.html">Chat wizard</a></li>
+	<li><a href="chatwizard-json-en.html">Chat wizard with JSON settings</a></li>
+</ul>
+<p>Below is the code to achieve the demo on this page with an HTML form.</p>
+<pre><code>&lt;section class="provisional wb-chtwzrd hidden"&gt;
+	&lt;h2 data-wb-chtwzrd-replace="I can help you find the information you need"&gt;Help us help you&lt;/h2&gt;
+	&lt;form class="mrgn-bttm-xl" action="https://google.ca" method="GET"&gt;
+		&lt;p class="wb-chtwzrd-greetings"&gt;Hi! I can help you find resources that are available to help you in your quest to find information.&lt;/p&gt;
+		&lt;p&gt;If you just want to surf the internet, go to &lt;a href="https://google.ca"&gt;Google search&lt;/a&gt;&lt;/p&gt;
+		&lt;fieldset id="q1"&gt;
+			&lt;legend&gt;It would help me out if I knew a little more about you. Are you ready?&lt;/legend&gt;
+			&lt;ul class="list-unstyled mrgn-tp-md"&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="ask" value="yes" data-wb-chtwzrd-next="q2" /&gt;
+						&lt;span&gt;Yes&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="ask" value="no" data-wb-chtwzrd-next="none" /&gt;
+						&lt;span&gt;No&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="ask" value="skip" data-wb-chtwzrd-next="q3" /&gt;
+						&lt;span&gt;Go straight to the point&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset id="q2"&gt;
+			&lt;legend&gt;Do you have a preferred language?&lt;/legend&gt;
+			&lt;ul class="list-unstyled mrgn-tp-md"&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="preference" value="yes" data-wb-chtwzrd-next="q3" /&gt;
+						&lt;span&gt;Of course&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="preference" value="" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/home.html" /&gt;
+						&lt;span&gt;No&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset id="q3"&gt;
+			&lt;legend&gt;Which one is it?&lt;/legend&gt;
+			&lt;ul class="list-unstyled mrgn-tp-md"&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="lang" value="en" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/en.html" /&gt;
+						&lt;span&gt;English&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;label&gt;
+						&lt;input type="radio" name="lang" value="fr" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/fr.html" /&gt;
+						&lt;span&gt;Français&lt;/span&gt;
+					&lt;/label&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/fieldset&gt;
+		&lt;p class="wb-chtwzrd-farewell wb-inv"&gt;Thank you! Your personalized results are ready for you.&lt;/p&gt;
+		&lt;div class="mrgn-tp-md"&gt;&lt;/div&gt;
+		&lt;button type="submit" class="btn btn-sm btn-primary" data-wb-chtwzrd-replace="Show results"&gt;Search&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/section&gt;</code></pre>
+
+<section class="provisional wb-chtwzrd hidden">
+	<h2 data-wb-chtwzrd-replace="I can help you find the information you need">Help us help you</h2>
+	<form class="mrgn-bttm-xl" action="https://google.ca" method="GET" name="example-html">
+		<p class="wb-chtwzrd-greetings">Hi! I can help you find resources that are available to help you in your quest to find information.</p>
+		<p>If you just want to surf the internet, go to <a href="https://google.ca">Google search</a></p>
+		<fieldset id="q1">
+			<legend>It would help me out if I knew a little more about you. Are you ready?</legend>
+			<ul class="list-unstyled mrgn-tp-md">
+				<li>
+					<label>
+						<input type="radio" name="ask" value="yes" data-wb-chtwzrd-next="q2" />
+						<span>Yes</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="ask" value="no" data-wb-chtwzrd-next="none" />
+						<span>No</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="ask" value="skip" data-wb-chtwzrd-next="q3" />
+						<span>Go straight to the point</span>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset id="q2">
+			<legend>Do you have a preferred language?</legend>
+			<ul class="list-unstyled mrgn-tp-md">
+				<li>
+					<label>
+						<input type="radio" name="preference" value="yes" data-wb-chtwzrd-next="q3" />
+						<span>Of course</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="preference" value="" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/home.html" />
+						<span>No</span>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset id="q3">
+			<legend>Which one is it?</legend>
+			<ul class="list-unstyled mrgn-tp-md">
+				<li>
+					<label>
+						<input type="radio" name="lang" value="en" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/en.html" />
+						<span>English</span>
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="lang" value="fr" data-wb-chtwzrd-next="none" data-wb-chtwzrd-url="https://canada.ca/fr.html" />
+						<span>Français</span>
+					</label>
+				</li>
+			</ul>
+		</fieldset>
+		<p class="wb-chtwzrd-farewell wb-inv">Thank you! Your personalized results are ready for you.</p>
+		<button type="submit" class="btn btn-sm btn-primary" data-wb-chtwzrd-replace="Show results">Search</button>
+	</form>
+</section>
+</div>
