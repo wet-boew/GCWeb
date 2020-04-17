@@ -1,122 +1,52 @@
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * Chat wizard
+ * Chat wizard - Provisional CSS
+ *
+ * ++++++++
+ * This is a Provisional CSS, once stabilized it's include should be done from the theme.scss instead of _provisional.scss
+ * ++++++++
+ *
  */
-/* Animations */
-@-webkit-keyframes slideInFromRight {
-	0% {
-		-ms-transform: scale(0, 1);
-		-webkit-transform: scale(0, 1);
-		transform: scale(0, 1);
-	}
-	95% {
-		-ms-transform: scale(0, 1);
-		-webkit-transform: scale(0, 1);
-		transform: scale(0, 1);
-	}
-	100% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
-		transform: scale(1, 1);
-	}
-}
 
+/* Animations */
 @keyframes slideInFromRight {
 	0% {
-		-ms-transform: scale(0, 1);
-		-webkit-transform: scale(0, 1);
 		transform: scale(0, 1);
 	}
 	95% {
-		-ms-transform: scale(0, 1);
-		-webkit-transform: scale(0, 1);
 		transform: scale(0, 1);
 	}
 	100% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
-		transform: scale(1, 1);
-	}
-}
-
-@-webkit-keyframes pulseIn {
-	0% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
-		transform: scale(1, 1);
-	}
-	15% {
-		-ms-transform: scale(1.15, 1.15);
-		-webkit-transform: scale(1.15, 1.15);
-		transform: scale(1.15, 1.15);
-	}
-	30% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
-		transform: scale(1, 1);
-	}
-	65% {
-		-ms-transform: scale(1.3, 1.3);
-		-webkit-transform: scale(1.3, 1.3);
-		transform: scale(1.3, 1.3);
-	}
-	100% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
 	}
 }
 
 @keyframes pulseIn {
 	0% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
 	}
 	15% {
-		-ms-transform: scale(1.15, 1.15);
-		-webkit-transform: scale(1.15, 1.15);
 		transform: scale(1.15, 1.15);
 	}
 	30% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
 	}
 	65% {
-		-ms-transform: scale(1.3, 1.3);
-		-webkit-transform: scale(1.3, 1.3);
 		transform: scale(1.3, 1.3);
 	}
 	100% {
-		-ms-transform: scale(1, 1);
-		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
-	}
-}
-
-@-webkit-keyframes grow {
-	to {
-		-webkit-transform: translateX(-50%) scale(0);
-		transform: translateX(-50%) scale(0);
 	}
 }
 
 @keyframes grow {
 	to {
-		-webkit-transform: translateX(-50%) scale(0);
 		transform: translateX(-50%) scale(0);
 	}
 }
 
 .trans-left {
-	-webkit-animation-delay: 0s;
-	-webkit-animation-duration: 5s;
-	-webkit-animation-iteration-count: 1;
-	-webkit-animation-name: slideInFromRight;
-	-webkit-animation-timing-function: ease-out;
-	-webkit-transform-origin: 100% 50%;
 	animation-delay: 0s;
 	animation-duration: 5s;
 	animation-iteration-count: 1;
@@ -127,13 +57,11 @@
 }
 
 .trans-pulse {
-	-webkit-animation: .5s linear 3.5s 1 pulseIn, .5s linear 15s 1 pulseIn, .5s linear 30s 1 pulseIn;
 	animation: .5s linear 3.5s 1 pulseIn, .5s linear 15s 1 pulseIn, .5s linear 30s 1 pulseIn;
 	will-change: transform;
 }
 
 .loader-typing {
-	-webkit-transform: translateX(-50%) translateY(-50%);
 	bottom: 30%;
 	height: 6px;
 	left: 30px;
@@ -143,7 +71,6 @@
 }
 
 .loader-dot {
-	-webkit-animation: grow .5s ease-in-out infinite alternate;
 	animation: grow .5s ease-in-out infinite alternate;
 	background-color: #444;
 	border-radius: 50%;
@@ -154,14 +81,11 @@
 }
 
 .loader-dot.dot1 {
-	-webkit-transform-origin: 100% 50%;
 	left: 0;
 	transform-origin: 100% 50%;
 }
 
 .loader-dot.dot2 {
-	-webkit-animation-delay: .1s;
-	-webkit-transform: scale(.99);
 	animation-delay: .1s;
 	left: 50%;
 	margin-left: -3px;
@@ -169,7 +93,6 @@
 }
 
 .loader-dot.dot3 {
-	-webkit-animation-delay: .2s;
 	animation-delay: .2s;
 	right: 0;
 }
@@ -185,7 +108,6 @@
 }
 
 .wb-chtwzrd-bubble-wrap p {
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .45);
 	background: #335075;
 	border-bottom-left-radius: 25px;
 	border-top-left-radius: 25px;
@@ -221,8 +143,7 @@
 }
 
 .wb-chtwzrd-bubble-wrap .bubble {
-	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .45);
-	background: #fff url("#{$wb-assets-path}/default-avatar.png") center no-repeat;
+	background: #fff url("../assets/default-avatar.png") center no-repeat;
 	border-radius: 50%;
 	bottom: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, .45);
@@ -237,7 +158,6 @@
 }
 
 .wb-chtwzrd-bubble-wrap .bubble:focus {
-	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .7);
 	border: 1px solid rgba(0, 0, 0, .5);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .7);
 }
@@ -369,7 +289,6 @@
 }
 
 .wb-chtwzrd-container .message:focus {
-	-webkit-box-shadow: 0 0 4px #666;
 	box-shadow: 0 0 4px #666;
 }
 
@@ -396,7 +315,7 @@
 
 .wb-chtwzrd-container .avatar {
 	background-color: #fff;
-	background-image: url("#{$wb-assets-path}/default-avatar.png");
+	background-image: url("../assets/default-avatar.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 25px;
@@ -418,7 +337,6 @@
 
 /* Chat wizard inline (full-screen) */
 .wb-chtwzrd-contained {
-	-webkit-box-shadow: none;
 	bottom: 0;
 	box-shadow: none;
 	margin: 30px auto;
@@ -461,8 +379,6 @@
 		width: 100%;
 	}
 	.wb-chtwzrd-container .body {
-		-ms-flex-direction: column;
-		-ms-flex-wrap: nowrap;
 		-webkit-box-direction: normal;
 		-webkit-box-orient: vertical;
 		display: flex;

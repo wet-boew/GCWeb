@@ -392,47 +392,47 @@ var componentName = "wb-chtwzrd",
 			$title = $( "h2", $selector ).first(),
 			$intro = $( "p:not(" + selector + "-greetings):not(" + selector + "-farewell)", $form ).first(),
 			btnClassName = "btn-former-send",
-			datacook = {};
+			header = {},
+			questions = {},
+			$questions = $( "fieldset", $selector );
 
-		datacook.header = ( typeof $selector.data( componentName ) !== undefined && $selector.data( componentName ) ? $selector.data( componentName ) : {} );
+		header = ( typeof $selector.data( componentName ) !== undefined && $selector.data( componentName ) ? $selector.data( componentName ) : {} );
 
-		datacook.header.inline = $selector.hasClass( "wb-chtwzrd-inline" );
-		datacook.header.avatar = $selector.data( componentName + "-avatar" );
+		header.inline = $selector.hasClass( "wb-chtwzrd-inline" );
+		header.avatar = $selector.data( componentName + "-avatar" );
 
-		datacook.header.defaultDestination = $form.attr( "action" );
-		datacook.header.name = $form.attr( "name" );
-		datacook.header.method = $form.attr( "method" );
+		header.defaultDestination = $form.attr( "action" );
+		header.name = $form.attr( "name" );
+		header.method = $form.attr( "method" );
 
-		datacook.header.form = {};
+		header.form = {};
 
-		datacook.header.form.title = $title.html();
-		datacook.header.title = replaceForWizard( $title, datacook.header.form.title );
+		header.form.title = $title.html();
+		header.title = replaceForWizard( $title, header.form.title );
 
-		datacook.header.greetings = $( "p" + selector + "-greetings", $form ).html();
-		datacook.header.farewell = $( "p" + selector + "-farewell", $form ).html();
+		header.greetings = $( "p" + selector + "-greetings", $form ).html();
+		header.farewell = $( "p" + selector + "-farewell", $form ).html();
 
-		datacook.header.form.sendButton = ( $( "input[type=submit]", $form ).length ? $( "input[type=submit]", $form ).addClass( btnClassName ).val() : $( "button[type=submit]", $form ).addClass( btnClassName ).html() );
-		datacook.header.sendButton = replaceForWizard( $( "." + btnClassName, $form ), datacook.header.form.sendButton );
+		header.form.sendButton = ( $( "input[type=submit]", $form ).length ? $( "input[type=submit]", $form ).addClass( btnClassName ).val() : $( "button[type=submit]", $form ).addClass( btnClassName ).html() );
+		header.sendButton = replaceForWizard( $( "." + btnClassName, $form ), header.form.sendButton );
 
 		if ( $intro.length ) {
-			datacook.header.form.instructions = $intro.html();
-			datacook.header.instructions = replaceForWizard( $intro, datacook.header.form.instructions );
+			header.form.instructions = $intro.html();
+			header.instructions = replaceForWizard( $intro, header.form.instructions );
 		}
 
-		var $questions = $( "fieldset", $selector );
-		datacook.questions = {};
 
-		if ( typeof datacook.header.first === "undefined" || !datacook.header.first ) {
-			datacook.header.first = $questions.first().attr( "id" );
-		}
+		header.first = header.first || $questions.first().attr( "id" );
 
 		$questions.each( function() {
-			var $label = $( "legend", $( this ) ),
-				$choices = $( "label", $( this ) ),
-				questionID = $( this ).attr( "id" ),
-				qInput = ( $( "input[type=radio]", $( this ) ).length ? "radio" : "checkbox" ),
+			var $this = $( this ),
+				$label = $( "legend", $this ),
+				$choices = $( "label", $this ),
+				questionID = this.id,
+				qInput = ( $( "input[type=radio]", $this ).length ? "radio" : "checkbox" ),
 				choices = [],
-				qName = "";
+				qName = "",
+				theQuestion = {};
 
 			$choices.each( function( index ) {
 				var $choice = $( "input", $( this ) ),
@@ -452,14 +452,20 @@ var componentName = "wb-chtwzrd",
 				}
 				choices.push( choice );
 			} );
-			datacook.questions[ questionID ] = {};
-			datacook.questions[ questionID ].name = qName;
-			datacook.questions[ questionID ].input = qInput;
-			datacook.questions[ questionID ].formLabel = $label.html();
-			datacook.questions[ questionID ].label = replaceForWizard( $label, datacook.questions[ questionID ].formLabel );
-			datacook.questions[ questionID ].choices = choices;
+
+			theQuestion.name = qName;
+			theQuestion.input = qInput;
+			theQuestion.formLabel = $label.html();
+			theQuestion.label = replaceForWizard( $label, theQuestion.formLabel );
+			theQuestion.choices = choices;
+
+			questions[ questionID ] = theQuestion;
+
 		} );
-		return datacook;
+		return {
+			header: header,
+			questions: questions
+		};
 	},
 
 	/**
@@ -469,7 +475,8 @@ var componentName = "wb-chtwzrd",
 	 * @param {String} title The title of the wizard window, as well as the notification
 	 */
 	buildChtwzrd = function( $selector, title ) {
-		$selector.after( "<div class='" + componentName + "-bubble-wrap'><a href='#" + componentName + "-container aria-controls='" + componentName + "-container class='" + componentName + "-link bubble trans-pulse' role='button'>" + i18nDict.trigger + "</a>" + ( !isNotif ? "<p class='trans-left'><span class='notif'>" + title + "</span> <a href='#' class='notif-close' title='" + i18nDict.notification + "' aria-label='" + i18nDict.notification + "' role='button'>Ã—</a></p>" : "" ) + "</div>" );
+		$selector.after( "<div class='" + componentName + "-bubble-wrap'><a href='#" + componentName + "-container aria-controls='" + componentName + "-container class='" + componentName + "-link bubble trans-pulse' role='button'>" + i18nDict.trigger + "</a>" + ( !isNotif ? "<p class='trans-left'><span class='notif'>" + title +
+		"</span> <a href='#' class='notif-close' title='" + i18nDict.notification + "' aria-label='" + i18nDict.notification + "' role='button'>&times;</a></p>" : "" ) + "</div>" );
 		$selector.next( selector + "-bubble-wrap" ).after( "<aside id='" + componentName + "-container' class='modal-content overlay-def " + componentName + "-container " + ( isInline ? " wb-chtwzrd-contained" : "" ) + "'></aside>" );
 
 		var $container = $( selector + "-container" );
@@ -743,7 +750,7 @@ var componentName = "wb-chtwzrd",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb " + initEvent, selector, init );
+$document.on( "timerpoke.wb " + initEvent, selector + ".provisional", init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
