@@ -104,6 +104,231 @@
 </section>
 
 <section>
+<h2>Major changes documentation</h2>
+
+<span class="wb-prettify all-pre"></span>
+
+<h3 id="bc-update">Breadcrumb - Major change</h3>
+<p>The first breadcrumb item need to be updated</p>
+<h4>French</h4>
+<div class="row">
+<div class="col-md-6">
+	<h5>Before</h5>
+	<pre><code>&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr.html&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;</code></pre>
+</div>
+<div class="col-md-6">
+	<h5>After</h5>
+	<pre><code>&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr.html&quot;&gt;Canada.ca&lt;/a&gt;&lt;/li&gt;</code></pre>
+</div>
+</div>
+
+<h4>English</h4>
+<div class="row">
+<div class="col-md-6">
+	<h5>Before</h5>
+	<pre><code>&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</code></pre>
+</div>
+<div class="col-md-6">
+	<h5>After</h5>
+	<pre><code>&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en.html&quot;&gt;Canada.ca&lt;/a&gt;&lt;/li&gt;</code></pre>
+</div>
+</div>
+
+<h3 id="rap-update">Report a problem - Major change</h3>
+
+<p>Change the whole makup under the <code>fieldset</code> element according to the "After" section.</p>
+
+<h4>French</h4>
+<div class="row">
+<div class="col-md-6">
+	<h5>Before</h5>
+	<pre><code>&lt;fieldset&gt;
+	&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Veuillez cocher toutes les réponses pertinentes&amp;nbsp;:&lt;/span&gt;&lt;/legend&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem1&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#broken&quot; name=&quot;problem&quot; value=&quot;Something is broken&quot; id=&quot;problem1&quot; /&gt;Quelque chose ne fonctionne pas&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;broken&quot;&gt;
+		&lt;label for=&quot;problem1-detail&quot;&gt;Fournissez plus des détails (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem1-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem2&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#spelling&quot; name=&quot;problem&quot; value=&quot;It has spelling or grammar mistakes&quot; id=&quot;problem2&quot; /&gt;Il y a des erreurs d’orthographe ou de grammaire&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;spelling&quot;&gt;
+		&lt;label for=&quot;problem2-detail&quot;&gt;Fournissez plus des détails (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem2-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem3&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#wrong&quot; name=&quot;problem&quot; value=&quot;The information is wrong&quot; id=&quot;problem3&quot; /&gt;L’information est erronée&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;wrong&quot;&gt;
+		&lt;label for=&quot;problem3-detail&quot;&gt;Fournissez plus des détails (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem3-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem4&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#outdated&quot; name=&quot;problem&quot; value=&quot;The information is outdated&quot; id=&quot;problem4&quot; /&gt;L’information n’est plus à jour&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;outdated&quot;&gt;
+		&lt;label for=&quot;problem4-detail&quot;&gt;Fournissez plus des détails (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem4-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem5&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#find&quot; name=&quot;problem&quot; value=&quot;I can’t find what I’m looking for&quot; id=&quot;problem5&quot; /&gt;Je ne trouve pas ce que je cherche&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;find&quot;&gt;
+		&lt;label for=&quot;problem5-detail&quot;&gt;Décrivez ce que vous cherchez (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem5-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem6&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#confusing&quot; name=&quot;problem&quot; value=&quot;It’s confusing&quot; id=&quot;problem6&quot; /&gt;Autre&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;confusing&quot;&gt;
+		&lt;label for=&quot;problem6-detail&quot;&gt;Fournissez plus des détails (optionnel)&amp;nbsp;:&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem6-detail&quot;&gt;
+	&lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+</div>
+<div class="col-md-6">
+	<h5>After</h5>
+	<pre><code>&lt;fieldset&gt;
+	&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Veuillez cocher toutes les réponses pertinentes&amp;nbsp;:&lt;/span&gt;&lt;/legend&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f1&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem1&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f1&quot; /&gt;Un lien, un bouton ou une vidéo ne fonctionne pas
+		&lt;/label&gt;
+		&lt;input name=&quot;problem1&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f2&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem2&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f2&quot; /&gt;Il y a une erreur d'orthographe ou de grammaire
+		&lt;/label&gt;
+		&lt;input name=&quot;problem2&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f3&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem3&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f3&quot; /&gt;Les renseignements sont incomplets
+		&lt;/label&gt;
+		&lt;input name=&quot;problem3&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f4&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem4&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f4&quot; /&gt;L'information n'est plus à jour ou est erronée
+		&lt;/label&gt;
+		&lt;input name=&quot;problem4&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f5&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem5&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f5&quot; /&gt;Je n'arrive pas à trouver ce que je cherche
+		&lt;/label&gt;
+		&lt;input name=&quot;problem5&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f6&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem6&quot; value=&quot;Oui&quot; id=&quot;gc-rprt-prblm-f6&quot; /&gt;Autre problème qui ne figure pas sur cette liste
+		&lt;/label&gt;
+		&lt;input name=&quot;problem6&quot; type=&quot;hidden&quot; value=&quot;Non&quot; /&gt;
+	&lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+</div>
+</div>
+
+<h4>English</h4>
+<div class="row">
+<div class="col-md-6">
+	<h5>Before</h5>
+	<pre><code>&lt;fieldset&gt;
+	&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Please select all that apply: &lt;/span&gt;&lt;/legend&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem1&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#broken&quot; name=&quot;problem&quot; value=&quot;Something is broken&quot; id=&quot;problem1&quot; /&gt;Something is broken&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;broken&quot;&gt;
+		&lt;label for=&quot;problem1-detail&quot;&gt;Provide more details (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem1-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem2&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#spelling&quot; name=&quot;problem&quot; value=&quot;It has spelling or grammar mistakes&quot; id=&quot;problem2&quot; /&gt;The page has spelling or grammar mistakes&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;spelling&quot;&gt;
+		&lt;label for=&quot;problem2-detail&quot;&gt;Provide more details (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem2-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem3&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#wrong&quot; name=&quot;problem&quot; value=&quot;The information is wrong&quot; id=&quot;problem3&quot; /&gt;The information is wrong&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;wrong&quot;&gt;
+		&lt;label for=&quot;problem3-detail&quot;&gt;Provide more details (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem3-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem4&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#outdated&quot; name=&quot;problem&quot; value=&quot;The information is outdated&quot; id=&quot;problem4&quot; /&gt;The information is outdated&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;outdated&quot;&gt;
+		&lt;label for=&quot;problem4-detail&quot;&gt;Provide more details (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem4-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem5&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#find&quot; name=&quot;problem&quot; value=&quot;I can’t find what I’m looking for&quot; id=&quot;problem5&quot; /&gt;I can’t find what I’m looking for&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;find&quot;&gt;
+		&lt;label for=&quot;problem5-detail&quot;&gt;Describe what you’re looking for (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem5-detail&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;problem6&quot;&gt;&lt;input type=&quot;checkbox&quot; data-reveal=&quot;#confusing&quot; name=&quot;problem&quot; value=&quot;It’s confusing&quot; id=&quot;problem6&quot; /&gt;Other&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group hide&quot; id=&quot;confusing&quot;&gt;
+		&lt;label for=&quot;problem6-detail&quot;&gt;Provide more details (optional):&lt;/label&gt;
+		&lt;input type=&quot;text&quot; class=&quot;form-control full-width&quot; id=&quot;problem6-detail&quot;&gt;
+	&lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+</div>
+<div class="col-md-6">
+	<h5>After</h5>
+	<pre><code>&lt;fieldset&gt;
+	&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Please select all that apply: &lt;/span&gt;&lt;/legend&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f1&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem1&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f1&quot; /&gt;A link, button or video is not working
+		&lt;/label&gt;
+		&lt;input name=&quot;problem1&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f2&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem2&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f2&quot; /&gt;It has a spelling mistake
+		&lt;/label&gt;
+		&lt;input name=&quot;problem2&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f3&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem3&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f3&quot; /&gt;Information is missing
+		&lt;/label&gt;
+		&lt;input name=&quot;problem3&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f4&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem4&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f4&quot; /&gt;Information is outdated or wrong
+		&lt;/label&gt;
+		&lt;input name=&quot;problem4&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f5&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem5&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f5&quot; /&gt;I can't find what I'm looking for
+		&lt;/label&gt;
+		&lt;input name=&quot;problem5&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;checkbox&quot;&gt;
+		&lt;label for=&quot;gc-rprt-prblm-f6&quot;&gt;
+			&lt;input type=&quot;checkbox&quot; name=&quot;problem6&quot; value=&quot;Yes&quot; id=&quot;gc-rprt-prblm-f6&quot; /&gt;Other issue not in this list
+		&lt;/label&gt;
+		&lt;input name=&quot;problem6&quot; type=&quot;hidden&quot; value=&quot;No&quot; /&gt;
+	&lt;/div&gt;
+&lt;/fieldset&gt;
+</code></pre>
+</div>
+</div>
+</section>
+
+<section>
 	<h2 id="details">Details</h2>
 	<p><strong>Number of commits:</strong> 16</p>
 	<ul>
@@ -144,7 +369,7 @@
 		<h3>v7.0</h3>
 		<dl>
 			<dt><code>GCWeb/js/theme.min.js</code></dt>
-			<dd>(Coming soon...)</dd>
+			<dd>sha256-Ww4l/v4hh8zT3+mD2W61lhGBfoD7u8OyADln6w5hh4M= sha512-7MEdTZH7SCT0VXWd3ym7WOqkJDs7saaXeESuvF+U1UhgoHtbxnP1HYqcwAe9p9UB7WOcq/KV/VlHB34dNUvfzA==</dd>
 		</dl>
 		<p>Get all hash (JSON format):</p>
 		<ul>
