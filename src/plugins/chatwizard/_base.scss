@@ -162,6 +162,10 @@
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .7);
 }
 
+.wb-chtwzrd-btn-extrnl + .wb-chtwzrd-bubble-wrap {
+	display: none !important;
+}
+
 /* Chat Wizard */
 .wb-disable .wb-chtwzrd.hidden {
 	display: block !important;
@@ -183,6 +187,7 @@
 .wb-chtwzrd-container .header {
 	max-height: 70px;
 	min-height: 39px;
+	padding-right: 84px;
 }
 
 .wb-chtwzrd-container .header .title {
@@ -196,7 +201,7 @@
 	text-overflow: ellipsis;
 }
 
-.wb-chtwzrd-container .minimize {
+.wb-chtwzrd-container .minimize, .wb-chtwzrd-container .reset  {
 	-webkit-appearance: none;
 	background: transparent;
 	border: 0;
@@ -217,7 +222,11 @@
 	width: 40px;
 }
 
-.wb-chtwzrd-container .minimize:focus {
+.wb-chtwzrd-container .reset {
+	right: 42px;
+}
+
+.wb-chtwzrd-container .minimize:focus, .wb-chtwzrd-container .reset:focus {
 	opacity: 1;
 	outline: 1px dotted #fff;
 	outline-offset: -2px;
@@ -351,6 +360,10 @@
 
 .wb-chtwzrd-contained .minimize {
 	display: none;
+}
+
+.wb-chtwzrd-contained .reset {
+	right: 0;
 }
 
 /* Chat wizard Media queries */

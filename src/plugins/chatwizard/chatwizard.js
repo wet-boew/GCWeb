@@ -34,6 +34,7 @@ var componentName = "wb-chtwzrd",
 	i18nDict = {
 		en: {
 			"chtwzrd-send": "Send<span class='wb-inv'> reply and continue</span>",
+			"chtwzrd-reset": "Restart from the beginning",
 			"chtwzrd-toggle": "Switch to wizard",
 			"chtwzrd-notification": "Close chat notification",
 			"chtwzrd-open": "Open chat wizard",
@@ -46,7 +47,8 @@ var componentName = "wb-chtwzrd",
 			"chtwzrd-answer": "You have answered:"
 		},
 		fr: {
-			"chtwzrd-send": "Envoyer<span class='wb-inv'> la rÃ©ponse et continuer</span>",
+			"chtwzrd-send": "Envoyer<span class='wb-inv'> la réponse et continuer</span>",
+			"chtwzrd-reset": "Recommencer depuis le début",
 			"chtwzrd-toggle": "Basculer vers l&apos;assistant",
 			"chtwzrd-notification": "Fermer la notification de discussion",
 			"chtwzrd-open": "Ouvrir l&apos;assistant de discussion",
@@ -137,6 +139,7 @@ var componentName = "wb-chtwzrd",
 		i18nDict = i18nDict[ $( "html" ).attr( "lang" ) || "en" ];
 		i18nDict = {
 			send: i18nDict[ "chtwzrd-send" ],
+			reset: i18nDict[ "chtwzrd-reset" ],
 			toggle: i18nDict[ "chtwzrd-toggle" ],
 			notification: i18nDict[ "chtwzrd-notification" ],
 			trigger: i18nDict[ "chtwzrd-open" ],
@@ -155,13 +158,15 @@ var componentName = "wb-chtwzrd",
 		// All the commonly used elements
 		var $basic = $( selector + "-basic" ),
 			$bubble = $( selector + "-bubble-wrap" ),
+			$externalBtn = $( selector + "-btn" ),
 			$container = $( selector + "-container" ),
 			$form = $( ".body", $container ),
 			$conversation = $( ".history", $container ),
 			$minimize = $( ".minimize", $container ),
+			$reset = $( ".reset", $container ),
 			$basiclink = $( ".basic-link", $container ),
 			$focusedBeforechtwzrd,
-			$firstTabStop = $minimize,
+			$firstTabStop = $reset,
 			$lastTabStop = $basiclink;
 
 		// Initiate basic form
@@ -169,6 +174,9 @@ var componentName = "wb-chtwzrd",
 
 		// Initiate chat wizard bubble
 		initiateBubble( $bubble );
+
+		// Initiate chat wizard external btn
+		initiateExternalButton( $externalBtn );
 
 		// Show basic form and hide chat wizard
 		$basiclink.on( "click", function( event ) {
@@ -204,6 +212,9 @@ var componentName = "wb-chtwzrd",
 
 			$container.stop().show();
 			$bubble.stop().hide();
+
+			$externalBtn.prop( "disabled", true );
+
 			if ( !isInline ) {
 				$( "body" ).addClass( componentName + "-noscroll" );
 			}
@@ -216,6 +227,32 @@ var componentName = "wb-chtwzrd",
 
 			// Do not show notification on next load
 			localStorage.setItem( "wb-chtwzrd-notif", 1 );
+		} );
+
+		// External btn event handler
+		$( selector + "-btn" ).on( "click", function( event ) {
+			event.preventDefault();
+
+			$externalBtn.prop( "disabled", true );
+
+			$basic.stop().hide();
+			$focusedBeforechtwzrd = $( ":focus" );
+
+			toggleExperience( $container, "wizard" );
+
+			$container.stop().show();
+			$bubble.stop().hide();
+			$container.find( ":focusable" ).first().focus();
+
+			if ( !isInline ) {
+				$( "body" ).addClass( componentName + "-noscroll" );
+			}
+			if ( $conversation.length ) {
+				$( ".conversation", $container ).scrollTop( $conversation[ 0 ].scrollHeight );
+			}
+			if ( !waitingForAnswer ) {
+				appendInteraction( $form );
+			}
 		} );
 
 		// If inline, do not trap user with keyboard
@@ -262,11 +299,20 @@ var componentName = "wb-chtwzrd",
 			}
 		} );
 
+		// On chat reset button pressed: toggle experience to wizard
+		$reset.on( "click", function( event ) {
+			event.preventDefault();
+			toggleExperience( $( selector + "-container" ), "wizard" );
+		} );
+
 		// Minimize chat wizard
 		$minimize.on( "click", function( event ) {
 			event.preventDefault();
 			$container.stop().hide();
+
+			$externalBtn.prop( "disabled", false );
 			$bubble.stop().show();
+
 			$( "body" ).removeClass( componentName + "-noscroll" );
 
 			// Set focus back to element that had it before the modal was opened
@@ -382,6 +428,15 @@ var componentName = "wb-chtwzrd",
 	},
 
 	/**
+	 * Initiate chat wizard external button
+	 * @method initiateExternalButton
+	 * @param {jQuery DOM element} $selector Element which is the actual external button
+	 */
+	initiateExternalButton = function( $selector ) {
+		$selector.attr( "aria-controls", componentName + "-container" );
+	},
+
+	/**
 	 * Convert Data attributes from the form and return a Javascript Object
 	 * @method convertToObject
 	 * @param {jQuery DOM element} $selector Basic from which the wizard will be created
@@ -475,17 +530,30 @@ var componentName = "wb-chtwzrd",
 	 * @param {String} title The title of the wizard window, as well as the notification
 	 */
 	buildChtwzrd = function( $selector, title ) {
-		$selector.after( "<div class='" + componentName + "-bubble-wrap'><a href='#" + componentName + "-container aria-controls='" + componentName + "-container class='" + componentName + "-link bubble trans-pulse' role='button'>" + i18nDict.trigger + "</a>" + ( !isNotif ? "<p class='trans-left'><span class='notif'>" + title +
-		"</span> <a href='#' class='notif-close' title='" + i18nDict.notification + "' aria-label='" + i18nDict.notification + "' role='button'>&times;</a></p>" : "" ) + "</div>" );
+		$selector.after( "<div class='" + componentName + "-bubble-wrap'><a href='#" + componentName + "-container' aria-controls='" + componentName + "-container' class='" + componentName + "-link bubble trans-pulse' role='button'>" + i18nDict.trigger + "</a>" +
+		( !isNotif ? "<p class='trans-left'><span class='notif'>" + title + "</span> <a href='#' class='notif-close' title='" + i18nDict.notification + "' aria-label='" + i18nDict.notification + "' role='button'>&times;</a></p>" : "" ) +
+		"</div>" );
 		$selector.next( selector + "-bubble-wrap" ).after( "<aside id='" + componentName + "-container' class='modal-content overlay-def " + componentName + "-container " + ( isInline ? " wb-chtwzrd-contained" : "" ) + "'></aside>" );
 
 		var $container = $( selector + "-container" );
-		$container.append( "<header class='modal-header header'><h2 class='modal-title title'>" + title + "</h2><button type='button' class='minimize' title='" + i18nDict.minimize + "'><span class='glyphicon glyphicon-chevron-down'></span></button></header>" );
+		$container.append(
+			"<header class='modal-header header'><h2 class='modal-title title'>" +
+			title + "</h2><button type='button' class='reset' title='" +
+			i18nDict.reset +
+			"'> <span class='glyphicon glyphicon-refresh'></span></button>" +
+			"<button type='button' class='minimize' title='" +
+			i18nDict.minimize +
+			"'><span class='glyphicon glyphicon-chevron-down'></span></button></header>" );
 		$container.append( "<form class='modal-body body' method='GET'></form>" );
 
 		var $form = $( ".body", $container );
-		$form.append( "<div class='conversation' tabindex='0'><section class='history' aria-live='assertive'><h3 class='wb-inv'>" + i18nDict.conversation + "</h3></section><section class='reply'><h3 class='wb-inv'>" + i18nDict.reply + "</h3><div class='inputs-zone'></div></section><div class='form-params'></div></div>" );
-		$form.append( "<section class='controls'><h3 class='wb-inv'>" + i18nDict.controls + "</h3><div class='row'><div class='col-xs-12'><button class='btn btn-primary btn-block btn-send' type='button'>" + i18nDict.send + "</button></div></div><div class='row'><div class='col-xs-12 text-center mrgn-tp-sm'><a href='#" + componentName + "-basic' class='btn btn-sm btn-link basic-link' role='button'>" + i18nDict.toggleBasic + "</a></div></div></section>" );
+		$form.append( "<div class='conversation'><section class='history' aria-live='assertive'><h3 class='wb-inv'>" + i18nDict.conversation + "</h3></section><section class='reply'><h3 class='wb-inv'>" + i18nDict.reply + "</h3><div class='inputs-zone'></div></section><div class='form-params'></div></div>" );
+		$form.append(
+			"<section class='controls'><h3 class='wb-inv'>" +
+			i18nDict.controls + "</h3><div class='row'><div class='col-xs-12'><button class='btn btn-primary btn-block btn-send' type='button'>" +
+			i18nDict.send + "</button></div></div><div class='row'><div class='col-xs-12 text-center mrgn-tp-sm'><a href='#" +
+			componentName + "-basic' class='btn btn-sm btn-link basic-link' role='button'>" +
+			i18nDict.toggleBasic + "</a></div></div></section>" );
 
 		$form.attr( "name", datainput.header.name + "-chat" );
 		$form.attr( "method", datainput.header.method );
@@ -602,6 +670,7 @@ var componentName = "wb-chtwzrd",
 
 		waitingForAnswer = true;
 		$btnnext.prop( "disabled", true );
+
 		$inputsSpot.html( "" );
 		$dropSpot.append( "<div class='row mrgn-bttm-md'><div class='col-xs-9'><" + markup + " class='mrgn-tp-0 mrgn-bttm-0'><span class='avatar'></span><span class='question'></span></" + markup + "></div></div>" );
 
