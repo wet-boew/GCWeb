@@ -1,0 +1,74 @@
+---
+{
+	"title": "Invitation Manager",
+	"language": "en",
+	"category": "Plugins",
+	"description": "Display invitation manager popup",
+	"tag": "invitationmanager",
+	"parentdir":"invitationmanager",
+	"altLangPrefix": "im",
+	"dateModified": "2020-10-01"
+}
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="im-doc-en.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=InvitationManager">Questions or comments?</a></li>
+</ul>
+<div class="wb-prettify all-pre"></div>
+
+<p>Manage surveys and display invitation popup.</p>
+
+<h2>Display Popup</h2>
+<div><a href="?im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1">Display Popup </a> for "Page" scope and Survey id "4"</div>
+
+<div id="gc-im-popup" class="wb-popup-im" data-wb-popup-im-path="http://localhost:8000/demos/invitationmanager/demo/im.json"></div>
+
+<br />
+
+<details>
+	<summary>View source code</summary>
+
+	<h3>HTML</h3>
+	<pre><code>&lt;div id=&quot;gc-im-popup&quot; class=&quot;wb-popup-im&quot; data-wb-popup-im-path=&quot;http://localhost:8000/demos/invitationmanager/demo/im.json&quot;&gt;&lt;/div&gt;
+	</code></pre>
+
+	<h3>File demo/im.json</h3>
+	<pre><code>{
+&quot;settings&quot;:
+{
+	&quot;duration-delay&quot;: 15,
+	&quot;page-probability&quot;: 0.7,
+	&quot;site-probability&quot;: 0.3,
+	&quot;blacklist&quot;: [{&quot;url&quot; : &quot;&quot;}],
+	&quot;whitelist&quot;: [{ &quot;url&quot; : &quot;^localhost\/&quot;}]
+},
+&quot;surveys&quot; : [
+{
+	&quot;id&quot; : &quot;4&quot;,
+	&quot;title-en&quot; : &quot;Feedback on My Service Canada Account (MSCA)&quot;,
+	&quot;title-fr&quot; : &quot;Commentaires sur Mon dossier Service Canada (MDSC)&quot;,
+	&quot;body-en&quot; : &quot;&lt;p&gt;Please take a few moments to let us know about today's experience with &ltstrong&gt; My Service Canada Account (MSCA) &lt;/strong&gt;; so we can serve you better.&lt;/p&gt&lt;p class=&quot;mrgn-bttm-0&quot;&gt;Your participation is voluntary and your responses are confidential and anonymous. &lt;/p&gt;&quot;,
+	&quot;body-fr&quot; : &quot;&lt;p&gt;Merci de prendre quelques minutes pour nous faire part de l'expérience que vous avez eue aujourd'hui relativement à &lt;strong&gt; Mon dossier Service Canada (MDSC)&lt;/strong&gt;, afin que nous puissions mieux vous servir&lt;/p&gt;&lt;p class=&quot;mrgn-bttm-0&quot;&gt;Votre participation est volontaire, et vos réponses sont confidentielles et anonymes.&lt;/p&gt;&quot;,
+	&quot;link-en&quot; : &quot;http://www1.canada.ca/en/contact/sc_account.html?referrer=logout&quot;,
+	&quot;link-fr&quot; : &quot;http://www1.canada.ca/fr/contact/mon_dossier_sc.html?referrer=logout&quot;,
+	&quot;start-on&quot; : &quot;2019-04-10T00:00:00&quot;,
+	&quot;end-on&quot; : &quot;2050-07-20T23:59:00&quot;,
+	&quot;type&quot; : &quot;Page&quot;,
+	&quot;probability&quot; : 0.25,
+	&quot;yes-en&quot; : &quot;&lt;strong&gt;Yes, &lt;span class=&quot;wb-inv&quot;&gt;I will take the exit survey &lt;/span&gt; after my visit.&lt;/strong&gt;&quot;,
+	&quot;yes-fr&quot; : &quot;&lt;strong&gt;Oui, &lt;span class=&quot;wb-inv&quot;&gt;je vais participer au sondage de départ &lt;/span&gt; après ma visite.&lt;/strong&gt;&quot;,
+	&quot;no-en&quot; : &quot;No, &lt;span class=&quot;wb-inv&quot;&gt;I do not want to take the exit survey, &lt;/span&gt; thank you.&quot;,
+	&quot;no-fr&quot; : &quot;Non, &lt;span class=&quot;wb-inv&quot;&gt;je ne veux pas participer au sondage de départ, &lt;/span&gt; merci.&quot;,
+	&quot;close-en&quot; : &quot;Close: Exit survey (escape key)&quot;,
+	&quot;close-fr&quot; : &quot;Fermer : Sondage de fin de visite (touche d&apos;échappement)&quot;,
+	&quot;name&quot; : &quot;ESDC - MSCA Feedback Form - Thank you page&quot;,
+	&quot;survey-urls&quot; : [
+	{ &quot;url&quot; : &quot;localhost:8000/demos/invitationmanager/im-en.html&quot;},
+	{ &quot;url&quot; : &quot;localhost:8000/demos/invitationmanager/im-fr.html&quot;}
+	]
+}
+]
+}
+</code></pre>
+
+</details>

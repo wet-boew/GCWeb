@@ -1,0 +1,151 @@
+---
+{
+	"title": "Invitation Manager - Documentation",
+	"language": "en",
+	"category": "Plugins",
+	"categoryfile": "plugins",
+	"description": "Manage GC survey popup",
+	"altLangPrefix": "im-doc",
+	"dateModified": "2020-10-01"
+}
+---
+<div class="wb-prettify all-pre"></div>
+<section>
+<h2>Purpose</h2>
+<p>A customizable invitation popup window that will appear on designated pages within GC web site prompting the visitor to complete a survey study.
+<br />
+A survey is a list of questions aimed at extracting specific data from particular individuals.
+</p>
+</section>
+<section>
+<h2>Working example</h2>
+<p>English:</p>
+<ul>
+<li><a href="im-en.html">Invitation Manager</a></li>
+</ul>
+<p>French:</p>
+<ul>
+<li><a href="im-fr.html" hreflang="fr" lang="fr">Gestionnaire d'Invitation</a></li>
+</ul>
+<p>
+An invitation popup always contains the following information – that is customizable in im.json file:
+<ul>
+<li>The title of the website survey for visitors to participate in</li>
+<li>A small description of the survey study</li>
+<li>A clickable “Yes” button for visitors accepting to participate in the survey study</li>
+<li>A clickable “No” button for visitors declining to participate in the survey study</li>
+</ul>
+</p>
+</section>
+<section>
+<h2>How to implement</h2>
+<p>GC Invitation Manager is a middleware plugin that allows management of surveys for GC website visitors.</p>
+<p>To setup the Invitation Manager on GC website follow these steps:</p>
+<ol>
+<li>
+<p>Add a control with a class <code>wb-popup-im</code> and the attribute name <code>data-wb-popup-im-path</code> with the value of the path of invitation manager json file. For example:</p>
+<pre><code>&lt;div id=&quot;gc-im-popup&quot; class=&quot;wb-popup-im&quot; data-wb-popup-im-path=&quot;http://localhost:8000/demos/invitationmanager/demo/im.json&quot;&gt;&lt;/div&gt;
+	</code></pre>
+</li>
+<li>
+<p>Update the im.json file with data of the target GC Web site.</p>
+<details>
+	<summary>Example</summary>
+	<pre><code>{
+&quot;settings&quot;:
+{
+	&quot;duration-delay&quot;: 15,
+	&quot;page-probability&quot;: 0.7,
+	&quot;site-probability&quot;: 0.3,
+	&quot;blacklist&quot;: [{&quot;url&quot; : &quot;&quot;}],
+	&quot;whitelist&quot;: [{ &quot;url&quot; : &quot;^localhost\/&quot;}]
+},
+&quot;surveys&quot; : [
+{
+	&quot;id&quot; : &quot;4&quot;,
+	&quot;title-en&quot; : &quot;Feedback on My Service Canada Account (MSCA)&quot;,
+	&quot;title-fr&quot; : &quot;Commentaires sur Mon dossier Service Canada (MDSC)&quot;,
+	&quot;body-en&quot; : &quot;&lt;p&gt;Please take a few moments to let us know about today's experience with &ltstrong&gt; My Service Canada Account (MSCA) &lt;/strong&gt;; so we can serve you better.&lt;/p&gt&lt;p class=&quot;mrgn-bttm-0&quot;&gt;Your participation is voluntary and your responses are confidential and anonymous. &lt;/p&gt;&quot;,
+	&quot;body-fr&quot; : &quot;&lt;p&gt;Merci de prendre quelques minutes pour nous faire part de l'expérience que vous avez eue aujourd'hui relativement à &lt;strong&gt; Mon dossier Service Canada (MDSC)&lt;/strong&gt;, afin que nous puissions mieux vous servir&lt;/p&gt;&lt;p class=&quot;mrgn-bttm-0&quot;&gt;Votre participation est volontaire, et vos réponses sont confidentielles et anonymes.&lt;/p&gt;&quot;,
+	&quot;link-en&quot; : &quot;http://www1.canada.ca/en/contact/sc_account.html?referrer=logout&quot;,
+	&quot;link-fr&quot; : &quot;http://www1.canada.ca/fr/contact/mon_dossier_sc.html?referrer=logout&quot;,
+	&quot;start-on&quot; : &quot;2019-04-10T00:00:00&quot;,
+	&quot;end-on&quot; : &quot;2050-07-20T23:59:00&quot;,
+	&quot;type&quot; : &quot;Page&quot;,
+	&quot;probability&quot; : 0.25,
+	&quot;yes-en&quot; : &quot;&lt;strong&gt;Yes, &lt;span class=&quot;wb-inv&quot;&gt;I will take the exit survey &lt;/span&gt; after my visit.&lt;/strong&gt;&quot;,
+	&quot;yes-fr&quot; : &quot;&lt;strong&gt;Oui, &lt;span class=&quot;wb-inv&quot;&gt;je vais participer au sondage de départ &lt;/span&gt; après ma visite.&lt;/strong&gt;&quot;,
+	&quot;no-en&quot; : &quot;No, &lt;span class=&quot;wb-inv&quot;&gt;I do not want to take the exit survey, &lt;/span&gt; thank you.&quot;,
+	&quot;no-fr&quot; : &quot;Non, &lt;span class=&quot;wb-inv&quot;&gt;je ne veux pas participer au sondage de départ, &lt;/span&gt; merci.&quot;,
+	&quot;close-en&quot; : &quot;Close: Exit survey (escape key)&quot;,
+	&quot;close-fr&quot; : &quot;Fermer : Sondage de fin de visite (touche d&apos;échappement)&quot;,
+	&quot;name&quot; : &quot;ESDC - MSCA Feedback Form - Thank you page&quot;,
+	&quot;survey-urls&quot; : [
+	{ &quot;url&quot; : &quot;localhost:8000/demos/invitationmanager/im-en.html&quot;},
+	{ &quot;url&quot; : &quot;localhost:8000/demos/invitationmanager/im-fr.html&quot;}
+	]
+}
+]
+}
+</code></pre>
+</details>
+<p>The im.json file contains the data and configuration of GC Invitation Manager, by opening the file you will be able to adjust and customize the following settings:</p>
+<ul>
+<li><p><code>duration-delay</code> value contains the minimal number of days a visitor will see their next popup invitation when visiting your site(s).</p>
+<p>For example, put 15 for fifteen days.</p>
+</li>
+<li><p><code>page-probability</code> value contains the rolling probability a visitor will see page level popup invitation.</p>
+<p>For example, put 0.7 for 70%.</p>
+</li>
+<li><p><code>site-probability</code> value contains the rolling probability a visitor will see a site level popup invitation.</p>
+<p>For example, put 0.3 for 30%.</p>
+</li>
+<li><p><code>blacklist</code> value contains an array of URLs that represent the blacklist.</p></li>
+<li><p><code>whitelist</code> value contains an array of URLs that represent the whitelist.</p></li>
+<li><p><code>surveys</code> value contains an array of survey objects, each item contains the following:</p>
+<ul>
+<li><p><code>id</code> value contains the id of the survey (example “4”).</p></li>
+<li><p><code>title-en</code> value contains the title in English for the popup invitation.</p></li>
+<li><p><code>title-fr</code> value contains the title in French for the popup invitation.</p></li>
+<li><p><code>body-en</code> value contains the formatted html for the English content: body of the popup invitation.</p></li>
+<li><p><code>body-fr</code> value contains the formatted html for the French content: body of the popup invitation.</p></li>
+<li><p><code>link-en</code> value contains the link to the survey in English when the user selects the yes button.</p></li>
+<li><p><code>link-fr</code> value contains the link to the survey in French when the user selects the yes button.</p></li>
+<li><p><code>start-on</code> value contains the start date of the popup invitation.</p></li>
+<li><p><code>end-on</code> value contains the end date of the popup invitation.</p></li>
+<li><p><code>type</code> value contains the scope of the survey: “Entire site” if the popup invitation is site scoped and “Page” if the popup invitation is page scoped.</p></li>
+<li><p><code>probability</code> value contains the probability of a visitor viewing the popup invitation in its scope. That means that the sum of all popup invitations of the same scope cannot exceed 1.</p></li>
+<li><p><code>yes-en</code> value contains the formatted html for the English content: yes button of the popup invitation.</p></li>
+<li><p><code>yes-fr</code> value contains the formatted html for the French content: yes button of the popup invitation.</p></li>
+<li><p><code>no-en</code> value contains the formatted html for the English content: no button of the popup invitation.</p></li>
+<li><p><code>no-fr</code> value contains the formatted html for the French content: no button of the popup invitation.</p></li>
+<li><p><code>close-en</code> value contains the English test of the close icon or escape key.</p></li>
+<li><p><code>close-fr</code> value contains the French text of the close icon or escape key.</p></li>
+<li><p><code>survey-urls</code> value contains either an array of "site" URLs if the survey scope is site, or an array of "url" URLs if the survey scope is page.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<ul>
+</section>
+<section>
+<h2>How does the Invitation Manager work?</h2>
+<p>Once properly set up, the GC Invitation Manager script will run in the background of the target GC web site, and is triggered once a visitor enters the GC website. Upon entry, the visitor is assessed against specific criteria to determine whether or not the visitor qualifies for a popup invitation.</p>
+<p>The GC Invitation Manager criteria are based on executable steps. If at any of these steps a visitor is not qualified, the remainder of the steps will not execute and the visitor will automatically not qualify for an invitation popup:</p>
+<ul>
+<li><p>Step 1: JavaScript is enabled on the visitor’s web browser and cookies are allowed.</p></li>
+<li><p>Step 2: The Visitor has not seen an invitation popup during the set designated period within the <code>duration-delay</code> parameter. (Example: the last 15 days)</p></li>
+<li><p>Step 3: A random number is generated for the user to assign the scope (Page level or Site wide level) to display.</p></li>
+<li><p>Step 4: Does the specific web page visited qualify for any active survey studies based on date the web page was viewed? (<code>start-on</code> and <code>end-on</code> parameters)</p></li>
+<li><p>Step 5: Is the visited page included in the Whitelist of GC pages and not included in the Blacklist of GC pages?</p></li>
+<li><p>Step 6: The probability of the GC page/site invitation popups are calculated.</p></li>
+<li><p>Step 7: A random number is generated to qualify the visitor for the invitation popup in relation to the calculated probability.</p></li>
+<li><p>Step 8: Display invitation popup.</p></li>
+</ul>
+<p>If the visitor qualifies, an invitation popup will appear in the browser prompting the visitor to accept or decline participating in the survey. Additionally, a time stamp is recorded within local storage to identify that the visitor has seen a popup.</p>
+<p>If the visitor does not qualify, nothing will happen and the visitor will receive no invitation popup from the invitation manager.</p>
+</section>
+<section>
+<h2>Source code</h2>
+<p><a href="https://github.com/wet-boew/GCWeb/tree/master/src/plugins/invitationmanager">Invitation Manager plugin source code on GitHub</a></p>
+</section>
