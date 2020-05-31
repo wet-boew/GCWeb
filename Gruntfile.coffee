@@ -128,7 +128,6 @@ module.exports = (grunt) ->
 			"postcss"
 			"usebanner:css"
 			"cssmin"
-			"cssmin_ie8_clean"
 		]
 	)
 
@@ -510,7 +509,6 @@ module.exports = (grunt) ->
 				cwd: "<%= themeDist %>/css"
 				src: [
 					"*.css"
-					"!ie8*.css"
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
@@ -521,7 +519,6 @@ module.exports = (grunt) ->
 					]
 				cwd: "<%= themeDist %>/css"
 				src: [
-					"ie8*.css"
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
@@ -544,13 +541,6 @@ module.exports = (grunt) ->
 					"!*.min.css"
 				]
 				ext: ".min.css"
-				dest: "<%= themeDist %>/css"
-
-		cssmin_ie8_clean:
-			min:
-				expand: true
-				cwd: "<%= themeDist %>/css"
-				src: "**/ie8*.min.css"
 				dest: "<%= themeDist %>/css"
 
 		# Minify
