@@ -10,274 +10,223 @@
 	"dateModified": "2020-05-11"
 }
 ---
-<p class="pull-right"><b>Responsable:</b> Secrétariat du Conseil du Trésor du Canada</p>
-<div class="clearfix"></div>
 {{>alert-provisional-demos}}
-<span class="wb-prettify all-pre"></span>
-<p>Les cases à cocher et les boutons radio servent de contrôles de formulaire et permettent de sélectionner une réponse à une question ou de confirmer des réponses, comme dans le cas d’une liste de contrôle.</p>
-<p>La conception des grandes cases à cocher et des boutons radio facilite et accélère leur sélection, en particulier sur un appareil mobile.</p>
-<h2>Sur cette page</h2>
-<ul>
-	<li><a href="#utilisation">Utilisation</a></li>
-	<li><a href="#eviter">Quoi éviter</a></li>
-	<li><a href="#mise-en-oeuvre">Mise en œuvre</a></li>
-	<li><a href="#configurations">Options de configurations</a></li>
-</ul>
-<section>
-	<h2 id="utilisation">Utilisation</h2>
-	<p>Les cases à cocher et les boutons radio doivent être utilisés pour les questions interactives, comme les formulaires de demande de service ou les assistants.</p>
-	<p>L’utilisation de questions interactives est fortement encouragée sur Canada.ca.</p>
-</section>
-<section>
-	<h2 id="eviter">Quoi éviter</h2>
-	<p>Ne pas utiliser de cases à cocher ou de boutons radio si les options présentées ne sont pas facilement comparables. Envisager d’utiliser des configurations de navigation telles que des modèles de liens de menu d’accueil thématique.</p>
-	<ul>
-		<li><a href="https://design.canada.ca/common-design-patterns/services-information.html">Documentation sur les modèles de liens de menu d’accueil thématique</a></li>
-	</ul>
-	<p>Pour une question autonome comportant peu d’options et une quantité gérable de contenu par option qui n’exige pas de pages distinctes, envisager d’utiliser des développements/réductions ou des onglets.</p>
-</section>
-<section>
-	<h2 id="mise-en-oeuvre">Mise en œuvre</h2>
-	<h3 id="grandes-cases-a-cocher">Grandes cases à cocher</h3>
-	<p><b>Utilisation&nbsp;:</b> Les grandes cases à cocher sont les cases à cocher utilisées par défaut. À utiliser particulièrement lorsque l’utilisateur peut faire une ou plusieurs sélections pour répondre à une question.</p>
-	<p><b>Quoi éviter&nbsp;:</b> Ne pas utiliser de grandes cases à cocher pour une liste de contrôle ayant des éléments qui nécessitent un saut de ligne, ou lorsqu’il y a un seul élément à cocher. Pour ces situations, utiliser les petites cases à cocher.</p>
-	<section>
-		<h4>Grandes cases à cocher avec étiquettes explicites</h4>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<fieldset class="provisional wb-chckbxrdio">
-					<legend>Choisissez vos condiments&nbsp;:</legend>
-					<ul class="list-unstyled lst-spcd-2">
-						<li class="checkbox">
-							<input type="checkbox" id="cond1">
-							<label for="cond1">Ketchup</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="cond2">
-							<label for="cond2">Relish</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="cond3">
-							<label for="cond3">Moutarde</label>
-						</li>
-					</ul>
-				</fieldset>
-			</div>
-		</div>
-		<pre><code>&lt;fieldset class="provisional wb-chckbxrdio"&gt;
-	&lt;legend&gt;Choisissez vos condiments&nbsp;:&lt;/legend&gt;
-	&lt;ul class="list-unstyled lst-spcd-2"&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond1"&gt;
-			&lt;label for="cond1"&gt;Ketchup&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond2"&gt;
-			&lt;label for="cond2"&gt;Relish&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond3"&gt;
-			&lt;label for="cond3"&gt;Moutarde&lt;/label&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/fieldset&gt;</code></pre>
-		<h4>Grandes cases à cocher désactivé avec étiquettes explicites</h4>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<fieldset class="provisional wb-chckbxrdio">
-					<legend>Choisissez vos condiments&nbsp;:</legend>
-					<ul class="list-unstyled lst-spcd-2">
-						<li class="checkbox">
-							<input type="checkbox" id="cond4" disabled>
-							<label for="cond4">Ketchup</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="cond5" class="disabled">
-							<label for="cond5">Relish</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="cond6" class="disabled" disabled>
-							<label for="cond6">Moutarde</label>
-						</li>
-					</ul>
-				</fieldset>
-			</div>
-		</div>
-		<pre><code>&lt;fieldset class="provisional wb-chckbxrdio"&gt;
-	&lt;legend&gt;Choisissez vos condiments&nbsp;:&lt;/legend&gt;
-	&lt;ul class="list-unstyled lst-spcd-2"&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond1"&gt;
-			&lt;label for="cond1"&gt;Ketchup&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond2"&gt;
-			&lt;label for="cond2"&gt;Relish&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="cond3"&gt;
-			&lt;label for="cond3"&gt;Moutarde&lt;/label&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/fieldset&gt;</code></pre>
-	</section>
-	<section>
-		<h3 id="small-checkboxes">Cases à petite coche (petites cases à cocher)</h3>
-		<p><b>Utilisation&nbsp;:</b> Utiliser les cases à petites coches uniquement lorsqu’il y a un seul élément à cocher, comme dans le cas d’une confirmation.</p>
-		<p><b>Quoi éviter&nbsp;:</b> Ne pas utiliser de cases à petites coches pour les réponses à une question ou les listes de contrôle. Pour ces situations, utiliser les grandes cases à cocher.</p>
-		<ul>
-			<li><a href="#grandes-cases-a-cocher">Section des grandes cases à cocher</a></li>
+
+<section role="group" class="provisional">
+	<h2>Exemple 1</h2>
+	<fieldset class="chkbxrdio-grp wb-checklist">
+		<legend>
+		Pour être admissible, vous devez remplir <strong> toutes </strong> les conditions suivantes&nbsp;: <small class="text-muted">(cases à cocher + étiquette implicite, grande case)</conditions:small>
+		</legend>
+		<ul class="form-group list-unstyled lst-spcd-2">
+		<li class="checkbox">
+			<label>
+			<input type="checkbox" id="cond10">
+				<span>Vous avez perdu ou perdrez votre revenu d'emploi ou de travail indépendant pendant au moins la moitié de la période de 4 semaines pour laquelle vous postulez</span>
+			</label>
+		</li>
+		<li class="checkbox">
+			<label>
+			<input type="checkbox"
+					id="cond11">
+				<span>Vous êtes résident du Canada</span>
+			</label>
+		</li>
+		<li class="checkbox">
+			<label>
+			<input type="checkbox"
+					id="cond12">
+				<span>Vous avez 15 ans ou plus lorsque vous postulez</span>
+			</label>
+		</li>
 		</ul>
-		<p>Envisager d’utiliser un bouton plutôt qu’une case à cocher lorsqu’il y a un seul élément à cocher, particulièrement lorsqu’il s’agit de l’action principale de la page ou d’un élément permettant de passer à l’étape suivante.</p>
-		<ul>
-			<li><a href="https://wet-boew.github.io/themes-dist/GCWeb/content-fr.html#call-to-action">Documentation sur les boutons</a></li>
-		</ul>
-		<h4>Élément unique avec étiquette explicite dans un formulaire horizontal</h4>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<form class="form-inline" method="get" action="#">
-					<div class="form-group">
-						<label class="wb-inv" for="exampleInputEmail2">Courriel</label>
-						<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrez votre courriel" />
-					</div>
-					<div class="form-group">
-						<label class="wb-inv" for="exampleInputPassword2">Mot de passe</label>
-						<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" />
-					</div>
-					<div class="checkbox provisional wb-chckbxrdio">
-						<input id="remember2" type="checkbox" class="checkbox-small"/>
-						<label for="remember2">Se souvenir de moi</label>
-					</div>
-					<button type="submit" class="btn btn-default">Se connecter</button>
-				</form>
-			</div>
-		</div>
-		<pre class="mrgn-tp-md"><code>&lt;form class="form-inline" method="get" action="#"&gt;
-	&lt;div class="form-group"&gt;
-		&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Courriel&lt;/label&gt;
-		&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrez votre courriel" /&gt;
-	&lt;/div&gt;
-	&lt;div class="form-group"&gt;
-		&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Mot de passe&lt;/label&gt;
-		&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" /&gt;
-	&lt;/div&gt;
-	&lt;div class="checkbox provisional wb-chckbxrdio"&gt;
-		&lt;input id="remember2" type="checkbox" class="checkbox-small"/&gt;
-		&lt;label for="remember2"&gt;Se souvenir de moi&lt;/label&gt;
-	&lt;/div&gt;
-	&lt;button type="submit" class="btn btn-default"&gt;Se connecter&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-	</section>
-	<section>
-		<h3>Boutons radio</h3>
-		<h4>Grands boutons radio avec étiquettes explicites</h4>
-		<p><b>Utilisation&nbsp;:</b> Utiliser des boutons radio lorsqu’une seule sélection peut être faite.</p>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<fieldset class="provisional wb-chckbxrdio">
-					<legend>Quel est votre animal favori?&nbsp;:</legend>
-					<ul class="list-unstyled lst-spcd-2">
-						<li class="radio">
-							<input type="radio" name="animal" id="animal-1">
-							<label for="animal-1">Les chiens</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="animal" id="animal-2">
-							<label for="animal-2">Les chats</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="animal" id="animal-3">
-							<label for="animal-3">Les rats</label>
-						</li>
-					</ul>
-				</fieldset>
-			</div>
-		</div>
-		<pre><code>&lt;fieldset class="wb-chckbxrio"&gt;
-	&lt;legend&gt;Quel est votre animal favori? &lt;small class="text-muted"&gt;(cases à cocher + explicit label, grande case)&lt;/small&gt;&lt;/legend&gt;
-	&lt;ul class="list-unstyled lst-spcd-2"&gt;
-		&lt;li class="radio"&gt;
-			&lt;input type="radio" name="animal" id="animal-1"&gt;
-			&lt;label for="animal-1"&gt;Les chiens&lt;/label&gt;
+	</fieldset>
+	<pre><code>
+&lt;fieldset class="chkbxrdio-grp wb-checklist"&gt;
+	&lt;legend&gt;
+	Pour être admissible, vous devez remplir <strong> toutes &lt;/strong&gt; les conditions suivantes&nbsp;s: &lt;small class="text-muted"&gt;(cases à cocher + étiquette implicite, grande case)&lt;/conditions:small&gt;
+	&lt;/legend&gt;
+	&lt;ul class="form-group list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;label&gt;
+			&lt;input type="checkbox" id="cond10"&gt;
+				&lt;span&gt;Vous avez perdu ou perdrez votre revenu d'emploi ou de travail indépendant pendant au moins la moitié de la période de 4 semaines pour laquelle vous postulez&lt;/span&gt;
+			&lt;/label&gt;
 		&lt;/li&gt;
-		&lt;li class="radio"&gt;
-			&lt;input type="radio" name="animal" id="animal-2"&gt;
-			&lt;label for="animal-2"&gt;Les chats&lt;/label&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;label&gt;
+			&lt;input type="checkbox"
+					id="cond11"&gt;
+				&lt;span&gt;Vous êtes résident du Canada&lt;/span&gt;
+			&lt;/label&gt;
 		&lt;/li&gt;
-		&lt;li class="radio"&gt;
-			&lt;input type="radio" name="animal" id="animal-3"&gt;
-			&lt;label for="animal-3"&gt;Les rats&lt;/label&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;label&gt;
+			&lt;input type="checkbox"
+					id="cond12"&gt;
+				&lt;span&gt;Vous avez 15 ans ou plus lorsque vous postulez&lt;/span&gt;
+			&lt;/label&gt;
 		&lt;/li&gt;
 	&lt;/ul&gt;
-&lt;/fieldset&gt;</code></pre>
-	<h4>Grands boutons radio avec étiquettes explicites dans un formulaire horizontal</h4>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<fieldset class="provisional wb-chckbxrdio form-inline">
-				<legend>Veuillez choisir une option&nbsp;:</legend>
-				<div class="label-inline">
-					<input type="radio" id="inlineRadio1" name="optradio">
-					<label for="inlineRadio1">Option 1</label>
-				</div>
-				<div class="label-inline">
-					<input type="radio" id="inlineRadio2" name="optradio">
-					<label for="inlineRadio2">Option 2</label>
-				</div>
-				<div class="label-inline">
-					<input type="radio" id="inlineRadio3" name="optradio">
-					<label for="inlineRadio3">Option 3</label>
-				</div>
-			</fieldset>
-		</div>
-	</div>
-	<pre><code>&lt;fieldset class="provisional wb-chckbxrdio form-inline"&gt;
-	&lt;legend&gt;Veuillez choisir une option&nbsp;:&lt;/legend&gt;
-	&lt;div class="label-inline"&gt;
-		&lt;input type="radio" id="inlineRadio1" name="optradio"&gt;
-		&lt;label for="inlineRadio1"&gt;Option 1&lt;/label&gt;
-	&lt;/div&gt;
-	&lt;div class="label-inline"&gt;
-		&lt;input type="radio" id="inlineRadio2" name="optradio"&gt;
-		&lt;label for="inlineRadio2"&gt;Option 2&lt;/label&gt;
-	&lt;/div&gt;
-	&lt;div class="label-inline"&gt;
-		&lt;input type="radio" id="inlineRadio3" name="optradio"&gt;
-		&lt;label for="inlineRadio3"&gt;Option 3&lt;/label&gt;
-	&lt;/div&gt;
-&lt;/fieldset&gt;</code></pre>
-	</section>
-	<section>
-		<h2 id="configurations">Options de configuration</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Option</th>
-					<th>Description</th>
-					<th>Mode d’emploi de la configuration</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Grandes cases à cocher</td>
-					<td>Conception des grandes cases à cocher et des boutons radio</td>
-					<td>Ajouter la classe <code>wb-chckbxrdio</code> à l'élément <code>fieldset</code> ou l'élément parent qui contient toutes les zones d'entrée de type checkbox/radio</td>
-				</tr>
-				<tr>
-					<td>Cases à petites coches</td>
-					<td>Petites cases à cocher lorsqu’il n'y a qu'un seul élément à cocher, comme dans le cas d’une confirmation.</td>
-					<td>La classe <code>wb.chckbxrdio</code> doit être présent dans l'élément parent de la case à cocher et la class <code>checkbox-small</code> doit être appliquer à chaque élément de type checkbox</td>
-				</tr>
-				<tr>
-					<td>État de désactivation</td>
-					<td>Les entrées désactivées ne seront pas cliquables. Les indications visuelles comprennent le grisage de la commande et l’ajout d’une icône d’arrêt lorsque le pointeur de la souris est placé au-dessus de la commande.</td>
-					<td>Pour basculer un état de désactivation, ajouter un attribut <code>disabled</code> à la zone d’entrée</td>
-				</tr>
-				<tr>
-					<td>Format horizontal</td>
-					<td>Les boutons radio ou les cases à cocher en ligne s’affichent côte à côte sur un écran plus grand et se poursuivent sur de nouvelles lignes, plutôt que d’être alignés verticalement.</td>
-					<td>Ajouter la classe <code>form-inline</code> à l'élément qui contient l'ensemble des cases à coher ou des boutons radio. Aussi ajouter la classe <code>label-inline</code> à chaque élément parent de case à cocher ou de bouton radio.</td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
+&lt;/fieldset&gt;
+	</code></pre>
+</section>
+<section role="group" class="provisional well well-sm">
+	<h2 class="wb-inv">Exemple 2</h2>
+	<fieldset class="chkbxrdio-grp">
+		<legend>
+		Pour être admissible, vous devez remplir <strong> toutes </strong> les conditions suivantes&nbsp;: <small class="text-muted">(cases à cocher + étiquette implicite, grande case)</conditions:small>
+		</legend>
+		<ul class="form-group list-unstyled lst-spcd-2">
+			<li class="radio">
+				<label>
+				<input name="cond13"
+						type="radio"
+						id="cond13-a">
+					<span>Vous avez perdu ou perdrez votre revenu d'emploi ou de travail indépendant pendant au moins la moitié de la période de 4 semaines pour laquelle vous postulez</span>
+				</label>
+			</li>
+			<li class="radio">
+				<label>
+				<input type="radio"
+						name="cond13"
+						id="cond13-b">
+					<span>Vous êtes résident du Canada</span>
+				</label>
+			</li>
+			<li class="radio">
+				<label>
+				<input type="radio"
+						name="cond13"
+						id="cond13-c">
+					<span>Vous avez 15 ans ou plus lorsque vous postulez</span>
+				</label>
+			</li>
+		</ul>
+	</fieldset>
+	<code>
+		<pre>
+&lt;fieldset class="chkbxrdio-grp"&gt;
+	&lt;legend&gt;
+	Pour être admissible, vous devez remplir <strong> toutes &lt;/strong&gt; les conditions suivantes&nbsp;s: &lt;small class="text-muted"&gt;(cases à cocher + étiquette implicite, grande case)&lt;/conditions:small&gt;
+	&lt;/legend&gt;
+	&lt;ul class="form-group list-unstyled lst-spcd-2"&gt;
+		&lt;li class="radio"&gt;
+			&lt;label&gt;
+			&lt;input name="cond13"
+					type="radio"
+					id="cond13-a"&gt;
+				&lt;span&gt;Vous avez perdu ou perdrez votre revenu d'emploi ou de travail indépendant pendant au moins la moitié de la période de 4 semaines pour laquelle vous postulez&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="radio"&gt;
+			&lt;label&gt;
+			&lt;input type="radio"
+					name="cond13"
+					id="cond13-b"&gt;
+				&lt;span&gt;Vous êtes résident du Canada&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="radio"&gt;
+			&lt;label&gt;
+			&lt;input type="radio"
+					name="cond13"
+					id="cond13-c"&gt;
+				&lt;span&gt;Vous avez 15 ans ou plus lorsque vous postulez&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;
+		</pre>
+	</code>
+</section>
+<section role="group" class="provisional">
+	<h2 class="wb-inv">Exemple 3</h2>
+	<fieldset class="chkbxrdio-grp wb-checklist">
+		<legend>
+		Pour être admissible, vous devez remplir <strong> toutes </strong> les conditions suivantes&nbsp;: <small class="text-muted">(cases à cocher + explicit label, grande case)</conditions:small>
+		</legend>
+		<ul class="form-group list-unstyled lst-spcd-2">
+			<li class="checkbox">
+				<input type="checkbox" id="cond14">
+				<label for="cond14">Vous avez perdu ou perdrez votre revenu d'emploi ou de travail indépendant pendant au moins la moitié de la période de 4 semaines pour laquelle vous postulez</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond15">
+				<label for="cond15">Vous êtes résident du Canada</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond16">
+				<label for="cond16"><span>Vous avez 15 ans ou plus lorsque vous postulez</span></label>
+			</li>
+		</ul>
+	</fieldset>
+	<code>
+		<pre>
+&lt;fieldset class="chkbxrdio-grp wb-checklist"&gt;
+	&lt;legend&gt;
+	Pour être admissible, vous devez remplir <strong> toutes &lt;/strong&gt; les conditions suivantes&nbsp;s: &lt;small class="text-muted"&gt;(cases à cocher + explicit label, grande case)&lt;/conditions:small&gt;
+	&lt;/legend&gt;
+	&lt;ul class="form-group list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond14"&gt;
+			&lt;label for="cond14"&gt;You have lost or will lose your employment or self-employment income for at least half of the 4-week period for which you are applying&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond15"&gt;
+			&lt;label for="cond15"&gt;Vous êtes résident du Canada&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond16"&gt;
+			&lt;label for="cond16"&gt;&lt;span&gt;Vous avez 15 ans ou plus lorsque vous postulez&lt;/span&gt;&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;
+		</pre>
+	</code>
+</section>
+<section role="group" class="provisional well well-sm">
+	<h2 class="wb-inv">Exemple 4</h2>
+	<fieldset class="chkbxrdio-grp">
+		<legend>
+		Pour être admissible, vous devez remplir <strong> toutes </strong> les conditions suivantes&nbsp;: <small class="text-muted">(cases à cocher + explicit label, grande case)</conditions:small>
+		</legend>
+		<ul class="form-group list-unstyled lst-spcd-2">
+			<li class="radio">
+				<input type="radio" name="cond17" id="cond17-a">
+				<label for="cond17-a">You have lost or will lose your employment or self-employment income for at least half of the 4-week period for which you are applying</label>
+			</li>
+			<li class="radio">
+				<input type="radio" name="cond17" id="cond17-b">
+				<label for="cond17-b"><span>Vous êtes résident du Canada</span></label>
+			</li>
+			<li class="radio">
+				<input type="radio" name="cond17" id="cond17-c">
+				<label for="cond17-c"><span>Vous avez 15 ans ou plus lorsque vous postulez</span></label>
+			</li>
+		</ul>
+	</fieldset>
+	<code>
+		<pre>
+&lt;fieldset class="chkbxrdio-grp"&gt;
+	&lt;legend&gt;
+	Pour être admissible, vous devez remplir <strong> toutes &lt;/strong&gt; les conditions suivantes&nbsp;s: &lt;small class="text-muted"&gt;(cases à cocher + explicit label, grande case)&lt;/conditions:small&gt;
+	&lt;/legend&gt;
+	&lt;ul class="form-group list-unstyled lst-spcd-2"&gt;
+		&lt;li class="radio"&gt;
+			&lt;input type="radio" name="cond17" id="cond17-a"&gt;
+			&lt;label for="cond17-a"&gt;You have lost or will lose your employment or self-employment income for at least half of the 4-week period for which you are applying&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="radio"&gt;
+			&lt;input type="radio" name="cond17" id="cond17-b"&gt;
+			&lt;label for="cond17-b"&gt;&lt;span&gt;Vous êtes résident du Canada&lt;/span&gt;&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="radio"&gt;
+			&lt;input type="radio" name="cond17" id="cond17-c"&gt;
+			&lt;label for="cond17-c"&gt;&lt;span&gt;Vous avez 15 ans ou plus lorsque vous postulez&lt;/span&gt;&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;
+		</pre>
+	</code>
 </section>
