@@ -21,7 +21,7 @@
 					<meta property="areaServed" typeOf="Country" content="Canada" />
 				</div>
 				<div class="col-sm-6">
-					<img id="wmms" src="{{assets}}/../{{site.theme}}/assets/wmms-blk.svg" alt="{{{i18n "tmpl-gc-wmms"}}}" />
+					<img id="wmms" src="{{assets}}/../{{site.theme}}/assets/wmms-blk.svg" alt="{{{i18n "tmpl-gc-wmms"}}}" />{{#if page.isBilingual}}<span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-wmms" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-wmms" language="en"}}}{{/is}}</span></span>{{/if}}
 				</div>
 			</div>
 		</header>
