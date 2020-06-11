@@ -1,11 +1,21 @@
-<section id="wb-lng" class="text-right">
+<section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
 	<h2 class="wb-inv">{{{i18n "tmpl-lang-select"}}}</h2>
-	<ul class="list-inline margin-bottom-none">
+	<ul class="list-inline mrgn-bttm-0">
 	{{#isnt language "fr" }}
-		<li><a lang="fr" hreflang="fr" href="{{altLangPrefix}}-fr.html">{{{i18n "lang-native" language="fr"}}}</a></li>
+		<li>
+			<a lang="fr" hreflang="fr" href="{{altLangPrefix}}-fr.html">
+				<span class="hidden-xs">{{{i18n "lang-native" language="fr"}}}</span>
+				<abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">{{{i18n "lang-code" language="fr"}}}</abbr>
+			</a>
+		</li>
 	{{/isnt}}
 	{{#isnt language "en" }}
-		<li><a lang="en" hreflang="en" href="{{altLangPrefix}}-en.html">{{{i18n "lang-native" language="en"}}}</a></li>
+		<li>
+			<a lang="en" hreflang="en" href="{{altLangPrefix}}-en.html">
+				<span class="hidden-xs">{{{i18n "lang-native" language="en"}}}</span>
+				<abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">{{{i18n "lang-code" language="en" }}}</abbr>
+			</a>
+		</li>
 	{{/isnt}}
 	</ul>
 </section>

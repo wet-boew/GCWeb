@@ -5,6 +5,12 @@
 .srchbox {
 	padding-top: 1em;
 
+	.submit {
+		position: absolute;
+		right: 15px;
+		top: 1em;
+	}
+
 	input,
 	button {
 		border-radius: 0;
@@ -30,14 +36,24 @@
 
 	input {
 		border-color: #e0e0e0;
-		border-right: 0;
 		border-style: solid;
 		box-shadow: none;
 		color: #555;
-		margin-right: -4px;
-		min-width: 246px;
 		position: relative;
 	}
+
+	.wb-srch-qry {
+		width: 100%;
+
+		input {
+			max-width: inherit;
+			width: 100%;
+		}
+	}
+}
+
+#wb-srch-sub {
+	margin-left: 5px;
 }
 
 [dir=rtl] {
@@ -47,6 +63,13 @@
 		input {
 			margin-left: -4px;
 			margin-right: auto;
+		}
+	}
+
+	#wb-srch-sub {
+		margin: {
+			left: 0;
+			right: 5px;
 		}
 	}
 }
@@ -135,4 +158,8 @@
 		padding-bottom: 8px;
 		padding-top: 8px;
 	}
+}
+
+input#wb-srch-q {
+	width: 100%;
 }

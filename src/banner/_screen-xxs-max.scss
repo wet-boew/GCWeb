@@ -9,11 +9,15 @@
 
 header {
 	.brand {
-		@extend %brand-screen-xxs-max-override-grid;
+
+		/* Solely for the purpose of having the previous header look decent */
+		&.col-xs-5 {
+			@extend %brand-screen-xxs-max-override-grid;
+		}
 
 		object,
 		img {
-			max-height: 25px;
+			padding-right: 0;
 		}
 	}
 }
