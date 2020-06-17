@@ -34,39 +34,10 @@
 <h2>En-tête - Changements majeurs</h2>
 <span class="wb-prettify all-pre"></span>
 <p>Le code ci-dessous inclus les changements pour l'en-tête allégé, AINSI QUE les changements du texte de marque du GC pour l'accessibilité.</p>
-<p>L'en-tête a été découpé en plusieurs morceaux afin de mieux présenter où se situent les changements. <strong>Le code avant/après complet ce situe au bas de cette page.</strong></p>
+<p>L'en-tête a été découpé en plusieurs morceaux afin de mieux présenter où se situent les changements.</p>
+<p><strong>Le <a href="#code-complet">code avant/après complet </a> ce situe au bas de cette page.</strong></p>
 
 <h3>1. Sélection de langue</h3>
-<div class="row">
-<div class="col-md-6">
-<h4>Avant</h4>
-<pre><code>
-&lt;section id="wb-lng" class="text-right"&gt;
-	&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
-	&lt;ul class="list-inline margin-bottom-none"&gt;
-		&lt;li&gt;&lt;a lang="en" hreflang="fr" href="home-en.html"&gt;English&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/section&gt;
-</code></pre>
-</div>
-<div class="col-md-6">
-<h4>Après</h4>
-<pre><code>
-&lt;section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right"&gt;
-	&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
-	&lt;ul class="list-inline mrgn-bttm-0"&gt;
-		&lt;li&gt;
-			&lt;a lang="en" hreflang="en" href="home-en.html"&gt;
-			&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
-			&lt;abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;
-			&lt;/a&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/section&gt;
-</code></pre>
-</div>
-</div>
-<p>... et maintenant il se situe À L'INTÉRIEUR du &lt;div class="row"&gt;. Donc, les positions des sections sont ainsi&nbsp;:</p>
 <div class="row">
 <div class="col-md-6">
 <h4>Avant</h4>
@@ -74,6 +45,12 @@
 &lt;header&gt;
 	&lt;div id="wb-bnr" class="container"&gt;
 		&lt;section id="wb-lng" class="text-right"&gt;
+			&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
+			&lt;ul class="list-inline <del>margin-bottom-none</del>"&gt;
+				&lt;li&gt;&lt;a lang="en" hreflang="fr" href="home-en.html"&gt;English&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/section&gt;
+		<del>&lt;div class="row"&gt;</del>
 </code></pre>
 </div>
 <div class="col-md-6">
@@ -81,21 +58,32 @@
 <pre><code>
 &lt;header&gt;
 	&lt;div id="wb-bnr" class="container"&gt;
-		&lt;div class="row"&gt;
-			&lt;section id="wb-lng" class="col-xs-3 col-sm-12 text-right"&gt;
+		<strong>&lt;div class="row"&gt;</strong>
+			&lt;section id="wb-lng" class="<strong>col-xs-3 col-sm-12 </strong>text-right"&gt;
+				&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
+				&lt;ul class="list-inline <strong>mrgn-bttm-0</strong>"&gt;
+					&lt;li&gt;
+						&lt;a lang="en" hreflang="en" href="home-en.html"&gt;
+						<strong>&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
+						&lt;abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;</strong>
+						&lt;/a&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/section&gt;
 </code></pre>
 </div>
 </div>
+<p class="alert alert-info"><strong>Note&nbsp;:</strong> N'oubliez pas d'ajuster le "href" de la balise "&lt;a&gt;" pour convenir votre implémentartion.</p>
 
 <h3>2. Texte de marque du Gouvernement du Canada (FIP)</h3>
 <div class="row">
 <div class="col-md-6">
 <h4>Avant</h4>
 <pre><code>
-&lt;div class="brand col-xs-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+&lt;div class="brand <del>col-xs-5 col-md-4</del>" property="publisher" typeof="GovernmentOrganization"&gt;
 	&lt;a href="https://www.canada.ca/fr.html" property="URL"&gt;
 		&lt;img src="./GCWeb/assets/sig-blk-fr.svg" alt="" property="logo"&gt;
-		&lt;span class="wb-inv" property="name"&gt; Gouvernement du Canada /
+		&lt;span class="wb-inv"<del> property="name"</del>&gt; <del>Gouvernement du Canada</del> /
 			&lt;span lang="en"&gt;Government of Canada&lt;/span&gt;
 		&lt;/span&gt;
 	&lt;/a&gt;
@@ -107,28 +95,29 @@
 <div class="col-md-6">
 <h4>Après</h4>
 <pre><code>
-&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+&lt;div class="brand <strong>col-xs-9 col-sm-5 col-md-4</strong>" property="publisher" typeof="GovernmentOrganization"&gt;
 	&lt;a href="https://www.canada.ca/fr.html" property="URL"&gt;
 		&lt;img src="./GCWeb/assets/sig-blk-fr.svg" alt="Gouvernement du Canada" property="logo"&gt;
-			&lt;span class="wb-inv" property="name"&gt; /
+			&lt;span class="wb-inv"&gt; /
 				&lt;span lang="en"&gt;Government of Canada&lt;/span&gt;
 			&lt;/span&gt;&lt;/a&gt;
-	&lt;meta property="name" content="Gouvernement du Canada"&gt;
+	<strong>&lt;meta property="name" content="Gouvernement du Canada"&gt;</strong>
 	&lt;meta property="areaServed" typeof="Country" content="Canada"&gt;
 	&lt;link property="logo" href="./GCWeb/assets/wmms-blk.svg"&gt;
 &lt;/div&gt;
 </code></pre>
 </div>
 </div>
+<p class="alert alert-info"><strong>Note&nbsp;:</strong> N'oubliez pas d'ajuster le "src" de la balise "&lt;img&gt;" pour convenir votre implémentartion.</p>
 
 <h3>3. Section de recherche</h3>
 <div class="row">
 <div class="col-md-6">
 <h4>Avant</h4>
 <pre><code>
-&lt;section id="wb-srch" class="col-lg-8 text-right"&gt;
+&lt;section id="wb-srch" class="<del>col-lg-8 text-right</del>"&gt;
 	&lt;h2&gt;Recherche&lt;/h2&gt;
-	&lt;form action="#" method="post" name="cse-search-box" role="search" class="form-inline"&gt;
+	&lt;form action="#" method="post" name="cse-search-box" role="search"<del> class="form-inline"</del>&gt;
 		&lt;div class="form-group"&gt;
 			&lt;label for="wb-srch-q" class="wb-inv"&gt;Rechercher dans Canada.ca&lt;/label&gt;
 			&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Rechercher dans Canada.ca"&gt;
@@ -147,10 +136,10 @@
 <div class="col-md-6">
 <h4>Après</h4>
 <pre><code>
-&lt;section id="wb-srch" class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4"&gt;
+&lt;section id="wb-srch" class="<strong>col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4</strong>"&gt;
 	&lt;h2&gt;Recherche&lt;/h2&gt;
 	&lt;form action="#" method="post" name="cse-search-box" role="search"&gt;
-		&lt;div class="form-group wb-srch-qry"&gt;
+		&lt;div class="form-group<strong> wb-srch-qry</strong>"&gt;
 			&lt;label for="wb-srch-q" class="wb-inv"&gt;Rechercher dans Canada.ca&lt;/label&gt;
 			&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Rechercher dans Canada.ca"&gt;
 			&lt;datalist id="wb-srch-q-ac"&gt;&lt;/datalist&gt;
@@ -165,9 +154,9 @@
 </code></pre>
 </div>
 </div>
-<p><strong>Note&nbsp;:</strong> Ne remplacer pas l'attribut action de votre formulaire par "#".</p>
+<p class="alert alert-info"><strong>Note&nbsp;:</strong> N'oubliez pas d'ajuster le "action" de la balise "&lt;form&gt;" pour convenir votre implémentartion.</p>
 
-<h3>4. Code complet</h3>
+<h3 id="code-complet">4. Code complet</h3>
 <div class="row">
 <div class="col-md-6">
 <h4>Avant</h4>
@@ -176,24 +165,24 @@
 	&lt;div id="wb-bnr" class="container"&gt;
 		&lt;section id="wb-lng" class="text-right"&gt;
 			&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
-			&lt;ul class="list-inline margin-bottom-none"&gt;
+			&lt;ul class="list-inline <del>margin-bottom-none</del>"&gt;
 				&lt;li&gt;&lt;a lang="en" hreflang="fr" href="home-en.html"&gt;English&lt;/a&gt;&lt;/li&gt;
 			&lt;/ul&gt;
 		&lt;/section&gt;
-		&lt;div class="row"&gt;
-			&lt;div class="brand col-xs-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+		<del>&lt;div class="row"&gt;</del>
+			&lt;div class="brand <del>col-xs-5 col-md-4</del>" property="publisher" typeof="GovernmentOrganization"&gt;
 				&lt;a href="https://www.canada.ca/fr.html" property="URL"&gt;
 					&lt;img src="./GCWeb/assets/sig-blk-fr.svg" alt="" property="logo"&gt;
-					&lt;span class="wb-inv" property="name"&gt; Gouvernement du Canada /
+					&lt;span class="wb-inv"<del> property="name"</del>&gt; <del>Gouvernement du Canada</del> /
 						&lt;span lang="en"&gt;Government of Canada&lt;/span&gt;
 					&lt;/span&gt;
 				&lt;/a&gt;
 				&lt;meta property="areaServed" typeof="Country" content="Canada"&gt;
 				&lt;link property="logo" href="./GCWeb/assets/wmms-blk.svg"&gt;
 			&lt;/div&gt;
-			&lt;section id="wb-srch" class="col-lg-8 text-right"&gt;
+			&lt;section id="wb-srch" class="<del>col-lg-8 text-right</del>"&gt;
 				&lt;h2&gt;Recherche&lt;/h2&gt;
-				&lt;form action="#" method="post" name="cse-search-box" role="search" class="form-inline"&gt;
+				&lt;form action="#" method="post" name="cse-search-box" role="search"<del> class="form-inline"</del>&gt;
 					&lt;div class="form-group"&gt;
 						&lt;label for="wb-srch-q" class="wb-inv"&gt;Rechercher dans Canada.ca&lt;/label&gt;
 						&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Rechercher dans Canada.ca"&gt;
@@ -218,32 +207,32 @@
 <pre><code>
 &lt;header&gt;
 	&lt;div id="wb-bnr" class="container"&gt;
-		&lt;div class="row"&gt;
-			&lt;section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right"&gt;
+		<strong>&lt;div class="row"&gt;</strong>
+			&lt;section id="wb-lng" class="<strong>col-xs-3 col-sm-12 </strong>text-right"&gt;
 				&lt;h2 class="wb-inv"&gt;Sélection de la langue&lt;/h2&gt;
-				&lt;ul class="list-inline mrgn-bttm-0"&gt;
+				&lt;ul class="list-inline <strong>mrgn-bttm-0</strong>"&gt;
 					&lt;li&gt;
 						&lt;a lang="en" hreflang="en" href="home-en.html"&gt;
-						&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
-						&lt;abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;
+						<strong>&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
+						&lt;abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;</strong>
 						&lt;/a&gt;
 					&lt;/li&gt;
 				&lt;/ul&gt;
 			&lt;/section&gt;
-			&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+			&lt;div class="brand <strong>col-xs-9 col-sm-5 col-md-4</strong>" property="publisher" typeof="GovernmentOrganization"&gt;
 				&lt;a href="https://www.canada.ca/fr.html" property="URL"&gt;
 					&lt;img src="./GCWeb/assets/sig-blk-fr.svg" alt="Gouvernement du Canada" property="logo"&gt;
-						&lt;span class="wb-inv" property="name"&gt; /
+						&lt;span class="wb-inv"&gt; /
 							&lt;span lang="en"&gt;Government of Canada&lt;/span&gt;
 						&lt;/span&gt;&lt;/a&gt;
-				&lt;meta property="name" content="Gouvernement du Canada"&gt;
+				<strong>&lt;meta property="name" content="Gouvernement du Canada"&gt;</strong>
 				&lt;meta property="areaServed" typeof="Country" content="Canada"&gt;
 				&lt;link property="logo" href="./GCWeb/assets/wmms-blk.svg"&gt;
 			&lt;/div&gt;
-			&lt;section id="wb-srch" class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4"&gt;
+			&lt;section id="wb-srch" class="<strong>col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4</strong>"&gt;
 				&lt;h2&gt;Recherche&lt;/h2&gt;
 				&lt;form action="#" method="post" name="cse-search-box" role="search"&gt;
-					&lt;div class="form-group wb-srch-qry"&gt;
+					&lt;div class="form-group<strong> wb-srch-qry</strong>"&gt;
 						&lt;label for="wb-srch-q" class="wb-inv"&gt;Rechercher dans Canada.ca&lt;/label&gt;
 						&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Rechercher dans Canada.ca"&gt;
 						&lt;datalist id="wb-srch-q-ac"&gt;&lt;/datalist&gt;
@@ -262,5 +251,5 @@
 </code></pre>
 </div>
 </div>
-<p>"[...]" indique que le reste demeure inchangé.</p>
+<p class="alert alert-info"><strong>Note&nbsp;:</strong> "[...]" indique que le reste demeure inchangé.</p>
 </section>
