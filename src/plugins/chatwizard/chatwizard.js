@@ -540,10 +540,14 @@ var componentName = "wb-chtwzrd",
 			"<header class='modal-header header'><h2 class='modal-title title'>" +
 			title + "</h2><button type='button' class='reset' title='" +
 			i18nDict.reset +
-			"'> <span class='glyphicon glyphicon-refresh'></span></button>" +
+			"'> <span class='glyphicon glyphicon-refresh'></span><span class='wb-inv'>" +
+			i18nDict.reset +
+			"</span></button>" +
 			"<button type='button' class='minimize' title='" +
 			i18nDict.minimize +
-			"'><span class='glyphicon glyphicon-chevron-down'></span></button></header>" );
+			"'><span class='glyphicon glyphicon-chevron-down'></span><span class='wb-inv'>" +
+			i18nDict.minimize +
+			"</span></button></header>" );
 		$container.append( "<form class='modal-body body' method='GET'></form>" );
 
 		var $form = $( ".body", $container );
