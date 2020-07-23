@@ -12,7 +12,6 @@
 }
 ---
 <span class="wb-prettify all-pre"></span>
-
 <div class="alert alert-warning">
 	<h2>Unstable feature</h2>
 	<p>To be used at <strong>your own risk</strong>. All functionalities described below can be removed in any subsequent minor/major release and are excluded from the GCWeb public API.</p>
@@ -25,17 +24,12 @@
 	<li><a href="#documentation">Provisional feature documentation</a></li>
 	<li><a href="#examples">Provisional feature working examples</a></li>
 </ul>
-
 <h2 id="availability">Feature availability</h2>
-
 <p>The following table describes until which version of GCWeb each provisional feature will be available. The features' availability will be re-evaluated at every release. A withdrawn provisional feature would be notified one version in advance.</p>
-
 <div class="alert alert-info">
 	<h2><code>.experimental</code> depricated</h2>
-	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months.
-	It has to be replaced by <code>.provisional</code></p>
+	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months. It has to be replaced by <code>.provisional</code></p>
 </div>
-
 <details>
 	<summary>Status description</summary>
 	<dl class="dl-horizontal">
@@ -49,7 +43,6 @@
 		<dd>The v.Major.Minor represent the last version where that feature is available. Authors must consider an alternative or remove that feature.</dd>
 	</dl>
 </details>
-
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -217,14 +210,9 @@
 		</tr>
 	</tbody>
 </table>
-
 <h2 id="documentation">Provisional feature documentation</h2>
-
 <p>CSS provisional features must be accompanied by the class <code>.provisional</code> within his context of use.</p>
-
-
 <h2 id="examples">Provisional feature working examples</h2>
-
 <h3>In this section</h3>
 <ul>
 	<li><a href="#well-header-rwd-bgimg">Responsive well header with a background image</a></li>
@@ -240,18 +228,14 @@
 	<li><a href="#chckbxrdio-lg">Checkboxes and radio-buttons</a></li>
 </ul>
 <h3 id="well-header-rwd-bgimg">Responsive well header with a background image</h3>
-
 <div class="provisional bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
 		<h4 class="mrgn-tp-md">Heading</h4>
 		<p>Secondary title</p>
 	</div>
 </div>
-
-
 <h3 id="well-header-rwd-dark">Responsive well header with background image and padding controls</h3>
 <p>Mostly for campaing pages with content-fluid width.</p>
-
 <div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="container p-0 p-sm-3">
 		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
@@ -260,7 +244,6 @@
 		</div>
 	</div>
 </div>
-
 <pre><code>&lt;div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
 	&lt;div class="container p-0 p-sm-3"&gt;
 		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
@@ -269,7 +252,6 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
 <h3 id="mb-sm-5">Margin bottom small view port and up</h3>
 <div class="row">
 	<div class="col-xs-12 provisional">
@@ -285,13 +267,11 @@
 <div class="well">
 	<p>Second well</p>
 </div>
-
 <h3 id="theme-colors">Theme template colors</h3>
 <ul>
 	<li><a href="xprmntl/pink-day-en.html">Pink day</a></li>
 	<li><a href="xprmntl/dark-theme-en.html">Dark theme</a></li>
 </ul>
-
 <details>
 	<summary>Javascript code sample to schedule the CSS addition for pink day</summary>
 	<p>The following script adds the CSS class only on April 10, 2019 based on local time.</p>
@@ -309,7 +289,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 
 } )( document );</code></pre>
 </details>
-
 <h3 id="bg-img-headings">Background image on headings</h3>
 <p>Mostly for Services and information section.</p>
 <div class="row provisional">
@@ -328,7 +307,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		<p>Learn about the Indigenous consultation process in impact assessments.</p>
 	</div>
 </div>
-
 <h3 id="stretched-link">Features section with stretched links</h3>
 <p>In the following example, adding the <code>.stretched-link</code> class to the hyperlink found inside the <code>&lt;h3&gt;</code> tag will result in propagating the clickable area all the way up to the parent <code>&lt;div&gt;</code> with the <code>.col-xy-z</code> class because it has a "relative" position.</p>
 <div class="row wb-eqht provisional">
@@ -347,7 +325,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		</div>
 	</div>
 </div>
-
 <h3 id="icon-warning">Icon warning color</h3>
 <p>Adding <code>provisional icon-warning-light</code> in the class will change the color</p>
 <div class="bg-warning">
@@ -360,7 +337,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		<span class="glyphicon glyphicon-warning-sign provisional icon-warning-light mrgn-rght-md"></span> With "provisional icon-warning-light" class
 	</p>
 </div>
-
 <h3 id="gc-pg-hlpfl">Page success widget</h3>
 <p>Planned to eventually replace Report a problem. Uses multiple features: <code>wb-postbak</code> and <code>data-wb-doaction</code> plugins, as well as <code>nojs-*</code> styles and Font Awesome.</p>
 <div class="row row-no-gutters mrgn-tp-xl">
@@ -438,7 +414,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		</section>
 	</div>
 </div>
-
 <h3 id="alert">Alert designs</h3>
 <section class="provisional alert alert-danger">
 	<h3>Danger alert</h3>
@@ -456,13 +431,11 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 	<h3>Info alert</h3>
 	<p>Optional alert details.</p>
 </section>
-
 <h4>Code</h4>
 <pre><code>&lt;section class="provisional alert alert-danger"&gt;
 	&lt;h3&gt;Danger alert&lt;/h3&gt;
 	&lt;p&gt;Optional alert details.&lt;/p&gt;
 &lt;/section&gt;
-
 &lt;section class="provisional alert alert-warning"&gt;
 	&lt;h3&gt;Warning alert&lt;/h3&gt;
 	&lt;p&gt;Optional alert details.&lt;/p&gt;
@@ -479,11 +452,8 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 &lt;/section&gt;</code></pre>
 
 <h3 id="chatwizard">Chat wizard</h3>
-
 <p>There are two ways to implement the chat wizard. The more common way is to code a form, and add according classes and data attributes. The other way is to load it from a JSON file, which will generate both the form and the wizard, is useful in case one would want to implement the same chat wizard on multiple pages.</p>
-
 <h4>1. Code a form</h4>
-
 <ol>
 	<li>Code a form that has a decision tree logic, with the idea that an answer could affect what the next question would be. At the moment, all choices of answer to a question must be radio buttons only.</li>
 	<li>Wrap your form in a section, aside or div tag with a class named “.provisional.wb-chtwzrd”, along with the class “.hidden” to avoid the basic form to flicker on load. Other options are:
@@ -510,13 +480,9 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 	<li>If you want an external button to enable the chat wizard in addtition to the chat wizard bubble, you can add a button with the class named <code>.wb-chtwzrd-btn</code>.</li>
 	<li>If you only want external button to enable the chat wizard instead of chat bubble, simply add the class named <code>.wb-chtwzrd-btn-extrnl</code> on your chat wizard and the chat bubble will not be displayed.</li>
 </ol>
-
 <p>There you have it! A conversational-like experience driven by a fairly simple form.</p>
-
 <h4>2. Import a JSON File</h4>
-
 <p>Accepting JSON File as an input for batch deployments. If you have a JSON file that follows the Data API logic shown below, it can be implemented as a chat wizard instance.</p>
-
 <p>JSON File API</p>
 <pre><code>{
 	"header":{
@@ -561,9 +527,7 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		}
 	}
 }</code></pre>
-
 <p>All you need on your page is to add a data attribute named “data-wb-chtwzrd-src” to your section, aside or div tag that has the “.provisional.wb-chtwzrd” class, and provide it with the path to your JSON file.</p>
-
 <h3 id="chckbxrdio-lg">Checkboxes and radio-buttons</h3>
 <p>Large input touch targets support input and use</p>
 <p>A long time issue with checkboxes and radio buttons has been that labels don't look clickable to most people</p>
