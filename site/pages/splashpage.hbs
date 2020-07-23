@@ -9,8 +9,9 @@
 	"subject-en": "Government of Canada, services",
 	"subject-fr": "Gouvernement du Canada, services",
 	"language": "en",
+	"isBilingual": true,
 	"section": "message",
-	"dateModified": "2020-05-25"
+	"dateModified": "2020-06-03"
 }
 ---
 
@@ -18,8 +19,10 @@
 	<div class="sp-bx col-xs-12">
 		<h1 property="name" class="wb-inv">{{title}}</h1>
 		<div class="row">
-			<div class="col-xs-11 col-md-8">
-				<img src="{{assets}}/../{{site.theme}}/assets/sig-spl.svg" width="283" alt="{{{i18n "tmpl-gc-sig"}}} / {{{i18n "tmpl-gc-sig" language="fr"}}}" />
+			<div class="col-xs-11 col-md-8" property="publisher" typeof="GovernmentOrganization">
+				<img src="{{assets}}/../{{site.theme}}/assets/sig-spl.svg" width="283" alt="{{{i18n "tmpl-gc-sig"}}}" property="logo" /><span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-sig" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-sig" language="en"}}}{{/is}}</span></span>
+				<meta property="name" content="{{{i18n "tmpl-gc-sig"}}}" />
+				<meta property="areaServed" typeOf="Country" content="Canada" />
 			</div>
 		</div>
 		<div class="row">
@@ -39,7 +42,7 @@
 				<a href="https://www.canada.ca/en/transparency/terms.html" class="sp-lk">{{{i18n "tmpl-terms"}}}</a> <span class="glyphicon glyphicon-asterisk"></span> <a href="https://www.canada.ca/fr/transparence/avis.html" class="sp-lk" lang="fr">{{{i18n "tmpl-terms" language="fr"}}}</a>
 			</div>
 			<div class="col-xs-5 col-md-4 text-right mrgn-bttm-md">
-				<img src="{{assets}}/../{{site.theme}}/assets/wmms-spl.svg" width="127" alt="{{{i18n "tmpl-gc-wmms"}}} / {{{i18n "tmpl-gc-wmms" language="fr"}}}" />
+				<img src="{{assets}}/../{{site.theme}}/assets/wmms-spl.svg" width="127" alt="{{{i18n "tmpl-gc-wmms"}}}" /><span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-wmms" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-wmms" language="en"}}}{{/is}}</span></span>
 			</div>
 		</div>
 	</div>

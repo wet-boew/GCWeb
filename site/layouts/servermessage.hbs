@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="{{language}}" dir="{{{i18n "lang-dir"}}}"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="{{language}}" dir="{{{i18n "lang-dir"}}}">
-<!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -15,11 +12,13 @@
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<header role="banner" id="wb-bnr" class="container">
 			<div class="row">
-				<div class="col-sm-6">
-					<img id="gcwu-sig" src="{{assets}}/../{{site.theme}}/assets/sig-blk-{{language}}.svg" alt="{{{i18n "tmpl-gc-sig"}}} / {{#is page.language "en"}}{{{i18n "tmpl-gc-sig" language="fr"}}}{{else}}{{{i18n "tmpl-gc-sig" language="en"}}}{{/is}}" />
+				<div class="col-sm-6" property="publisher" typeof="GovernmentOrganization">
+					<img id="gcwu-sig" src="{{assets}}/../{{site.theme}}/assets/sig-blk-{{language}}.svg" alt="{{{i18n "tmpl-gc-sig"}}}" property="logo" /><span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-sig" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-sig" language="en"}}}{{/is}}</span></span>
+					<meta property="name" content="{{{i18n "tmpl-gc-sig"}}}" />
+					<meta property="areaServed" typeOf="Country" content="Canada" />
 				</div>
 				<div class="col-sm-6">
-					<img id="wmms" src="{{assets}}/../{{site.theme}}/assets/wmms-blk.svg" alt="{{{i18n "tmpl-gc-wmms"}}}" />
+					<img id="wmms" src="{{assets}}/../{{site.theme}}/assets/wmms-blk.svg" alt="{{{i18n "tmpl-gc-wmms"}}}" />{{#if page.isBilingual}}<span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-wmms" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-wmms" language="en"}}}{{/is}}</span></span>{{/if}}
 				</div>
 			</div>
 		</header>
