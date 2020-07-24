@@ -262,7 +262,26 @@ $provisional-alert-success-color: #278400;
 		@include provisional-alert-type($provisional-alert-danger-color, "\e101");
 		@extend %provisional-alert-first-child-before-disable;
 	}
+
+	/* H1 short bold red underline re-design
+	*/
+	@at-root {
+		h1#{&}.gc-thickline {
+			border-bottom: none;
+
+			&::after {
+				border-bottom: .18em solid #af3c43;
+				content: "";
+				display: block;
+				padding-bottom: 8px;
+				width: 70px;
+			}
+		}
+	}
 }
 
 // Provisional CSS for the chat wizard
 @import "src/plugins/chatwizard/base";
+
+// Provisional CSS for GC subway map menu
+@import "src/plugins/gc-subway/base";

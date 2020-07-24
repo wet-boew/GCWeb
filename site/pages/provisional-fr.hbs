@@ -7,7 +7,7 @@
 		{ "title": "Accueil GCWeb", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2020-05-25",
+	"dateModified": "2020-07-28",
 	"share": "true"
 }
 ---
@@ -22,7 +22,7 @@
 
 <h2>Disponibilité des fonctionalités</h2>
 
-<div class="alert alert-info">
+<div class="alert alert-info" lang="en">
 	<h2><code>.experimental</code> depricated</h2>
 	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months.
 	It has to be replaced by <code>.provisional</code></p>
@@ -180,6 +180,25 @@
 			</ul>
 		</td>
 		<td>v7.0</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>CSS <code>.gc-thickline</code></th>
+		<td lang="en">H1 with short bold red underline</td>
+		<td>v8.0.1</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>Template <code>.gc-subway</code></th>
+		<td lang="en">
+			<p>GC subway map navigation for Service initiation template.</p>
+			<ul>
+				<li><a href="#gc-subway">How to implement</a></li>
+				<li><a href="demos/gc-subway/gc-subway-fr.html">Working example</a></li>
+				<li><a href="https://wet-boew.github.io/wet-boew-documentation/decision/12.html">Supporting design decision</a></li>
+			</ul>
+		</td>
+		<td>v8.0.1</td>
 		<td></td>
 	</tr>
 </tbody>
@@ -520,5 +539,16 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 }</code></pre>
 
 <p>All you need on your page is to add a data attribute named “data-wb-chtwzrd-src” to your section, aside or div tag that has the “.provisional.wb-chtwzrd” class, and provide it with the path to your JSON file.</p>
+
+<h2 id="gc-subway">GC Service initiation template</h2>
+
+<p>In order to achieve the provisinal Service initiation template revamp with the subway map, you will need to complete the following steps:</p>
+<ol>
+	<li>First, you'll need a &lt;nav&gt; element with both the "provisional" and the "gc-subway" classes. Inside of that &lt;nav&gt;, put your first &lt;h1&gt;; it will be the smaller, gray-ish, upper one.</li>
+	<li>Add a &lt;ul&gt; with a "gc-subway-steps" class next to that &lt;h1&gt;. Put the links to your other pages related to that service initiation template in there.</li>
+	<li>The rest just needs your own main content for that page. Do not forget the navigation buttons at the bottom of the pages. If you want the left column to stop being at 2/3 of the width on desktop at some point, then you can stop the propagation by using any HTML element with a "gc-subway-section-end" class on it; that element needs to be a sibling of your ".gc-subway" &lt;nav&gt;.</li>
+	<li>If you want to use the new bold short red underline underneath your regular H1, then add both the "provisional" and "gc-thickline" classes on it.</li>
+</ol>
+<p>See raw code in action by <a href="demos/gc-subway/gc-subway-fr.html">checking out the working example</a>.</p>
 
 </div>

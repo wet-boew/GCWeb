@@ -1,0 +1,89 @@
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ *
+ *	Provisional GC Subway map menu
+*/
+
+.provisional {
+
+	/*** GC Subway mobile first styles ***/
+	&.gc-subway {
+		border-radius: 0px 6px 6px 0px;
+		border-right: 4px solid #26374a;
+		border-top: 4px solid #26374a;
+		margin-top: 38px;
+
+		.gc-subway-steps {
+			clear: both;
+			list-style: none;
+			padding-left: .57em;
+			padding-top: 10px;
+			position: relative;
+
+			& > li {
+				border-left: 4px solid #26374a;
+				padding: 0px 20px 30px 1em;
+			}
+			& > li::first-line {
+				line-height: 1 !important;
+			}
+
+			& > li > :first-child::before {
+				background-color: #fff;
+				border: 3px solid #26374a;
+				border-radius: 50%;
+				content: "";
+				height: 1.2em;
+				left: .05em;
+				position: absolute;
+				transition: width .2s, height .2s, left .2s, margin-top .2s;
+				width: 1.2em;
+			}
+			& > li.active > :first-child::before {
+				background-color: #26374a;
+			}
+			& > li > a[href]:hover::before,
+			& > li > a[href]:focus::before {
+				height: 1.4em;
+				left: -.05em;
+				margin-top: -.1em;
+				width: 1.4em;
+			}
+
+			& > li:last-child {
+				border-bottom: 4px solid #26374a;
+				border-bottom-left-radius: 6px;
+				border-left: 4px solid #26374a;
+			}
+		}
+
+		li .gc-subway-steps {
+			margin-top: 20px;
+			padding-left: .55em;
+
+			& > li:last-child {
+				padding-bottom: 0px;
+			}
+		}
+
+		h1 {
+			display: inline-block;
+			float: left;
+		}
+	}
+
+	/* Double H1 */
+	&.gc-subway h1,
+	&.gc-subway-section .gc-subway-h1 {
+		background-color: #fff;
+		border-bottom-width: 0px;
+		color: #555;
+		font-size: 1.3em;
+		margin-right: 20px;
+		margin-top: -19px;
+		padding: 0px 20px 10px 12px;
+	}
+}
