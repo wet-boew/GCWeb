@@ -52,13 +52,13 @@ var componentName = "wb-chtwzrd",
 			"chtwzrd-toggle": "Basculer vers l&apos;assistant",
 			"chtwzrd-notification": "Fermer la notification de discussion",
 			"chtwzrd-open": "Ouvrir l&apos;assistant de discussion",
-			"chtwzrd-minimize": "RÃ©duire l&apos;assistant de discussion",
+			"chtwzrd-minimize": "Réduire l&apos;assistant de discussion",
 			"chtwzrd-history": "Historique de discussion",
-			"chtwzrd-reply": "RÃ©pondre",
-			"chtwzrd-controls": "ContrÃ´les",
+			"chtwzrd-reply": "Répondre",
+			"chtwzrd-controls": "Contrôles",
 			"chtwzrd-toggle-basic": "Basculer vers le formulaire",
 			"chtwzrd-waiting": "En attente d&apos;un message",
-			"chtwzrd-answer": "Vous avez rÃ©pondu&nbsp;:"
+			"chtwzrd-answer": "Vous avez répondu&nbsp;:"
 		}
 	},
 
