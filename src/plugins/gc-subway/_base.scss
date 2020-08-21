@@ -16,61 +16,75 @@
 		border-top: 4px solid #26374a;
 		margin-top: 38px;
 
-		.gc-subway-steps {
+		ul {
 			clear: both;
 			list-style: none;
 			padding-left: .57em;
 			padding-top: 10px;
 			position: relative;
 
-			& > li {
+			li {
 				border-left: 4px solid #26374a;
 				padding: 0px 20px 30px 1em;
-			}
-			& > li::first-line {
-				line-height: 1 !important;
-			}
 
-			& > li > :first-child::before {
-				background-color: #fff;
-				border: 3px solid #26374a;
-				border-radius: 50%;
-				content: "";
-				height: 1.2em;
-				left: .05em;
-				position: absolute;
-				transition: width .2s, height .2s, left .2s, margin-top .2s;
-				width: 1.2em;
-			}
-			& > li.active > :first-child::before {
-				background-color: #26374a;
-			}
-			& > li > a[href]:hover::before,
-			& > li > a[href]:focus::before {
-				height: 1.4em;
-				left: -.05em;
-				margin-top: -.1em;
-				width: 1.4em;
-			}
+				&::first-line {
+					line-height: 1 !important;
+				}
 
-			& > li:last-child {
-				border-bottom: 4px solid #26374a;
-				border-bottom-left-radius: 6px;
-				border-left: 4px solid #26374a;
-			}
-		}
+				:first-child::before {
+					background-color: #fff;
+					border: 3px solid #26374a;
+					border-radius: 50%;
+					content: "";
+					height: 1.2em;
+					left: .05em;
+					position: absolute;
+					transition: width .2s, height .2s, left .2s, margin-top .2s;
+					width: 1.2em;
+				}
+				&.active > :first-child::before {
+					background-color: #26374a;
+				}
+				a[href]:hover::before,
+				a[href]:focus::before {
+					height: 1.4em;
+					left: -.05em;
+					margin-top: -.1em;
+					width: 1.4em;
+				}
+				&:last-child {
+					border-bottom: 4px solid #26374a;
+					border-bottom-left-radius: 6px;
+					border-left: 4px solid #26374a;
+				}
 
-		li .gc-subway-steps {
-			margin-top: 20px;
-			padding-left: .55em;
+				ul {
+					margin-top: 20px;
+					padding-left: .55em;
 
-			& > li:last-child {
-				padding-bottom: 0px;
+					li:last-child {
+						border-bottom-width: 0px;
+						padding-bottom: 0px;
+					}
+					&.noline li {
+						border-image: none;
+						border-left: 4px solid transparent;
+
+						&.active::before {
+							background-color: #26374a;
+							content: " ";
+							height: 4px;
+							margin-left: -2.8em;
+							margin-top: .5em;
+							position: absolute;
+							width: 1.6em;
+						}
+					}
+				}
 			}
 		}
 
 		h1 {
-			display: inline-block;
 			float: left;
 		}
 	}
@@ -84,6 +98,6 @@
 		font-size: 1.3em;
 		margin-right: 20px;
 		margin-top: -19px;
-		padding: 0px 20px 10px 12px;
+		padding: 0px 20px 10px 0px;
 	}
 }

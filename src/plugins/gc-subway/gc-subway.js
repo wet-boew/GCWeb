@@ -12,6 +12,8 @@ var $document = wb.doc,
 	selector = ".provisional." + componentName,
 	initEvent = "wb-init ." + componentName,
 	views = {
+		xxs: "xxsmallview",
+		xs: "xsmallview",
 		sm: "smallview",
 		md: "mediumview",
 		lg: "largeview",
@@ -58,8 +60,8 @@ var $document = wb.doc,
 		}
 
 		// Desktop view, setup and mutate H1s
-		if ( ( $html.hasClass( views.md ) || $html.hasClass( views.lg ) ||
-			$html.hasClass( views.xl ) ) ) {
+		if ( $html.hasClass( views.md ) || $html.hasClass( views.lg ) ||
+			$html.hasClass( views.xl ) ) {
 
 			// Initiate desktop mode only once
 			if ( !desktopInited ) {
@@ -68,7 +70,7 @@ var $document = wb.doc,
 			$h1.addClass( toggleClass );
 			$h1Copy.prependTo( $main );
 			$h2.prependTo( $menu );
-		} else if ( $html.hasClass( views.sm ) && desktopInited ) {
+		} else if ( ( $html.hasClass( views.sm ) || $html.hasClass( views.xs ) || $html.hasClass( views.xxs ) ) && desktopInited ) {
 
 			// Mobile view, mutate back to mobile first if needed
 			$h1.removeClass( toggleClass );
@@ -86,10 +88,14 @@ var $document = wb.doc,
 		$h1 = $( "h1", $elm );
 		$h2 = $( "<h2 class='h3 hidden-xs visible-md visible-lg mrgn-tp-0'>Sections</h2>" );
 		$h1Copy = $( "<p class='gc-subway-h1' aria-hidden='true'>" + $h1.text() + "</p>" );
-		$( ".gc-subway-steps" ).wrap( "<div class='gc-subway-menu-nav'></div>" );
+		$( "ul", $elm ).first().wrap( "<div class='gc-subway-menu-nav'></div>" );
 		$menu = $( ".gc-subway-menu-nav", $elm );
 		$elm.nextUntil( ".pagedetails, .gc-subway-section-end" ).wrapAll( "<section class='provisional " + mainClass + "'>" );
 		$main = $elm.next();
+
+		// Prevent on-load blinking on desktop
+		$elm.addClass( "no-blink" );
+
 		desktopInited = true;
 	};
 
