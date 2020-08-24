@@ -14,8 +14,8 @@
  * variables that are common to all instances of the plugin on a page.
  */
 var $document = wb.doc,
-	componentName = "wb-bgimg",
-	selector = ".provisional[data-bgimg], .experimental[data-bgimg]",
+	componentName = "gc-bgimg",
+	selector = ".provisional[data-bgimg], .experimental[data-bgimg], .provisional div[data-bgimg]",
 
 	init = function( event ) {
 
@@ -27,7 +27,18 @@ var $document = wb.doc,
 		if ( elm ) {
 
 			//to be replaced by CSS 4: background-image:attr(data-bgimg, url)
-			elm.style.backgroundImage = "url(" + elm.dataset.bgimg + ")";
+			elm.style.backgroundImage = "url(" + elm.dataset.bgimg.split( " " ) [ 0 ] + ")";
+
+			var width = elm.dataset.bgimg.split( " " ) [ 1 ],
+				height = elm.dataset.bgimg.split( " " ) [ 2 ];
+
+			if ( width ) {
+				elm.style.width = width + "px";
+			}
+
+			if ( height ) {
+				elm.style.height = height + "px";
+			}
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );

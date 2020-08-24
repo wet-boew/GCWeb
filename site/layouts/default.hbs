@@ -33,8 +33,19 @@
 {{#if page.deptfeature}}
 	{{>deptfeatures}}
 {{/if}}
+{{#if page.contributors}}
+	<div class="container">
+	{{>contributors}}
+	</div>
+{{/if}}
 {{#if page.dateModified}}
+	{{#if page.noMainContainer}}
+	<div class="container">
+		{{>datemodified}}
+	</div>
+	{{else}}
 	{{>datemodified}}
+	{{/if}}
 {{/if}}
 </main>
 {{#if page.secondarymenu}}
