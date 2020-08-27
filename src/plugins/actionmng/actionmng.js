@@ -1,9 +1,3 @@
-/**
- * @title WET-BOEW Action Manager
- * @overview API that coordinate actions with other wet-boew plugin
- * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @duboisp
- */
 ( function( $, wb, document ) {
 "use strict";
 
@@ -33,6 +27,7 @@ var $document = wb.doc,
 		"removeClass",
 		"tblfilter",
 		"withInput",
+		"open",
 		"run"
 	].join( "." + actionEvent + " " ) + "." + actionEvent,
 
@@ -163,6 +158,16 @@ var $document = wb.doc,
 		}
 		$elm.addClass( data.class );
 	},
+
+	/* open action start
+	Open overlay action 
+	data-wb-doaction='{ "action": "open", "source": "#id" }'
+	*/
+	openAct = function( event, data ) {	  
+	  var $elm = $( data.source || event.target );
+	  $elm.trigger( "open.wb-overlay" );   	  
+	},
+	
 	remClassAct = function( event, data ) {
 		var $elm = $( data.source || event.target );
 		if ( !data.class ) {
@@ -561,6 +566,9 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 		case "addClass":
 			addClassAct( event, data );
 			break;
+		case "open":
+			openAct( event, data );
+			break;	
 		case "removeClass":
 			remClassAct( event, data );
 			break;
