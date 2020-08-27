@@ -111,16 +111,26 @@
                 
                 $elm.wrap( "<div class='" + componentName + "-bubble-wrap' ></div>" )
             
-                /*$elm.after( "<div class='" + componentName + "-bubble-wrap'><a href='#" + componentName + "-container' aria-controls='" + componentName + "-container' class='" + componentName + "-link bubble trans-pulse' role='button'></a></div>" );
-                */
-            
-            
-                var $bubble = $( componentName + "-bubble-wrap" );
-                // Initiate chat wizard bubble
-                initiateBubble( $bubble );
-            
-                
-                
+                var li = document.createElement( "li" );
+				li.className = "wb-slc";
+				// Append the Basic HTML version link version
+			
+		
+				var data_wb_doaction_json = JSON.parse($elm.attr("data-wb-doaction"));
+			
+				if (data_wb_doaction_json){
+					li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" +data_wb_doaction_json.source +"\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
+				}
+
+				// Add link to disable WET plugins and polyfills		
+				var list = document.getElementById("wb-tphp"); 			
+				list.insertBefore(li, list.childNodes[0]); 
+
+		
+				var $bubble = $( selector + "-bubble-wrap" );
+				// Initiate chat wizard bubble
+				initiateBubble( $bubble );            
+               
                 // Call my custom event
                 $elm.trigger( "name.of.your.event", settings );
                 // Identify that initialization has completed
