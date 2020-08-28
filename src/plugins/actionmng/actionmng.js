@@ -160,14 +160,14 @@ var $document = wb.doc,
 	},
 
 	/* open action start
-	Open overlay action 
+	Open overlay action
 	data-wb-doaction='{ "action": "open", "source": "#id" }'
 	*/
-	openAct = function( event, data ) {	  
-	  var $elm = $( data.source || event.target );
-	  $elm.trigger( "open.wb-overlay" );   	  
+	openAct = function( event, data ) {
+		var $elm = $( data.source || event.target );
+		$elm.trigger( "open.wb-overlay" );   	  
 	},
-	
+
 	remClassAct = function( event, data ) {
 		var $elm = $( data.source || event.target );
 		if ( !data.class ) {
@@ -568,7 +568,7 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 			break;
 		case "open":
 			openAct( event, data );
-			break;	
+			break;
 		case "removeClass":
 			remClassAct( event, data );
 			break;
