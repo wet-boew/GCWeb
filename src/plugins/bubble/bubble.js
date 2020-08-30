@@ -121,15 +121,15 @@ var componentName = "wb-bubble",
 			li.className = "wb-slc";
 
 			// Append the Basic HTML version link version
-			var data_wb_doaction_json = JSON.parse($elm.attr( "data-wb-doaction" ));
+			var data_wb_doaction_json = JSON.parse( $elm.attr( "data-wb-doaction" ) );
 
-			if ( data_wb_doaction_json ){
-				li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" +data_wb_doaction_json.source +"\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
+			if ( data_wb_doaction_json ) {
+				li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" +data_wb_doaction_json.source + "\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
 			}
 
 			// Add link to disable WET plugins and polyfills
 			var list = document.getElementById( "wb-tphp" );
-			list.insertBefore(li, list.childNodes[ 0 ]); 
+			list.insertBefore( li, list.childNodes[ 0 ] ); 
 
 
 			var $bubble = $( selector + "-bubble-wrap" );
