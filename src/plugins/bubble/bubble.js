@@ -15,11 +15,10 @@
  */
 var componentName = "wb-bubble",
 	selector = "." + componentName,
-	selectorSkipLink = "#wb-tphp",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	defaults = {},
-	
+
 	/**
 	 * Initiate chat wizard bubble
 	 * @method initiateBubble
@@ -47,8 +46,8 @@ var componentName = "wb-bubble",
 
 			// Keep the bubble sticky while scrolling Y until user reaches the footer
 			var stickyUntilFooter = function( $element ) {
-				
-				
+
+
 				// Equals to bubble default bottom value in CSS
 				var bottomY = 30;
 
@@ -120,7 +119,7 @@ var componentName = "wb-bubble",
 			li.className = "wb-slc";
 			// Append the Basic HTML version link version
 			
-		
+
 			var data_wb_doaction_json = JSON.parse($elm.attr("data-wb-doaction"));
 			
 			if (data_wb_doaction_json){
@@ -135,10 +134,9 @@ var componentName = "wb-bubble",
 			var $bubble = $( selector + "-bubble-wrap" );
 			// Initiate chat wizard bubble
 			initiateBubble( $bubble );
-		
-			
-		
-		
+
+
+
 			// Call my custom event
 			$elm.trigger( "name.of.your.event", settings );
 			// Identify that initialization has completed
@@ -149,10 +147,6 @@ var componentName = "wb-bubble",
 $document.on( "name.of.your.event", selector, function( event, data ) {
 	var elm = event.currentTarget,
 		$elm = $( elm );
-	//$elm.append( "Hello World" );
-	
-	
-		
 	if ( data && data.domore ) {
 		$elm.prepend( "Do more" );
 	}
