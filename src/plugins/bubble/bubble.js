@@ -56,6 +56,7 @@ var componentName = "wb-bubble",
 					$element.css( {
 						bottom: ( $footer.outerHeight() - ( $( document ).outerHeight() - $( window ).outerHeight() - $( window ).scrollTop() ) + bottomY )
 					} );
+
 					//console.log($element);
 				} else {
 					$element.css( {
@@ -114,20 +115,20 @@ var componentName = "wb-bubble",
 				wb.getData( $elm, componentName )
 			);
 
-			$elm.wrap( "<div class='" + componentName + "-bubble-wrap' id=\"adafds\"></div>" )
+			$elm.wrap( "<div class='" + componentName + "-bubble-wrap' id=\"adafds\"></div>" );
 
 			var li = document.createElement( "li" );
 			li.className = "wb-slc";
 
 			// Append the Basic HTML version link version
-			var data_wb_doaction_json = JSON.parse($elm.attr("data-wb-doaction"));
+			var data_wb_doaction_json = JSON.parse($elm.attr( "data-wb-doaction" ));
 
-			if (data_wb_doaction_json){
+			if ( data_wb_doaction_json ){
 				li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" +data_wb_doaction_json.source +"\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
 			}
 
 			// Add link to disable WET plugins and polyfills
-			var list = document.getElementById("wb-tphp");
+			var list = document.getElementById( "wb-tphp" );
 			list.insertBefore(li, list.childNodes[ 0 ]); 
 
 
@@ -156,6 +157,7 @@ $document.on( "name.of.your.event", selector, function( event, data ) {
 
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
+
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 } )( jQuery, window, wb );
