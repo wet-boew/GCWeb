@@ -165,7 +165,7 @@ var $document = wb.doc,
 	*/
 	openAct = function( event, data ) {
 		var $elm = $( data.source || event.target );
-		$elm.trigger( "open.wb-overlay" );   	  
+		$elm.trigger( "open.wb-overlay" );
 	},
 
 	remClassAct = function( event, data ) {
