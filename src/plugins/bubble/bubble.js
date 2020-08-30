@@ -40,6 +40,7 @@ var componentName = "wb-bubble",
 
 		// Add some white space over the footer for the bubble to sit
 		$footer.addClass( componentName + "-mrgn" );
+
 		//console.log($selector);
 		// Ensure that the bubble does not go passed the footer
 		if ( $footer.length ) {
@@ -93,6 +94,7 @@ var componentName = "wb-bubble",
 	 * @param {jQuery Event} event Event that triggered the function call
 	 */
 	init = function( event ) {
+
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
@@ -101,6 +103,7 @@ var componentName = "wb-bubble",
 			settings;
 		if ( elm ) {
 			$elm = $( elm );
+
 			// ... Do the plugin initialisation
 			// Get the plugin JSON configuration set on attribute data-wb-bubble
 			settings = $.extend(
@@ -110,47 +113,47 @@ var componentName = "wb-bubble",
 				window[ componentName ],
 				wb.getData( $elm, componentName )
 			);
-			
-			
+
 			$elm.wrap( "<div class='" + componentName + "-bubble-wrap' id=\"adafds\"></div>" )
-			
-			
+
 			var li = document.createElement( "li" );
 			li.className = "wb-slc";
-			// Append the Basic HTML version link version
-			
 
+			// Append the Basic HTML version link version
 			var data_wb_doaction_json = JSON.parse($elm.attr("data-wb-doaction"));
-			
+
 			if (data_wb_doaction_json){
 				li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" +data_wb_doaction_json.source +"\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
 			}
 
-			// Add link to disable WET plugins and polyfills		
-			var list = document.getElementById("wb-tphp"); 			
-			list.insertBefore(li, list.childNodes[0]); 
+			// Add link to disable WET plugins and polyfills
+			var list = document.getElementById("wb-tphp");
+			list.insertBefore(li, list.childNodes[ 0 ]); 
 
-		
+
 			var $bubble = $( selector + "-bubble-wrap" );
+
 			// Initiate chat wizard bubble
 			initiateBubble( $bubble );
 
-
-
 			// Call my custom event
 			$elm.trigger( "name.of.your.event", settings );
+
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
 		}
 	};
+
 // Add your plugin event handler  , register your custom event to the selector
 $document.on( "name.of.your.event", selector, function( event, data ) {
 	var elm = event.currentTarget,
 		$elm = $( elm );
+
 	if ( data && data.domore ) {
 		$elm.prepend( "Do more" );
 	}
 } );
+
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 // Add the timer poke to initialize the plugin
