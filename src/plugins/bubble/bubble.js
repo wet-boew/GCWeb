@@ -41,7 +41,6 @@ var componentName = "wb-bubble",
 		// Add some white space over the footer for the bubble to sit
 		$footer.addClass( componentName + "-mrgn" );
 
-		//console.log($selector);
 		// Ensure that the bubble does not go passed the footer
 		if ( $footer.length ) {
 
@@ -71,6 +70,11 @@ var componentName = "wb-bubble",
 			$( window ).on( "resize scroll", function() {
 				stickyUntilFooter( $selector );
 			} );
+		} else {
+
+		  $( "main" ).after( "<footer id=\"wb-info\"></footer>" );
+		  $( "#wb-info" ).addClass( componentName + "-mrgn" );
+
 		}
 
 		// Close notification aside bubble
