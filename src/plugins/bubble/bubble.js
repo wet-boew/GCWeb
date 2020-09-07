@@ -63,10 +63,10 @@ var componentName = "wb-bubble",
 			$( window ).on( "resize scroll", function() {
 				stickyUntilFooter( $selector );
 			} );
-        } else {
+		} else {
 
-           $( "main" ).after( "<footer id=\"wb-info\"></footer>" );
-           $( "#wb-info" ).addClass( componentName + "-mrgn" );
+			$( "main" ).after( "<footer id=\"wb-info\"></footer>" );
+			$( "#wb-info" ).addClass( componentName + "-mrgn" );
 
 		}
 
@@ -92,20 +92,9 @@ var componentName = "wb-bubble",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			$elm,
-			settings;
+			$elm;
 		if ( elm ) {
 			$elm = $( elm );
-
-			// ... Do the plugin initialisation
-			// Get the plugin JSON configuration set on attribute data-wb-bubble
-			settings = $.extend(
-				true,
-				{},
-				defaults,
-				window[ componentName ],
-				wb.getData( $elm, componentName )
-			);
 
 			$elm.wrap( "<div class='" + componentName + "-bubble-wrap' id=\"adafds\"></div>" );
 
@@ -131,13 +120,13 @@ var componentName = "wb-bubble",
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
-          }
-};
+		}
+	};
 
 // Open Chat from the notification message
 $( ".notif", selector ).on( "click", function() {
-		$link.click();
-	} );
+	$link.click();
+} );
 
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
