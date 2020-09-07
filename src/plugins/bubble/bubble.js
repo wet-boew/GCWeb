@@ -73,11 +73,6 @@ var componentName = "wb-bubble",
 			} );
 		}
 
-		// Open Chat from the notification message
-		$( ".notif", $selector ).on( "click", function() {
-			$link.click();
-		} );
-
 		// Close notification aside bubble
 		$( ".notif-close", $selector ).on( "click", function( event ) {
 			event.preventDefault();
@@ -145,6 +140,11 @@ var componentName = "wb-bubble",
 		}
 	};
 
+// Open Chat from the notification message
+$( ".notif", selector ).on( "click", function() {
+		$link.click();
+	} );
+	
 // Add your plugin event handler  , register your custom event to the selector
 $document.on( "name.of.your.event", selector, function( event, data ) {
 	var elm = event.currentTarget,
