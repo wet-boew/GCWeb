@@ -125,6 +125,7 @@ var componentName = "wb-bubble",
 
 // Open Chat from the notification message
 $( ".notif", selector ).on( "click", function() {
+	var $link = $( selector + "-link" );
 	$link.click();
 } );
 
