@@ -144,16 +144,6 @@ var componentName = "wb-bubble",
 $( ".notif", selector ).on( "click", function() {
 		$link.click();
 	} );
-	
-// Add your plugin event handler  , register your custom event to the selector
-$document.on( "name.of.your.event", selector, function( event, data ) {
-	var elm = event.currentTarget,
-		$elm = $( elm );
-
-	if ( data && data.domore ) {
-		$elm.prepend( "Do more" );
-	}
-} );
 
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
