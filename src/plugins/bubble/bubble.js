@@ -132,9 +132,6 @@ var componentName = "wb-bubble",
 			// Initiate chat wizard bubble
 			initiateBubble( $bubble );
 
-			// Call my custom event
-			$elm.trigger( "name.of.your.event", settings );
-
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
 		}
