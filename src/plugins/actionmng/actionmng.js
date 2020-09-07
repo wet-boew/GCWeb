@@ -1,3 +1,10 @@
+/**
+ * @title WET-BOEW Action Manager
+ * @overview API that coordinate actions with other wet-boew plugin
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp @wyuan
+ */
+
 ( function( $, wb, document ) {
 "use strict";
 
