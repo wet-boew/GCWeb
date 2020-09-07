@@ -26,14 +26,7 @@ var componentName = "wb-bubble",
 	 */
 	initiateBubble = function( $selector ) {
 
-		var $footer = $( "#wb-info" ),
-			$link = $( selector + "-link", $selector );
-
-		// Change to custom avatar if provided
-		// TO do list to get configurable avatar
-		/*if ( datainput.header.avatar ) {
-			$link.css( "background-image", "url(" + datainput.header.avatar + ")" );
-		}*/
+		var $footer = $( "#wb-info" );
 
 		// Hide basic form on load, show chat bubble instead
 		$selector.fadeIn( "slow" );
@@ -70,10 +63,10 @@ var componentName = "wb-bubble",
 			$( window ).on( "resize scroll", function() {
 				stickyUntilFooter( $selector );
 			} );
-		} else {
+        } else {
 
-		  $( "main" ).after( "<footer id=\"wb-info\"></footer>" );
-		  $( "#wb-info" ).addClass( componentName + "-mrgn" );
+           $( "main" ).after( "<footer id=\"wb-info\"></footer>" );
+           $( "#wb-info" ).addClass( componentName + "-mrgn" );
 
 		}
 
@@ -138,8 +131,8 @@ var componentName = "wb-bubble",
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
-		}
-	};
+          }
+};
 
 // Open Chat from the notification message
 $( ".notif", selector ).on( "click", function() {
