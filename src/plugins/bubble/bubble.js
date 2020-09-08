@@ -17,7 +17,6 @@ var componentName = "wb-bubble",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
-	defaults = {},
 
 	/**
 	 * Initiate chat wizard bubble
