@@ -96,11 +96,11 @@
 	will-change: transform; }
 
 .loader-typing {
+	-webkit-transform: translateX(-50%) translateY(-50%);
 	bottom: 30%;
 	height: 6px;
 	left: 30px;
 	position: absolute;
-	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 	width: 26px; }
 
@@ -115,16 +115,16 @@
 	will-change: transform; }
 
 .loader-dot.dot1 {
-	left: 0;
 	-webkit-transform-origin: 100% 50%;
+	left: 0;
 	transform-origin: 100% 50%; }
 
 .loader-dot.dot2 {
 	-webkit-animation-delay: .1s;
+	-webkit-transform: scale(0.99);
 	animation-delay: .1s;
 	left: 50%;
 	margin-left: -3px;
-	-webkit-transform: scale(0.99);
 	transform: scale(0.99); }
 
 .loader-dot.dot3 {
@@ -199,8 +199,8 @@ button.wb-sl {
 	z-index: 1048; }
 
 .wb-bubble-bubble-wrap .bubble:focus {
-	border: 1px solid rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
+	border: 1px solid rgba(0, 0, 0, 0.5);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.7); }
 
 .wb-bubble-btn-extrnl + .wb-bubble-bubble-wrap {
@@ -395,26 +395,26 @@ button.wb-sl {
 		right: 0;
 		width: 100%; }
 	.wb-bubble-container .body {
-	-webkit-box-direction: normal;
-	-webkit-box-orient: vertical;
+		-ms-flex-direction: column;
+		-ms-flex-wrap: nowrap;
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
 		display: -webkit-box;
 		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-direction: column;
+		display: flex;		
 		flex-direction: column;
-		-ms-flex-wrap: nowrap;
 		flex-wrap: nowrap;
 		height: 100%;
 		padding-bottom: 75px;
 		width: 100%; }
 	.wb-bubble-container .conversation {
-	-ms-flex-positive: 1;
-	-webkit-box-flex: 1;
+		-ms-flex-positive: 1;
+		-webkit-box-flex: 1;
 		flex-grow: 1;
 		max-height: none;
 		min-height: 2em; }
 	.wb-bubble-container .controls {
-	-ms-flex-negative: 0;
+		-ms-flex-negative: 0;
 		flex-shrink: 0;
 		height: 75px; }
 	.wb-bubble-noscroll {
