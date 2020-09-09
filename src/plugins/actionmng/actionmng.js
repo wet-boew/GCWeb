@@ -268,7 +268,7 @@ var $document = wb.doc,
 			csvText = csvText + "\n";
 		}
 
-		wb.download( new Blob( [ csvText ], { type: "text/plain;charset=utf-8" } ), fileName );
+		wb.download( new Blob( [ "\ufeff" + csvText ], { type: "text/plain;charset=utf-8" } ), fileName );
 
 	},
 
