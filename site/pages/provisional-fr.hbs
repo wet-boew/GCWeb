@@ -7,12 +7,11 @@
 		{ "title": "Accueil GCWeb", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2020-07-28",
+	"dateModified": "2020-09-16",
 	"share": "true"
 }
 ---
 <span class="wb-prettify all-pre"></span>
-
 <div class="alert alert-warning">
 	<h2>Fonctionalité instable</h2>
 	<p>À être utilisée <strong>à vos propre risque</strong>. Toutes les fonctionnalités décrites ci-dessous pourraient être retirées lors du lancement d'une version mineure ou majeure et sont exclues de l'API publique GCWeb.</p>
@@ -20,16 +19,20 @@
 	<p>Les documents et les exemples pratiques de ces fonctionnalités pourraient être incomplets ou non disponibles.</p>
 </div>
 
-<h2>Disponibilité des fonctionalités</h2>
+<h2>Dans cette page</h2>
+<ul>
+	<li><a href="#disponibilite">Disponibilité des fonctionalités</a></li>
+	<li><a href="#documentation">Documentation des fonctionalités provisoires</a></li>
+	<li><a href="#exemples">Exemples pratiques provisoires</a></li>
+</ul>
 
-<div class="alert alert-info" lang="en">
-	<h2><code>.experimental</code> depricated</h2>
+<h2 id="disponibilite">Disponibilité des fonctionalités</h2>
+<section class="alert alert-info" lang="en">
+	<h3><code>.experimental</code> depricated</h3>
 	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months.
 	It has to be replaced by <code>.provisional</code></p>
-</div>
-
+</section>
 <p>Le tableau suivant décrit jusqu’à quelle version de GCWeb chaque fonctionnalité sera disponible. La disponibilité des fonctionnalités sera réévaluée chaque fois qu’une version est publiée. Une fonctionnalité expérimentale retirée sera communiquée une version à l’avance.</p>
-
 <details>
 	<summary>Description des états</summary>
 	<dl class="dl-horizontal">
@@ -43,188 +46,204 @@
 		<dd>La version v.Major.Minor représente la dernière version que cette fonctionalité sera disponible. Les auteurs doit considérer une solution alternative ou de faire le retrait de l'utilisation de cette fonctionalité.</dd>
 	</dl>
 </details>
-
 <table class="table table-bordered">
-<thead>
-	<tr>
-		<th>Nom</th>
-		<th>Description</th>
-		<th class="nowrap">Disponible dans</th>
-		<th>État</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<th>CSS <code>.p-0</code></th>
-		<td>Fixer un remplissage (<span lang="en">padding</span>) de 0px</td>
-		<td>v5.1</td>
-		<td>Supporté via wet-boew depuis v6.0</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.mb-sm-5</code></th>
-		<td>Fixer la marge du bas à 50px pour la vue à partir d'un petit écran et plus</td>
-		<td>v5.1</td>
-		<td>Supporté via wet-boew depuis v6.0</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.p-sm-3</code></th>
-		<td>Fixer les marges à 15px pour la vue à partir d'un petit écran et plus</td>
-		<td>v5.1</td>
-		<td>Supporté via wet-boew depuis v6.0</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.px-sm-3</code></th>
-		<td>Fixer le <span lang="en">padding</span> de gauche et de droite à 15px pour la vue à partir d'un petit écran et plus</td>
-		<td>v5.1</td>
-		<td>Supporté via wet-boew depuis v6.0</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.bg-darker</code></th>
-		<td>Couleur de fond noir complet</td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.bg-gctheme</code> et <code>.bg-gctheme.well.header-rwd</code></th>
-		<td>Couleur de fond de base du thème de GCWeb</td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.bg-pnkDy</code> et <code>.bg-pnkDy.well.header-rwd</code></th>
-		<td>Couleur de fond de la Journée rose</td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.pnkDy-theme</code> fixé globalement</th>
-		<td>Appliquer la couleur de gabarit « global » pour la couleur de la Journée rose de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.dark-theme</code> set global</th>
-		<td>Appliquer la couleur de gabarit « global » modifiée à noir complet de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.bg-cover</code></th>
-		<td>Image de fond de taille "couvrir"</td>
-		<td>v5.1</td>
-		<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
-	</tr>
-	<tr>
-		<th>Plugin <code>[data-bgimg]</code></th>
-		<td>Prendre la valeur URL et la fixer en tant qu’image de fond. Il faut le remplacer par le sélecteur CSS4</td>
-		<td>v5.1</td>
-		<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.bg-img-hdng</code></th>
-		<td>Ajouter une image de fond à un en-tête</td>
-		<td>v5.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.stretched-link</code></th>
-		<td>Propage la zone cliquable d'une balise hyperlien jusqu'au premier élément parent qui est de position relative.</td>
-		<td>v5.1</td>
-		<td>Supporté via wet-boew depuis v6.0</td>
-	</tr>
-	<tr>
-		<th>CSS <code>.icon-warning-light</code></th>
-		<td>Change the color to <code>#DF7200</code></td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Gabarit <code>.gc-pg-hlpfl</code></th>
-		<td>"Widget succès de page" configuration de conception pour laisser les utilisateurs partager leur expérience sur la page.</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.alert-danger</code></th>
-		<td>Adoptez la nouvelle conception d’alerte de danger, sans une couleur de fond.</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.alert-warning</code></th>
-		<td>Adoptez la nouvelle conception d’alerte d’avertissement, sans une couleur de fond.</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.alert-success</code></th>
-		<td>Adoptez la nouvelle conception d’alerte de succès, sans une couleur de fond.</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.alert-info</code></th>
-		<td>Adoptez la nouvelle conception d’alerte d’information, sans une couleur de fond.</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Plugin <code>.wb-chtwzrd</code></th>
-		<td lang="en">
-			<p>Transforms a simple form into a conversation like experience used as a wizard.</p>
-			<ul>
-				<li><a href="#chatwizard">Chat wizard - How to implement</a></li>
-				<li><a href="demos/chatwizard/chatwizard-en.html">Working example - Chat wizard</a></li>
-				<li><a href="demos/chatwizard/chatwizard-json-en.html">Working example - Chat wizard with JSON settings</a></li>
-				<li><a href="https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html">2019-15 Research documentation</a></li>
-			</ul>
-		</td>
-		<td>v7.0</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>CSS <code>.gc-thickline</code></th>
-		<td lang="en">H1 with short bold red underline</td>
-		<td>v8.0.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<th>Template <code>.gc-subway</code></th>
-		<td lang="en">
-			<p>GC subway map navigation for Service initiation template.</p>
-			<ul>
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th class="nowrap">Disponible dans</th>
+			<th>État</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>CSS <code>.p-0</code></th>
+			<td>Fixer un remplissage (<span lang="en">padding</span>) de 0px</td>
+			<td>v5.1</td>
+			<td>Supporté via wet-boew depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.mb-sm-5</code></th>
+			<td>Fixer la marge du bas à 50px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté via wet-boew depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.p-sm-3</code></th>
+			<td>Fixer les marges à 15px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté via wet-boew depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.px-sm-3</code></th>
+			<td>Fixer le <span lang="en">padding</span> de gauche et de droite à 15px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté via wet-boew depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-darker</code></th>
+			<td>Couleur de fond noir complet</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-gctheme</code> et <code>.bg-gctheme.well.header-rwd</code></th>
+			<td>Couleur de fond de base du thème de GCWeb</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-pnkDy</code> et <code>.bg-pnkDy.well.header-rwd</code></th>
+			<td>Couleur de fond de la Journée rose</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.pnkDy-theme</code> fixé globalement</th>
+			<td>Appliquer la couleur de gabarit « global » pour la couleur de la Journée rose de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.dark-theme</code> set global</th>
+			<td>Appliquer la couleur de gabarit « global » modifiée à noir complet de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-cover</code></th>
+			<td>Image de fond de taille "couvrir"</td>
+			<td>v5.1</td>
+			<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
+		</tr>
+		<tr>
+			<th>Plugin <code>[data-bgimg]</code></th>
+			<td>Prendre la valeur URL et la fixer en tant qu’image de fond. Il faut le remplacer par le sélecteur CSS4</td>
+			<td>v5.1</td>
+			<td>Moved to WET-BOEW. Use of <code>.provisional</code> is required in WET-BOEW</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-img-hdng</code></th>
+			<td>Ajouter une image de fond à un en-tête</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.stretched-link</code></th>
+			<td>Propage la zone cliquable d'une balise hyperlien jusqu'au premier élément parent qui est de position relative.</td>
+			<td>v5.1</td>
+			<td>Supporté via wet-boew depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.icon-warning-light</code></th>
+			<td>Change the color to <code>#DF7200</code></td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Gabarit <code>.gc-pg-hlpfl</code></th>
+			<td>"Widget succès de page" configuration de conception pour laisser les utilisateurs partager leur expérience sur la page.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-danger</code></th>
+			<td>Adoptez la nouvelle conception d’alerte de danger, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-warning</code></th>
+			<td>Adoptez la nouvelle conception d’alerte d’avertissement, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-success</code></th>
+			<td>Adoptez la nouvelle conception d’alerte de succès, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-info</code></th>
+			<td>Adoptez la nouvelle conception d’alerte d’information, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Plugin <code>.wb-chtwzrd</code></th>
+			<td lang="en">
+				<p>Transforms a simple form into a conversation like experience used as a wizard.</p>
+				<ul>
+					<li><a href="#chatwizard">Chat wizard - How to implement</a></li>
+					<li><a href="demos/chatwizard/chatwizard-en.html">Working example - Chat wizard</a></li>
+					<li><a href="demos/chatwizard/chatwizard-json-en.html">Working example - Chat wizard with JSON settings</a></li>
+					<li><a href="https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html">2019-15 Research documentation</a></li>
+				</ul>
+			</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.gc-thickline</code></th>
+			<td lang="en">H1 with short bold red underline</td>
+			<td>v8.0.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Template <code>.gc-subway</code></th>
+			<td lang="en">
+				<p>GC subway map navigation for Service initiation template.</p>
+				<ul>
 				<li><a href="#gc-subway">How to implement</a></li>
 				<li><a href="demos/gc-subway/gc-subway-fr.html">Working example</a></li>
 				<li><a href="https://wet-boew.github.io/wet-boew-documentation/decision/12.html">Supporting design decision</a></li>
-			</ul>
-		</td>
-		<td>v8.0.1</td>
-		<td></td>
-	</tr>
-</tbody>
+				</ul>
+			</td>
+			<td>v8.0.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.gc-chckbxrdio</code></th>
+			<td>
+				<p>Adoptez les nouvelles grandes cibles tactiles d'entrée pour les cases à cocher et les boutons radio</p>
+				<ul>
+					<li><a href="component/gc-chckbxrdio-fr.html">Cases à cocher et bouttons radio - Configuration de conception de Canada.ca</a></li>
+				</ul>
+			</td>
+			<td>v8.0.1</td>
+			<td></td>
+		</tr>
+	</tbody>
 </table>
-
 <p>Pour plus de fonctionnalités provisoires, consultez la <a href="https://wet-boew.github.io/wet-boew/docs/ref/provisional-fr.html">page des fonctionnalités provisoires de la WET-BOEW</a>.</p>
-
-<h2>Documentation des fonctionalités provisoires</h2>
-
+<h2 id="documentation">Documentation des fonctionalités provisoires</h2>
 <p>Les fonctionalités CSS provisoires doivent être accompagné avec la classe <code>.provisional</code> au sein de leur contexte d'utilisation.</p>
-
-<h2>Examples pratiques provisoires</h2>
-
+<h2 id="exemples">Examples pratiques provisoires</h2>
+<h3>Dans cette section</h3>
+<ul>
+	<li><a href="#well-header-rwd-bgimg">En-tête adaptable de la boîte grise avec une image de fond</a></li>
+	<li><a href="#well-header-rwd-dark">En-tête adaptable de la boîte grise avec une image de fond et des contrôles de remplissage</a></li>
+	<li><a href="#mb-sm-5">Marge du bas pour la vue à partir d'un petit écran et plus</a></li>
+	<li><a href="#theme-couleurs">Couleurs du gabarit de thème</a></li>
+	<li><a href="#bg-img-headings">Image de fond sur l'en-tête</a></li>
+	<li><a href="#stretched-link">Section <span lang="en">Features</span> avec des liens élargis</a></li>
+	<li><a href="#icon-warning">Icon warning color</a></li>
+	<li><a href="gc-pg-hlpfl">Widget succès de page</a></li>
+	<li><a href="#avis">Conceptions des avis</a></li>
+	<li><a href="#chatwizard" lang="en">Chat wizard</a></li>
+	<li><a href="#gc-subway">GC Service initiation template</a></li>
+	<li><a href="#gc-chckbxrdio">Cases à cocher et boutons radio</a></li>
+</ul>
 <h3 id="well-header-rwd-bgimg">En-tête adaptable de la boîte grise avec une image de fond</h3>
-
 <div class="provisional bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
 		<h4 class="mrgn-tp-md">En-tête</h4>
 		<p>En-tête secondaire</p>
 	</div>
 </div>
-
-
 <h3 id="well-header-rwd-dark">En-tête adaptable de la boîte grise avec une image de fond et des contrôles de remplissage</h3>
 <p>Principalement pour des pages de campagne ayant une largeur adaptable au contenu.</p>
-
 <div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
 	<div class="container p-0 p-sm-3">
 		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
@@ -233,7 +252,6 @@
 		</div>
 	</div>
 </div>
-
 <pre><code>&lt;div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
 	&lt;div class="container p-0 p-sm-3"&gt;
 		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
@@ -242,8 +260,7 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-
-<h3>Marge du bas pour la vue à partir d'un petit écran et plus</h3>
+<h3 id="mb-sm-5">Marge du bas pour la vue à partir d'un petit écran et plus</h3>
 <div class="row">
 	<div class="col-xs-12 provisional">
 		<div>
@@ -258,13 +275,11 @@
 <div class="well">
 	<p>Boîte grise secondaire</p>
 </div>
-
-<h3>Couleurs du gabarit de thème</h3>
+<h3 id="#theme-couleurs">Couleurs du gabarit de thème</h3>
 <ul>
 	<li><a href="xprmntl/pink-day-en.html">Journée rose</a></li>
 	<li><a href="xprmntl/dark-theme-en.html">Thème sombre</a></li>
 </ul>
-
 <details>
 	<summary>Échantillon du code JavaScript pour programmer l’ajout CSS pour la Journée rose</summary>
 	<p>Le script suivant ajoute la classe CSS seulement pour le 10 avril 2019 heure locale.</p>
@@ -283,7 +298,7 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 } )( document );</code></pre>
 </details>
 
-<h3>Image de fond sur l'en-tête</h3>
+<h3 id="bg-img-headings">Image de fond sur l'en-tête</h3>
 <p>Principalement pour la section Services et information.</p>
 <div class="row provisional" lang="en">
 	<div class="col-md-6 col-xs-12">
@@ -301,7 +316,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		<p>Learn about the Indigenous consultation process in impact assessments.</p>
 	</div>
 </div>
-
 <h3 id="stretched-link">Section <span lang="en">Features</span> avec des liens élargis</h3>
 <p>Dans l'exemple suivant, ajouter la classe <code>.stretched-link</code> à l'hyperlien situé à l'intérieur de la balise <code>&lt;h3&gt;</code> résulera en une propagation de la zone cliquable jusqu'au <code>&lt;div&gt;</code> parent qui contient la classe <code>.col-xy-z</code> parce que celui-ci est en position &laquo;&nbsp;relative&nbsp;&raquo;.</p>
 <div class="row wb-eqht provisional" lang="en">
@@ -320,22 +334,22 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		</div>
 	</div>
 </div>
-
-<h3>Icon warning color</h3>
-<p>Adding <code>provisional icon-warning-light</code> in the class will change the color</p>
-<div class="bg-warning">
-	<p class="h1">
-		<span class="glyphicon glyphicon-warning-sign mrgn-rght-md"></span> Without "provisional icon-warning-light" class
-	</p>
+<div lang="en">
+	<h3 id="#icon-warning">Icon warning color</h3>
+	<p>Adding <code>provisional icon-warning-light</code> in the class will change the color</p>
+	<div class="bg-warning">
+		<p class="h1">
+			<span class="glyphicon glyphicon-warning-sign mrgn-rght-md"></span> Without "provisional icon-warning-light" class
+		</p>
+	</div>
+	<div class="bg-warning">
+		<p class="h1">
+			<span class="glyphicon glyphicon-warning-sign provisional icon-warning-light mrgn-rght-md"></span> With "provisional icon-warning-light" class
+		</p>
+	</div>
 </div>
-<div class="bg-warning">
-	<p class="h1">
-		<span class="glyphicon glyphicon-warning-sign provisional icon-warning-light mrgn-rght-md"></span> With "provisional icon-warning-light" class
-	</p>
-</div>
-
 <h3 id="gc-pg-hlpfl">Widget succès de page</h3>
-<p>Est prévu pour remplacer Signaler un problème ou une erreur sur cette page éventuellement. Utilises plusieurs fonctionnalités&nbsp;: les plugiciels <code>wb-postbak</code> et <code>data-wb-doaction</code>, ainsi que les styles <code>nojs-*</code> puis Font Awesome.</p>
+<p>Est prévu pour remplacer Signaler un problème ou une erreur sur cette page éventuellement. Utilises plusieurs fonctionnalités&nbsp;: les plugiciels <code>wb-postback</code> et <code>data-wb-doaction</code>, ainsi que les styles <code>nojs-*</code> puis Font Awesome.</p>
 <div class="row row-no-gutters mrgn-tp-xl">
 	<div class="col-sm-7 col-lg-6">
 		<section class="provisional gc-pg-hlpfl">
@@ -412,8 +426,7 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 		</section>
 	</div>
 </div>
-
-<h2 id="alert">Alert designs</h2>
+<h3 id="avis">Conceptions des avis</h3>
 <section class="provisional alert alert-danger">
 	<h3>Alerte de danger</h3>
 	<p>Détails optionnel d'alerte.</p>
@@ -430,7 +443,6 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 	<h3>Alerte d’information</h3>
 	<p>Détails optionnel d'alerte.</p>
 </section>
-
 <h3>Code</h3>
 <pre><code>&lt;section class="provisional alert alert-danger"&gt;
 	&lt;h3&gt;Alerte de danger&lt;/h3&gt;
@@ -453,96 +465,88 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 &lt;/section&gt;</code></pre>
 
 <div lang="en">
-<h2 id="chatwizard">Chat wizard - How to implement</h2>
-<p><strong>(Need translation)</strong></p>
-
-<p>There are two ways to implement the chat wizard. The more common way is to code a form, and add according classes and data attributes. The other way is to load it from a JSON file, which will generate both the form and the wizard, is useful in case one would want to implement the same chat wizard on multiple pages.</p>
-
-<h3>1. Code a form</h3>
-
-<ol>
-	<li>Code a form that has a decision tree logic, with the idea that an answer could affect what the next question would be. At the moment, all choices of answer to a question must be radio buttons only.</li>
-	<li>Wrap your form in a section, aside or div tag with a class named “.provisional.wb-chtwzrd”, along with the class “.hidden” to avoid the basic form to flicker on load. Other options are:
-		<ul>
-			<li>A data attribute named “data-wb-chtwzrd-avatar” can be added with a path to an image in order to change the default avatar in the bubble and the chat window. Recommended dimensions are 45x45 pixels.</li>
-			<li>A class named “.wb-chtwzrd-inline” can be added to have the chat experience inside the content and not in a separate window. This feature should only be used on a dedicated page, since it will start right away and steals the show to other content.</li>
-		</ul>
-	</li>
-	<li>Give it a title (outside of you form) as an H2. That heading will be the title of the form, as well as the title of the chat window and the text of the notification message.</li>
-	<li>The action of your form will be the default destination page at the end of the flow. The method will define if the form will be submitted through the URL bar or in the body at the end. You can give it a name attribute too, for tracking purposes.</li>
-	<li>You will need to start your form with a greetings paragraph. That paragraph must have a “.wb-chtwzrd-greetings” class and will be the first message coming from the bot when the chat window is opened.</li>
-	<li>Same thing for the last message at the end of the conversation which is a farewell paragraph that you can put at the bottom of your form and that needs to have the “.wb-chtwzrd-farewell” class.</li>
-	<li>If you add a regular paragraph right after your greetings one, this will be considered as an introduction message, which will be mentioned by the bot right after the greetings.</li>
-	<li>The submit button is necessary as it indicates what the final submit button will show at the end of the conversation. Plus, you can add a data attribute there named “data-wb-chtwzrd-replace” that allows you to give a different value to your chat wizard than what’s in the form. <strong>This data attribute can be used on almost every textual tag inside the “.provisional.wb-chtwzrd” container to indicate what the chat wizard should display different than what the form displays.</strong></li>
-	<li>In the form itself, each question must be wrapped around a fieldset tag, with a unique ID attribute. 10. The question has to be in a legend tag, to which for instance you can use the “data-wb-chtwzrd-replace” attribute to have a more conversation-based question for the wizard.</li>
-	<li>Choices of answer must be in an unordered list, with a class named “.list-unstyled” to not show the bullet points and a class “.mrgn-tp-md” for spacing at your own taste.</li>
-	<li>The label tag has to wrap your input of type radio, with the text value wrapped in a span tag.</li>
-	<li>The input itself has a name that represents that question in the final GET query string or POST, along with the value attribute for this input in particular. Also:
-		<ul>
-			<li>The data attribute named “data-wb-chtwzrd-next” must be used on the inputs to indicate the next question (fieldset ID) to present to the user. The last question of any possible conversation in the decision tree must have that data attribute set to “none”, in order to end the conversation.</li>
-			<li>The data attribute name “data-wb-chtwzrd-url” provides the plugin with the updated destination of the redirection at the final submit.</li>
-		</ul>
-	</li>
-	<li>If you want an external button to enable the chat wizard in addtition to the chat wizard bubble, you can add a button with the class named <code>.wb-chtwzrd-btn</code>.</li>
-	<li>If you only want external button to enable the chat wizard instead of chat bubble, simply add the class named <code>.wb-chtwzrd-btn-extrnl</code> on your chat wizard and the chat bubble will not be displayed.</li>
-</ol>
-
-<p>There you have it! A conversational-like experience driven by a fairly simple form.</p>
-
-<h3>2. Import a JSON File</h3>
-
-<p>Accepting JSON File as an input for batch deployments. If you have a JSON file that follows the Data API logic shown below, it can be implemented as a chat wizard instance.</p>
-
-<p>JSON File API</p>
-<pre><code>{
-	"header":{
-		"method": "GET (default) or POST [GET]",
-		"defaultDestination": "Default results page after submission [results-en.html]",
-		"avatar": "Custom avatar URL [https://www.canada.ca/etc/designs/canada/wet-boew/assets/default-avatar.png]",
-		"inline": "If provided with any value, it will put the chat wizard inside the content instead of a seperate window [true]",
-		"first": "ID attribute of first question (will pick the first question in the form if not set) [q1]",
-		"formType": "formType dynamic (default) or static for the basic form [dynamic]",
-		"name":"Name attribute on the form for tracking purposes. Chat's form has -chat appended automatically [example]",
-		"form": {
-			"title": "Title for basic form [Help us help you]",
-			"instructions": "Introduction paragraph before basic form [If you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
-			"sendButton": "Text for the submit button in the basic form [Search now]"
+	<h3 id="chatwizard">Chat wizard - How to implement</h3>
+	<p><strong>(Need translation)</strong></p>
+	<p>There are two ways to implement the chat wizard. The more common way is to code a form, and add according classes and data attributes. The other way is to load it from a JSON file, which will generate both the form and the wizard, is useful in case one would want to implement the same chat wizard on multiple pages.</p>
+	<h4>1. Code a form</h4>
+	<ol>
+		<li>Code a form that has a decision tree logic, with the idea that an answer could affect what the next question would be. At the moment, all choices of answer to a question must be radio buttons only.</li>
+		<li>Wrap your form in a section, aside or div tag with a class named “.provisional.wb-chtwzrd”, along with the class “.hidden” to avoid the basic form to flicker on load. Other options are:
+			<ul>
+				<li>A data attribute named “data-wb-chtwzrd-avatar” can be added with a path to an image in order to change the default avatar in the bubble and the chat window. Recommended dimensions are 45x45 pixels.</li>
+				<li>A class named “.wb-chtwzrd-inline” can be added to have the chat experience inside the content and not in a separate window. This feature should only be used on a dedicated page, since it will start right away and steals the show to other content.</li>
+			</ul>
+		</li>
+		<li>Give it a title (outside of you form) as an H2. That heading will be the title of the form, as well as the title of the chat window and the text of the notification message.</li>
+		<li>The action of your form will be the default destination page at the end of the flow. The method will define if the form will be submitted through the URL bar or in the body at the end. You can give it a name attribute too, for tracking purposes.</li>
+		<li>You will need to start your form with a greetings paragraph. That paragraph must have a “.wb-chtwzrd-greetings” class and will be the first message coming from the bot when the chat window is opened.</li>
+		<li>Same thing for the last message at the end of the conversation which is a farewell paragraph that you can put at the bottom of your form and that needs to have the “.wb-chtwzrd-farewell” class.</li>
+		<li>If you add a regular paragraph right after your greetings one, this will be considered as an introduction message, which will be mentioned by the bot right after the greetings.</li>
+		<li>The submit button is necessary as it indicates what the final submit button will show at the end of the conversation. Plus, you can add a data attribute there named “data-wb-chtwzrd-replace” that allows you to give a different value to your chat wizard than what’s in the form. <strong>This data attribute can be used on almost every textual tag inside the “.provisional.wb-chtwzrd” container to indicate what the chat wizard should display different than what the form displays.</strong></li>
+		<li>In the form itself, each question must be wrapped around a fieldset tag, with a unique ID attribute. 10. The question has to be in a legend tag, to which for instance you can use the “data-wb-chtwzrd-replace” attribute to have a more conversation-based question for the wizard.</li>
+		<li>Choices of answer must be in an unordered list, with a class named “.list-unstyled” to not show the bullet points and a class “.mrgn-tp-md” for spacing at your own taste.</li>
+		<li>The label tag has to wrap your input of type radio, with the text value wrapped in a span tag.</li>
+		<li>The input itself has a name that represents that question in the final GET query string or POST, along with the value attribute for this input in particular. Also:
+			<ul>
+				<li>The data attribute named “data-wb-chtwzrd-next” must be used on the inputs to indicate the next question (fieldset ID) to present to the user. The last question of any possible conversation in the decision tree must have that data attribute set to “none”, in order to end the conversation.</li>
+				<li>The data attribute name “data-wb-chtwzrd-url” provides the plugin with the updated destination of the redirection at the final submit.</li>
+			</ul>
+		</li>
+		<li>If you want an external button to enable the chat wizard in addtition to the chat wizard bubble, you can add a button with the class named <code>.wb-chtwzrd-btn</code>.</li>
+		<li>If you only want external button to enable the chat wizard instead of chat bubble, simply add the class named <code>.wb-chtwzrd-btn-extrnl</code> on your chat wizard and the chat bubble will not be displayed.</li>
+	</ol>
+	<p>There you have it! A conversational-like experience driven by a fairly simple form.</p>
+	<h4>2. Import a JSON File</h4>
+	<p>Accepting JSON File as an input for batch deployments. If you have a JSON file that follows the Data API logic shown below, it can be implemented as a chat wizard instance.</p>
+	<p>JSON File API</p>
+	<pre><code>{
+		"header":{
+			"method": "GET (default) or POST [GET]",
+			"defaultDestination": "Default results page after submission [results-en.html]",
+			"avatar": "Custom avatar URL [https://www.canada.ca/etc/designs/canada/wet-boew/assets/default-avatar.png]",
+			"inline": "If provided with any value, it will put the chat wizard inside the content instead of a seperate window [true]",
+			"first": "ID attribute of first question (will pick the first question in the form if not set) [q1]",
+			"formType": "formType dynamic (default) or static for the basic form [dynamic]",
+			"name":"Name attribute on the form for tracking purposes. Chat's form has -chat appended automatically [example]",
+			"form": {
+				"title": "Title for basic form [Help us help you]",
+				"instructions": "Introduction paragraph before basic form [If you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
+				"sendButton": "Text for the submit button in the basic form [Search now]"
+			},
+			"title":"Title of wizard [I can help you find the information you need]",
+			"greetings":"Greetings message as first interaction with user [Hi! I can help direct you to programs and services you might be interested in. Let's begin...]",
+			"instructions": "More instructions or information before the questionnaire starts [First, if you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
+			"farewell":"Farewell message as last interaction after last question is answered [Thank you. I have built a page with results you may find resourceful.]",
+			"sendButton":"Text for the submit button after last question is answered [Show results]"
 		},
-		"title":"Title of wizard [I can help you find the information you need]",
-		"greetings":"Greetings message as first interaction with user [Hi! I can help direct you to programs and services you might be interested in. Let's begin...]",
-		"instructions": "More instructions or information before the questionnaire starts [First, if you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
-		"farewell":"Farewell message as last interaction after last question is answered [Thank you. I have built a page with results you may find resourceful.]",
-		"sendButton":"Text for the submit button after last question is answered [Show results]"
-	},
-	"questions":{
-		"q1":{
-			"name":"Name of the question [describe]",
-			"input":"Input type [radio]",
-			"labelForm":"Question in the form [What would you describe yourself as?]",
-			"label":"Question in the wizard [Are you:]",
-			"choices":[
-				{
-					"content":"Choice of answer for an input [a young Canadian]",
-					"value":"Value for the submission [young-canadian]",
-					"next":"Next question ID [q2]",
-					"url":"result page if this answer is selected [results-en.html]"
-				},
-				{
-					"...":"More choices"
-				}
-			]
-		},
-		"q2":{
-			"...":"More questions"
+		"questions":{
+			"q1":{
+				"name":"Name of the question [describe]",
+				"input":"Input type [radio]",
+				"labelForm":"Question in the form [What would you describe yourself as?]",
+				"label":"Question in the wizard [Are you:]",
+				"choices":[
+					{
+						"content":"Choice of answer for an input [a young Canadian]",
+						"value":"Value for the submission [young-canadian]",
+						"next":"Next question ID [q2]",
+						"url":"result page if this answer is selected [results-en.html]"
+					},
+					{
+						"...":"More choices"
+					}
+				]
+			},
+			"q2":{
+				"...":"More questions"
+			}
 		}
-	}
-}</code></pre>
+	}</code></pre>
+	<p>All you need on your page is to add a data attribute named “data-wb-chtwzrd-src” to your section, aside or div tag that has the “.provisional.wb-chtwzrd” class, and provide it with the path to your JSON file.</p>
+</div>
 
-<p>All you need on your page is to add a data attribute named “data-wb-chtwzrd-src” to your section, aside or div tag that has the “.provisional.wb-chtwzrd” class, and provide it with the path to your JSON file.</p>
-
-<h2 id="gc-subway">GC Service initiation template</h2>
-
-<p>In order to achieve the provisinal Service initiation template revamp with the subway map, you will need to complete the following steps:</p>
+<h3 id="gc-subway">GC Service initiation template</h3>
+<p>In order to achieve the provisional Service initiation template revamp with the subway map, you will need to complete the following steps:</p>
 <ol>
 	<li>First, you'll need a &lt;nav&gt; element with both the "provisional" and the "gc-subway" classes. Inside of that &lt;nav&gt;, put your first &lt;h1&gt;; it will be the smaller, gray-ish, upper one.</li>
 	<li>Add a &lt;ul&gt; with a "gc-subway-steps" class next to that &lt;h1&gt;. Put the links to your other pages related to that service initiation template in there.</li>
@@ -551,4 +555,36 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 </ol>
 <p>See raw code in action by <a href="demos/gc-subway/gc-subway-fr.html">checking out the working example</a>.</p>
 
+<h3 id="gc-chckbxrdio"> Cases à cocher et boutons radio </h3>
+<p> Les grandes cibles tactiles d'entrée prennent en charge la saisie et l'utilisation </p>
+<p> Un problème de longue date avec les cases à cocher et les boutons radio est que les étiquettes ne semblent pas cliquables pour la plupart des gens </p>
+<p> Même en utilisant des conceptions qui mettent en évidence le texte de l'étiquette ou mettent l'entrée et l'étiquette avec un contour gris, les études ont montré que les gens voulaient toujours cliquer sur la conception d'entrée. </p>
+<h4>Spécifications de conception</h4>
+<div class="row">
+	<div class="col-md-6">
+		<div><img src="../img/component/boutons-radio-specs.png" alt="" class="img-responsive"></div>
+		<div class="col-md-6">
+			<ol>
+				<li>Question</li>
+				<li>Bouton radio sélectionné</li>
+				<li>Bouton radio non sélectionné</li>
+				<li>Etiquette de bouton radio</li>
+			</ol>
+		</div>
+	</div>
 </div>
+
+<h4>Utilisation</h4>
+<p>Les boutons radio sont utilisés dans les modèles suivants&nbsp;:</p>
+<ul>
+	<li>Questions interactives</li>
+	<li>Formulaires</li>
+</ul>
+<p>Les cases à cocher sont utilisés dans les modèles suivants&nbsp;:</p>
+<ul>
+	<li>Questions interactives</li>
+	<li>Formulaires</li>
+	<li>Fieldflow</li>
+</ul>
+<h4>Demo et code</h4>
+<p><a href="component/gc-chckbxrdio-fr.html">Cases à cocher et bouttons radio - Configuration de conception de Canada.ca</a></p>
