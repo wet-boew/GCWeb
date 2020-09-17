@@ -1,0 +1,278 @@
+---
+{
+	"altLangPrefix": "gc-chckbxrdio",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" },
+		{ "title": "Fonctionalités provisoires", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-fr.html" }
+	],
+	"dateModified": "2020-09-16",
+	"description": "Exemples pratiques de cases à cocher et boutons radio - fonctionnalité provisoire",
+	"language": "fr",
+	"parentdir": "component",
+	"tag": "chckbxrdio",
+	"title": "Cases à cocher et boutons radio - fonctionnalité provisoire"
+}
+---
+{{>alert-provisional-demos}}
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Provisiore</dd>
+	<dt>Type</dt>
+	<dd>Conception de Canada.ca</dd>
+	<dt>Dernière revue</dt>
+	<dd>2020-07-31</dd>
+	<dt>Est conforme à</dt>
+	<dd>Spécifications du contenu et de l'architecture de l'information 2.1</dd>
+	<dt>Orientation</dt>
+	<dd><a href="https://conception.canada.ca/configurations-conception-communes/cases-cocher-boutons-radio.html">Cases à cocher et boutons radio - Configuration de conception de Canada.ca</a></dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>gc-chckbxrdio</code></li>
+		</ul>
+	</dd>
+</dl>
+<h2>Exemple pratique</h2>
+<h3>Cases à cocher et boutons radio (provisoire v1.0)</h3>
+<section>
+	<h4>Grandes cases à cocher avec étiquettes explicites</h4>
+	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+		<legend>Choisissez vos condiments&nbsp;:</legend>
+		<ul class="list-unstyled lst-spcd-2">
+			<li class="checkbox">
+				<input type="checkbox" id="cond1">
+				<label for="cond1">Ketchup</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond2">
+				<label for="cond2">Relish</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond3">
+				<label for="cond3">Moutarde</label>
+			</li>
+		</ul>
+	</fieldset>
+	<h4>Grandes cases à cocher désactivé avec étiquettes explicites</h4>
+	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+		<legend>Choisissez vos condiments&nbsp;:</legend>
+		<ul class="list-unstyled lst-spcd-2">
+			<li class="checkbox">
+				<input type="checkbox" id="cond4">
+				<label for="cond4">Ketchup</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond5" disabled>
+				<label for="cond5">Relish</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond6" class="disabled" disabled>
+				<label for="cond6">Moutarde</label>
+			</li>
+		</ul>
+	</fieldset>
+</section>
+<section>
+	<h4><span lang="en">Tickbox</span> - élément unique avec étiquette explicite dans un formulaire horizontal</h4>
+	<form class="form-inline" method="get" action="#">
+		<div class="form-group">
+			<label class="wb-inv" for="exampleInputEmail2">Courriel</label>
+			<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrez votre courriel" />
+		</div>
+		<div class="form-group">
+			<label class="wb-inv" for="exampleInputPassword2">Mot de passe</label>
+			<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Mot de passe" />
+		</div>
+		<div class="checkbox provisional gc-chckbxrdio">
+			<input id="remember2" type="checkbox" />
+			<label for="remember2">Se souvenir de moi</label>
+		</div>
+		<button type="submit" class="btn btn-default">Se connecter</button>
+	</form>
+	<h4><span lang="en">Tickbox</span> - éléments uniques avec étiquette explicite dans un </h4>
+	<div class="row">
+		<div class="col-md-3">
+			<h5 class="wb-inv">Options</h5>
+			<details open>
+				<summary>
+					<h5 class="h5">Options</h5>
+				</summary>
+				<p class="mrgn-tp-md">Utilisez les options ci-dessous pour modifier vos ...</p>
+				<form class="wb-tables-filter" data-bind-to="dataset-filter">
+					<div class="form-group">
+						<fieldset class="legend-brdr-bttm">
+							<legend><span class="field-name">Pour</span></legend>
+							<ul class="list-unstyled">
+								<li class="checkbox provisional gc-chckbxrdio">
+									<input type="checkbox" id="dt_audience1" value="">
+									<label for="dt_audience1">Tous</label>
+								</li>
+								<li class="checkbox provisional gc-chckbxrdio">
+									<input type="checkbox" id="dt_audience2" value="">
+									<label for="dt_audience2">Gouvernement</label>
+								</li>
+							</ul>
+						</fieldset>
+					</div>
+				</form>
+			</details>
+		</div>
+		<div class="col-md-9">
+			<table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite">
+				<thead>
+					<tr>
+						<th>Titre</th>
+						<th>Date de publication</th>
+						<th>Ministère</th>
+						<th>Type de nouvelles</th>
+						<th>Résumé</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Document d’information&nbsp;: Dix-sept projets d'infrastructure prévus ...</td>
+						<td>2016-07-26 14:07:00</td>
+						<td>Infrastructure Canada</td>
+						<td>Documents d’information</td>
+						<td>The governments of Canada and ...</td>
+					</tr>
+					<tr>
+						<td>Dix-sept projets d'infrastructure prévus ...</td>
+						<td>2016-07-26 14:07:00</td>
+						<td>Infrastructure Canada</td>
+						<td>Communiqués de presse</td>
+						<td>Providing community residents ...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<section>
+	<h4>Grands boutons radio avec étiquettes explicites</h4>
+	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+		<legend>Quel est votre animal favori?&nbsp;:</legend>
+		<ul class="list-unstyled lst-spcd-2">
+			<li class="radio">
+				<input type="radio" name="animal" id="animal-1">
+				<label for="animal-1">Le chien</label>
+			</li>
+			<li class="radio">
+				<input type="radio" name="animal" id="animal-2">
+				<label for="animal-2">Le chat</label>
+			</li>
+			<li class="radio">
+				<input type="radio" name="animal" id="animal-3">
+				<label for="animal-3">Le rat</label>
+			</li>
+		</ul>
+	</fieldset>
+	<h4>Grands boutons radio avec étiquettes explicites dans un formulaire horizontal</h4>
+	<fieldset class="provisional gc-chckbxrdio form-inline">
+		<legend>Veuillez choisir une option&nbsp;:</legend>
+		<div class="radio label-inline">
+			<input id="inlineRadio1" type="radio" name="optradio">
+			<label for="inlineRadio1">Option 1</label>
+		</div>
+		<div class="radio label-inline">
+			<input id="inlineRadio2" type="radio" name="optradio">
+			<label for="inlineRadio2">Option 2</label>
+		</div>
+		<div class="radio label-inline">
+			<input id="inlineRadio3" type="radio" name="optradio">
+			<label for="inlineRadio3">Option 3</label>
+		</div>
+	</fieldset>
+</section>
+<h2>Évaluation et rapport</h2>
+<p>Il n'y a pas d'évaluation et de rapport disponibles pour ce composant.</p>
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Classe CSS</th>
+		<th>Gabarit</th>
+		<th>Rendu visuel</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>s.o.</td>
+	</tr>
+</table>
+<h3>Classe CSS (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-chckbxrdio</code></dt>
+	<dd>Conposant&nbsp;: Cases à cocher et boutons radio - fonctionnalité provisiore</dd>
+</dl>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Crée&nbsp;: <code>.gc-chckbxrdio</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+<h3>Gabarit (v1.0)</h3>
+<p>Notes:</p>
+<ul>
+	<li>Ne peut être utilisé qu'avec des étiquettes explicites. Si vous devez utiliser une étiquette implicite, reportez-vous au modèle régulier de la WET-BOEW pour les cases à cocher et les boutons radio.</li>
+	<li>Ajouter la classe <code>gc-chckbxrdio</code> à l'élément <code>fieldset</code> ou l'élément parent qui contient toutes les zones d'entrée de type checkbox/radio.</li>
+	<li>Pour des cases à cocher plus compactes, la classe <code>gc-chckbxrdio</code> doit être présent dans l'élément parent de la case à cocher avec la classe <code>checkbox</code>.</li>
+	<li>Pour ajouter un état de désactivation, ajouter un attribut <code>disabled</code> à la zone d’entrée.</li>
+	<li>Pour le format horizontal, ajouter la classe <code>form-inline</code> à l'élément qui contient l'ensemble des cases à coher ou des boutons radio. Aussi ajouter la classe <code>label-inline</code> à chaque élément parent de case à cocher ou de bouton radio.</li>
+</ul>
+<h4><code>.gc-chckbxrdio</code></h4>
+<h5>Modèle avec trois cases à cocher</h5>
+<pre><code>&lt;fieldset class="provisional gc-chckbxrdio chkbxrdio-grp"&gt;
+	&lt;legend&gt;[[comp:Chckbxrdio dct:title]]:&lt;/legend&gt;
+	&lt;ul class="list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
+			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:chckbxsrdios )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
+			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:chckbxsrdios )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
+			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:chckbxsrdios )]]&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+
+<h4>Variation de la fonctionnalité: <code>.checkbox.gc-chckbxrdio</code></h4>
+<pre class="mrgn-tp-md"><code>&lt;form class="form-inline" method="get" action="#"&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Email address&lt;/label&gt;
+		&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" /&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Password&lt;/label&gt;
+		&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" /&gt;
+	&lt;/div&gt;
+	&lt;div class="checkbox provisional gc-chckbxrdio"&gt;
+		&lt;input id="[[comp:ChckbxrdioItem html:input-id]]" type="checkbox"/&gt;
+		&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:chckbxsrdios )]]&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<h3>Rendu visuel (v1.0)</h3>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Rendu original</li>
+			</ul>
+		</dd>
+	</dl>
+</details>
