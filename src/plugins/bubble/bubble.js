@@ -63,6 +63,7 @@ var componentName = "wb-bubble",
 				stickyUntilFooter( $selector );
 			} );
 		} else {
+<<<<<<< HEAD
 			$( "main" ).after( "<footer id=\"wb-info\" class=\"" + componentName + "-mrgn" + "\"></footer>" );
 		}
 
@@ -93,6 +94,41 @@ var componentName = "wb-bubble",
 			$elm = $( elm );
 
 			$elm.wrap( "<div class='" + componentName + "-wrap' id=\"adafds\"></div>" );
+=======
+
+			$( "main" ).after( "<footer id=\"wb-info\"></footer>" );
+			$( "#wb-info" ).addClass( componentName + "-mrgn" );
+
+		}
+
+		// Close notification aside bubble
+		$( ".notif-close", $selector ).on( "click", function( event ) {
+			event.preventDefault();
+			$( this ).parent().hide();
+			$selector.focus();
+
+			// Do not show notification on next load
+			localStorage.setItem( "wb-chtwzrd-notif", 1 );
+		} );
+	},
+
+
+/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm;
+		if ( elm ) {
+			$elm = $( elm );
+
+			$elm.wrap( "<div class='" + componentName + "-bubble-wrap' id=\"adafds\"></div>" );
+>>>>>>> branch 'master' of https://github.com/ctopCanada/GCWeb.git
 
 			var li = document.createElement( "li" );
 			li.className = "wb-slc";
