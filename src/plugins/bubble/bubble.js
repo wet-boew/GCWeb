@@ -20,10 +20,10 @@ var componentName = "wb-bubble",
 
 	/**
 	 * Initiate chat wizard bubble
-	 * @method initiateBubble
+	 * @method adjustBubbleMargin
 	 * @param {jQuery DOM element} $selector Element which is the actual bubble
 	 */
-	initiateBubble = function( $selector ) {
+	adjustBubbleMargin = function( $selector ) {
 
 		var $footer = $( "#wb-info" );
 
@@ -41,14 +41,13 @@ var componentName = "wb-bubble",
 
 
 				// Equals to bubble default bottom value in CSS
-				var bottomY = 30;
-
-				if ( $( window ).scrollTop() >= $( document ).outerHeight() - $( window ).outerHeight() - $footer.outerHeight() ) {
+				var bottomY = $( "main p" ).height();
+				var $window = $( window );
+				
+				if ( $window .scrollTop() >= $document.outerHeight() - $window .outerHeight() - $footer.outerHeight() ) {
 					$element.css( {
-						bottom: ( $footer.outerHeight() - ( $( document ).outerHeight() - $( window ).outerHeight() - $( window ).scrollTop() ) + bottomY )
+						bottom: ( $footer.outerHeight() - ( $document.outerHeight() - $window.outerHeight() - $window.scrollTop() ) + bottomY )
 					} );
-
-					//console.log($element);
 				} else {
 					$element.css( {
 						bottom: bottomY
@@ -73,7 +72,7 @@ var componentName = "wb-bubble",
 			$selector.focus();
 
 			// Do not show notification on next load
-			localStorage.setItem( "wb-chtwzrd-notif", 1 );
+			sessionStorage.setItem( componentName + "-notif", 1 );
 		} );
 	},
 
@@ -92,7 +91,8 @@ var componentName = "wb-bubble",
 		if ( elm ) {
 			$elm = $( elm );
 
-			$elm.wrap( "<div class='" + componentName + "-wrap' id=\"adafds\"></div>" );
+			var $bubbleElm = $( "<div class='" + componentName + "-wrap' id=\"adafds\"></div>" );
+			$elm.wrap($bubbleElm);
 
 			var li = document.createElement( "li" );
 			li.className = "wb-slc";
@@ -104,22 +104,19 @@ var componentName = "wb-bubble",
 				li.innerHTML = "<button  data-wb-doaction='{ \"action\": \"open\", \"source\": " + "\"" + data_wb_doaction_json.source + "\"" + " }' class=\"wb-sl\" >" + $elm.text() + "</button>";
 			}
 
-			// Add link to disable WET plugins and polyfills
+			// Add linke to the top page skip link.
 			var list = document.getElementById( "wb-tphp" );
 			list.insertBefore( li, list.childNodes[ 0 ] );
 
-
-			var $bubble = $( selector + "-bubble-wrap" );
-
 			// Initiate chat wizard bubble
-			initiateBubble( $bubble );
+			adjustBubbleMargin( $elm.parent() );
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
 		}
 	};
 
-// Open Chat from the notification message
+// Open overlay from the notification message
 $( ".notif", selector ).on( "click", function() {
 	var $link = $( selector + "-link" );
 	$link.click();

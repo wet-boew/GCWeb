@@ -170,7 +170,7 @@ var $document = wb.doc,
 	Open overlay action
 	data-wb-doaction='{ "action": "open", "source": "#id" }'
 	*/
-	openAct = function( event, data ) {
+	openDialog = function( event, data ) {
 		var $elm = $( data.source || event.target );
 		$elm.trigger( "open.wb-overlay" );
 	},
@@ -574,7 +574,7 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 			addClassAct( event, data );
 			break;
 		case "open":
-			openAct( event, data );
+			openDialog( event, data );
 			break;
 		case "removeClass":
 			remClassAct( event, data );

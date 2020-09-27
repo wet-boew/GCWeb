@@ -113,9 +113,8 @@ button.wb-sl {
 	position: fixed;
 	right: 30px;
 	width: 60px;
-	z-index: 1049; }
-
-.wb-bubble-wrap p {
+	z-index: 1049; 
+	p {
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .45);
 	background: #335075;
 	border-bottom-left-radius: 25px;
@@ -129,9 +128,12 @@ button.wb-sl {
 	position: relative;
 	right: 195px;
 	top: 5px;
-	width: 225px; }
-
-.wb-bubble-wrap p .notif-close {
+	width: 225px; 
+	}
+	.notif {
+	cursor: pointer; 
+	}
+	p .notif-close {
 	background: #333;
 	border-radius: 50%;
 	color: #fff;
@@ -143,12 +145,9 @@ button.wb-sl {
 	text-align: center;
 	text-decoration: none;
 	top: 0;
-	width: 1.25em; }
-
-.wb-bubble-wrap .notif {
-	cursor: pointer; }
-
-.wb-bubble-wrap .bubble {
+	width: 1.25em; 
+	}
+	.bubble {
 	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .45);
 	background: #fff url("../assets/default-avatar.png") center no-repeat;
 	border-radius: 50%;
@@ -161,12 +160,14 @@ button.wb-sl {
 	text-indent: -9999px;
 	white-space: nowrap;
 	width: 100%;
-	z-index: 1048; }
-
-.wb-bubble-wrap .bubble:focus {
+	z-index: 1048; 
+	}
+	.bubble:focus {
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .7);
 	border: 1px solid rgba(0, 0, 0, .5);
-	box-shadow: 0 2px 3px rgba(0, 0, 0, .7); }
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .7); 
+	}
+}
 
 .wb-bubble-btn-extrnl + .wb-bubble-wrap {
 	display: none !important; }
@@ -174,154 +175,9 @@ button.wb-sl {
 .wb-disable .wb-bubble.hidden {
 	display: block !important; }
 
-.wb-bubble-container {
-	background-color: #fff;
-	bottom: 20px;
-	display: none;
-	font-size: .9em;
-	min-height: 200px;
-	overflow: hidden;
-	position: fixed;
-	right: 20px;
-	width: 25%;
-	z-index: 1050; }
-
-.wb-bubble-container .header {
-	max-height: 70px;
-	min-height: 39px;
-	padding-right: 84px; }
-
-.wb-bubble-container .header .title {
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-	display: -webkit-box;
-	font-size: 19px;
-	line-height: 1.35;
-	overflow: hidden;
-	padding: 6px 0;
-	text-overflow: ellipsis; }
-
-.wb-bubble-container .minimize, .wb-bubble-container .reset {
-	-webkit-appearance: none;
-	background: transparent;
-	border: 0;
-	color: #fff;
-	filter: alpha(opacity=65);
-	font-size: 1em;
-	font-weight: 700;
-	height: 40px;
-	line-height: 41px;
-	margin: 0;
-	opacity: .65;
-	overflow: visible;
-	padding: 0;
-	position: absolute;
-	right: 0;
-	text-decoration: none;
-	top: 0;
-	width: 40px; }
-
-.wb-bubble-container .reset {
-	right: 42px; }
-
-.wb-bubble-container .minimize:focus, .wb-bubble-container .reset:focus {
-	opacity: 1;
-	outline: 1px dotted #fff;
-	outline-offset: -2px; }
-
-.wb-bubble-container .conversation {
-	margin-bottom: 15px;
-	max-height: 45vh;
-	min-height: 200px;
-	overflow-x: hidden;
-	overflow-y: auto; }
-
-.wb-bubble-container .history {
-	padding-top: 15px; }
-
-.wb-bubble-container .history::before {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), to(rgba(255, 255, 255, 0)));
-	background: linear-gradient(to bottom, #fff 20%, rgba(255, 255, 255, 0) 100%);
-	content: "";
-	height: 40px;
-	left: 0;
-	pointer-events: none;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 1054; }
-
-.wb-bubble-container .controls {
-	height: 75px; }
-
-.wb-bubble-container .inputs-zone fieldset:first-child {
-	border-top: 1px solid #e5e5e5; }
-
-.wb-bubble-container .inputs-zone ul:last-child {
-	margin-bottom: 0; }
-
-.wb-bubble-container .choices input[type=radio]:checked + span {
-	color: #333; }
-
-.wb-bubble-container h4,
-.wb-bubble-container legend,
-.wb-bubble-container h4 .question a {
-	font-size: 1em;
-	line-height: 1.4375; }
-
-.wb-bubble-container .question,
-.wb-bubble-container .message,
-.wb-bubble-container label,
-.wb-bubble-container .question {
-	border-radius: 15px;
-	color: #5a5a5a;
-	font-weight: normal;
-	padding: 8px 12px;
-	width: auto; }
-
-.wb-bubble-container .question {
-	background-color: #efefef;
-	min-width: 60px;
-	position: relative; }
-
-.wb-bubble-container .message:focus {
-	-webkit-box-shadow: 0 0 4px #666;
-	box-shadow: 0 0 4px #666; }
-
-.wb-bubble-container .message,
-.wb-bubble-container label {
-	background-color: #ddd; }
-
-.wb-bubble-container .message {
-	margin-right: 15px; }
-
-.wb-bubble-container label {
-	border: 1px solid #c1c1c1;
-	font-weight: bold;
-	padding: 6px 10px; }
-
-.wb-bubble-container .avatar,
-.wb-bubble-container .question {
-	display: table-cell;
-	vertical-align: middle; }
-
-.wb-bubble-container .avatar {
-	background-color: #fff;
-	background-image: url("../assets/default-avatar.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 25px;
-	height: 30px;
-	width: 30px; }
-
-.wb-bubble-container .basic-link {
-	min-height: inherit; }
 
 .wb-bubble-mrgn {
 	margin-top: 80px; }
-
-.wb-bubble-container legend:focus {
-	outline: 1px dotted #666; }
 
 .wb-bubble-contained {
 	-webkit-box-shadow: none;
@@ -341,45 +197,9 @@ button.wb-sl {
 .wb-bubble-contained .reset {
 	right: 0; }
 
-@media screen and (max-width: 1199px) {
-	.wb-bubble-container {
-		width: 35%; } }
-
-@media screen and (max-width: 992px) {
-	.wb-bubble-container {
-		width: 45%; } }
-
 @media screen and (max-width: 768px) {
 	.wb-bubble-wrap {
 		right: 10px; }
-	.wb-bubble-container {
-		bottom: 0;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		right: 0;
-		width: 100%; }
-	.wb-bubble-container .body {
-		-ms-flex-direction: column;
-		-ms-flex-wrap: nowrap;
-		-webkit-box-direction: normal;
-		-webkit-box-orient: vertical;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
-		height: 100%;
-		padding-bottom: 75px;
-		width: 100%; }
-	.wb-bubble-container .conversation {
-		-ms-flex-positive: 1;
-		-webkit-box-flex: 1;
-		flex-grow: 1;
-		max-height: none;
-		min-height: 2em; }
-	.wb-bubble-container .controls {
-		-ms-flex-negative: 0;
-		flex-shrink: 0;
-		height: 75px; }
 	.wb-bubble-noscroll {
 		overflow: hidden !important; }
 	.wb-bubble-wrap p .notif-close {
