@@ -43,7 +43,7 @@ var componentName = "wb-bubble",
 				// Equals to bubble default bottom value in CSS
 				var bottomY = $( "main p" ).height();
 				var $window = $( window );
-				
+
 				if ( $window .scrollTop() >= $document.outerHeight() - $window .outerHeight() - $footer.outerHeight() ) {
 					$element.css( {
 						bottom: ( $footer.outerHeight() - ( $document.outerHeight() - $window.outerHeight() - $window.scrollTop() ) + bottomY )
@@ -92,7 +92,7 @@ var componentName = "wb-bubble",
 			$elm = $( elm );
 
 			var $bubbleElm = $( "<div class='" + componentName + "-wrap' id=\"adafds\"></div>" );
-			$elm.wrap($bubbleElm);
+			$elm.wrap( $bubbleElm );
 
 			var li = document.createElement( "li" );
 			li.className = "wb-slc";
