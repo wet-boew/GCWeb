@@ -1,0 +1,106 @@
+---
+{
+	"title": "Gestionnaire JSON avec l'exécuteur d'action de patches",
+	"language": "fr",
+	"category": "Plugiciels",
+	"description": "Gérer des jeux de données et applique des correctifs JSON avec l'exécuteur d'action de patches.",
+	"tag": "jsonmanager",
+	"parentdir": "jsonmanager",
+	"altLangPrefix": "jsonmanager-doaction",
+	"dateModified": "2020-10-12"
+}
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="jsonmanager-doc-fr.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=JSON%20Manager">Questions ou commentaires?</a></li>
+</ul>
+<div class="wb-prettify all-pre"></div>
+
+<p>Gérer des jeux de données et applique des correctifs JSON avec l'exécuteur d'action de patches.</p>
+
+<!-- Définition du nom du jeux de données -->
+<div id="monIdPourBonjourLeMonde" data-wb-jsonmanager='{"name": "helloworld"}'></div>
+
+<!-- Affichage de la valeur -->
+<p>La valeur est:</p>
+<div class="mrgn-bttm-lg">
+	<output data-json-replace="#[helloworld]/yep">Présentement non définie</output>
+</div>
+
+<!-- Boutton d'action -->
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#monIdPourBonjourLeMonde",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": "un test"
+		}
+	}'>Définir la valeur à: <code>un test</code></button>
+
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#monIdPourBonjourLeMonde",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": "un second essais"
+		}
+	}'>Définir la valeur à: <code>un second essais</code></button>
+
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#monIdPourBonjourLeMonde",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": 123
+		}
+	}'>Définir la valeur à: <code>123</code></button>
+
+<h2>Code source</h2>
+<pre><code>&lt;!-- Définition du nom du jeux de données --&gt;
+&lt;div id=&quot;monIdPourBonjourLeMonde&quot; data-wb-jsonmanager='{&quot;name&quot;: &quot;helloworld&quot;}'&gt;&lt;/div&gt;
+
+&lt;!-- Affichage de la valeur --&gt;
+&lt;p&gt;La valeur est:&lt;/p&gt;
+&lt;div class=&quot;mrgn-bttm-lg&quot;&gt;
+	&lt;output data-json-replace=&quot;#[helloworld]/yep&quot;&gt;Présentement non définie&lt;/output&gt;
+&lt;/div&gt;
+
+&lt;!-- Boutton d'action --&gt;
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#monIdPourBonjourLeMonde&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: &quot;un test&quot;
+		}
+	}'&gt;Définir la valeur à: &lt;code&gt;un test&lt;/code&gt;&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#monIdPourBonjourLeMonde&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: &quot;un second essais&quot;
+		}
+	}'&gt;Définir la valeur à: &lt;code&gt;un second essais&lt;/code&gt;&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#monIdPourBonjourLeMonde&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: 123
+		}
+	}'&gt;Définir la valeur à: &lt;code&gt;123&lt;/code&gt;&lt;/button&gt;</code></pre>
