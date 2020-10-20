@@ -269,6 +269,11 @@ var componentName = "wb-jsonmanager",
 							wb.ready( $elm, componentName );
 						}
 					} else {
+
+						// Do an empty fetch to ensure jsonPointer is loaded and correctly initialized
+						$elm.trigger( {
+							type: "json-fetch.wb"
+						} );
 						wb.ready( $elm, componentName );
 					}
 				}

@@ -1,0 +1,106 @@
+---
+{
+	"title": "JSON Manager with Do Action patches",
+	"language": "en",
+	"category": "Plugins",
+	"description": "Manage dataset and apply JSON Patch with DoAction plugin",
+	"tag": "jsonmanager",
+	"parentdir": "jsonmanager",
+	"altLangPrefix": "jsonmanager-doaction",
+	"dateModified": "2020-10-12"
+}
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="jsonmanager-doc-en.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=JSON%20Manager">Questions or comments?</a></li>
+</ul>
+<div class="wb-prettify all-pre"></div>
+
+<p>Manage dataset and apply JSON Patch with DoAction plugin.</p>
+
+<!-- JSON Manager defining the dataset name -->
+<div id="myIdForHelloWorld" data-wb-jsonmanager='{"name": "helloworld"}'></div>
+
+<!-- Display the value -->
+<p>The value is:</p>
+<div class="mrgn-bttm-lg">
+	<output data-json-replace="#[helloworld]/yep">Not set yet</output>
+</div>
+
+<!-- Action button -->
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#myIdForHelloWorld",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": "a test"
+		}
+	}'>Set value to: <code>a test</code></button>
+
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#myIdForHelloWorld",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": "a second test"
+		}
+	}'>Set value to: <code>a second test</code></button>
+
+<button class="btn btn-default" type="button" data-wb-doaction='{
+	"action": "patch",
+	"source": "#myIdForHelloWorld",
+	"patches":
+		{
+			"op": "add",
+			"path": "/yep",
+			"value": 123
+		}
+	}'>Set value to: <code>123</code></button>
+
+<h2>Source code</h2>
+<pre><code>&lt;!-- JSON Manager defining the dataset name --&gt;
+&lt;div id=&quot;myIdForHelloWorld&quot; data-wb-jsonmanager='{&quot;name&quot;: &quot;helloworld&quot;}'&gt;&lt;/div&gt;
+
+&lt;!-- Display the value --&gt;
+&lt;p&gt;The value is:&lt;/p&gt;
+&lt;div class=&quot;mrgn-bttm-lg&quot;&gt;
+	&lt;output data-json-replace=&quot;#[helloworld]/yep&quot;&gt;Not set yet&lt;/output&gt;
+&lt;/div&gt;
+
+&lt;!-- Action button --&gt;
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#myIdForHelloWorld&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: &quot;a test&quot;
+		}
+	}'&gt;Set value to: &lt;code&gt;a test&lt;/code&gt;&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#myIdForHelloWorld&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: &quot;a second test&quot;
+		}
+	}'&gt;Set value to: &lt;code&gt;a second test&lt;/code&gt;&lt;/button&gt;
+
+&lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot; data-wb-doaction='{
+	&quot;action&quot;: &quot;patch&quot;,
+	&quot;source&quot;: &quot;#myIdForHelloWorld&quot;,
+	&quot;patches&quot;:
+		{
+			&quot;op&quot;: &quot;add&quot;,
+			&quot;path&quot;: &quot;/yep&quot;,
+			&quot;value&quot;: 123
+		}
+	}'&gt;Set value to: &lt;code&gt;123&lt;/code&gt;&lt;/button&gt;</code></pre>

@@ -46,7 +46,7 @@ var $document = wb.doc,
 $document.on( fetchEvent, function( event ) {
 
 	var caller = event.element || event.target,
-		fetchOpts = event.fetch,
+		fetchOpts = event.fetch || { url: "" },
 		urlParts = fetchOpts.url.split( "#" ),
 		url = urlParts[ 0 ],
 		fetchNoCache = fetchOpts.nocache,
@@ -110,6 +110,11 @@ $document.on( fetchEvent, function( event ) {
 		Modernizr.load( {
 			load: "site!deps/jsonpointer" + wb.getMode() + ".js",
 			complete: function() {
+
+				// Ensure this fetch has an URL. There is no URL when only using dataset name (a virtual JSON file).
+				if ( !url ) {
+					return;
+				}
 
 				if ( !fetchOpts.nocache ) {
 					cachedResponse = jsonCache[ url ];
