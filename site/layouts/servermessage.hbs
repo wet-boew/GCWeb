@@ -9,10 +9,10 @@
 		<meta name="robots" content="noindex, nofollow, noarchive" />
 		{{>servermessageresources}}
 	</head>
-	<body vocab="http://schema.org/" typeof="WebPage">
+	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
 		<header role="banner" id="wb-bnr" class="container">
 			<div class="row">
-				<div class="col-sm-6" property="publisher" typeof="GovernmentOrganization">
+				<div class="col-sm-6" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
 					<img id="gcwu-sig" src="{{assets}}/../{{site.theme}}/assets/sig-blk-{{language}}.svg" alt="{{{i18n "tmpl-gc-sig"}}}" property="logo" /><span class="wb-inv"> / <span lang="{{#is page.language "en"}}fr">{{{i18n "tmpl-gc-sig" language="fr"}}}{{else}}en">{{{i18n "tmpl-gc-sig" language="en"}}}{{/is}}</span></span>
 					<meta property="name" content="{{{i18n "tmpl-gc-sig"}}}" />
 					<meta property="areaServed" typeOf="Country" content="Canada" />
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 		</header>
-		<main role="main" property="mainContentOfPage" typeof="WebPageElement" class="container">
+		<main role="main" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
 			<div class="row mrgn-tp-lg">
 				{{>body}}
 			</div>
