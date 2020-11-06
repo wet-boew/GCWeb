@@ -1,0 +1,185 @@
+---
+{
+	"altLangPrefix": "gc-checklist",
+	"breadcrumb": [
+		{ "title": "Accueil GCWebWeb", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" },
+		{ "title": "Fonctionalités provisoires", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-fr.html" }
+	],
+	"dateModified": "2021-03-05",
+	"description": "Exemples pratiques de liste de vérification - fonctionnalité provisoire",
+	"language": "fr",
+	"pageclass": "cnt-wdth-lmtd",
+	"parentdir": "component",
+	"tag": "checklist",
+	"title": "Liste de vérification - fonctionnalité provisoire"
+}
+---
+{{>alert-provisional-demos}}
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Provisiore</dd>
+	<dt>Type</dt>
+	<dd>Conception de Canada.ca</dd>
+	<dt>Dernière revue</dt>
+	<dd>2021-03-05</dd>
+	<dt>Est conforme à</dt>
+	<dd>&nbsp;</dd>
+	<dt>Orientation</dt>
+	<dd><a href="https://conception.canada.ca/configurations-conception-communes/cases-cocher-boutons-radio.html">Cases à cocher et boutons radio - Configuration de conception de Canada.ca</a></dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>gc-checklist</code></li>
+		</ul>
+	</dd>
+</dl>
+<h2>Exemple pratique</h2>
+<section>
+	<h3>Exemple 1</h3>
+	<p>[Pour être admissible, vous devez remplir <strong>toutes</strong> les conditions requises suivantes&nbsp;:] <small class="text-muted">(liste de vérification, grandes cases)</small></p>
+	<div class="provisional gc-checklist">
+		<ul class="lst-none lst-spcd-2">
+			<li class="checkbox">
+				<input type="checkbox" id="cond1" required="required">
+				<label for="cond1">[Condition 1] (obligatoire)</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond2">
+				<label for="cond2">[Condition 2]</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond3" required>
+				<label for="cond3">[Condition 3] (obligatoire)</label>
+			</li>
+		</ul>
+		<output>
+			<p class="failure-message bg-danger p-sm-3 text-danger">[Vous avez besoin de tous les critères requis pour appeler]</p>
+			<p class="success-message bg-success p-sm-3 text-success hidden">[Vous êtes prêt à appeler]</p>
+		</output>
+	</div>
+</section>
+<section>
+	<h3>Example 2</h3>
+	<p>[Pour être admissible, vous devez remplir <strong>toutes</strong> les conditions requises suivantes&nbsp;:] <small class="text-muted">(liste de vérification, petites cases)</small></p>
+	<div class="provisional gc-checklist">
+		<ul class="lst-none lst-spcd">
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond4" required>
+				<label for="cond4">[Condition 4] (obligatoire)</label>
+			</li>
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond5" required>
+				<label for="cond5">[Condition 5] (obligatoire)</label>
+			</li>
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond6" required>
+				<label for="cond6">[Condition 6] (obligatoire)</label>
+			</li>
+		</ul>
+		<output>
+			<p class="failure-message bg-danger p-sm-3 text-danger">[Vous devez rencontrer tous les critères avant d'appeler]</p>
+			<p class="success-message bg-success p-sm-3 text-success hidden">[Vous êtes prêt à appeler]</p>
+		</output>
+	</div>
+</section>
+<section>
+	<h2>Évaluation et rapport</h2>
+	<p>Nous évaluons actuellement l'impact sur l'accessibilité d'avoir des cases à cocher en dehors d'un élément de formulaire. C'est toujours du code HTML valide, mais l'une des préoccupations concerne le mode formulaire avec les lecteurs d'écran.</p>
+</section>
+<section>
+	<h2>API (2021-03-05)</h2>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Classe CSS</th>
+				<th>Gabarit</th>
+				<th>Rendu visuel</th>
+				<th>Schema</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>Classe CSS (2021-03-05)</h3>
+	<dl class="dl-horizontal">
+		<dt><code>gc-checklist</code></dt>
+		<dd>Conposant&nbsp;: Liste de vérification (liste de contrôle) - fonctionnalité provisiore</dd>
+	</dl>
+	<detail>
+		<summary>Notes sur les versions</summary>
+		<p>Pas de contrôle de version</p>
+	</detail>
+	<h3>Gabarit (2021-03-05)</h3>
+	<p>Évitez d'utiliser des éléments <code>&lt;form&gt;</code> lorsque vous avez besoin d'une liste de vérification qui n'a pas besoin d'être soumis.</p>
+	<p>Notes:</p>
+	<ul>
+		<li>Ajouter la classe <code>.gc-checklist</code> sur l'élément parent des éléments de la liste de vérification.</li>
+		<li>L'élément <code>&lt;input type="checkbox"&gt;</code> peut être utilisé sans un élément parent <code>&lt;form&gt;</code>.</li>
+		<li>Ne devrait pas être combiné avec d'autres éléments de formulaire. Seulement bâtir une liste de vérification autonome. Si d'autres éléments de formulaire sont nécessaires, considérez bâtir un formulaire regulier</li>
+		<li>Le message de rétroaction est optionel (<code>data-gc-checklist</code>)</li>
+	</ul>
+	<h4><code>.gc-checklist</code></h4>
+	<h5>Composition avec les grandes cases à cocher</h5>
+	<pre><code>&lt;div class="provisional gc-checklist"&gt;
+	&lt;ul class="lst-none lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond1" required&gt;
+			&lt;label for="cond1"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond2"&gt;
+			&lt;label for="cond2"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond3"&gt; required
+			&lt;label for="cond3"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;output&gt;
+		&lt;p class="failure-message bg-danger" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+		&lt;p class="success-message bg-success hidden" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+	&lt;/output&gt;
+&lt;/div&gt;</code></pre>
+
+	<h4>Variation de la fonctionnalité&nbsp;: <code>.gc-checklist .checkbox-sm</code></h4>
+	<pre class="mrgn-tp-md"><code>&lt;div class="provisional gc-checklist"&gt;
+	&lt;ul class="lst-none lst-spcd-2" &gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond4" required&gt;
+			&lt;label for="cond4"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond5"&gt;
+			&lt;label for="cond5"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond6"&gt;required
+			&lt;label for="cond6"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;output&gt;
+		&lt;p class="failure-message bg-danger" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+		&lt;p class="success-message bg-success hidden" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+	&lt;/output&gt;
+&lt;/div&gt;</code></pre>
+	<h3>Rendu visuel (2021-03-05)</h3>
+	<details>
+		<summary>Notes sur les versions</summary>
+		<dl class="dl-horizontal">
+			<dt>Pas de contrôle de version</dt>
+			<dd>
+				<ul>
+					<li>Rendu original</li>
+				</ul>
+			</dd>
+		</dl>
+	</details>
+</section>
