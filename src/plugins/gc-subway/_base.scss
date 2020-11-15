@@ -7,6 +7,32 @@
  *	Provisional GC Subway map menu
 */
 
+@mixin dt-li($paddingBottom, $fcb-left, $fcb-width, $ahb-height, $ahb-left, $ahb-width ) {
+	border-left: 4px solid #26374a;
+	padding: 0px 20px $paddingBottom 1em;
+	:first-child::before {
+		background-color: #fff;
+		border: 3px solid #26374a;
+		border-radius: 50%;
+		content: "";
+		height: 1.2em;
+		left: $fcb-left;
+		position: absolute;
+		transition: width .2s, height .2s, left .2s, margin-top .2s;
+		width: $fcb-width;
+	}
+	&.active> :first-child::before {
+		background-color: #26374a;
+	}
+	a[href]:hover::before,
+	a[href]:focus::before {
+		height: 1.5em;
+		left: -.1em;
+		margin-top: -.1em;
+		width: 1.5em;
+	}
+}
+
 .provisional {
 
 	/*** GC Subway mobile first styles ***/
@@ -16,46 +42,47 @@
 		border-top: 4px solid #26374a;
 		margin-top: 38px;
 
-		ul {
+		ul,
+		dl {
 			clear: both;
 			list-style: none;
 			padding-left: .57em;
 			padding-top: 10px;
 			position: relative;
 
-			li {
-				border-left: 4px solid #26374a;
-				padding: 0px 20px 30px 1em;
+			dt {
+				@include dt-li(3px, 0em, 1.3em, 1.5em, -.1em, 1.5em);
+				font-weight: normal;
+				&:last-of-type {
+					border-left: 5px solid transparent;
+					padding-bottom: 0;
+				}
+			}
 
+			dd {
+				border-left: 4px solid #26374a;
+				line-height: inherit !important;
+				margin-bottom: 0px;
+				margin-top: -3px;
+				padding: 0px 20px 20px 1em;
+
+				&:last-child {
+					border-left: 5px solid transparent;
+					padding-bottom: 0;
+				}
+			}
+
+			li {
+				@include dt-li(30px, .05em, 1.2em, 1.4em, -.05em, 1.4em);
 				&::first-line {
 					line-height: 1 !important;
-				}
-				:first-child::before {
-					background-color: #fff;
-					border: 3px solid #26374a;
-					border-radius: 50%;
-					content: "";
-					height: 1.2em;
-					left: .05em;
-					position: absolute;
-					transition: width .2s, height .2s, left .2s, margin-top .2s;
-					width: 1.2em;
-				}
-				&.active > :first-child::before {
-					background-color: #26374a;
-				}
-				a[href]:hover::before,
-				a[href]:focus::before {
-					height: 1.4em;
-					left: -.05em;
-					margin-top: -.1em;
-					width: 1.4em;
 				}
 				&:last-child {
 					border-bottom: 4px solid #26374a;
 					border-bottom-left-radius: 6px;
 					border-left: 4px solid #26374a;
 				}
+
 				ul {
 					margin-top: 20px;
 					padding-left: .55em;
@@ -64,6 +91,7 @@
 						border-bottom-width: 0px;
 						padding-bottom: 0px;
 					}
+
 					&.noline li {
 						border-image: none;
 						border-left: 4px solid transparent;
