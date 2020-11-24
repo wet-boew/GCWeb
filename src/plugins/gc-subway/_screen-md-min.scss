@@ -13,13 +13,9 @@
 	&.gc-subway {
 		border-right: 0px;
 		border-top: 0px;
-		display: none;
 		margin-top: 25px;
 		padding-left: 15px;
 
-		&.no-blink {
-			display: block;
-		}
 		.gc-subway-menu-nav {
 			float: right;
 			width: 33.33%;
@@ -49,6 +45,16 @@
 	}
 }
 
-.wb-disable .provisional.gc-subway {
-	display: block;
+.js {
+	&:not(.wb-disable) {
+		.provisional {
+			&.gc-subway {
+				display: none;
+
+				&.no-blink {
+					display: block;
+				}
+			}
+		}
+	}
 }
