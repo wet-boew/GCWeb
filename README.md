@@ -17,6 +17,12 @@ The purpose of this repository is to allow the developer community to use, test 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## How to build and run the test
+
+With Docker `docker build -t gcweb . -p`
+
+That command will build GCWeb and run all the test. Once completed, you will see that the docker container is listening to address 0.0.0.0:8000 but that is not currently fully working. So to rebuild, you will need to stop and re-launch it.
+
 ## License
 
 Unless otherwise noted, the source code of this project is covered under Crown Copyright, Government of Canada, and is distributed under the [MIT License](LICENSE).
@@ -42,6 +48,13 @@ Commencez avec des modèles, des configurations de conception et des principes d
 ## Comment contribuer
 
 Voir [CONTRIBUTING.md](CONTRIBUTING.md)
+
+
+## Comment compiler et exécuter les tests
+
+Avec Docker `docker build -t gcweb . -p`
+
+Cette commande va compiler GCWeb et exécuté l'ensemble des test. Une fois complété, vous devrez voir que le conteneur Docker écoute sur l'adresse 0.0.0.0:8000 mais cela ne fonctionne exactement pas comme prévu. Pour re-compiler, vous devriez l'arrêter et le relancer.
 
 ## Licence
 
