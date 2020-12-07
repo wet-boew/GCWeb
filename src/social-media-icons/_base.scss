@@ -64,6 +64,98 @@
 	background-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAWCAYAAABOm/V6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gQVECMqfCsMgwAAAshJREFUSMfF1s9P02AYwPFvyxwbHRuMrYOVVgS2BRNBDfHqxXDxz/Bq4sH/QA+e/B8MR+9e/QcUMk0IMBRho4R1g7LRbmPA6mFuqLAxfj9Jk6bv276fPHnep6+QnJ3xAq+Bl0CEm41PwBsX8AJ4y+3Ec2DYBbwCCClj7O1k6Q3KRO5OXNuqlVKRjVQSr6+PXSMDMCUCIwCylkCJTWHt5smuLV4LYL9ssZFK4g9GUMYnm8/Fvyd5fX1Exx7UIetXC6mWbTLLc/gHBpG1+D9jIuDUb51jyPgklpknu750NYBKifTSVwKhKOHhGCCcQJwIry+AEptizzQw0suXByx+oS+sEFLGEQThxByx1cseyc9w/BHFnSy5zAqO41wYEAgrDERHTwW0RQB4enpRE48pbG+S13/iOLVz1UADEIqOIoitlxLP+li314eWmKaQ09nWV3FqZ0P2Sxbp5TkC4SghZawtoCMEgNsroU1Ms5vTyW+uts1IpVQkk5rHHxxsWQMXQgC4PXVIIaeT11dPrZGKXUBPJekNRpC1eEeAcyGqlRJGOoUUCFHI6+QyKWpHh81xu7CNvvKd7h4fFbuImc10XD+uzgA2RjqFRwoQUkbZL9ts/vjG4UGVbq+PWu0Qy8zROxBBVuNU7CJGJgVAf0S9fCb+B9SLVUK7/wTXHTd2cYdq2SasxpDVeHN7y2qcPdNo/B8unoljgL8JaERXlwtZS9Cuz8hqrN5jgH5ZPX8mGjXgkfwMREcv1C09kp+wGsPaaZ8R8biRH1fywX4ZI71cBwzd67jKW2ZES7BnGpgtICJQBZpN6KBaIbu+hEfyExwaObPRdBLdPT5kLYFlGqfuGhGYB9haW+Do8ICtXwt1wKCGIAg4Tu1KLrenh7AaxzKzZNcWsXZzDUNJSM7OPPtz1nPf0hHvowv4DDwF3gEPAekGFnaADPABeP8bNrJaPIc3C6EAAAAASUVORK5CYII=")
 }
 
+$provisional-social-media-icons-size: 38px;
+
+%provisional-social-media-icons-followus-logo-properties {
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: "";
+	height: $provisional-social-media-icons-size;
+	margin-right: 10px;
+	min-width: $provisional-social-media-icons-size;
+}
+
+.provisional {
+
+	&.gc-followus {
+		h2 {
+			font-size: $h4-size;
+		}
+
+		ul {
+			display: block;
+			font-size: $small-size;
+			font-weight: $bold-weight;
+			list-style: none;
+			margin-block-start: 1em;
+			padding-inline-start: 1em;
+
+			li {
+				margin-bottom: 15px;
+
+				a {
+					display: flex;
+					line-height: $provisional-social-media-icons-size;
+					max-width: max-content;
+					text-decoration: none;
+
+					&:hover,
+					&:focus,
+					&:active {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			&.list-inline {
+				padding-inline-start: 0;
+
+				li {
+					display: inline-block;
+					padding-right: 0;
+
+					a {
+						height: $provisional-social-media-icons-size;
+						overflow: hidden;
+						width: $provisional-social-media-icons-size;
+
+						&:hover,
+						&:focus,
+						&:active {
+							outline: solid 2px #0535d2;
+						}
+					}
+				}
+			}
+		}
+
+		.facebook:before {
+			@extend %provisional-social-media-icons-followus-logo-properties;
+			background-image: url("../assets/social-media-icons/facebook.svg");
+		}
+
+		.twitter:before {
+			@extend %provisional-social-media-icons-followus-logo-properties;
+			background-image: url("../assets/social-media-icons/twitter.svg");
+		}
+
+		.youtube:before {
+			@extend %provisional-social-media-icons-followus-logo-properties;
+			background-image: url("../assets/social-media-icons/youtube.svg");
+		}
+
+		.instagram:before {
+			@extend %provisional-social-media-icons-followus-logo-properties;
+			background-image: url("../assets/social-media-icons/instagram.svg");
+		}
+
+		.linkedin:before {
+			@extend %provisional-social-media-icons-followus-logo-properties;
+			background-image: url("../assets/social-media-icons/linkedin.png");
+		}
+	}
+}
+
 //removes the icon to the share widget
 .shr-pg {
 	a {

@@ -463,7 +463,7 @@ module.exports = (grunt) ->
 
 						# Images
 						"!site/img/**/*.{jpg,png}"
-						"!src/assets/*.{ico,jpg,png}"
+						"!src/assets/**/*.{ico,jpg,png,svg}"
 
 						# External fonts
 						"!src/fonts/*.{eot,svg,ttf,woff}"
