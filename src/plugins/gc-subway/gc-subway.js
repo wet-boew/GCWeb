@@ -59,6 +59,13 @@ var $document = wb.doc,
 			$elm = $( selector );
 		}
 
+		// Ensure the page contains at least two heading level 1
+		if ( $( "main h1" ).length < 2 ) {
+			$document.off( wb.resizeEvents, onResize );
+			$elm.addClass( "no-blink" );
+			return;
+		}
+
 		// Desktop view, setup and mutate H1s
 		if ( $html.hasClass( views.md ) || $html.hasClass( views.lg ) ||
 			$html.hasClass( views.xl ) ) {
