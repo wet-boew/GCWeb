@@ -21,15 +21,28 @@
 		transition: width .2s, height .2s, left .2s, margin-top .2s;
 		width: $fcb-width;
 	}
-	&.active> :first-child::before {
-		background-color: #26374a;
+	a.active {
+		color: $text-color;
+		text-decoration: none;
+
+		&::before {
+			background-color: #26374a;
+		}
+
+		&:hover,
+		&:focus {
+			color: $link-hover-color;
+			text-decoration: underline;
+		}
 	}
-	a[href]:hover::before,
-	a[href]:focus::before {
-		height: 1.5em;
-		left: -.1em;
-		margin-top: -.1em;
-		width: 1.5em;
+	a:not(.active) {
+		&:hover::before,
+		&:focus::before {
+			height: 1.5em;
+			left: -.1em;
+			margin-top: -.1em;
+			width: 1.5em;
+		}
 	}
 }
 
@@ -90,11 +103,6 @@
 					li:last-child {
 						border-bottom-width: 0px;
 						padding-bottom: 0px;
-					}
-
-					&.noline li {
-						border-image: none;
-						border-left: 4px solid transparent;
 					}
 				}
 			}
