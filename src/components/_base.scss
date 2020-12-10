@@ -56,11 +56,38 @@ button {
 	}
 }
 
+// theme default color
+.bg-gctheme {
+	background-color: #355688;
+
+	&.well.header-rwd {
+		background-color: #26374a;
+	}
+}
+
 /*
  * Well header responsive
  */
 .well.header-rwd {
 	width: 100%;
+}
+.bg-darker {
+	&.well.header-rwd h1 {
+		border-bottom-color: #6f6f6f;
+	}
+}
+
+/* H1 short bold red underline */
+h1.gc-thickline {
+	border-bottom: none;
+
+	&::after {
+		border-bottom: .18em solid #af3c43;
+		content: "";
+		display: block;
+		padding-bottom: 8px;
+		width: 70px;
+	}
 }
 
 /*
@@ -69,3 +96,8 @@ button {
 .panel-title {
 	font-size: 1.2em;
 }
+
+/*
+ * Components
+ */
+@import "alert";
