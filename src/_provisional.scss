@@ -10,37 +10,6 @@
 	- Provisional  CSSspecific for view port are defined in the "views/[view port]" theme CSS
 */
 
-// Colours for the provisional alert styles
-// TODO: Rename and migrate these into _variables.scss if the provisional alert styles become official in the future
-$provisional-alert-danger-color: #d3080c;
-$provisional-alert-warning-color: #ee7100;
-$provisional-alert-info-color: #269abc;
-$provisional-alert-success-color: #278400;
-
-// Removes styling from the current WET4 Alert
-%provisional-alert-first-child-before-disable {
-	& {
-		> {
-			:first-child {
-				&::before {
-					color: inherit;
-					content: none;
-				}
-			}
-		}
-	}
-}
-
-@mixin provisional-alert-type($color, $content) {
-	border-color: $color;
-	border-image: linear-gradient(to bottom, $color 16px, $color 16px, transparent 16px, transparent 48px, $color 48px, $color 48px) 1 100%;
-
-	&::before {
-		color: $color;
-		content: $content;
-	}
-}
-
 @mixin provisional-chckbxrdio-hover {
 	background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
 }
@@ -55,23 +24,6 @@ $provisional-alert-success-color: #278400;
 	 * Background color
 	 *
 	 */
-
-	.bg-darker {
-		background-color: #000;
-
-		&.well.header-rwd h1 {
-			border-bottom-color: #6f6f6f;
-		}
-	}
-
-	// theme default color
-	.bg-gctheme {
-		background-color: #355688;
-
-		&.well.header-rwd {
-			background-color: #26374a;
-		}
-	}
 
 	// PinkDay color
 	.bg-pnkDy {
@@ -203,74 +155,6 @@ $provisional-alert-success-color: #278400;
 		color: #DF7200;
 	}
 
-	&.alert {
-		background-clip: content-box;
-		background-color: inherit;
-		border-left: 6px solid #000;
-		margin-bottom: 23px;
-		margin-left: 10px;
-		padding: 0 0 0 15px;
-
-		> {
-			p, ul, ol {
-				margin-bottom: 0px;
-			}
-
-			* {
-				margin-left: 15px;
-			}
-		}
-
-		details {
-			margin-left: .5em;
-			padding-top: 15px;
-		}
-
-		> {
-			:first-child:not(details) {
-				margin-top: auto;
-				padding-top: 15px;
-			}
-
-			:last-child {
-				padding-bottom: 25px;
-			}
-		}
-
-		&::before {
-			font-family: "Glyphicons Halflings";
-			font-size: 26px;
-			line-height: 2.3em;
-			margin-left: -1.27em;
-			padding: 2px;
-			position: absolute;
-		}
-
-		> :first-child {
-			margin-left: 15px;
-		}
-	}
-
-	&.alert-info {
-		@include provisional-alert-type($provisional-alert-info-color, "\e086");
-		@extend %provisional-alert-first-child-before-disable;
-	}
-
-	&.alert-success {
-		@include provisional-alert-type($provisional-alert-success-color, "\e084");
-		@extend %provisional-alert-first-child-before-disable;
-	}
-
-	&.alert-warning {
-		@include provisional-alert-type($provisional-alert-warning-color, "\e107");
-		@extend %provisional-alert-first-child-before-disable;
-	}
-
-	&.alert-danger {
-		@include provisional-alert-type($provisional-alert-danger-color, "\e101");
-		@extend %provisional-alert-first-child-before-disable;
-	}
-
 	&.gc-chckbxrdio {
 
 		label {
@@ -398,22 +282,6 @@ $provisional-alert-success-color: #278400;
 
 			label {
 				padding-left: 10px;
-			}
-		}
-	}
-
-	/* H1 short bold red underline re-design
-	*/
-	@at-root {
-		h1#{&}.gc-thickline {
-			border-bottom: none;
-
-			&::after {
-				border-bottom: .18em solid #af3c43;
-				content: "";
-				display: block;
-				padding-bottom: 8px;
-				width: 70px;
 			}
 		}
 	}
