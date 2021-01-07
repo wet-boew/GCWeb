@@ -8,6 +8,11 @@
 	margin-top: .5em;
 }
 
+%gcweb-default-font-size {
+	font-size: 20px;
+	line-height: 1.65em;
+}
+
 //
 // Apply baseline font styling
 // For the font smooth, read the justification here: https://wet-boew.github.io/themes-dist/GCWeb/gcweb-theme/index.html#antialiasing
@@ -18,8 +23,7 @@ html {
 }
 
 main {
-	font-size: 20px;
-	line-height: 1.65em;
+	@extend %gcweb-default-font-size;
 
 	.pagedetails {
 		font-size: 16px;
@@ -131,7 +135,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 /* Exclude temporary the form element from the font update, keep same style as before
  * - Rational: More testing and various adjustment need to be completed before to apply it
  */
-:not(#wb-srch) form, .checkbox, .checkbox-inline, .radio, .radio-inline, form .btn:not(.btn-call-to-action) {
+/*NOTE: Scrapping ":not(#wb-srch) form" from the selector rule because it made no sense... that rule's goal would've been to exclude the search bar, but because it used :not it was universal and didn't take effect because the rule would match #wb-srch's parent elements... so the selector was entirely useless and caused tons of needless confusion. The search bar's form element literally depends on the CSS properties that rule was trying to spare it from and adjusting it to work properly messes up the button's spacing.*/
+form, .checkbox, .checkbox-inline, .radio, .radio-inline, form .btn:not(.btn-call-to-action) {
 	font-size: 16px;
 	line-height: 23px;
 }

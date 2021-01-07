@@ -149,10 +149,108 @@
 
 }
 
+/*This is a rehash of another selector... the point of it is to allow the "force-style-gcweb-latest" class to be placed directly on a <form> element. Can't do it more elegantly since elements can't come after classes in selector rules.*/
+form {
+	&.provisional {
+		&.force-style-gcweb-latest {
+			@extend %gcweb-default-font-size;
+			color: green;
+		}
+	}
+}
+
 .provisional {
 	//This color will eventually be replaced by the new colors from the alert revamp PR.
 	&.icon-warning-light, .icon-warning-light {
 		color: #DF7200;
+	}
+
+	/* Force form elements to always use GCWeb's latest font styles
+	 * Note: This is an evergreen class. Its styles will change to adapt to any future GCWeb font updates.
+	 */
+	&.force-style-gcweb-latest {
+		form,
+		.checkbox,
+		.checkbox-inline,
+		.radio,
+		.radio-inline,
+		.btn:not(.btn-call-to-action) {
+			@extend %gcweb-default-font-size;
+		}
+
+		&.btn:not(.btn-call-to-action), &.form-control,
+		.btn:not(.btn-call-to-action), .form-control {
+			padding: 6px 12px;
+			/*TODO: This conflicts with the below selector that's based on the call to action button's paddinge*/
+		}
+
+		/*Ripoff of call to action button properties to use as baseline for normal buttons*/
+		&.btn:not(.btn-call-to-action),
+		.btn:not(.btn-call-to-action) {
+			@extend %gcweb-btn-size;
+		}
+
+		&.btn-lg:not(.btn-call-to-action), &.btn-group-lg > .btn:not(.btn-call-to-action),
+		.btn-lg:not(.btn-call-to-action), .btn-group-lg > .btn:not(.btn-call-to-action) {
+			font-size: 1.4em;
+			padding: .58em 1.15em;
+		}
+
+		&.btn-sm:not(.btn-call-to-action), &.btn-group-sm > .btn:not(.btn-call-to-action),
+		.btn-sm:not(.btn-call-to-action), .btn-group-sm > .btn:not(.btn-call-to-action) {
+			font-size: .9em;
+			padding: .29em .715em;
+		}
+
+		&.btn-xs:not(.btn-call-to-action), &.btn-group-xs > .btn:not(.btn-call-to-action),
+		.btn-xs:not(.btn-call-to-action), .btn-group-xs > .btn:not(.btn-call-to-action) {
+			font-size: .8em;
+			padding: .058em .3575em;
+		}
+
+		&.btn-primary, .btn-primary,
+		&.btn-success, .btn-success,
+		&.btn-info, .btn-info,
+		&.btn-danger, .btn-danger {
+			@extend %gcweb-btn-text-shadow;
+		}
+
+		/*Bonus selector to help make call to action buttons function more like standard button colour classes (for anyone that wants to transition to a more conventional way)*/
+		/*TODO: Not sure if it's even worth keeping call to action buttons at all... its green colour is very similar to success buttons*/
+		&.btn-call-to-action,
+		.btn-call-to-action {
+			padding: 0;
+		}
+
+		fieldset {
+			&.chkbxrdio-grp {
+				legend {
+					font-size: inherit;
+				}
+			}
+		}
+
+		&.radio input[type="radio"], .radio input[type="radio"],
+		&.radio-inline input[type="radio"], .radio-inline input[type="radio"],
+		&.checkbox input[type="checkbox"], .checkbox input[type="checkbox"],
+		&.checkbox-inline input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+			margin-top: 11px;
+			/*TODO: Might clash with #1682... need to look into it further.*/
+		}
+
+		/*
+		TODOS:
+		-Could any mixins or placeholder selectors from Bootstrap's SCSS be leveraged for provisional button styles?
+		-Come up with a better class name?
+		-Use consistent line breaks in selector rules (e.g. placing each rule on its own line)
+		-Determine whether to base button font sizes and padding on pixels or pixels (call to action uses em, Bootstrap/WET use pixels)
+		-Rework this into two setups: the provisional styles and an opposite "current" class (for anyone that wants to force a tiny font size)
+		-Get rid of the need for having to use ":not(.btn-call-to-action)" everywhere
+		-Try to avoid clashing with checkbox size PR (#1682)
+		-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
+		-Default legend's font and bottom margin aren't changing when using latest styles
+		-Add @jkshapiro as a co-author?
+		*/
 	}
 
 	&.gc-chckbxrdio {

@@ -2,6 +2,16 @@
  WET button overwrites
  */
 
+%gcweb-btn-size {
+	font-size: 1.1em;
+	padding: .58em 1em;
+}
+
+/* Text shadows for buttons that use white text (gives off perception of higher contrast) */
+%gcweb-btn-text-shadow {
+	text-shadow: 1px 2px #333;
+}
+
 body {
 	.btn-primary {
 		background-color: $accent-blue;
@@ -15,16 +25,15 @@ body {
 
 /* Call-to-action button style - new with GCWeb v5 */
 .btn-call-to-action {
+	@extend %gcweb-btn-size;
 	@include button-variant( #fff, #318000, #458259 );
-	font-size: 1.1em;
 	margin-bottom: 25px;
 	margin-top: 15px;
-	padding: .58em 1em;
-	text-shadow: 1px 2px #333;
 }
 .btn-call-to-action:visited {
 	color: #fff;
 }
+/*This selector is very weird... it adds a gigantic amount of padding to the end of <input> elements that are styled as buttons :S... remove it in this or a separate PR
 input.btn.btn-call-to-action {
 	padding-bottom: 2em;
-}
+}*/
