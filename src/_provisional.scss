@@ -154,15 +154,97 @@ form {
 	&.provisional {
 		&.force-style-gcweb-latest {
 			@extend %gcweb-default-font-size;
-			color: green;
 		}
 	}
 }
 
+/*Bootstrap replacement variables (overriding the originals might have unintended consequences)*/
+$gcweb-padding-large-vertical:    15px !default;
+$gcweb-padding-large-horizontal:  24px !default;
+
+$gcweb-padding-base-vertical:     10px !default;
+$gcweb-padding-base-horizontal:   16px !default;
+
+$gcweb-padding-small-vertical:    6px !default;
+$gcweb-padding-small-horizontal:  12px !default;
+
+$gcweb-padding-xs-vertical:       1px !default;
+$gcweb-padding-xs-horizontal:     6px !default;
+
+$gcweb-font-size-large:           24px !default;
+$gcweb-font-size-base:            20px !default;
+$gcweb-font-size-small:           16px !default;
+
+$gcweb-line-height-large:         1.65 !default;
+$gcweb-line-height-base:          1.65 !default;
+$gcweb-line-height-small:         1.65 !default;
+
+$gcweb-btn-border-radius-large:   9px !default;
+$gcweb-btn-border-radius-base:    6px !default;
+$gcweb-btn-border-radius-small:   4px !default;
+
 .provisional {
-	//This color will eventually be replaced by the new colors from the alert revamp PR.
-	&.icon-warning-light, .icon-warning-light {
-		color: #DF7200;
+	%gcweb-form-control-padding {
+		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+	}
+
+	%gcweb-btn-size {
+		@include button-size( $gcweb-padding-base-vertical, $gcweb-padding-base-horizontal, $gcweb-font-size-base, $gcweb-line-height-base, $gcweb-btn-border-radius-base );
+	}
+
+	%gcweb-btn-lg-size {
+		@include button-size( $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-btn-border-radius-large );
+	}
+
+	%gcweb-btn-sm-size {
+		@include button-size( $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
+	}
+
+	%gcweb-btn-xs-size {
+		@include button-size( $gcweb-padding-xs-vertical, $gcweb-padding-xs-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
+	}
+
+	%gcweb-radio-checkbox-margin-top {
+		margin-top: 11px;
+		/*TODO: Might clash with #1682... need to look into it further.*/
+	}
+
+	%gcweb-btn-call-to-action-margin {
+		margin: 0;
+	}
+
+	&.form-control {
+		@extend %gcweb-form-control-padding;
+	}
+
+	&.btn {
+		@extend %gcweb-btn-size;
+	}
+
+	&.btn-lg,
+	&.btn-group-lg > .btn {
+		@extend %gcweb-btn-lg-size;
+	}
+
+	&.btn-sm,
+	&.btn-group-sm > .btn {
+		@extend %gcweb-btn-sm-size;
+	}
+
+	&.btn-xs,
+	&.btn-group-xs > .btn {
+		@extend %gcweb-btn-xs-size;
+	}
+
+	&.btn-call-to-action {
+		@extend %gcweb-btn-call-to-action-margin;
+	}
+
+	&.radio input[type="radio"],
+	&.radio-inline input[type="radio"],
+	&.checkbox input[type="checkbox"],
+	&.checkbox-inline input[type="checkbox"] {
+		@extend %gcweb-radio-checkbox-margin-top;
 	}
 
 	/* Force form elements to always use GCWeb's latest font styles
@@ -173,53 +255,43 @@ form {
 		.checkbox,
 		.checkbox-inline,
 		.radio,
-		.radio-inline,
-		.btn:not(.btn-call-to-action) {
+		.radio-inline {
 			@extend %gcweb-default-font-size;
 		}
 
-		&.btn:not(.btn-call-to-action), &.form-control,
-		.btn:not(.btn-call-to-action), .form-control {
-			padding: 6px 12px;
-			/*TODO: This conflicts with the below selector that's based on the call to action button's paddinge*/
+		.form-control {
+			@extend %gcweb-form-control-padding;
 		}
 
-		/*Ripoff of call to action button properties to use as baseline for normal buttons*/
-		&.btn:not(.btn-call-to-action),
-		.btn:not(.btn-call-to-action) {
+		.btn {
 			@extend %gcweb-btn-size;
 		}
 
-		&.btn-lg:not(.btn-call-to-action), &.btn-group-lg > .btn:not(.btn-call-to-action),
-		.btn-lg:not(.btn-call-to-action), .btn-group-lg > .btn:not(.btn-call-to-action) {
-			font-size: 1.4em;
-			padding: .58em 1.15em;
+		.btn-lg,
+		.btn-group-lg > .btn {
+			@extend %gcweb-btn-lg-size;
 		}
 
-		&.btn-sm:not(.btn-call-to-action), &.btn-group-sm > .btn:not(.btn-call-to-action),
-		.btn-sm:not(.btn-call-to-action), .btn-group-sm > .btn:not(.btn-call-to-action) {
-			font-size: .9em;
-			padding: .29em .715em;
+		.btn-sm,
+		.btn-group-sm > .btn {
+			@extend %gcweb-btn-sm-size;
 		}
 
-		&.btn-xs:not(.btn-call-to-action), &.btn-group-xs > .btn:not(.btn-call-to-action),
-		.btn-xs:not(.btn-call-to-action), .btn-group-xs > .btn:not(.btn-call-to-action) {
-			font-size: .8em;
-			padding: .058em .3575em;
+		.btn-xs,
+		.btn-group-xs > .btn {
+			@extend %gcweb-btn-xs-size;
 		}
 
-		&.btn-primary, .btn-primary,
-		&.btn-success, .btn-success,
-		&.btn-info, .btn-info,
-		&.btn-danger, .btn-danger {
+		.btn-primary,
+		.btn-success,
+		.btn-info,
+		.btn-danger {
 			@extend %gcweb-btn-text-shadow;
 		}
 
-		/*Bonus selector to help make call to action buttons function more like standard button colour classes (for anyone that wants to transition to a more conventional way)*/
-		/*TODO: Not sure if it's even worth keeping call to action buttons at all... its green colour is very similar to success buttons*/
-		&.btn-call-to-action,
+		/*Bonus selector to help make call to action buttons consistent with standard button classes*/
 		.btn-call-to-action {
-			padding: 0;
+			@extend %gcweb-btn-call-to-action-margin;
 		}
 
 		fieldset {
@@ -230,27 +302,27 @@ form {
 			}
 		}
 
-		&.radio input[type="radio"], .radio input[type="radio"],
-		&.radio-inline input[type="radio"], .radio-inline input[type="radio"],
-		&.checkbox input[type="checkbox"], .checkbox input[type="checkbox"],
-		&.checkbox-inline input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
-			margin-top: 11px;
-			/*TODO: Might clash with #1682... need to look into it further.*/
+		.radio input[type="radio"],
+		.radio-inline input[type="radio"],
+		.checkbox input[type="checkbox"],
+		.checkbox-inline input[type="checkbox"] {
+			@extend %gcweb-radio-checkbox-margin-top;
 		}
 
 		/*
 		TODOS:
-		-Could any mixins or placeholder selectors from Bootstrap's SCSS be leveraged for provisional button styles?
 		-Come up with a better class name?
-		-Use consistent line breaks in selector rules (e.g. placing each rule on its own line)
-		-Determine whether to base button font sizes and padding on pixels or pixels (call to action uses em, Bootstrap/WET use pixels)
 		-Rework this into two setups: the provisional styles and an opposite "current" class (for anyone that wants to force a tiny font size)
-		-Get rid of the need for having to use ":not(.btn-call-to-action)" everywhere
 		-Try to avoid clashing with checkbox size PR (#1682)
 		-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
 		-Default legend's font and bottom margin aren't changing when using latest styles
 		-Add @jkshapiro as a co-author?
 		*/
+	}
+
+	//This color will eventually be replaced by the new colors from the alert revamp PR.
+	&.icon-warning-light, .icon-warning-light {
+		color: #DF7200;
 	}
 
 	&.gc-chckbxrdio {

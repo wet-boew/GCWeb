@@ -2,11 +2,6 @@
  WET button overwrites
  */
 
-%gcweb-btn-size {
-	font-size: 1.1em;
-	padding: .58em 1em;
-}
-
 /* Text shadows for buttons that use white text (gives off perception of higher contrast) */
 %gcweb-btn-text-shadow {
 	text-shadow: 1px 2px #333;
@@ -25,15 +20,19 @@ body {
 
 /* Call-to-action button style - new with GCWeb v5 */
 .btn-call-to-action {
-	@extend %gcweb-btn-size;
 	@include button-variant( #fff, #318000, #458259 );
+	@extend %gcweb-btn-text-shadow;
+	font-size: 1.1em;
 	margin-bottom: 25px;
 	margin-top: 15px;
+	padding: .58em 1em;
+	/*NOTE: It's normal for call to action buttons to look noticeably smaller in <form> elements by default... caused by <form> element font downsizing and its use of em instead of px*/
 }
 .btn-call-to-action:visited {
 	color: #fff;
 }
-/*This selector is very weird... it adds a gigantic amount of padding to the end of <input> elements that are styled as buttons :S... remove it in this or a separate PR
+/*This selector is very weird... it adds a gigantic amount of padding to the end of <input> elements that are styled as buttons :S... remove it?*/
 input.btn.btn-call-to-action {
 	padding-bottom: 2em;
-}*/
+}
+/*TODO: Still need an override for this... it looks very odd in a standard input btn with the call to action class. Not sure if just adding an extra override selector somewhere might mess up the other btn sizes' paddings*/
