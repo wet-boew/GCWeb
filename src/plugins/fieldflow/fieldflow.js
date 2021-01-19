@@ -145,6 +145,9 @@ var componentName = "wb-fieldflow",
 					formElm = formElm.parentElement;
 				}
 				$( formElm.parentElement ).addClass( formComponent );
+			} else if ( config.inline ) {
+				stdOut = "<div class='wb-frmvld " + formComponent + "'><form><div class='input-group'><div id='" + bodyID + "'>";
+				stdOut = stdOut + "</div><span class='input-group-btn'><input type=\"submit\" value=\"" + i18n.btn + "\" class=\"btn btn-default mrgn-bttm-md\" /></span></div> </form></div>";
 			} else {
 				stdOut = "<div class='wb-frmvld " + formComponent + "'><form><div id='" + bodyID + "'>";
 				stdOut = stdOut + "</div><input type=\"submit\" value=\"" + i18n.btn + "\" class=\"btn btn-primary mrgn-bttm-md\" /> </form></div>";
@@ -555,15 +558,16 @@ var componentName = "wb-fieldflow",
 			i18n = $elm.data( configData ).i18n,
 			autoID = wb.getId(),
 			labelPrefix = "<label for='" + autoID + "'",
+			labelInvisible = data.inline ? " wb-inv" : "",
 			labelSuffix = "</span>",
 			$out, $tmpLabel,
 			selectOut, $selectOut,
-			defaultSelectedLabel = data.defaultselectedlabel ? data.defaultselectedlabel : i18n.defaultsel,
+			defaultSelectedLabel = ( data.defaultselectedlabel || ( data.defaultselectedlabel === false && !data.live ) ) ? data.defaultselectedlabel : i18n.defaultsel,
 			i, i_len, j, j_len, cur_itm;
 
 		// Create the label
 		if ( isReq && useReqLabel ) {
-			labelPrefix += " class='required'";
+			labelPrefix += " class='required" + labelInvisible + "'";
 			labelSuffix += " <strong class='required'>(" + i18n.required + ")</strong>";
 		}
 		labelPrefix += "><span class='field-name'>";
@@ -589,9 +593,19 @@ var componentName = "wb-fieldflow",
 				}
 			}
 		}
-		selectOut += "><option value=''>" + defaultSelectedLabel + "</option>";
+		selectOut += ">";
+
+		// Add a empty default if not false.
+		if ( defaultSelectedLabel ) {
+			selectOut += "<option value=''>" + defaultSelectedLabel + "</option>";
+		}
 		for ( i = 0, i_len = items.length; i !== i_len; i += 1 ) {
 			cur_itm = items[ i ];
+
+			// Make the first item selected, if no default label
+			if ( !( i || defaultSelectedLabel ) ) {
+				cur_itm.isSelected = true;
+			}
 
 			if ( !cur_itm.group ) {
 				selectOut += buildSelectOption( cur_itm );
@@ -618,6 +632,11 @@ var componentName = "wb-fieldflow",
 
 		// Register this control
 		pushData( $elm, registerJQData, autoID );
+
+		// If selected default, run a change events
+		if ( !defaultSelectedLabel ) {
+			$selectOut.trigger( "change" );
+		}
 	},
 	ctrlChkbxRad = function( event, data ) {
 		var bodyId = data.outputctnrid,
@@ -793,6 +812,10 @@ var componentName = "wb-fieldflow",
 			out = "<option value='" + label + "'";
 
 		out += buildDataAttribute( data );
+
+		if ( data.isSelected ) {
+			out += " selected=selected";
+		}
 
 		out += ">" + label + "</option>";
 
