@@ -149,68 +149,153 @@
 
 }
 
-/*This is a rehash of another selector... the point of it is to allow the "force-style-gcweb-latest" class to be placed directly on a <form> element. Can't do it more elegantly since elements can't come after classes in selector rules.*/
+/*Bootstrap replacement variables (overriding the originals might have unintended consequences)*/
+$gcweb-padding-large-vertical: 15px !default;
+$gcweb-padding-large-horizontal: 24px !default;
+
+$gcweb-padding-base-vertical: 10px !default;
+$gcweb-padding-base-horizontal: 16px !default;
+
+$gcweb-padding-small-vertical: 6px !default;
+$gcweb-padding-small-horizontal: 12px !default;
+
+$gcweb-padding-xs-vertical: 1px !default;
+$gcweb-padding-xs-horizontal: 6px !default;
+
+$gcweb-font-size-large: 24px !default;
+$gcweb-font-size-small: 16px !default;
+
+$gcweb-line-height-large: 1.65 !default;
+$gcweb-line-height-small: 1.65 !default;
+
+$gcweb-btn-border-radius-large: 9px !default;
+$gcweb-btn-border-radius-base: 6px !default;
+$gcweb-btn-border-radius-small: 4px !default;
+
+%gcweb-form-control-padding {
+	padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+}
+
+%gcweb-btn-size {
+	@include button-size( $gcweb-padding-base-vertical, $gcweb-padding-base-horizontal, $gcweb-font-size-base, $gcweb-line-height-base, $gcweb-btn-border-radius-base );
+}
+
+%gcweb-btn-lg-size {
+	@include button-size( $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-btn-border-radius-large );
+}
+
+%gcweb-btn-sm-size {
+	@include button-size( $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
+}
+
+%gcweb-btn-xs-size {
+	@include button-size( $gcweb-padding-xs-vertical, $gcweb-padding-xs-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
+}
+
+%gcweb-radio-checkbox-margin-top {
+	margin-top: 11px;
+	/*TODO: Might clash with #1682... need to look into it further.*/
+}
+
+%gcweb-btn-call-to-action-margin {
+	margin: 0;
+}
+
+%gcweb-form-goodies {
+	form,
+	.checkbox,
+	.checkbox-inline,
+	.radio,
+	.radio-inline {
+		@extend %gcweb-default-font-size;
+	}
+
+	.form-control {
+		@extend %gcweb-form-control-padding;
+	}
+
+	.btn {
+		@extend %gcweb-btn-size;
+	}
+
+	.btn-lg,
+	.btn-group-lg > .btn {
+		@extend %gcweb-btn-lg-size;
+	}
+
+	.btn-sm,
+	.btn-group-sm > .btn {
+		@extend %gcweb-btn-sm-size;
+	}
+
+	.btn-xs,
+	.btn-group-xs > .btn {
+		@extend %gcweb-btn-xs-size;
+	}
+
+	.btn-primary,
+	.btn-success,
+	.btn-info,
+	.btn-danger {
+		@extend %gcweb-btn-text-shadow;
+	}
+
+	.btn-call-to-action {
+		@extend %gcweb-btn-call-to-action-margin;
+	}
+
+	fieldset {
+		&.chkbxrdio-grp {
+			legend {
+				font-size: inherit;
+				/*TODO: Revise this?*/
+			}
+		}
+	}
+
+	.radio input[type="radio"],
+	.radio-inline input[type="radio"],
+	.checkbox input[type="checkbox"],
+	.checkbox-inline input[type="checkbox"] {
+		@extend %gcweb-radio-checkbox-margin-top;
+	}
+
+	/*
+	TODOS:
+	-Default legend's font and bottom margin aren't changing when using latest styles
+	-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
+	-Try to avoid clashing with checkbox size PR (#1682)
+	-Come up with a better class name?
+	-Add @jkshapiro as a co-author?
+
+	NOTES:
+	-Goal is to support these kinds of structures:
+		-<form class="provisional">
+		-<div class="provisional force-style-gcweb-latest">
+		-<div class="provisional force-style-gcweb-latest"><form>
+		-<button class="provisional btn">
+	-Extra goal is to force call to action class to behave more like standard button classes (i.e. just a colour variation)
+	-Decided against including an undo class (e.g. "force-style-gcweb-old")... overcomplicates things way too much and its implementation would probably need to change once the new form styles advance beyond a provisional state
+	-Unitless line-height variables have replaced some properties that used unit-based values... the fact that they're unitless might cause some out-of-scope changes, but it's technically better not to use ems for line-height according to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#prefer_unitless_numbers_for_line-height_values
+	*/
+}
+
+/*Allow the "force-style-gcweb-latest" class to be placed directly on a <form> element. Can't do it via %gcweb-form-goodies.*/
 form {
 	&.provisional {
-		&.force-style-gcweb-latest {
+		& { /*maybe scrap the :not selector... don't think it's worth worrying about until new styles move out of provisional*/
 			@extend %gcweb-default-font-size;
+			@extend %gcweb-form-goodies;
 		}
 	}
 }
 
-/*Bootstrap replacement variables (overriding the originals might have unintended consequences)*/
-$gcweb-padding-large-vertical:    15px !default;
-$gcweb-padding-large-horizontal:  24px !default;
-
-$gcweb-padding-base-vertical:     10px !default;
-$gcweb-padding-base-horizontal:   16px !default;
-
-$gcweb-padding-small-vertical:    6px !default;
-$gcweb-padding-small-horizontal:  12px !default;
-
-$gcweb-padding-xs-vertical:       1px !default;
-$gcweb-padding-xs-horizontal:     6px !default;
-
-$gcweb-font-size-large:           24px !default;
-$gcweb-font-size-base:            20px !default;
-$gcweb-font-size-small:           16px !default;
-
-$gcweb-line-height-large:         1.65 !default;
-$gcweb-line-height-base:          1.65 !default;
-$gcweb-line-height-small:         1.65 !default;
-
-$gcweb-btn-border-radius-large:   9px !default;
-$gcweb-btn-border-radius-base:    6px !default;
-$gcweb-btn-border-radius-small:   4px !default;
-
 .provisional {
-	%gcweb-form-control-padding {
-		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
-	}
-
-	%gcweb-btn-size {
-		@include button-size( $gcweb-padding-base-vertical, $gcweb-padding-base-horizontal, $gcweb-font-size-base, $gcweb-line-height-base, $gcweb-btn-border-radius-base );
-	}
-
-	%gcweb-btn-lg-size {
-		@include button-size( $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-btn-border-radius-large );
-	}
-
-	%gcweb-btn-sm-size {
-		@include button-size( $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
-	}
-
-	%gcweb-btn-xs-size {
-		@include button-size( $gcweb-padding-xs-vertical, $gcweb-padding-xs-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small );
-	}
-
-	%gcweb-radio-checkbox-margin-top {
-		margin-top: 11px;
-		/*TODO: Might clash with #1682... need to look into it further.*/
-	}
-
-	%gcweb-btn-call-to-action-margin {
-		margin: 0;
+	/* Force form elements to always use GCWeb's latest font styles
+	 * Note: This is an evergreen class. Its styles will change to adapt to any future GCWeb font updates.
+	 */
+	&.force-style-gcweb-latest {
+		@extend %gcweb-form-goodies;
 	}
 
 	&.form-control {
@@ -245,79 +330,6 @@ $gcweb-btn-border-radius-small:   4px !default;
 	&.checkbox input[type="checkbox"],
 	&.checkbox-inline input[type="checkbox"] {
 		@extend %gcweb-radio-checkbox-margin-top;
-	}
-
-	/* Force form elements to always use GCWeb's latest font styles
-	 * Note: This is an evergreen class. Its styles will change to adapt to any future GCWeb font updates.
-	 */
-	&.force-style-gcweb-latest {
-		form,
-		.checkbox,
-		.checkbox-inline,
-		.radio,
-		.radio-inline {
-			@extend %gcweb-default-font-size;
-		}
-
-		.form-control {
-			@extend %gcweb-form-control-padding;
-		}
-
-		.btn {
-			@extend %gcweb-btn-size;
-		}
-
-		.btn-lg,
-		.btn-group-lg > .btn {
-			@extend %gcweb-btn-lg-size;
-		}
-
-		.btn-sm,
-		.btn-group-sm > .btn {
-			@extend %gcweb-btn-sm-size;
-		}
-
-		.btn-xs,
-		.btn-group-xs > .btn {
-			@extend %gcweb-btn-xs-size;
-		}
-
-		.btn-primary,
-		.btn-success,
-		.btn-info,
-		.btn-danger {
-			@extend %gcweb-btn-text-shadow;
-		}
-
-		/*Bonus selector to help make call to action buttons consistent with standard button classes*/
-		.btn-call-to-action {
-			@extend %gcweb-btn-call-to-action-margin;
-		}
-
-		fieldset {
-			&.chkbxrdio-grp {
-				legend {
-					font-size: inherit;
-				}
-			}
-		}
-
-		.radio input[type="radio"],
-		.radio-inline input[type="radio"],
-		.checkbox input[type="checkbox"],
-		.checkbox-inline input[type="checkbox"] {
-			@extend %gcweb-radio-checkbox-margin-top;
-		}
-
-		/*
-		TODOS:
-		-Come up with a better class name?
-		-Rework this into two setups: the provisional styles and an opposite "current" class (for anyone that wants to force a tiny font size)
-		-Try to avoid clashing with checkbox size PR (#1682)
-		-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
-		-Default legend's font and bottom margin aren't changing when using latest styles
-		-Add @jkshapiro as a co-author?
-		*/
 	}
 
 	//This color will eventually be replaced by the new colors from the alert revamp PR.
