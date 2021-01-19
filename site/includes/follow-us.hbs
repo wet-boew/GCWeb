@@ -1,0 +1,92 @@
+<section class="provisional gc-followus">
+	<h2>
+		{{#is page.language "fr"}}
+			Dans les médias sociaux
+		{{else}}
+			On social media
+		{{/is}}
+	</h2>
+	<ul{{#is page.followUsLayout "inline"}} class="list-inline"{{/is}}>
+		<li>
+			<a href="#facebook" class="facebook wb-lbx">
+				{{#is page.language "fr"}}
+					<span class="wb-inv">Facebook&nbsp;: </span>NomPageFacebook
+				{{else}}
+					<span class="wb-inv">Facebook: </span>FacebookPageName
+				{{/is}}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="twitter">
+				{{#is page.language "fr"}}
+					<span class="wb-inv">Twitter&nbsp;: </span>@CompteTwitter
+				{{else}}
+					<span class="wb-inv">Twitter: </span>@TwitterAccount
+				{{/is}}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="youtube">
+				{{#is page.language "fr"}}
+					<span class="wb-inv">Youtube&nbsp;: </span>NomYouTube
+				{{else}}
+					<span class="wb-inv">Youtube: </span>YouTubeName
+				{{/is}}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="instagram">
+				{{#is page.language "fr"}}
+					<span class="wb-inv">Instagram&nbsp;: </span>NomInstagram
+				{{else}}
+					<span class="wb-inv">Instagram: </span>InstagramName
+				{{/is}}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="linkedin">
+				{{#is page.language "fr"}}
+					<span class="wb-inv">LinkedIn&nbsp;: </span>NomLinkedIn
+				{{else}}
+					<span class="wb-inv">LinkedIn: </span>LinkedInName
+				{{/is}}
+			</a>
+		</li>
+	</ul>
+</section>
+<section id="facebook" class="modal-dialog modal-content overlay-def mfp-hide">
+	<header class="modal-header">
+		<h2 class="modal-title" id="lbx-title">Facebook</h2>
+	</header>
+	<div class="modal-body">
+		<ul class="list-unstyled lst-spcd">
+			<li>
+				<a href="#" rel="external">
+					{{#is page.language "fr"}}
+						[First Facebook account title]
+					{{else}}
+						[Titre du premier compte Facebook]
+					{{/is}}
+				</a>
+			</li>
+			<li>
+				<a href="#" rel="external">
+					{{#is page.language "fr"}}
+						[Second Facebook account title]
+					{{else}}
+						[Titre du deuxième compte Facebook]
+					{{/is}}
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-sm btn-primary pull-left popup-modal-dismiss">
+			{{#is page.language "fr"}}
+				Close<span class="wb-inv">Close overlay</span>
+			{{else}}
+				Fermer<span class="wb-inv">Fermer la fenêtre superposée</span>
+			{{/is}}
+		</button>
+	</div>
+</section>
