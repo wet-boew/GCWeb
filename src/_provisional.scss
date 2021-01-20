@@ -165,6 +165,7 @@ $gcweb-padding-xs-horizontal: 6px !default;
 $gcweb-font-size-large: 24px !default;
 $gcweb-font-size-small: 16px !default;
 
+$gcweb-line-height-computed: floor(($gcweb-font-size-base * $gcweb-line-height-base));
 $gcweb-line-height-large: 1.65 !default;
 $gcweb-line-height-small: 1.65 !default;
 
@@ -244,11 +245,19 @@ $gcweb-btn-border-radius-small: 4px !default;
 		@extend %gcweb-btn-call-to-action-margin;
 	}
 
+	/*Make generic legends look giant by GCWeb's standards (like WET/Bootstrap)*/
+	legend {
+		font-size: ($gcweb-font-size-base * 1.5);
+		margin-bottom: $gcweb-line-height-computed;
+	}
+
+	/*Make legends that are used with legends/radio buttons use GCWeb's baseline font size (need this override because otherwise it'd default to WET's default font size)*/
 	fieldset {
 		&.chkbxrdio-grp {
 			legend {
-				font-size: inherit;
-				/*TODO: Revise this?*/
+				font-size: $gcweb-font-size-base;
+				margin-bottom: 5px; //Remove this line when no longer provisional (WET's CSS already declares it... why do I need this if WET already does it?)
+				/*TODO: Should only font-size and margin-bottom be declared here? https://github.com/twbs/bootstrap-sass/blob/b34765d8a6aa775816c59012b2d6b30c4c66a8e9/assets/stylesheets/bootstrap/_forms.scss#L26 shows that Bootstrap itself uses line-height: inherit and I don't think anything ever tries to override the default line height for legends (apart from _default setting 1.65 as the legend line height for some reason).*/
 			}
 		}
 	}
@@ -262,7 +271,7 @@ $gcweb-btn-border-radius-small: 4px !default;
 
 	/*
 	TODOS:
-	-Default legend's font and bottom margin aren't changing when using latest styles
+	-Are clickable area minimum sizes WCAG 2.x-compliant?
 	-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
 	-Try to avoid clashing with checkbox size PR (#1682)
 	-Come up with a better class name?
