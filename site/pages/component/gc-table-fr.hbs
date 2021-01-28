@@ -1,0 +1,191 @@
+---
+{
+	"altLangPrefix": "gc-table",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" },
+		{ "title": "Provisional functionality", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-fr.html" }
+	],
+	"dateModified": "2020-10-16",
+	"description": "Working examples for tables - provisional feature",
+	"language": "fr",
+	"parentdir": "component",
+	"tag": "table",
+	"title": "Tables - Provisional feature"
+}
+---
+{{>alert-provisional-demos}}
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Provisional</dd>
+	<dt>Type</dt>
+	<dd>Système de conception de Canada.ca</dd>
+	<dt>Dernière revue</dt>
+	<dd>2021-02-01</dd>
+	<dt>Est conforme à</dt>
+	<dd>Spécifications du contenu et de l'architecture de l'information 2.1</dd>
+	<dt>Spécification</dt>
+	<dd>Tables - Système de conception de Canada.ca [à venir]</dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>gc-table</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<div lang="en">
+
+<h2>Working example</h2>
+
+<p>A simple CSS solution to that turns tables into responsive cards for smaller viewports.</p>
+
+<p>This pattern currently is:</p>
+<ul>
+	<li>only for basic/simple tables</li>
+	<li>not supported by IE 11</li>
+</ul>
+
+<h3>Responsive cards</h3>
+<table class="provisional gc-table table" id="myTable1">
+		<caption>Population growth in Canadian cities</caption>
+		<thead>
+		<tr>
+			<th>City</th>
+			<th>Population in 2007</th>
+			<th>Population in 2017</th>
+			<th>Percentage change</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td data-label="City">Toronto</td>
+			<td data-label="Population in 2007">5,418,207</td>
+			<td data-label="Population in 2017">6,346,088</td>
+			<td data-label="Percentage change">17.1%</td>
+		</tr>
+		<tr>
+			<td data-label="City">Montréal</td>
+			<td data-label="Population in 2007">3,714,846</td>
+			<td data-label="Population in 2017">4,138,254</td>
+			<td data-label="Percentage change">11.4%</td>
+		</tr>
+		<tr>
+			<td data-label="City">Vancouver</td>
+			<td data-label="Population in 2007">2,218,134</td>
+			<td data-label="Population in 2017">2,571,262</td>
+			<td data-label="Percentage change">15.9%</td>
+		</tr>
+		<tr>
+			<td data-label="City">Ottawa–Gatineau</td>
+			<td data-label="Population in 2007">1,188,073</td>
+			<td data-label="Population in 2017">1,377,016 </td>
+			<td data-label="Percentage change">15.9%</td>
+		</tr>
+		</tbody>
+	</table>
+
+<h3>Responsive cards with text left on one item</h3>
+
+<p><span class="label label-info">Optional</span></p>
+
+<p>The class <code>text-left</code> can be added to any <code>&lt;td&gt;</code> so that it aligns to the left side on the cards.</p>
+<table class="provisional gc-table table" id="myTable2">
+		<caption>Telephone numbers for personal taxes, benefits and trusts</caption>
+		<thead>
+		<tr>
+			<th>Reason for your call</th>
+			<th>Number</th>
+			<th>Hours</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td data-label="Reason for your call">
+				<ul class="text-left">
+					<li>Item one</li>
+					<li>Item two</li>
+				</ul>
+			</td>
+			<td data-label="Number" class="nowrap">1-XXX-XXX-XXXX</td>
+			<td data-label="Hours">Always open (automated line)</td>
+		</tr>
+		<tr>
+			<td data-label="Reason for your call">
+				<ul class="text-left">
+					<li>Item one</li>
+					<li>Item two</li>
+				</ul>
+			</td>
+			<td data-label="Number" class="nowrap">1-XXX-XXX-XXXX</td>
+			<td data-label="Hours">Always open (automated line)</td>
+		</tr>
+		<tr>
+			<td data-label="Reason for your call">
+				<ul class="text-left">
+					<li>Item one</li>
+					<li>Item two</li>
+				</ul>
+			</td>
+			<td data-label="Number" class="nowrap">1-XXX-XXX-XXXX</td>
+			<td data-label="Hours">Always open (automated line)</td>
+		</tr>
+		<tr>
+			<td data-label="Reason for your call">
+				<ul class="text-left">
+					<li>Item one</li>
+					<li>Item two</li>
+				</ul>
+			</td>
+			<td data-label="Number" class="nowrap">1-XXX-XXX-XXXX</td>
+			<td data-label="Hours">Always open (automated line)</td>
+		</tr>
+		</tbody>
+	</table>
+
+<h3>Responsive cards with small class for smaller text</h3>
+<p><span class="label label-info">Optional</span></p>
+
+<p>The class <code>small</code> can be added to the <code>&lt;table&gt;</code> to make all the text smaller</p>
+
+<table class="provisional gc-table table small" id="myTable3">
+		<caption>The following is a list of ranitidine products being recalled in Canada at this time</caption>
+		<thead>
+		<tr>
+			<th>Company</th>
+			<th>Product Name/Active Pharmaceutical Ingredient (API)</th>
+			<th>DIN</th>
+			<th>Strength</th>
+			<th>Lot</th>
+			<th>Date added</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td data-label="Company">Apotex Inc.</td>
+			<td data-label="Product Name/Active Pharmaceutical Ingredient (API)">Acid Reducer (ranitidine) sold under the brand names Equate and Selection</td>
+			<td data-label="DIN">02296160</td>
+			<td data-label="Strength">150 mg</td>
+			<td data-label="Lot">All lots</td>
+			<td data-label="Date added">September 25, 2019</td>
+		</tr>
+		<tr>
+			<td data-label="Company">Apotex Inc.</td>
+			<td data-label="Product Name/Active Pharmaceutical Ingredient (API)">Apo-Ranitidine Oral Solution</td>
+			<td data-label="DIN">02280833</td>
+			<td data-label="Strength">15 mg/mL</td>
+			<td data-label="Lot">All lots</td>
+			<td data-label="Date added">September 25, 2019</td>
+		</tr>
+		<tr>
+			<td data-label="Company">Apotex Inc.</td>
+			<td data-label="Product Name/Active Pharmaceutical Ingredient (API)">Apo-Ranitidine Tablet 150mg</td>
+			<td data-label="DIN">00733059</td>
+			<td data-label="Strength">300 mg</td>
+			<td data-label="Lot">All lots</td>
+			<td data-label="Date added">September 25, 2019</td>
+		</tr>
+	</tbody>
+</table>
+</div>
