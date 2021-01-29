@@ -150,31 +150,128 @@
 }
 
 /*Bootstrap replacement variables (overriding the originals might have unintended consequences)*/
-$gcweb-padding-large-vertical: 15px !default;
-$gcweb-padding-large-horizontal: 24px !default;
+$gcweb-padding-large-vertical: 15px;
+$gcweb-padding-large-horizontal: 24px;
 
-$gcweb-padding-base-vertical: 10px !default;
-$gcweb-padding-base-horizontal: 16px !default;
+$gcweb-padding-base-vertical: 10px;
+$gcweb-padding-base-horizontal: 16px;
 
-$gcweb-padding-small-vertical: 6px !default;
-$gcweb-padding-small-horizontal: 12px !default;
+$gcweb-padding-small-vertical: 6px;
+$gcweb-padding-small-horizontal: 12px;
 
-$gcweb-padding-xs-vertical: 1px !default;
-$gcweb-padding-xs-horizontal: 6px !default;
+$gcweb-padding-xs-vertical: 1px;
+$gcweb-padding-xs-horizontal: 6px;
 
-$gcweb-font-size-large: 24px !default;
-$gcweb-font-size-small: 16px !default;
+$gcweb-font-size-large: 24px;
+$gcweb-font-size-small: 16px;
 
 $gcweb-line-height-computed: floor(($gcweb-font-size-base * $gcweb-line-height-base));
-$gcweb-line-height-large: 1.65 !default;
-$gcweb-line-height-small: 1.65 !default;
+$gcweb-line-height-large: $gcweb-line-height-base;
+$gcweb-line-height-small: $gcweb-line-height-base;
 
-$gcweb-btn-border-radius-large: 9px !default;
-$gcweb-btn-border-radius-base: 6px !default;
-$gcweb-btn-border-radius-small: 4px !default;
+$gcweb-border-radius-large: 9px;
+$gcweb-border-radius-base: 6px;
+$gcweb-border-radius-small: 4px;
 
-%gcweb-form-control-padding {
+$gcweb-btn-border-radius-large: $gcweb-border-radius-large;
+$gcweb-btn-border-radius-base: $gcweb-border-radius-base;
+$gcweb-btn-border-radius-small: $gcweb-border-radius-small;
+
+
+$gcweb-input-height-large: (ceil($gcweb-font-size-large * $gcweb-line-height-large) + ($gcweb-padding-large-vertical * 2) + 2);
+
+$gcweb-input-height-base: ($gcweb-line-height-computed + ($gcweb-padding-base-vertical * 2) + 2);
+//NEED TO FORCEFULLY OVERRIDE SELECTORS ASSOCIATED TO THIS at several spots since GCWeb has set a tiny px override for the original variable!!!!
+
+$gcweb-input-height-small: (floor($gcweb-font-size-small * $gcweb-line-height-small) + ($gcweb-padding-small-vertical * 2) + 2);
+
+
+$gcweb-input-border-radius-large: $gcweb-border-radius-large;
+$gcweb-input-border-radius-small: $gcweb-border-radius-small;
+
+
+
+
+
+
+/*Force normal line heights... needed because GCWeb is setting the real $gcweb-input-height-base variable to an artificially small height (37px)*/
+.provisional.force-style-gcweb-latest {
+	/*.form-control {
+		//height: $gcweb-input-height-base;
+		//ISSUE: Causes textareas to become 1 line (norm in WET/GCWeb is auto height - about 3 lines)... omitting this doesn't appear to break anything
+	}*/
+
+	.form-control-feedback {
+		width: $gcweb-input-height-base;
+		height: $gcweb-input-height-base;
+		line-height: $gcweb-input-height-base;
+	}
+
+	.has-feedback {
+		.form-control {
+			padding-right: ($gcweb-input-height-base * 1.25);
+		}
+
+		label {
+			& ~ .form-control-feedback {
+				top: ($gcweb-line-height-computed + 5);
+			}
+			&.sr-only {
+				~ .form-control-feedback {
+					top: 0;
+				}
+			}
+		}
+	}
+
+	.form-inline {
+		.has-feedback {
+			.form-control-feedback {
+				top: 0;
+			}
+		}
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	.provisional.force-style-gcweb-latest {
+		input[type="date"],
+		input[type="time"],
+		input[type="datetime-local"],
+		input[type="month"] {
+			&.form-control {
+				line-height: $gcweb-input-height-base;
+			}
+
+			&.input-sm,
+			.input-group-sm & {
+				line-height: $input-height-small; //gotta adjust this
+			}
+
+			&.input-lg,
+			.input-group-lg & {
+				line-height: $input-height-large; //gotta adjust this
+			}
+		}
+	}
+}
+
+
+
+
+
+%gcweb-form-control-size {
+	@extend %gcweb-default-font-size;
 	padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+}
+
+/*NOTE: These mixins can be scrapped once the provisional form styles graduate OR if the ".provisional.*" selectors are scrapped... the mixins can't be substitued with placeholder selectors*/
+@mixin gcweb-input-lg( $parent: '' ) {
+	@include input-size( $parent + '.input-lg', $gcweb-input-height-large, $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-input-border-radius-large );
+}
+
+@mixin gcweb-input-sm( $parent: '' ) {
+	@include input-size( $parent '' + '.input-sm', $gcweb-input-height-small, $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-input-border-radius-small );
 }
 
 %gcweb-btn-size {
@@ -203,6 +300,9 @@ $gcweb-btn-border-radius-small: 4px !default;
 }
 
 %gcweb-form-goodies {
+	@include gcweb-input-lg();
+	@include gcweb-input-sm();
+
 	form,
 	.checkbox,
 	.checkbox-inline,
@@ -212,7 +312,7 @@ $gcweb-btn-border-radius-small: 4px !default;
 	}
 
 	.form-control {
-		@extend %gcweb-form-control-padding;
+		@extend %gcweb-form-control-size;
 	}
 
 	.btn {
@@ -272,9 +372,11 @@ $gcweb-btn-border-radius-small: 4px !default;
 	/*
 	TODOS:
 	-Are clickable area minimum sizes WCAG 2.x-compliant?
+	-Rename %gcweb-form-goodies to something better
 	-Should the font size of form elements (e.g. <input>, <textarea>, etc...) be increased as a part of this PR?
 	-Try to avoid clashing with checkbox size PR (#1682)
-	-Come up with a better class name?
+	-Come up with a better class name? Maybe gc-font-new?
+	-CHALLENGE: This part of Bootstrap extends some of .btn-lg's properties in a way that makes &.provisional classes inelegant to use. Would be good if "provisional.input-group-lg" could be used. See this for BS' SASS: https://github.com/twbs/bootstrap-sass/blob/b34765d8a6aa775816c59012b2d6b30c4c66a8e9/assets/stylesheets/bootstrap/_input-groups.scss#L39-L53
 	-Add @jkshapiro as a co-author?
 
 	NOTES:
@@ -286,16 +388,15 @@ $gcweb-btn-border-radius-small: 4px !default;
 	-Extra goal is to force call to action class to behave more like standard button classes (i.e. just a colour variation)
 	-Decided against including an undo class (e.g. "force-style-gcweb-old")... overcomplicates things way too much and its implementation would probably need to change once the new form styles advance beyond a provisional state
 	-Unitless line-height variables have replaced some properties that used unit-based values... the fact that they're unitless might cause some out-of-scope changes, but it's technically better not to use ems for line-height according to https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#prefer_unitless_numbers_for_line-height_values
+	-Some line heights are marginally different due to unitless values being used (see https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#prefer_unitless_numbers_for_line-height_values for why)
 	*/
 }
 
 /*Allow the "force-style-gcweb-latest" class to be placed directly on a <form> element. Can't do it via %gcweb-form-goodies.*/
 form {
 	&.provisional {
-		& { /*maybe scrap the :not selector... don't think it's worth worrying about until new styles move out of provisional*/
-			@extend %gcweb-default-font-size;
-			@extend %gcweb-form-goodies;
-		}
+		@extend %gcweb-default-font-size;
+		@extend %gcweb-form-goodies;
 	}
 }
 
@@ -303,12 +404,18 @@ form {
 	/* Force form elements to always use GCWeb's latest font styles
 	 * Note: This is an evergreen class. Its styles will change to adapt to any future GCWeb font updates.
 	 */
+
+	@at-root {
+		@include gcweb-input-lg('.provisional');
+		@include gcweb-input-sm('.provisional');
+	}
+
 	&.force-style-gcweb-latest {
 		@extend %gcweb-form-goodies;
 	}
 
 	&.form-control {
-		@extend %gcweb-form-control-padding;
+		@extend %gcweb-form-control-size;
 	}
 
 	&.btn {
