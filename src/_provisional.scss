@@ -149,6 +149,520 @@
 
 }
 
+/*Bootstrap replacement variables (overriding the originals might have unintended consequences)*/
+$gcweb-padding-large-vertical: 15px;
+$gcweb-padding-large-horizontal: 24px;
+
+$gcweb-padding-base-vertical: 10px;
+$gcweb-padding-base-horizontal: 16px;
+
+$gcweb-padding-small-vertical: 6px;
+$gcweb-padding-small-horizontal: 12px;
+
+$gcweb-padding-xs-vertical: 1px;
+$gcweb-padding-xs-horizontal: 6px;
+
+$gcweb-font-size-large: 24px;
+$gcweb-font-size-small: 16px;
+
+$gcweb-line-height-computed: floor(($gcweb-font-size-base * $gcweb-line-height-base));
+$gcweb-line-height-large: 1.54;
+$gcweb-line-height-small: 1.7325;
+
+$gcweb-border-radius-large: 9px;
+$gcweb-border-radius-base: 6px;
+$gcweb-border-radius-small: 4px;
+
+$gcweb-caret-width-base: 7px;
+$gcweb-caret-width-large: 10px;
+
+$gcweb-btn-border-radius-large: $gcweb-border-radius-large;
+$gcweb-btn-border-radius-base: $gcweb-border-radius-base;
+$gcweb-btn-border-radius-small: $gcweb-border-radius-small;
+
+$gcweb-input-border-radius-large: $gcweb-border-radius-large;
+$gcweb-input-border-radius: $gcweb-border-radius-base;
+$gcweb-input-border-radius-small: $gcweb-border-radius-small;
+
+$gcweb-input-height-large: (ceil($gcweb-font-size-large * $gcweb-line-height-large) + ($gcweb-padding-large-vertical * 2) + 2);
+$gcweb-input-height-base: ($gcweb-line-height-computed + ($gcweb-padding-base-vertical * 2) + 2);
+$gcweb-input-height-small: (floor($gcweb-font-size-small * $gcweb-line-height-small) + ($gcweb-padding-small-vertical * 2) + 2);
+
+
+/*$gcweb-form-group-margin-bottom: 20px;*/ /*maybe keep this as-is (15px), scrap this override and change my CSS to use the normal GCWeb variable for this*/
+
+
+/*NOTE:
+also gotta keep WET overrides in mind for things like undoing hardocoded heights for certain elements
+
+
+
+
+
+
+
+
+NOTES:
+-That silly arrow placement in "Buttons with dropdowns" is beyond my control (was an intentional WET override with the understanding that would break)
+-Borders in basic btn-group examples don't look as dark as justified ones (WET+GCWeb)... caused by a WET override (https://github.com/wet-boew/wet-boew/pull/5065)
+-There's weird inexplicable spacing in this GCWeb example (doesn't exist in WET... I think it's a GCWeb quirk because it happens even without the giant form font class):
+<div class="btn-group btn-group-xs" role="group" aria-label="...">...</div>
+-Seems to be compatible with "gc-chckbxrdio" (#1682), but some of the latter's font-size and line-height properties deviate from the new font variables... tried changing a few to use variables of similar sizes, kept line-height: 2 as-is
+
+TODOS:
+-IIRC disabled inputs are looking darker than expected due to WET/GCWeb overrides
+-I'd like to maybe adjust small/large line heights to be different from GCWeb's default
+-Separate temp Bootstrap selectors from GCWeb-specific ones (e.g. call to action, 11px margin-top for radio buttons, etc...)
+
+*/
+
+
+%gcweb-btn {
+	@include button-size($gcweb-padding-base-vertical, $gcweb-padding-base-horizontal, $gcweb-font-size-base, $gcweb-line-height-base, $gcweb-btn-border-radius-base);
+}
+
+%gcweb-btn-lg {
+	@include button-size($gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-btn-border-radius-large);
+}
+
+%gcweb-btn-sm {
+	@include button-size($gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small);
+}
+
+%gcweb-btn-xs {
+	@include button-size($gcweb-padding-xs-vertical, $gcweb-padding-xs-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small);
+}
+
+%gcweb-btn-call-to-action-margin {
+	margin: 0;
+}
+
+%gcweb-form-font-new {
+	/*Buttons... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_buttons.scss)*/
+
+	.btn {
+		@extend %gcweb-btn;
+	}
+
+	.btn-lg {
+		@extend %gcweb-btn-lg;
+	}
+
+	.btn-sm {
+		@extend %gcweb-btn-sm;
+	}
+
+	.btn-xs {
+		@extend %gcweb-btn-xs;
+	}
+
+	/*keep post-finalization*/
+	.btn-call-to-action {
+		@extend %gcweb-btn-call-to-action-margin;
+	}
+
+
+
+	/*Dropdown menus... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_dropdowns.scss)*/
+
+	.caret {
+		border-left: $gcweb-caret-width-base solid transparent;
+		border-right: $gcweb-caret-width-base solid transparent;
+		border-top: $gcweb-caret-width-base dashed;
+	}
+
+	.dropup,
+	.navbar-fixed-bottom .dropdown {
+		.caret {
+			border-bottom: $gcweb-caret-width-base dashed;
+			border-top: 0;
+		}
+	}
+
+
+
+	/*Button groups... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_button-groups.scss)*/
+
+	.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+		border-radius: 0;
+	}
+
+	.btn-group > .btn:first-child {
+		margin-left: 0;
+		&:not(:last-child):not(.dropdown-toggle) {
+			@include border-right-radius(0);
+		}
+	}
+
+	.btn-group > .btn:last-child:not(:first-child),
+	.btn-group > .dropdown-toggle:not(:first-child) {
+		@include border-left-radius(0);
+	}
+
+	.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+		border-radius: 0;
+	}
+
+	.btn-group > .btn-group:first-child:not(:last-child) {
+		> .btn:last-child,
+		> .dropdown-toggle {
+			@include border-right-radius(0);
+		}
+	}
+
+	.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+		@include border-left-radius(0);
+	}
+
+	.btn-lg .caret {
+		border-bottom-width: 0;
+		border-width: $gcweb-caret-width-large $gcweb-caret-width-large 0;
+	}
+
+	.dropup .btn-lg .caret {
+		border-width: 0 $gcweb-caret-width-large $gcweb-caret-width-large;
+	}
+
+	.btn-group-vertical > .btn {
+		&:not(:first-child):not(:last-child) {
+			border-radius: 0;
+		}
+
+		&:first-child:not(:last-child) {
+			@include border-top-radius($btn-border-radius-base);
+			@include border-bottom-radius(0);
+		}
+
+		&:last-child:not(:first-child) {
+			@include border-top-radius(0);
+			@include border-bottom-radius($btn-border-radius-base);
+		}
+	}
+
+	.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+		border-radius: 0;
+	}
+
+	.btn-group-vertical > .btn-group:first-child:not(:last-child) {
+		> .btn:last-child,
+		> .dropdown-toggle {
+			@include border-bottom-radius(0);
+		}
+	}
+
+	.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+		@include border-top-radius(0);
+	}
+
+
+
+	/*Forms... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_forms.scss)*/
+
+	/*keep post-finalization*/
+	.checkbox,
+	.checkbox-inline,
+	.radio,
+	.radio-inline {
+		@extend %gcweb-main-font-size-line-height;
+	}
+
+	legend {
+		font-size: ($gcweb-font-size-base * 1.5);
+		margin-bottom: $gcweb-line-height-computed;
+	}
+
+	/*Make legends that are used with legends/radio buttons use GCWeb's main font size (need this override because otherwise it'd use WET's tiny default font size)*/
+	/*keep post-finalization*/
+	fieldset {
+		&.chkbxrdio-grp {
+			legend {
+				font-size: $gcweb-font-size-base;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	output {
+		font-size: $gcweb-font-size-base;
+		line-height: $gcweb-line-height-base;
+		padding-top: ($gcweb-padding-base-vertical + 1);
+	}
+
+	.form-control {
+		/*height: $gcweb-input-height-base; - ISSUE: Causes textareas to become 1 line (norm in WET/GCWeb is auto height - about 3 lines)... omitting this doesn't appear to break anything*/
+		border-radius: $gcweb-input-border-radius;
+		font-size: $gcweb-font-size-base;
+		line-height: $gcweb-line-height-base;
+		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		input[type="date"],
+		input[type="time"],
+		input[type="datetime-local"],
+		input[type="month"] {
+			&.form-control {
+				line-height: $gcweb-input-height-base;
+			}
+
+			&.input-sm,
+			.input-group-sm & {
+				line-height: $gcweb-input-height-small;
+			}
+
+			&.input-lg,
+			.input-group-lg & {
+				line-height: $gcweb-input-height-large;
+			}
+		}
+	}
+
+	/*.form-group {
+		margin-bottom: $gcweb-form-group-margin-bottom;
+	}*/
+
+	.radio,
+	.checkbox {
+		label {
+			min-height: $gcweb-line-height-computed;
+		}
+	}
+
+	/*keep post-finalization*/
+	.radio input[type="radio"],
+	.radio-inline input[type="radio"],
+	.checkbox input[type="checkbox"],
+	.checkbox-inline input[type="checkbox"] {
+		margin-top: 11px;
+	}
+
+	.form-control-static {
+		min-height: ($gcweb-line-height-computed + $gcweb-font-size-base);
+		padding-bottom: ($gcweb-padding-base-vertical + 1);
+		padding-top: ($gcweb-padding-base-vertical + 1);
+	}
+
+	@include input-size(".input-sm", $gcweb-input-height-small, $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-input-border-radius-small);
+
+	.form-group-sm {
+		.form-control {
+			border-radius: $gcweb-input-border-radius-small;
+			font-size: $gcweb-font-size-small;
+			height: $gcweb-input-height-small;
+			line-height: $gcweb-line-height-small;
+			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
+		}
+
+		select.form-control {
+			height: $gcweb-input-height-small;
+			line-height: $gcweb-input-height-small;
+		}
+
+		.form-control-static {
+			font-size: $gcweb-font-size-small;
+			height: $gcweb-input-height-small;
+			line-height: $gcweb-line-height-small;
+			min-height: ($gcweb-line-height-computed + $gcweb-font-size-small);
+			padding: ($gcweb-padding-small-vertical + 1) $gcweb-padding-small-horizontal;
+		}
+	}
+
+	@include input-size(".input-lg", $gcweb-input-height-large, $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-input-border-radius-large);
+
+	.form-group-lg {
+		.form-control {
+			border-radius: $gcweb-input-border-radius-large;
+			font-size: $gcweb-font-size-large;
+			height: $gcweb-input-height-large;
+			line-height: $gcweb-line-height-large;
+			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
+		}
+
+		select.form-control {
+			height: $gcweb-input-height-large;
+			line-height: $gcweb-input-height-large;
+		}
+
+		.form-control-static {
+			font-size: $gcweb-font-size-large;
+			height: $gcweb-input-height-large;
+			line-height: $gcweb-line-height-large;
+			min-height: ($gcweb-line-height-computed + $gcweb-font-size-large);
+			padding: ($gcweb-padding-large-vertical + 1) $gcweb-padding-large-horizontal;
+		}
+	}
+
+	.has-feedback {
+		.form-control {
+			padding-right: ($gcweb-input-height-base * 1.25);
+		}
+	}
+
+	.form-control-feedback {
+		height: $gcweb-input-height-base;
+		line-height: $gcweb-input-height-base;
+		width: $gcweb-input-height-base;
+	}
+
+	.input-lg + .form-control-feedback,
+	.input-group-lg + .form-control-feedback,
+	.form-group-lg .form-control + .form-control-feedback {
+		height: $gcweb-input-height-large;
+		line-height: $gcweb-input-height-large;
+		width: $gcweb-input-height-large;
+	}
+
+	.input-sm + .form-control-feedback,
+	.input-group-sm + .form-control-feedback,
+	.form-group-sm .form-control + .form-control-feedback {
+		height: $gcweb-input-height-small;
+		line-height: $gcweb-input-height-small;
+		width: $gcweb-input-height-small;
+	}
+
+	.has-feedback label {
+		& ~ .form-control-feedback {
+			top: ($gcweb-line-height-computed + 5);
+		}
+
+		&.sr-only ~ .form-control-feedback {
+			top: 0;
+		}
+	}
+
+	@mixin gcweb-form-inline {
+		@media (min-width: $screen-sm-min) {
+			.has-feedback .form-control-feedback {
+				top: 0;
+			}
+		}
+	}
+
+	.form-inline {
+		@include gcweb-form-inline;
+	}
+
+	.form-horizontal {
+		.radio,
+		.checkbox,
+		.radio-inline,
+		.checkbox-inline {
+			padding-top: ($gcweb-padding-base-vertical + 1);
+		}
+
+		.radio,
+		.checkbox {
+			min-height: ($gcweb-line-height-computed + ($gcweb-padding-base-vertical + 1));
+		}
+
+		@media (min-width: $screen-sm-min) {
+			.control-label {
+				padding-top: ($gcweb-padding-base-vertical + 1);
+			}
+		}
+
+		.form-group-lg {
+			@media (min-width: $screen-sm-min) {
+				.control-label {
+					font-size: $gcweb-font-size-large;
+					padding-top: ($gcweb-padding-large-vertical + 1);
+				}
+			}
+		}
+
+		.form-group-sm {
+			@media (min-width: $screen-sm-min) {
+				.control-label {
+					font-size: $gcweb-font-size-small;
+					padding-top: ($gcweb-padding-small-vertical + 1);
+				}
+			}
+		}
+	}
+
+
+
+	/*Input groups... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_input-groups.scss)*/
+
+	.input-group-addon {
+		border-radius: $gcweb-input-border-radius;
+		font-size: $gcweb-font-size-base;
+		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+
+		&.input-sm {
+			border-radius: $gcweb-input-border-radius-small;
+			font-size: $gcweb-font-size-small;
+			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
+		}
+
+		&.input-lg {
+			border-radius: $gcweb-input-border-radius-large;
+			font-size: $gcweb-font-size-large;
+			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
+		}
+	}
+
+	.input-group .form-control:first-child,
+	.input-group-addon:first-child,
+	.input-group-btn:first-child > .btn,
+	.input-group-btn:first-child > .btn-group > .btn,
+	.input-group-btn:first-child > .dropdown-toggle,
+	.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+	.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+		@include border-right-radius(0);
+	}
+
+	.input-group .form-control:last-child,
+	.input-group-addon:last-child,
+	.input-group-btn:last-child > .btn,
+	.input-group-btn:last-child > .btn-group > .btn,
+	.input-group-btn:last-child > .dropdown-toggle,
+	.input-group-btn:first-child > .btn:not(:first-child),
+	.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+		@include border-left-radius(0);
+	}
+}
+
+form {
+	&.provisional {
+		@extend %gcweb-main-font-size-line-height;
+		@extend %gcweb-form-font-new;
+	}
+}
+
+.provisional {
+	&.btn {
+		@extend %gcweb-btn;
+	}
+
+	&.btn-lg {
+		@extend %gcweb-btn-lg;
+	}
+
+	&.btn-sm {
+		@extend %gcweb-btn-sm;
+	}
+
+	&.btn-xs {
+		@extend %gcweb-btn-xs;
+	}
+
+	&.btn-call-to-action {
+		@extend %gcweb-btn-call-to-action-margin;
+	}
+
+	&.gc-form-font-new {
+		@extend %gcweb-form-font-new;
+
+		form {
+			@extend %gcweb-main-font-size-line-height;
+		}
+	}
+}
+
+
+
+
 .provisional {
 	//This color will eventually be replaced by the new colors from the alert revamp PR.
 	&.icon-warning-light, .icon-warning-light {
@@ -160,12 +674,12 @@
 		label {
 			cursor: pointer;
 			display: block;
-			font-size: 20px;
+			font-size: $gcweb-font-size-base;
 		}
 
 		legend {
 			float: none;
-			font-size: 22px;
+			font-size: $gcweb-font-size-large;
 			font-weight: 700;
 			margin-bottom: 15px;
 			margin-top: 0;
@@ -239,7 +753,7 @@
 
 				+ label,
 				+ label + ul {
-					font-size: 17px;
+					font-size: $gcweb-font-size-small;
 					min-height: 23px;
 				}
 
