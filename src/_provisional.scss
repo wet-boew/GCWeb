@@ -184,12 +184,8 @@ $gcweb-input-border-radius-large: $gcweb-border-radius-large;
 $gcweb-input-border-radius: $gcweb-border-radius-base;
 $gcweb-input-border-radius-small: $gcweb-border-radius-small;
 
-
 $gcweb-input-height-large: (ceil($gcweb-font-size-large * $gcweb-line-height-large) + ($gcweb-padding-large-vertical * 2) + 2);
-
 $gcweb-input-height-base: ($gcweb-line-height-computed + ($gcweb-padding-base-vertical * 2) + 2);
-/*NEED TO FORCEFULLY OVERRIDE SELECTORS ASSOCIATED TO THIS at several spots since GCWeb has set a tiny px override for the original variable!!!!*/
-
 $gcweb-input-height-small: (floor($gcweb-font-size-small * $gcweb-line-height-small) + ($gcweb-padding-small-vertical * 2) + 2);
 
 
@@ -229,12 +225,10 @@ TODOS:
 }
 
 %gcweb-btn-lg {
-	/*line-height: ensure even-numbered height of button next to large input*/
 	@include button-size($gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-btn-border-radius-large);
 }
 
 %gcweb-btn-sm {
-	/*line-height: ensure proper height of button next to small input*/
 	@include button-size($gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-btn-border-radius-small);
 }
 
@@ -245,8 +239,6 @@ TODOS:
 %gcweb-btn-call-to-action-margin {
 	margin: 0;
 }
-
-
 
 %gcweb-main-font-size {
 	font-size: $gcweb-font-size-base;
@@ -282,16 +274,16 @@ TODOS:
 	/*Dropdown menus... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_dropdowns.scss)*/
 
 	.caret {
-		border-top: $gcweb-caret-width-base dashed;
-		border-right: $gcweb-caret-width-base solid transparent;
 		border-left: $gcweb-caret-width-base solid transparent;
+		border-right: $gcweb-caret-width-base solid transparent;
+		border-top: $gcweb-caret-width-base dashed;
 	}
 
 	.dropup,
 	.navbar-fixed-bottom .dropdown {
 		.caret {
-			border-top: 0;
 			border-bottom: $gcweb-caret-width-base dashed;
+			border-top: 0;
 		}
 	}
 
@@ -331,8 +323,8 @@ TODOS:
 	}
 
 	.btn-lg .caret {
-		border-width: $gcweb-caret-width-large $gcweb-caret-width-large 0;
 		border-bottom-width: 0;
+		border-width: $gcweb-caret-width-large $gcweb-caret-width-large 0;
 	}
 
 	.dropup .btn-lg .caret {
@@ -383,8 +375,8 @@ TODOS:
 	}
 
 	legend {
-		margin-bottom: $gcweb-line-height-computed;
 		font-size: ($gcweb-font-size-base * 1.5);
+		margin-bottom: $gcweb-line-height-computed;
 	}
 
 	/*Make legends that are used with legends/radio buttons use GCWeb's baseline font size (need this override because otherwise it'd use WET's tiny default font size)*/
@@ -399,17 +391,17 @@ TODOS:
 	}
 
 	output {
-		padding-top: ($gcweb-padding-base-vertical + 1);
 		font-size: $gcweb-font-size-base;
 		line-height: $gcweb-line-height-base;
+		padding-top: ($gcweb-padding-base-vertical + 1);
 	}
 
 	.form-control {
 		/*height: $gcweb-input-height-base; - ISSUE: Causes textareas to become 1 line (norm in WET/GCWeb is auto height - about 3 lines)... omitting this doesn't appear to break anything*/
-		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
+		border-radius: $gcweb-input-border-radius;
 		font-size: $gcweb-font-size-base;
 		line-height: $gcweb-line-height-base;
-		border-radius: $gcweb-input-border-radius;
+		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
 	}
 
 	@media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -433,9 +425,9 @@ TODOS:
 		}
 	}
 
-	.form-group {
-		/*margin-bottom: $gcweb-form-group-margin-bottom;*/
-	}
+	/*.form-group {
+		margin-bottom: $gcweb-form-group-margin-bottom;
+	}*/
 
 	.radio,
 	.checkbox {
@@ -454,19 +446,19 @@ TODOS:
 
 	.form-control-static {
 		min-height: ($gcweb-line-height-computed + $gcweb-font-size-base);
-		padding-top: ($gcweb-padding-base-vertical + 1);
 		padding-bottom: ($gcweb-padding-base-vertical + 1);
+		padding-top: ($gcweb-padding-base-vertical + 1);
 	}
 
-	@include input-size('.input-sm', $gcweb-input-height-small, $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-input-border-radius-small);
+	@include input-size(".input-sm", $gcweb-input-height-small, $gcweb-padding-small-vertical, $gcweb-padding-small-horizontal, $gcweb-font-size-small, $gcweb-line-height-small, $gcweb-input-border-radius-small);
 
 	.form-group-sm {
 		.form-control {
-			height: $gcweb-input-height-small;
-			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
-			font-size: $gcweb-font-size-small;
-			line-height: $gcweb-line-height-small;
 			border-radius: $gcweb-input-border-radius-small;
+			font-size: $gcweb-font-size-small;
+			height: $gcweb-input-height-small;
+			line-height: $gcweb-line-height-small;
+			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
 		}
 
 		select.form-control {
@@ -475,23 +467,23 @@ TODOS:
 		}
 
 		.form-control-static {
+			font-size: $gcweb-font-size-small;
 			height: $gcweb-input-height-small;
+			line-height: $gcweb-line-height-small;
 			min-height: ($gcweb-line-height-computed + $gcweb-font-size-small);
 			padding: ($gcweb-padding-small-vertical + 1) $gcweb-padding-small-horizontal;
-			font-size: $gcweb-font-size-small;
-			line-height: $gcweb-line-height-small;
 		}
 	}
 
-	@include input-size('.input-lg', $gcweb-input-height-large, $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-input-border-radius-large);
+	@include input-size(".input-lg", $gcweb-input-height-large, $gcweb-padding-large-vertical, $gcweb-padding-large-horizontal, $gcweb-font-size-large, $gcweb-line-height-large, $gcweb-input-border-radius-large);
 
 	.form-group-lg {
 		.form-control {
-			height: $gcweb-input-height-large;
-			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
-			font-size: $gcweb-font-size-large;
-			line-height: $gcweb-line-height-large;
 			border-radius: $gcweb-input-border-radius-large;
+			font-size: $gcweb-font-size-large;
+			height: $gcweb-input-height-large;
+			line-height: $gcweb-line-height-large;
+			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
 		}
 
 		select.form-control {
@@ -500,11 +492,11 @@ TODOS:
 		}
 
 		.form-control-static {
+			font-size: $gcweb-font-size-large;
 			height: $gcweb-input-height-large;
+			line-height: $gcweb-line-height-large;
 			min-height: ($gcweb-line-height-computed + $gcweb-font-size-large);
 			padding: ($gcweb-padding-large-vertical + 1) $gcweb-padding-large-horizontal;
-			font-size: $gcweb-font-size-large;
-			line-height: $gcweb-line-height-large;
 		}
 	}
 
@@ -515,25 +507,25 @@ TODOS:
 	}
 
 	.form-control-feedback {
-		width: $gcweb-input-height-base;
 		height: $gcweb-input-height-base;
 		line-height: $gcweb-input-height-base;
+		width: $gcweb-input-height-base;
 	}
 
 	.input-lg + .form-control-feedback,
 	.input-group-lg + .form-control-feedback,
 	.form-group-lg .form-control + .form-control-feedback {
-		width: $gcweb-input-height-large;
 		height: $gcweb-input-height-large;
 		line-height: $gcweb-input-height-large;
+		width: $gcweb-input-height-large;
 	}
 
 	.input-sm + .form-control-feedback,
 	.input-group-sm + .form-control-feedback,
 	.form-group-sm .form-control + .form-control-feedback {
-		width: $gcweb-input-height-small;
 		height: $gcweb-input-height-small;
 		line-height: $gcweb-input-height-small;
+		width: $gcweb-input-height-small;
 	}
 
 	.has-feedback label {
@@ -580,8 +572,8 @@ TODOS:
 		.form-group-lg {
 			@media (min-width: $screen-sm-min) {
 				.control-label {
-					padding-top: ($gcweb-padding-large-vertical + 1);
 					font-size: $gcweb-font-size-large;
+					padding-top: ($gcweb-padding-large-vertical + 1);
 				}
 			}
 		}
@@ -589,8 +581,8 @@ TODOS:
 		.form-group-sm {
 			@media (min-width: $screen-sm-min) {
 				.control-label {
-					padding-top: ($gcweb-padding-small-vertical + 1);
 					font-size: $gcweb-font-size-small;
+					padding-top: ($gcweb-padding-small-vertical + 1);
 				}
 			}
 		}
@@ -601,20 +593,20 @@ TODOS:
 	/*Input groups... (derived from https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_input-groups.scss)*/
 
 	.input-group-addon {
-		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
-		font-size: $gcweb-font-size-base;
 		border-radius: $gcweb-input-border-radius;
+		font-size: $gcweb-font-size-base;
+		padding: $gcweb-padding-base-vertical $gcweb-padding-base-horizontal;
 
 		&.input-sm {
-			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
-			font-size: $gcweb-font-size-small;
 			border-radius: $gcweb-input-border-radius-small;
+			font-size: $gcweb-font-size-small;
+			padding: $gcweb-padding-small-vertical $gcweb-padding-small-horizontal;
 		}
 
 		&.input-lg {
-			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
-			font-size: $gcweb-font-size-large;
 			border-radius: $gcweb-input-border-radius-large;
+			font-size: $gcweb-font-size-large;
+			padding: $gcweb-padding-large-vertical $gcweb-padding-large-horizontal;
 		}
 	}
 
