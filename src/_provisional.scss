@@ -195,9 +195,6 @@ $gcweb-input-height-small: (floor($gcweb-font-size-small * $gcweb-line-height-sm
 /*NOTE:
 also gotta keep WET overrides in mind for things like undoing hardocoded heights for certain elements
 
-keep these in mind too:
--fate of placeholder selectors in _default.scss
-
 
 
 
@@ -238,11 +235,6 @@ TODOS:
 
 %gcweb-btn-call-to-action-margin {
 	margin: 0;
-}
-
-%gcweb-main-font-size {
-	font-size: $gcweb-font-size-base;
-	line-height: $gcweb-line-height-base;
 }
 
 %gcweb-form-font-new {
@@ -371,7 +363,7 @@ TODOS:
 	.checkbox-inline,
 	.radio,
 	.radio-inline {
-		@extend %gcweb-main-font-size;
+		@extend %gcweb-main-font-size-line-height;
 	}
 
 	legend {
@@ -379,7 +371,7 @@ TODOS:
 		margin-bottom: $gcweb-line-height-computed;
 	}
 
-	/*Make legends that are used with legends/radio buttons use GCWeb's baseline font size (need this override because otherwise it'd use WET's tiny default font size)*/
+	/*Make legends that are used with legends/radio buttons use GCWeb's main font size (need this override because otherwise it'd use WET's tiny default font size)*/
 	/*keep post-finalization*/
 	fieldset {
 		&.chkbxrdio-grp {
@@ -633,7 +625,7 @@ TODOS:
 
 form {
 	&.provisional {
-		@extend %gcweb-main-font-size;
+		@extend %gcweb-main-font-size-line-height;
 		@extend %gcweb-form-font-new;
 	}
 }
@@ -663,7 +655,7 @@ form {
 		@extend %gcweb-form-font-new;
 
 		form {
-			@extend %gcweb-main-font-size;
+			@extend %gcweb-main-font-size-line-height;
 		}
 	}
 }
