@@ -188,8 +188,7 @@ $gcweb-input-height-large: (ceil($gcweb-font-size-large * $gcweb-line-height-lar
 $gcweb-input-height-base: ($gcweb-line-height-computed + ($gcweb-padding-base-vertical * 2) + 2);
 $gcweb-input-height-small: (floor($gcweb-font-size-small * $gcweb-line-height-small) + ($gcweb-padding-small-vertical * 2) + 2);
 
-
-/*$gcweb-form-group-margin-bottom: 20px;*/ /*maybe keep this as-is (15px), scrap this override and change my CSS to use the normal GCWeb variable for this*/
+$gcweb-form-group-margin-bottom: 25px;
 
 
 /*NOTE:
@@ -417,9 +416,9 @@ TODOS:
 		}
 	}
 
-	/*.form-group {
+	.form-group {
 		margin-bottom: $gcweb-form-group-margin-bottom;
-	}*/
+	}
 
 	.radio,
 	.checkbox {
@@ -532,6 +531,10 @@ TODOS:
 
 	@mixin gcweb-form-inline {
 		@media (min-width: $screen-sm-min) {
+			.form-group {
+				margin-bottom: 0;
+			}
+
 			.has-feedback .form-control-feedback {
 				top: 0;
 			}
