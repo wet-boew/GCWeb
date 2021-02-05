@@ -22,6 +22,7 @@ var $document = wb.doc,
 	mainClass = "gc-subway-section",
 	toggleClass = "wb-inv",
 	desktopInited = false,
+	skipLink = false,
 	$html = wb.html,
 	$h1, $h2, $h1Copy, $menu, $main,
 
@@ -35,10 +36,23 @@ var $document = wb.doc,
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
+			h1,
 			$elm;
 
 		if ( elm ) {
 			$elm = $( elm );
+			$h1 = $( "h1", $elm );
+			h1 = $h1.get( 0 );
+
+			// Ensure the element have an ID
+			if ( !h1.id ) {
+				h1.id = wb.getId();
+			}
+
+			// Add subway H1 to skip links
+			if ( !skipLink ) {
+				skipLink = wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + h1.textContent, { href: "#" + h1.id } );
+			}
 
 			// trigger resizing
 			onResize( $elm );
@@ -92,9 +106,8 @@ var $document = wb.doc,
 	 * @param {jQuery DOM element} $elm Element targetted by this plugin, which is the nav
 	 */
 	initDesktop = function( $elm ) {
-		$h1 = $( "h1", $elm );
 		$h2 = $( "<h2 class='h3 hidden-xs visible-md visible-lg mrgn-tp-0'>Sections</h2>" );
-		$h1Copy = $( "<p class='gc-subway-h1' aria-hidden='true'>" + $h1.text() + "</p>" );
+		$h1Copy = $( "<div class='gc-subway-h1' aria-hidden='true'>" + $h1.text() + "</div>" );
 		$( "ul", $elm ).first().wrap( "<div class='gc-subway-menu-nav'></div>" );
 		$menu = $( ".gc-subway-menu-nav", $elm );
 		$elm.nextUntil( ".pagedetails, .gc-subway-section-end" ).wrapAll( "<section class='provisional " + mainClass + "'>" );
