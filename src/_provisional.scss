@@ -196,12 +196,17 @@ also gotta keep WET overrides in mind for things like undoing hardocoded heights
 
 
 
-
-
-
+Outcome of chat with Pierre:
+-eliminate gc-form-font-new class (and scrap namesake placeholder selector since it'll now only be used once)... won't be able to do that without breaking the Bootstrap docs test page (many examples of things affected by GCWeb's small font size overrides aren't inside <form> elements and can't be overidden any other way unless I use a top-level <form>)
+-my call for text-shadow in buttons (make it all or nothing on all similar buttons or call-to-action-only)
+-make call to action buttons as much like normal buttons as possible -except the margins (call to actions font size WILL decrease to match normal buttons)
+-don't give people a way of overriding the call to action margins in provisional CSS? (can't remember what we decided for this... but I think we decided against it)
+-add an example page(s) to allow people to compare before/after (ripped off from my current test pages)
+-add upgrade step notes in the CSS and/or PR (like what to do to promote my variables from provisional to final... basically make it straightforward for PP or me to finalize the selectors in 6+ months)
 
 
 NOTES:
+-Why is there a noticeable height difference between dropdowns and text inputs? Seems to be related to line-height: normal; on select and a real line height on inputs
 -That silly arrow placement in "Buttons with dropdowns" is beyond my control (was an intentional WET override with the understanding that would break)
 -Borders in basic btn-group examples don't look as dark as justified ones (WET+GCWeb)... caused by a WET override (https://github.com/wet-boew/wet-boew/pull/5065)
 -There's weird inexplicable spacing in this GCWeb example (doesn't exist in WET... I think it's a GCWeb quirk because it happens even without the giant form font class):
