@@ -398,6 +398,7 @@ var componentName = "wb-data-json",
 		case "number":
 			return a === b;
 		case "object":
+			var i, l;
 			if ( a === null ) {
 				return b === null;
 			}
@@ -405,7 +406,7 @@ var componentName = "wb-data-json",
 				if (  $.isArray( b ) || a.length !== b.length ) {
 					return false;
 				}
-				for ( var i = 0, l = a.length; i < l; i++ ) {
+				for ( i = 0, l = a.length; i < l; i++ ) {
 					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
 						return false;
 					}
@@ -417,7 +418,7 @@ var componentName = "wb-data-json",
 			if ( _objectKeys( a ).length !== bLength ) {
 				return false;
 			}
-			for ( var i = 0; i < bLength; i++ ) {
+			for ( i = 0; i < bLength; i++ ) {
 				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
 					return false;
 				}
@@ -428,8 +429,9 @@ var componentName = "wb-data-json",
 		}
 	},
 	_objectKeys = function( obj ) {
+		var keys;
 		if ( $.isArray( obj ) ) {
-			var keys = new Array( obj.length );
+			keys = new Array( obj.length );
 			for ( var k = 0; k < keys.length; k++ ) {
 				keys[ k ] = "" + k;
 			}
@@ -438,7 +440,7 @@ var componentName = "wb-data-json",
 		if ( Object.keys ) {
 			return Object.keys( obj );
 		}
-		var keys = [];
+		keys = [];
 		for ( var i in obj ) {
 			if ( obj.hasOwnProperty( i ) ) {
 				keys.push( i );

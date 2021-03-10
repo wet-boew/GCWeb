@@ -1,0 +1,180 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - master
+      - cd-script
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    environment: github-cd
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+    env:
+      REPO_DIST: themes-dist
+      REPO_DIST_CDN: themes-cdn
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i -g bower grunt-cli
+      - run: npm ci
+
+      - name: npm install wet-boew dependency
+        run: |
+          cd node_modules/wet-boew
+          npm i -g bower grunt-cli
+          npm install
+          grunt deploy-build
+
+      - name: Build GCWeb
+        if: ${{ !env.ACT }}
+        run: grunt dist
+
+      - name: Build GCWeb (without pre-test)
+        if: ${{ env.ACT }}
+        run: grunt dist-act
+
+      #
+      # Prepare gcweb deployment
+      #
+      - name: Extract tag or branch name
+        id: ref_name
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.my_token }}
+          result-encoding: string
+          # act use "\" and githbu use "/"
+          script: |
+            return context.ref.replace(/\/?refs\/heads\//, '').replace(/\\?refs\\heads\\/, '').replace(/\/?refs\/tags\//, '').replace(/\\?refs\\tags\\/, '')
+      - name: Check if it a tag
+        id: ref_tags
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.my_token }}
+          result-encoding: string
+          # act use "\" and githbu use "/"
+          script: |
+            return context.ref.startsWith("\\refs\\tags\\") || context.ref.startsWith("/refs/tags/") || context.ref.startsWith("refs/tags/") || context.ref.startsWith("refs\\tags\\") || ''
+      - name: Tag or branch info
+        env:
+           ref_name: ${{ steps.ref_name.outputs.result }}
+           is_tags: ${{ steps.ref_tags.outputs.result }}
+        run: |
+          echo Ref name: ${{ env.ref_name }}
+          echo Is tag: ${{ env.is_tags }}
+      - name: Git config
+        run: |
+          git config --global user.name "${{ secrets.my_username }}"
+          git config --global user.email "${{ secrets.my_email }}"
+      #
+      # GCWeb Dist
+      #
+      - name: Dist - Applying changes
+        run: |
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST }}.git --branch GCWeb ~gcweb-dist
+          rm -rf ~gcweb-dist/*
+          mv dist/* ~gcweb-dist
+          cp Licence-fr.txt ~gcweb-dist/GCWeb/Licence-fr.txt
+          cp License-en.txt ~gcweb-dist/GCWeb/License-en.txt
+          cd ~gcweb-dist
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update GCWeb dist files" --allow-empty
+      - name: Dist - Deploy in GCWeb branch
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{ github.repository_owner }}/${{ env.REPO_DIST }}
+          directory: ~gcweb-dist
+          branch: GCWeb
+          github_token: ${{ secrets.my_token }}
+
+      - name: Dist - Create release
+        if: ${{ env.is_tags != '' }}
+        uses: actions/github-script@v3
+        env:
+          commitish: GCWeb
+          repo: ${{ env.REPO_DIST }}
+          ref_name: ${{ steps.ref_name.outputs.result }}-gcweb
+          is_tags: ${{ steps.ref_tags.outputs.result }}
+        with:
+          github-token: ${{ secrets.my_token }}
+          script: |
+            github.repos.createRelease({
+              owner: context.repo.owner,
+              repo: process.env.repo,
+              tag_name: process.env.ref_name,
+              name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
+              target_commitish: process.env.commitish
+            });
+      - name: Dist - Update submodule
+        run: |
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST }}.git --branch gh-pages ~gcweb-dist-submodule
+          cd ~gcweb-dist-submodule
+          git submodule update --init --depth 1 GCWeb
+          cd GCWeb
+          git remote add neworigin https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST }}.git
+          git fetch --depth 1 neworigin GCWeb
+          git reset --hard neworigin/GCWeb
+          cd ..
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update submodule GCWeb dist" --allow-empty
+      - name: Dist - Deploy submodule updated
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{ github.repository_owner }}/${{ env.REPO_DIST }}
+          directory: ~gcweb-dist-submodule
+          branch: gh-pages
+          github_token: ${{ secrets.my_token }}
+
+      #
+      # GCWeb Dist CDN
+      #
+      - name: Dist CDN - Applying changes
+        run: |
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST_CDN }}.git --branch GCWeb ~gcweb-cdn
+          rm -rf ~gcweb-cdn/*
+          cp -r ~gcweb-dist/GCWeb/. ~gcweb-cdn/
+          cd ~gcweb-cdn
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update GCWeb dist cdn files" --allow-empty
+      - name: Dist CDN - Deploy in GCWeb branch
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{ github.repository_owner }}/${{ env.REPO_DIST_CDN }}
+          directory: ~gcweb-cdn
+          branch: GCWeb
+          github_token: ${{ secrets.my_token }}
+
+      - name: Dist CDN - Create release
+        uses: actions/github-script@v3
+        env:
+          commitish: GCWeb
+          repo: ${{ env.REPO_DIST_CDN }}
+          ref_name: ${{ steps.ref_name.outputs.result }}-gcweb
+          is_tags: ${{ steps.ref_tags.outputs.result }}
+        if: ${{ env.is_tags != '' }}
+        with:
+          github-token: ${{ secrets.my_token }}
+          script: |
+            github.repos.createRelease({
+              owner: context.repo.owner,
+              repo: process.env.repo,
+              tag_name: process.env.ref_name,
+              name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
+              target_commitish: process.env.commitish
+            });

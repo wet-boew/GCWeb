@@ -357,8 +357,11 @@ var $document = wb.doc,
 					cValueParsed = pattern.exec( cValue );
 
 					// Fall back on default if no match found
-					cValueParsed = !!cValueParsed ? cValueParsed : defaultValue;
-				} catch ( e ) { }
+					cValueParsed = cValueParsed || defaultValue;
+				} catch ( e ) {
+
+					// continue regardless of error
+				}
 			} else if ( !cValueParsed && !!defaultValue && !cValue ) {
 				cValueParsed = defaultValue;
 			}
