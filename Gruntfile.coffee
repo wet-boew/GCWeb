@@ -29,6 +29,20 @@ module.exports = (grunt) ->
 		]
 	)
 
+	@registerTask(
+		"dist-act"
+		"Produces the production files"
+		[
+			"build"
+			"assets-dist"
+			"assemble"
+			"htmlmin"
+			"htmllint"
+			"bootlint"
+			"useMinAssets"
+			"sri"
+		]
+	)
 	#Alternate External tasks
 	@registerTask(
 		"debug"

@@ -302,7 +302,7 @@ function keycode( code ) {
 
 
 	return false;
-};
+}
 
 // Global hook, close the menu on "ESC" when its state are open.
 $document.on( "keydown", function( event ) {
