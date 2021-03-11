@@ -1,0 +1,192 @@
+---
+{
+	"altLangPrefix": "gc-checklist",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-en.html" },
+		{ "title": "Provisional functionality", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-en.html" }
+	],
+	"dateModified": "2021-03-05",
+	"description": "Working examples for checklist - Provisional feature",
+	"language": "en",
+	"pageclass": "cnt-wdth-lmtd",
+	"parentdir": "component",
+	"tag": "checklist",
+	"title": "Checklist - Provisional feature"
+}
+---
+{{>alert-provisional-demos}}
+<span class="wb-prettify all-pre hidden"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Provisional</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca design pattern</dd>
+	<dt>Last review</dt>
+	<dd>2021-03-05</dd>
+	<dt>Conforming to</dt>
+	<dd>&nbsp;</dd>
+	<dt>Guidance</dt>
+	<dd><a href="https://design.canada.ca/common-design-patterns/checkboxes-radio-buttons.html">Checkboxes and radio buttons - Beta - Canada.ca design pattern</a></dd>
+	<dt>Technical name</dt>
+	<dd>
+		<ul>
+			<li><code>gc-checklist</code></li>
+		</ul>
+	</dd>
+</dl>
+<h2>Working example</h2>
+<section>
+	<h3>Example 1</h3>
+	<p>[To qualify, you must meet <strong>all</strong> of the following required conditions:] <small class="text-muted">(checklist, large boxes)</small></p>
+	<div class="provisional gc-checklist">
+		<ul class="lst-none lst-spcd-2" >
+			<li class="checkbox">
+				<input type="checkbox" id="cond1" required="required">
+				<label for="cond1">[Condition 1] (required)</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond2">
+				<label for="cond2">[Condition 2]</label>
+			</li>
+			<li class="checkbox">
+				<input type="checkbox" id="cond3" required>
+				<label for="cond3">[Condition 3] (required)</label>
+			</li>
+		</ul>
+		<output>
+			<p class="failure-message bg-danger p-sm-3 text-danger">[You need all of the required criteria to call]</p>
+			<p class="success-message bg-success p-sm-3 text-success hidden">[You are ready to call]</p>
+		</output>
+	</div>
+</section>
+<section>
+	<h3>Example 2</h3>
+	<p>[To qualify, you must meet <strong>all</strong> of the following conditions:] <small class="text-muted">(checklist, small boxes)</small></p>
+	<div class="provisional gc-checklist">
+		<ul class="lst-none lst-spcd">
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond4" required>
+				<label for="cond4">[Condition 4] (required)</label>
+			</li>
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond5" required>
+				<label for="cond5">[Condition 5] (required)</label>
+			</li>
+			<li class="checkbox-sm">
+				<input type="checkbox" id="cond6" required>
+				<label for="cond6">[Condition 6] (required)</label>
+			</li>
+		</ul>
+		<output>
+			<p class="failure-message bg-danger p-sm-3 text-danger">[You need all of the above to call]</p>
+			<p class="success-message bg-success p-sm-3 text-success hidden">[You are ready to call]</p>
+		</output>
+	</div>
+</section>
+<section>
+	<h2>Evaluation and report</h2>
+	<p>Faced with the standard approach of explaining eligibility criteria with long pages of static content, we’ve seen users fail to grasp precisely what they need to be eligible for a program. A checklist helps them step methodically through the web content by having them answer a question, or affirm a choice. The interaction helps them engage more deeply in finding the right answer for their particular situation. The interactive checkboxes and radio buttons make the page feel more like a mobile app.</p>
+	<ul>
+		<li><a href="https://blog.canada.ca/2020/11/12/interactive-checklists.html">Using interactive checklists to simplify eligibility criteria</a></li>
+	</ul>
+	<p>We are currently evaluating the accessibility impact of having checkbox inputs outside a form element. It's still valid HTML code, but one of the concerns is regarding the form mode with screen readers.</p>
+</section>
+<section>
+	<h2>API(2021-03-05)</h2>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>CSS Class</th>
+				<th>Template</th>
+				<th>Visual rendering</th>
+				<th>Schema</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+				<td>2021-03-05</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<h3>CSS Class(2021-03-05)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-checklist</code></dt>
+	<dd>Component: Checklist - Provisional feature.</dd>
+</dl>
+
+<detail>
+	<summary>Version notes</summary>
+	<p>No versioning yet</p>
+</detail>
+<section>
+	<h3>Template (2021-03-05)</h3>
+	<p>Avoid using <code>&lt;form&gt;</code> elements when doing a checklist that doesn't need to be submitted anywhere.</p>
+	<p>Notes:</p>
+	<ul>
+		<li>Use the <code>.gc-checklist</code> class on the parent container of the checklist items.</li>
+		<li>The <code>&lt;input type="checkbox"&gt;</code> can be use without a parent <code>&lt;form&gt;</code> element.</li>
+		<li>Should not be used with other form elements. Only produce a standalone checklist. If other form elements are required, consider building a regular form.</li>
+		<li>The feedback message is optional (<code>data-gc-checklist</code>)</li>
+	</ul>
+	<h4><code>.gc-checklist</code></h4>
+	<h5>Large checkboxes layout</h5>
+	<pre><code>&lt;div class="provisional gc-checklist"&gt;
+	&lt;ul class="lst-none lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond1" required&gt;
+			&lt;label for="cond1"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond2"&gt;
+			&lt;label for="cond2"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond3"&gt; required
+			&lt;label for="cond3"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;output&gt;
+		&lt;p class="failure-message bg-danger" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+		&lt;p class="success-message bg-success hidden" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+	&lt;/output&gt;
+&lt;/div&gt;</code></pre>
+
+	<h4>Feature variant: <code>.gc-checklist .checkbox-sm</code></h4>
+	<pre class="mrgn-tp-md"><code>&lt;div class="provisional gc-checklist"&gt;
+	&lt;ul class="lst-none lst-spcd-2" &gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond4" required&gt;
+			&lt;label for="cond4"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond5"&gt;
+			&lt;label for="cond5"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox-sm"&gt;
+			&lt;input type="checkbox" id="cond6"&gt;required
+			&lt;label for="cond6"&gt;[[comp:ChecklistItem in (comp:Checklist comp:Checklists )]]&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;output&gt;
+		&lt;p class="failure-message bg-danger" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+		&lt;p class="success-message bg-success hidden" &gt;[[comp:Checklist html:text]]&lt;/p&gt;
+	&lt;/output&gt;
+&lt;/div&gt;</code></pre>
+	<h3>Visual rendering (2021-03-05)</h3>
+</section>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>No versioning yet</dt>
+		<dd>
+			<ul>
+				<li>Original rendering</li>
+			</ul>
+		</dd>
+	</dl>
+</details>
