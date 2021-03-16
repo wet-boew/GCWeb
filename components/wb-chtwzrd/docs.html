@@ -1,0 +1,80 @@
+---
+title: Chat wizard - How to implement
+language: en
+---
+<p>There are two ways to implement the chat wizard. The more common way is to code a form, and add according classes and data attributes. The other way is to load it from a JSON file, which will generate both the form and the wizard, is useful in case one would want to implement the same chat wizard on multiple pages.</p>
+<h4>1. Code a form</h4>
+<ol>
+	<li>Code a form that has a decision tree logic, with the idea that an answer could affect what the next question would be. At the moment, all choices of answer to a question must be radio buttons only.</li>
+	<li>Wrap your form in a section, aside or div tag with a class named “.provisional.wb-chtwzrd”, along with the class “.hidden” to avoid the basic form to flicker on load. Other options are:
+		<ul>
+			<li>A data attribute named “data-wb-chtwzrd-avatar” can be added with a path to an image in order to change the default avatar in the bubble and the chat window. Recommended dimensions are 45x45 pixels.</li>
+			<li>A class named “.wb-chtwzrd-inline” can be added to have the chat experience inside the content and not in a separate window. This feature should only be used on a dedicated page, since it will start right away and steals the show to other content.</li>
+		</ul>
+	</li>
+	<li>Give it a title (outside of you form) as an H2. That heading will be the title of the form, as well as the title of the chat window and the text of the notification message.</li>
+	<li>The action of your form will be the default destination page at the end of the flow. The method will define if the form will be submitted through the URL bar or in the body at the end. You can give it a name attribute too, for tracking purposes.</li>
+	<li>You will need to start your form with a greetings paragraph. That paragraph must have a “.wb-chtwzrd-greetings” class and will be the first message coming from the bot when the chat window is opened.</li>
+	<li>Same thing for the last message at the end of the conversation which is a farewell paragraph that you can put at the bottom of your form and that needs to have the “.wb-chtwzrd-farewell” class.</li>
+	<li>If you add a regular paragraph right after your greetings one, this will be considered as an introduction message, which will be mentioned by the bot right after the greetings.</li>
+	<li>The submit button is necessary as it indicates what the final submit button will show at the end of the conversation. Plus, you can add a data attribute there named “data-wb-chtwzrd-replace” that allows you to give a different value to your chat wizard than what’s in the form. <strong>This data attribute can be used on almost every textual tag inside the “.provisional.wb-chtwzrd” container to indicate what the chat wizard should display different than what the form displays.</strong></li>
+	<li>In the form itself, each question must be wrapped around a fieldset tag, with a unique ID attribute. 10. The question has to be in a legend tag, to which for instance you can use the “data-wb-chtwzrd-replace” attribute to have a more conversation-based question for the wizard.</li>
+	<li>Choices of answer must be in an unordered list, with a class named “.list-unstyled” to not show the bullet points and a class “.mrgn-tp-md” for spacing at your own taste.</li>
+	<li>The label tag has to wrap your input of type radio, with the text value wrapped in a span tag.</li>
+	<li>The input itself has a name that represents that question in the final GET query string or POST, along with the value attribute for this input in particular. Also:
+		<ul>
+			<li>The data attribute named “data-wb-chtwzrd-next” must be used on the inputs to indicate the next question (fieldset ID) to present to the user. The last question of any possible conversation in the decision tree must have that data attribute set to “none”, in order to end the conversation.</li>
+			<li>The data attribute name “data-wb-chtwzrd-url” provides the plugin with the updated destination of the redirection at the final submit.</li>
+		</ul>
+	</li>
+	<li>If you want an external button to enable the chat wizard in addtition to the chat wizard bubble, you can add a button with the class named <code>.wb-chtwzrd-btn</code>.</li>
+	<li>If you only want external button to enable the chat wizard instead of chat bubble, simply add the class named <code>.wb-chtwzrd-btn-extrnl</code> on your chat wizard and the chat bubble will not be displayed.</li>
+</ol>
+<p>There you have it! A conversational-like experience driven by a fairly simple form.</p>
+<h4>2. Import a JSON File</h4>
+<p>Accepting JSON File as an input for batch deployments. If you have a JSON file that follows the Data API logic shown below, it can be implemented as a chat wizard instance.</p>
+<p>JSON File API</p>
+<pre><code>{
+	"header":{
+		"method": "GET (default) or POST [GET]",
+		"defaultDestination": "Default results page after submission [results-en.html]",
+		"avatar": "Custom avatar URL [https://www.canada.ca/etc/designs/canada/wet-boew/assets/default-avatar.png]",
+		"inline": "If provided with any value, it will put the chat wizard inside the content instead of a seperate window [true]",
+		"first": "ID attribute of first question (will pick the first question in the form if not set) [q1]",
+		"formType": "formType dynamic (default) or static for the basic form [dynamic]",
+		"name":"Name attribute on the form for tracking purposes. Chat's form has -chat appended automatically [example]",
+		"form": {
+			"title": "Title for basic form [Help us help you]",
+			"instructions": "Introduction paragraph before basic form [If you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
+			"sendButton": "Text for the submit button in the basic form [Search now]"
+		},
+		"title":"Title of wizard [I can help you find the information you need]",
+		"greetings":"Greetings message as first interaction with user [Hi! I can help direct you to programs and services you might be interested in. Let's begin...]",
+		"instructions": "More instructions or information before the questionnaire starts [First, if you are an employer or organization looking for funding, you can find relevant information on the &lt;a href='pagex.html'&gt;funding page&lt;/a&gt;.]",
+		"farewell":"Farewell message as last interaction after last question is answered [Thank you. I have built a page with results you may find resourceful.]",
+		"sendButton":"Text for the submit button after last question is answered [Show results]"
+	},
+	"questions":{
+		"q1":{
+			"name":"Name of the question [describe]",
+			"input":"Input type [radio]",
+			"labelForm":"Question in the form [What would you describe yourself as?]",
+			"label":"Question in the wizard [Are you:]",
+			"choices":[
+				{
+					"content":"Choice of answer for an input [a young Canadian]",
+					"value":"Value for the submission [young-canadian]",
+					"next":"Next question ID [q2]",
+					"url":"result page if this answer is selected [results-en.html]"
+				},
+				{
+					"...":"More choices"
+				}
+			]
+		},
+		"q2":{
+			"...":"More questions"
+		}
+	}
+}</code></pre>
+<p>All you need on your page is to add a data attribute named “data-wb-chtwzrd-src” to your section, aside or div tag that has the “.provisional.wb-chtwzrd” class, and provide it with the path to your JSON file.</p>

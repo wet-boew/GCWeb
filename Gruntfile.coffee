@@ -1,6 +1,7 @@
 #global module:false
 path = require("path")
 sass = require("node-sass")
+yaml = require("js-yaml")
 
 module.exports = (grunt) ->
 
@@ -9,213 +10,377 @@ module.exports = (grunt) ->
 		"default"
 		"Default task, that runs the production build"
 		[
-			"dist"
-		]
-	)
-
-	@registerTask(
-		"dist"
-		"Produces the production files"
-		[
-			"test"
-			"build"
-			"assets-dist"
-			"assemble"
-			"htmlmin"
-			"htmllint"
-			"bootlint"
-			"useMinAssets"
-			"sri"
-		]
-	)
-
-	@registerTask(
-		"dist-act"
-		"Produces the production files"
-		[
-			"build"
-			"assets-dist"
-			"assemble"
-			"htmlmin"
-			"htmllint"
-			"bootlint"
-			"useMinAssets"
-			"sri"
-		]
-	)
-	#Alternate External tasks
-	@registerTask(
-		"debug"
-		"Produces unminified files"
-		[
-			"build"
-			"assemble"
-			"htmllint"
-		]
-	)
-
-	@registerTask(
-		"build"
-		"Produces unminified files"
-		[
-			"checkDependencies"
-			"clean:dist"
-			"copy:wetboew"
-			"copy:demos"
-			"copy:demos_min"
-			"assets"
-			"css"
-			"js"
-		]
-	)
-
-	@registerTask(
-		"deploy"
-		"Build and deploy artifacts to wet-boew-dist"
-		->
-			if process.env.TRAVIS_PULL_REQUEST is "false" and process.env.DIST_REPO isnt `undefined` and ( process.env.TRAVIS_TAG isnt "" or process.env.TRAVIS_BRANCH is "master" )
-				pkgOriginal = grunt.file.readJSON("package.json");
-				addToRepo = "themes-cdn";
-				writeTo = "dist/GCWeb/package.json";
-				pkg = {
-					name: "gcweb",
-					version: pkgOriginal.version,
-					description: pkgOriginal.name.toLowerCase() + " theme"
-					repository: {
-						type: "git",
-						url: "git+https://github.com/wet-boew/" + addToRepo + ".git"
-					},
-					author: "wet-boew-bot",
-					license: "MIT",
-					bugs: {
-						url: "https://github.com/wet-boew/" + pkgOriginal.name.toLowerCase() + "/issues"
-					},
-					homepage: "https://github.com/wet-boew/" + addToRepo + "#readme"
-				};
-				grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
-
-				grunt.task.run [
-					"copy:deploy"
-					"gh-pages:travis"
-					"gh-pages:travis_cdn"
-					"wb-update-examples"
-				]
-	)
-
-	@registerTask(
-		"test-mocha"
-		"Run tests locally with Grunt Mocha"
-		[
-			"pre-mocha"
-			"mocha"
-		]
-	)
-
-	@registerTask(
-		"pre-mocha"
-		"INTERNAL: prepare for running Mocha unit tests"
-		() ->
-			grunt.task.run [
-				"concat:test"
-				"copy:test"
-				"assemble:test"
-			]
-
-			#Prevents multiple instances of connect from running
-			if grunt.config.get('connect.test.options.port') is `undefined`
-				grunt.task.run "connect:test"
-	)
-
-	@registerTask(
-		"server"
-		"Run the Connect web server for local repo"
-		[
-			"connect:server:keepalive"
-		]
-	)
-
-	@registerTask(
-		"css"
-		"INTERNAL: Compiles Sass and vendor prefixes the result"
-		[
-			"sass"
-			"postcss"
-			"usebanner:css"
-			"cssmin"
-			"cssmin_ie8_clean"
-		]
-	)
-
-	@registerTask(
-		"assets-dist"
-		"INTERNAL: Process non-CSS/JS assets to dist"
-		[
-			"copy:site_min"
-			"copy:site_assets_min"
-			"copy:wetboew_demo_min"
-		]
-	)
-
-	@registerTask(
-		"assets"
-		"INTERNAL: Process non-CSS/JS assets to dist"
-		[
-			"copy:site"
-			"copy:site_html"
-			"copy:site_assets"
-			"copy:assets"
-			"copy:fonts"
-			"copy:wetboew_demo"
+			"debug"
 		]
 	)
 
 	@registerTask(
 		"test"
-		"INTERNAL: Runs testing tasks except for SauceLabs testing"
+		"Run code quality test"
 		[
-			"eslint"
-			"sasslint"
-			"lintspaces"
+			"eslint:all"
+			"sasslint:all"
+			"lintspaces:all"
 		]
 	)
 
 	@registerTask(
-		"js"
-		"INTERNAL: Brings in the custom JavaScripts."
+		"dist"
+		"Build distribution files ready for production"
 		[
+			"test"
+			"jekyll-theme"
+			"core-dist-PROD"
+			"site-contents"
+			"deploy-packagejson"
+		]
+	)
+
+	@registerTask(
+		"debug"
+		"Build a local working copy"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runLocal"
+			"core-dist-DEBUG"
+			"site-contents"
+		]
+	)
+
+	@registerTask(
+		"méli-mélo"
+		"Build méli-mélo files and run it in-place"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runLocal"
+			"clean:mélimélo"
+			"méli-mélo-build:inplace"
+			"copy:méliméloGelé"
+		]
+	)
+
+
+	@registerTask(
+		"site-contents"
+		"Build méli-mélo files"
+		[
+			"concat:components"
+			"concat:templates"
+			"concat:sites"
+			"clean:wetboew_demos"
+			"copy:wetboew_demos"
+		]
+	)
+
+
+	@registerTask(
+		"méli-mélo-remote"
+		"Build méli-mélo files"
+		[
+			"clean:mélimélo"
+			"méli-mélo-build:run"
+			"copy:méliméloGelé"
+		]
+	)
+
+	@registerTask(
+		"méli-mélo-runLocal"
+		"Build méli-mélo files"
+		[
+			"clean:mélimélo"
+			"méli-mélo-build:runLocal"
+			"copy:méliméloGelé"
+		]
+	)
+
+	@registerTask(
+		"dist-act"
+		"Build distribution files ready for production"
+		[
+			"jekyll-theme"
+			"core-dist-PROD"
+			"site-contents"
+			"deploy-packagejson"
+		]
+	)
+
+	@registerTask(
+		"jekyll-theme"
+		"PROD - Build Jekyll theme"
+		[
+			"clean:jekyll"
+			"copy:layouts"
+			"copy:includes"
+		]
+	)
+	@registerTask(
+		"jekyll-theme-runLocal"
+		"DEBUG - Jekyll theme but with the run local variant"
+		[
+			"usebanner:jekyllRunLocal"
+			"copy:jekyllRunLocal"
+		]
+	)
+
+	@registerTask(
+		"core-dist-DEBUG"
+		"Compile core GCWeb files"
+		[
+			"core-dist"
+			"méli-mélo-runLocal"
+			"core-dist-POST"
+			"usebanner:jekyllRunUnminified"
+		]
+	)
+	@registerTask(
+		"core-dist-PROD"
+		"Compile core GCWeb files"
+		[
+			"core-dist"
+			"méli-mélo-remote"
+			"uglify:dist"
+			"postcss"
+			"cssmin:theme"
+			"cssmin:mélimélo"
+			"core-dist-POST"
+			"sri:theme"
+		]
+	)
+
+	@registerTask(
+		"core-dist"
+		"Compile core GCWeb files"
+		[
+			"clean:dist"
+			"sass:all"
 			"concat:plugins"
+			"copy:assets"
+			"copy:fonts"
+			"copy:wetboew"
 			"copy:js_lib"
-			"copy:deps_custom"
-			"uglify"
-			"copy:deps"
-			"clean:deps"
+			"copy:depsJS_custom"
+		]
+	)
+	@registerTask(
+		"core-dist-POST"
+		"Post task to complete the compilation of core GCWeb files"
+		[
+			"usebanner:css"
+			"copy:depsJS"
+			"clean:depsJS"
 		]
 	)
 
+
 	@registerTask(
-		"useMinAssets"
-		"Replace unmin refrences with the min paths for HTML files"
+		"deploy-packagejson"
+		"Generate a package.json file in the dist folder"
+		->
+			pkgOriginal = grunt.file.readJSON("package.json");
+			addToRepo = "themes-cdn";
+			writeTo = "dist/GCWeb/package.json";
+			pkg = {
+				name: "gcweb-compiled",
+				version: pkgOriginal.version,
+				description: pkgOriginal.name.toLowerCase() + " theme compiled"
+				repository: {
+					type: "git",
+					url: "git+https://github.com/wet-boew/" + addToRepo + ".git"
+				},
+				author: "wet-boew-bot",
+				license: "MIT",
+				bugs: {
+					url: "https://github.com/wet-boew/" + pkgOriginal.name.toLowerCase() + "/issues"
+				},
+				homepage: "https://github.com/wet-boew/" + addToRepo + "#readme"
+			};
+			grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
+	)
+
+
+	@registerTask(
+		"linting"
+		"Initial build setup"
+		[
+			"sasslint"
+		]
+	)
+
+	@registerMultiTask(
+		"méli-mélo-build"
+		"Try to dynamically compile mélimelo",
 		() ->
-			htmlFiles = grunt.file.expand(
-				"dist/**/*.html"
-				"!dist/unmin/**/*.html"
-			)
+			méliméloData = this.data
+			runType = méliméloData.runType
+			packages = []
+			if runType
+				packages = méliméloData.config.packages
+			else
+				packages = méliméloData.packages
+			iterator = 0
+			for pack in packages
+				console.log( "Creating... " + pack.nom )
 
-			htmlFiles.forEach(
-				( file ) ->
-					contents = grunt.file.read file
-					contents = contents.replace /\.\.\/(wet\-boew|gcweb)/gi, "$1"
-					contents = contents.replace /\"(?!https:)([^\"]*)?\.(js|css)\"/g, "\"$1.min.$2\""
+				#
+				# The iterator is used to ensure that all task are ran
+				iterator++
 
-					grunt.file.write file, contents
-			)
+				#
+				# create global for task specific
+				grunt.config( "curMéliPack" + iterator, pack.nom )
+				grunt.config( "curMéliLibs" + iterator, pack.libs )
+
+				#
+				# Clean the méli-mélo package folder
+				#
+				#méliméloClean = clone( grunt.config.getRaw( "clean.méliméloPack" ) );
+				#méliméloClean[0] = méliméloClean[0].replace( /curMéliPack/g, "curMéliPack" + iterator );
+				#grunt.config( "clean.méliméloPack-" + iterator, méliméloClean )
+
+				#
+				# Concat the js
+				# fyi - grunt.util._.clone() !== clone();
+				méliméloJs = clone( grunt.config.getRaw( "concat.mélimélo" ) );
+				méliméloJs.src[0] = méliméloJs.src[0].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloJs.src[1] = méliméloJs.src[1].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloJs.dest = méliméloJs.dest.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "concat.mélimélo-" + iterator, méliméloJs )
+
+				#
+				# Create the CSS compiled file
+				#
+				# - Need to copy scss file in a temporary directory
+				# - Remove the front matter
+				# - Compile with sass
+				# - Concat all CSS file
+				# - Delete temporary directory
+				#
+				# méliméloScss
+				# - copy scss file in a temporary directory
+				méliméloScssCopy = clone( grunt.config.getRaw( "copy.méliméloScss" ) );
+				méliméloScssCopy.src[0] = méliméloScssCopy.src[0].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloScssCopy.dest = méliméloScssCopy.dest.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "copy.méliméloScss-" + iterator, méliméloScssCopy )
+				# - Remove the front matter
+				méliméloScssFM = clone( grunt.config.getRaw( "usebanner.méliméloScss" ) );
+				méliméloScssFM.src = méliméloScssFM.src.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "usebanner.méliméloScss-" + iterator, méliméloScssFM )
+				# - compile Scss into Css
+				méliméloSassRaw = grunt.config.getRaw( "sass.mélimélo" );
+				méliméloSass =
+					options: méliméloSassRaw.options # Workaround because unable to clone the options
+					expand: clone( méliméloSassRaw.expand )
+					src: clone( méliméloSassRaw.src )
+					dest: clone( méliméloSassRaw.dest )
+					ext: clone( méliméloSassRaw.ext )
+				méliméloSass.src[0] = méliméloSass.src[0].replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "sass.mélimélo-" + iterator, méliméloSass )
+				# - Concat all CSS file
+				méliméloSassCss = clone( grunt.config.getRaw( "concat.méliméloCss" ) );
+				méliméloSassCss.src[0] = méliméloSassCss.src[0].replace( /curMéliPack/g, "curMéliPack" + iterator );
+				méliméloSassCss.dest = méliméloSassCss.dest.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "concat.méliméloCss-" + iterator, méliméloSassCss )
+				# - Delete temporary directory
+				méliméloSassClean = clone( grunt.config.getRaw( "clean.méliméloWorkdir" ) );
+				méliméloSassClean[0] = méliméloSassClean[0].replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "clean.méliméloWorkdir-" + iterator, méliméloSassClean )
+
+				#
+				# Copy the demos file, into the méli-mélo compiled folder
+				méliméloDemo = clone( grunt.config.getRaw( "copy.mélimélo" ) );
+				méliméloDemo.src[0] = méliméloDemo.src[0].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloDemo.dest = méliméloDemo.dest.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "copy.mélimélo-" + iterator, méliméloDemo )
+
+				#
+				# Replace the font-matter property script and css by the compiled ones in the demos files
+				# runLocal
+				méliméloFMlocal = clone( grunt.config.getRaw( "usebanner.méliméloRunLocal" ) );
+				méliméloFMlocal.src = méliméloFMlocal.src.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				méliméloFMlocal.options.props.script = méliméloFMlocal.options.props.script.replace( /curMéliPack/g, pack.nom );
+				méliméloFMlocal.options.props.css = méliméloFMlocal.options.props.css.replace( /curMéliPack/g, pack.nom );
+				grunt.config( "usebanner.méliméloRunLocal-" + iterator, méliméloFMlocal )
+				# in place
+				méliméloFMinplace = clone( grunt.config.getRaw( "usebanner.méliméloInplace" ) );
+				méliméloFMinplace.src = méliméloFMinplace.src.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				méliméloFMinplace.options.props.script = méliméloFMinplace.options.props.script.replace( /curMéliPack/g, pack.nom );
+				méliméloFMinplace.options.props.css = méliméloFMinplace.options.props.css.replace( /curMéliPack/g, pack.nom );
+				grunt.config( "usebanner.méliméloInplace-" + iterator, méliméloFMinplace )
+				# remote
+				méliméloFMremote = clone( grunt.config.getRaw( "usebanner.méliméloRemote" ) );
+				méliméloFMremote.src = méliméloFMremote.src.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				méliméloFMremote.options.props.script = méliméloFMremote.options.props.script.replace( /curMéliPack/g, pack.nom );
+				méliméloFMremote.options.props.css = méliméloFMremote.options.props.css.replace( /curMéliPack/g, pack.nom );
+				grunt.config( "usebanner.méliméloRemote-" + iterator, méliméloFMremote )
+
+				#
+				# Copy the assets
+				méliméloAssets = clone( grunt.config.getRaw( "copy.méliméloAssets" ) );
+				méliméloAssets.src[0] = méliméloAssets.src[0].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloAssets.src[1] = méliméloAssets.src[1].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloAssets.src[2] = méliméloAssets.src[2].replace( "curMéliLibs", "curMéliLibs" + iterator );
+				méliméloAssets.dest = méliméloAssets.dest.replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "copy.méliméloAssets-" + iterator, méliméloAssets )
+
+				#
+				# Copy distributions files
+				méliméloDist = clone( grunt.config.getRaw( "copy.méliméloDist" ) );
+				méliméloDist.src[0] = méliméloDist.src[0].replace( /curMéliPack/g, "curMéliPack" + iterator );
+				grunt.config( "copy.méliméloDist-" + iterator, méliméloDist )
+
+				# Run all the task sequential
+				if runType == "local"
+					grunt.task.run( [
+						#"clean:mélimélo-" + iterator,
+						"concat:mélimélo-" + iterator,
+						"copy:méliméloScss-" + iterator,
+						"usebanner:méliméloScss-" + iterator,
+						"sass:mélimélo-" + iterator,
+						"concat:méliméloCss-" + iterator,
+						"clean:méliméloWorkdir-" + iterator,
+						"copy:mélimélo-" + iterator,
+						"usebanner:méliméloRunLocal-" + iterator,
+						"copy:méliméloAssets-" + iterator,
+						"copy:méliméloDist-" + iterator
+					] )
+				else if runType == "inplace"
+					grunt.task.run( [
+						#"clean:mélimélo-" + iterator,
+						"concat:mélimélo-" + iterator,
+						"copy:méliméloScss-" + iterator,
+						"usebanner:méliméloScss-" + iterator,
+						"sass:mélimélo-" + iterator,
+						"concat:méliméloCss-" + iterator,
+						"clean:méliméloWorkdir-" + iterator,
+						"copy:mélimélo-" + iterator,
+						"usebanner:méliméloInplace-" + iterator,
+						"copy:méliméloAssets-" + iterator,
+						"copy:méliméloDist-" + iterator
+					] )
+				else
+					grunt.task.run( [
+						#"clean:mélimélo-" + iterator,
+						"concat:mélimélo-" + iterator,
+						"copy:méliméloScss-" + iterator,
+						"usebanner:méliméloScss-" + iterator,
+						"sass:mélimélo-" + iterator,
+						"concat:méliméloCss-" + iterator,
+						"clean:méliméloWorkdir-" + iterator,
+						"copy:mélimélo-" + iterator,
+						"usebanner:méliméloRemote-" + iterator,
+						"copy:méliméloAssets-" + iterator,
+						"copy:méliméloDist-" + iterator
+					] )
+
 	)
 
 	@initConfig
 
 		# Metadata.
 		pkg: @file.readJSON "package.json"
-		themeDist: "dist/<%= pkg.name %>"
+		distFolder: "dist"
+		themeDist: "<%= distFolder %>/<%= pkg.name %>"
+		jekyllDist: "~jekyll-dist"
 		jqueryVersion: grunt.file.readJSON(
 			path.join require.resolve( "jquery" ), "../../package.json"
 		).version
@@ -223,22 +388,10 @@ module.exports = (grunt) ->
 		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
-		# Commit Messages
-		travisBuildMessage: "Travis build " + process.env.TRAVIS_BUILD_NUMBER
-		distDeployMessage: ((
-			if process.env.TRAVIS_TAG
-				"Production files for the " + process.env.TRAVIS_TAG + " release."
-			else
-				"<%= travisBuildMessage %>"
-		))
-		cdnDeployMessage: ((
-			if process.env.TRAVIS_TAG
-				"CDN files for the " + process.env.TRAVIS_TAG + " release."
-			else
-				"<%= travisBuildMessage %>"
-		))
-
-		deployBranch: "<%= pkg.name %>"
+		# Placeholder modal for multimélo task
+		méliméloFolder: "méli-mélo-demos"
+		curMéliPack: "mélimélo.js"
+		curMéliLibs: [ ]
 
 		checkDependencies:
 			all:
@@ -247,29 +400,223 @@ module.exports = (grunt) ->
 
 		clean:
 			dist: [ "dist"]
-			deps: ["<%= themeDist %>/theme-js-deps"]
+			depsJS: ["<%= themeDist %>/deps-js"]
+			jekyll: [ "<%= jekyllDist %>" ]
+			wetboew_demos: [ "_wetboew-demos" ]
+			mélimélo: [ "<%= méliméloFolder %>" ]
+			méliméloPack: [ "<%= méliméloFolder %>/<%= curMéliPack %>" ]
+			méliméloWorkdir: [ "<%= méliméloFolder %>/<%= curMéliPack %>/workdir" ]
+
+		"méli-mélo-build":
+			run: @file.readJSON "_data/méli-mélo.json"
+			runLocal:
+				runType: "local"
+				config: @file.readJSON "_data/méli-mélo.json"
+			inplace:
+				runType: "inplace"
+				config: @file.readJSON "_data/méli-mélo.json"
 
 		concat:
 			plugins:
 				options:
 					stripBanners: false
 				src: [
-					"src/plugins/**/*.js"
-					"src/theme.js"
-					"!src/plugins/**/test.js"
-					"!src/plugins/**/assets/*.js"
-					"!src/plugins/**/demo/*.js"
+					"{sites,components,templates}/**/*.js"
+					"!{sites,components,templates}/**/test.js"
+					"!{sites,components,templates}/**/assets"
+					"!{sites,components,templates}/**/demo"
+					"!{sites,components,templates}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
+			components:
+				options:
+					banner: "["
+					footer: "]"
+					separator: ","
+				src: "components/**/index.json-ld"
+				dest: "_data/components.json"
+			templates:
+				options:
+					banner: "["
+					footer: "]"
+					separator: ","
+				src: "templates/**/index.json-ld"
+				dest: "_data/templates.json"
+			sites:
+				options:
+					banner: "["
+					footer: "]"
+					separator: ","
+				src: "sites/**/index.json-ld"
+				dest: "_data/sites.json"
 
-			test:
+			# Placeholder modal for multimélo task
+			mélimélo:
+				options:
+					stripBanners: false
 				src: [
-					"node_modules/wet-boew/src/test.js"
-					"src/**/test.js"
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/*.js"
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/js/*.js"
+					"!méli-mélo/**/demo/"
+					"!méli-mélo/*.js"
 				]
-				dest: "dist/unmin/test/tests.js"
+				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/<%= curMéliPack %>.js"
+			méliméloCss:
+				options:
+					stripBanners: false
+				src: [
+					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.css"
+				]
+				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/<%= curMéliPack %>.css"
+		usebanner:
+			css:
+				options:
+					banner: "@charset \"utf-8\";\n<%= banner %>"
+					position: "replace"
+					replace: "@charset \"UTF-8\";"
+				files:
+					src: [
+						"<%= themeDist %>/css/*.*",
+						"<%= themeDist %>/méli-mélo/*.css"
+					]
+			#
+			# Use the name in the package.json as packageName in the theme
+			# used to build the URL and to ease the reuse of this build script for derivated theme
+			#
+			#definePckName:
+			#	options:
+			#		banner: """{%- assign setting-packageName = "<%= pkg.name %>" -%}"""
+			#	src: "_includes/settings.liquid"
+			jekyllRunLocal:
+				options:
+					banner: """{%- assign setting-resourcesBasePath = "/<%= distFolder %>" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>" -%}"""
+					position: "bottom"
+				src: "<%= jekyllDist %>/_includes/settings.liquid"
+			jekyllRunUnminified:
+				options:
+					banner: """{%- assign setting-minifiedSuffix = "" -%}"""
+					position: "bottom"
+				src: "<%= jekyllDist %>/_includes/settings.liquid"
+			méliméloRunLocal:
+				options:
+					banner: ""
+					props:
+						script: "../../../<%= themeDist %>/méli-mélo/curMéliPack.js"
+						css: "../../../<%= themeDist %>/méli-mélo/curMéliPack.css"
+					position: "replace"
+					replace: (fileContents, newBanner, insertPositionMarker, src, options) ->
+						# Rewrite the front matter by the desired variable value
+						patternFrontMatter = /^(---)([\s|\S]*?)(---)/
+						frontmatter = yaml.load(fileContents.match( patternFrontMatter )[2] )
+						for prop, val of options.props
+							frontmatter[ prop ] = val
+						options.banner = yaml.dump(frontmatter);
+						return fileContents.replace( patternFrontMatter, "---\n" + insertPositionMarker + "---" )
+				src: "<%= méliméloFolder %>/<%= curMéliPack %>/*/*.{md,html}"
+			méliméloRemote:
+				options:
+					banner: ""
+					props:
+						script: "https://wet-boew.github.io/themes-dist/GCWeb/méli-mélo/curMéliPack.js"
+						css: "https://wet-boew.github.io/themes-dist/GCWeb/méli-mélo/curMéliPack.css"
+					position: "replace"
+					replace: (fileContents, newBanner, insertPositionMarker, src, options) ->
+						# Rewrite the front matter by the desired variable value
+						patternFrontMatter = /^(---)([\s|\S]*?)(---)/
+						frontmatter = yaml.load(fileContents.match( patternFrontMatter )[2] )
+						for prop, val of options.props
+							frontmatter[ prop ] = val
+						options.banner = yaml.dump(frontmatter);
+						return fileContents.replace( patternFrontMatter, "---\n" + insertPositionMarker + "---" )
+				src: "<%= méliméloFolder %>/<%= curMéliPack %>/*/*.{md,html}"
+			méliméloInplace:
+				options:
+					banner: ""
+					props:
+						script: "../curMéliPack.js"
+						css: "../curMéliPack.css"
+					position: "replace"
+					replace: (fileContents, newBanner, insertPositionMarker, src, options) ->
+						# Rewrite the front matter by the desired variable value
+						patternFrontMatter = /^(---)([\s|\S]*?)(---)/
+						frontmatter = yaml.load(fileContents.match( patternFrontMatter )[2] )
+						for prop, val of options.props
+							frontmatter[ prop ] = val
+						options.banner = yaml.dump(frontmatter);
+						return fileContents.replace( patternFrontMatter, "---\n" + insertPositionMarker + "---" )
+				src: "<%= méliméloFolder %>/<%= curMéliPack %>/*/*.{md,html}"
+			méliméloScss:
+				options:
+					banner: ""
+					position: "replace"
+					replace:/^---[\s|\S]*?---/
+				src: "<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.scss"
 
 		copy:
+			layouts:
+				expand: true
+				flatten: true
+				src: [
+					"{sites,components,templates}/**/*-layouts/**.html"
+					"{sites,components,templates}/**/layout-*.html"
+					"{sites,components,templates}/**/layouts/**.*"
+				]
+				dest: "<%= jekyllDist %>/_layouts"
+			includes:
+				files: [
+					expand: true
+					src: [
+						"{sites,components,templates}/**/*-{includes,inc}/**.html"
+						"{sites,components,templates}/**/{include,inc}-*.html"
+						"!{sites,components,templates}/**/includes/**.*"
+					]
+					dest: "<%= jekyllDist %>/_includes"
+					rename: (dest, src) ->
+						ret = dest + "/" + src
+						if src.indexOf('/') isnt src.lastIndexOf('/')
+							ret = dest + src.substring( src.indexOf('/') )
+						return ret
+				,
+					expand: true
+					src: [
+						"{sites,components,templates}/**/includes/**.*"
+					]
+					dest: "<%= jekyllDist %>/_includes"
+					rename: (dest, src) ->
+						dest + src.substring( src.indexOf('/') ).replace( '/includes/', '/' )
+				,
+					expand: true
+					src: "{sites,components,templates}/*/include.html"
+					dest: "<%= jekyllDist %>/_includes"
+					rename: (dest, src) ->
+						dest + "/" + src.replace( '/include.html', '.html' )
+				]
+
+			jekyllRunLocal:
+				src: [
+					"_includes/**.*",
+					"_includes/**/*.*",
+					"_layouts/**.*"
+				]
+				dest: "<%= jekyllDist %>/"
+
+			fonts:
+				expand: true
+				flatten: true
+				src: [
+					"{sites,components,templates}/**/fonts/**.*"
+					"!**/*.scss"
+				]
+				dest: "<%= themeDist %>/fonts"
+			assets:
+				expand: true
+				src: [
+					"{sites,components,templates}/**/assets/**.*"
+					"{sites,components,templates}/**/assets/**/*.*"
+				]
+				dest: "<%= themeDist %>/assets"
+				rename: (dest, src) ->
+					dest + src.substring( src.indexOf('/') ).replace( '/assets/', '/' )
 			wetboew:
 				expand: true
 				cwd: "node_modules/wet-boew/dist"
@@ -277,248 +624,121 @@ module.exports = (grunt) ->
 					"wet-boew/**/*.*"
 				]
 				dest: "dist"
-			wetboew_demo:
-				expand: true
-				cwd: "node_modules/wet-boew/dist/unmin"
-				src: [
-					"demos/**/*.*"
-					"docs/**/*.*"
-					"!**/*.html"
-					"demos/**/ajax/*.html"
-				]
-				dest: "dist/unmin"
-			wetboew_demo_min:
-				expand: true
-				cwd: "node_modules/wet-boew/dist"
-				src: "<%= copy.wetboew_demo.src %>"
-				dest: "dist"
-			site:
-				expand: true
-				cwd: "site/img"
-				src: "**/*.*"
-				dest: "dist/unmin/img"
-			site_html:
-				expand: true
-				cwd: "site/pages"
-				src: "**/*.html"
-				dest: "dist/unmin"
-			site_min:
-				expand: true
-				cwd: "site/img"
-				src: "**/*.*"
-				dest: "dist/img"
-			site_assets:
-				expand: true
-				cwd: "site/pages"
-				src: "**/site-assets/*.*"
-				dest: "dist/unmin"
-			site_assets_min:
-				expand: true
-				cwd: "dist/unmin"
-				src: "**/site-assets/*.*"
-				dest: "dist"
-			assets:
-				expand: true
-				cwd: "src/assets"
-				src: "**/*.*"
-				dest: "<%= themeDist %>/assets"
-			# Copy third party library
 			js_lib:
 				expand: true
 				flatten: true
 				cwd: "node_modules"
 				src: [
-					"jsonpointer.js/src/jsonpointer.js"
+					"jsonpointer.js/src/jsonpointer.js",
 					"fast-json-patch/src/json-patch.js"
 				]
-				dest: "<%= themeDist %>/theme-js-deps"
-			test:
-				files: [
-					cwd: "src"
-					src: [
-						"**/test/*.*"
-					]
-					dest: "dist/unmin/test"
-					rename: (dest, src) ->
-						dest + src.replace /plugins|polyfills|others/, ""
-					expand: true
-				,
-					cwd: "node_modules"
-					src: [
-						"mocha/mocha.js"
-						"mocha/mocha.css"
-						"expect.js/index.js"
-						"sinon/pkg/sinon.js"
-						"sinon/pkg/sinon-ie.js"
-					]
-					dest: "dist/unmin/test"
-					expand: true
-					flatten: true
-				]
-			deps_custom:
+				dest: "<%= themeDist %>/deps-js"
+			depsJS_custom:
 				expand: true
-				cwd: "src/plugins/deps"
-				src: "**/*.*"
-				dest: "<%= themeDist %>/theme-js-deps"
-			deps:
+				flatten: true
+				src: "{sites,components,templates}/deps/**.js"
+				dest: "<%= themeDist %>/deps-js"
+			depsJS:
 				expand: true
-				cwd: "<%= themeDist %>/theme-js-deps"
+				flatten: true
+				cwd: "<%= themeDist %>/deps-js"
 				src: "**/*.*"
 				dest: "dist/wet-boew/js/deps"
-			demos:
-				expand:true
-				cwd: "src/plugins"
-				src: [
-					"**/*.{jpg,html,xml}"
-					"**/demo/*.*"
-					"**/ajax/*.*"
-					"**/img/*.*"
-					"!**/assets/*.*"
-					"!**/deps/*.*"
-					"!**/test/*.*"
-					"!**/*.scss"
-				]
-				dest: "dist/unmin/demos/"
-			demos_min:
-				expand:true
-				cwd: "src/plugins"
-				src: [
-					"**/*.{jpg,html,xml}"
-					"**/demo/*.*"
-					"**/ajax/*.*"
-					"**/img/*.*"
-					"!**/assets/*.*"
-					"!**/deps/*.*"
-					"!**/test/*.*"
-					"!**/*.scss"
-				]
-				dest: "dist/demos/"
-			fonts:
-				expand: true
-				cwd: "src/fonts"
-				src: [
-					"**/*.*"
-					"!**/*.scss"
-				]
-				dest: "<%= themeDist %>/fonts"
-			deploy:
-				files: [
-					{
-						src: [
-							"*.txt"
-							"README.md"
-						]
-						dest: "dist"
-						expand: true
-					}
 
-					{
-						src: "*.txt"
-						dest: "<%= themeDist %>"
-						expand: true
-					}
-
-					#Backwards compatibility.
-					#TODO: Remove in v4.1
-					{
-						cwd: "<%= themeDist %>"
-						src: "**/*.*"
-						dest: "dist"
-						expand: true
-					}
-					{
-						cwd: "dist/wet-boew"
-						src: "**/*.*"
-						dest: "dist"
-						expand: true
-					}
-				]
-
-				#Backwards compatibility.
-				#TODO: Remove in v4.1
-				options:
-					noProcess: [
-						'**/*.{png,gif,jpg,ico,ttf,eot,otf,woff,svg,swf}'
-					]
-					process: (content, filepath) ->
-						if filepath.match /\.css/
-							return content.replace /\.\.\/\.\.\/wet-boew\/(assets|fonts)/g, '../$1'
-						content
-
-		sasslint:
-			options:
-				configFile: ".sass-lint.yml"
-			all:
+			wetboew_demos:
 				expand: true
 				src: [
-						"src/**/*.scss"
-					]
+					"node_modules/wet-boew/src/plugins/**/*.*",
+					"!node_modules/wet-boew/src/plugins/**/*.js",
+					"!node_modules/wet-boew/src/plugins/**/*.scss"
+				]
+				dest: "_wetboew-demos"
+				rename: (dest, src) ->
+					return dest + "/" + src.replace( 'node_modules/wet-boew/src/plugins/', '' ).replace( ".hbs", ".html" )
 
-		lintspaces:
-			all:
+			# méli-mélo tasks
+			mélimélo:
+				expand: true
 				src: [
-						# Root files
-						".editorconfig"
-						".git*"
-						".*rc"
-						".*.yml"
-						"Gemfile*"
-						"Gruntfile.coffee"
-						"Licen?e-*.txt"
-						"*.{json,md}"
-						"Rakefile"
-
-						# Folders
-						"script/**"
-						"site/**"
-						"src/**"
-
-						# Exemptions...
-
-						# Images
-						"!site/img/**/*.{jpg,png}"
-						"!src/assets/**/*.{ico,jpg,png,svg}"
-
-						# External fonts
-						"!src/fonts/*.{eot,svg,ttf,woff}"
-
-						# Docker environment file
-						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
-						"!script/docker/env"
-					],
-				options:
-					editorconfig: ".editorconfig",
-					ignores: [
-						"js-comments"
-					],
-					showCodes: true
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/*.{md,html}",
+					"!méli-mélo/*.{md,html}"
+				]
+				dest: "<%= méliméloFolder %>/<%= curMéliPack %>"
+				rename: (dest, src) ->
+					return dest + src.substring( src.indexOf('/') )
+			méliméloScss:
+				expand: true
+				src: [
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/*.{scss,css}",
+					"!méli-mélo/*.{md,html}"
+				]
+				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/workdir"
+				rename: (dest, src) ->
+					return dest + src.substring( src.indexOf('/') )
+			méliméloAssets:
+				expand: true
+				src: [
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/{assets,docs,demos,img,ajax,data,tests,reports}/*.*",
+					"!méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/{js,css}/*.*",
+					"!méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/*.{md,html,js}",
+					"!méli-mélo/**/*.{scss,css}"
+				]
+				dest: "<%= méliméloFolder %>/<%= curMéliPack %>"
+				rename: (dest, src) ->
+					return dest + src.substring( src.indexOf('/') )
+			méliméloDist:
+				expand: true
+				flatten: true
+				src: [
+					"<%= méliméloFolder %>/<%= curMéliPack %>/<%= curMéliPack %>.{css,js}"
+				]
+				dest: "<%= themeDist %>/méli-mélo/"
+			méliméloGelé:
+				expand: true
+				flatten: true
+				src: [
+					"méli-mélo/compilation-gelé/*.{css,js}"
+				]
+				dest: "<%= themeDist %>/méli-mélo/"
 
 		sass:
-			options:
-				implementation: sass,
-				includePaths: [
-					"./node_modules"
-					"./node_modules/wet-boew/node_modules"
-					if grunt.file.exists( "src/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
-				]
 			all:
+				options:
+					implementation: sass,
+					includePaths: [
+						"./node_modules"
+						"./node_modules/wet-boew/node_modules"
+						if grunt.file.exists( "misc/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
+					]
 				expand: true
-				cwd: "src"
-				src: "*.scss"
+				cwd: "sites"
+				src: [
+					"*.scss"
+					"!*-jekyll.scss"
+				]
 				dest: "<%= themeDist %>/css"
 				ext: ".css"
-
+			mélimélo:
+				options:
+					implementation: sass
+				expand: true
+				src: [
+					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.scss"
+#					"<%= méliméloFolder %>/méli-mélo-2021-1/workdir/**/*.scss"
+#					"<%= méliméloFolder %>/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/**/*.scss"
+				]
+				dest: ""
+#				dest: "méli-mélo/méli-mélo-2021-1/css"
+#				dest: "méli-mélo/<%= curMéliPack %>/<%= curMéliPack %>.css"
+				ext: ".css"
+#				rename: (dest, src) ->
+#					console.log( src )
+#					console.log( dest )
+#					return dest
 		postcss:
 			options:
 				processors: [
-					require("autoprefixer")(
-						browsers: [
-							"last 2 versions"
-							"bb >= 10"
-							"Firefox ESR"
-							"ie > 10"
-						]
-					)
+					require("autoprefixer")()
 				]
 			modern:
 				cwd: "<%= themeDist %>/css"
@@ -528,27 +748,6 @@ module.exports = (grunt) ->
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
-			oldIE:
-				options:
-					browsers: [
-						"ie 8"
-					]
-				cwd: "<%= themeDist %>/css"
-				src: [
-					"ie8*.css"
-				]
-				dest: "<%= themeDist %>/css"
-				expand: true
-
-		usebanner:
-			css:
-				options:
-					banner: "@charset \"utf-8\";\n<%= banner %>"
-					position: "replace"
-					replace: "@charset \"UTF-8\";"
-				files:
-					src: "<%= themeDist %>/css/*.*"
-
 		cssmin:
 			theme:
 				expand: true
@@ -559,15 +758,16 @@ module.exports = (grunt) ->
 				]
 				ext: ".min.css"
 				dest: "<%= themeDist %>/css"
-
-		cssmin_ie8_clean:
-			min:
+			mélimélo:
 				expand: true
-				cwd: "<%= themeDist %>/css"
-				src: "**/ie8*.min.css"
-				dest: "<%= themeDist %>/css"
+				cwd: "<%= themeDist %>/méli-mélo"
+				src: [
+					"*.css"
+					"!*.min.css"
+				]
+				ext: ".min.css"
+				dest: "<%= themeDist %>/méli-mélo"
 
-		# Minify
 		uglify:
 			options:
 				preserveComments: (uglify,comment) ->
@@ -580,166 +780,9 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.js"
 					"!**/*.min.js"
-					"!<%= themeDist %>/theme-js-deps"
 				]
 				dest: "<%= themeDist %>"
 				ext: ".min.js"
-
-			deps:
-				options:
-					preserveComments: "some"
-				expand: true
-				cwd: "<%= themeDist %>/theme-js-deps"
-				src: [
-					"*.js"
-					"!*.min.js"
-				]
-				dest: "<%= themeDist %>/theme-js-deps"
-				ext: ".min.js"
-				extDot: "last"
-
-		assemble:
-			options:
-				prettify:
-					indent: 2
-				marked:
-					sanitize: false
-				production: false
-				data: [
-					"node_modules/wet-boew/site/data/**/*.{yml,json}"
-					"site/data/**/*.{yml,json}"
-				]
-				helpers: [
-					"node_modules/wet-boew/site/helpers/helper{,s}-*.js"
-					"site/helpers/helper{,s}-*.js"
-				]
-				partials: [
-					"node_modules/wet-boew/site/includes/**/*.hbs"
-					"site/includes/**/*.hbs"
-				]
-				layoutdir: "site/layouts"
-				layout: "default.hbs"
-				environment:
-					jqueryVersion: "<%= jqueryVersion.version %>"
-					jqueryOldIEVersion: "<%= jqueryOldIEVersion.version %>"
-				assets: "dist/unmin"
-
-			ajax:
-				options:
-					layoutdir: "node_modules/wet-boew/site/layouts"
-					layout: "ajax.hbs"
-
-				cwd: "site/pages/ajax"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/unmin/ajax/"
-				expand: true
-				flatten: true
-
-			demos:
-				files: [
-						#site
-						expand: true
-						cwd: "site/pages"
-						src: [
-							"**/*.hbs"
-							"!ajax/**.hbs"
-							"!splashpage.hbs"
-						]
-						dest: "dist/unmin"
-					,
-						#plugins with business logic (theme plugins)
-						expand: true
-						cwd: "src/plugins"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/unmin/demos"
-					,
-						#docs
-						expand: true
-						cwd: "node_modules/wet-boew/site/pages/docs"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/unmin/docs"
-					,
-						#plugins
-						expand: true
-						cwd: "node_modules/wet-boew/site/pages/demos"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/unmin/demos"
-					,
-						expand: true
-						cwd: "node_modules/wet-boew/src/plugins"
-						src: [
-							"**/*.hbs"
-						]
-						dest: "dist/unmin/demos"
-					,
-						expand: true
-						cwd: "node_modules/wet-boew/src/polyfills"
-						src: "**/*.hbs"
-						dest: "dist/unmin/demos"
-					,
-						expand: true
-						cwd: "node_modules/wet-boew/src/other"
-						src: "**/*.hbs"
-						dest: "dist/unmin/demos"
-				]
-
-			provisional:
-				options:
-					provisional: true
-				cwd: "site/pages"
-				src: [
-					"*.hbs",
-					"!splashpage.hbs"
-				]
-				dest: "dist/unmin/provisional"
-				expand: true
-
-			splash:
-				options:
-					layout: "splashpage.hbs"
-				cwd: "site/pages"
-				src: [
-					"splashpage.hbs"
-				]
-				dest: "dist/unmin/"
-				expand: true
-
-			partners:
-				cwd: "site/pages/partners"
-				src: [
-					"*.hbs"
-				]
-				dest: "dist/unmin/partners/"
-				expand: true
-
-			test:
-				options:
-					offline: true
-				expand: true
-				cwd: "site/pages"
-				src: "test/test.hbs"
-				dest: "dist/unmin"
-
-		htmlmin:
-			options:
-				collapseWhitespace: true
-				preserveLineBreaks: true
-				preventAttributesEscaping: true
-			all:
-				cwd: "dist/unmin"
-				src: [
-					"**/*.html"
-				]
-				dest: "dist"
-				expand: true
 
 		htmllint:
 			ajax:
@@ -853,86 +896,66 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"src/**/*.js"
+					"{sites,components,templates}/**/*.js"
 				]
-
-		connect:
+		sasslint:
 			options:
-				port: 8000
-
-			server:
-				options:
-					base: "dist"
-					middleware: (connect, options, middlewares) ->
-						middlewares.unshift(connect.compress(
-							filter: (req, res) ->
-								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test(res.getHeader('Content-Type'))
-						))
-						middlewares
-
-			test:
-				options:
-					base: "."
-					middleware: (connect, options, middlewares) ->
-						middlewares.unshift(connect.compress(
-							filter: (req, res) ->
-								/json|text|javascript|dart|image\/svg\+xml|application\/x-font-ttf|application\/vnd\.ms-opentype|application\/vnd\.ms-fontobject/.test res.getHeader("Content-Type")
-						))
-						middlewares
-
-		mocha:
+				configFile: ".sass-lint.yml"
 			all:
-				options:
-					reporter: "Spec"
-					urls: ["http://localhost:8000/dist/unmin/test/test.html?txthl=just%20some%7Ctest"]
-
-		"gh-pages":
-			options:
-				clone: "themes-dist"
-				base: "dist"
-
-			travis:
-				options:
-					repo: process.env.DIST_REPO
-					branch: "<%= deployBranch %>"
-					message: "<%= distDeployMessage %>"
-					tag: ((
-						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG + "-" + "<%= pkg.name.toLowerCase() %>" else false
-					))
+				expand: true
 				src: [
-					"**/*.*"
-					"!package.json"
-				]
+						"{sites,components,templates}/**/*.scss"
+						"!*-jekyll.scss"
+						"!node_modules"
+					]
+		lintspaces:
+			all:
+				src: [
+						# Root files
+						".editorconfig"
+						".git*"
+						".*rc"
+						"*.yml"
+						"Gemfile*"
+						"Gruntfile.coffee"
+						"Licen?e-*.txt"
+						"*.json"
+						# "*.json-ld"
+						"Rakefile"
 
-			travis_cdn:
+						# Folders
+						"{sites,components,templates}/**"
+
+						#
+						# Exemptions...
+						#
+
+						# Generated files
+						"!Gemfile.lock"
+
+						# Web contents
+						"!{sites,components,templates}/**/*.md"
+						# "{sites,components,templates}/*/*.{md,html}"
+						# "{sites,components,templates}/*.{md, html}"
+						# "!{sites,components,templates}/*/**/*.{md,html}"
+
+						# Images
+						"!{sites,components,templates}/**/*.{jpg,png,ico}"
+						"!{sites,components,templates}/*.{ico,jpg,png}"
+
+						# External fonts
+						"!{sites,components,templates}/**/*.{eot,svg,ttf,woff}"
+
+						# Docker environment file
+						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
+						"!script/docker/env"
+					],
 				options:
-					repo: process.env.CDN_REPO
-					branch: "<%= deployBranch %>"
-					clone: "themes-cdn"
-					base: "<%= themeDist %>"
-					message: "<%= cdnDeployMessage %>"
-					tag: ((
-						if process.env.TRAVIS_TAG then process.env.TRAVIS_TAG + "-" + "<%= pkg.name.toLowerCase() %>" else false
-					))
-				src: [
-					"**/*.*"
-				]
-
-			local:
-				src: [
-					"**/*.*"
-				]
-
-		"wb-update-examples":
-			travis:
-				options:
-					repo: process.env.DEMOS_REPO
-					branch: process.env.DEMOS_BRANCH
-					message: "<%= distDeployMessage %>"
-				src: [
-					"**/*.*"
-					"!package.json"
-				]
+					editorconfig: ".editorconfig",
+					ignores: [
+						"js-comments"
+					],
+					showCodes: true
 
 		sri:
 			options:
@@ -942,7 +965,7 @@ module.exports = (grunt) ->
 					dest: "<%= themeDist %>/payload.json"
 				cwd: "<%= themeDist %>"
 				src: [
-					"{js,css}/*.{js,css}"
+					"{js,css,méli-mélo}/*.{js,css}"
 				]
 				expand: true
 
@@ -950,3 +973,25 @@ module.exports = (grunt) ->
 
 	require( "time-grunt" )( grunt )
 	@
+
+clone = (obj) ->
+	if not obj? or typeof obj isnt 'object'
+		return obj
+
+	if obj instanceof Date
+		return new Date(obj.getTime())
+
+	if obj instanceof RegExp
+		flags = ''
+		flags += 'g' if obj.global?
+		flags += 'i' if obj.ignoreCase?
+		flags += 'm' if obj.multiline?
+		flags += 'y' if obj.sticky?
+		return new RegExp(obj.source, flags)
+
+	newInstance = new obj.constructor()
+
+	for key of obj
+		newInstance[key] = clone obj[key]
+
+	return newInstance

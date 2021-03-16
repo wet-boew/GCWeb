@@ -1,0 +1,57 @@
+#
+# Local site settings
+remote_theme: wet-boew/gcweb-jekyll
+title: "GCWeb, the Canada.ca official theme" # Site name or title
+website: "https://wet-boew.github.io/gcweb/" # URL of your public facing website
+site:
+  lang: fr
+
+#
+# Page front matter defaults
+defaults:
+  - scope:
+      path: "" # Ensure it's applied to all pages
+    values:
+      layout: default
+
+#
+# Collections
+collections:
+  wetboew-demos:
+    output: true
+#    permalink: /wet-boew-demos/:name
+
+#
+# Jekyll settings
+timezone: America/Toronto # Timezone for blog posts and alike
+#verbose: true
+#quiet: false
+sass:
+  sass_dir: "sites"
+#  load_paths: [
+#    "node_modules" # we might only need bootstrap scss
+#  ,
+#    "node_modules/wet-boew/node_modules" # todo: find a way to include it.
+#  ]
+#includes_dir: "~jekyll-dist/_includes"
+
+#
+# Files excluded from Jekyll builds
+exclude:
+- README.md
+- CODE_OF_CONDUCT.md
+- CONTRIBUTING.md
+- LICENSE*
+- SECURITY.md
+- Gruntfile.coffee
+- CNAME
+- "*.tmp"
+- Gemfile
+- Gemfile.lock
+- gcweb-jekyll.gemspec
+- .jekyll-cache
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/

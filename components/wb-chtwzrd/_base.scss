@@ -1,0 +1,429 @@
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * Chat wizard - Provisional CSS
+ *
+ * ++++++++
+ * This is a Provisional CSS, once stabilized it's include should be done from the theme.scss instead of _provisional.scss
+ * ++++++++
+ *
+ */
+
+/* Animations */
+@keyframes slideInFromRight {
+	0% {
+		transform: scale(0, 1);
+	}
+	95% {
+		transform: scale(0, 1);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes pulseIn {
+	0% {
+		transform: scale(1, 1);
+	}
+	15% {
+		transform: scale(1.15, 1.15);
+	}
+	30% {
+		transform: scale(1, 1);
+	}
+	65% {
+		transform: scale(1.3, 1.3);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes grow {
+	to {
+		transform: translateX(-50%) scale(0);
+	}
+}
+
+.trans-left {
+	animation-delay: 0s;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	animation-name: slideInFromRight;
+	animation-timing-function: ease-out;
+	transform-origin: 100% 50%;
+	will-change: scroll-position;
+}
+
+.trans-pulse {
+	animation: .5s linear 3.5s 1 pulseIn, .5s linear 15s 1 pulseIn, .5s linear 30s 1 pulseIn;
+	will-change: transform;
+}
+
+.loader-typing {
+	bottom: 30%;
+	height: 6px;
+	left: 30px;
+	position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+	width: 26px;
+}
+
+.loader-dot {
+	animation: grow .5s ease-in-out infinite alternate;
+	background-color: #444;
+	border-radius: 50%;
+	height: 6px;
+	position: absolute;
+	width: 6px;
+	will-change: transform;
+}
+
+.loader-dot.dot1 {
+	left: 0;
+	transform-origin: 100% 50%;
+}
+
+.loader-dot.dot2 {
+	animation-delay: .1s;
+	left: 50%;
+	margin-left: -3px;
+	transform: scale(.99);
+}
+
+.loader-dot.dot3 {
+	animation-delay: .2s;
+	right: 0;
+}
+
+/* Chat wizard Bubble */
+.wb-chtwzrd-bubble-wrap {
+	bottom: 30px;
+	height: 60px;
+	position: fixed;
+	right: 30px;
+	width: 60px;
+	z-index: 1049;
+}
+
+.wb-chtwzrd-bubble-wrap p {
+	background: #335075;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .45);
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	min-height: 50px;
+	padding: 5px 37.5px 5px 27.5px;
+	position: relative;
+	right: 195px;
+	top: 5px;
+	width: 225px;
+}
+
+.wb-chtwzrd-bubble-wrap p .notif-close {
+	background: #333;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 19px;
+	height: 1.25em;
+	line-height: 21px;
+	position: absolute;
+	right: 92.5%;
+	text-align: center;
+	text-decoration: none;
+	top: 0;
+	width: 1.25em;
+}
+
+.wb-chtwzrd-bubble-wrap .notif {
+	cursor: pointer;
+}
+
+.wb-chtwzrd-bubble-wrap .bubble {
+	background: #fff url("../assets/wb-chtwzrd/default-avatar.png") center no-repeat;
+	border-radius: 50%;
+	bottom: 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .45);
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	text-indent: -9999px;
+	white-space: nowrap;
+	width: 100%;
+	z-index: 1048;
+}
+
+.wb-chtwzrd-bubble-wrap .bubble:focus {
+	border: 1px solid rgba(0, 0, 0, .5);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .7);
+}
+
+.wb-chtwzrd-btn-extrnl + .wb-chtwzrd-bubble-wrap {
+	display: none !important;
+}
+
+/* Chat Wizard */
+.wb-disable .wb-chtwzrd.hidden {
+	display: block !important;
+}
+
+.wb-chtwzrd-container {
+	background-color: #fff;
+	bottom: 20px;
+	display: none;
+	font-size: .9em;
+	min-height: 200px;
+	overflow: hidden;
+	position: fixed;
+	right: 20px;
+	width: 25%;
+	z-index: 1050;
+}
+
+.wb-chtwzrd-container .header {
+	max-height: 70px;
+	min-height: 39px;
+	padding-right: 84px;
+}
+
+.wb-chtwzrd-container .header .title {
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	font-size: 19px;
+	line-height: 1.35;
+	overflow: hidden;
+	padding: 6px 0;
+	text-overflow: ellipsis;
+}
+
+.wb-chtwzrd-container .minimize, .wb-chtwzrd-container .reset  {
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0;
+	color: #fff;
+	filter: alpha(opacity=65);
+	font-size: 1em;
+	font-weight: 700;
+	height: 40px;
+	line-height: 41px;
+	margin: 0;
+	opacity: .65;
+	overflow: visible;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	text-decoration: none;
+	top: 0;
+	width: 40px;
+}
+
+.wb-chtwzrd-container .reset {
+	right: 42px;
+}
+
+.wb-chtwzrd-container .minimize:focus, .wb-chtwzrd-container .reset:focus {
+	opacity: 1;
+	outline: 1px dotted #fff;
+	outline-offset: -2px;
+}
+
+.wb-chtwzrd-container .conversation {
+	margin-bottom: 15px;
+	max-height: 45vh;
+	min-height: 200px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.wb-chtwzrd-container .history {
+	padding-top: 15px;
+}
+
+.wb-chtwzrd-container .history::before {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #fff), to(rgba(255, 255, 255, 0)));
+	background: linear-gradient(to bottom, #fff 20%, rgba(255, 255, 255, 0) 100%);
+	content: "";
+	height: 40px;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1054;
+}
+
+.wb-chtwzrd-container .controls {
+	height: 75px;
+}
+
+.wb-chtwzrd-container .inputs-zone fieldset:first-child {
+	border-top: 1px solid #e5e5e5;
+}
+
+.wb-chtwzrd-container .inputs-zone ul:last-child {
+	margin-bottom: 0;
+}
+
+.wb-chtwzrd-container .choices input[type=radio]:checked + span {
+	color: #333;
+}
+
+.wb-chtwzrd-container h4,
+.wb-chtwzrd-container legend,
+.wb-chtwzrd-container h4 .question a {
+	font-size: 1em;
+	line-height: 1.4375;
+}
+
+.wb-chtwzrd-container .question,
+.wb-chtwzrd-container .message,
+.wb-chtwzrd-container label,
+.wb-chtwzrd-container .question {
+	border-radius: 15px;
+	color: #5a5a5a;
+	font-weight: normal;
+	padding: 8px 12px;
+	width: auto;
+}
+
+.wb-chtwzrd-container .question {
+	background-color: #efefef;
+	min-width: 60px;
+	position: relative;
+}
+
+.wb-chtwzrd-container .message:focus {
+	box-shadow: 0 0 4px #666;
+}
+
+.wb-chtwzrd-container .message,
+.wb-chtwzrd-container label {
+	background-color: #ddd;
+}
+
+.wb-chtwzrd-container .message {
+	margin-right: 15px;
+}
+
+.wb-chtwzrd-container label {
+	border: 1px solid #c1c1c1;
+	font-weight: bold;
+	padding: 6px 10px;
+}
+
+.wb-chtwzrd-container .avatar,
+.wb-chtwzrd-container .question {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.wb-chtwzrd-container .avatar {
+	background-color: #fff;
+	background-image: url("../assets/default-avatar.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25px;
+	height: 30px;
+	width: 30px;
+}
+
+.wb-chtwzrd-container .basic-link {
+	min-height: inherit;
+}
+
+.wb-chtwzrd-mrgn {
+	margin-top: 80px;
+}
+
+.wb-chtwzrd-container legend:focus {
+	outline: 1px dotted #666;
+}
+
+/* Chat wizard inline (full-screen) */
+.wb-chtwzrd-contained {
+	bottom: 0;
+	box-shadow: none;
+	margin: 30px auto;
+	position: static;
+	right: 0;
+	width: 100%;
+}
+
+.wb-chtwzrd-contained .conversation {
+	max-height: 70vh;
+}
+
+.wb-chtwzrd-contained .minimize {
+	display: none;
+}
+
+.wb-chtwzrd-contained .reset {
+	right: 0;
+}
+
+/* Chat wizard Media queries */
+@media screen and (max-width: 1199px) {
+	.wb-chtwzrd-container {
+		width: 35%;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.wb-chtwzrd-container {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.wb-chtwzrd-bubble-wrap {
+		right: 10px;
+	}
+	.wb-chtwzrd-container {
+		bottom: 0;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		right: 0;
+		width: 100%;
+	}
+	.wb-chtwzrd-container .body {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		height: 100%;
+		padding-bottom: 75px;
+		width: 100%;
+	}
+	.wb-chtwzrd-container .conversation {
+		-ms-flex-positive: 1;
+		-webkit-box-flex: 1;
+		flex-grow: 1;
+		max-height: none;
+		min-height: 2em;
+	}
+	.wb-chtwzrd-container .controls {
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+		height: 75px;
+	}
+	.wb-chtwzrd-noscroll {
+		overflow: hidden !important;
+	}
+	.wb-chtwzrd-bubble-wrap p .notif-close {
+		font-size: 2em;
+		height: 35px;
+		line-height: 1.1em;
+		right: 90%;
+		width: 35px;
+	}
+	.wb-chtwzrd-contained .body {
+		padding-bottom: 10px;
+	}
+}

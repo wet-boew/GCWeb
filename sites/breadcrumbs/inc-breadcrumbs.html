@@ -1,0 +1,25 @@
+{% unless page.pageclass contains "home" %}
+<nav id="wb-bc" property="breadcrumb">
+	<h2>{{ i18nText-breadcrumb }}</h2>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li>
+				<a href="{{ site.wetSiteRoot }}/index-{{ page.lang }}.html">{{ i18nText-home }}</a>
+			</li>
+
+{%- if page.breadcrumbs -%}
+	{%- for breadcrumb in page.breadcrumbs -%}
+		<li><a href="{{ breadcrumb.link | relative_url }}">{{ breadcrumb.title }}</a></li>
+	{%- endfor -%}
+{%- endif -%}
+
+{%- comment -%}
+#
+# Need to validate if we want the page title to be always displayed into the breadcrumb
+#
+			<li>{{ page.contentTitle }}</li>
+{%- endcomment -%}
+		</ol>
+	</div>
+</nav>
+{% endunless %}

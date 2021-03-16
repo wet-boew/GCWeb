@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ */
+
+@import "variables";
+
+@import "wet-boew/src/base/bootstrap";
+
+/* WET Core */
+@import "wet-boew/src/base/wet-boew";
+
+/*
+ * GCWeb Theme
+ */
+@import "defaults";
+@import "../components/baseline/wet-boew-overrides";
+
+@import "archived/archived";
+
+@import "../components/redacted";
+@import "banner/base";
+@import "baseline/buttons";
+@import "breadcrumbs/breadcrumb";
+@import "../components/equalheight/base";
+@import "../components/dshbrd/base";
+@import "fonts/base";
+@import "footers/base";
+@import "helpers/base";
+@import "../components/triangle-up";
+@import "language/language-bar";
+@import "baseline/main";
+@import "../components/base2";
+@import "../components/baseline/overlay";
+@import "../templates/pagebrand/base";
+@import "search/base";
+@import "../templates/search";
+@import "secondary-menu/base";
+@import "main-footer/base";
+@import "gcweb-menu/base";
+@import "../components/gc-follow-us/base";
+@import "../components/fd-wdgt";
+@import "../templates/blog";
+@import "../components/pagination/base";
+@import "../components/baseline/badges";
+@import "../components/toc/base";
+@import "../components/tabs/carousel";
+@import "../templates/social-media-centre/base";
+@import "../templates/mobile-centre/base";
+@import "../components/utilities/glyphicon-error";
+@import "../templates/campaign/base";
+@import "../components/baseline/base";
+@import "../components/base";
+@import "../components/header-rwd/header-rwd";
+@import "../templates/news/base";
+@import "../components/tbl-floatcolumn";
+@import "../components/wb-fieldflow/base";
+
+/*
+ * Provisional feature
+ */
+@import "../components/provisional";
+@import "../components/wb-chtwzrd/base"; // Provisional CSS for the chat wizard
+@import "../components/gc-subway/base"; // Provisional CSS for GC subway map menu
+
+/*
+ * GCWeb custom iumplementation
+ *
+ * Copy and rename the folder "variant-default" to "variant".
+ * - the "variant" folder should not GIT conflict with your custom implementation when updating to the latest gcweb
+ */
+@import "../misc/variant-default/variant-default";
+
+/*
+ Views
+ */
+/* All screen views */
+@media screen {
+	@import "../misc/views/screen";
+	@import "../components/tabs/screen";
+	@import "../components/gc-nttvs/screen"; /* Deprecated as v4.0.28 */
+	@import "../misc/variant-default/variant-screen";
+}
+
+/* Extra-small view and under */
+@media screen and (max-width: $screen-xs-max) {
+	@import "../misc/views/screen-xs-max";
+	@import "banner/screen-xs-max";
+	@import "../components/header-rwd/screen-xs-max";
+	@import "gcweb-menu/screen-xs-max";
+	@import "../components/pagination/screen-xs-max";
+	@import "main-footer/screen-xs-max";
+	@import "../components/toc/screen-xs-max";
+	@import "../templates/campaign/screen-xs-max";
+	@import "../misc/variant-default/variant-screen-xs-max";
+}
+
+/* Small view and under */
+@media screen and (max-width: $screen-sm-max) {
+	@import "../misc/views/screen-sm-max";
+	@import "banner/screen-sm-max";
+	@import "../components/dshbrd/screen-sm-max";
+	@import "footers/screen-sm-max";
+	@import "gcweb-menu/screen-sm-max";
+	@import "../components/gc-subway/screen-sm-max";
+	@import "../misc/variant-default/variant-screen-sm-max";
+}
+
+/* Medium view and under */
+@media screen and (max-width: $screen-md-max) {
+	@import "../components/header-rwd/screen-md-max";
+	@import "../misc/views/screen-md-max";
+	@import "gcweb-menu/screen-md-max";
+	@import "../misc/variant-default/variant-screen-md-max";
+}
+
+/* Large view and under */
+@media screen and (max-width: $screen-lg-max) {
+	@import "../misc/views/screen-lg-max";
+	@import "../misc/variant-default/variant-screen-lg-max";
+}
+
+/* Extra-small view and over */
+@media screen and (min-width: $screen-xs-min) {
+	@import "../misc/views/screen-xs-min";
+	@import "../misc/variant-default/variant-screen-xs-min";
+}
+
+/* Small view and over */
+@media screen and (min-width: $screen-sm-min) {
+	@import "../misc/views/screen-sm-min";
+	@import "../components/header-rwd/screen-sm-min";
+	@import "../templates/news/screen-sm-min";
+	@import "../templates/campaign/screen-sm-min";
+	@import "../misc/variant-default/variant-screen-sm-min";
+}
+
+/* Medium view and over */
+@media screen and (min-width: $screen-md-min) {
+	@import "../misc/views/screen-md-min";
+	@import "../components/social-media-icons/screen-md-min";
+	@import "footers/screen-md-min";
+	@import "gcweb-menu/screen-md-min";
+	@import "../misc/variant-default/variant-screen-md-min";
+	@import "../components/gc-subway/screen-md-min";
+}
+
+/* Large view and over */
+@media screen and (min-width: $screen-lg-min) {
+	@import "../components/header-rwd/screen-lg-min";
+	@import "../misc/views/screen-lg-min";
+	@import "../components/equalheight/screen-lg-min";
+	@import "../misc/variant-default/variant-screen-lg-min";
+}
+
+/* Extra-extra-small view */
+@media screen and (max-width: $screen-xxs-max) {
+	@import "../components/header-rwd/screen-xxs-max";
+	@import "../misc/views/screen-xxs-max";
+	@import "banner/screen-xxs-max";
+	@import "footers/screen-xxs-max";
+	@import "../components/tabs/screen-xxs-max";
+	@import "../misc/variant-default/variant-screen-xxs-max";
+}
+
+/* Extra-small view */
+@media screen and (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+	@import "../misc/views/screen-xs-min-to-screen-xs-max";
+	@import "../components/header-rwd/screen-xs-min-to-screen-xs-max";
+	@import "../misc/variant-default/variant-screen-xs-min-to-screen-xs-max";
+}
+
+/* Small view */
+@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+	@import "../misc/views/screen-sm-min-to-screen-sm-max";
+	@import "search/screen-sm-min-to-screen-sm-max";
+	@import "../templates/campaign/screen-sm-min-to-screen-sm-max";
+	@import "../misc/variant-default/variant-screen-sm-min-to-screen-sm-max";
+}
+
+/* Medium view */
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+	@import "../components/header-rwd/screen-md-min-to-screen-md-max";
+	@import "../misc/views/screen-md-min-to-screen-md-max";
+	@import "../components/equalheight/screen-md-min-to-screen-md-max";
+	@import "gcweb-menu/screen-md-min-to-screen-md-max";
+	@import "../misc/variant-default/variant-screen-md-min-to-screen-md-max";
+}
+
+/* Large view */
+@media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+	@import "../misc/views/screen-lg-min-to-screen-lg-max";
+	@import "../misc/variant-default/variant-screen-lg-min-to-screen-lg-max";
+}
+
+/* Extra-large view */
+@media screen and (min-width: $screen-xl-min) {
+	@import "../misc/views/screen-xl-min";
+	@import "../misc/variant-default/variant-screen-xl-min";
+}
+
+/* Print view */
+@media print {
+	@import "../misc/views/print";
+	@import "footers/print";
+	@import "gcweb-menu/print";
+	@import "../components/gc-nttvs/print"; /* Deprecated as v4.0.28 */
+	@import "../templates/pagebrand/print";
+	@import "search/print";
+	@import "secondary-menu/print";
+	@import "main-footer/print";
+	@import "../components/gc-follow-us/print";
+	@import "../templates/campaign/print";
+	@import "../misc/variant-default/variant-print";
+}

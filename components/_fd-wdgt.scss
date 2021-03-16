@@ -1,0 +1,85 @@
+/*
+	Github addition Widget Format
+	Use in:
+	+ Event page
+	+ campaign
+	+ widgets
+*/
+.fd-wdgt {
+	&.panel {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.panel-heading {
+		border-bottom: 1px solid #ddd;
+	}
+
+	.panel-body {
+		max-height: 25em;
+		overflow-y: scroll;
+		padding: 0;
+	}
+
+	.media {
+		border-top: 1px solid #ddd;
+		margin-top: 0;
+		padding: 15px 15px 0 5px;
+		position: relative;
+
+		&:first-child {
+			border-top: 0;
+		}
+
+		p {
+			font-size: .9em;
+		}
+
+	}
+
+	.panel-title {
+		padding-right: 30px;
+
+		.icon {
+			position: absolute;
+			right: 5px;
+			top: 5px;
+		}
+	}
+
+	.feeds-date {
+		&:before {
+			content: "";
+		}
+
+		&:after {
+			content: "";
+		}
+		display: inline-block;
+		float: none !important;
+		padding-top: 10px;
+	}
+
+	.media-body {
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 15px 10px 5px;
+		}
+	}
+
+}
+
+/* IE Tweaks */
+.lt-ie9 {
+	.fd-wdgt {
+		.panel-title {
+			padding-right: 30px;
+
+			.icon {
+				padding-left: 0;
+			}
+		}
+	}
+}

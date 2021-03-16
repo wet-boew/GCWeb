@@ -1,0 +1,16 @@
+<header>
+	<div id="wb-bnr" class="container">
+		<div class="row">
+			{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+			{% include headers-includes/brand.html %}
+			{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
+		</div>
+	</div>
+{%- unless page.nomenu -%}
+	{% include gcweb-menu/inc-sitemenu.html %}
+{%- endunless -%}
+{% include breadcrumbs/inc-breadcrumbs.html %}
+{%- if page.signing -%}
+	{% include headers-includes/sign-on-off.html %}
+{%- endif -%}
+</header>

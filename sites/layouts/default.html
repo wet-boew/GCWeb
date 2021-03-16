@@ -1,0 +1,18 @@
+---
+layout: core
+---
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.titleH1 -%}
+		{{ page.titleH1 }}
+	{%- elsif page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+{{ content }}
+{% include main-footer/inc-footer.html %}
+</main>
