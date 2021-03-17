@@ -1,0 +1,525 @@
+---
+{
+	"title": "Fonctionalités provisoires - Thème de GCWeb",
+	"language": "fr",
+	"altLangPrefix": "provisional",
+	"breadcrumb": [
+		{ "title": "Accueil GCWeb", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-fr.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2021-01-19",
+	"share": "true"
+}
+---
+<span class="wb-prettify all-pre"></span>
+<div class="alert alert-warning">
+	<h2>Fonctionalité instable</h2>
+	<p>À être utilisée <strong>à vos propre risque</strong>. Toutes les fonctionnalités décrites ci-dessous pourraient être retirées lors du lancement d'une version mineure ou majeure et sont exclues de l'API publique GCWeb.</p>
+	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html" lang="en">Renseignez-vous davantage sur la décision sur la conception en matière des fonctionnalités provisoires.</a></small></p>
+	<p>Les documents et les exemples pratiques de ces fonctionnalités pourraient être incomplets ou non disponibles.</p>
+</div>
+
+<h2>Dans cette page</h2>
+<ul>
+	<li><a href="#disponibilite">Disponibilité des fonctionalités</a></li>
+	<li><a href="#documentation">Documentation des fonctionalités provisoires</a></li>
+	<li><a href="#exemples">Exemples pratiques provisoires</a></li>
+</ul>
+
+<h2 id="disponibilite">Disponibilité des fonctionalités</h2>
+<section class="alert alert-info" lang="en">
+	<h3><code>.experimental</code> depricated</h3>
+	<p><code>.experimental</code> is now deprecated and it will not be supported in 6 months.
+	It has to be replaced by <code>.provisional</code></p>
+</section>
+<p>Le tableau suivant décrit jusqu’à quelle version de GCWeb chaque fonctionnalité sera disponible. La disponibilité des fonctionnalités sera réévaluée chaque fois qu’une version est publiée. Une fonctionnalité expérimentale retirée sera communiquée une version à l’avance.</p>
+<details>
+	<summary>Description des états</summary>
+	<dl class="dl-horizontal">
+		<dt>&lt;non spécifié&gt;</dt>
+		<dd>Provisoires</dd>
+		<dt>Retiré</dt>
+		<dd>La fonctionalité n'est plus disponible</dd>
+		<dt>Supporté</dt>
+		<dd>La fonctionalité est maintenu inclus et supporté par l'API publique de GCWeb.</dd>
+		<dt>Retiré après v.Majeur.Mineur</dt>
+		<dd>La version v.Major.Minor représente la dernière version que cette fonctionalité sera disponible. Les auteurs doit considérer une solution alternative ou de faire le retrait de l'utilisation de cette fonctionalité.</dd>
+	</dl>
+</details>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th class="nowrap">Disponible dans</th>
+			<th>État</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>CSS <code>.bg-pnkDy</code> et <code>.bg-pnkDy.well.header-rwd</code></th>
+			<td>Couleur de fond de la Journée rose</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.pnkDy-theme</code> fixé globalement</th>
+			<td>Appliquer la couleur de gabarit « global » pour la couleur de la Journée rose de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.dark-theme</code> set global</th>
+			<td>Appliquer la couleur de gabarit « global » modifiée à noir complet de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code></td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-img-hdng</code></th>
+			<td>Ajouter une image de fond à un en-tête</td>
+			<td>v5.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.icon-warning-light</code></th>
+			<td>Change the color to <code>#DF7200</code></td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Gabarit <code>.gc-pg-hlpfl</code></th>
+			<td>"Widget succès de page" configuration de conception pour laisser les utilisateurs partager leur expérience sur la page.</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Plugin <code>.wb-chtwzrd</code></th>
+			<td lang="en">
+				<p>Transforms a simple form into a conversation like experience used as a wizard.</p>
+				<ul>
+					<li><a href="wb-chatwizard/docs.html">Chat wizard - How to implement</a></li>
+					<li><a href="wb-chatwizard/chatwizard-en.html">Working example - Chat wizard</a></li>
+					<li><a href="wb-chatwizard/chatwizard-json-en.html">Working example - Chat wizard with JSON settings</a></li>
+					<li><a href="https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html">2019-15 Research documentation</a></li>
+				</ul>
+			</td>
+			<td>v7.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Gabarit <code>.gc-subway</code></th>
+			<td>
+				<p>Navigation par carte de métro pour le gabarit d'initiatin de service.</p>
+				<ul>
+				<li><a href="#gc-subway" hreflang="fr">Comment implémenter</a></li>
+				<li><a href="demos/gc-subway/index-fr.html">Page d'introduction de navigation par carte de métro (v8.1.2)</a></li>
+				<li><a href="demos/gc-subway/gc-subway-fr.html">Example pratique</a></li>
+				<li><a href="https://wet-boew.github.io/wet-boew-documentation/decision/12.html" hreflang="en">Décision de conception relié</a></li>
+				</ul>
+			</td>
+			<td>v8.0.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>CSS <code>.gc-chckbxrdio</code></th>
+			<td>
+				<p>Adoptez les nouvelles grandes cibles tactiles d'entrée pour les cases à cocher et les boutons radio</p>
+				<ul>
+					<li><a href="component/gc-chckbxrdio-fr.html">Cases à cocher et bouttons radio - Configuration de conception de Canada.ca</a></li>
+				</ul>
+			</td>
+			<td>v8.0.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Composant <code>.gc-followus</code></th>
+			<td>
+				<p>Nouvel arrangement et model de conception. Pour supporter le gabarit beta thème/sujet.</p>
+				<ul>
+					<li><a href="theme-topic-fr.html">Exemple pratique français</a></li>
+					<li><a href="theme-topic-en.html" hreflang="en">Exemple pratique anglais</a></li>
+				</ul>
+			</td>
+			<td>v9.1.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Composant <code>.gc-topic-bg</code></th>
+			<td>
+				<p>Image promotionelle et d'entête de page. Pour supporter le gabarit beta thème/sujet.</p>
+				<ul>
+					<li><a href="theme-topic-fr.html">Exemple pratique français</a></li>
+					<li><a href="theme-topic-en.html" hreflang="en">Exemple pratique anglais</a></li>
+				</ul>
+			</td>
+			<td>v9.1.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Composant <code>.gc-contributors</code></th>
+			<td>
+				<p>Nouvel arrangement et model de conception. Pour supporter le gabarit beta thème/sujet.</p>
+				<ul>
+					<li><a href="theme-topic-fr.html">Exemple pratique français</a></li>
+					<li><a href="theme-topic-en.html" hreflang="en">Exemple pratique anglais</a></li>
+				</ul>
+			</td>
+			<td>v9.1.0</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<p>Pour plus de fonctionnalités provisoires, consultez la <a href="https://wet-boew.github.io/wet-boew/docs/ref/provisional-fr.html">page des fonctionnalités provisoires de la WET-BOEW</a>.</p>
+
+<details>
+	<summary>Fonctionalité stabilisé</summary>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th class="nowrap">Disponible dans</th>
+			<th>État</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>CSS <code>.p-0</code></th>
+			<td>Fixer un remplissage (<span lang="en">padding</span>) de 0px</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.mb-sm-5</code></th>
+			<td>Fixer la marge du bas à 50px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.p-sm-3</code></th>
+			<td>Fixer les marges à 15px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.px-sm-3</code></th>
+			<td>Fixer le <span lang="en">padding</span> de gauche et de droite à 15px pour la vue à partir d'un petit écran et plus</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-darker</code></th>
+			<td>Couleur de fond noir complet</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-gctheme</code> et <code>.bg-gctheme.well.header-rwd</code></th>
+			<td>Couleur de fond de base du thème de GCWeb</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.bg-cover</code></th>
+			<td>Image de fond de taille "couvrir"</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>Plugin <code>[data-bgimg]</code></th>
+			<td>Prendre la valeur URL et la fixer en tant qu’image de fond. Il faut le remplacer par le sélecteur CSS4</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.stretched-link</code></th>
+			<td>Propage la zone cliquable d'une balise hyperlien jusqu'au premier élément parent qui est de position relative.</td>
+			<td>v5.1</td>
+			<td>Supporté par GCWeb depuis v6.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-danger</code></th>
+			<td>Adoptez la nouvelle conception d’alerte de danger, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-warning</code></th>
+			<td>Adoptez la nouvelle conception d’alerte d’avertissement, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-success</code></th>
+			<td>Adoptez la nouvelle conception d’alerte de succès, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.alert-info</code></th>
+			<td>Adoptez la nouvelle conception d’alerte d’information, sans une couleur de fond.</td>
+			<td>v7.0</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+		<tr>
+			<th>CSS <code>.gc-thickline</code></th>
+			<td lang="en">H1 with short bold red underline</td>
+			<td>v8.0.1</td>
+			<td>Supporté par GCWeb depuis v9.0</td>
+		</tr>
+	</tbody>
+</table>
+</details>
+
+<h2 id="documentation">Documentation des fonctionalités provisoires</h2>
+<p>Les fonctionalités CSS provisoires doivent être accompagné avec la classe <code>.provisional</code> au sein de leur contexte d'utilisation.</p>
+<h2 id="exemples">Examples pratiques provisoires</h2>
+<h3>Dans cette section</h3>
+<ul>
+	<li><a href="#well-header-rwd-bgimg">En-tête adaptable de la boîte grise avec une image de fond</a></li>
+	<li><a href="#well-header-rwd-dark">En-tête adaptable de la boîte grise avec une image de fond et des contrôles de remplissage</a></li>
+	<li><a href="#mb-sm-5">Marge du bas pour la vue à partir d'un petit écran et plus</a></li>
+	<li><a href="#theme-couleurs">Couleurs du gabarit de thème</a></li>
+	<li><a href="#bg-img-headings">Image de fond sur l'en-tête</a></li>
+	<li><a href="#stretched-link">Section <span lang="en">Features</span> avec des liens élargis</a></li>
+	<li><a href="#icon-warning">Icon warning color</a></li>
+	<li><a href="gc-pg-hlpfl">Widget succès de page</a></li>
+	<li><a href="#chatwizard" lang="en">Chat wizard</a></li>
+	<li><a href="#gc-subway">GC Service initiation template</a></li>
+	<li><a href="#gc-chckbxrdio">Cases à cocher et boutons radio</a></li>
+</ul>
+<h3 id="well-header-rwd-bgimg">En-tête adaptable de la boîte grise avec une image de fond</h3>
+<div class="provisional bg-cover well" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="well header-rwd mrgn-tp-md mrgn-bttm-md">
+		<h4 class="mrgn-tp-md">En-tête</h4>
+		<p>En-tête secondaire</p>
+	</div>
+</div>
+<h3 id="well-header-rwd-dark">En-tête adaptable de la boîte grise avec une image de fond et des contrôles de remplissage</h3>
+<p>Principalement pour des pages de campagne ayant une largeur adaptable au contenu.</p>
+<div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg">
+	<div class="container p-0 p-sm-3">
+		<div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0">
+			<h4 class="mrgn-tp-md">En-tête</h4>
+			<p>En-tête secondaire</p>
+		</div>
+	</div>
+</div>
+<pre><code>&lt;div class="provisional bg-cover" data-bgimg="demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="container p-0 p-sm-3"&gt;
+		&lt;div class="well header-rwd mrgn-tp-md mrgn-bttm-md bg-dark text-white brdr-0"&gt;
+			&lt;h4 class="mrgn-tp-md"&gt;En-tête&lt;/h4&gt;
+			&lt;p&gt;En-tête secondaire&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="mb-sm-5">Marge du bas pour la vue à partir d'un petit écran et plus</h3>
+<div class="row">
+	<div class="col-xs-12 provisional">
+		<div>
+			<img class="img-responsive full-width" src="demos/tabs/img/investinourfuture.jpg" alt="">
+			<div class="well pstn-bttm-sm mrgn-bttm-0 mb-sm-5">
+				<h4 class="mrgn-tp-md">En-tête</h4>
+				<p>En-tête secondaire</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="well">
+	<p>Boîte grise secondaire</p>
+</div>
+<h3 id="#theme-couleurs">Couleurs du gabarit de thème</h3>
+<ul>
+	<li><a href="xprmntl/pink-day-en.html">Journée rose</a></li>
+	<li><a href="xprmntl/dark-theme-en.html">Thème sombre</a></li>
+</ul>
+<details>
+	<summary>Échantillon du code JavaScript pour programmer l’ajout CSS pour la Journée rose</summary>
+	<p>Le script suivant ajoute la classe CSS seulement pour le 10 avril 2019 heure locale.</p>
+<pre><code>( function( d ) {
+"use strict";
+
+var t = new Date(),
+	msT = t.getTime(),
+	s = new Date( 2019, 3, 10, 0, 1 ),
+	e = new Date( 2019, 3, 10, 23, 59 );
+
+if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
+	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "provisional");
+}
+
+} )( document );</code></pre>
+</details>
+
+<h3 id="bg-img-headings">Image de fond sur l'en-tête</h3>
+<p>Principalement pour la section Services et information.</p>
+<div class="row provisional" lang="en">
+	<div class="col-md-6 col-xs-12">
+		<h2 class="h3 full-width bg-img-hdng mrgn-tp-0">Impact Assessment</h2>
+		<h3 class="h5 mrgn-tp-sm"><a href="https://www.canada.ca/en/environmental-assessment-agency/services/environmental-assessments/basics-environmental-assessment.html">Impact assessments process</a></h3>
+		<p>Learn about the purpose and steps of impact assessments under the <em>Impact Assessment Act</em>.</p>
+		<h3 class="h5 mrgn-tp-sm"><a href="https://ceaa-acee.gc.ca/050/evaluations/?culture=en-CA">Canadian Impact Assessment Registry</a></h3>
+		<p>Information on potential and current IAs of projects subject to the federal IA process.</p>
+	</div>
+	<div class="col-md-6 col-xs-12">
+		<h2 class="h3 full-width bg-img-hdng mrgn-tp-0" data-bgimg="img/provisional-DOCS-how-to-get-involved-orange.png">How to get involved</h2>
+		<h3 class="h5 mrgn-tp-sm"><a href="https://www.canada.ca/en/environmental-assessment-agency/services/public-participation.html">Public</a></h3>
+		<p>Learn how the public can participate in impact assessments.</p>
+		<h3 class="h5 mrgn-tp-sm"><a href="https://www.canada.ca/en/environmental-assessment-agency/programs/aboriginal-consultation-federal-environmental-assessment.html">Indigenous</a></h3>
+		<p>Learn about the Indigenous consultation process in impact assessments.</p>
+	</div>
+</div>
+<h3 id="stretched-link">Section <span lang="en">Features</span> avec des liens élargis</h3>
+<p>Dans l'exemple suivant, ajouter la classe <code>.stretched-link</code> à l'hyperlien situé à l'intérieur de la balise <code>&lt;h3&gt;</code> résulera en une propagation de la zone cliquable jusqu'au <code>&lt;div&gt;</code> parent qui contient la classe <code>.col-xy-z</code> parce que celui-ci est en position &laquo;&nbsp;relative&nbsp;&raquo;.</p>
+<div class="row wb-eqht provisional" lang="en">
+	<div class="col-sm-6">
+		<div class="well well-sm brdr-rds-0 eqht-trgt">
+			<img class="img-responsive full-width" src="https://www.canada.ca/content/dam/canada/activities/20190603-1-520x200.jpg" alt="">
+			<h3 class="h5"><a class="stretched-link" href="https://www.ic.gc.ca/eic/site/062.nsf/eng/h_00108.html">Learn more about Canada’s Digital Charter</a></h3>
+			<p>Learn how Canada’s Digital Charter will build a foundation of trust in a digital world.</p>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="well well-sm brdr-rds-0 eqht-trgt">
+			<img class="img-responsive full-width" src="https://www.canada.ca/content/dam/canada/activities/20190604-1-520x200.jpg" alt="">
+			<h3 class="h5"><a class="stretched-link" href="https://www.rcaanc-cirnac.gc.ca/eng/1466616436543/1534874922512">National Indigenous History Month</a></h3>
+			<p>Celebrate National Indigenous History Month in June</p>
+		</div>
+	</div>
+</div>
+<div lang="en">
+	<h3 id="#icon-warning">Icon warning color</h3>
+	<p>Adding <code>provisional icon-warning-light</code> in the class will change the color</p>
+	<div class="bg-warning">
+		<p class="h1">
+			<span class="glyphicon glyphicon-warning-sign mrgn-rght-md"></span> Without "provisional icon-warning-light" class
+		</p>
+	</div>
+	<div class="bg-warning">
+		<p class="h1">
+			<span class="glyphicon glyphicon-warning-sign provisional icon-warning-light mrgn-rght-md"></span> With "provisional icon-warning-light" class
+		</p>
+	</div>
+</div>
+<h3 id="gc-pg-hlpfl">Widget succès de page</h3>
+<p>Est prévu pour remplacer Signaler un problème ou une erreur sur cette page éventuellement. Utilises plusieurs fonctionnalités&nbsp;: les plugiciels <code>wb-postback</code> et <code>data-wb-doaction</code>, ainsi que les styles <code>nojs-*</code> puis Font Awesome.</p>
+<div class="row row-no-gutters mrgn-tp-xl">
+	<div class="col-sm-7 col-lg-6">
+		<section class="provisional gc-pg-hlpfl">
+			<div class="well mrgn-bttm-0">
+				<form id="gc-pg-hlpfl-frm" action="index-fr.html" method="get" autocomplete="off" class="provisional wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.gc-pg-hlpfl-thnk&quot;,&quot;content&quot;:&quot;#gc-pg-hlpfl-frm&quot;}">
+					<input type="hidden" name="pageTitle" value="Fonctionalités provisoires - Thème de GCWeb">
+					<input type="hidden" name="submissionPage" value="https://wet-boew.github.io/themes-dist/GCWeb/provisional-fr.html">
+					<input type="hidden" name="tid" value="1234">
+					<input type="hidden" name="auke" value="5678">
+					<div class="gc-pg-hlpfl-btn">
+						<div class="row row-no-gutters">
+							<div class="col-xs-12 col-sm-7 mrgn-tp-sm">
+								<h2 class="mrgn-tp-sm h5">Avez-vous trouvé ce que vous cherchiez?</h2>
+							</div>
+							<div class="col-xs-8 col-sm-5 text-right">
+								<button type="submit" name="helpful" value="Yes" class="btn btn-primary">Oui</button>
+								<button type="button" class="btn btn-primary mrgn-lft-sm nojs-hide" data-wb-doaction="[
+									{&quot;action&quot;:&quot;removeClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-no&quot;,&quot;class&quot;:&quot;nojs-show&quot;},
+									{&quot;action&quot;:&quot;addClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-btn&quot;,&quot;class&quot;:&quot;hide&quot;}
+								]">Non</button>
+							</div>
+						</div>
+					</div>
+					<p class="h3 hidden nojs-show">Sinon, dites nous pourquoi&nbsp;:</p>
+					<div class="gc-pg-hlpfl-no nojs-show">
+						<fieldset>
+							<legend class="h4 mrgn-tp-0 mrgn-bttm-md">Qu’est-ce qui n’allait pas?</legend>
+							<div class="radio">
+								<label>
+									<input name="problem" id="problem01" type="radio" value="I can’t find what I’m looking for">
+									La réponse dont j’ai besoin n’est pas là
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input name="problem" id="problem02" type="radio" value="The information isn’t clear">
+									L'information n'est pas claire
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input name="problem" id="problem03" type="radio" value="I’m not in the right place">
+									Je ne suis pas au bon endroit
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input name="problem" id="problem04" type="radio" value="Something is broken or incorrect">
+									Quelque chose est brisé ou incorrect
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input name="problem" id="problem05" type="radio" value="Other reason">
+									Autre raison
+								</label>
+							</div>
+						</fieldset>
+						<label for="problem06">Veuillez fournir plus de détails</label>
+						<p class="small">
+							<strong>(N’incluez pas d’information personnelle)</strong>
+							<br>
+							<span class="small">Maximum de 300 caractères</span>
+						</p>
+						<textarea name="details" id="problem06" class="full-width" maxlength="300"></textarea>
+						<br>
+						<button type="submit" name="helpful" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">Soumettre</button>
+					</div>
+				</form>
+				<div class="gc-pg-hlpfl-thnk hide">
+					<p class="h6 mrgn-tp-sm mrgn-bttm-sm"><span class="far fa-check-circle text-success mrgn-rght-sm" aria-hidden="true"></span> Merci de vos commentaires</p>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<h3 id="gc-subway">GC Service initiation template</h3>
+<p>In order to achieve the provisional Service initiation template revamp with the subway map, you will need to complete the following steps:</p>
+<ol>
+	<li>First, you'll need a &lt;nav&gt; element with both the "provisional" and the "gc-subway" classes. Inside of that &lt;nav&gt;, put your first &lt;h1&gt;; it will be the smaller, gray-ish, upper one.</li>
+	<li>Add a &lt;ul&gt; next to that &lt;h1&gt;. Put the links to your other pages related to that service initiation template in there.</li>
+	<li>The rest just needs your own main content for that page. Do not forget the navigation buttons at the bottom of the pages. If you want the left column to stop being at 2/3 of the width on desktop at some point, then you can stop the propagation by using any HTML element with a "gc-subway-section-end" class on it; that element needs to be a sibling of your ".gc-subway" &lt;nav&gt;.</li>
+	<li>If you want to use the new bold short red underline underneath your regular H1, then add both the "provisional" and "gc-thickline" classes on it.</li>
+</ol>
+<p>See raw code in action by <a href="demos/gc-subway/gc-subway-fr.html">checking out the working example</a>.</p>
+
+<h3 id="gc-chckbxrdio"> Cases à cocher et boutons radio </h3>
+<p> Les grandes cibles tactiles d'entrée prennent en charge la saisie et l'utilisation </p>
+<p> Un problème de longue date avec les cases à cocher et les boutons radio est que les étiquettes ne semblent pas cliquables pour la plupart des gens </p>
+<p> Même en utilisant des conceptions qui mettent en évidence le texte de l'étiquette ou mettent l'entrée et l'étiquette avec un contour gris, les études ont montré que les gens voulaient toujours cliquer sur la conception d'entrée. </p>
+<h4>Spécifications de conception</h4>
+<div class="row">
+	<div class="col-md-6">
+		<div><img src="../img/component/boutons-radio-specs.png" alt="" class="img-responsive"></div>
+		<div class="col-md-6">
+			<ol>
+				<li>Question</li>
+				<li>Bouton radio sélectionné</li>
+				<li>Bouton radio non sélectionné</li>
+				<li>Etiquette de bouton radio</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+<h4>Utilisation</h4>
+<p>Les boutons radio sont utilisés dans les modèles suivants&nbsp;:</p>
+<ul>
+	<li>Questions interactives</li>
+	<li>Formulaires</li>
+</ul>
+<p>Les cases à cocher sont utilisés dans les modèles suivants&nbsp;:</p>
+<ul>
+	<li>Questions interactives</li>
+	<li>Formulaires</li>
+	<li>Fieldflow</li>
+</ul>
+<h4>Demo et code</h4>
+<p><a href="component/gc-chckbxrdio-fr.html">Cases à cocher et bouttons radio - Configuration de conception de Canada.ca</a></p>

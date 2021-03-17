@@ -1,0 +1,626 @@
+---
+{
+	"title": "Search template - Meta information",
+	"language": "en",
+	"altLangPrefix": "index",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "../index-en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2019-07-31",
+	"share": "true"
+}
+---
+
+<p>Published: March 2019</p>
+
+<h2>Working Example</h2>
+
+<ul>
+	<li><a href="results-en.html">Results (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-en.hbs">Source code</a>)</li>
+	<li><a href="results-fr.html" hreflang="fr" lang="fr">Résultats (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-fr.hbs">Source code</a>)</li>
+	<li><a href="results-contextual-en.html">Results contextual (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-contextual-en.hbs">Source code</a>)</li>
+	<li><a href="results-contextual-fr.html" hreflang="fr" lang="fr">Résultats contextuel (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-contextual-en.hbs">Source code</a>)</li>
+	<li><span class="label label-warning">Partial</span> <a href="results-filters-en.html">Results with filters (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-filters-en.hbs">Source code</a>)
+		<ul>
+			<li>The "show more" link in the filter box aren't working via a client side implementation.</li>
+			<li>The "Clear all" link at the top of the filter box aren't working via a client side implementation.</li>
+		</ul>
+	</li>
+	<li><span class="label label-warning">Partial</span> <a href="results-filters-fr.html" hreflang="fr" lang="fr">Résultats avec filtre (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-filters-fr.hbs">Source code</a>)
+		<ul>
+			<li>The "show more" link in the filter box aren't working via a client side implementation.</li>
+			<li>The "Clear all" link at the top of the filter box aren't working via a client side implementation.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Prototype:</h3>
+<ul>
+	<li>gc-proto/student-loans: <a href="https://gc-proto.github.io/student-loans/scenarioA/services/search-results-visual.html">Search results visual</a></li>
+	<li>gc-proto/student-loans: <a href="https://gc-proto.github.io/student-loans/scenarioA/services/search-results-contextual-visual.html">Search result contextual visual</a></li>
+	<li><a href="https://docs.google.com/document/d/1tUaINl5yBx8EFMNAQoaGge7ZAB2NSEsJ5OJ200mtxWY/edit?usp=sharing">Draft specification for search page</a></li>
+</ul>
+
+<h3>Test pages</h3>
+<ul>
+	<li><a href="test-pagination.html">Search pagination scenario</a></li>
+</ul>
+
+<h3 id="backlog-template">Backlog</h3>
+<p>Their is not GCWeb corresponding template yet</p>
+<ul>
+	<li><span class="label label-default">Backlog</span> Starting page for search (<a href="https://www.search-recherche.gc.ca/rGs/s_r?st=s&amp;st1rt=0&amp;num=10&amp;cdn=canada&amp;langs=eng">Reference/Existing implementation</a>)</li>
+	<li><span class="label label-default">Backlog</span> Advanced search page (<a href="https://www.search-recherche.gc.ca/rGs/s_r?as_q=&amp;st1rt=0&amp;st=a&amp;num=10&amp;langs=eng&amp;cdn=canada&amp;hq=">Reference/Existing implementation</a>)</li>
+</ul>
+
+<h2>Usability Research</h2>
+
+<ul>
+	<li><time datetime="2018-07-13">First half 2018</time> - First click testing <a href="https://wet-boew.github.io/wet-boew-documentation/ux-reports/2018-2.html">UX research 2018-2 Contextual site search design research</a></li>
+	<li><time datetime="2017-10-01">October 2017</time> - Moderated usability testing - <a href="https://wet-boew.github.io/wet-boew-documentation/ux-reports/2018-2.html">UX research 2018-2 Contextual site search design research</a></li>
+</ul>
+
+<h2>Version history</h2>
+<ul>
+	<li><time>2020-02-12</time> Version 2.1 - Advanced search is added under pagination tab</li>
+	<li><time>2019-02-06</time> Version 2 - Search results, Contextualized search result, Faceted results</li>
+	<li><time>2013-01-01</time> Version 1 - Undocumented search results template. Associated with the version 1.x of the Canada.ca Content and IA specification</li>
+</ul>
+
+<h2>Search template roadmap</h2>
+<p>Last updated: <time>2019-02-06</time></p>
+<ul>
+	<li>Review each working example: Results, Result contextual and Result with filters</li>
+	<li>Collapsible/Expandable feature when multiple labels in a search result item.</li>
+	<li>Collapsible/Expandable available filters, add a "Show more" button</li>
+	<li>Perform WCAG 2.0 Level AA conformance check on each working example</li>
+	<li>Complete the Search Template Schemas and its Shapes graphs</li>
+	<li>The description should not surpass 4 rows of text on mobile screens. The description may be different in mobile than in desktop to accommodate. JS or CSS might be useful to ensure this rule are followed and enforced.</li>
+	<li>Provide instructions on how search result item are structured to ease navigation with an assitive technology software.</li>
+</ul>
+
+<h2>Template component</h2>
+<ul>
+	<li>Search bar (prop: isContextual)</li>
+	<li>Search result (prop: isContextual)
+		<ul>
+			<li>Search results item (prop: isContextual)</li>
+			<li>Search pagination</li>
+		</ul>
+	</li>
+	<li>Search filters</li>
+</ul>
+
+<p>Note: visual example with styles applied: <a href="https://gc-proto.github.io/student-loans/scenarioA/services/search-results-visual.html">https://gc-proto.github.io/student-loans/scenarioA/services/search-results-visual.html</a></p>
+
+<h2>Wireframe</h2>
+
+<img class="img-responsive" src="img/search-template-v2-wireframe.jpg" alt="wireframe showing the placement of each template section" />
+<p><a href="img/search-template-v2-wireframe.jpg">See only the image</a></p>
+
+<h2 id="template">Template</h2>
+
+<p>The CSS class <code>page-type-search</code> must be added to the body element to every search result pages.</p>
+
+<p>Implementer need to properly configure forms and inputs.</p>
+
+<pre><code>&lt;h1 property="name"&gt;Search results&lt;/h1&gt;
+&lt;!-- Search bar (mendatory) --&gt;
+&lt;!-- Search filter (optional) --&gt;
+&lt;!-- Search result (mendatory) --&gt;
+&lt;!-- Advanced search link (optional) --&gt;</code></pre>
+
+<h3>Search bar</h3>
+
+<pre><code>
+&lt;form&gt;
+	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+	&lt;div class="input-group mrgn-tp-lg"&gt;
+		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" /&gt;
+		&lt;span class="input-group-btn"&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;&lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3>Search bar contextual</h3>
+
+<pre><code>
+&lt;div class="well"&gt;
+	&lt;form class="mrgn-tp-sm"&gt;
+		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search"&gt;
+		&lt;div class="mrgn-tp-md"&gt;
+			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+			&lt;ul class="radio-inline list-inline mrgn-lft-sm"&gt;
+				&lt;li&gt;&lt;input type="radio" name="resultsfrom" id="opt-allresults" value="allresults" /&gt; &lt;label for="opt-allresults"&gt;All Government of Canada websites&lt;/label&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg current" aria-current="location"&gt;&lt;input type="radio" name="resultsfrom" id="opt-context" value="context" checked="checked" /&gt; &lt;label for="opt-context"&gt;Context label&lt;/label&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;div class="pull-right"&gt;
+				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+	<li>CSS is used to put the "see result from:" label in bold. The label is after the input to use CSS like "[checked] + label { font-weight: 600 }"</li>
+	<li>The server would add the attribute "checked" to the proper selected radio</li>
+	<li>should only be used for contextual search results from a single institution</li>
+	<li>until radio buttons pattern works, please simply include 'All government of Canada websites' link in the well, under the search box</li>
+	<li>The current context is identified by being bolded. The CSS class <code>current</code> and the attribute <code>aria-current="location"</code> must be added on the corresponding list item <code>&lt;li&gt;</code>. Like in the example above, the current location is the "Context label"</li>
+</ul>
+
+<p>Potential concern</p>
+<ul>
+	<li>"See result from"
+		<ul>
+			<li>Selecting a "radio" should not "refresh" the page and creating a change of context issue.</li>
+			<li>Idea: Toogling the result set instead of refreshing the current page</li>
+			<li>If the whole page is refreshed, that design would need to incorporate a submit button to do the page refresh</li>
+		</ul>
+	</li>
+</ul>
+
+<h4>Alternate "See result from:" template</h4>
+<p>This template leverage link instead of radio button</p>
+
+<pre><code>
+&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+&lt;ul class="inline"&gt;
+	&lt;li&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a class="mrgn-lft-lg current" aria-current="location" href="[Link ot contextual search page]"&gt;[context label]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+	<li>The "current" CSS class is added server side and also set the property <code>aria-current="location"</code> to add the proper semantic.</li>
+</ul>
+
+<h4>Alternate "Search bar" with the alternate "See result from:" template</h4>
+
+<p>The "All Governement of..." is the current location in that example.</p>
+<pre><code>
+&lt;div class="well"&gt;
+	&lt;form class="mrgn-tp-sm"&gt;
+		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search"&gt;
+		&lt;div class="mrgn-tp-md"&gt;
+			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+			&lt;ul class="list-inline mrgn-lft-sm pull-left"&gt;
+				&lt;li class="current" aria-current="location"&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link ot contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;div class="pull-right"&gt;
+				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Search result</h3>
+
+<pre><code>
+&lt;section&gt;
+	&lt;h2 class="wb-inv"&gt;Search results&lt;/h2&gt;
+	&lt;p class="result-count"&gt;[number] search results for "[search term]"&lt;/p&gt;
+
+	&lt;!-- Search result item (Repeat block - max 10 times) --&gt;
+
+	&lt;!-- Search result pagination --&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h3>Search result contextual</h3>
+
+<pre><code>
+&lt;section&gt;
+	&lt;h2 class="wb-inv"&gt;Search results&lt;/h2&gt;
+	&lt;p class="result-count"&gt;[number] search results for "[search term]"&lt;/p&gt;
+	&lt;p class="gc-byline"&gt;&lt;strong&gt;From [Institution name]&lt;/strong&gt;&lt;/p&gt;
+
+	&lt;!-- Search result item (Repeat block - max 10 times) --&gt;
+
+	&lt;!-- Search result pagination --&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+	<li>byline is only included in contextual versions of the results page</li>
+</ul>
+
+
+<h3>Search result item (with page breadcrumb)</h3>
+
+<pre><code>
+&lt;section&gt;
+	&lt;h3&gt;&lt;a href="#"&gt;[Search result page title (not including '- Canada.ca' or other institutional suffix)]&lt;/a&gt;&lt;/h3&gt;
+	&lt;ul class="label"&gt;
+		&lt;li&gt;[institution name]&lt;/li&gt;
+		&lt;li&gt;[institution name]&lt;/li&gt;
+		&lt;li&gt;[institution name]&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ol class="breadcrumb"&gt;
+		&lt;li&gt;[domain name of search result]&lt;/li&gt;
+		&lt;li&gt;[parent breadcrumb of page]&lt;/li&gt;
+	&lt;/ol&gt;
+	&lt;p class="search-description"&gt;&lt;time datetime="2018-01-01" class="search-result-date"&gt;[MMM DD, YYYY]&lt;/time&gt; - [description/highlight of search result. Search terms in strong]&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+	<li>A <code>&lt;section&gt;</code> element is necessary because of the pagination. Without that, the pagination, which is at the ends, would belong sementically to the last result item, but we need it to belong to the h2 without considering the content identified by the h3 heading.</li>
+</ul>
+
+<p>Shemas information block:</p>
+<ul>
+	<li>&lt;foaf:page&gt; Link of the search result, required, only one</li>
+	<li>&lt;dct:title&gt; Title of the search result
+		<ul>
+			<li>Should not display "- canada.ca" or any departmental suffixes.</li>
+		</ul>
+	</li>
+	<li>&lt;wms:contextLabel&gt; Institution in scope with this search result, optional, 0 to multiple
+		<ul>
+			<li>Note: if labels go past 1 row, then
+				<ol class="lst-lwr-alph">
+					<li>cut off at end of row</li>
+					<li>do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP</li>
+				</ol>
+			</li>
+			<li>Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.</li>
+			<li>The link should be followed by facet labels that indicate indicate the context(s)/facet(s) the page would appear in. Canada.ca and institutions’ contextual searches must display institution labels to indicate context.</li>
+			<li>Topic pages on Canada.ca should not be tagged to context labels, and should appear in all contextual search results sets.</li>
+			<li>Within a filtered/contextual search, the label associated to the context must appear first.</li>
+			<li>(Not implemented) If context labels would extend beyond a row, they should be cut off and hidden with an expand toggle.
+				<ul>
+					<li>The label that would have broken to the next line should still be displayed, but with an ellipsis where it is cut off, before the expand toggle.</li>
+					<li>When expanded, there should be a collapse toggle to reduce the size of the result back to a single row.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>&lt; Path of the result &gt; Location of the search result, mandatory, 1 of the following options:
+		<ul>
+			<li>&lt; Breadcrumb item &gt; Path fragment of the location of this search result, mandatory, 2 items
+				<ul>
+					<li>First item: domain name of search result]</li>
+					<li>Second item: parent breadcrumb of page</li>
+					<li>Note: this always has 2 list items. Does not include other breadcrumb items.</li>
+					<li>Need clarification: Is the breadcrumb items are clickable or are static</li>
+				</ul>
+			</li>
+			<li>&lt; foaf:page &gt; When the breadcrumb is unavailable, textual output of the page URL, mandatory
+				<ul>
+					<li>Notes: when the breadcrumb is not available to the search engine, use the URL instead</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>&lt; dct:modified &gt; Date modified of the page pointed by this search result</li>
+	<li>&lt; contextualized description &gt; Description excerpt that include highlight to the search term
+		<ul>
+			<li>Search terms found in descriptions should be bolded.</li>
+			<li>If the description is an excerpt that does not begin with a sentence, or end at a period, a &hellip; symbol should be added at the beginning/end.</li>
+			<li>(Not implemented) The description should not surpass 4 rows of text on mobile screens. The description may be different in mobile than in desktop to accommodate</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Search result item (with no breadcrumb)</h3>
+
+<p>Same info as the preceding section</p>
+
+<pre><code>
+&lt;h3&gt;&lt;a href="#"&gt;[Search result page title (not including '- Canada.ca' or other institutional suffix)]&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="label"&gt;
+	&lt;li&gt;[institution name]&lt;/li&gt;
+	&lt;li&gt;[institution name]&lt;/li&gt;
+	&lt;li&gt;[institution name]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;cite&gt;&lt;a href="#"&gt;[url of the search result]&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;p class="search-description"&gt;&lt;time datetime="2018-01-01" class="search-result-date"&gt;[MMM DD, YYYY]&lt;/time&gt; - [description/highlight of search result. Search terms in strong]&lt;/p&gt;
+</code></pre>
+
+<h3>Search result pagination</h3>
+
+<p>Rules</p>
+<ul>
+	<li>Each page of search results should have a maximum of 10 individual result listings.</li>
+	<li>If there are fewer than 10 results, the pagination should be removed.</li>
+	<li>Show "Previous" and "Next" button when available in the scope of the current page</li>
+	<li>Small device: Show up to 3 page more the previous and the next button if in scope</li>
+	<li>Small device: Current page will be lock at position 2 (in the middle) when navigating through multiple page.</li>
+	<li>Medium device: Show up to 5 pages more the previous and the next button if in scope</li>
+	<li>Medium device: Current page will be lock at position 3 (in the middle) when navigating through multiple page.</li>
+	<li>Large device: Show up to 10 pages more the previous and the next button if in scope</li>
+	<li>Large device: Current page will be lock at position 5 (in the middle) when navigating through multiple page.</li>
+</ul>
+
+<p>Test pagination scenario</p>
+<ol>
+	<li><a href="test-pagination.html#s1">Scenario 1 - The first page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s2">Scenario 2 - The second page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s3">Scenario 3 - The fifth page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s4">Scenario 4 - The twelfth page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s5">Scenario 5 - The forthy-eighth page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s6">Scenario 6 - The last page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s7">Scenario 7 - The third page is current and there is 6 results page</a></li>
+</ol>
+
+<p><a href="https://github.com/wet-boew/GCWeb/tree/master/site/pages/search/test-pagination.hbs">Source code for all search pagination scenario</a></p>
+
+<pre><code>
+&lt;!-- This is code sample from Scenario 2 --&gt;
+
+&lt;div class="text-center"&gt;
+	&lt;p class="wb-inv"&gt;Search results pages&lt;/p&gt;
+	&lt;ul class="pagination"&gt;
+		&lt;li&gt;
+			&lt;a rel="prev" href="#"&gt;Previous&lt;span class="wb-inv"&gt; page of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;1&lt;span class="wb-inv"&gt;: Page 1 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="active" aria-current="page"&gt;
+			&lt;a href="#"&gt;2&lt;span class="wb-inv"&gt;: Page 2 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="#"&gt;3&lt;span class="wb-inv"&gt;: Page 3 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm"&gt;
+			&lt;a href="#"&gt;4&lt;span class="wb-inv"&gt;: Page 4 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm"&gt;
+			&lt;a href="#"&gt;5&lt;span class="wb-inv"&gt;: Page 5 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm hidden-md"&gt;
+			&lt;a href="#"&gt;6&lt;span class="wb-inv"&gt;: Page 6 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm hidden-md"&gt;
+			&lt;a href="#"&gt;7&lt;span class="wb-inv"&gt;: Page 7 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm hidden-md"&gt;
+			&lt;a href="#"&gt;8&lt;span class="wb-inv"&gt;: Page 8 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm hidden-md"&gt;
+			&lt;a href="#"&gt;9&lt;span class="wb-inv"&gt;: Page 9 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li class="hidden-xs hidden-sm hidden-md"&gt;
+			&lt;a href="#"&gt;10&lt;span class="wb-inv"&gt;: Page 10 of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a rel="next" href="#"&gt;Next&lt;span class="wb-inv"&gt; page of search results&lt;/span&gt;&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Advanced Search Link (optional)</h3>
+<p>Advanced search link below the pagination tab will allow users to enhance the search result.</p>
+
+<pre><code>
+&lt;p class="text-center"&gt;&lt;small&gt;&lt;a href="[URL of the advance search page]"&gt;Perform an advanced search&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+</code></pre>
+
+<h3>Search filter (optional)</h3>
+
+<p>Applying the require to wrap the search result into a columns, as described after the filter block code sample</p>
+
+<pre><code>
+&lt;section&gt;
+	&lt;h2 class=&quot;wb-inv&quot;&gt;Filters&lt;/h2&gt;
+	&lt;div class=&quot;text-right&quot;&gt;
+		&lt;button class=&quot;btn btn-link&quot;&gt;Clear all&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;details open&gt;
+		&lt;summary&gt;By department&lt;/summary&gt;
+		&lt;ul class=&quot;list-unstyled&quot;&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Health Canada (471&lt;span class=&quot;wb-inv&quot;&gt; results&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;span class=&quot;glyphicon glyphicon-ok&quot;&gt;&lt;/span&gt;&lt;span class=&quot;wb-inv&quot;&gt;Remove active filter:&lt;/span&gt; &lt;a href=&quot;#&quot;&gt;Global Affairs Canada (403&lt;span class=&quot;wb-inv&quot;&gt; results&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Employment and Social Development Canada (130&lt;span class=&quot;wb-inv&quot;&gt; results&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Environment and Climate Change Canada (43&lt;span class=&quot;wb-inv&quot;&gt; results&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Canadian Heritage (29&lt;span class=&quot;wb-inv&quot;&gt; results&lt;/span&gt;)&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;button class=&quot;btn btn-link small&quot;&gt;Show more &lt;span class=&quot;glyphicon glyphicon-chevron-down small&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+	&lt;/details&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p>Notes:</p>
+<ul>
+	<li>Each separate filter should appear in its own expand-collapse with a label that clearly indicates what it filters.</li>
+	<li>(Not implemented yet) No more than 5 facets should appear when expanded. An option to see 'more' or 'all' options may be added below the top 5.</li>
+	<li>Ordering of facets:
+		<ul>
+			<li>by most relevant, when 5 or fewer, or collapsed</li>
+			<li>alphabetical, when all are shown.</li>
+		</ul>
+	</li>
+	<li>Each facet should be followed by the number of results the facet applied to in brackets.</li>
+	<li>A 'clear all' button should be available to the top right of the facet boxes.</li>
+	<li>A checkmark should appear to the left of a currently selected facet. When a currently selected facet is clicked, it should remove that filter.</li>
+	<li>Specialised search option 1: Facets with children facets
+		<ul>
+			<li>If a facet has children, selecting a facet should:
+				<ul>
+					<li>hide all other facets at the same level as the selected facet</li>
+					<li>show the children facets indented to the right, below the selected facet</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Specialised search option 2: Small number of very important facets
+		<ul>
+			<li>If there is a top level set of facets that is very important to the findability of results and there are 5 or fewer options, this set of facets should appear in labels, differentiated by colour underneath the search box instead of in a left hand bar.</li>
+		</ul>
+	</li>
+	<li>Specialised search option 3: Facets that only apply to certain sets
+		<ul>
+			<li>If there are facet boxes that only apply to a subset of results based on selections in another facet box, they should not be displayed until those facets are selected.</li>
+			<li>Once selected, they should appear in a facet box with a label that is based on the condition that made it appear.</li>
+		</ul>
+	</li>
+</ul>
+
+<h4>Layout adjusted with the filter component</h4>
+
+<pre><code>
+&lt;h1 property=&quot;name&quot;&gt;Search results&lt;/h1&gt;
+&lt;!-- Search bar (mandatory) --&gt;
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-md-4 mrgn-tp-md&quot;&gt;
+		&lt;!-- Search filter (optional) --&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;col-md-8&quot;&gt;
+		&lt;!-- Search result (mandatory) --&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Schema (Incomplete draft v2)</h3>
+<pre><code>#
+# Schema for the Search template
+#
+
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix wms: &lt;http://vocab.canada.ca/wms&gt; .
+@prefix tmpl: &lt;http://vocab.canada.ca/wms/template&gt; .
+@prefix comp: &lt;http://vocab.canada.ca/wms/component&gt; .
+
+tmpl:Search
+	dct:issued "2019-01-21"^^xsd:date ;
+	a rdfs:Class, wms:Template ;
+	wms:templateName "gc-srvinfo" ;
+	rdfs:label "Search"@en ;
+	rdfs:label "Recherche"@fr .
+
+tmpl:SearchBar
+	a rdfs:Class,  wms:Component ;
+	rdfs:label "Search bar"@en .
+
+tmpl:SearchResult
+	a rdfs:Class,  wms:Component ;
+	rdfs:label "Search result"@en .
+
+tmpl:SearchResultItem
+	a rdfs:Class,  wms:Component ;
+	rdfs:label "Search result item"@en .
+
+tmpl:searchResults
+	a rdf:Property ;
+	rdfs:domains tmpl:SearchResult ;
+	rdfs:range tmpl:SearchResultItem .
+
+tmpl:SearchFilters
+	a rdfs:Class,  wms:Component ;
+	rdfs:label "Search filters"@en .
+
+tmpl:SearchPagination
+	a rdfs:Class,  wms:Component ;
+	rdfs:label "Search pagination"@en .
+
+tmpl:searchContext
+	a rdf:Property ;
+	rdfs:domains tmpl:SearchBar ;
+	rdfs:domains tmpl:SearchResult ;
+	rdfs:range wms:Departements .
+
+</code></pre>
+
+
+<!-- Shapes graph not completed -->
+
+<p>Shapes graphs</p>
+<pre><code>#
+# Shape graph of the Search template
+#
+
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix comp: &lt;http://vocab.canada.ca/wms/component&gt; .
+
+tmpl:SearchShape
+	a sh:NodeShape ;
+	sh:targetClass tmpl:Search ;
+	sh:and (
+		[
+			sh:in ( tmpl:SearchBar ) ;
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+		]
+		[
+			sh:in ( tmpl:SearchResult );
+			sh:maxCount 1 ;
+			sh:severity sh:Violation ;
+		]
+	)
+	sh:property [
+		sh:path tmpl:SearchFilters ;
+		sh:maxCount 1 ;
+	] .
+
+tmpl:SearchBarShape
+	a sh:NodeShape ;
+	sh:targetClass tmpl:SearchBar ;
+	sh:property [
+		sh:path tmpl:searchContext ;
+		sh:in wms:Departements
+	] .
+
+
+tmpl:SearchResultShape
+	a sh:NodeShape ;
+	sh:targetClass tmpl:SearchResult ;
+	sh:and (
+		[
+			sh:path tmpl:searchResults ;
+			sh:maxCount 1 ;
+		]
+		[
+			sh:in ( tmpl:SearchPagination )
+			sh:maxCount 1 ;
+		]
+	)
+	sh:property [
+		sh:path tmpl:searchContext ;
+		sh:in wms:Departements
+	] .
+
+tmpl:SearchResultItemShape
+	a sh:NodeShape ;
+	sh:targetClass tmpl:SearchResultItem ;
+	sh:and (
+		[
+			sh:path dct:title ;
+			sh:uniqueLang true ;
+			sh:minCount 1 ;
+		]
+		[
+			sh:path foaf:page ;
+		]
+		# Context labels
+		# Breadcrumb text
+
+	)
+	#
+	.
+
+
+# TODO: tmpl:SearchFiltersShape
+</code></pre>

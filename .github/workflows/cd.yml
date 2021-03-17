@@ -1,15 +1,15 @@
-name: Continuous Deployment
+name: Continuous deployment
 
 on:
   push:
     branches:
       - master
-      - cd-script
+      - reorg
     tags:
       - 'v*'
 
 jobs:
-  deploy:
+  deploy-gcweb:
 
     runs-on: ubuntu-latest
 
@@ -19,40 +19,14 @@ jobs:
       matrix:
         node-version: [12.x]
     env:
+      REPO_GCWEB: GCWeb
+      REPO_JEKYLL: gcweb-jekyll
+      REPO_COMPILED_DEMOS: gcweb-compiled-demos
       REPO_DIST: themes-dist
       REPO_DIST_CDN: themes-cdn
-
     steps:
       - uses: actions/checkout@v2
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i -g bower grunt-cli
-      - run: npm ci
 
-      - name: npm install wet-boew dependency
-        run: |
-          cd node_modules/wet-boew
-          npm i -g bower grunt-cli
-          npm install
-          grunt deploy-build
-
-      - name: Build GCWeb
-        if: ${{ !env.ACT }}
-        run: grunt dist
-
-      - name: Build GCWeb (without pre-test)
-        if: ${{ env.ACT }}
-        run: grunt dist-act
-
-      #
-      # Prepare gcweb deployment
-      #
       - name: Extract tag or branch name
         id: ref_name
         uses: actions/github-script@v3
@@ -78,23 +52,163 @@ jobs:
         run: |
           echo Ref name: ${{ env.ref_name }}
           echo Is tag: ${{ env.is_tags }}
+
+#      - name: Cache node modules
+#        uses: actions/cache@v2
+#        if: ${{ !env.ACT }}
+#        env:
+#          cache-name: cache-node-modules
+#        with:
+#          # npm cache files are stored in '~/.npm' on Linux/macOS
+#          path: ~/.npm
+#          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#          restore-keys: |
+#            ${{ runner.os }}-build-${{ env.cache-name }}-
+#            ${{ runner.os }}-build-
+#            ${{ runner.os }}-
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          npm i -g bower grunt-cli
+          npm ci
+
+      - name: Copy the missing _sprite_share.scss file - related to GCWeb#1737 about wet-boew#cc340a6 commit
+        run: |
+          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/12cd8472baf6070d9868bdce3d961c3fb6320c83/_sprites_share.scss >> _sprites_share.scss
+          mv _sprites_share.scss node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
+
+      - name: Checkout wet-boew latest build
+        if: ${{ env.ACT }}
+        run: |
+          git clone --depth 1 https://github.com/wet-boew/wet-boew-cdn.git --branch v4.0-dist ~wet-boew-cdn
+          mkdir -p node_modules/wet-boew/dist/wet-boew
+          mv ~wet-boew-cdn/* node_modules/wet-boew/dist/wet-boew
+
+      - name: Build GCWeb
+        if: ${{ !env.ACT }}
+        run: grunt dist
+
+      - name: Build GCWeb (without pre-test)
+        if: ${{ env.ACT }}
+        run: grunt dist-act
+
       - name: Git config
         run: |
           git config --global user.name "${{ secrets.my_username }}"
           git config --global user.email "${{ secrets.my_email }}"
+
+      #
+      # Jekyll theme
+      #
+      - name: Jekyll theme - Applying changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.my_token }}
+        run: |
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_JEKYLL }}.git ~gcweb-jekyll
+          rm -rf ~gcweb-jekyll/_includes
+          rm -rf ~gcweb-jekyll/_layouts
+          mv ~jekyll-dist/_includes ~gcweb-jekyll/_includes
+          mv ~jekyll-dist/_layouts ~gcweb-jekyll/_layouts
+          cd ~gcweb-jekyll
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update GCWeb jekyll theme files" --allow-empty
+
+      - name: Jekyll theme - Deploy
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{ github.repository_owner }}/${{ env.REPO_JEKYLL }}
+          directory: ~gcweb-jekyll
+          branch: master
+          github_token: ${{ secrets.my_token }}
+
+      #
+      # Draft release of jekyll GCWeb theme, the actual release need to be manual because it's public API is different
+      #
+      - name: Jekyll theme - Create Draft Release
+        if: ${{ env.is_tags != '' }}
+        uses: actions/github-script@v3
+        env:
+          commitish: master
+          repo: ${{ env.REPO_JEKYLL }}
+          ref_name: ${{ steps.ref_name.outputs.result }}
+          is_tags: ${{ steps.ref_tags.outputs.result }}
+        with:
+          github-token: ${{ secrets.my_token }}
+          script: |
+            github.repos.createRelease({
+              owner: context.repo.owner,
+              repo: process.env.repo,
+              tag_name: process.env.ref_name,
+              name: 'Draft Release ' + process.env.ref_name + ' (' + context.runId + ')',
+              target_commitish: process.env.commitish,
+              draft: true
+            });
+
+      #
+      # Compiled demos
+      #
+      - name: Compiled demos - Applying changes
+        run: |
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_COMPILED_DEMOS }}.git ~gcweb-compiled-demos
+          rm -rf ~gcweb-compiled-demos/_wetboew-demos
+          rm -rf ~gcweb-compiled-demos/méli-mélo-demos
+          rm -rf ~gcweb-compiled-demos/_data/méli-mélo.json
+          mv _wetboew-demos ~gcweb-compiled-demos/_wetboew-demos
+          mv méli-mélo-demos ~gcweb-compiled-demos/méli-mélo-demos
+          mkdir -p ~gcweb-compiled-demos/_data
+          cp _data/méli-mélo.json ~gcweb-compiled-demos/_data/méli-mélo.json
+          cd ~gcweb-compiled-demos
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update GCWeb compiled demos files" --allow-empty
+
+      - name: Compiled demos - Deploy
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{ github.repository_owner }}/${{ env.REPO_COMPILED_DEMOS }}
+          directory: ~gcweb-compiled-demos
+          branch: master
+          github_token: ${{ secrets.my_token }}
+
+      - name: Compiled demos - Create release
+        if: ${{ env.is_tags != '' }}
+        uses: actions/github-script@v3
+        env:
+          commitish: master
+          repo: ${{ env.REPO_COMPILED_DEMOS }}
+          ref_name: ${{ steps.ref_name.outputs.result }}
+          is_tags: ${{ steps.ref_tags.outputs.result }}
+        with:
+          github-token: ${{ secrets.my_token }}
+          script: |
+            github.repos.createRelease({
+              owner: context.repo.owner,
+              repo: process.env.repo,
+              tag_name: process.env.ref_name,
+              name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
+              target_commitish: process.env.commitish
+            });
+
       #
       # GCWeb Dist
       #
       - name: Dist - Applying changes
         run: |
           git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST }}.git --branch GCWeb ~gcweb-dist
-          rm -rf ~gcweb-dist/*
-          mv dist/* ~gcweb-dist
+          rm -rf ~gcweb-dist/wet-boew
+          rm -rf ~gcweb-dist/GCWeb
+          mv dist/wet-boew ~gcweb-dist/wet-boew
+          mv dist/GCWeb ~gcweb-dist/GCWeb
           cp Licence-fr.txt ~gcweb-dist/GCWeb/Licence-fr.txt
           cp License-en.txt ~gcweb-dist/GCWeb/License-en.txt
           cd ~gcweb-dist
           git add .
           git commit -m "CD ${{ github.run_id }}: Update GCWeb dist files" --allow-empty
+
       - name: Dist - Deploy in GCWeb branch
         uses: ad-m/github-push-action@master
         with:
@@ -121,6 +235,7 @@ jobs:
               name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
               target_commitish: process.env.commitish
             });
+
       - name: Dist - Update submodule
         run: |
           git clone --depth 1 https://github.com/${{ github.repository_owner }}/${{ env.REPO_DIST }}.git --branch gh-pages ~gcweb-dist-submodule
@@ -133,6 +248,7 @@ jobs:
           cd ..
           git add .
           git commit -m "CD ${{ github.run_id }}: Update submodule GCWeb dist" --allow-empty
+
       - name: Dist - Deploy submodule updated
         uses: ad-m/github-push-action@master
         with:
@@ -152,6 +268,7 @@ jobs:
           cd ~gcweb-cdn
           git add .
           git commit -m "CD ${{ github.run_id }}: Update GCWeb dist cdn files" --allow-empty
+
       - name: Dist CDN - Deploy in GCWeb branch
         uses: ad-m/github-push-action@master
         with:
@@ -177,4 +294,19 @@ jobs:
               tag_name: process.env.ref_name,
               name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
               target_commitish: process.env.commitish
+            });
+
+      #
+      # Refresh GCWeb GitHub pages
+      #
+      - name: Dist CDN - Applying changes
+        uses: actions/github-script@v3
+        env:
+          repo: ${{ env.REPO_GCWEB }}
+        with:
+          github-token: ${{ secrets.my_token }}
+          script: |
+            github.repos.requestPagesBuild({
+              owner: context.repo.owner,
+              repo: process.env.repo
             });

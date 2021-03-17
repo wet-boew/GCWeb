@@ -1,0 +1,35 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ i18 Text utilities
++
++ Utilities variable that support i18n text across this theme
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+{%- assign setting-packageName = "PackageName" -%}
+{%- include settings.liquid -%}
+{%- capture i18nText-lang -%}
+	{%- if page.lang -%}
+		{{ page.lang }}
+	{%- elsif page.language -%}
+		{{ page.language }}
+	{%- elsif site.lang -%}
+		{{ site.lang }}
+	{%- else -%}
+		fr
+	{%- endif -%}
+{%- endcapture -%}
+{%- capture setting-website -%}
+	{%- if site.website and site.website.en and i18nText-lang == "en" -%}
+		{{ site.website.en }}
+	{%- elsif site.website and site.website.fr and i18nText-lang == "fr" -%}
+		{{ site.website.fr }}
+	{%- elsif site.website -%}
+		{{ site.website }}
+	{%- else -%}
+		#
+	{%- endif -%}
+{%- endcapture -%}
+{%- include i18n-core.liquid -%}
+{%- include i18n.liquid -%}

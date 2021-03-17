@@ -1,22 +1,24 @@
-FROM ruby:2.7
+# Base on: Starefossen/docker-github-pages
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+FROM starefossen/ruby-node:2-6-alpine
 
-RUN apt-get update -qq && apt-get install -qq --no-install-recommends nodejs && apt-get clean && rm -rf /var/lib/apt/lists/*
+ENV GITHUB_GEM_VERSION 202
+ENV JSON_GEM_VERSION 1.8.6
+ENV JEKYLL_OPTIONS ""
 
-RUN apt-get update && apt-get install -y openjdk-11-jre-headless && apt-get clean;
+RUN apk --update add --virtual build_deps \
+    build-base ruby-dev libc-dev linux-headers \
+  && gem install --verbose --no-document \
+    json:${JSON_GEM_VERSION} \
+    github-pages:${GITHUB_GEM_VERSION} \
+    jekyll-github-metadata \
+    minitest \
+  && apk del build_deps \
+  && apk add git \
+  && mkdir -p /usr/src/app \
+  && rm -rf /usr/lib/ruby/gems/*/cache/*.gem
 
-WORKDIR /gcweb
+WORKDIR /usr/src/app
 
-COPY . /gcweb/
-
-RUN npm install -g grunt-cli bower && npm install
-
-# Next 3 lines fix a bug in node-sass in the WET-BOEW dependency will be fix
-WORKDIR /gcweb/node_modules/wet-boew
-RUN npm install && grunt dist
-WORKDIR /gcweb
-
-RUN gem install rake html-proofer
-
-RUN grunt dist && grunt server
+EXPOSE 4000 80
+CMD jekyll serve -d /_site --watch --force_polling -H 0.0.0.0 -P 4000 ${JEKYLL_OPTIONS}

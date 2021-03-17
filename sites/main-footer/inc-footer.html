@@ -1,0 +1,23 @@
+<div class="pagedetails{% if include.isFluid %} container{% endif %}">
+	<div class="row">
+		<div class="col-sm-6 col-md-5 col-lg-4">
+			<details class="brdr-0">
+				<summary class="btn btn-default text-center">{{ i18nText-feedback }}</summary>
+				<div class="well row">
+				{%- if i18nText-lang == "fr" -%}
+					{% include main-footer/inc-report-problem-fr.html %}
+				{%- elsif i18nText-lang == "en" -%}
+					{% include main-footer/inc-report-problem-en.html %}
+				{%- endif -%}
+				</div>
+			</details>
+		</div>
+		{%- if page.share -%}
+			<div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+		{%- endif -%}
+	</div>
+	<dl id="wb-dtmd">
+		<dt>{{ i18nText-dateModified }}</dt>
+		<dd><time property="dateModified">{{ page.dateModified }}</time></dd>
+	</dl>
+</div>

@@ -1,0 +1,49 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ i18 Text
++
++ Global text used by the GCWeb template.
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+{%- assign i18nText-siteTitle = "Canada.ca" -%}
+{%- assign i18nText-wmmsImg = "/GCWeb/assets/wmms-blk.svg" -%}
+{%- if i18nText-lang == "fr" -%}
+
+	{% assign i18nText-sigBlk = "/GCWeb/assets/sig-blk-fr.svg" %}
+	{% assign i18nText-goc = "Gouvernement du Canada" %}
+	{% assign i18nText-gocAltLang = '<span lang="en">Government of Canada</span>' %}
+
+	{% assign i18nText-searchSite = "Rechercher dans Canada.ca" %}
+
+	{% assign i18nText-home = "Canada.ca - Accueil" %}
+
+	{% assign i18nText-menuAjax = "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-fr.html" %}
+
+	{% assign i18nText-feedback = "Signaler un problème sur cette page" %}
+
+	{% assign i18nText-footerAbout = "Au sujet du gouvernement" %}
+	{% assign i18nText-wmms = "Symbole du gouvernement du Canada" %}
+	{% assign i18nText-wmmsAltLang = "<span lang="en">Symbol of the Government of Canada</span>" %}
+
+{%- elsif i18nText-lang == "en" -%}
+
+	{% assign i18nText-sigBlk = "/GCWeb/assets/sig-blk-en.svg" %}
+	{% assign i18nText-goc = "Government of Canada" %}
+	{% assign i18nText-gocAltLang = '<span lang="fr">Gouvernement du Canada</span>' %}
+
+	{% assign i18nText-searchSite = "Search Canada.ca" %}
+
+	{% assign i18nText-home = "Canada.ca - Home" %}
+
+	{% assign i18nText-menuAjax = "https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html" %}
+
+	{% assign i18nText-feedback = "Report a problem on this page" %}
+
+	{% assign i18nText-footerAbout = "About government" %}
+	{% assign i18nText-wmms = "Symbol of the Government of Canada" %}
+	{% assign i18nText-wmmsAltLang = "<span lang="fr">Symbole du gouvernement du Canada</span>" %}
+
+
+{%- endif -%}

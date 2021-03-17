@@ -1,0 +1,29 @@
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ page.lang | default: 'en' }}" dir="{{ page.i18n.tmpl-lang-dir[page.lang] }}">
+<head>
+<meta charset="utf-8">
+{% include license.html %}
+<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+{% include metadata.html %}
+{% include resources-inc/head.html %}
+</head>
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+{% if page.pageType == "archived" %}
+{% include headers-includes/archive.html %}
+{% endif %}
+{% include sites/inc-skiplinks.html %}
+{% include headers-includes/header.html %}
+{{ content }}
+{% include footers/footer.html %}
+{% include resources-inc/footer.html %}
+</body>
+</html>
