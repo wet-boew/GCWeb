@@ -536,7 +536,7 @@ var componentName = "wb-fieldflow",
 				label: labelTxt,
 				lblselector: labelSelector,
 				defaultselectedlabel: data.defaultselectedlabel,
-				required: !!!data.isoptional,
+				required: !data.isoptional,
 				noreqlabel: data.noreqlabel,
 				items: $items,
 				inline: data.inline
@@ -549,7 +549,7 @@ var componentName = "wb-fieldflow",
 			actions = data.actions,
 			lblselector = data.lblselector,
 			isReq = !!data.required,
-			useReqLabel = !!!data.noreqlabel,
+			useReqLabel = !data.noreqlabel,
 			items = data.items,
 			elm = event.target,
 			$elm = $( elm ),
@@ -588,7 +588,7 @@ var componentName = "wb-fieldflow",
 		}
 		if ( attributes && typeof attributes === "object" ) {
 			for ( i in attributes ) {
-				if ( attributes.hasOwnProperty( i ) ) {
+				if ( Object.prototype.hasOwnProperty.call( attributes, i ) ) {
 					selectOut += " " + i + "='" + attributes[ i ] + "'";
 				}
 			}
@@ -643,7 +643,7 @@ var componentName = "wb-fieldflow",
 			actions = data.actions,
 			lblselector = data.lblselector,
 			isReq = !!data.required,
-			useReqLabel = !!!data.noreqlabel,
+			useReqLabel = !data.noreqlabel,
 			items = data.items,
 			elm = event.target,
 			$elm = $( elm ),
@@ -664,7 +664,7 @@ var componentName = "wb-fieldflow",
 
 		if ( attributes && typeof attributes === "object" ) {
 			for ( i in attributes ) {
-				if ( attributes.hasOwnProperty( i ) ) {
+				if ( Object.prototype.hasOwnProperty.call( attributes, i ) ) {
 					fieldsetHTML += " " + i + "='" + attributes[ i ] + "'";
 				}
 			}
