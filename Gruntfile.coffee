@@ -489,7 +489,7 @@ module.exports = (grunt) ->
 			#	src: "_includes/settings.liquid"
 			jekyllRunLocal:
 				options:
-					banner: """{%- assign setting-resourcesBasePath = "/<%= distFolder %>" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>" -%}"""
+					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:
