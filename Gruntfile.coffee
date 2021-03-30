@@ -517,8 +517,8 @@ module.exports = (grunt) ->
 				options:
 					banner: ""
 					props:
-						script: "https://wet-boew.github.io/themes-dist/GCWeb/méli-mélo/curMéliPack.js"
-						css: "https://wet-boew.github.io/themes-dist/GCWeb/méli-mélo/curMéliPack.css"
+						script: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/curMéliPack.js"
+						css: "https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/curMéliPack.css"
 					position: "replace"
 					replace: (fileContents, newBanner, insertPositionMarker, src, options) ->
 						# Rewrite the front matter by the desired variable value

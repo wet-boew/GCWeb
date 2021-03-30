@@ -7,7 +7,7 @@
 ++++++++++++++++++++++++++++++++++
 
 {%- endcomment -%}
-{%- assign setting-packageName = "PackageName" -%}
+{%- assign setting-minifiedSuffix = ".min" -%}
 {%- include settings.liquid -%}
 {%- capture i18nText-lang -%}
 	{%- if page.lang -%}
@@ -18,6 +18,15 @@
 		{{ site.lang }}
 	{%- else -%}
 		fr
+	{%- endif -%}
+{%- endcapture -%}
+{%- capture i18nText-langDir -%}
+	{%- if page.langDir -%}
+		{{ page.langDir }}
+	{%- elsif site.langDir -%}
+		{{ site.langDir }}
+	{%- else -%}
+		ltr
 	{%- endif -%}
 {%- endcapture -%}
 {%- capture setting-website -%}

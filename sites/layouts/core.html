@@ -7,7 +7,7 @@
 	{%- endif -%}
 {%- endcapture -%}
 <!DOCTYPE html>
-<html class="no-js" lang="{{ page.lang | default: 'en' }}" dir="{{ page.i18n.tmpl-lang-dir[page.lang] }}">
+<html class="no-js" lang="{{ page.lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
 <head>
 <meta charset="utf-8">
 {% include license.html %}
@@ -17,9 +17,9 @@
 {% include resources-inc/head.html %}
 </head>
 <body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
-{% if page.pageType == "archived" %}
-{% include headers-includes/archive.html %}
-{% endif %}
+{%- if page.pageType == "archived" -%}
+	{% include headers-includes/archive.html %}
+{%- endif -%}
 {% include sites/inc-skiplinks.html %}
 {% include headers-includes/header.html %}
 {{ content }}
