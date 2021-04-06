@@ -1,0 +1,44 @@
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ page.lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+<head>
+<meta charset="utf-8">
+{% include license.html %}
+<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+{% include metadata.html %}
+{% include resources-inc/head.html %}
+</head>
+<body class="home page-type-nav" vocab="http://schema.org/" typeof="WebPage">
+{% include sites/inc-skiplinks.html %}
+<header>
+	<div id="wb-bnr" class="container">
+		<div class="row">
+			{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+			<div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+				<img src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-sigBlk }}" alt="{{ i18nText-goc }}" property="logo" /><span class="wb-inv"> / {{ i18nText-gocAltLang }}</span>
+				<link property="url" href="{{ setting-website }}" />
+				<meta property="name" content="{{ i18nText-goc }}">
+				<meta property="areaServed" typeof="Country" content="Canada" />
+				<link property="logo" href="{{ setting-resourcesBasePathTheme }}/assets/wmms-blk.svg" />
+			</div>
+			{% include headers-includes/sitesearch.html %}
+		</div>
+	</div>
+{% include gcweb-menu/inc-sitemenu.html %}
+</header>
+<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+{{ content }}
+{% include main-footer/inc-footer.html %}
+</main>
+{% include footers/footer.html %}
+{% include resources-inc/footer.html %}
+</body>
+</html>

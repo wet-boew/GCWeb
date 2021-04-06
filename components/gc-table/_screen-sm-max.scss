@@ -1,0 +1,54 @@
+/*
+ PROVISIONAL features: Responsive tables cards
+*/
+
+.provisional {
+	&.gc-table {
+		.text-left {
+			clear: both;
+			display: block;
+		}
+		>tbody,
+		>tfoot {
+			>tr {
+				>td {
+					&:first-child {
+						border-top: none;
+				}
+			}
+		}
+	}
+		tr {
+			border: 1px solid #ddd;
+			display: block;
+			margin-bottom: .625em;
+			padding: .35em;
+		}
+		caption {
+			font-size: 1.1em;
+		}
+		thead {
+			border: none;
+			clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+		}
+		td {
+			display: block;
+			font-size: 1em;
+			text-align: right;
+			&::before {
+				content: attr(data-label);
+				float: left;
+				font-weight: bold;
+			}
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+}

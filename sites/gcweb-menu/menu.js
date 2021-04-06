@@ -300,7 +300,6 @@ function keycode( code ) {
 		return "up";
 	}
 
-
 	return false;
 }
 
