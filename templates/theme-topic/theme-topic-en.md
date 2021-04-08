@@ -29,11 +29,11 @@ noMainContainer: true
 <section class="well well-sm brdr-0 mrgn-tp-0">
 	<div class="container">
 		<div class="row">
-			<div class="pddng-r-0 col-md-2">
-				<h2 class="h3 mrgn-tp-md">Most requested</h2>
+			<div class="col-md-2">
+				<h2 class="h4 mrgn-tp-md">Most requested</h2>
 			</div>
 			<div class="col-md-10">
-				<ul class="wb-eqht mrgn-tp-md mrgn-bttm-md colcount-md-2">
+				<ul class="mrgn-tp-md mrgn-bttm-md colcount-md-2">
 					<li><a href="#">[Top task hyperlink text]</a></li>
 					<li><a href="#">[Top task hyperlink text]</a></li>
 					<li><a href="#">[Top task hyperlink text]</a></li>
@@ -48,11 +48,19 @@ noMainContainer: true
 </section>
 <div class="container">
 	<section class="gc-srvinfo">
-		<h2>Services and information</h2>
-		<div class="wb-eqht row">
+		<h2 class="wb-inv">Services and information</h2>
+		<div class="row wb-eqht-grd">
 			<div class="col-md-4">
-				<h3><a href="#">[Subtopic hyperlink text]</a></h3>
-				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
+				<h3><a href="#">[Subtopic hyperlink text with action]</a></h3>
+				<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Use the following drop down to navigate to a relevant page.</p>
+				<div class="wb-fieldflow" data-wb-fieldflow='{"inline": true, "defaultselectedlabel": false, "i18n": { "btn": "Go"} }'>
+					<p>[Navigate to a relevant page]</p>
+					<ul>
+						<li><a href="service-en.html">Service page</a></li>
+						<li><a href="institution-en.html">Institutional page</a></li>
+						<li><a href="content-en.html">Content page</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="col-md-4">
 				<h3><a href="#">[Subtopic hyperlink text]</a></h3>

@@ -1,5 +1,5 @@
 /*
- Social Media Icons
+ Social Media Icons, follow-us
 */
 
 %social-media-icons-followus-logo-properties {
@@ -64,6 +64,8 @@
 	background-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAWCAYAAABOm/V6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gQVECMqfCsMgwAAAshJREFUSMfF1s9P02AYwPFvyxwbHRuMrYOVVgS2BRNBDfHqxXDxz/Bq4sH/QA+e/B8MR+9e/QcUMk0IMBRho4R1g7LRbmPA6mFuqLAxfj9Jk6bv276fPHnep6+QnJ3xAq+Bl0CEm41PwBsX8AJ4y+3Ec2DYBbwCCClj7O1k6Q3KRO5OXNuqlVKRjVQSr6+PXSMDMCUCIwCylkCJTWHt5smuLV4LYL9ssZFK4g9GUMYnm8/Fvyd5fX1Exx7UIetXC6mWbTLLc/gHBpG1+D9jIuDUb51jyPgklpknu750NYBKifTSVwKhKOHhGCCcQJwIry+AEptizzQw0suXByx+oS+sEFLGEQThxByx1cseyc9w/BHFnSy5zAqO41wYEAgrDERHTwW0RQB4enpRE48pbG+S13/iOLVz1UADEIqOIoitlxLP+li314eWmKaQ09nWV3FqZ0P2Sxbp5TkC4SghZawtoCMEgNsroU1Ms5vTyW+uts1IpVQkk5rHHxxsWQMXQgC4PXVIIaeT11dPrZGKXUBPJekNRpC1eEeAcyGqlRJGOoUUCFHI6+QyKWpHh81xu7CNvvKd7h4fFbuImc10XD+uzgA2RjqFRwoQUkbZL9ts/vjG4UGVbq+PWu0Qy8zROxBBVuNU7CJGJgVAf0S9fCb+B9SLVUK7/wTXHTd2cYdq2SasxpDVeHN7y2qcPdNo/B8unoljgL8JaERXlwtZS9Cuz8hqrN5jgH5ZPX8mGjXgkfwMREcv1C09kp+wGsPaaZ8R8biRH1fywX4ZI71cBwzd67jKW2ZES7BnGpgtICJQBZpN6KBaIbu+hEfyExwaObPRdBLdPT5kLYFlGqfuGhGYB9haW+Do8ICtXwt1wKCGIAg4Tu1KLrenh7AaxzKzZNcWsXZzDUNJSM7OPPtz1nPf0hHvowv4DDwF3gEPAekGFnaADPABeP8bNrJaPIc3C6EAAAAASUVORK5CYII=")
 }
 
+$provisional-social-media-li-margin-bottom: 15px;
+$provisional-social-media-icons-vertical-offset: 6px;
 $provisional-social-media-icons-size: 38px;
 
 %provisional-social-media-icons-followus-logo-properties {
@@ -88,16 +90,25 @@ $provisional-social-media-icons-size: 38px;
 			font-weight: $bold-weight;
 			list-style: none;
 			margin-block-start: 1em;
-			padding-inline-start: 1em;
+			padding-inline-start: calc(1em + #{$provisional-social-media-icons-vertical-offset});
 
 			li {
-				margin-bottom: 15px;
+				margin-bottom: ($provisional-social-media-li-margin-bottom + $provisional-social-media-icons-vertical-offset);
+
+				&:last-child {
+					margin-bottom: $provisional-social-media-li-margin-bottom;
+				}
 
 				a {
 					display: flex;
-					line-height: $provisional-social-media-icons-size;
+					line-height: 1.54;
 					max-width: max-content;
 					text-decoration: none;
+
+					&::before {
+						margin-right: 10px;
+						margin-top: -$provisional-social-media-icons-vertical-offset;
+					}
 
 					&:hover,
 					&:focus,
@@ -119,6 +130,10 @@ $provisional-social-media-icons-size: 38px;
 						overflow: hidden;
 						width: $provisional-social-media-icons-size;
 
+						&::before {
+							margin-top: 0;
+						}
+
 						&:hover,
 						&:focus,
 						&:active {
@@ -129,29 +144,29 @@ $provisional-social-media-icons-size: 38px;
 			}
 		}
 
-		.facebook:before {
+		.facebook::before {
 			@extend %provisional-social-media-icons-followus-logo-properties;
 			background-image: url("../assets/gc-follow-us/facebook.svg");
 		}
 
-		.twitter:before {
+		.twitter::before {
 			@extend %provisional-social-media-icons-followus-logo-properties;
 			background-image: url("../assets/gc-follow-us/twitter.svg");
 		}
 
-		.youtube:before {
+		.youtube::before {
 			@extend %provisional-social-media-icons-followus-logo-properties;
 			background-image: url("../assets/gc-follow-us/youtube.svg");
 		}
 
-		.instagram:before {
+		.instagram::before {
 			@extend %provisional-social-media-icons-followus-logo-properties;
 			background-image: url("../assets/gc-follow-us/instagram.svg");
 		}
 
-		.linkedin:before {
+		.linkedin::before {
 			@extend %provisional-social-media-icons-followus-logo-properties;
-			background-image: url("../assets/gc-follow-us/linkedin.png");
+			background-image: url("../assets/gc-follow-us/linkedin.svg");
 		}
 	}
 }

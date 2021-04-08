@@ -29,8 +29,8 @@ noMainContainer: true
 <section class="well well-sm brdr-0 mrgn-tp-0">
 	<div class="container">
 		<div class="row">
-			<div class="pddng-r-0 col-md-2">
-				<h2 class="h3 mrgn-tp-md">En demande</h2>
+			<div class="col-md-2">
+				<h2 class="h4 mrgn-tp-md">En demande</h2>
 			</div>
 			<div class="col-md-10">
 				<ul class="wb-eqht mrgn-tp-md mrgn-bttm-md colcount-md-2">
@@ -48,11 +48,19 @@ noMainContainer: true
 </section>
 <div class="container">
 	<section class="gc-srvinfo">
-		<h2>Services et renseignements</h2>
-		<div class="wb-eqht row">
+		<h2 class="wb-inv">Services et renseignements</h2>
+		<div class="row wb-eqht-grd">
 			<div class="col-md-4">
-				<h3><a href="#">[Lien à un sous-sujet]</a></h3>
-				<p>Résumé des renseignements disponibles ou des tâches pouvant être accomplies sur la page. Supprimez les longs libellés et les messages promotionnels. Utilisez une formulation basée sur l'action.</p>
+				<h3><a href="#">[Lien à un sous-sujet avec action]</a></h3>
+				<p>Résumé des renseignements disponibles ou des tâches pouvant être accomplies sur la page. Choisissez une option dans le menu déroulant suivant afin de naviguer vers une autre page.</p>
+				<div class="wb-fieldflow" data-wb-fieldflow='{"inline": true, "defaultselectedlabel": false, "i18n": { "btn": "Go"} }'>
+					<p>[Naviguer vers une autre page]</p>
+					<ul>
+						<li><a href="service-fr.html">Page de service</a></li>
+						<li><a href="institution-fr.html">Page institutionnelle</a></li>
+						<li><a href="content-fr.html">Page de contenu</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="col-md-4">
 				<h3><a href="#">[Lien à un sous-sujet]</a></h3>
