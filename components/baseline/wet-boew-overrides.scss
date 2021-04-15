@@ -9,11 +9,24 @@
 .wb-mltmd {
 	margin-bottom: 10px;
 	margin-top: 10px;
+
+	&.cc_on {
+		.wb-mm-cc {
+			height: calc(#{1.65 * $mm-cc-lines}em + #{$mm-cc-padding * 2});
+		}
+	}
 }
 
 .wb-mltmd.video:not(.playing):not(.waiting)
 .display::after {
 	line-height: 1.5em;
+}
+
+.wb-mm-cc {
+	&:before,
+	div {
+		height: #{1.65 * $mm-cc-lines}em;
+	}
 }
 
 .wb-mm-ctrls .wb-mm-txtonly p {
