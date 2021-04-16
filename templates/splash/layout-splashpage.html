@@ -19,7 +19,7 @@
 		<meta property="dct:language" lang="fr" title="ISO639-2" content="fra" />
 		<meta name="robots" content="noindex, follow" />
 		{% include resources-inc/head.html %}
-		<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/css/messages.min.css"/>
+		<link rel="stylesheet" href="{{ setting-resourcesBasePathTheme }}/css/messages{{ setting-minifiedSuffix }}.css"/>
 	</head>
 
 	<body class="splash" vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
@@ -38,9 +38,32 @@
 			<img class="hide" src="https://www.canada.ca/content/dam/canada/splash/sp-bg-12.jpg" alt="" />
 		</div>
 		<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
-			{{ content }}
+			<div class="sp-hb">
+				<div class="sp-bx col-xs-12">
+					<h1 property="name" class="wb-inv">{{ page.title }}</h1>
+					<div class="row">
+						<div class="col-xs-11 col-md-8" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
+							<img src="{{ setting-resourcesBasePathTheme }}/assets/sig-spl.svg" width="283" alt="Government of Canada" property="logo" /><span class="wb-inv"> / <span lang="fr">Gouvernement du Canada</span></span>
+							<meta property="name" content="Government of Canada" />
+							<meta property="areaServed" typeOf="Country" content="Canada" />
+						</div>
+					</div>
+					<div class="row">
+						{{ content }}
+					</div>
+				</div>
+				<div class="sp-bx-bt col-xs-12">
+					<div class="row">
+						<div class="col-xs-7 col-md-8">
+							<a href="https://www.canada.ca/en/transparency/terms.html" class="sp-lk">Terms and conditions</a> <span class="glyphicon glyphicon-asterisk"></span> <a href="https://www.canada.ca/fr/transparence/avis.html" class="sp-lk" lang="fr">Avis</a>
+						</div>
+						<div class="col-xs-5 col-md-4 text-right mrgn-bttm-md">
+							<img src="{{ setting-resourcesBasePathTheme }}/assets/wmms-spl.svg" width="127" alt="Symbol of the Government of Canada" /><span class="wb-inv"> / <span lang="fr">Symbole du gouvernement du Canada</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
-
 		{% include resources-inc/footer.html %}
 	</body>
 </html>
