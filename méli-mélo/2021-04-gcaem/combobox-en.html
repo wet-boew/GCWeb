@@ -1,0 +1,115 @@
+---
+{
+	"title": "Canabis & Report a problem test page",
+	"language": "en",
+	"dateModified": "2021-04-13",
+	"script": [
+		"js/x-combobox.js",
+		"js/x-core-wb5.js",
+		"js/x-suggest.js",
+		"js/x-wb5-charts.js",
+		"js/x-wb5-datatable.js",
+		"js/x-wb5-randomize.js",
+		"js/x-wb5-urlmapping.js"
+	],
+	"css": [
+		"css/mandatetracker.css",
+		"css/news.css",
+		"css/wb5-datatable.css",
+		"css/combobox.css",
+		"css/promotions.css"
+	]
+}
+---
+
+<p>Based on the published work here: <a href="https://wet-boew.github.io/wet-boew-documentation/research/1-datalist-JSON-suggestion.html">https://wet-boew.github.io/wet-boew-documentation/research/1-datalist-JSON-suggestion.html</a></p>
+
+<ul>
+	<li>Field flow with the <code>"renderas":"combobox"</code></li>
+	<li>Field flow extension <code>"defaultIfNone": { "action": "query", "name": "question"</code></li>
+	<li>combobox</li>
+</ul>
+
+
+<label for="id_select2">Please choose an combobox option</label>
+<select id="id_select2" class="wb-combobox" name="selLoremIpsum" data-wb5-template="sub-template-listbox@tmplItems">
+	<option value="Lorem">Lorem</option>
+	<option value="ipsum">ipsum</option>
+	<option value="dolor">dolor</option>
+	<option value="sit">sit</option>
+</select>
+
+<template id="combobox_simple_template2">
+	<div class="combobox-wrapper">
+		<div role="combobox" aria-expanded="false" aria-haspopup="listbox" data-wb5-bind="aria-owns@popupId">
+			<input autocomplete="off" data-rule-fromListbox="true" data-wb5-bind="id@fieldId, aria-controls@popupId, name@fieldName, value@selectValue" aria-autocomplete="list" aria-activedescendant="" required />
+		</div>
+		<div data-wb5-bind="id@popupId" role="listbox" class="hidden">
+			<template data-slot-elm="" data-wb5-template="sub-template-listbox">
+				<ul class="list-unstyled">
+					<li
+						class="brdr-bttm"
+						role="option"
+						data-wb5-for="option in options"
+						data-wb5-if="!parent.filter.length || option.value.indexOf(parent.filter) !== -1"
+						data-wb5-on="select@select(option.value); live@parent.nbdispItem(wb-nbNode)" >{{ option.textContent }}</li>
+				</ul>
+			</template>
+		</div>
+	</div>
+</template>
+
+
+<hr />
+
+<p>Fieldflow example</p>
+
+<div class="wb-frmvld">
+  <form action="submited-contact-us-page.html">
+    <div id="test1" class="wb-fieldflow" data-wb-fieldflow='{ "noreqlabel": true, "isoptional": true, "noForm": true, "defaultselectedlabel":"Popular questions", "renderas":"combobox",
+
+    "defaultIfNone": { "action": "query", "name": "question" }
+
+     }'>
+      <p>If you have questions about, ask away!</p>
+      <ul>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/data-ajax/data-ajax-en.html"}'>Inserting content</li>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/lightbox/lightbox-en.html"}'>Photo galery</li>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/charts/charts-en.html"}'>Draw charts</li>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/details/details-en.html"}'>Expand and collapse content</li>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/equalheight/equalheight-en.html"}'>Set a consistant height</li>
+			<li data-wb-fieldflow='{"action":"redir", "url": "http://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-en.html"}'>Popup content</li>
+      </ul>
+    </div>
+<div class="row">
+      <div class="col-sm-3 col-md-2">
+        <input class="btn btn-default mrgn-bttm-md" type="submit" value="Submit">
+      </div>
+<p class="mrgn-tp-sm">Can't find an answer? <a href="submited-contact-us-page.html">Send us your question</a>.</div>
+</div>
+  </form>
+</div>
+
+
+
+<template id="combobox_simple_template">
+	<div class="combobox-wrapper">
+		<div role="combobox" aria-expanded="false" aria-haspopup="listbox" data-wb5-bind="aria-owns@popupId">
+			<input autocomplete="off" data-rule-fromListbox="true" data-wb5-bind="id@fieldId, aria-controls@popupId, value@selectValue" aria-autocomplete="list" aria-activedescendant="" />
+		</div>
+		<div data-wb5-bind="id@popupId" role="listbox" class="hidden">
+			<template data-slot-elm="" data-wb5-template="sub-template-listbox">
+				<ul class="list-unstyled">
+					<li
+						class="brdr-bttm"
+						role="option"
+						data-wb5-for="option in options"
+						data-wb5-if="!parent.filter.length || option.value.indexOf(parent.filter) !== -1"
+						data-wb5-on="select@select(option.value); live@parent.nbdispItem(wb-nbNode)" >{{ option.textContent }}</li>
+				</ul>
+				<p role="option" data-wb5-on="select@select('default')">Default</p>
+			</template>
+		</div>
+	</div>
+</template>
+

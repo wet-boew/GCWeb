@@ -1,0 +1,129 @@
+---
+{
+	"title": "wb5-click postback converter",
+	"language": "en",
+	"altLangPage": "wb5-click-postback-fr.html",
+	"dateModified": "2021-04-26"
+}
+---
+
+<p>Adapter to convert the deprecated code of the <code>data-wb5-click="postback"</code> plugin massively used for the feature "Report a problem or mistake on this page".</p>
+
+<h2>Recommendation</h2>
+
+<p>Use the wet-boew plugin <strong><a href="https://wet-boew.github.io/wet-boew/demos/wb-postback/wb-postback-en.html">Postback</a></strong> (<span lang="fr">Envoie via Ajax</span>). For example:</p>
+
+<pre><code>&lt;div class=&quot;gc-rprt-prblm&quot;&gt;
+	&lt;div class=&quot;gc-rprt-prblm-frm&quot;&gt;
+			&lt;form id=&quot;gc-rprt-prblm-form&quot; action=&quot;wb5-click-postback-en.html&quot; method=&quot;post&quot; class=&quot;wb-postback&quot; data-wb-postback='{&quot;success&quot;:&quot;.gc-rprt-prblm-thnk&quot;,&quot;failure&quot;:&quot;.gc-rprt-prblm-thnk&quot;}'&gt;
+			&lt;fieldset&gt;
+				&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Please select all that apply:&lt;/span&gt;&lt;/legend&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem1&quot;&gt;&lt;input name=&quot;problem1&quot; id=&quot;problem1&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;A link, button or video is not working&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem2&quot;&gt;&lt;input name=&quot;problem2&quot; id=&quot;problem2&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;It has a spelling mistake&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem3&quot;&gt;&lt;input name=&quot;problem3&quot; id=&quot;problem3&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Information is missing&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem4&quot;&gt;&lt;input name=&quot;problem4&quot; id=&quot;problem4&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Information is outdated or wrong&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem5&quot;&gt;&lt;input name=&quot;problem5&quot; id=&quot;problem5&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Login error when trying to access an account (e.g. My Service Canada Account)&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem11&quot;&gt;&lt;input name=&quot;problem11&quot; id=&quot;problem11&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;I can't find what I'm looking for&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem12&quot;&gt;&lt;input name=&quot;problem12&quot; id=&quot;problem12&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Other issue not in this list&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/fieldset&gt;
+			&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide&quot;&gt;
+		&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
+		&lt;p&gt;You will not receive a reply. For enquiries,&amp;nbsp;&lt;a href=&quot;https://www.canada.ca/en/contact/index.html&quot;&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2>Conversion from a deprecated code</h2>
+
+<div class="gc-rprt-prblm">
+	<div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl">
+			<form id="gc-rprt-prblm-form-2" action="wb5-click-postback-en.html" method="post">
+			<fieldset>
+				<legend><span class="field-name">Please select all that apply:</span></legend>
+				<div class="checkbox">
+					<label for="problem1-2"><input name="problem1" id="problem1-2" type="checkbox" value="Yes">A link, button or video is not working</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem2-2"><input name="problem2" id="problem2-2" type="checkbox" value="Yes">It has a spelling mistake</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem3-2"><input name="problem3" id="problem3-2" type="checkbox" value="Yes">Information is missing</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem4-2"><input name="problem4" id="problem4-2" type="checkbox" value="Yes">Information is outdated or wrong</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem5-2"><input name="problem5" id="problem5-2" type="checkbox" value="Yes">Login error when trying to access an account (e.g. My Service Canada Account)</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem11-2"><input name="problem11" id="problem11-2" type="checkbox" value="Yes">I can't find what I'm looking for</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem12-2"><input name="problem12" id="problem12-2" type="checkbox" value="Yes">Other issue not in this list</label>
+				</div>
+			</fieldset>
+			<button data-wb5-click="postback@#gc-rprt-prblm-form-2@" type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'>Submit</button>
+		</form>
+	</div>
+	<div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide">
+		<h3>Thank you for your help!</h3>
+		<p>You will not receive a reply. For enquiries,&nbsp;<a href="https://www.canada.ca/en/contact/index.html">contact us</a>.</p>
+	</div>
+</div>
+
+<h3>Expected result</h3>
+<p>When the form is submitted, it need to be hidden and a "Thank you" message is shown on success or on fail. The CSS class started with <code>gc-rprt-prblm</code> must not be re-used ouside the report a problem context because it might apply undesirable style.</p>
+
+<h3>Example with <code>wb-postback</code></h3>
+
+<div class="gc-rprt-prblm">
+	<div class="gc-rprt-prblm-frm">
+			<form id="gc-rprt-prblm-form" action="wb5-click-postback-en.html" method="post" class="wb-postback" data-wb-postback='{"success":".gc-rprt-prblm-thnk","failure":".gc-rprt-prblm-thnk"}'>
+			<fieldset>
+				<legend><span class="field-name">Please select all that apply:</span></legend>
+				<div class="checkbox">
+					<label for="problem1"><input name="problem1" id="problem1" type="checkbox" value="Yes">A link, button or video is not working</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem2"><input name="problem2" id="problem2" type="checkbox" value="Yes">It has a spelling mistake</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem3"><input name="problem3" id="problem3" type="checkbox" value="Yes">Information is missing</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem4"><input name="problem4" id="problem4" type="checkbox" value="Yes">Information is outdated or wrong</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem5"><input name="problem5" id="problem5" type="checkbox" value="Yes">Login error when trying to access an account (e.g. My Service Canada Account)</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem11"><input name="problem11" id="problem11" type="checkbox" value="Yes">I can't find what I'm looking for</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem12"><input name="problem12" id="problem12" type="checkbox" value="Yes">Other issue not in this list</label>
+				</div>
+			</fieldset>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	<div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide">
+		<h3>Thank you for your help!</h3>
+		<p>You will not receive a reply. For enquiries,&nbsp;<a href="https://www.canada.ca/en/contact/index.html">contact us</a>.</p>
+	</div>
+</div>

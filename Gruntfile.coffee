@@ -669,7 +669,7 @@ module.exports = (grunt) ->
 			méliméloScss:
 				expand: true
 				src: [
-					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/*.{scss,css}",
+					"méli-mélo/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/{*,css/*}.{scss,css}",
 					"!méli-mélo/*.{md,html}"
 				]
 				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/workdir"
