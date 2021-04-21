@@ -1,0 +1,94 @@
+---
+{
+	"title": "Datalist dynamic suggestion",
+	"language": "en",
+	"description": "Load datalist suggestion from a JSON file",
+	"altLangPage": "suggest-fr.html",
+	"dateModified": "2021-04-20"
+}
+---
+
+<p>Load datalist suggestion from a JSON file.</p>
+
+
+<h2>Example</h2>
+
+<div class="form-group">
+	<label for="sr1"><span class="field-name">Search keyword</span></label>
+	<input class="form-control" id="sr1" name="sr1" type="text" list="datalist-suggestion" autocomplete="off" spellcheck="false" />
+</div>
+
+<datalist id="datalist-suggestion"
+	data-wb-limit="4"
+	data-wb-filter-type="startWith"
+	data-wb-suggest="data/list.json-ld#/suggestions">
+</datalist>
+
+<h2>Example with a <code>&lt;template&gt;</code> element</h2>
+
+
+<div class="form-group">
+	<label for="sr2"><span class="field-name">Search keyword</span></label>
+	<input class="form-control" id="sr2" name="sr2" type="text" list="datalist-suggestion-2" autocomplete="off" spellcheck="false" />
+</div>
+
+<datalist id="datalist-suggestion-2"
+	data-wb-limit="10"
+	data-wb-filter-type="any"
+	data-wb-suggest="data/list.json-ld#/suggestions">
+	<template>
+		<option class="awesome suggestion"></option>
+	</template>
+</datalist>
+
+
+<h2>Configuration properties</h2>
+
+<p>Note: To reduce the number of HTTP request, the JSON file containing the suggestion are only loaded when the input field receive focus.</p>
+
+<p>Configuration via data attribute defined on datalist element.</p>
+
+<dl>
+	<dt><code>data-wb-limit</code></dt>
+	<dd>Maximum number of suggestion item to display</dd>
+	<dt><code>data-wb-filter-type</code></dt>
+	<dd>
+		<ul>
+			<li><code>any</code> (default) Anywhere</li>
+			<li><code>startWith</code> starting with</li>
+			<li><code>word</code> matching a word</li>
+		</ul>
+
+	</dd>
+	<dt><code>data-wb-suggest</code></dt>
+	<dd>URL of the JSON file with a JSON pointer to the array of suggestion. Example: <code>data/list.json-ld#/suggestions</code></dd>
+</dl>
+
+
+<h2>Events</h2>
+<dl>
+	<dt><code>wb-update.wb-datalist</code></dt>
+	<dd>Trigger when the suggestion in the datalist are updated. Mostly used for the integration with the Datalist polyfill</dd>
+</dl>
+
+<h2>JSON-LD file sample</h2>
+
+<pre><code>{
+	"@context":{
+		"dc": "http://purl.org/dc/terms/",
+		"suggestions": {
+			"@id": "http://www.w3.org/2001/XMLSchema#string",
+			"@container": "@list"
+		}
+	},
+	"@language": "en",
+	"dc:title": "Title of your file containing the suggestion terms",
+	"dc:modified": "2021-04-21",
+
+	"suggestions": [
+		"Suggestion word 1",
+		"Suggestion word 2",
+		"Suggestion word 3",
+		"Suggestion word 4"
+	]
+}</code></pre>

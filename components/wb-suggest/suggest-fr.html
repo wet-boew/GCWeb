@@ -1,0 +1,94 @@
+---
+{
+	"title": "Suggestion interative avec un datalist",
+	"language": "en",
+	"description": "Chargement de suggestion pour un datalist avec un fichier JSON.",
+	"altLangPage": "suggest-fr.html",
+	"dateModified": "2021-04-20"
+}
+---
+<p>Chargement de suggestion pour un datalist avec un fichier JSON.</p>
+
+
+<h2>Exemple</h2>
+
+<div class="form-group">
+	<label for="sr1"><span class="field-name">Recherche de mot clef</span></label>
+	<input class="form-control" id="sr1" name="sr1" type="text" list="datalist-suggestion" autocomplete="off" spellcheck="false" />
+</div>
+
+<datalist id="datalist-suggestion"
+	data-wb-limit="4"
+	data-wb-filter-type="startWith"
+	data-wb-suggest="data/list.json-ld#/suggestions">
+</datalist>
+
+<h2>Exemple avec un élément <code>&lt;template&gt;</code></h2>
+
+
+<div class="form-group">
+	<label for="sr2"><span class="field-name">Recherche de mot clef</span></label>
+	<input class="form-control" id="sr2" name="sr2" type="text" list="datalist-suggestion-2" autocomplete="off" spellcheck="false" />
+</div>
+
+<datalist id="datalist-suggestion-2"
+	data-wb-limit="10"
+	data-wb-filter-type="any"
+	data-wb-suggest="data/list.json-ld#/suggestions">
+	<template>
+		<option class="suggestion"></option>
+	</template>
+</datalist>
+
+
+<h2>Propriété configurable</h2>
+
+<p>Note: Afin de réduire le nombre de requête HTTP, le fichier JSON contenant les suggestions est seulement téléchargé lorsque le champs reçois le focus.</p>
+
+<p>La configuration est effectué via des data attribute défini sur l'élément datalist.</p>
+
+<dl>
+	<dt><code>data-wb-limit</code></dt>
+	<dd>Nombre maximal de suggestion à afficher</dd>
+	<dt><code>data-wb-filter-type</code></dt>
+	<dd>
+		<ul>
+			<li><code>any</code> (défault), n'importe où</li>
+			<li><code>startWith</code> débutant par</li>
+			<li><code>word</code> correspondant à un mot</li>
+		</ul>
+
+	</dd>
+	<dt><code>data-wb-suggest</code></dt>
+	<dd>L'URL du fichier JSON avec un pointeur JSON vers le tableaux de suggestion. Par exemple: <code>data/list.json-ld#/suggestions</code></dd>
+</dl>
+
+
+<h2>Événement</h2>
+<dl>
+
+	<dt><code>wb-update.wb-datalist</code></dt>
+	<dd>Déclanché lorsque les suggestions dans le datalist a été mise à jour. Principalement utilisé pour une intégration avec le polyfill Datalist.</dd>
+</dl>
+
+<h2>Exemple de fichier JSON-LD</h2>
+
+<pre><code>{
+	"@context":{
+		"dc": "http://purl.org/dc/terms/",
+		"suggestions": {
+			"@id": "http://www.w3.org/2001/XMLSchema#string",
+			"@container": "@list"
+		}
+	},
+	"@language": "fr",
+	"dc:title": "Titre de votre fichier contenant des termes suggéré",
+	"dc:modified": "2021-04-23",
+
+	"suggestions": [
+		"Mot suggéré 1",
+		"Mot suggéré 2",
+		"Mot suggéré 3",
+		"Mot suggéré 4"
+	]
+}</code></pre>
