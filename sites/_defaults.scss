@@ -130,6 +130,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 
 /* Exclude temporary the form element from the font update, keep same style as before
  * - Rational: More testing and various adjustment need to be completed before to apply it
+ * - Fieldflow is brought to speed with the visual update with a clearly defined temporary class .gc-font-2019, but the class can be tried out on other forms
  */
 :not(#wb-srch) form, .checkbox, .checkbox-inline, .radio, .radio-inline, form .btn:not(.btn-call-to-action) {
 	font-size: 16px;
@@ -140,6 +141,26 @@ form .btn:not(.btn-call-to-action), .form-control {
 }
 legend {
 	line-height: 1.65em;
+}
+.gc-font-2019 {
+	&, & + div {
+		&, label, fieldset legend, input[type="submit"], select, .wb-fieldflow-label ~ p {
+			font-size: 20px;
+			line-height: 1.65em;
+		}
+
+		fieldset legend {
+			margin-bottom: 11.5px;
+		}
+
+		input[type="checkbox"], input[type="radio"] {
+			margin-top: 11px;
+		}
+
+		[type="submit"], select {
+			padding: .54em 1em;
+		}
+	}
 }
 
 /* Force GCWeb release 4.0.29 font style

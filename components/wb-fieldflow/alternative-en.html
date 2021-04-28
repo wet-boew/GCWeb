@@ -1,0 +1,83 @@
+---
+title: "Field flow alternatives"
+language: "en"
+altLangPage: alternative-fr.html
+category: "Plugins"
+description: "Find styling alternatives for field flow."
+tag: "fieldflow"
+parentdir: "fieldflow"
+dateModified: "2021-04-28"
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="fieldflow-doc-en.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Fieldflow">Questions or comments?</a></li>
+</ul>
+<p>Find styling alternatives for field flow.</p>
+
+
+
+<ul>
+	<li><a href="fieldflow-en.html">Field flow</a></li>
+	<li><a href="basic-en.html">Field flow basic configuration</a></li>
+	<li><a href="advanced-en.html">Field flow advanced</a></li>
+	<li>Field flow alternatives (current)</li>
+</ul>
+
+<hr />
+
+<div class="wb-prettify all-pre"></div>
+
+<nav role="navigation">
+	<h2>On this page:</h2>
+
+	<ul>
+		<li><a href="#increasedsize">Increased font size</a></li>
+	</ul>
+</nav>
+
+<section>
+	<h2 id="increasedsize">Increased font size</h2>
+
+	<p>Increases the font size of Field flow elements following visual update in 2019.</p>
+	<p>By adding the <code>.gc-font-2019</code> class to your <code>.wb-fieldflow</code> element, you will get the same result as shown below.</p>
+	<div class="well">
+		<h3 class="mrgn-tp-0 h5">Notes</h3>
+		<ul>
+			<li>If you are using Field flow with the goal of adding dynamic content to the page through AJAX (as shown in the example below) and you are hoping to get the increased font size on your injected content, you are highly recommended to use the technique shown in the <a href="advanced-en.html#customajax">advanced examples</a> which showcases the "container" configuration and gives more details about it.</li>
+			<li>If you are using your own <code>form</code> element and have Field flow inside of it, as shown in the <a href="advanced-en.html#querying">advanced examples</a>, you can also try adding the <code>.gc-font-2019</code> class to your <code>form</code> element as well so you can test having all (or almost all) of your form's content with increased font size.</li>
+		</ul>
+	</div>
+
+	<div class="wb-fieldflow gc-font-2019">
+		<p>Choose content to be ajaxed?</p>
+		<ul>
+			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-3.html", "container": "#ajaxPanel .panel-body"}'>Set 3 - Use container: $("#ajaxPanel .panel-body")</li>
+			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-4.html", "container": "#ajaxPanel .panel-body"}'>Set 4 - Use container: $("#ajaxPanel .panel-body")</li>
+		</ul>
+	</div>
+
+	<section id="ajaxPanel" class="panel panel-primary mrgn-tp-md">
+		<header class="panel-heading">
+			<h3 class="panel-title"><code>id="ajaxPanel"</code> Aside panel, for example</h3>
+		</header>
+		<div class="panel-body">
+			<p>(To illustrate <code>container</code> option)</p>
+		</div>
+	</section>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow gc-font-2019&quot;&gt;
+		&lt;p&gt;Choose content to be ajaxed?&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-3.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Set 3 - Use container: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
+			&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-4.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Set 4 - Use container: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;section id=&quot;ajaxPanel&quot; class=&quot;panel panel-primary mrgn-tp-md&quot;&gt;
+		&lt;header class=&quot;panel-heading&quot;&gt;
+			&lt;h3 class=&quot;panel-title&quot;&gt;&lt;code&gt;id=&quot;ajaxPanel&quot;&lt;/code&gt; Aside panel, for example&lt;/h3&gt;
+		&lt;/header&gt;
+		&lt;div class=&quot;panel-body&quot;&gt;
+			&lt;p&gt;(To illustrate &lt;code&gt;container&lt;/code&gt; option)&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;</code></pre>
+</section>
