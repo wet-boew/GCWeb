@@ -1,0 +1,496 @@
+---
+{
+	"title": "Mandate tracker test page",
+	"language": "en",
+	"dateModified": "2021-04-13",
+	"script": [
+		"js/x-combobox.js",
+		"js/x-core-wb5.js",
+		"js/x-suggest.js",
+		"js/x-wb5-charts.js",
+		"js/x-wb5-datatable.js",
+		"js/x-wb5-randomize.js",
+		"js/x-wb5-urlmapping.js"
+	],
+	"css": [
+		"css/mandatetracker.css",
+		"css/news.css",
+		"css/wb5-datatable.css",
+		"css/combobox.css",
+		"css/promotions.css"
+	]
+}
+---
+
+<p>Use the following component:</p>
+<ul>
+	<li><code>[data-wbtbl-submit]</code></li>
+	<li><code>[data-wb5-bind]</code></li>
+	<li><code>[data-wbtbl-post]</code></li>
+	<li><code>[data-wbtbl-highlight]</code></li>
+	<li><code>[data-wbtbl-tag]</code></li>
+</ul>
+
+<div class="force-style-gcweb-4-0-29">
+	<div class="row">
+		<div class="col-md-8">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		<div class="col-md-4">
+			<p class="text-right"><span class="small">Reflects progress up to<br>
+			Month DD, YYYY*<br>
+			*Periodic edits made to reflect<br>updates or corrections<br>
+				<a href="#">Download data</a></span></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<h2 class="h4"><span class="wb-inv">Filter item that</span><span class="text-uppercase">c</span>ontains<span class="wb-inv">these terms</span></h2>
+			<form aria-controls="mandatetable" data-wbtbl-submit="highlight@@" data-wb5-bind="#mandatetable">
+				<div class="input-group">
+					<input name="srch-term" class="form-control" type="text" placeholder="enter keywords" data-wbtbl-bind="4@">
+					<div class="input-group-btn">
+						<button class="btn btn-primary" type="submit">Find</button>
+					</div>
+				</div>
+			</form>
+			<details class="mrgn-tp-lg" open>
+				<summary>Filter your results</summary>
+				<form aria-controls="mandatetable" data-wb5-bind="#mandatetable" data-wbtbl-post="filter@select.form-control,[type=checkbox]@split">
+					<h3 class="mrgn-tp-md">Product name</h3>
+			<ul class="list-unstyled">
+			<li><button type="button" class="fltmandatetable btn btn-default btn-block mrgn-bttm-sm btn-primary">Original item – November 2015 product name</button></li>
+			<li><a href="#" class="fltmandatetable btn btn-default btn-block">All item, including subsequent product name</a></li>
+			</ul>
+			<div class="hidden">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="6@Original Product name - 2015"	data-xor="true" checked>
+							Original Product name - 2015</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="6@February 1, 2017"	data-xor="true">
+							February 1, 2017</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="6@October 4, 2017"	data-xor="true">
+							October 4, 2017</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="6@August 28, 2018"	data-xor="true">
+							August 28, 2018</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="6@January 29, 2019"	data-xor="true">
+							January 29, 2019</label>
+					</div>
+			</div>
+					<div class="form-group">
+						<h3 class="wb-inv">Current Status</h3>
+						<label for="cmt-status">Current Status</label>
+						<select class="form-control" id="cmt-status">
+							<option value="0@">All items</option>
+							<option value="0@Completed / fully met" >Completed / fully met</option>
+							<option value="0@Completed / modified">Completed / modified</option>
+							<option value="0@Actions taken, progress made&#8203;">Actions taken, progress made</option>
+							<option value="0@Actions taken, progress made, facing challenges">Actions taken, progress made, facing challenges</option>
+							<option value="0@Not being pursued">Not being pursued</option>
+							<option value="0@Actions taken, progress made toward ongoing goal">Actions taken, progress made toward ongoing goal</option>
+						</select>
+					</div>
+					<h3>Topics</h3>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Strong Middle Class" data-xor="true">
+							Strong Middle Class</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Jobs and Innovation" data-xor="true">
+							Jobs and Innovation</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Exports and Investment" data-xor="true">
+							Exports and Investment</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Environment and Climate Change" data-xor="true">
+							Environment and Climate Change</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Sustainable Infrastructure" data-xor="true">
+							Sustainable Infrastructure</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Diverse and Inclusive Canada" data-xor="true">
+							Diverse and Inclusive Canada</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Healthy Canadians" data-xor="true">
+							Healthy Canadians</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Indigenous Peoples" data-xor="true">
+							Indigenous Peoples</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Government Services and Operations" data-xor="true">
+							Government Services and Operations</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Fair and Open Government" data-xor="true">
+							Fair and Open Government</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Canada in the World" data-xor="true">
+							Canada in the World</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="1@Safety and Security" data-xor="true">
+							Safety and Security</label>
+					</div>
+					<button class="btn btn-primary btn-block btn-sm" type="submit">Apply selected filters</button>
+					<button class="btn btn-default btn-block btn-sm" type="reset">Clear selected filters</button>
+				</form>
+			</details>
+		</div>
+		<div class="col-md-9">
+			<section class="col-md-12 hidden-xs wb-eqht" >
+				<!--																<h2 class="mrgn-tp-sm h3">Showing<span data-wbtbl-draw="display@#mandatetable@recordsDisplay"></span>commitments</h2>				 -->
+				<h2 class="wb-inv">Showing items</h2>
+				<p class="wb-inv" data-wb5-dictate="update@#statusSelect">All items</p>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="row">
+							<h4 class="text-center">Met</h4>
+					<div class="col-md-6 eqht-trgt bg-success">
+						<div class="c100 p0 completed" role="button" tabindex="0" id="prgss_completed" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Completed / fully met"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Completed / fully met</span>
+							<div class="slice">
+								<div class="bar" style="border-color: #0f4c00 !important;"></div>
+								<div class="fill" style="border-color: #0f4c00 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Completed / fully met</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Completed / fully met" data-wb5-bind="#prgss_completed" data-wb5-update class="wb-inv"></progress>
+					</div>
+					<div class="col-md-6 eqht-trgt bg-success">
+						<div class="c100 p0 completed-modified" role="button" tabindex="0" id="prgss_completedmodified" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Completed / modified"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Completed / modified</span>
+							<div class="slice">
+								<div class="bar" style=" border-color: #4a9f04 !important;"></div>
+								<div class="fill" style=" border-color: #4a9f04 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Completed / modified</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Completed / modified" data-wb5-bind="#prgss_completedmodified" data-wb5-update class="wb-inv"></progress>
+									</div>
+				</div>
+			</div>
+								<div class="col-md-6">
+						<div class="row">
+						<h4 class="text-center">Progress made</h4>
+			<div class="col-md-4 eqht-trgt bg-info">
+						<div class="c100 p0 guidance" role="button" tabindex="0" id="guidance" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Actions taken, progress made toward ongoing goal"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Actions taken, progress made toward ongoing goal</span>
+							<div class="slice">
+								<div class="bar" style="border-color: #84cf96 !important;"></div>
+								<div class="fill" style="border-color: #84cf96 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Actions taken, progress made toward ongoing goal</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Actions taken, progress made toward ongoing goal" data-wb5-bind="#guidance" data-wb5-update class="wb-inv"></progress>
+					</div>
+					<div class="col-md-4 eqht-trgt bg-info">
+						<div class="c100 p0 underway-on-track" role="button" tabindex="0" id="prgss_underwayontrack" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Actions taken, progress made&#8203;"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Actions taken, progress made</span>
+							<div class="slice">
+								<div class="bar" style="border-color: #7fcd56 !important;"></div>
+								<div class="fill" style="border-color: #7fcd56 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Actions taken, progress made</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Actions taken, progress made&#8203;" data-wb5-bind="#prgss_underwayontrack" data-wb5-update class="wb-inv"></progress>
+					</div>
+
+					<div class="col-md-4 eqht-trgt bg-info">
+						<div class="c100 p0 underway-with-challenges" role="button" tabindex="0" id="prgss_underwaychallenged" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Actions taken, progress made, facing challenges"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Actions taken, progress made, facing challenges</span>
+							<div class="slice">
+								<div class="bar" style="border-color: #f66002 !important;"></div>
+								<div class="fill" style="border-color: #f66002 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Actions taken, progress made, facing challenges</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Actions taken, progress made, facing challenges" data-wb5-bind="#prgss_underwaychallenged"	data-wb5-update class="wb-inv"></progress>
+									</div>
+				</div>
+			</div>
+			<div class="col-md-2">
+						<div class="row">
+						<h4 class="text-center">Not met</h4>
+					<div class="col-md-12 eqht-trgt bg-danger">
+						<div class="c100 p0 not-being-pursued" role="button" tabindex="0" id="prgss_notpursued" data-percentage="p0" style="font-size:7em; margin-top: .25em" data-wb5-bind="#mandatetable" data-wbtbl-highlight="filter@0@Not being pursued"><span class="meter" style="top: 1.2em;font-size: 0.333em"></span><span class="wb-inv">Not being pursued</span>
+							<div class="slice">
+								<div class="bar" style="border-color: #e70000 !important;"></div>
+								<div class="fill" style="border-color: #e70000 !important;"></div>
+							</div>
+						</div>
+						<p class="small text-center"><small>Not being
+							pursued</small></p>
+						<progress max="100" data-wbtbl-draw="count@@Not being pursued" data-wb5-bind="#prgss_notpursued" data-wb5-update class="wb-inv"></progress>
+						</div>
+				</div>
+			</div>
+		</div>
+			</section>
+			<section class="col-md-12 mandate-table wbtables-tag-enable" >
+				<h2 class="wb-inv">Priorities</h2>
+				<table class="wb-tables table nws-tbl" id="mandatetable" data-wb5-bind="[data-wbtbl-draw]" data-wbtbl-tag="enable" data-wb-tables-color=".pkey"	data-wb-urlmapping='{
+								"view=all": {
+									"action": "tblfilter",
+									"column": 6,
+									"value": ""
+								}
+							}' data-wb-tables='{
+								"searching": true,
+								"paging" : false,
+								"order": [5, "asc"],
+								"dom": "<\"top\"i>rt<\"bottom\"p><\"clear\">",
+								"columns": [
+									{ "data": "Status" },
+									{ "data": "Commitment" },
+									{ "data": "StatusIcon"},
+									{ "data": "Comment" },
+									{ "data": "PriorityInfo" },
+									{ "data": "Priority"},
+									{ "data": "Date" }
+									],
+								"columnDefs": [ { "targets": [5], "visible": false }, { "targets": [0,1,2,3,4,6], "orderable": false } ],
+								"searchCols": [ null, null, null, null, null, null, null ]
+							}'>
+					<thead>
+						<tr>
+							<th class="wb-inv">Status</th>
+							<th class="wb-inv">Priority</th>
+							<th class="wb-inv">Commitment</th>
+							<th class="wb-inv">Status Icon</th>
+							<th class="wb-inv">Comment</th>
+							<th class="wb-inv">Priority Information</th>
+							<th class="wb-inv">Date</th>
+						</tr>
+					</thead>
+<tbody>
+
+							<tr>
+<td class="wb-inv">Actions taken, progress made toward ongoing goal</td>
+<td class="nws-tbl-priority pull-left"><p><span class="label brdr-tp brdr-bttm brdr-lft brdr-rght pln">Government Services and Operations</span></td>
+<td class="nws-tbl-date commit tp-rail mrgn-bttm-md"><p>Lorem ipsum dolor sit amet.</p>
+</td>
+<td class="nws-tbl-date status mrgn-bttm-md"><span class="label label-info">Actions taken, progress made toward ongoing goal</span></td>
+<td class="nws-tbl-desc">
+<p><strong><u>Result anticipated</u>:</strong>&nbsp;<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+
+<details>
+<summary >Click to see more information</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum augue in felis venenatis, quis fermentum sapien accumsan. Sed pellentesque lorem vitae rhoncus lobortis. Quisque ac varius diam, non placerat dui.</p>
+<p>Lorem ipsum:</p>
+<ul>
+<li>Maecenas scelerisque urna vitae turpis aliquet, eu feugiat ante luctus.</li>
+<li>Curabitur eget dolor consectetur, scelerisque leo sit amet, congue sem.</li>
+<li>Cras at dui convallis libero volutpat mattis.</li>
+<li>Proin ut est et eros semper sollicitudin iaculis a ante.</li>
+</ul>
+
+<p>More Information</p><ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+<li><a href="#">Link 5</a></li>
+</ul>
+<p>Product name that include this item:</p>
+<ul>
+<li><a href="#">Lorem ipsum</a></li>
+</ul>
+
+</details>
+</td>
+<td class="wb-inv">101</td>
+<td>Item date: Original Product name - 2015</td>
+</tr>
+
+<tr>
+<td class="wb-inv">Actions taken, progress made toward ongoing goal</td>
+<td class="nws-tbl-priority pull-left"><p><span class="label brdr-tp brdr-bttm brdr-lft brdr-rght pln">Government Services and Operations</span></td>
+<td class="nws-tbl-date commit tp-rail mrgn-bttm-md"><p>Lorem ipsum dolor sit amet.</p>
+</td>
+<td class="nws-tbl-date status mrgn-bttm-md"><span class="label label-info">Actions taken, progress made toward ongoing goal</span></td>
+<td class="nws-tbl-desc">
+<p><strong><u>Result anticipated</u>:</strong>&nbsp;<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+
+<details>
+<summary >Click to see more information</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum augue in felis venenatis, quis fermentum sapien accumsan. Sed pellentesque lorem vitae rhoncus lobortis. Quisque ac varius diam, non placerat dui.</p>
+<p>Lorem ipsum:</p>
+<ul>
+<li>Maecenas scelerisque urna vitae turpis aliquet, eu feugiat ante luctus.</li>
+<li>Curabitur eget dolor consectetur, scelerisque leo sit amet, congue sem.</li>
+<li>Cras at dui convallis libero volutpat mattis.</li>
+<li>Proin ut est et eros semper sollicitudin iaculis a ante.</li>
+</ul>
+
+<p>More Information</p><ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+<li><a href="#">Link 5</a></li>
+</ul>
+<p>Product name that include this item:</p>
+<ul>
+<li><a href="#">Lorem ipsum</a></li>
+</ul>
+
+</details>
+</td>
+<td class="wb-inv">101</td>
+<td>Item date: Original Product name - 2015</td>
+</tr>
+
+<tr>
+<td class="wb-inv">Actions taken, progress made toward ongoing goal</td>
+<td class="nws-tbl-priority pull-left"><p><span class="label brdr-tp brdr-bttm brdr-lft brdr-rght pln">Government Services and Operations</span></td>
+<td class="nws-tbl-date commit tp-rail mrgn-bttm-md"><p>Lorem ipsum dolor sit amet.</p>
+</td>
+<td class="nws-tbl-date status mrgn-bttm-md"><span class="label label-info">Actions taken, progress made toward ongoing goal</span></td>
+<td class="nws-tbl-desc">
+<p><strong><u>Result anticipated</u>:</strong>&nbsp;<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+
+<details>
+<summary >Click to see more information</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum augue in felis venenatis, quis fermentum sapien accumsan. Sed pellentesque lorem vitae rhoncus lobortis. Quisque ac varius diam, non placerat dui.</p>
+<p>Lorem ipsum:</p>
+<ul>
+<li>Maecenas scelerisque urna vitae turpis aliquet, eu feugiat ante luctus.</li>
+<li>Curabitur eget dolor consectetur, scelerisque leo sit amet, congue sem.</li>
+<li>Cras at dui convallis libero volutpat mattis.</li>
+<li>Proin ut est et eros semper sollicitudin iaculis a ante.</li>
+</ul>
+
+<p>More Information</p><ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+<li><a href="#">Link 5</a></li>
+</ul>
+<p>Product name that include this item:</p>
+<ul>
+<li><a href="#">Lorem ipsum</a></li>
+</ul>
+
+</details>
+</td>
+<td class="wb-inv">101</td>
+<td>Item date: Original Product name - 2015</td>
+</tr>
+
+<tr>
+<td class="wb-inv">Actions taken, progress made&#8203;</td>
+<td class="nws-tbl-priority pull-left"><p><span class="label brdr-tp brdr-bttm brdr-lft brdr-rght pln">Government Services and Operations</span></td>
+<td class="nws-tbl-date commit tp-rail mrgn-bttm-md"><p>Lorem ipsum dolor sit amet.</p>
+</td>
+<td class="nws-tbl-date status mrgn-bttm-md"><span class="label label-info">Actions taken, progress made toward ongoing goal</span></td>
+<td class="nws-tbl-desc">
+<p><strong><u>Result anticipated</u>:</strong>&nbsp;<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+
+<details>
+<summary >Click to see more information</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum augue in felis venenatis, quis fermentum sapien accumsan. Sed pellentesque lorem vitae rhoncus lobortis. Quisque ac varius diam, non placerat dui.</p>
+<p>Lorem ipsum:</p>
+<ul>
+<li>Maecenas scelerisque urna vitae turpis aliquet, eu feugiat ante luctus.</li>
+<li>Curabitur eget dolor consectetur, scelerisque leo sit amet, congue sem.</li>
+<li>Cras at dui convallis libero volutpat mattis.</li>
+<li>Proin ut est et eros semper sollicitudin iaculis a ante.</li>
+</ul>
+
+<p>More Information</p><ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+<li><a href="#">Link 5</a></li>
+</ul>
+<p>Product name that include this item:</p>
+<ul>
+<li><a href="#">Lorem ipsum</a></li>
+</ul>
+
+</details>
+</td>
+<td class="wb-inv">101</td>
+<td>Item date: February 1, 2017</td>
+</tr>
+
+<tr>
+<td class="wb-inv">Completed / fully met</td>
+<td class="nws-tbl-priority pull-left"><p><span class="label brdr-tp brdr-bttm brdr-lft brdr-rght pln">Government Services and Operations</span></td>
+<td class="nws-tbl-date commit tp-rail mrgn-bttm-md"><p>Lorem ipsum dolor sit amet.</p>
+</td>
+<td class="nws-tbl-date status mrgn-bttm-md"><span class="label label-info">Actions taken, progress made toward ongoing goal</span></td>
+<td class="nws-tbl-desc">
+<p><strong><u>Result anticipated</u>:</strong>&nbsp;<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+
+<details>
+<summary >Click to see more information</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum augue in felis venenatis, quis fermentum sapien accumsan. Sed pellentesque lorem vitae rhoncus lobortis. Quisque ac varius diam, non placerat dui.</p>
+<p>Lorem ipsum:</p>
+<ul>
+<li>Maecenas scelerisque urna vitae turpis aliquet, eu feugiat ante luctus.</li>
+<li>Curabitur eget dolor consectetur, scelerisque leo sit amet, congue sem.</li>
+<li>Cras at dui convallis libero volutpat mattis.</li>
+<li>Proin ut est et eros semper sollicitudin iaculis a ante.</li>
+</ul>
+
+<p>More Information</p><ul>
+<li><a href="#">Link 1</a></li>
+<li><a href="#">Link 2</a></li>
+<li><a href="#">Link 3</a></li>
+<li><a href="#">Link 4</a></li>
+<li><a href="#">Link 5</a></li>
+</ul>
+<p>Product name that include this item:</p>
+<ul>
+<li><a href="#">Lorem ipsum</a></li>
+</ul>
+
+</details>
+</td>
+<td class="wb-inv">101</td>
+<td>Item date: February 1, 2017</td>
+</tr>
+
+
+
+</tbody>
+				</table>
+			</section>
+			<section class="col-md-12">
+				<h2>About results and delivery</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</section>
+		</div>
+	</div>
+</div>

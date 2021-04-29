@@ -1,0 +1,126 @@
+---
+{
+	"title": "conversion du wb5-click postback",
+	"language": "fr",
+	"altLangPage": "wb5-click-postback-en.html",
+	"dateModified": "2021-04-26"
+}
+---
+
+<p>Adapteur pour convertir le code obselette du plugiciel <code>data-wb5-click="postback"</code> utilisé massivement pour la fonctionalité "Signaler un problème ou une erreur sur cette page"</p>
+
+<h2>Recommendation</h2>
+
+<p>Utiliser le plugiciel de la wet-boew <strong><a href="https://wet-boew.github.io/wet-boew/demos/wb-postback/wb-postback-fr.html">Envoi via Ajax</a></strong> (<span lang="en">postback</span>). Par exemple:</p>
+
+<pre><code>&lt;div class=&quot;gc-rprt-prblm&quot;&gt;
+	&lt;div class=&quot;gc-rprt-prblm-frm&quot;&gt;
+		&lt;form id=&quot;myPostbackForm&quot; method=&quot;post&quot; action=&quot;wb5-click-postback-fr.html&quot; class=&quot;wb-postback&quot; data-wb-postback='{&quot;success&quot;:&quot;.gc-rprt-prblm-thnk&quot;,&quot;failure&quot;:&quot;.gc-rprt-prblm-thnk&quot;}'&gt;
+			&lt;fieldset&gt;
+				&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Veuillez sélectionner toutes les cases qui s'appliquent :&lt;/span&gt;&lt;/legend&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem1&quot;&gt;&lt;input name=&quot;problem1&quot; id=&quot;problem1&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Un lien, un bouton ou une vidéo ne fonctionne pas&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem2&quot;&gt;&lt;input name=&quot;problem2&quot; id=&quot;problem2&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Il y a une erreur d'orthographe ou de grammaire&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem3&quot;&gt;&lt;input name=&quot;problem3&quot; id=&quot;problem3&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Les renseignements sont incomplets&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem4&quot;&gt;&lt;input name=&quot;problem4&quot; id=&quot;problem4&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;L'information n'est plus à jour ou est erronée&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem5&quot;&gt;&lt;input name=&quot;problem5&quot; id=&quot;problem5&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Message d'erreur à l'ouverture de la session lorsque je tente d'accéder à un compte (ex. Mon dossier Service Canada)&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem11&quot;&gt;&lt;input name=&quot;problem11&quot; id=&quot;problem11&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Je n'arrive pas à trouver ce que je cherche&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;checkbox&quot;&gt;
+					&lt;label for=&quot;problem12&quot;&gt;&lt;input name=&quot;problem12&quot; id=&quot;problem12&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot;&gt;Autre problème qui ne figure pas sur cette liste&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/fieldset&gt;
+			&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Soumettre&lt;/button&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide&quot;&gt;
+		&lt;p&gt;Merci!&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2>Conversion à partir d'un code obsolete</h2>
+
+<div class="gc-rprt-prblm">
+	<div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl">
+		<form id="myPostbackForm-2" method="post" action="wb5-click-postback-fr.html">
+			<fieldset>
+				<legend><span class="field-name">Veuillez sélectionner toutes les cases qui s'appliquent :</span></legend>
+				<div class="checkbox">
+					<label for="problem1-2"><input name="problem1" id="problem1-2" type="checkbox" value="Yes">Un lien, un bouton ou une vidéo ne fonctionne pas</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem2-2"><input name="problem2" id="problem2-2" type="checkbox" value="Yes">Il y a une erreur d'orthographe ou de grammaire</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem3-2"><input name="problem3" id="problem3-2" type="checkbox" value="Yes">Les renseignements sont incomplets</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem4-2"><input name="problem4" id="problem4-2" type="checkbox" value="Yes">L'information n'est plus à jour ou est erronée</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem5-2"><input name="problem5" id="problem5-2" type="checkbox" value="Yes">Message d'erreur à l'ouverture de la session lorsque je tente d'accéder à un compte (ex. Mon dossier Service Canada)</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem11-2"><input name="problem11" id="problem11-2" type="checkbox" value="Yes">Je n'arrive pas à trouver ce que je cherche</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem12-2"><input name="problem12" id="problem12-2" type="checkbox" value="Yes">Autre problème qui ne figure pas sur cette liste</label>
+				</div>
+			</fieldset>
+			<button data-wb5-click="postback@#myPostbackForm-2" type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'>Soumettre</button>
+		</form>
+	</div>
+	<div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide">
+		<p>Merci!</p>
+	</div>
+</div>
+
+<h3>Résultat attendu</h3>
+<p>Lors de la soumission du formulaire, ce dernier est caché et affiche le message "Merci" en cas de succès ou d'échec. Les classes CSS débutant par <code>gc-rprt-prblm</code> ne dois pas être réutilisé en dehors du formulaire Signaler un problème car des styles non désirable pourrait être appliqué.</p>
+
+<h3>Exemple avec <code>wb-postback</code></h3>
+
+<div class="gc-rprt-prblm">
+	<div class="gc-rprt-prblm-frm">
+		<form id="myPostbackForm" method="post" action="wb5-click-postback-fr.html" class="wb-postback" data-wb-postback='{"success":".gc-rprt-prblm-thnk","failure":".gc-rprt-prblm-thnk"}'>
+			<fieldset>
+				<legend><span class="field-name">Veuillez sélectionner toutes les cases qui s'appliquent :</span></legend>
+				<div class="checkbox">
+					<label for="problem1"><input name="problem1" id="problem1" type="checkbox" value="Yes">Un lien, un bouton ou une vidéo ne fonctionne pas</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem2"><input name="problem2" id="problem2" type="checkbox" value="Yes">Il y a une erreur d'orthographe ou de grammaire</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem3"><input name="problem3" id="problem3" type="checkbox" value="Yes">Les renseignements sont incomplets</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem4"><input name="problem4" id="problem4" type="checkbox" value="Yes">L'information n'est plus à jour ou est erronée</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem5"><input name="problem5" id="problem5" type="checkbox" value="Yes">Message d'erreur à l'ouverture de la session lorsque je tente d'accéder à un compte (ex. Mon dossier Service Canada)</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem11"><input name="problem11" id="problem11" type="checkbox" value="Yes">Je n'arrive pas à trouver ce que je cherche</label>
+				</div>
+				<div class="checkbox">
+					<label for="problem12"><input name="problem12" id="problem12" type="checkbox" value="Yes">Autre problème qui ne figure pas sur cette liste</label>
+				</div>
+			</fieldset>
+			<button type="submit" class="btn btn-primary">Soumettre</button>
+		</form>
+	</div>
+	<div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide">
+		<p>Merci!</p>
+	</div>
+</div>
