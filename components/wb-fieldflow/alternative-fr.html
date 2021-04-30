@@ -1,0 +1,82 @@
+---
+title: "Alternatives pour le déroulement de champs"
+language: "fr"
+altLangPage: alternative-en.html
+category: "Plugiciels"
+description: "Trouver des alternatives de styles pour le déroulement de champs."
+tag: "fieldflow"
+parentdir: "fieldflow"
+dateModified: "2021-04-28"
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="fieldflow-doc-fr.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Fieldflow">Questions ou commentaires?</a></li>
+</ul>
+<p>Trouver des alternatives de styles pour le déroulement de champs.</p>
+
+<ul>
+	<li><a href="fieldflow-fr.html">Déroulement de champs</a></li>
+	<li><a href="basic-fr.html">Déroulement de champs avec des configurations de base</a></li>
+	<li><a href="advanced-fr.html">Déroulement de champs avancé</a></li>
+	<li>Alternatives pour le déroulement de champs (actuelle)</li>
+</ul>
+
+<hr />
+
+<div class="wb-prettify all-pre"></div>
+
+<nav role="navigation">
+	<h2>Sur cette page:</h2>
+
+	<ul>
+		<li><a href="#policeaugmentee">Police de caractères aux dimensions augmentées</a></li>
+	</ul>
+</nav>
+
+
+<section>
+	<h2 id="policeaugmentee">Police de caractères aux dimensions augmentées</h2>
+
+	<p>Augmente les dimensions de la police de caractères telle que définit par la mise à jour visuelle de 2019.</p>
+	<p>En ajoutant la classe <code>.gc-font-2019</code> à l'élément <code>.wb-fieldflow</code>, vous obtenenz le résultat démontré ci-dessous.</p>
+	<div class="well">
+		<h3 class="mrgn-tp-0 h5">Remarques</h3>
+		<ul>
+			<li>Si vous utilisez le Déroulement de champs afin d'ajouté du contenu dynamique sur la page à travers AJAX (tel qu'utilisé dans l'exemple ci-dessous) et que vous espérez avoir la police de caractères augmentée sur le contenu injecté, il vous est fortement recommendé d'utliser la technique démontré dans les <a href="advanced-fr.html#ajax">exemples avancés</a> qui met en vedette la configuration nommé "container" et l'explique plus en détails.</li>
+			<li>Si vous utilisez votre propre élément <code>form</code> et que vous avez un Déroulement de champs à l'intérieur, tel que démontré dans les <a href="advanced-fr.html#interrogation">exemples avancés</a>, vous pouvez d'ailleurs essayer d'ajouter la classe <code>.gc-font-2019</code> à votre élément <code>form</code> aussi afin de tester la possibilité d'avoir la police de caractères aux dimensions augmentées sur tout le contenu (ou presque) de votre formulaire.</li>
+		</ul>
+	</div>
+
+	<div class="wb-fieldflow gc-font-2019">
+		<p>Choisissez du contenu à insérer:</p>
+		<ul>
+			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-3.html", "container": "#ajaxPanel .panel-body"}'>Ensemble 3 - Utilise le récipient: $("#ajaxPanel .panel-body")</li>
+			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-4.html", "container": "#ajaxPanel .panel-body"}'>Ensemble 4 - Utilise le récipient: $("#ajaxPanel .panel-body")</li>
+		</ul>
+	</div>
+
+	<section id="ajaxPanel" class="panel panel-primary mrgn-tp-md">
+		<header class="panel-heading">
+			<h3 class="panel-title"><code>id="ajaxPanel"</code> Paneau a des fins d'exemple pratique</h3>
+		</header>
+		<div class="panel-body">
+			<p>(Pour illustrer le comportement de la configuration <code>container</code>)</p>
+		</div>
+	</section>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow gc-font-2019&quot;&gt;
+		&lt;p&gt;Choisissez du contenu à insérer:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-3.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Ensemble 3 - Utilise le récipient: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
+			&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-4.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Ensemble 4 - Utilise le récipient: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;section id=&quot;ajaxPanel&quot; class=&quot;panel panel-primary mrgn-tp-md&quot;&gt;
+		&lt;header class=&quot;panel-heading&quot;&gt;
+			&lt;h3 class=&quot;panel-title&quot;&gt;&lt;code&gt;id=&quot;ajaxPanel&quot;&lt;/code&gt; Paneau a des fins d'exemple pratique&lt;/h3&gt;
+		&lt;/header&gt;
+		&lt;div class=&quot;panel-body&quot;&gt;
+			&lt;p&gt;(Pour illustrer le comportement de la configuration &lt;code&gt;container&lt;/code&gt;)&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;</code></pre>
+</section>
