@@ -4,22 +4,30 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>{{ page.title }}</title>
-		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<meta name="description" content="{{ page.description-en }}" />
-		<meta property="dct:description" lang="fr" content="{{ page.description-fr }}" />
+		<meta name="dcterms.description" content="{{ page.description-en }}" />
 		<meta name="dcterms.creator" content="{{ page.creator-en }}" />
-		<meta property="dct:creator" lang="fr" content="{{ page.creator-en }}" />
 		<meta name="dcterms.title" content="{{ page.title }}" />
-		<meta property="dct:title" lang="fr" content="{{ page.title }}" />
-		<meta name="dcterms.issued" title="W3CDTF" content="2013-12-13" />
+		<meta name="dcterms.issued" title="W3CDTF" content="{{ page.dateIssued }}" />
 		<meta name="dcterms.modified" title="W3CDTF" content="{{ page.dateModified }}" />
-		<meta name="dcterms.subject" title="scheme" content="{{ page.subject-en }}" />
-		<meta property="dct:subject" lang="fr" title="scheme" content="{{ page.subject-fr }}" />
+		<meta name="dcterms.subject" content="{{ page.subject-en }}" />
 		<meta name="dcterms.language" title="ISO639-2" content="eng" />
-		<meta property="dct:language" lang="fr" title="ISO639-2" content="fra" />
 		<meta name="robots" content="noindex, follow" />
+
+		<meta property="dcterms:issued" content="{{ page.dateIssued }}">
+		<meta property="dcterms:modified" content="{{ page.dateModified }}">
+		<meta property="dcterms:title" lang="en" content="{{ page.title }}" />
+		<meta property="dcterms:creator" lang="en" content="{{ page.creator-en }}">
+		<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject-en }}" />
+		<meta property="dcterms:description" lang="en" content="{{ page.description-en }}" />
+		<meta property="dcterms:title" lang="fr" content="{{ page.title }}" />
+		<meta property="dcterms:creator" lang="fr" content="{{ page.creator-fr }}">
+		<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject-fr }}" />
+		<meta property="dcterms:description" lang="fr" content="{{ page.description-fr }}" />
 		{% include resources-inc/head.html %}
-		<link rel="stylesheet" href="{{ setting-resourcesBasePathTheme }}/css/messages{{ setting-minifiedSuffix }}.css"/>
+		<link rel="stylesheet" href="{{ setting-resourcesBasePathTheme }}/css/messages{{ setting-minifiedSuffix }}.css" />
 	</head>
 
 	<body class="splash" vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
@@ -45,7 +53,8 @@
 						<div class="col-xs-11 col-md-8" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
 							<img src="{{ setting-resourcesBasePathTheme }}/assets/sig-spl.svg" width="283" alt="Government of Canada" property="logo" /><span class="wb-inv"> / <span lang="fr">Gouvernement du Canada</span></span>
 							<meta property="name" content="Government of Canada" />
-							<meta property="areaServed" typeOf="Country" content="Canada" />
+							<meta property="name" lang="fr" content="Gouvernement du Canada"/>
+							<meta property="areaServed" typeof="Country" content="Canada" />
 						</div>
 					</div>
 					<div class="row">
