@@ -1,7 +1,7 @@
 ---
 title: GCWeb, le thème de Canada.ca - GCWeb, the Canada.ca theme
 altLangPage: index.html
-dateModified: 2020-02-13
+dateModified: 2020-05-06
 description: "Page d'accueil décrivant l'ensemble des composants du thème de Canada.ca, nommé GCWeb."
 lang: fr
 ---
@@ -15,8 +15,8 @@ lang: fr
 		<p>Les gabarits et les conceptions communes si dessous sont une référence d'implémentation du <a href="https://conception.canada.ca">Système de conception de Canada.ca</a>, incluant les exigences obligatoire de la spécifications du contenu et de l’architecture de l'information (C&amp;AI) pour Canada.ca. Les ministères et organisme du gouvernement du Canada peuvent y contribuer en publiant leur modèle et leur conception commune via le <a href="https://github.com/wet-boew/GCWeb">dépôt github de GCWeb</a>.</p>
 	</div>
 	<div class="col-xs-12 col-md-auto pull-right">
-		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.1.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v9.1.0 (DCT)</strong></a><br />
-			<small>(<time>2021-01-19</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.1.0">Note de version</a>)</small></p>
+		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.3.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v9.3.0</strong></a><br />
+			<small>(<time>2021-05-06</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.3.0">Note de version</a>)</small></p>
 	</div>
 </div>
 
@@ -74,8 +74,8 @@ Les états suivant n'ont été transposé encore avec la réorganisation de la s
 		<p>The page templates and design patterns below comprise a reference implementation of the <a href="https://design.canada.ca">Canada.ca design system</a>, including the mandatory requirement of the Content and Information Architecture (C&amp;IA) Specification. Government of Canada departments and agencies can contribute additional patterns and templates via <a href="https://github.com/wet-boew/GCWeb">GCWeb github repository</a>.</p>
 	</div>
 	<div class="col-xs-12 col-md-auto pull-right">
-		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.1.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v9.1.0 (STR)</strong></a><br />
-			<small>(<time>2021-01-19</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.1.0">Release notes</a>)</small></p>
+		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.3.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v9.3.0</strong></a><br />
+			<small>(<time>2021-05-06</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.3.0">Release notes</a>)</small></p>
 	</div>
 </div>
 
