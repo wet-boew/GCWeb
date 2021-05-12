@@ -1,44 +1,21 @@
 ---
-{
-	"altLangPrefix": "gc-chckbxrdio",
-	"breadcrumb": [
-		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-en.html" },
-		{ "title": "Provisional functionality", "link": "https://wet-boew.github.io/themes-dist/GCWeb/provisional-en.html" }
-	],
-	"dateModified": "2020-09-16",
-	"description": "Working examples for checkboxes and radio buttons - provisional feature",
-	"language": "en",
-	"parentdir": "component",
-	"tag": "chckbxrdio",
-	"title": "Checkboxes and radio buttons - Provisional feature"
-}
+title: Checkboxes and radio buttons - Working examples
+language: en
+description: Working examples for checkboxes and radio buttons
+dateModified: 2021-05-07
+altLangPage: gc-chckbxrdio-fr.html
 ---
-{{>alert-provisional-demos}}
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="gc-chckbxrdio-doc-en.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=GC-Chckbxrdio">Questions or comments?</a></li>
+</ul>
+<p>Checkboxes and radio buttons.</p>
+
 <span class="wb-prettify all-pre hide"></span>
 
-<dl class="horizontal">
-	<dt>Status</dt>
-	<dd>Provisional</dd>
-	<dt>Type</dt>
-	<dd>Canada.ca design pattern</dd>
-	<dt>Last review</dt>
-	<dd>2020-07-31</dd>
-	<dt>Conforming to</dt>
-	<dd>Content and IA spec 2.1</dd>
-	<dt>Guidance</dt>
-	<dd><a href="https://design.canada.ca/common-design-patterns/checkboxes-radio-buttons.html">Context-specific features - Canada.ca design pattern</a></dd>
-	<dt>Technical name</dt>
-	<dd>
-		<ul>
-			<li><code>gc-chckbxrdio</code></li>
-		</ul>
-	</dd>
-</dl>
-<h2>Working example</h2>
-<h3>Checkboxes and radio buttons (provisional v1.0)</h3>
 <section>
-	<h4>Large checkboxes target with explicit labels</h4>
-	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+	<h2>Large checkboxes target with explicit labels</h2>
+	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
 		<legend>Choose your condiments:</legend>
 		<ul class="list-unstyled lst-spcd-2">
 			<li class="checkbox">
@@ -55,8 +32,8 @@
 			</li>
 		</ul>
 	</fieldset>
-	<h4>Large disabled checkboxes target with explicit labels</h4>
-	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+	<h2>Large disabled checkboxes target with explicit labels</h2>
+	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
 		<legend>Choose your condiments:</legend>
 		<ul class="list-unstyled lst-spcd-2">
 			<li class="checkbox">
@@ -73,9 +50,48 @@
 			</li>
 		</ul>
 	</fieldset>
+	<details class="mrgn-tp-lg">
+		<summary>Code</summary>
+		<pre><code>&lt;h2&gt;Large checkboxes target with explicit labels&lt;/h2&gt;
+	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
+		&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
+		&lt;ul class="list-unstyled lst-spcd-2"&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond1"&gt;
+				&lt;label for="cond1"&gt;Ketchup&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond2"&gt;
+				&lt;label for="cond2"&gt;Relish&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond3"&gt;
+				&lt;label for="cond3"&gt;Mustard&lt;/label&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/fieldset&gt;
+	&lt;h2&gt;Large disabled checkboxes target with explicit labels&lt;/h2&gt;
+	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
+		&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
+		&lt;ul class="list-unstyled lst-spcd-2"&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond4"&gt;
+				&lt;label for="cond4"&gt;Ketchup&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond5" disabled&gt;
+				&lt;label for="cond5"&gt;Relish&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+				&lt;input type="checkbox" id="cond6" class="disabled" disabled&gt;
+				&lt;label for="cond6"&gt;Mustard&lt;/label&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/fieldset&gt;</code></pre>
+	</details>
 </section>
 <section>
-	<h4>Tickbox - single smaller checkbox target with explicit label inline form</h4>
+	<h2>Tickbox - single smaller checkbox target with explicit label inline form</h2>
 	<form class="form-inline" method="get" action="#">
 		<div class="form-group">
 			<label class="wb-inv" for="exampleInputEmail2">Email address</label>
@@ -85,19 +101,19 @@
 			<label class="wb-inv" for="exampleInputPassword2">Password</label>
 			<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" />
 		</div>
-		<div class="checkbox provisional gc-chckbxrdio">
+		<div class="checkbox gc-chckbxrdio">
 			<input id="remember2" type="checkbox" />
 			<label for="remember2">Remember me</label>
 		</div>
 		<button type="submit" class="btn btn-default">Sign in</button>
 	</form>
-	<h4>Tickbox - single smaller checkbox targets with explicit label in a filter box</h4>
+	<h2>Tickbox - single smaller checkbox targets with explicit label in a filter box</h2>
 	<div class="row">
 		<div class="col-md-3">
-			<h5 class="wb-inv">Filtering options</h5>
+			<h3 class="wb-inv">Filtering options</h3>
 			<details open>
 				<summary>
-					<h5 class="h5">Filter options</h5>
+					<h4 class="h5">Filter options</h4>
 				</summary>
 				<p class="mrgn-tp-md">Use filters to below options to change the focus ...</p>
 				<form class="wb-tables-filter" data-bind-to="dataset-filter">
@@ -105,11 +121,11 @@
 						<fieldset class="legend-brdr-bttm">
 							<legend><span class="field-name">For</span></legend>
 							<ul class="list-unstyled">
-								<li class="checkbox provisional gc-chckbxrdio">
+								<li class="checkbox gc-chckbxrdio">
 									<input type="checkbox" id="dt_audience1" value="">
 									<label for="dt_audience1">Everyone</label>
 								</li>
-								<li class="checkbox provisional gc-chckbxrdio">
+								<li class="checkbox gc-chckbxrdio">
 									<input type="checkbox" id="dt_audience2" value="">
 									<label for="dt_audience2">Government</label>
 								</li>
@@ -149,10 +165,87 @@
 			</table>
 		</div>
 	</div>
+	<details class="mrgn-tp-lg">
+		<summary>Code</summary>
+		<pre><code>&lt;h2&gt;Tickbox - single smaller checkbox target with explicit label inline form&lt;/h2&gt;
+	&lt;form class="form-inline" method="get" action="#"&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Email address&lt;/label&gt;
+			&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" /&gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Password&lt;/label&gt;
+			&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" /&gt;
+		&lt;/div&gt;
+		&lt;div class="checkbox gc-chckbxrdio"&gt;
+			&lt;input id="remember2" type="checkbox" /&gt;
+			&lt;label for="remember2"&gt;Remember me&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
+	&lt;/form&gt;
+	&lt;h2&gt;Tickbox - single smaller checkbox targets with explicit label in a filter box&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-md-3"&gt;
+			&lt;h3 class="wb-inv"&gt;Filtering options&lt;/h3&gt;
+			&lt;details open&gt;
+				&lt;summary&gt;
+					&lt;h4 class="h5"&gt;Filter options&lt;/h4&gt;
+				&lt;/summary&gt;
+				&lt;p class="mrgn-tp-md"&gt;Use filters to below options to change the focus ...&lt;/p&gt;
+				&lt;form class="wb-tables-filter" data-bind-to="dataset-filter"&gt;
+					&lt;div class="form-group"&gt;
+						&lt;fieldset class="legend-brdr-bttm"&gt;
+							&lt;legend&gt;&lt;span class="field-name"&gt;For&lt;/span&gt;&lt;/legend&gt;
+							&lt;ul class="list-unstyled"&gt;
+								&lt;li class="checkbox gc-chckbxrdio"&gt;
+									&lt;input type="checkbox" id="dt_audience1" value=""&gt;
+									&lt;label for="dt_audience1"&gt;Everyone&lt;/label&gt;
+								&lt;/li&gt;
+								&lt;li class="checkbox gc-chckbxrdio"&gt;
+									&lt;input type="checkbox" id="dt_audience2" value=""&gt;
+									&lt;label for="dt_audience2"&gt;Government&lt;/label&gt;
+								&lt;/li&gt;
+							&lt;/ul&gt;
+						&lt;/fieldset&gt;
+					&lt;/div&gt;
+				&lt;/form&gt;
+			&lt;/details&gt;
+		&lt;/div&gt;
+		&lt;div class="col-md-9"&gt;
+			&lt;table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite"&gt;
+				&lt;thead&gt;
+					&lt;tr&gt;
+						&lt;th&gt;Title&lt;/th&gt;
+						&lt;th&gt;Publication date&lt;/th&gt;
+						&lt;th&gt;Department&lt;/th&gt;
+						&lt;th&gt;News Type&lt;/th&gt;
+						&lt;th&gt;Summary&lt;/th&gt;
+					&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Backgrounder: Seventeen Infrastructure Projects in ...&lt;/td&gt;
+						&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
+						&lt;td&gt;Infrastructure Canada&lt;/td&gt;
+						&lt;td&gt;Backgrounders&lt;/td&gt;
+						&lt;td&gt;The governments of Canada and ...&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;Seventeen Infrastructure Projects in ...&lt;/td&gt;
+						&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
+						&lt;td&gt;Infrastructure Canada&lt;/td&gt;
+						&lt;td&gt;News Releases&lt;/td&gt;
+						&lt;td&gt;Providing community residents ...&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+	</details>
 </section>
 <section>
-	<h4>Large radio buttons target with explicit labels</h4>
-	<fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+	<h2>Large radio buttons target with explicit labels</h2>
+	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
 		<legend>Which is your favorite pet?</legend>
 		<ul class="list-unstyled lst-spcd-2">
 			<li class="radio">
@@ -169,8 +262,8 @@
 			</li>
 		</ul>
 	</fieldset>
-	<h4>Large radio buttons target with explicit labels in an inline form</h4>
-	<fieldset class="provisional gc-chckbxrdio form-inline">
+	<h2>Large radio buttons target with explicit labels in an inline form</h2>
+	<fieldset class="gc-chckbxrdio form-inline">
 		<legend>Choose an option:</legend>
 		<div class="radio label-inline">
 			<input id="inlineRadio1" type="radio" name="optradio">
@@ -185,94 +278,41 @@
 			<label for="inlineRadio3">Option 3</label>
 		</div>
 	</fieldset>
+	<details class="mrgn-tp-lg">
+		<summary>Code</summary>
+		<pre><code>&lt;h2&gt;Large radio buttons target with explicit labels&lt;/h2&gt;
+	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
+		&lt;legend&gt;Which is your favorite pet?&lt;/legend&gt;
+		&lt;ul class="list-unstyled lst-spcd-2"&gt;
+			&lt;li class="radio"&gt;
+				&lt;input type="radio" name="animal" id="animal-1"&gt;
+				&lt;label for="animal-1"&gt;Dog&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="radio"&gt;
+				&lt;input type="radio" name="animal" id="animal-2"&gt;
+				&lt;label for="animal-2"&gt;Cat&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="radio"&gt;
+				&lt;input type="radio" name="animal" id="animal-3"&gt;
+				&lt;label for="animal-3"&gt;Rat&lt;/label&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/fieldset&gt;
+	&lt;h2&gt;Large radio buttons target with explicit labels in an inline form&lt;/h2&gt;
+	&lt;fieldset class="gc-chckbxrdio form-inline"&gt;
+		&lt;legend&gt;Choose an option:&lt;/legend&gt;
+		&lt;div class="radio label-inline"&gt;
+			&lt;input id="inlineRadio1" type="radio" name="optradio"&gt;
+			&lt;label for="inlineRadio1"&gt;Option 1&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class="radio label-inline"&gt;
+			&lt;input id="inlineRadio2" type="radio" name="optradio"&gt;
+			&lt;label for="inlineRadio2"&gt;Option 2&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class="radio label-inline"&gt;
+			&lt;input id="inlineRadio3" type="radio" name="optradio"&gt;
+			&lt;label for="inlineRadio3"&gt;Option 3&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;</code></pre>
+	</details>
 </section>
-<h2>Evaluation and report</h2>
-<p>There is no evaluation and report available for this component.</p>
-<h2>API (Version 1.0)</h2>
-<table class="table table-bordered">
-	<tr>
-		<th>CSS Class</th>
-		<th>Template</th>
-		<th>Visual rendering</th>
-		<th>Schema</th>
-	</tr>
-	<tr>
-		<td>Version 1.0</td>
-		<td>Version 1.0</td>
-		<td>Version 1.0</td>
-		<td>n.a.</td>
-	</tr>
-</table>
-<h3>CSS Class (v1.0)</h3>
-<dl class="dl-horizontal">
-	<dt><code>gc-chckbxrdio</code></dt>
-	<dd>Component: Checkboxes and radio buttons - Provisional feature</dd>
-</dl>
-<details>
-	<summary>Version notes</summary>
-	<dl class="dl-horizontal">
-		<dt>Version 1.0 (v8.0)</dt>
-		<dd>
-			<ul>
-				<li>Created: <code>.gc-chckbxrdio</code></li>
-			</ul>
-		</dd>
-	</dl>
-</details>
-<h3>Template (v1.0)</h3>
-<p>Notes:</p>
-<ul>
-	<li>Can only be used with explicit labels. If you need to use implicit label, refer to WET-BOEW regular pattern for checkboxes and radio buttons.</li>
-	<li>Add the <code>gc-chckbxrdio</code> class to the <code>fieldset</code> or the container element surrounding the checkbox/radio-button inputs.</li>
-	<li>For smaller checkboxes (tickboxes), the class <code>gc-chckbxrdio</code> has to be enabled on the container element surrounding the targeted checkbox with the class <code>checkbox</code>.</li>
-	<li>To toggle a disabled state, add a <code>disabled</code> attribute to the input field.</li>
-	<li>For inline form, add the <code>form-inline</code> class to surrounding container of the checkboxes or radio buttons. Also add the <code>label-inline</code> class to each checkbox or radio button container.</li>
-</ul>
-<h4><code>.gc-chckbxrdio</code></h4>
-<h5>Three checkboxes layout</h5>
-<pre><code>&lt;fieldset class="provisional gc-chckbxrdio chkbxrdio-grp"&gt;
-	&lt;legend&gt;[[comp:Checkboxes dct:title]]:&lt;/legend&gt;
-	&lt;ul class="list-unstyled lst-spcd-2"&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
-			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:Chckbxsrdios )]]&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
-			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:Chckbxsrdios )]]&lt;/label&gt;
-		&lt;/li&gt;
-		&lt;li class="checkbox"&gt;
-			&lt;input type="checkbox" id="[[comp:ChckbxrdioItem html:input-id]]"&gt;
-			&lt;label for="[[comp:ChckbxrdioItem html:input-id]]"&gt;[[comp:ChckbxrdioItem in (comp:Chckbxrdio comp:Chckbxsrdios )]]&lt;/label&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/fieldset&gt;</code></pre>
-
-<h4>Features Variant: <code>.checkbox.gc-chckbxrdio</code></h4>
-<pre class="mrgn-tp-md"><code>&lt;form class="form-inline" method="get" action="#"&gt;
-	&lt;div class="form-group"&gt;
-		&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Email address&lt;/label&gt;
-		&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" /&gt;
-	&lt;/div&gt;
-	&lt;div class="form-group"&gt;
-		&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Password&lt;/label&gt;
-		&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" /&gt;
-	&lt;/div&gt;
-	&lt;div class="checkbox provisional gc-chckbxrdio"&gt;
-		&lt;input id="[[comp:CheckboxItem html:input-id]]" type="checkbox"/&gt;
-		&lt;label for="[[comp:CheckboxItem html:input-id]]"&gt;[[comp:CheckboxItem in (comp:Checkbox comp:checkboxes )]]&lt;/label&gt;
-	&lt;/div&gt;
-	&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-<h3>Visual rendering (v1.0)</h3>
-<details>
-	<summary>Version notes</summary>
-	<dl class="dl-horizontal">
-		<dt>Version 1.0</dt>
-		<dd>
-			<ul>
-				<li>Original rendering</li>
-			</ul>
-		</dd>
-	</dl>
-</details>
