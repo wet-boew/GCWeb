@@ -19,6 +19,7 @@ module.exports = (grunt) ->
 		"Run code quality test"
 		[
 			"eslint:all"
+			"jsonlint:all"
 			"sasslint:all"
 			"lintspaces:all"
 		]
@@ -898,6 +899,15 @@ module.exports = (grunt) ->
 				src: [
 					"{sites,components,templates}/**/*.js"
 				]
+		jsonlint:
+			all:
+				src: [
+					"{sites,components,templates}/**/*.json",
+					"{sites,components,templates}/**/*.json-ld"
+				]
+				options: {
+					indent: "\t"
+				}
 		sasslint:
 			options:
 				configFile: ".sass-lint.yml"
