@@ -232,6 +232,8 @@ docker build -t jekyll-with-env-options .
 
 Run your image
 ```
+grunt debug
+
 docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='--config _config.yml,_localJekyll.yml' jekyll-with-env-options
 ```
 
