@@ -26,14 +26,14 @@ noMainContainer: true
 		</div>
 	</div>
 </div>
-<section class="well well-sm brdr-0 mrgn-tp-0">
+<section class="well well-sm provisional gc-most-requested">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2">
-				<h2 class="h4 mrgn-tp-md">En demande</h2>
+				<h2>En demande</h2>
 			</div>
 			<div class="col-md-10">
-				<ul class="wb-eqht mrgn-tp-md mrgn-bttm-md colcount-md-2">
+				<ul class="colcount-md-2">
 					<li><a href="#">[Lien à une tâche principale]</a></li>
 					<li><a href="#">[Lien à une tâche principale]</a></li>
 					<li><a href="#">[Lien à une tâche principale]</a></li>
