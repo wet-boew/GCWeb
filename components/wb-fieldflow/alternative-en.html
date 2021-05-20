@@ -14,8 +14,6 @@ dateModified: "2021-04-28"
 </ul>
 <p>Find styling alternatives for field flow.</p>
 
-
-
 <ul>
 	<li><a href="fieldflow-en.html">Field flow</a></li>
 	<li><a href="basic-en.html">Field flow basic configuration</a></li>
@@ -32,6 +30,7 @@ dateModified: "2021-04-28"
 
 	<ul>
 		<li><a href="#increasedsize">Increased font size</a></li>
+		<li><a href="#gcchckbxrdio">Larger inputs with GC Checkboxes and radio</a></li>
 	</ul>
 </nav>
 
@@ -80,4 +79,107 @@ dateModified: "2021-04-28"
 			&lt;p&gt;(To illustrate &lt;code&gt;container&lt;/code&gt; option)&lt;/p&gt;
 		&lt;/div&gt;
 	&lt;/section&gt;</code></pre>
+</section>
+
+<section>
+	<h2 id="gcchckbxrdio">Larger inputs with GC Checkboxes and radio</h2>
+
+	<p>Leverages the <a href="../gc-chckbxrdio/gc-chckbxrdio-en.html">GC Checkboxes and radio</a> design pattern to deliver larger inputs.</p>
+	<p>By adding the <code>"gcChckbxrdio":true</code> configuration to your <code>data-wb-fieldflow</code> data attribute, you will get the same result as shown below.</p>
+	<div class="well">
+		<h3 class="mrgn-tp-0 h5">Note</h3>
+		<p>This pattern will render larger text by default. You can still use the <code>.gc-font-2019</code> class if you want surrounding elements to display in a larger font size, for example the submit button, as demonstrated in the <a href="#increasedsize">Increased font size</a> section.</p>
+	</div>
+
+	<h3>Large checkboxes</h3>
+	<div class="wb-fieldflow" data-wb-fieldflow='{"renderas":"checkbox", "gcChckbxrdio":true}'>
+		<p>Choose content to be ajaxed:</p>
+		<ul>
+			<li data-wb-fieldflow="ajax/ajax-1.html">(Set 1) Nunc sed mauris id nisi molestie porta at quis erat.</li>
+			<li data-wb-fieldflow="ajax/ajax-2.html">(Set 2) Vestibulum pretium tortor vel facilisis sodales.</li>
+			<li data-wb-fieldflow="ajax/ajax-3.html">(Set 3) Nunc sit amet dui ut justo efficitur dapibus.</li>
+			<li data-wb-fieldflow="ajax/ajax-4.html">(Set 4) Praesent at purus ut turpis sollicitudin aliquam.</li>
+			<li data-wb-fieldflow="ajax/ajax-5.html">(Set 5) Sed eget dui ac nunc mattis consequat in a ex.</li>
+		</ul>
+	</div>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow&quot; data-wb-fieldflow='{&quot;renderas&quot;:&quot;checkbox&quot;, &quot;gcChckbxrdio&quot;:true}'&gt;
+		&lt;p&gt;Choose content to be ajaxed:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-1.html&quot;&gt;(Set 1) Nunc sed mauris id nisi molestie porta at quis erat.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-2.html&quot;&gt;(Set 2) Vestibulum pretium tortor vel facilisis sodales.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-3.html&quot;&gt;(Set 3) Nunc sit amet dui ut justo efficitur dapibus.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-4.html&quot;&gt;(Set 4) Praesent at purus ut turpis sollicitudin aliquam.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-5.html&quot;&gt;(Set 5) Sed eget dui ac nunc mattis consequat in a ex.&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code></pre>
+
+	<h3>Large radio buttons</h3>
+	<div class="wb-fieldflow" data-wb-fieldflow='{"renderas":"radio", "gcChckbxrdio":true}'>
+		<p>Choose content to be ajaxed:</p>
+		<ul>
+			<li data-wb-fieldflow="ajax/ajax-1.html">(Set 1) Nunc sed mauris id nisi molestie porta at quis erat.</li>
+			<li data-wb-fieldflow="ajax/ajax-2.html">(Set 2) Vestibulum pretium tortor vel facilisis sodales.</li>
+			<li data-wb-fieldflow="ajax/ajax-3.html">(Set 3) Nunc sit amet dui ut justo efficitur dapibus.</li>
+			<li data-wb-fieldflow="ajax/ajax-4.html">(Set 4) Praesent at purus ut turpis sollicitudin aliquam.</li>
+			<li data-wb-fieldflow="ajax/ajax-5.html">(Set 5) Sed eget dui ac nunc mattis consequat in a ex.</li>
+		</ul>
+	</div>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow&quot; data-wb-fieldflow='{&quot;renderas&quot;:&quot;radio&quot;, &quot;gcChckbxrdio&quot;:true}'&gt;
+		&lt;p&gt;Choose content to be ajaxed:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-1.html&quot;&gt;(Set 1) Nunc sed mauris id nisi molestie porta at quis erat.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-2.html&quot;&gt;(Set 2) Vestibulum pretium tortor vel facilisis sodales.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-3.html&quot;&gt;(Set 3) Nunc sit amet dui ut justo efficitur dapibus.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-4.html&quot;&gt;(Set 4) Praesent at purus ut turpis sollicitudin aliquam.&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-5.html&quot;&gt;(Set 5) Sed eget dui ac nunc mattis consequat in a ex.&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code></pre>
+
+	<h3>Inline large checkboxes</h3>
+	<div class="wb-fieldflow" data-wb-fieldflow='{"renderas":"checkbox", "inline":true, "gcChckbxrdio":true}'>
+		<p>Choose content to be ajaxed:</p>
+		<ul>
+			<li data-wb-fieldflow="ajax/ajax-1.html">Set 1</li>
+			<li data-wb-fieldflow="ajax/ajax-2.html">Set 2</li>
+			<li data-wb-fieldflow="ajax/ajax-3.html">Set 3</li>
+			<li data-wb-fieldflow="ajax/ajax-4.html">Set 4</li>
+			<li data-wb-fieldflow="ajax/ajax-5.html">Set 5</li>
+		</ul>
+	</div>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow&quot; data-wb-fieldflow='{&quot;renderas&quot;:&quot;checkbox&quot;, &quot;inline&quot;:true, &quot;gcChckbxrdio&quot;:true}'&gt;
+		&lt;p&gt;Choose content to be ajaxed:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-1.html&quot;&gt;Set 1&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-2.html&quot;&gt;Set 2&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-3.html&quot;&gt;Set 3&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-4.html&quot;&gt;Set 4&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-5.html&quot;&gt;Set 5&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code></pre>
+
+	<h3>Inline large radio buttons</h3>
+	<div class="wb-fieldflow" data-wb-fieldflow='{"renderas":"radio", "inline":true, "gcChckbxrdio":true}'>
+		<p>Choose content to be ajaxed:</p>
+		<ul>
+			<li data-wb-fieldflow="ajax/ajax-1.html">Set 1</li>
+			<li data-wb-fieldflow="ajax/ajax-2.html">Set 2</li>
+			<li data-wb-fieldflow="ajax/ajax-3.html">Set 3</li>
+			<li data-wb-fieldflow="ajax/ajax-4.html">Set 4</li>
+			<li data-wb-fieldflow="ajax/ajax-5.html">Set 5</li>
+		</ul>
+	</div>
+
+	<pre><code>&lt;div class=&quot;wb-fieldflow&quot; data-wb-fieldflow='{&quot;renderas&quot;:&quot;radio&quot;, &quot;inline&quot;:true, &quot;gcChckbxrdio&quot;:true}'&gt;
+		&lt;p&gt;Choose content to be ajaxed:&lt;/p&gt;
+		&lt;ul&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-1.html&quot;&gt;Set 1&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-2.html&quot;&gt;Set 2&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-3.html&quot;&gt;Set 3&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-4.html&quot;&gt;Set 4&lt;/li&gt;
+			&lt;li data-wb-fieldflow=&quot;ajax/ajax-5.html&quot;&gt;Set 5&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code></pre>
 </section>
