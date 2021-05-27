@@ -114,7 +114,7 @@ noMainContainer: true
 				<h2 class="wb-inv">Features</h2>
 				<div class="row">
 					<div class="col-md-6">
-						<img class="img-responsive thumbnail mrgn-bttm-sm" src="../img/360x203.png" alt=""/>
+						<img class="img-responsive thumbnail mrgn-bttm-sm" src="../../components/gc-features/img/feature-360x203.png" alt=""/>
 					</div>
 					<div class="col-md-6">
 						<h3 class="h5"><a class="stretched-link" href="#">[Feature hyperlink text]</a></h3>
