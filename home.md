@@ -22,7 +22,8 @@ lang: en
 	<li><a href="docs/implementing.html">Implementing GCWeb</a></li>
 	<li><a href="#components">Components</a></li>
 	<li><a href="#templates">Templates</a></li>
-	<li><a href="#méli-mélo">Méli-mélo packages</a></li>
+	<li><a href="méli-mélo/méli-mélo-en.html">Méli-mélo features</a></li>
+	<li><a href="thématique/gc-thématique-en.html">GC promotional thematic</a></li>
 	<li><a href="#sitesglobal">Sites and global functionality</a></li>
 </ul>
 
@@ -124,30 +125,7 @@ The following status was not transposed yet with the repository structure reorg
 
 <h2 id="méli-mélo">Méli-mélo</h2>
 
-<p>Allows you to use custom CSS/javascript by sharing a common technical debt according to the compilation freeze date.</p>
-<ul>
-{% for item in site.data[ "mli-mlo" ].packages %}
-	<li>{{ item.nom }}
-		<ul>
-		{% for pack in item.libs %}
-			{% assign indexPage = site.data[ "mli-mlo" ].subProjects | where: "nom", pack | first %}
-			<li><a href="/gcweb-compiled-demos/méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
-		{% endfor %}
-		</ul>
-	</li>
-{% endfor %}
-</ul>
-
-<p><small>(<a href="méli-mélo/compilation-gelé/index.html">View the frozen méli-mélo compilations (in French only)</a>)</small></p>
-
-<h3>Méli-mélo sub-projects in their independent form</h3>
-<ul>
-{% for item in site.data[ "mli-mlo" ].subProjects %}
-	<li><a href="méli-mélo/{{ item.nom }}/{{ item.mainpage }}">{{ item.nom }}</a></li>
-{% endfor %}
-</ul>
-{:/}
-
+<p><a href="méli-mélo/méli-mélo-en.html">Consult méli-mélo dedicated page</a></p>
 
 
 <h2 id="sitesglobal">Sites and global functionality</h2>

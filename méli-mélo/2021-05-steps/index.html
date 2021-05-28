@@ -10,19 +10,22 @@ css:
 
 <h2>GCWeb implementation plan</h2>
 
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-05-steps" | first %}
+
 <ul>
-	<li>2021-06 - Engage with TBS to show them this design pattern</li>
-	<li>2021-10 - Review and identify requirement to make this functionality enterprise ready</li>
-	<li>2021-11 - Produce accessibility and usability report on its usage on Canada.ca</li>
-	<li>2022-02 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
 </ul>
 
 <p>Todo and for future consideration</p>
 <ul>
-	<li>Remove the support for <code>&lt;div&gt;</code></li>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
 </ul>
 
-<p>Lead: CRA - Christopher Oakes (@christopher-o)</p>
+<p>Lead: {{ implPlan.lead }}</p>
 
 		 <h2>Classes used</h2>
 		 <ul class="colcount-sm-2 colcount-md-4">
@@ -110,7 +113,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -119,7 +122,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
       </details>
@@ -155,7 +158,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -164,7 +167,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
       </details>
@@ -200,7 +203,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -209,7 +212,7 @@ css:
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
 	 &lt;li&gt;...&lt;/li&gt;
-    &lt;/ol&gt;	
+    &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;</code></pre>
       </details>

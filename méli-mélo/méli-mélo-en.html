@@ -1,0 +1,95 @@
+---
+title: Méli-mélo features
+description: Reusable feature that are into a preliminary state of experimentation.
+lang: en
+altLangPage: méli-mélo-fr.html
+dateModified": 2021-05-27
+---
+
+<p>Reusable feature that are into a preliminary state of experimentation. Features are grouped into compilation in order to initiate quickly usability research, initiate preliminary discussion with key organisation and transforming the feature into a high quality produit adapted for GCWeb. Features are build from custom CSS/Javascript code.</p>
+
+<p>Every compilation life time are less than a year. That should provide feature sponsor department enough time to find resources to make their feature progressing as an official GCWeb feature. Support are provided during the wet-boew weekly code sprint happening remotely every Tuesday afternoon. An frozen (expired) méli-mélo compilation should not be used into any web page.</p>
+
+<p>This framework for méli-mélo compilation and feature are excluded from the GCWeb public API. Any change or removal would only trigger a patch release of GCWeb. That means the author are fully responsible but not required to documents any subsequent change they would make at their méli-mélo feature.</p>
+
+
+<h3>Méli-mélo sub-projects</h3>
+<p>(in their independent form)</p>
+
+{% assign melimelo_pages = site.pages | where: "output", "false" | where: "feature", "méli-mélo" | sort: "componentName" %}
+
+<!--
+Number of méli-mélo: {{ melimelo_pages | size }}
+-->
+
+<ul>
+{% for feature in melimelo_pages %}
+	{% assign first_example = feature.pages.examples | first %}
+	<li><strong>{{ feature.componentName }}</strong>: <a href="{{ feature.componentName }}/{{ first_example.path }}" lang="{{ first_example.language }}">{{ first_example.title }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Requirements</h2>
+
+<ul>
+	<li>Be reusable</li>
+	<li>Be sponsored by a department and by an active representative of that department</li>
+	<li>Must include an implementation plan that explains the steps taken by the sponsored department on how they will actively work the feature to get it integrated into GCWeb.</li>
+	<li>Must not contain any interference with wet-boew and GCWeb.</li>
+	<li>Each individual sub-feature and style must be demoed.</li>
+	<li>Working demo must be published using the GCWeb Jekyll template</li>
+	<li>Project name must be in this format: Year and month of the publication time of the feature followed by a short name identifying the feature</li>
+</ul>
+
+<h2>Contribution instructions</h2>
+
+<ul>
+	<li>Code and/or reorganize the feature by levering GCWeb Jekyll theme</li>
+	<li>Create a project folder in the <code>méli-mélo</code> GCWeb root folder</li>
+	<li>Loading the feature must not change the state of any generic page. Feature must be explicitly activated through HTML by the web publisher, like the wet-boew plugin or the usage of a CSS class onto an HTML element.</li>
+	<li>The project name must follow this notation: year-month-projectName. The year and month must correspond to the feature's initial publication date. For example "2021-05-steps"</li>
+	<li>The implementation plan should be published along with the project web pages. Each item of the implementation plan must be dated because we are going to use it to measure the integration progress into GCWeb. The expectation is to get the méli-mélo feature fully integrated into GCWeb within less than one (1) year.</li>
+	<li>Test your code and submission by using your GitHub pages</li>
+	<li>Submit the méli-mélo feature through a new GitHub PR in the GCWeb project.</li>
+	<li>Once approved by the technical review, it will be assigned to a méli-mélo compilation and released on Canada.ca at the next release windows between 1 to 3 weeks.</li>
+	<li>Update the méli-mélo feature code by executing the implementation plan and addressing all TODO's identified by the wet-boew technical review team.</li>
+	<li>Participate at the weekly wet-boew Tuesday afternoon code sprint</li>
+	<li>Create the GCWeb provisional/stable feature aligned with our enterprise design approach.</li>
+</ul>
+
+<h2>Technical review checklist</h2>
+
+<ul>
+	<li>Ensure the project sponsor is clearly identified.</li>
+	<li>Project folder name follows the naming convention</li>
+	<li>Each JavaScript feature and each style are demoed</li>
+	<li>Perform a code review to ensure there are no overrides nor conflict with GCWEb and/or wet-boew</li>
+	<li>Quickly check if we don't notice any major or obvious web accessibility and security issue. However, the accessibility conformance remains the responsibility of the publisher when implementing the feature into a web page</li>
+	<li>Ensure the feature doesn't automatically change the state of a generic page when loaded. It must not impact any content unless the feature is explicitly activated through the HTML code, like through the use of a CSS class or the presence of a data attribute.</li>
+	<li>Review the implementation plan to ensure it contains reasonable due date and deliverable. It must include:
+		<ul>
+			<li>Engagement with the Digital Transformation Office (DTO) at Treasury Board Secretariat.</li>
+			<li>Review and perform the identification of the feature transformation requirement to be able to complete the integration progress into GCWeb.</li>
+			<li>Produce accessibility conformance report and attach usability report, if any</li>
+			<li>Transformation of the méli-mélo functionality into a GCWeb provisional feature.</li>
+			<li>Complete feature stabilisation task, like working example translation, writing guidance, publishing ACRs, feature API documentation...</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>List of active méli-mélo compilation</h2>
+
+<ul>
+{% for item in site.data[ "mli-mlo" ].packages %}
+	<li>{{ item.nom }}
+		<ul>
+		{% for pack in item.libs %}
+			{% assign indexPage = site.data[ "mli-mlo" ].subProjects | where: "nom", pack | first %}
+			<li><a href="/gcweb-compiled-demos/méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
+		{% endfor %}
+		</ul>
+	</li>
+{% endfor %}
+</ul>
+
+<p><small>(<a href="compilation-gelé/index.html" hreflang="fr">View the frozen and deprecated méli-mélo compilations (in French only)</a>)</small></p>

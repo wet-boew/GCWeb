@@ -1,4 +1,6 @@
+---
 {
+	"feature": "méli-mélo",
 	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
@@ -48,5 +50,7 @@
 				"path": "working-in-progress-docs.odt"
 			}
 		]
-	}
+	},
+	"output": false
 }
+---
