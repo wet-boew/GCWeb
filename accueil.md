@@ -22,7 +22,8 @@ lang: fr
 	<li><a href="docs/implementing.html" hreflang="en" lang="en">Implementing GCWeb</a> <br />(En anglais seulement)</li>
 	<li><a href="#composants">Composants</a></li>
 	<li><a href="#gabarits">Gabarit</a></li>
-	<li><a href="#méli-mélo">Méli-mélo packages</a></li>
+	<li><a href="méli-mélo/méli-mélo-fr.html">Fonctionalité méli-mélo</a></li>
+	<li><a href="thématique/gc-thématique-en.html" hreflang="en">Thématique promotionel du GC (en anglais seulement)</a></li>
 	<li><a href="#sitesglobal">Sites et fonctionalité général</a></li>
 </ul>
 
@@ -122,30 +123,7 @@ Les états suivant n'ont été transposé encore avec la réorganisation de la s
 
 <h2 id="méli-mélo">Méli-mélo</h2>
 
-<p>Vous permet d'utiliser du CSS et du javascript personnalisé en vous partageant une dette technique commune selon la date de gel de la compilation.
-<ul>
-{% for item in site.data[ "mli-mlo" ].packages %}
-	<li>{{ item.nom }}
-		<ul>
-		{% for pack in item.libs %}
-			{% assign indexPage = site.data[ "mli-mlo" ].subProjects | where: "nom", pack | first %}
-			<li><a href="/gcweb-compiled-demos/méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
-		{% endfor %}
-		</ul>
-	</li>
-{% endfor %}
-</ul>
-
-<p><small>(<a href="méli-mélo/compilation-gelé/index.html">Consulter les compilations gelé de méli-mélo</a>)</small></p>
-
-<h3>Sous-projets méli-mélo sous leur forme indépendante</h3>
-<ul>
-{% for item in site.data[ "mli-mlo" ].subProjects %}
-	<li><a href="méli-mélo/{{ item.nom }}/{{ item.mainpage }}">{{ item.nom }}</a></li>
-{% endfor %}
-</ul>
-{:/}
-
+<p><a href="méli-mélo/méli-mélo-fr.html">Consulter la page dédié aux fonctionalité méli-mélo</a></p>
 
 
 <h2 id="sitesglobal">Fonctionnalités global et de sites</h2>

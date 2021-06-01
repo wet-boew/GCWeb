@@ -110,6 +110,7 @@ module.exports = (grunt) ->
 		"PROD - Build Jekyll theme"
 		[
 			"clean:jekyll"
+			"clean:gemfileLock"
 			"copy:layouts"
 			"copy:includes"
 		]
@@ -407,6 +408,7 @@ module.exports = (grunt) ->
 			mélimélo: [ "<%= méliméloFolder %>" ]
 			méliméloPack: [ "<%= méliméloFolder %>/<%= curMéliPack %>" ]
 			méliméloWorkdir: [ "<%= méliméloFolder %>/<%= curMéliPack %>/workdir" ]
+			gemfileLock: [ "Gemfile.lock" ]
 
 		"méli-mélo-build":
 			run: @file.readJSON "_data/méli-mélo.json"
