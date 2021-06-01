@@ -8,7 +8,21 @@ css:
 layout: no-container
 ---
 <div class="container">
-  <p>Lead: PCH - Nick Frenette (@nfrenette)</p>
+
+<h1>{{ page.title }}</h1>
+
+{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
+
+<p>Lead: {{ metadata.lead }}</p>
+<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+
+<p>Progressive enhancement note:</p>
+<ul>
+{% for peNote in metadata.peNote %}
+  <li>{{ peNote }}</li>
+{% endfor %}
+</ul>
+
   <h2>Red background and white text - Canada Day 2020 theme</h2>
   <p>Use to apply the Canada Day 2020 theme of white text on a red background.</p>
   <div class="panel panel-default">
