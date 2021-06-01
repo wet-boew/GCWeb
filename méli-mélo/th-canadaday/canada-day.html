@@ -1,155 +1,106 @@
 ---
-title: Canada Day 2021 - Red theme
-dateModified: 2021-05-28
+title: Canada Day 2021 red theme
+dateModified: 2021-06-01
 description: Canada Day 2021 CSS styles
 lang: en
 css:
 - style.css
 layout: no-container
 ---
-<div class="container">
-
-<h1>{{ page.title }}</h1>
-
-{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
-
-<p>Lead: {{ metadata.lead }}</p>
-<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
-
-<p>Progressive enhancement note:</p>
-<ul>
-{% for peNote in metadata.peNote %}
-  <li>{{ peNote }}</li>
-{% endfor %}
-</ul>
-
-  <h2>Red background and white text</h2>
-  <p>Use to make text appear white in colour on a red background.</p>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3 class="mrgn-tp-0">Appearance</h3>
-      <p class="bg-darker bg-canadaday text-white">This text is styled with <code>.bg-darker</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+    <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
+    <p>Lead: {{ metadata.lead }}</p>
+    <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+    <p>Progressive enhancement note:</p>
+    <ul>
+      {% for peNote in metadata.peNote %}
+      <li>{{ peNote }}</li>
+      {% endfor %}
+    </ul>
+    <h2>Red background and white text</h2>
+    <p>Use to make text appear white in colour on a red background.</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3 class="mrgn-tp-0">Appearance</h3>
+        <p class="bg-darker bg-canadaday text-white">This text is styled with <code>.bg-darker</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+      </div>
     </div>
-  </div>  
-  <div class="row">
-    <div class="col-md-6">
-      <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
-      <p>Compliance point(s):</p>
-      <ul>
-        <li>Use to introduce contrast to information</li>
-        <li>Use <code>.bg-darker</code> and <code>.bg-canadaday</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
-        <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
-      </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+          <li>Use to introduce contrast to information</li>
+          <li>Use <code>.bg-darker</code> and <code>.bg-canadaday</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
+          <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+          <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+          <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
-      <p>Compliance point(s):</p>
-      <ul>
-        <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-        <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
-      </ul>
+    <h3>Code</h3>
+    <pre><code>&lt;p class="bg-darker bg-canadaday text-white"&gt;...&lt;/p&gt;</code></pre>
+    <h3>CSS classes</h3>
+    <dl class="dl-horizontal">
+      <dt><code>.bg-canadaday</code></dt>
+      <dd>Set a background color to red</dd>
+      <dt><code>.panel-canadaday</code> </dt>
+      <dd>Set border colour to red for panel</dd>
+      <dt><code>hr.brdr-canadaday</code> </dt>
+      <dd>Set border colour to red for hr</dd>
+    </dl>
+    <h2>Examples</h2>
+    <h3>Container</h3>
+    <div class="well bg-darker bg-canadaday text-white">
+      <h2 class="mrgn-tp-0">Example of a heading</h2>
+      <p>This container is styled with <code>.bg-darker</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+      <p><a class="text-white" href="#">Link example</a></p>
+      <button class="bg-darker bg-canadaday text-white" type="button">Button example</button>
     </div>
-  </div>
-	<h3>CSS classes</h3>
-  <dl class="dl-horizontal">
-    <dt><code>.bg-canadaday</code></dt>
-    <dd>Set a background color to red</dd>
-    <dt><code>hr.brdr-canadaday</code> </dt>
-    <dd>Set border colour to red for hr</dd>
-    <dt><code>.panel-canadaday</code> </dt>
-    <dd>Set border colour to red for panel</dd>
-  </dl>
-</div>
-<div class="container">
-  <h2>Examples</h2>
-  <div class="well bg-darker bg-canadaday text-white">
-    <h2 class="mrgn-tp-0">Example of a heading</h2>
-    <p>This container is styled with <code>.text-white</code> and <code>.bg-canadaday</code>.</p>
-    <p><a class="text-white" href="#">Link example</a></p>
-    <button class="bg-darker bg-canadaday text-white" type="button">Button example</button>
-  </div>
-  <h3>Code</h3>
-  <pre><code>&lt;div class="well bg-canadaday text-white"&gt;
+    <h4>Code</h4>
+    <pre><code>&lt;div class="well bg-darker bg-canadaday text-white"&gt;
     &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
-	&lt;p&gt;This container is styled with &lt;code&gt;.text-white&lt;/code&gt; and &lt;code&gt;.bg-canadaday&lt;/code&gt;.&lt;/p&gt;
-	&lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
-	&lt;button class="bg-canadaday text-white" type="button"&gt;Button example&lt;/button&gt;
+    &lt;p&gt;This container is styled with &lt;code&gt;.bg-darker&lt;/code&gt;, &lt;code&gt;.bg-canadaday&lt;/code&gt; and &lt;code&gt;.text-white&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
+    &lt;button type="button" class="bg-canadaday text-white"&gt;Button example&lt;/button&gt;
 &lt;/div&gt;</code></pre>
-
-  <h3>&lt;button&gt; example</h3>
-  <button class="bg-darker bg-canadaday text-white">Button</button>
-  <h3>&lt;a&gt; btn example</h3>
-  <a href="#" class="btn bg-darker bg-canadaday text-white">Button</a>
-  <h3 id="hr">red &lt;hr&gt; border colour example</h3>
-  <hr class="brdr-canadaday">
-  <h4>standard WET &lt;hr&gt;</h4>
-  <hr>
-  <h3>red panel border colour example</h3>
-  <div class="panel panel-canadaday">
-    <div class="panel-body">
-      <p>Lorem ipsum dolor sit amet.</p>
+    <h3>&lt;button&gt; example</h3>
+    <button class="bg-darker bg-canadaday text-white" type="button">Button</button>
+    <h4>Code</h4>
+    <pre><code>&lt;button type="button" class="bg-darker bg-canadaday text-white"&gt;Button&lt;/button&gt;</code></pre>
+    <h3>&lt;a&gt; btn example</h3>
+    <a href="#" class="btn bg-darker bg-canadaday text-white" role="button">Button</a>
+    <h4>Code</h4>
+    <pre><code>&lt;a href="#" class="btn bg-darker bg-canadaday text-white" role="button"&gt;Button&lt;/a&gt;</code></pre>
+    <h3>&lt;hr&gt; example</h3>
+    <hr class="brdr-canadaday">
+    <h4>Code</h4>
+    <pre><code>&lt;hr class="brdr-canadaday"&gt;</code></pre>
+    <h3>Standard &lt;hr&gt;</h3>
+    <hr>
+    <h3>Panel border example</h3>
+    <div class="panel panel-default panel-canadaday">
+      <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
     </div>
-  </div>
-  <h4>standard WET primary class border</h4>
-  <div class="panel panel-primary">
-    <div class="panel-body">
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
-  </div>
-</div>
-<h3 class="container">Campaign banner</h3>
-<h1>Canada Day</h1>
-<div class="experimental">
-  <div class="row"> <img src="/content/dam/pch/images/campaigns/canada-day/2020/test/1920-x-400px.jpg" class="img-responsive" alt=""> </div>
-  <div class="row bg-darker bg-canadaday text-white brdr-rds-0 brdr-0 mrgn-bttm-0">
-    <div class="col-lg-10">
-      <ul class="row list-unstyled mrgn-tp-sm mrgn-bttm-sm text-center">
-        <li class="col-md-2 col-sm-6 small"><span class="fab fa-canadian-maple-leaf"></span> <a href="" class="h5 text-white">Program</a></li>
-        <li class="col-md-3 col-sm-6 small"><span class="fab fa-canadian-maple-leaf"></span> <a href="" class="h5 text-white">On social media</a></li>
-        <li class="col-md-2 col-sm-6 small"><span class="fab fa-canadian-maple-leaf"></span> <a href="" class="h5 text-white">Celebration kit</a></li>
-        <li class="col-md-3 col-sm-6 small"><span class="fab fa-canadian-maple-leaf"></span> <a href="" class="h5 text-white">Across the country</a></li>
-        <li class="col-md-2 col-sm-6 small"><span class="fab fa-canadian-maple-leaf"></span> <a href="" class="h5 text-white">Media</a></li>
-      </ul>
-    </div>
-    <div class="col-lg-2">
-      <ul class="list-unstyled text-center list-inline mrgn-tp-sm">
-        <li class="col-xs-3"><a href="https://www.facebook.com/capitalexperience"><img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-facebook-white.png" alt="facebook"></a></li>
-        <li class="col-xs-3"><a href="https://twitter.com/capital_exp"><img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-twitter-white.png" alt="twitter"></a></li>
-        <li class="col-xs-3"><a href="https://www.instagram.com/canada_cap/"><img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-instagram-white.png" alt="instagram"></a></li>
-        <li class="col-xs-3"><a href="https://www.youtube.com/user/CdnHeritage"><img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-youtube-white.png" alt="youtube"></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <details class="mrgn-tp-lg">
-    <summary>Code</summary>
-    <pre><code>
-&lt;div class="experimental"&gt;
-&lt;div class="row"&gt; 
-&lt;img src="/content/dam/pch/images/campaigns/canada-day/2020/test/1920-x-400px.jpg" class="img-responsive" alt=""&gt;
-&lt;/div&gt;
-  &lt;div class="row bg-darker bg-canadaday text-white brdr-rds-0 brdr-0 mrgn-bttm-0"&gt;
-    &lt;div class="col-lg-10"&gt;
-      &lt;ul class="row list-unstyled mrgn-tp-sm mrgn-bttm-sm text-center"&gt;
-        &lt;li class="col-md-2 col-sm-6 small"&gt;&lt;span class="fab fa-canadian-maple-leaf"&gt;&lt;/span&gt; &lt;a href="" class="h5 text-white"&gt;Program&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-md-3 col-sm-6 small"&gt;&lt;span class="fab fa-canadian-maple-leaf"&gt;&lt;/span&gt; &lt;a href="" class="h5 text-white"&gt;On social media&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-md-2 col-sm-6 small"&gt;&lt;span class="fab fa-canadian-maple-leaf"&gt;&lt;/span&gt; &lt;a href="" class="h5 text-white"&gt;Celebration kit&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-md-3 col-sm-6 small"&gt;&lt;span class="fab fa-canadian-maple-leaf"&gt;&lt;/span&gt; &lt;a href="" class="h5 text-white"&gt;Across the country&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-md-2 col-sm-6 small"&gt;&lt;span class="fab fa-canadian-maple-leaf"&gt;&lt;/span&gt; &lt;a href="" class="h5 text-white"&gt;Media&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
+    <h4>Code</h4>
+    <pre><code>&lt;div class="panel panel-default panel-canadaday"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="col-lg-2"&gt;
-      &lt;ul class="list-unstyled text-center list-inline mrgn-tp-sm"&gt;
-        &lt;li class="col-xs-3"&gt;&lt;a href="https://www.facebook.com/capitalexperience"&gt;&lt;img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-facebook-white.png" alt="facebook"&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-xs-3"&gt;&lt;a href="https://twitter.com/capital_exp"&gt;&lt;img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-twitter-white.png" alt="twitter"&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-xs-3"&gt;&lt;a href="https://www.instagram.com/canada_cap/"&gt;&lt;img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-instagram-white.png" alt="instagram"&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="col-xs-3"&gt;&lt;a href="https://www.youtube.com/user/CdnHeritage"&gt;&lt;img src="/content/dam/pch/images/campaigns/canada-day/2019/icon-youtube-white.png" alt="youtube"&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-  </details>
-</div>
-
+&lt;/div&gt;</code></pre>
+    <h3>Standard primary panel border</h3>
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
