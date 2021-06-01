@@ -22,7 +22,6 @@ var $document = wb.doc,
 	mainClass = "gc-subway-section",
 	toggleClass = "wb-inv",
 	desktopInited = false,
-	skipLink = false,
 	$html = wb.html,
 	$h1, $h2, $h1Copy, $menu, $main,
 
@@ -39,19 +38,18 @@ var $document = wb.doc,
 			h1,
 			$elm;
 
-		if ( elm ) {
+		if ( elm && event.currentTarget === event.target ) {
 			$elm = $( elm );
 			$h1 = $( "h1", $elm );
 			h1 = $h1.get( 0 );
 
-			// Ensure the element have an ID
-			if ( !h1.id ) {
-				h1.id = wb.getId();
-			}
+			// Add Subway H1 to skip links only once and if it is a sub-page
+			if ( h1 ) {
 
-			// Add subway H1 to skip links
-			if ( !skipLink ) {
-				skipLink = wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + h1.textContent, { href: "#" + h1.id } );
+				// Ensure the element have an ID
+				h1.id = h1.id || wb.getId();
+
+				wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + h1.textContent, { href: "#" + h1.id } );
 			}
 
 			// trigger resizing
