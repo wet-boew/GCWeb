@@ -1,0 +1,171 @@
+---
+title: Checkboxes and radio buttons
+language: en
+description: Checkboxes and radio buttons
+dateModified: 2021-05-07
+altLangPage: gc-chckbxrdio-doc-fr.html
+---
+
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca design pattern</dd>
+	<dt>Last review</dt>
+	<dd>2021-05-07</dd>
+	<dt>Guidance</dt>
+	<dd><a href="https://design.canada.ca/common-design-patterns/checkboxes-radio-buttons.html">Checkboxes and radio buttons: Canada.ca design system</a></dd>
+	<dt>Technical name</dt>
+	<dd>
+		<ul>
+			<li><code>gc-chckbxrdio</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>Purpose</h2>
+<p>Display check boxes and radio buttons that are bigger than natively provided by browsers and in-line with the Canada.ca design system.</p>
+<p>A long time issue with checkboxes and radio buttons has been that labels don't look clickable to most people</p>
+<p>Even using designs that highlight the label text or put the input and label with a grey outline, studies showed that people still wanted to click the input design.</p>
+
+<h2>Usage</h2>
+<div class="row wb-eqht-grd mrgn-tp-lg mrgn-bttm-xl">
+	<div class="col-md-6">
+		<h3 class="mrgn-tp-0 text-success h4">Use when <span class="glyphicon glyphicon-ok-circle"></span></h3>
+		<ul>
+			<li>You want to display bigger check boxes and/or radio buttons than natively provided by browsers and you have read the <a href="https://design.canada.ca/common-design-patterns/checkboxes-radio-buttons.html#use">design system recommendations</a>;</li>
+			<li>Your inputs are explicit, in the sense that the labels are siblings to the inputs.</li>
+		</ul>
+	</div>
+	<div class="col-md-6 brdr-lft">
+		<h3 class="mrgn-tp-0 text-danger h4">Do not use when <span class="glyphicon glyphicon-remove-circle"></span></h3>
+		<ul>
+			<li>You have implicit check boxe and/or radio buttons, in the sense that inputs are nested inside labels;</li>
+			<li>Your scenario lands in the <a href="https://design.canada.ca/common-design-patterns/checkboxes-radio-buttons.html#avoid">What to avoid section</a>.</li>
+		</ul>
+	</div>
+</div>
+
+<h2>Working example</h2>
+<ul>
+	<li><a href="gc-chckbxrdio-en.html">Examples: Checkboxes and radio buttons</a></li>
+</ul>
+
+<h2>How to implement</h2>
+<ul>
+	<li>Add the <code>gc-chckbxrdio</code> class to the <code>fieldset</code> or the container element surrounding the checkbox/radio-button inputs.</li>
+	<li><strong>For smaller checkboxes (tickboxes)</strong>, the class <code>gc-chckbxrdio</code> has to be enabled on the container element surrounding the targeted checkbox with the class <code>checkbox</code>.</li>
+	<li><strong>To toggle a disabled state</strong>, add a <code>disabled</code> attribute to the input field.</li>
+	<li><strong>For inline form</strong>, add the <code>form-inline</code> class to surrounding container of the checkboxes or radio buttons. Also add the <code>label-inline</code> class to each checkbox or radio button container.</li>
+</ul>
+
+<h2>Evaluation and report</h2>
+<p>There is no evaluation and report available for this component.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>CSS Class</th>
+		<th>Template</th>
+		<th>Visual rendering</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>n.a.</td>
+	</tr>
+</table>
+
+<h3>CSS Class (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-chckbxrdio</code></dt>
+	<dd>Component: Checkboxes and radio buttons</dd>
+</dl>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Created: <code>.gc-chckbxrdio</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Template (v1.0)</h3>
+<p>Notes:</p>
+<ul>
+	<li>Can only be used with explicit labels. If you need to use implicit label, refer to WET-BOEW regular pattern for checkboxes and radio buttons.</li>
+</ul>
+
+<h4>Default: <code>.gc-chckbxrdio</code></h4>
+<pre><code>&lt;fieldset class="gc-chckbxrdio"&gt;
+	&lt;legend&gt;API&lt;/legend&gt;
+	&lt;ul class="list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="template"&gt;
+			&lt;label for="template"&gt;Template&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+
+<h4>Variant: Tickbox (<code>.checkbox.gc-chckbxrdio</code>)</h4>
+<pre class="mrgn-tp-md"><code>&lt;div class="checkbox gc-chckbxrdio"&gt;
+	&lt;input id="template" type="checkbox"/&gt;
+	&lt;label for="template"&gt;Template&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Visual rendering (v1.0)</h3>
+<h4>Default</h4>
+<dl>
+	<dt>Check box and radio</dt>
+	<dd>
+		<ul>
+			<li>Width and height are exactly 36 pixels excluding borders;</li>
+			<li>Borders are are quite thick (2 pixels) and their color is black (#000);</li>
+			<li>There is a 4 pixels white (#fff) gap between borders and the hovering area;
+			<li>When hovered, light background gradient from top to bottom (#e6e5e5 to #fff on the Y-axis);</li>
+			<li>when keyboard focused, distinct blue halo (#3b99fc) around the input;
+			<li>When disabled, opacity dim down to 50%, turning grey.</li>
+		</ul>
+	</dd>
+	<dt>Check box only</dt>
+	<dd>
+		<ul>
+			<li>When checked, Check mark is 5 pixels thick and touches the edges the hover aria perfectly.</li>
+		</ul>
+	</dd>
+	<dt>Radio only</dt>
+	<dd>
+		<ul>
+			<li>border radius of 50%, which make them round;</li>
+			<li>When checked, grey dot (#444) covers the entire hover aria.</li>
+		</ul>
+	</dd>
+</dl>
+
+<h4>Tickbox</h4>
+<dl>
+	<dt>Check box and radio</dt>
+	<dd>
+		<ul>
+			<li>Width and height are exactly 24 pixels excluding borders.</li>
+		</ul>
+	</dd>
+</dl>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Original rendering</li>
+			</ul>
+		</dd>
+	</dl>
+</details>

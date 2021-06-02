@@ -1,0 +1,168 @@
+---
+title: Cases à cocher et boutons radio
+language: fr
+description: Cases à cocher et boutons radio
+dateModified: 2021-05-07
+altLangPage: gc-chckbxrdio-doc-en.html
+---
+
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Conception de Canada.ca</dd>
+	<dt>Dernière revue</dt>
+	<dd>2021-05-10</dd>
+	<dt>Orientation</dt>
+	<dd><a href="https://conception.canada.ca/configurations-conception-communes/cases-cocher-boutons-radio.html">Cases à cocher et boutons radio - Configuration de conception de Canada.ca</a></dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>gc-chckbxrdio</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>But</h2>
+<p>Affiche des cases à cocher et boutons radio plus grand que ce qui est nativement offert par les navigateurs et qui est conforme avec les configurations de conception de Canada.ca</p>
+<p> Un problème de longue date avec les cases à cocher et les boutons radio est que les étiquettes ne semblent pas cliquables pour la plupart des gens </p>
+<p> Même en utilisant des conceptions qui mettent en évidence le texte de l'étiquette ou mettent l'entrée et l'étiquette avec un contour gris, les études ont montré que les gens voulaient toujours cliquer sur la conception d'entrée. </p>
+
+<h2>Utilisation</h2>
+<div class="row wb-eqht-grd mrgn-tp-lg mrgn-bttm-xl">
+	<div class="col-md-6">
+		<h3 class="mrgn-tp-0 text-success h4">Utiliser quand <span class="glyphicon glyphicon-ok-circle"></span></h3>
+		<ul>
+			<li>Vous désirez avoir des cases à cocher et/ou boutons radio plus grand que ce qui est nativement offert par les navigateurs vous avez lu les <a href="https://conception.canada.ca/configurations-conception-communes/cases-cocher-boutons-radio.html#utilisation">recommendations de la Configuration de conception de Canada.ca</a>;</li>
+			<li>Vos balises <code>input</code> sont explicites, dans le sens que les balises <code>input</code> sont adjacentes à leurs balises <code>label</code> associées.</li>
+		</ul>
+	</div>
+	<div class="col-md-6 brdr-lft">
+		<h3 class="mrgn-tp-0 text-danger h4">Ne pas utiliser quand <span class="glyphicon glyphicon-remove-circle"></span></h3>
+		<ul>
+			<li>Vous avez des cases à cocher et/ou boutons radio implicites, c'est-à-dire que les balises <code>input</code> se retrouvent à l'intérieur de leurs balises <code>label</code> respectives;</li>
+			<li>Votre scénario se retrouve dans la <a href="https://conception.canada.ca/configurations-conception-communes/cases-cocher-boutons-radio.html#eviter">section Quoi éviter</a>.</li>
+		</ul>
+	</div>
+</div>
+
+<h2>Comment mettre en &oelig;uvre</h2>
+<ul>
+	<li>Ajouter la classe <code>gc-chckbxrdio</code> à l'élément <code>fieldset</code> ou l'élément parent qui contient toutes les zones d'entrée de type checkbox/radio.</li>
+	<li><strong>Pour des cases à cocher plus compactes (tickbox)</strong>, la classe <code>gc-chckbxrdio</code> doit être présent dans l'élément parent de la case à cocher avec la classe <code>checkbox</code>.</li>
+	<li><strong>Pour ajouter un état de désactivation</strong>, ajouter un attribut <code>disabled</code> à la zone d’entrée.</li>
+	<li><strong>Pour le format horizontal</strong>, ajouter la classe <code>form-inline</code> à l'élément qui contient l'ensemble des cases à coher ou des boutons radio. Aussi ajouter la classe <code>label-inline</code> à chaque élément parent de case à cocher ou de bouton radio.</li>
+</ul>
+
+<h2>Exemples pratiques</h2>
+<ul>
+	<li><a href="gc-chckbxrdio-fr.html">Exemples&nbsp;: Cases à cocher et boutons radio</a></li>
+</ul>
+
+<h2>Évaluation et rapport</h2>
+<p>Il n'y a pas d'évaluation et de rapport disponible pour ce composant.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Classe CSS</th>
+		<th>Gabarit</th>
+		<th>Rendu visuel</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>s.o.</td>
+	</tr>
+</table>
+<h3>Classe CSS (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-chckbxrdio</code></dt>
+	<dd>Composant&nbsp;: Cases à cocher et boutons radio</dd>
+</dl>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Crée&nbsp;: <code>.gc-chckbxrdio</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+<h3>Gabarit (v1.0)</h3>
+<p>Notes:</p>
+<ul>
+	<li>Ne peut être utilisé qu'avec des étiquettes explicites. Si vous devez utiliser une étiquette implicite, reportez-vous au modèle régulier de la WET-BOEW pour les cases à cocher et les boutons radio.</li>
+</ul>
+<h4>Base&nbsp;: <code>.gc-chckbxrdio</code></h4>
+<pre><code>&lt;fieldset class="gc-chckbxrdio"&gt;
+	&lt;legend&gt;API&lt;/legend&gt;
+	&lt;ul class="list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="gabarit"&gt;
+			&lt;label for="gabarit"&gt;Gabarit&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+
+<h4>Variation&nbsp;: Tickbox (<code>.checkbox.gc-chckbxrdio</code>)</h4>
+<pre class="mrgn-tp-md"><code>&lt;div class="checkbox gc-chckbxrdio"&gt;
+	&lt;input id="gabarit" type="checkbox"/&gt;
+	&lt;label for="gabarit"&gt;Gabarit&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Rendu visuel (v1.0)</h3>
+<h4>Base</h4>
+<dl>
+	<dt>Cases à cocher et boutons radio</dt>
+	<dd>
+		<ul>
+			<li>La largeur et hauteur sont exactement 36 pixels en excluant les bordures;</li>
+			<li>Les bordures paraissent relativement épaisses (2 pixels) leurs couleur est noir (#000);</li>
+			<li>Il y a un espace blanche (#fff) de 4 pixels entre les bordures et la zone de survol;
+			<li>Lorsque survolé, léger fond d'écran en dégradé (#e6e5e5 vers #fff sur l'axe des Y);</li>
+			<li>Lors du focus par clavier, aura distingué bleu (#3b99fc) autour du input;
+			<li>Lorsque désactivé, opacité est baissé à 50%, apparaissant gris.</li>
+		</ul>
+	</dd>
+	<dt>Cases à cocher seulement</dt>
+	<dd>
+		<ul>
+			<li>Lorsque sélectionné, crochet de 5 pixels d'épais touchent parfaitement les contours de la zone de survol.</li>
+		</ul>
+	</dd>
+	<dt>Boutons radio seulement</dt>
+	<dd>
+		<ul>
+			<li>Le radius des coin est à 50&nbsp;%, ce qui les rend ronds;</li>
+			<li>Lorsque sélectionné, point gris (#444) recouvre l'entièreté de la zone de survol.</li>
+		</ul>
+	</dd>
+</dl>
+
+<h4 lang="en">Tickbox</h4>
+<dl>
+	<dt>Cases à cocher et boutons radio</dt>
+	<dd>
+		<ul>
+			<li>La largeur et hauteur sont exactement 24 pixels en excluant les bordures.</li>
+		</ul>
+	</dd>
+</dl>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Rendu original</li>
+			</ul>
+		</dd>
+	</dl>
+</details>

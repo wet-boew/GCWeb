@@ -1,0 +1,152 @@
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ *
+ *	GC Checkboxes and radio buttons
+*/
+
+@mixin chckbxrdio-hover {
+	background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
+}
+
+@mixin chckbxrdio-focus {
+	box-shadow: 0 0 0 2px #000, 0 0 8px 4px rgb(59, 153, 252);
+}
+
+fieldset.gc-chckbxrdio {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.gc-chckbxrdio {
+
+	label {
+		cursor: pointer;
+		display: block;
+		font-size: 20px;
+	}
+
+	legend {
+		float: none;
+		font-size: 22px;
+		font-weight: 700;
+		margin-bottom: 15px;
+		margin-top: 0;
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+
+		&[disabled] + label {
+			cursor: not-allowed;
+			opacity: .5;
+		}
+
+		+ {
+			label {
+				display: inline-block;
+				line-height: 2;
+				margin-left: 36px;
+				width: auto;
+			}
+
+			label::before {
+				border: 4px solid #fff;
+				box-shadow: 0 0 0 2px #000;
+				content: "";
+				display: inline-block;
+				height: 36px;
+				left: 0;
+				position: absolute;
+				top: 2px;
+				width: 36px;
+			}
+
+			label:hover::before {
+				@include chckbxrdio-hover;
+			}
+		}
+
+		&:focus + label::before {
+			@include chckbxrdio-focus;
+		}
+	}
+
+	input[type="radio"] {
+
+		+ {
+			label::before {
+				border-radius: 50%;
+			}
+		}
+
+		&:checked + {
+
+			label::before {
+				background: #444;
+			}
+		}
+	}
+
+	&.checkbox {
+
+		input[type="checkbox"] {
+
+			+ label,
+			+ label + ul {
+				font-size: 17px;
+				min-height: 23px;
+			}
+
+			+ label::before {
+				height: 24px;
+				left: 6px;
+				top: 4px;
+				width: 24px;
+			}
+
+			&:checked + label::after {
+				border-width: 0 3px 3px 0;
+				height: 16px;
+				left: 14px;
+				top: 6px;
+				width: 9px;
+			}
+		}
+	}
+
+	input[type="checkbox"] {
+
+		&:checked + label::after {
+			border-color: #333;
+			border-style: solid;
+			border-width: 0 5px 5px 0;
+			content: "";
+			display: inline-block;
+			height: 26px;
+			left: 12px;
+			position: absolute;
+			top: 4px;
+			transform: rotate(45deg);
+			width: 13px;
+		}
+	}
+
+	&.form-inline .label-inline {
+		padding-right: 20px;
+
+		label {
+			padding-left: 10px;
+		}
+	}
+}
