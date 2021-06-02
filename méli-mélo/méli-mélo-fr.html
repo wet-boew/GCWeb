@@ -21,14 +21,12 @@ dateModified": 2021-05-27
 
 {% assign melimelo_pages = site.pages | where: "output", "false" | where: "feature", "méli-mélo" | sort: "componentName" %}
 
-<!--
-Number of méli-mélo: {{ melimelo_pages | size }}
--->
-
 <ul>
 {% for feature in melimelo_pages %}
-	{% assign first_example = feature.pages.examples | first %}
-	<li><strong>{{ feature.componentName }}</strong>: <a href="{{ feature.componentName }}/{{ first_example.path }}" lang="{{ first_example.language }}">{{ first_example.title }}</a></li>
+	{% assign featBasePath = feature.path | slice: 0, 10 %}
+	{% if featBasePath == "méli-mélo/" %}
+	<li><a href="{{ feature.componentName }}/détails-fr.html">{{ feature.componentName }}</a></li>
+	{% endif %}
 {% endfor %}
 </ul>
 

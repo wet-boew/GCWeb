@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+{% assign mmInfo = site.pages | where: "output", "false" | where: "componentName", page.componentName %}
+{% for mmPage in mmInfo %}
+	{% assign mmBasePath = mmPage.path | slice: 0, 10 %}
+	{% if mmBasePath == "méli-mélo/" %}
+		{% assign mmInfo = mmPage %}
+		{{ break }}
+	{% endif %}
+{% endfor %}
+
+<p>
+	{%- if mmInfo.description.en -%}
+		{{ mmInfo.description.en }}
+	{%- elsif mmInfo.description.fr -%}
+		<span lang="fr">{{ mmInfo.description.fr }}</span>
+	{%- elsif mmInfo.description -%}
+		{{ mmInfo.description }}
+	{%- else -%}
+		(No description provided)
+	{%- endif -%}
+</p>
+
+<p>Sponsored by: {{ mmInfo.sponsor }}</p>
+
+<h2>Examples</h2>
+<ul>
+{% for example in mmInfo.pages.examples %}
+	<li><a href="{{ example.path }}" lang="{{ example.language }}">{{ example.title }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Implementation plan</h2>
+<ul>
+{% for deliverable in mmInfo.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<h2>Todo and for future consideration</h2>
+<ul>
+{% for todo in mmInfo.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>

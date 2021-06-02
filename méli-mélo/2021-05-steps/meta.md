@@ -19,7 +19,7 @@ description:
   fr: Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle
 modified: 2021-05-21
 componentName: 2021-05-steps
-lead: CRA - Christopher Oakes (@christopher-o)
+sponsor: CRA - Christopher Oakes (@christopher-o)
 
 pages:
   examples:
