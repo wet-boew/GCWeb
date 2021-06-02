@@ -1,0 +1,106 @@
+---
+title: Canada Day 2021 red theme
+dateModified: 2021-06-01
+description: Canada Day 2021 CSS styles
+lang: en
+css:
+- style.css
+layout: no-container
+---
+    <div class="container">
+    <h1>{{ page.title }}</h1>
+    {% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
+    <p>Lead: {{ metadata.lead }}</p>
+    <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+    <p>Progressive enhancement note:</p>
+    <ul>
+      {% for peNote in metadata.peNote %}
+      <li>{{ peNote }}</li>
+      {% endfor %}
+    </ul>
+    <h2>Red background and white text</h2>
+    <p>Use to make text appear white in colour on a red background.</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3 class="mrgn-tp-0">Appearance</h3>
+        <p class="bg-dark bg-canadaday text-white">This text is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+          <li>Use to introduce contrast to information</li>
+          <li>Use <code>.bg-dark</code> and <code>.bg-canadaday</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
+          <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+          <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+          <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Code</h3>
+    <pre><code>&lt;p class="bg-dark bg-canadaday text-white"&gt;...&lt;/p&gt;</code></pre>
+    <h3>CSS classes</h3>
+    <dl class="dl-horizontal">
+      <dt><code>.bg-canadaday</code></dt>
+      <dd>Set a background color to red</dd>
+      <dt><code>.panel-canadaday</code> </dt>
+      <dd>Set border colour for panel to red</dd>
+      <dt><code>hr.brdr-canadaday</code> </dt>
+      <dd>Set border colour for &lt;hr&gt; to red</dd>
+    </dl>
+    <h2>Examples</h2>
+    <h3>Container</h3>
+    <div class="well bg-dark bg-canadaday text-white">
+      <h2 class="mrgn-tp-0">Example of a heading</h2>
+      <p>This container is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+      <p><a class="text-white" href="#">Link example</a></p>
+      <button class="bg-dark bg-canadaday text-white" type="button">Button example</button>
+    </div>
+    <h4>Code</h4>
+    <pre><code>&lt;div class="well bg-dark bg-canadaday text-white"&gt;
+    &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
+    &lt;p&gt;This container is styled with &lt;code&gt;.bg-dark&lt;/code&gt;, &lt;code&gt;.bg-canadaday&lt;/code&gt; and &lt;code&gt;.text-white&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
+    &lt;button type="button" class="bg-dark bg-canadaday text-white"&gt;Button example&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    <h3>&lt;button&gt; example</h3>
+    <button class="bg-dark bg-canadaday text-white" type="button">Button</button>
+    <h4>Code</h4>
+    <pre><code>&lt;button type="button" class="bg-dark bg-canadaday text-white"&gt;Button&lt;/button&gt;</code></pre>
+    <h3>&lt;a&gt; btn example</h3>
+    <a href="#" class="btn btn-primary bg-canadaday text-white" role="button">Button</a>
+    <h4>Code</h4>
+    <pre><code>&lt;a href="#" class="btn btn-primary bg-canadaday text-white" role="button"&gt;Button&lt;/a&gt;</code></pre>
+    <h3>&lt;hr&gt; example</h3>
+    <hr class="brdr-canadaday">
+    <h4>Code</h4>
+    <pre><code>&lt;hr class="brdr-canadaday"&gt;</code></pre>
+    <h3>Standard &lt;hr&gt;</h3>
+    <hr>
+    <h3>Panel border example</h3>
+    <div class="panel panel-default panel-canadaday">
+      <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <h4>Code</h4>
+    <pre><code>&lt;div class="panel panel-default panel-canadaday"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    <h3>Standard primary panel border</h3>
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
