@@ -1,268 +1,297 @@
 ---
 title: Checkboxes and radio buttons - Working examples
 language: en
-description: Working examples for checkboxes and radio buttons
-dateModified: 2021-05-07
+description: Working examples for large checkboxes and radio buttons
+dateModified: 2021-06-02
 altLangPage: gc-chckbxrdio-fr.html
 ---
 <ul class="list-inline">
 	<li><a class="btn btn-primary" href="gc-chckbxrdio-doc-en.html">Documentation</a></li>
 	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=GC-Chckbxrdio">Questions or comments?</a></li>
 </ul>
-<p>Checkboxes and radio buttons.</p>
+<p>Working examples for large checkboxes and radio buttons.</p>
 
 <span class="wb-prettify all-pre hide"></span>
 
-<section>
-	<h2>Large checkboxes target with explicit labels</h2>
-	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
-		<legend>Choose your condiments:</legend>
-		<ul class="list-unstyled lst-spcd-2">
-			<li class="checkbox">
-				<input type="checkbox" id="cond1">
-				<label for="cond1">Ketchup</label>
-			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="cond2">
-				<label for="cond2">Relish</label>
-			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="cond3">
-				<label for="cond3">Mustard</label>
-			</li>
-		</ul>
-	</fieldset>
-	<h2>Large disabled checkboxes target with explicit labels</h2>
-	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
-		<legend>Choose your condiments:</legend>
-		<ul class="list-unstyled lst-spcd-2">
-			<li class="checkbox">
-				<input type="checkbox" id="cond4">
-				<label for="cond4">Ketchup</label>
-			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="cond5" disabled>
-				<label for="cond5">Relish</label>
-			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="cond6" class="disabled" disabled>
-				<label for="cond6">Mustard</label>
-			</li>
-		</ul>
-	</fieldset>
-	<details class="mrgn-tp-lg">
-		<summary>Code</summary>
-		<pre><code>&lt;h2&gt;Large checkboxes target with explicit labels&lt;/h2&gt;
-	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
-		&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
-		&lt;ul class="list-unstyled lst-spcd-2"&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond1"&gt;
-				&lt;label for="cond1"&gt;Ketchup&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond2"&gt;
-				&lt;label for="cond2"&gt;Relish&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond3"&gt;
-				&lt;label for="cond3"&gt;Mustard&lt;/label&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/fieldset&gt;
-	&lt;h2&gt;Large disabled checkboxes target with explicit labels&lt;/h2&gt;
-	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
-		&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
-		&lt;ul class="list-unstyled lst-spcd-2"&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond4"&gt;
-				&lt;label for="cond4"&gt;Ketchup&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond5" disabled&gt;
-				&lt;label for="cond5"&gt;Relish&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="checkbox"&gt;
-				&lt;input type="checkbox" id="cond6" class="disabled" disabled&gt;
-				&lt;label for="cond6"&gt;Mustard&lt;/label&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/fieldset&gt;</code></pre>
-	</details>
-</section>
-<section>
-	<h2>Tickbox - single smaller checkbox target with explicit label inline form</h2>
-	<form class="form-inline" method="get" action="#">
-		<div class="form-group">
-			<label class="wb-inv" for="exampleInputEmail2">Email address</label>
-			<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" />
-		</div>
-		<div class="form-group">
-			<label class="wb-inv" for="exampleInputPassword2">Password</label>
-			<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" />
-		</div>
-		<div class="checkbox gc-chckbxrdio">
-			<input id="remember2" type="checkbox" />
-			<label for="remember2">Remember me</label>
-		</div>
-		<button type="submit" class="btn btn-default">Sign in</button>
-	</form>
-	<h2>Tickbox - single smaller checkbox targets with explicit label in a filter box</h2>
-	<div class="row">
-		<div class="col-md-3">
-			<h3 class="wb-inv">Filtering options</h3>
-			<details open>
-				<summary>
-					<h4 class="h5">Filter options</h4>
-				</summary>
-				<p class="mrgn-tp-md">Use filters to below options to change the focus ...</p>
-				<form class="wb-tables-filter" data-bind-to="dataset-filter">
-					<div class="form-group">
-						<fieldset class="legend-brdr-bttm">
-							<legend><span class="field-name">For</span></legend>
-							<ul class="list-unstyled">
-								<li class="checkbox gc-chckbxrdio">
-									<input type="checkbox" id="dt_audience1" value="">
-									<label for="dt_audience1">Everyone</label>
-								</li>
-								<li class="checkbox gc-chckbxrdio">
-									<input type="checkbox" id="dt_audience2" value="">
-									<label for="dt_audience2">Government</label>
-								</li>
-							</ul>
-						</fieldset>
-					</div>
-				</form>
-			</details>
-		</div>
-		<div class="col-md-9">
-			<table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Publication date</th>
-						<th>Department</th>
-						<th>News Type</th>
-						<th>Summary</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Backgrounder: Seventeen Infrastructure Projects in ...</td>
-						<td>2016-07-26 14:07:00</td>
-						<td>Infrastructure Canada</td>
-						<td>Backgrounders</td>
-						<td>The governments of Canada and ...</td>
-					</tr>
-					<tr>
-						<td>Seventeen Infrastructure Projects in ...</td>
-						<td>2016-07-26 14:07:00</td>
-						<td>Infrastructure Canada</td>
-						<td>News Releases</td>
-						<td>Providing community residents ...</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+<h2>Large checkboxes target with explicit labels</h2>
+<fieldset class="gc-chckbxrdio">
+	<legend>Choose your condiments:</legend>
+	<ul class="list-unstyled lst-spcd-2">
+		<li class="checkbox">
+			<input type="checkbox" id="cond1">
+			<label for="cond1">Ketchup</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="cond2">
+			<label for="cond2">Relish</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="cond3">
+			<label for="cond3">Mustard</label>
+		</li>
+	</ul>
+</fieldset>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;Large checkboxes target with explicit labels&lt;/h2&gt;
+&lt;fieldset class="gc-chckbxrdio"&gt;
+	&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
+	&lt;ul class="list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond1"&gt;
+			&lt;label for="cond1"&gt;Ketchup&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond2"&gt;
+			&lt;label for="cond2"&gt;Relish&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond3"&gt;
+			&lt;label for="cond3"&gt;Mustard&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+</details>
+
+<h2>Large disabled checkboxes target with explicit labels</h2>
+<fieldset class="gc-chckbxrdio">
+	<legend>Choose your condiments:</legend>
+	<ul class="list-unstyled lst-spcd-2">
+		<li class="checkbox">
+			<input type="checkbox" id="cond4">
+			<label for="cond4">Ketchup</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="cond5" disabled>
+			<label for="cond5">Relish</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="cond6" disabled>
+			<label for="cond6">Mustard</label>
+		</li>
+	</ul>
+</fieldset>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;Large disabled checkboxes target with explicit labels&lt;/h2&gt;
+&lt;fieldset class="gc-chckbxrdio"&gt;
+	&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
+	&lt;ul class="list-unstyled lst-spcd-2"&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond4"&gt;
+			&lt;label for="cond4"&gt;Ketchup&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond5" disabled&gt;
+			&lt;label for="cond5"&gt;Relish&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class="checkbox"&gt;
+			&lt;input type="checkbox" id="cond6" disabled&gt;
+			&lt;label for="cond6"&gt;Mustard&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+</details>
+
+<h2>Tickbox - single smaller checkbox target with explicit label inline form</h2>
+<form class="form-inline" method="get" action="#">
+	<div class="form-group">
+		<label class="wb-inv" for="exampleInputEmail2">Email address</label>
+		<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" />
 	</div>
-	<details class="mrgn-tp-lg">
-		<summary>Code</summary>
-		<pre><code>&lt;h2&gt;Tickbox - single smaller checkbox target with explicit label inline form&lt;/h2&gt;
-	&lt;form class="form-inline" method="get" action="#"&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Email address&lt;/label&gt;
-			&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" /&gt;
-		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Password&lt;/label&gt;
-			&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" /&gt;
-		&lt;/div&gt;
-		&lt;div class="checkbox gc-chckbxrdio"&gt;
-			&lt;input id="remember2" type="checkbox" /&gt;
-			&lt;label for="remember2"&gt;Remember me&lt;/label&gt;
-		&lt;/div&gt;
-		&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
-	&lt;/form&gt;
-	&lt;h2&gt;Tickbox - single smaller checkbox targets with explicit label in a filter box&lt;/h2&gt;
-	&lt;div class="row"&gt;
-		&lt;div class="col-md-3"&gt;
-			&lt;h3 class="wb-inv"&gt;Filtering options&lt;/h3&gt;
-			&lt;details open&gt;
-				&lt;summary&gt;
-					&lt;h4 class="h5"&gt;Filter options&lt;/h4&gt;
-				&lt;/summary&gt;
-				&lt;p class="mrgn-tp-md"&gt;Use filters to below options to change the focus ...&lt;/p&gt;
-				&lt;form class="wb-tables-filter" data-bind-to="dataset-filter"&gt;
-					&lt;div class="form-group"&gt;
-						&lt;fieldset class="legend-brdr-bttm"&gt;
-							&lt;legend&gt;&lt;span class="field-name"&gt;For&lt;/span&gt;&lt;/legend&gt;
-							&lt;ul class="list-unstyled"&gt;
-								&lt;li class="checkbox gc-chckbxrdio"&gt;
-									&lt;input type="checkbox" id="dt_audience1" value=""&gt;
-									&lt;label for="dt_audience1"&gt;Everyone&lt;/label&gt;
-								&lt;/li&gt;
-								&lt;li class="checkbox gc-chckbxrdio"&gt;
-									&lt;input type="checkbox" id="dt_audience2" value=""&gt;
-									&lt;label for="dt_audience2"&gt;Government&lt;/label&gt;
-								&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/fieldset&gt;
-					&lt;/div&gt;
-				&lt;/form&gt;
-			&lt;/details&gt;
-		&lt;/div&gt;
-		&lt;div class="col-md-9"&gt;
-			&lt;table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite"&gt;
-				&lt;thead&gt;
-					&lt;tr&gt;
-						&lt;th&gt;Title&lt;/th&gt;
-						&lt;th&gt;Publication date&lt;/th&gt;
-						&lt;th&gt;Department&lt;/th&gt;
-						&lt;th&gt;News Type&lt;/th&gt;
-						&lt;th&gt;Summary&lt;/th&gt;
-					&lt;/tr&gt;
-				&lt;/thead&gt;
-				&lt;tbody&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Backgrounder: Seventeen Infrastructure Projects in ...&lt;/td&gt;
-						&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
-						&lt;td&gt;Infrastructure Canada&lt;/td&gt;
-						&lt;td&gt;Backgrounders&lt;/td&gt;
-						&lt;td&gt;The governments of Canada and ...&lt;/td&gt;
-					&lt;/tr&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Seventeen Infrastructure Projects in ...&lt;/td&gt;
-						&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
-						&lt;td&gt;Infrastructure Canada&lt;/td&gt;
-						&lt;td&gt;News Releases&lt;/td&gt;
-						&lt;td&gt;Providing community residents ...&lt;/td&gt;
-					&lt;/tr&gt;
-				&lt;/tbody&gt;
-			&lt;/table&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;</code></pre>
-	</details>
-</section>
+	<div class="form-group">
+		<label class="wb-inv" for="exampleInputPassword2">Password</label>
+		<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" />
+	</div>
+	<div class="checkbox gc-chckbxrdio">
+		<input id="remember2" type="checkbox" />
+		<label for="remember2">Remember me</label>
+	</div>
+	<button type="submit" class="btn btn-default">Sign in</button>
+</form>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;Tickbox - single smaller checkbox target with explicit label inline form&lt;/h2&gt;
+&lt;form class="form-inline" method="get" action="#"&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label class="wb-inv" for="exampleInputEmail2"&gt;Email address&lt;/label&gt;
+		&lt;input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" /&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label class="wb-inv" for="exampleInputPassword2"&gt;Password&lt;/label&gt;
+		&lt;input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" /&gt;
+	&lt;/div&gt;
+	&lt;div class="checkbox gc-chckbxrdio"&gt;
+		&lt;input id="remember2" type="checkbox" /&gt;
+		&lt;label for="remember2"&gt;Remember me&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;button type="submit" class="btn btn-default"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+</details>
+
+<h2>Tickbox - single smaller checkbox targets with explicit label in a filter box</h2>
+<div class="row">
+	<div class="col-md-3">
+		<h3 class="wb-inv">Filtering options</h3>
+		<details open>
+			<summary>
+				<h4 class="h5">Filter options</h4>
+			</summary>
+			<p class="mrgn-tp-md">Use filters to below options to change the focus ...</p>
+			<form class="wb-tables-filter" data-bind-to="dataset-filter">
+				<div class="form-group">
+					<fieldset class="legend-brdr-bttm">
+						<legend><span class="field-name">For</span></legend>
+						<ul class="list-unstyled">
+							<li class="checkbox gc-chckbxrdio">
+								<input type="checkbox" id="dt_audience1" value="">
+								<label for="dt_audience1">Everyone</label>
+							</li>
+							<li class="checkbox gc-chckbxrdio">
+								<input type="checkbox" id="dt_audience2" value="">
+								<label for="dt_audience2">Government</label>
+							</li>
+						</ul>
+					</fieldset>
+				</div>
+			</form>
+		</details>
+	</div>
+	<div class="col-md-9">
+		<table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Publication date</th>
+					<th>Department</th>
+					<th>News Type</th>
+					<th>Summary</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Backgrounder: Seventeen Infrastructure Projects in ...</td>
+					<td>2016-07-26 14:07:00</td>
+					<td>Infrastructure Canada</td>
+					<td>Backgrounders</td>
+					<td>The governments of Canada and ...</td>
+				</tr>
+				<tr>
+					<td>Seventeen Infrastructure Projects in ...</td>
+					<td>2016-07-26 14:07:00</td>
+					<td>Infrastructure Canada</td>
+					<td>News Releases</td>
+					<td>Providing community residents ...</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;Tickbox - single smaller checkbox targets with explicit label in a filter box&lt;/h2&gt;
+&lt;div class="row"&gt;
+	&lt;div class="col-md-3"&gt;
+		&lt;h3 class="wb-inv"&gt;Filtering options&lt;/h3&gt;
+		&lt;details open&gt;
+			&lt;summary&gt;
+				&lt;h4 class="h5"&gt;Filter options&lt;/h4&gt;
+			&lt;/summary&gt;
+			&lt;p class="mrgn-tp-md"&gt;Use filters to below options to change the focus ...&lt;/p&gt;
+			&lt;form class="wb-tables-filter" data-bind-to="dataset-filter"&gt;
+				&lt;div class="form-group"&gt;
+					&lt;fieldset class="legend-brdr-bttm"&gt;
+						&lt;legend&gt;&lt;span class="field-name"&gt;For&lt;/span&gt;&lt;/legend&gt;
+						&lt;ul class="list-unstyled"&gt;
+							&lt;li class="checkbox gc-chckbxrdio"&gt;
+								&lt;input type="checkbox" id="dt_audience1" value=""&gt;
+								&lt;label for="dt_audience1"&gt;Everyone&lt;/label&gt;
+							&lt;/li&gt;
+							&lt;li class="checkbox gc-chckbxrdio"&gt;
+								&lt;input type="checkbox" id="dt_audience2" value=""&gt;
+								&lt;label for="dt_audience2"&gt;Government&lt;/label&gt;
+							&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/fieldset&gt;
+				&lt;/div&gt;
+			&lt;/form&gt;
+		&lt;/details&gt;
+	&lt;/div&gt;
+	&lt;div class="col-md-9"&gt;
+		&lt;table class="wb-tables table table-striped table-hover" id="dataset-filter" aria-live="polite"&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;Title&lt;/th&gt;
+					&lt;th&gt;Publication date&lt;/th&gt;
+					&lt;th&gt;Department&lt;/th&gt;
+					&lt;th&gt;News Type&lt;/th&gt;
+					&lt;th&gt;Summary&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Backgrounder: Seventeen Infrastructure Projects in ...&lt;/td&gt;
+					&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
+					&lt;td&gt;Infrastructure Canada&lt;/td&gt;
+					&lt;td&gt;Backgrounders&lt;/td&gt;
+					&lt;td&gt;The governments of Canada and ...&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td&gt;Seventeen Infrastructure Projects in ...&lt;/td&gt;
+					&lt;td&gt;2016-07-26 14:07:00&lt;/td&gt;
+					&lt;td&gt;Infrastructure Canada&lt;/td&gt;
+					&lt;td&gt;News Releases&lt;/td&gt;
+					&lt;td&gt;Providing community residents ...&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</details>
+
+<h2>Large radio buttons target with explicit labels</h2>
+<fieldset class="gc-chckbxrdio">
+	<legend>Which is your favorite pet?</legend>
+	<ul class="list-unstyled lst-spcd-2">
+		<li class="radio">
+			<input type="radio" name="animal" id="animal-1">
+			<label for="animal-1">Dog</label>
+		</li>
+		<li class="radio">
+			<input type="radio" name="animal" id="animal-2">
+			<label for="animal-2">Cat</label>
+		</li>
+		<li class="radio">
+			<input type="radio" name="animal" id="animal-3">
+			<label for="animal-3">Rat</label>
+		</li>
+	</ul>
+</fieldset>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;Large radio buttons target with explicit labels&lt;/h2&gt;
+&lt;fieldset class=&quot;gc-chckbxrdio&quot;&gt;
+	&lt;legend&gt;Which is your favorite pet?&lt;/legend&gt;
+	&lt;ul class=&quot;list-unstyled lst-spcd-2&quot;&gt;
+		&lt;li class=&quot;radio&quot;&gt;
+			&lt;input type=&quot;radio&quot; name=&quot;animal&quot; id=&quot;animal-1&quot;&gt;
+			&lt;label for=&quot;animal-1&quot;&gt;Dog&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class=&quot;radio&quot;&gt;
+			&lt;input type=&quot;radio&quot; name=&quot;animal&quot; id=&quot;animal-2&quot;&gt;
+			&lt;label for=&quot;animal-2&quot;&gt;Cat&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li class=&quot;radio&quot;&gt;
+			&lt;input type=&quot;radio&quot; name=&quot;animal&quot; id=&quot;animal-3&quot;&gt;
+			&lt;label for=&quot;animal-3&quot;&gt;Rat&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+</details>
+
+<h2>With explicit labels in an inline form</h2>
 <section>
-	<h2>Large radio buttons target with explicit labels</h2>
-	<fieldset class="gc-chckbxrdio chckbxrdio-grp">
-		<legend>Which is your favorite pet?</legend>
-		<ul class="list-unstyled lst-spcd-2">
-			<li class="radio">
-				<input type="radio" name="animal" id="animal-1">
-				<label for="animal-1">Dog</label>
-			</li>
-			<li class="radio">
-				<input type="radio" name="animal" id="animal-2">
-				<label for="animal-2">Cat</label>
-			</li>
-			<li class="radio">
-				<input type="radio" name="animal" id="animal-3">
-				<label for="animal-3">Rat</label>
-			</li>
-		</ul>
-	</fieldset>
-	<h2>Large radio buttons target with explicit labels in an inline form</h2>
+	<h3>Large radio buttons target</h3>
 	<fieldset class="gc-chckbxrdio form-inline">
 		<legend>Choose an option:</legend>
 		<div class="radio label-inline">
@@ -278,41 +307,62 @@ altLangPage: gc-chckbxrdio-fr.html
 			<label for="inlineRadio3">Option 3</label>
 		</div>
 	</fieldset>
-	<details class="mrgn-tp-lg">
-		<summary>Code</summary>
-		<pre><code>&lt;h2&gt;Large radio buttons target with explicit labels&lt;/h2&gt;
-	&lt;fieldset class="gc-chckbxrdio chckbxrdio-grp"&gt;
-		&lt;legend&gt;Which is your favorite pet?&lt;/legend&gt;
-		&lt;ul class="list-unstyled lst-spcd-2"&gt;
-			&lt;li class="radio"&gt;
-				&lt;input type="radio" name="animal" id="animal-1"&gt;
-				&lt;label for="animal-1"&gt;Dog&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="radio"&gt;
-				&lt;input type="radio" name="animal" id="animal-2"&gt;
-				&lt;label for="animal-2"&gt;Cat&lt;/label&gt;
-			&lt;/li&gt;
-			&lt;li class="radio"&gt;
-				&lt;input type="radio" name="animal" id="animal-3"&gt;
-				&lt;label for="animal-3"&gt;Rat&lt;/label&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/fieldset&gt;
-	&lt;h2&gt;Large radio buttons target with explicit labels in an inline form&lt;/h2&gt;
-	&lt;fieldset class="gc-chckbxrdio form-inline"&gt;
-		&lt;legend&gt;Choose an option:&lt;/legend&gt;
-		&lt;div class="radio label-inline"&gt;
-			&lt;input id="inlineRadio1" type="radio" name="optradio"&gt;
-			&lt;label for="inlineRadio1"&gt;Option 1&lt;/label&gt;
-		&lt;/div&gt;
-		&lt;div class="radio label-inline"&gt;
-			&lt;input id="inlineRadio2" type="radio" name="optradio"&gt;
-			&lt;label for="inlineRadio2"&gt;Option 2&lt;/label&gt;
-		&lt;/div&gt;
-		&lt;div class="radio label-inline"&gt;
-			&lt;input id="inlineRadio3" type="radio" name="optradio"&gt;
-			&lt;label for="inlineRadio3"&gt;Option 3&lt;/label&gt;
-		&lt;/div&gt;
-	&lt;/fieldset&gt;</code></pre>
-	</details>
 </section>
+<section>
+	<h3>Large checkboxes target</h3>
+	<fieldset class="gc-chckbxrdio form-inline">
+		<legend>Choose your condiments:</legend>
+		<div class="checkbox label-inline">
+			<input id="inlineCheckbox1" type="checkbox" name="optcheckbox">
+			<label for="inlineCheckbox1">Ketchup</label>
+		</div>
+		<div class="checkbox label-inline">
+			<input id="inlineCheckbox2" type="checkbox" name="optcheckbox">
+			<label for="inlineCheckbox2">Relish</label>
+		</div>
+		<div class="checkbox label-inline">
+			<input id="inlineCheckbox3" type="checkbox" name="optcheckbox">
+			<label for="inlineCheckbox3">Mustard</label>
+		</div>
+	</fieldset>
+</section>
+<details class="mrgn-tp-lg">
+	<summary>Code</summary>
+	<pre><code>&lt;h2&gt;With explicit labels in an inline form&lt;/h2&gt;
+&lt;section&gt;
+	&lt;h3&gt;Large radio buttons target&lt;/h3&gt;
+	&lt;fieldset class=&quot;gc-chckbxrdio form-inline&quot;&gt;
+		&lt;legend&gt;Choose an option:&lt;/legend&gt;
+		&lt;div class=&quot;radio label-inline&quot;&gt;
+			&lt;input id=&quot;inlineRadio1&quot; type=&quot;radio&quot; name=&quot;optradio&quot;&gt;
+			&lt;label for=&quot;inlineRadio1&quot;&gt;Option 1&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;radio label-inline&quot;&gt;
+			&lt;input id=&quot;inlineRadio2&quot; type=&quot;radio&quot; name=&quot;optradio&quot;&gt;
+			&lt;label for=&quot;inlineRadio2&quot;&gt;Option 2&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;radio label-inline&quot;&gt;
+			&lt;input id=&quot;inlineRadio3&quot; type=&quot;radio&quot; name=&quot;optradio&quot;&gt;
+			&lt;label for=&quot;inlineRadio3&quot;&gt;Option 3&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/section&gt;
+&lt;section&gt;
+	&lt;h3&gt;Large checkboxes target&lt;/h3&gt;
+	&lt;fieldset class=&quot;gc-chckbxrdio form-inline&quot;&gt;
+		&lt;legend&gt;Choose your condiments:&lt;/legend&gt;
+		&lt;div class=&quot;checkbox label-inline&quot;&gt;
+			&lt;input id=&quot;inlineCheckbox1&quot; type=&quot;checkbox&quot; name=&quot;optcheckbox&quot;&gt;
+			&lt;label for=&quot;inlineCheckbox1&quot;&gt;Ketchup&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;checkbox label-inline&quot;&gt;
+			&lt;input id=&quot;inlineCheckbox2&quot; type=&quot;checkbox&quot; name=&quot;optcheckbox&quot;&gt;
+			&lt;label for=&quot;inlineCheckbox2&quot;&gt;Relish&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;checkbox label-inline&quot;&gt;
+			&lt;input id=&quot;inlineCheckbox3&quot; type=&quot;checkbox&quot; name=&quot;optcheckbox&quot;&gt;
+			&lt;label for=&quot;inlineCheckbox3&quot;&gt;Mustard&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/section&gt;</code></pre>
+</details>
