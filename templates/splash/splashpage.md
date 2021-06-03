@@ -13,9 +13,9 @@ dateModified: 2021-05-06
 ---
 <section class="col-xs-6 text-right">
   <h2 class="wb-inv">Government of Canada</h2>
-  <p><a href="./index-en.html" class="btn btn-primary">English</a></p>
+  <p><a href="../home/home-en.html" class="btn btn-primary">English</a></p>
 </section>
 <section class="col-xs-6" lang="fr">
   <h2 class="wb-inv">Gouvernement du Canada</h2>
-  <p><a href="./index-fr.html" class="btn btn-primary">Français</a></p>
+  <p><a href="../home/home-fr.html" class="btn btn-primary">Français</a></p>
 </section>

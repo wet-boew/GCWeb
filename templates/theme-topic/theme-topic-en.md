@@ -56,9 +56,9 @@ noMainContainer: true
 				<div class="wb-fieldflow" data-wb-fieldflow='{"inline": true, "defaultselectedlabel": false, "i18n": { "btn": "Go"} }'>
 					<p>[Navigate to a relevant page]</p>
 					<ul>
-						<li><a href="service-en.html">Service page</a></li>
-						<li><a href="institution-en.html">Institutional page</a></li>
-						<li><a href="content-en.html">Content page</a></li>
+						<li><a href="../service-en.html">Service page</a></li>
+						<li><a href="../institutional/institution-en.html">Institutional page</a></li>
+						<li><a href="../content-en.html">Content page</a></li>
 					</ul>
 				</div>
 			</div>
