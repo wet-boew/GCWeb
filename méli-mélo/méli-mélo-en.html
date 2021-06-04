@@ -25,7 +25,7 @@ Number of méli-mélo: {{ melimelo_pages | size }}
 <ul>
 {% for feature in melimelo_pages %}
 	{% assign first_example = feature.pages.examples | first %}
-	<li><strong>{{ feature.componentName }}</strong>: <a href="{{ feature.componentName }}/{{ first_example.path }}" lang="{{ first_example.language }}">{{ first_example.title }}</a></li>
+	<li><strong>{{ feature.componentName }}</strong>: <a href="{{ feature.componentName }}/{{ first_example.path }}" lang="{{ first_example.language }}">{{ first_example.title }}</a><!-- {{ feature.url }} --></li>
 {% endfor %}
 </ul>
 
