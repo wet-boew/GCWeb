@@ -160,7 +160,7 @@ Les états suivant n'ont été transposé encore avec la réorganisation de la s
 
 <h2>Aperçu des fonctionnalités wet-boew avec le thème de Canada.ca</h2>
 <p><a href="/gcweb-compiled-demos/index.html#wet-boew">Aperçu des fonctionnalités wet-boew</a></p>
-
+{:/}
 
 ## Documentation du projet GCWeb
 

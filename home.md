@@ -161,6 +161,7 @@ The following status was not transposed yet with the repository structure reorg
 
 <h2>WET-BOEW feature demos styled with Canada.ca theme</h2>
 <p><a href="/gcweb-compiled-demos/index.html#wet-boew">WET-BOEW feature overview</a></p>
+{:/}
 
 ## GCWeb project documentation
 
