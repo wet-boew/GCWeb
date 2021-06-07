@@ -1,12 +1,20 @@
 <section class="provisional gc-followus">
 	<h2>
-		{%- if i18nText-lang == "fr" -%}
-			Dans les médias sociaux
+		{%- if include.isInline -%}
+			{%- if i18nText-lang == "fr" -%}
+				Suivez-nous
+			{%- else -%}
+				Follow us
+			{%- endif -%}
 		{%- else -%}
-			On social media
+			{%- if i18nText-lang == "fr" -%}
+				Dans les médias sociaux
+			{%- else -%}
+				On social media
+			{%- endif -%}
 		{%- endif -%}
 	</h2>
-	<ul{% if page.followUsLayout == "inline" %} class="list-inline"{% endif %}>
+	<ul{% if include.isInline %} class="list-inline"{% endif %}>
 		<li>
 			<a href="#facebook" class="facebook wb-lbx">
 				{%- if i18nText-lang == "fr" -%}
