@@ -6,20 +6,16 @@ feature: méli-mélo
   title:
     "@id": dct:title
     "@container": "@language"
-  description:
-    "@id": dct:description
-    "@container": "@language"
+  description: dct:description
   modified: dct:modified
 
 title:
   en: And/Or decision points (Conjunctions)
   fr: And/Or decision points (Conjunctions) - Français
-description:
-  en: Conjunctions for stacked or side by side decision points, and/or
-  fr: Conjunctions for stacked or side by side decision points, and/or (Français)
+description: Conjunctions for stacked or side by side decision points, and/or
 modified: 2021-05-27
 componentName: 2021-05-conjunction
-lead: CRA - Christopher Oakes (@christopher-o)
+sponsor: CRA - Christopher Oakes (@christopher-o)
 
 pages:
   examples:

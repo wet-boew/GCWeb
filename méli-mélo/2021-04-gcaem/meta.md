@@ -18,6 +18,7 @@
 	},
 	"modified": "2021-04-17",
 	"componentName": "2021-04-gcaem",
+	"sponsor": "Pierre Dubois - Principal publisher",
 	"todos": [
 	],
 	"pages": {

@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% assign mmInfo = site.pages | where: "output", "false" | where: "componentName", page.componentName %}
+{% for mmPage in mmInfo %}
+	{% assign mmBasePath = mmPage.path | slice: 0, 10 %}
+	{% if mmBasePath == "méli-mélo/" %}
+		{% assign mmInfo = mmPage %}
+		{{ break }}
+	{% endif %}
+{% endfor %}
+
+<p>
+	{%- if mmInfo.description.en -%}
+		{{ mmInfo.description.en }}
+	{%- elsif mmInfo.description.fr -%}
+		<span lang="fr">{{ mmInfo.description.fr }}</span>
+	{%- elsif mmInfo.description -%}
+		{{ mmInfo.description }}
+	{%- else -%}
+		(No description provided)
+	{%- endif -%}
+</p>
+
+<p>Sponsored by: <span lang="en">{{ mmInfo.sponsor }}</span></p>
+
+<h2>Examples</h2>
+<ul>
+{% for example in mmInfo.pages.examples %}
+	<li><a href="{{ example.path }}" lang="{{ example.language }}">{{ example.title }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Thematic definition</h2>
+
+<p>Class CSS list</p>
+<ul>
+{% for cssClass in mmInfo.cssClass %}
+	<li><code>{{ cssClass }}</code></li>
+{% endfor %}
+</ul>
+<p>JavasScript function list</p>
+<ul>
+	{% for jsFunc in mmInfo.jsFunctions %}
+		<li><code>{{ jsFunc }}</code></li>
+	{% endfor %}
+</ul>
+
+<h3>Implementation note</h3>
+<p lang="fr">Les notes suivantes doivent être appliquées lors de l'implémentation de cette thématique afin de s'assurer qu'elle soit utilisé selon le principe de l'amélioration progressive. Ces instructions dois être suivi afin que la page web demeure fonctionnelle et conforme après la date d'expiration et du retrait de cette thématique.</p>
+<ul>
+  {% for peNote in mmInfo.peNote %}
+  <li>{{ peNote }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Accessibility statement</h3>
+{%- unless mmInfo.a11yStatement -%}
+<p>The accessibility statement is currently missing.</p>
+{%- endunless -%}
+{{ mmInfo.a11yStatement }}
+
+{%- if mmInfo.todos -%}
+<h2>Todo and for future consideration</h2>
+<ul>
+{% for todo in mmInfo.todos %}
+	<li lang="en">{{ todo }}</li>
+{% endfor %}
+</ul>
+{%- endif -%}

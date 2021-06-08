@@ -18,6 +18,7 @@
 	},
 	"modified": "2021-02-18",
 	"componentName": "@sample",
+	"sponsor": "Pierre Dubois - Principal publisher",
 	"todos": [
 		"Informal todos..."
 	],
