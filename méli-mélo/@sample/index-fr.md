@@ -1,7 +1,6 @@
 ---
 title: "@ Example pour la création de composant méli-mélo"
 lang: fr
-altLangPage: index-en.html
 dateModified: 2021-02-06
 script: wb-bonjour.js
 css:

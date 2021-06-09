@@ -169,8 +169,8 @@ Les états suivant n'ont été transposé encore avec la réorganisation de la s
 * [Migration instruction - GCWeb theme V5 (en anglais seulement)](docs/v5-migration.html)
 * [Archivé - Documentation GCWeb](docs/GCWeb-fr.html)
 * [Archivé - Version](docs/release/index-fr.html)
-* [Skeleton - Static header/footer - Bootstrap 3 (en anglais seulement)](docs/static-header-footer/bootstrap3.html)
-* [Prototype skeleton - Static header/footer - Bootstrap 4 (en anglais seulement)](docs/static-header-footer/bootstrap4.html)
+* [Skeleton - Static header/footer - Bootstrap 3 (en anglais seulement)](docs/static-header-footer/bootstrap-3.html)
+* [Prototype skeleton - Static header/footer - Bootstrap 4 (en anglais seulement)](docs/static-header-footer/bootstrap-4.html)
 
 Évaluations et rapports
 

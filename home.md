@@ -170,8 +170,8 @@ The following status was not transposed yet with the repository structure reorg
 * [Migration instruction - GCWeb theme V5](docs/v5-migration.html)
 * [Archived - Documentation - GCWeb English](docs/GCWeb-en.html)
 * [Archived - Releases English](docs/release/index-en.html)
-* [Skeleton - Static header/footer - Bootstrap 3](docs/static-header-footer/bootstrap3.html)
-* [Prototype skeleton - Static header/footer - Bootstrap 4](docs/static-header-footer/bootstrap4.html)
+* [Skeleton - Static header/footer - Bootstrap 3](docs/static-header-footer/bootstrap-3.html)
+* [Prototype skeleton - Static header/footer - Bootstrap 4](docs/static-header-footer/bootstrap-4.html)
 
 Evaluations and reports
 
