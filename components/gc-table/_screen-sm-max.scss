@@ -2,6 +2,8 @@
  PROVISIONAL features: Responsive tables cards
 */
 
+$gc-tables-tr-margin-vertical: .625em;
+
 .provisional {
 	&.gc-table {
 		&.table-bordered {
@@ -49,7 +51,7 @@
 		tr {
 			border: 1px solid #ddd;
 			display: block;
-			margin-bottom: .625em;
+			margin-bottom: $gc-tables-tr-margin-vertical;
 			padding: .35em;
 		}
 		> {
@@ -75,6 +77,19 @@
 			padding: 0;
 			position: absolute;
 			width: 1px;
+		}
+		tbody {
+			+ {
+				tbody {
+					> {
+						tr {
+							&:first-of-type {
+								margin-top: $gc-tables-tr-margin-vertical;
+							}
+						}
+					}
+				}
+			}
 		}
 		td {
 			display: block;
