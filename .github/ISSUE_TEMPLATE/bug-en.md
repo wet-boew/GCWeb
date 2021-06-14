@@ -11,7 +11,7 @@ A clear and concise description of what the bug is.
 
 ## To Reproduce
 <!-- Mandatory -->
-Steps to reproduce the behavior:
+Steps to reproduce the behaviour:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -21,11 +21,11 @@ Steps to reproduce the behavior:
 <!-- Optional -->
 You can add an example here
 
-## Current behavior
+## Current behaviour
 <!-- Optional -->
 A clear and concise description of what is currently happenning.
 
-## Expected behavior
+## Expected behaviour
 <!-- Optional -->
 A clear and concise description of what you expected to happen.
 
