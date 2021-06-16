@@ -853,8 +853,8 @@ module.exports = (grunt) ->
 						"E032" # `.modal-content` must be a child of `.modal-dialog`
 						"W009" # Using empty spacer columns isn't necessary with Bootstrap's grid. So instead of having an empty grid column with `class="col-xs-12"` , just add `class="col-xs-offset-12"` to the next grid column.
 						"E012" # `.input-group` and `.col-*-*` cannot be used directly on the same element. Instead, nest the `.input-group` within the `.col-*-*`
-						"E017" # GCWeb wants to support explicit labels when using checkbox inputs under the .provisional.gc-chckbxrdio .checkbox classes
-						"E018" # GCWeb wants to support explicit labels when using radio inputs under the .provisional.gc-chckbxrdio .radio classes
+						"E017" # GCWeb wants to support explicit labels when using checkbox inputs under the .gc-chckbxrdio .checkbox classes
+						"E018" # GCWeb wants to support explicit labels when using radio inputs under the .gc-chckbxrdio .radio classes
 					]
 				src: [
 					"dist/**/*.html"
