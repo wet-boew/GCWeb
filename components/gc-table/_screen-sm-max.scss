@@ -4,6 +4,29 @@
 
 .provisional {
 	&.gc-table {
+		&.table-bordered {
+			border: 0;
+			> {
+				thead,
+				tbody,
+				tfoot {
+					> {
+						tr {
+							> {
+								th,
+								td {
+									border: {
+										bottom: 0;
+										left: 0;
+										right: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 		.text-left {
 			clear: both;
 			display: block;
