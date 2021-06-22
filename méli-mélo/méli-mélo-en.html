@@ -1,81 +1,80 @@
 ---
 title: Méli-mélo features
-description: Reusable feature that are into a preliminary state of experimentation.
+description: Reusable features that are into a preliminary state of experimentation.
 lang: en
 altLangPage: méli-mélo-fr.html
-dateModified": 2021-05-27
+dateModified": 2021-06-22
 ---
 
-<p>Reusable feature that are into a preliminary state of experimentation. Features are grouped into compilation in order to initiate quickly usability research, initiate preliminary discussion with key organisation and transforming the feature into a high quality produit adapted for GCWeb. Features are build from custom CSS/Javascript code.</p>
+<p>Reusable <strong>features</strong> that are into a preliminary state of experimentation. Features are built from custom CSS and/or Javascript code. Check out the <a href="#mli-mlo-list">list of mélis-mélos below</a>.</p> 
 
-<p>Every compilation life time are less than a year. That should provide feature sponsor department enough time to find resources to make their feature progressing as an official GCWeb feature. Support are provided during the wet-boew weekly code sprint happening remotely every Tuesday afternoon. An frozen (expired) méli-mélo compilation should not be used into any web page.</p>
+<p class="alert alert-info"><strong>Support is provided during the <a href="https://github.com/wet-boew/wet-boew/wiki/WET-BOEW-Code-sprint">wet-boew weekly code sprint</a> happening remotely every Tuesday afternoon.</strong></p>
 
-<p>This framework for méli-mélo compilation and feature are excluded from the GCWeb public API. Any change or removal would only trigger a patch release of GCWeb. That means the author are fully responsible but not required to documents any subsequent change they would make at their méli-mélo feature.</p>
-
-
-<h3>Méli-mélo sub-projects</h3>
-<p>(in their independent form)</p>
-
-{% assign melimelo_pages = site.pages | where: "output", "false" | where: "feature", "méli-mélo" | sort: "componentName" %}
+<h2>Requirements for a proper méli-mélo feature</h2>
 
 <ul>
-{% for feature in melimelo_pages %}
-	{% assign featBasePath = feature.path | slice: 0, 10 %}
-	{% if featBasePath == "méli-mélo/" %}
-	<li><a href="{{ feature.componentName }}/détails-en.html">{{ feature.componentName }}</a></li>
-	{% endif %}
-{% endfor %}
-</ul>
-
-<h2>Requirements</h2>
-
-<ul>
-	<li>Be reusable</li>
-	<li>Be sponsored by a department and by an active representative of that department</li>
-	<li>Must include an implementation plan that explains the steps taken by the sponsored department on how they will actively work the feature to get it integrated into GCWeb.</li>
-	<li>Must not contain any interference with wet-boew and GCWeb.</li>
-	<li>Each individual sub-feature and style must be demoed.</li>
-	<li>Working demo must be published using the GCWeb Jekyll template</li>
-	<li>Project name must be in this format: Year and month of the publication time of the feature followed by a short name identifying the feature</li>
+	<li>Be reusable;</li>
+	<li>Be sponsored by a department and by an active representative of that department;</li>
+	<li>Must include an implementation plan that explains the steps taken by the sponsored department on how they will actively work the feature to get it integrated into GCWeb;</li>
+	<li>Must not contain any interference with wet-boew and GCWeb, meaning no component override nor extention (such thing should customization be contributed in the <a href="../components/provisional-en.html">provisional</a> or stable GCWeb or wet-boew component instead);</li>
+	<li>Each individual sub-feature and style must be demoed, for instance each CSS classes or JS configurations;</li>
+	<li>Working demo must be published using the <a href="https://github.com/wet-boew/gcweb-jekyll">GCWeb Jekyll template</a>;</li>
+	<li>Feature name must be in this format: Year and month of the time of the feature's publication followed by a short name identifying the feature (<a href="#feature-name">feature name example shown below</a>).</li>
 </ul>
 
 <h2>Contribution instructions</h2>
 
 <ul>
-	<li>Code and/or reorganize the feature by levering GCWeb Jekyll theme</li>
-	<li>Create a project folder in the <code>méli-mélo</code> GCWeb root folder</li>
-	<li>Loading the feature must not change the state of any generic page. Feature must be explicitly activated through HTML by the web publisher, like the wet-boew plugin or the usage of a CSS class onto an HTML element.</li>
-	<li>The project name must follow this notation: year-month-projectName. The year and month must correspond to the feature's initial publication date. For example "2021-05-steps"</li>
-	<li>The implementation plan should be published along with the project web pages. Each item of the implementation plan must be dated because we are going to use it to measure the integration progress into GCWeb. The expectation is to get the méli-mélo feature fully integrated into GCWeb within less than one (1) year.</li>
-	<li>Test your code and submission by using your GitHub pages</li>
-	<li>Submit the méli-mélo feature through a new GitHub PR in the GCWeb project.</li>
-	<li>Once approved by the technical review, it will be assigned to a méli-mélo compilation and released on Canada.ca at the next release windows between 1 to 3 weeks.</li>
+	<li>Code and/or reorganize the feature by levering GCWeb Jekyll theme.</li>
+	<li>Create a feature folder in the <code>méli-mélo</code> GCWeb root folder.</li>
+	<li>Loading features must not change the state of any generic page. Features must be explicitly activated through HTML by the web publisher, like <a href="https://wet-boew.github.io/wet-boew/demos/helloworld/helloworld-en.html">wet-boew plugins</a> or by using a CSS class to hook onto an HTML element.</li>
+	<li id="feature-name">Feature's name must follow this notation: year-month-featureName. The year and month must correspond to the feature's initial publication date. For example "2021-05-steps".</li>
+	<li>Implementation plan should be published along with the feature's web pages. Each item of the implementation plan must be dated because we are going to use it to measure the integration progress into GCWeb. The expectation is to get the méli-mélo feature fully integrated into GCWeb within less than one (1) year. See an <a href="2021-05-steps/détails-en.html">example of an implementation plan</a></li>
+	<li>Test your code and submission by <a href="../index-en.html#refresh-your-github-pages-with-the-latest-theme-changes">using your GitHub pages</a>.</li>
+	<li>Submit the méli-mélo feature through a new GitHub PR in the <a href="https://github.com/wet-boew/GCWeb">GCWeb project</a>.</li>
+	<li>Once approved by the technical review, it will be assigned to a <a href="#mli-mlo-comp">méli-mélo compilation</a> and released on Canada.ca at the next release windows between 1 to 3 weeks.</li>
 	<li>Update the méli-mélo feature code by executing the implementation plan and addressing all TODO's identified by the wet-boew technical review team.</li>
-	<li>Participate at the weekly wet-boew Tuesday afternoon code sprint</li>
+	<li>Participate at the weekly wet-boew Tuesday afternoon code sprint.</li>
 	<li>Create the GCWeb provisional/stable feature aligned with our enterprise design approach.</li>
 </ul>
 
 <h2>Technical review checklist</h2>
 
+<p>This list contains the steps that the wet-boew technical review team uses to approve new méli-mélo features.</p>
 <ul>
-	<li>Ensure the project sponsor is clearly identified.</li>
-	<li>Project folder name follows the naming convention</li>
-	<li>Each JavaScript feature and each style are demoed</li>
-	<li>Perform a code review to ensure there are no overrides nor conflict with GCWEb and/or wet-boew</li>
-	<li>Quickly check if we don't notice any major or obvious web accessibility and security issue. However, the accessibility conformance remains the responsibility of the publisher when implementing the feature into a web page</li>
-	<li>Ensure the feature doesn't automatically change the state of a generic page when loaded. It must not impact any content unless the feature is explicitly activated through the HTML code, like through the use of a CSS class or the presence of a data attribute.</li>
-	<li>Review the implementation plan to ensure it contains reasonable due date and deliverable. It must include:
+	<li>Ensure the project sponsor is clearly identified;</li>
+	<li>Project folder name follows the naming convention explained above;</li>
+	<li>Each JavaScript feature and each style are demoed;</li>
+	<li>Perform a code review to ensure there are no overrides nor conflict with GCWEb and/or wet-boew;</li>
+	<li>Quickly check if we don't notice any major or obvious web accessibility and security issue. However, the accessibility conformance remains the responsibility of the publisher when implementing the feature into a web page;</li>
+	<li>Ensure the feature doesn't automatically change the state of a generic page when loaded. It must not impact any content unless the feature is explicitly activated through the HTML code, like through the use of a CSS class or the presence of a data attribute;</li>
+	<li>Review the implementation plan to ensure it contains a reasonable due date and deliverable. It must include:
 		<ul>
-			<li>Engagement with the Digital Transformation Office (DTO) at Treasury Board Secretariat.</li>
-			<li>Review and perform the identification of the feature transformation requirement to be able to complete the integration progress into GCWeb.</li>
-			<li>Produce accessibility conformance report and attach usability report, if any</li>
-			<li>Transformation of the méli-mélo functionality into a GCWeb provisional feature.</li>
-			<li>Complete feature stabilisation task, like working example translation, writing guidance, publishing ACRs, feature API documentation...</li>
+			<li>Engagement with the Digital Transformation Office (DTO) at Treasury Board Secretariat;</li>
+			<li>Review and perform the identification of the feature transformation requirement to be able to complete the integration progress into GCWeb;</li>
+			<li>Produce accessibility conformance report and attach usability report, if any;</li>
+			<li>Transformation of the méli-mélo functionality into a GCWeb provisional feature;</li>
+			<li>Complete feature stabilisation task, like working example translation, writing guidance, publishing ACRs, feature API documentation, etc.</li>
 		</ul>
 	</li>
 </ul>
 
-<h2>List of active méli-mélo compilation</h2>
+<h2 id="mli-mlo-comp">Méli-mélo compilations</h2>
+
+<div class="well">
+	<p>Features are grouped into <strong>compilations</strong> in order to quickly:</p>
+	<ul>
+		<li>initiate usability research;</li>
+		<li>initiate preliminary discussion with key organisation; and</li>
+		<li>transforming the feature into a high quality produit adapted for GCWeb.</li>
+	</ul>
+</div>
+
+<p>Every compilations life expectancy is less than one (1) year. That should provide a feature's <strong>sponsor department</strong> enough time to find resources to make their feature progressing as an official GCWeb feature. A <a href="compilation-gelé/index.html" hreflang="fr">frozen (expired) méli-mélo compilation</a> should not be used into any web page.</p>
+
+<p>This framework for méli-mélo compilations and features are excluded from the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3.html">GCWeb public API</a>. Any change or removal would only trigger a patch release of GCWeb. That means the author are fully responsible but not required to documents any subsequent change they would make at their méli-mélo feature.</p>
+
+<h3 id="mli-mlo-list">List of active méli-mélo compilations</h3>
 
 <ul>
 {% for item in site.data[ "mli-mlo" ].packages %}
@@ -90,4 +89,19 @@ dateModified": 2021-05-27
 {% endfor %}
 </ul>
 
-<p><small>(<a href="compilation-gelé/index.html" hreflang="fr">View the frozen and deprecated méli-mélo compilations (in French only)</a>)</small></p>
+<p><small>(<a href="compilation-gelé/index.html" hreflang="fr">View the frozen and deprecated méli-mélo compilations (in French only)</a>.)</small></p>
+
+<h3>List of méli-mélo sub-compilations (features)</h3>
+
+{% assign melimelo_pages = site.pages | where: "output", "false" | where: "feature", "méli-mélo" | sort: "componentName" %}
+
+<ul>
+{% for feature in melimelo_pages %}
+	{% assign featBasePath = feature.path | slice: 0, 10 %}
+	{% if featBasePath == "méli-mélo/" %}
+	<li><a href="{{ feature.componentName }}/détails-en.html">{{ feature.componentName }}</a></li>
+	{% endif %}
+{% endfor %}
+</ul>
+
+<p class="mrgn-tp-lg"><strong>See also:</strong> <a href="../thématique/gc-thématique-en.html">GC promotional thematics</a> for custom code that is explicitly for promotional content and that affects a respectable set of pages.</p>
