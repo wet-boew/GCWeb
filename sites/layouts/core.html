@@ -13,6 +13,9 @@
 {% include license.html %}
 <title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
 <meta content="width=device-width, initial-scale=1" name="viewport">
+{%- if page.altLangPage -%}
+{% include canonical.html %}
+{%- endif -%}
 {% include metadata.html %}
 {% include resources-inc/head.html %}
 </head>

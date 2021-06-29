@@ -1,0 +1,10 @@
+{% comment %}
+Should only be called if page.altLangPage is set and a BasePath URL exist
+{% endcomment %}
+{%- if site.baseurl -%}
+<link rel="canonical" href="{{ page.url | prepend: site.baseurl }}" />
+<link rel="alternate" href="{{ page.altLangPage | prepend: site.baseurl | prepend: i18nText-altLang }}" hreflang="{{ i18nText-altLang }}" />
+{% elsif site.urlalt %}
+<link rel="canonical" href="{{ page.url | prepend: site.urlalt[ page.lang ] }}" />
+<link rel="alternate" href="{{ page.altLangPage | prepend: site.urlalt[ i18nText-altLang ] }}" hreflang="{{ i18nText-altLang }}" />
+{%- endif -%}

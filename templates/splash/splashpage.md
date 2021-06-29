@@ -2,12 +2,15 @@
 layout: layout-splashpage
 title: Canada.ca
 lang: en
-description-en: The Government of Canada website is a single point of access to all programs, services, departments, ministries and organizations of the Government of Canada.
-description-fr: Le site Web du gouvernement du Canada fournit un point d'accès complet à tous les programmes, services, départements, ministères et organismes du gouvernement du Canada.
-creator-en: Government of Canada
-creator-fr: Gouvernement du Canada
-subject-en: GV Government and Politics
-subject-fr: GV Gouvernement et vie politique
+description:
+  en: The Government of Canada website is a single point of access to all programs, services, departments, ministries and organizations of the Government of Canada.
+  fr: Le site Web du gouvernement du Canada fournit un point d'accès complet à tous les programmes, services, départements, ministères et organismes du gouvernement du Canada.
+creator:
+  en: Government of Canada
+  fr: Gouvernement du Canada
+subject:
+  en: GV Government and Politics
+  fr: GV Gouvernement et vie politique
 dateIssued: 2013-12-13
 dateModified: 2021-05-06
 ---
