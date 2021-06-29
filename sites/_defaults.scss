@@ -120,13 +120,40 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
 	font-weight: $bold-weight;
 }
 
-.h3,
-.h4,
-.h5,
-.h6 {
+.h3:not(summary),
+.h4:not(summary),
+.h5:not(summary),
+.h6:not(summary) {
 	border: 0;
 }
 
+// Headings inside summaries
+summary {
+	h2,
+	.h2 {
+		font-size: $font-size-px-h2;
+	}
+
+	h3,
+	.h3 {
+		font-size: $font-size-px-h3;
+	}
+
+	h4,
+	.h4 {
+		font-size: $font-size-px-h4;
+	}
+
+	h5,
+	.h5 {
+		font-size: $font-size-px-h5;
+	}
+
+	h6,
+	.h6 {
+		font-size: $font-size-px-h6;
+	}
+}
 
 /* Exclude temporary the form element from the font update, keep same style as before
  * - Rational: More testing and various adjustment need to be completed before to apply it
@@ -560,8 +587,8 @@ a.figcaption {
 
 	.well {
 		margin: {
-			left: -$details-identation;
-			right: -$details-identation;
+			left: -$details-indentation;
+			right: -$details-indentation;
 		}
 	}
 
