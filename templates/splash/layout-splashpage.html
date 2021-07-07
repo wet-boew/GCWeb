@@ -6,26 +6,26 @@
 		<title>{{ page.title }}</title>
 		<link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="{{ page.description-en }}" />
-		<meta name="dcterms.description" content="{{ page.description-en }}" />
-		<meta name="dcterms.creator" content="{{ page.creator-en }}" />
+		<meta name="description" content="{{ page.description[ page.lang ] }}" />
+		<meta name="dcterms.description" content="{{ page.description[ page.lang ] }}" />
+		<meta name="dcterms.creator" content="{{ page.creator[ page.lang ] }}" />
 		<meta name="dcterms.title" content="{{ page.title }}" />
 		<meta name="dcterms.issued" title="W3CDTF" content="{{ page.dateIssued }}" />
 		<meta name="dcterms.modified" title="W3CDTF" content="{{ page.dateModified }}" />
-		<meta name="dcterms.subject" content="{{ page.subject-en }}" />
+		<meta name="dcterms.subject" content="{{ page.subject[ page.lang ] }}" />
 		<meta name="dcterms.language" title="ISO639-2" content="eng" />
 		<meta name="robots" content="noindex, follow" />
 
 		<meta property="dcterms:issued" content="{{ page.dateIssued }}">
 		<meta property="dcterms:modified" content="{{ page.dateModified }}">
 		<meta property="dcterms:title" lang="en" content="{{ page.title }}" />
-		<meta property="dcterms:creator" lang="en" content="{{ page.creator-en }}">
-		<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject-en }}" />
-		<meta property="dcterms:description" lang="en" content="{{ page.description-en }}" />
+		<meta property="dcterms:creator" lang="en" content="{{ page.creator[ page.lang ] }}">
+		<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject[ page.lang ] }}" />
+		<meta property="dcterms:description" lang="en" content="{{ page.description[ page.lang ] }}" />
 		<meta property="dcterms:title" lang="fr" content="{{ page.title }}" />
-		<meta property="dcterms:creator" lang="fr" content="{{ page.creator-fr }}">
-		<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject-fr }}" />
-		<meta property="dcterms:description" lang="fr" content="{{ page.description-fr }}" />
+		<meta property="dcterms:creator" lang="fr" content="{{ page.creator[ i18nText-altLang ] }}">
+		<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject[ i18nText-altLang ] }}" />
+		<meta property="dcterms:description" lang="fr" content="{{ page.description[ i18nText-altLang ] }}" />
 		{% include resources-inc/head.html %}
 		<link rel="stylesheet" href="{{ setting-resourcesBasePathTheme }}/css/messages{{ setting-minifiedSuffix }}.css" />
 	</head>
