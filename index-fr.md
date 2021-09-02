@@ -1,7 +1,7 @@
 ---
 title: GCWeb, le thème WET-BOEW de Canada.ca
 altLangPage: home.html
-dateModified: 2021-06-16
+dateModified: 2021-08-06
 description: "Page d'accueil décrivant l'ensemble des composants du thème de Canada.ca, nommé GCWeb."
 lang: fr
 ---
@@ -12,8 +12,8 @@ lang: fr
 		<p>Les gabarits et les conceptions communes si dessous sont une référence d'implémentation du <a href="https://conception.canada.ca">Système de conception de Canada.ca</a>, incluant les exigences obligatoire de la spécifications du contenu et de l’architecture de l'information (C&amp;AI) pour Canada.ca. Les ministères et organisme du gouvernement du Canada peuvent y contribuer en publiant leur modèle et leur conception commune via le <a href="https://github.com/wet-boew/GCWeb">dépôt github de GCWeb</a>.</p>
 	</div>
 	<div class="col-xs-12 col-md-auto pull-right">
-		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.4.1.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v9.4.1</strong></a><br />
-			<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.4.1">Note de version</a>)</small></p>
+		<p><a href="https://github.com/wet-boew/GCWeb/archive/v9.5.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v9.5.0</strong></a><br />
+			<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v9.5.0">Note de version</a>)</small></p>
 	</div>
 </div>
 
