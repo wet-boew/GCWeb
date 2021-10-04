@@ -3,7 +3,7 @@ title: Documentation au sujet de la page de profil des ministres
 description: Documentation et exemple pratique des pages de profil des ministres.
 language: fr
 altLangPage: ministerial-doc-en.html
-dateModified: 2021-09-16
+dateModified: 2021-10-13
 share: true
 ---
 
@@ -12,46 +12,344 @@ share: true
 <dl class="horizontal">
 	<dt>Statut</dt>
 	<dd>Stable</dd>
-
 	<dt>Type</dt>
 	<dd>Gabarit de Canada.ca</dd>
-
 	<dt>Dernière revue</dt>
-	<dd>2021-09-15</dd>
-
+	<dd>2021-10-13</dd>
 	<dt>Est conforme à</dt>
 	<dd>Spécifications du contenu et de l'architecture de l'information 2.1</dd>
-
 	<dt>Spécification</dt>
-	<dd><a href="https://conception.canada.ca/modeles-obligatoire/pages-profil-ministres-draft.html">Pages de profil des ministres - Modèle obligatoire de Canada.ca</a></dd>
-
+	<dd><a href="https://conception.canada.ca/modeles-obligatoire/pages-profil-ministres.html">Pages de profil des ministres - Modèle obligatoire de Canada.ca</a></dd>
 	<dt>Version du gabarit</dt>
 	<dd>Version 2.0</dd>
 </dl>
 
-<h2>Exemple pratique</h2>
-
+<h2>Exemples pratiques</h2>
 <ul>
 	<li><a href="ministerial-fr.html">Exemple pratique</a></li>
 	<li><a href="ministerial-en.html" lang="en">working example</a></li>
 </ul>
 
-<h2>Historique des changements</h2>
-
-<h3>Version 2.0</h3>
-
+<h3>Journée d'assermentation</h3>
 <ul>
-	<li>remplacement des sections Nouveautés, Activités récentes et Galerie par une section En vedette flexible</li>
-	<li>suppression du widget de médias sociaux et ajout d'une section facultative "Suivez" à la place</li>
-	<li>simplification et amélioration des directives</li>
-	<li>clarification de la manière d'afficher les ministres, les secrétaires parlementaires et les chefs d'organisation</li>
+	<li><a href="ministerial-reduced-fr.html">Exemple pratique</a></li>
+	<li><a href="ministerial-reduced-en.html" lang="en">working example</a></li>
 </ul>
 
-<h3>Version 1.0</h3>
-
+<h2>Mise en page (Version 2.0)</h2>
+<p>Changements:</p>
 <ul>
-	<li>Gabarit initial</li>
+	<li>En vedette - Ajouté</li>
+	<li>Fil Twitter - Supprimé</li>
+	<li>Nouveautés - Supprimé</li>
+	<li>Activités récentes - Supprimé</li>
+	<li>Galerie - Supprimé</li>
 </ul>
+<div class="row">
+	<div class="col-md-6">
+		<img src="./img/ministerial-profileV2-fra.jpg" alt="Modèle de la page de profil des ministres version 2.0">
+	</div>
+	<div class="col-md-6">
+		<ul>
+			<li>Titre<br>
+			Ref: 1</li>
+			<li>Photo<br>
+			Ref: 2</li>
+			<li>Intro<br>
+			Ref: 3, 4 and 5</li>
+			<li>En vedette<br>
+			Ref: 6</li>
+		</ul>
+	</div>
+</div>
+<pre><code>&lt;!-- Titre [Ref: 1] --&gt;
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col-3&quot;&gt;
+		&lt;!-- Intro - photo du ou de la ministre [Ref: 2] --&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;col-9&quot;&gt;
+		&lt;!-- Intro - Texte [Ref: 3 and 4] --&gt;
+		&lt;!-- Coordonnées [Ref: 5] --&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Promotions contextuelles (Version 4.0 - 1-col; 2-col; 3-col; ) [Ref: 6] --&gt;</code></pre>
+<h3>Profil des ministres - journée d'assermentation</h3>
+<p>Basé sur la version 2.0 en excluant Intro #3, #5 et En vedette #6 et en ajouter la classe <code>mrgn-tp-lg</code> au premier paragraphe.</p>
+<details>
+	<summary><h2>Mise en page (Version 1.0)</h2></summary>
+	<div class="row">
+		<div class="col-md-6">
+			<img src="./img/ministerial-profileV1-fra.jpg" alt="Modèle de la page de profil des ministres version 1.0">
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li>Titre<br>
+				Ref: 1</li>
+				<li>Photo<br>
+				Ref: 2</li>
+				<li>Intro<br>
+				Ref: 3, 4, and 5</li>
+				<li>Fil Twitter<br>
+				Ref: 6</li>
+				<li>Nouveautés<br>
+				Ref: 7</li>
+				<li>Activités récentes<br>
+				Ref: 8</li>
+				<li>Galerie<br>
+				Ref: 9</li>
+			</ul>
+		</div>
+	</div>
+	<pre><code>&amp;lt;!-- Titre [Réf: 1] --&amp;gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+			&lt;!-- Intro - Photo du Ministre [Ref: 2] --&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-6&quot;&gt;
+			&lt;!-- Intro - Texte [Réf: 3 and 4] --&gt;
+			&lt;!-- Contact us [Réf: 5] --&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-md-3&quot;&gt;
+			&lt;!-- Fil Twitter [Réf: 6] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-sm-12&quot;&gt;
+			&lt;!-- Nouveautés [Réf: 7] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;section&gt;
+		&lt;!-- Activités récentes [Réf: 8] --&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;!-- Galerie [Réf: 9] --&gt;
+	&lt;/section&gt;</code></pre>
+</details>
+
+<h2>Composants</h2>
+<ul>
+	<li><a href="#c1">Titre</a></li>
+	<li><a href="#c2">Photo</a></li>
+	<li><a href="#c3">Intro</a></li>
+	<li><a href="#c4">Nouveautés</a></li>
+	<li><a href="#c5">Activités récentes</a></li>
+	<li><a href="#c6">Galerie</a></li>
+</ul>
+
+<h3 id="c1">Titre</h3>
+<dl class="dl-horizontal">
+	<dt>Version courante:</dt>
+	<dd>1.1 (en date du 2021-10-06)</dd>
+	<dt>Changement :</dt>
+	<dd> Addition de la config 3</dd>
+</dl>
+<h4>Configuration</h4>
+<ul>
+	<li>[Config 1] Ministre</li>
+	<li>[Config 2] Secrétaire parlementaire</li>
+	<li>[Config 3] Chef de l'institution ou de l'organisation</li>
+</ul>
+<h4>Sémantique</h4>
+<p>Titre niveau 1&nbsp:</p>
+<pre><code>
+	&lt;h1&gt;&lt;/h1&gt;
+</code></pre>
+<h4>Modèle d'interaction</h4>
+<p>N/A</p>
+<h4>Style</h4>
+<p>N/A</p>
+<h4>Données statiques:</h4>
+<ul>
+	<li>[Config 1] Ministre
+	<ul>
+		<li>L’honorable</li>
+		<li>, député</li>
+	</ul>
+	</li>
+	<li>[Config 2] Secrétaire parlementaire</li>
+	<li>[Config 3] Chef de l'institution ou de l'organisation</li>
+</ul>
+<h4>Schéma</h4>
+<ul>
+	<li>[Config 1] Ministre
+		<ul>
+			<li>Nom du ministre</li>
+		</ul>
+	</li>
+	<li>[Config 2] Secrétaire parlementaire
+		<ul>
+			<li>Nom du secrétaire parlementaire</li>
+		</ul>
+	</li>
+	<li>[Config 3] Chef de l'institution ou de l'organisation
+		<ul>
+			<li>Nom du chef de l'institution ou de l'organisation</li>
+		</ul>
+	</li>
+</ul>
+<h4>Mise en page</h4>
+<p>N/A</p>
+<h4>Contexte d'utilisation</h4>
+<p>Dans le modèle de page de profil des ministres.</p>
+
+<h3  id="c2">Photo</h3>
+<p>Version 1.0</p>
+<h4>Style</h4>
+<ul>
+	<li>Classes
+		<ul>
+			<li><code>img-responsive</code></li>
+		</ul>
+	</li>
+</ul>
+<h4>Sémantique</h4>
+<p>Balise d'image&nbsp;:</p>
+<pre><code>&lt;img src="" &gt;</code></pre>
+
+<h3 id="c3">Intro</h3>
+<p>Version 1.0</p>
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;p class=&quot;mrgn-tp-lg&quot;&gt;&lt;strong&gt;Ministre de &lt;a href=&quot;#&quot;&gt;[nom du portefeuille no1]&lt;/a&gt; et &lt;a href=&quot;#&quot;&gt;[nom du portefeuille no2]&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+	&lt;p&gt;Représente la circonscription de &lt;a href=&quot;#&quot;&gt;[nom de la circonscription]&lt;/a&gt;&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Lettre de mandat adressées aux ministres&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Cahier de breffage ministériel&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Nomination ministérielle&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore amet ducimus nihil, voluptate quibusdam? Excepturi in aspernatur rem ipsam aperiam voluptates fugit officiis culpa, ratione, et maxime impedit.&lt;/p&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore amet ducimus nihil, voluptate quibusdam? Excepturi in aspernatur rem ipsam aperiam voluptates fugit officiis culpa, ratione, et maxime impedit.&lt;/p&gt;
+	&lt;section&gt;
+		&lt;h2&gt;Coordonnées&lt;/h2&gt;
+		&lt;p&gt; Chambre des communes&lt;br&gt;
+		Ottawa (Ontario)&amp;nbsp;K1A&amp;nbsp;0A6&lt;br&gt;
+		&lt;strong&gt;Téléphone&amp;nbsp;:&lt;/strong&gt; 123-456-7890&lt;br&gt;
+		&lt;strong&gt;Courriel&amp;nbsp;:&lt;/strong&gt; &lt;a href=&quot;mailto:&quot;&gt;[prénom.nom@canada.ca]&lt;/a&gt; &lt;span class=&quot;glyphicon glyphicon-envelope&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+	&lt;/section&gt;</code></pre>
+</details>
+
+<h3  id="c4">Nouveautés - [Obsolète depuis la V2.0]</h3>
+<p>Version 1.0</p>
+<h4>Sémantique</h4>
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;div class=&quot;col-sm-12&quot;&gt;
+	&lt;section&gt;
+		&lt;h2&gt;Nouveautés&lt;/h2&gt;
+		&lt;div class=&quot;gc-nws row&quot;&gt;
+			&lt;div class=&quot;col-md-8&quot;&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;div class=&quot;col-md-6&quot;&gt;
+						&lt;a href=&quot;#&quot;&gt;
+							&lt;img src=&quot;./img/360x203.png&quot; alt=&quot;&quot; class=&quot;img-responsive thumbnail&quot;&gt;
+							&lt;p&gt;[Titre de l’article]&lt;/p&gt;
+						&lt;/a&gt;
+						&lt;p&gt;&lt;small class=&quot;text-muted&quot;&gt;&lt;time&gt;2018-06-05 19:00&lt;/time&gt; - Type de produit médiatique&lt;/small&gt;&lt;br&gt;
+						Brève description de la nouvelle.&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;div class=&quot;col-md-6&quot;&gt;
+					&lt;a href=&quot;#&quot;&gt;
+					&lt;img src=&quot;./img/360x203.png&quot; alt=&quot;&quot; class=	&quot;img-responsive thumbnail&quot;&gt;
+					&lt;p&gt;[Titre de l’article]&lt;/p&gt;
+				&lt;/a&gt;
+				&lt;p&gt;&lt;small class=&quot;text-muted&quot;&gt;&lt;time&gt;2018-06-05 19:00&lt;/time&gt; - Type de produit médiatique&lt;/small&gt;&lt;br&gt; Brève description de la nouvelle.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;wb-feeds limit-3 col-md-4 wb-init wb-feeds-inited&quot; id=&quot;wb-auto-4&quot;&gt;
+		&lt;ul class=&quot;feeds-cont list-unstyled lst-spcd&quot;&gt;
+			&lt;li&gt; &lt;a href=&quot;http://news.gc.ca/web/fd-fr.do?mthd=dpt&amp;amp;ft=atom&amp;amp;crtr.dpt1D=6675&quot; rel=&quot;external&quot; id=&quot;wb-auto-5&quot;&gt;Nouvelles du Gouvernement du Canada &lt;/a&gt; &lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;p class=&quot;text-right&quot;&gt;&lt;strong&gt;&lt;a href=&quot;#&quot;&gt;Toutes les nouvelles&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+</details>
+
+<h3  id="c5">Activités récentes - [Obsolète depuis la V2.0]</h3>
+<p>Version 1.0</p>
+<h4>Sémantique</h4>
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;section&gt;
+	&lt;h2&gt;Activités récentes&lt;/h2&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;section class=&quot;col-sm-4&quot;&gt;
+			&lt;h3&gt;Initiatives&lt;/h3&gt;
+			&lt;ul class=&quot;lst-spcd&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Initiatives 1]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Initiatives 2 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Initiatives 3]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Initiatives 4 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/section&gt;
+		&lt;section class=&quot;col-sm-4&quot;&gt;
+			&lt;h3&gt;Discours&lt;/h3&gt;
+			&lt;ul class=&quot;lst-spcd&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Discours 1]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Discours 2 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Discours 3]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Discours 4 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/section&gt;
+		&lt;section class=&quot;col-sm-4&quot;&gt;
+			&lt;h3&gt;Avis aux médias&lt;/h3&gt;
+			&lt;ul class=&quot;lst-spcd&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Avis aux médias 1]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Avis aux médias 2 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Avis aux médias 3]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;[Avis aux médias 4 contenant un texte plus long à insérer]&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/section&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
+
+<h3  id="c6">Gallerie - [Obsolète depuis la V2.0]</h3>
+<p>Version 1.0</p>
+<h4>Sémantique</h4>
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;section&gt;
+	&lt;h2&gt;Galerie&lt;/h2&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-lg-3 col-md-6 mrgn-bttm-lg&quot;&gt;
+				&lt;a href=&quot;#&quot;&gt;
+					&lt;figure&gt;
+						&lt;img src=&quot;./img/250x250.png&quot; alt=&quot;&quot; class=&quot;img-responsive thumbnail mrgn-bttm-sm&quot;&gt;
+						&lt;figcaption&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, fugiat!&lt;/figcaption&gt;
+					&lt;/figure&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;div class=&quot;col-lg-3 col-md-6 mrgn-bttm-lg&quot;&gt;
+			&lt;a href=&quot;#&quot;&gt;
+				&lt;figure&gt;
+					&lt;img src=&quot;./img/250x250.png&quot; alt=&quot;&quot; class=&quot;img-responsive thumbnail mrgn-bttm-sm&quot;&gt;
+					&lt;figcaption&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, fugiat!&lt;/figcaption&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-lg-3 col-md-6 mrgn-bttm-lg&quot;&gt;
+			&lt;a href=&quot;#&quot;&gt;
+				&lt;figure&gt;
+					&lt;img src=&quot;./img/250x250.png&quot; alt=&quot;&quot; class=&quot;img-responsive thumbnail mrgn-bttm-sm&quot;&gt;
+					&lt;figcaption&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, fugiat!&lt;/figcaption&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-lg-3 col-md-6 mrgn-bttm-lg&quot;&gt;
+			&lt;a href=&quot;#&quot;&gt;
+				&lt;figure&gt;
+					&lt;img src=&quot;./img/250x250.png&quot; alt=&quot;&quot; class=&quot;img-responsive thumbnail mrgn-bttm-sm&quot;&gt;
+					&lt;figcaption&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, fugiat!&lt;/figcaption&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#&quot;&gt;Toutes les photos et vidéos&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+</details>
 
 <h2>Raport et évaluation</h2>
 <p>Il n'y aucun raport ou évaluation disponible pour ce gabarit.</p>
