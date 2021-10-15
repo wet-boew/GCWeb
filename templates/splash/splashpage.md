@@ -10,6 +10,20 @@ subject-en: GV Government and Politics
 subject-fr: GV Gouvernement et vie politique
 dateIssued: 2013-12-13
 dateModified: 2021-05-06
+
+images:
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-1.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-2.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-3.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-4.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-5.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-6.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-7.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-8.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-9.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-10.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-11.jpg
+  - https://www.canada.ca/content/dam/canada/splash/sp-bg-12.jpg
 ---
 <section class="col-xs-6 text-right">
   <h2 class="wb-inv">Government of Canada</h2>
