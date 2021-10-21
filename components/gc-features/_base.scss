@@ -1,4 +1,13 @@
-/* GC Features component */
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ * @title: GC Features component
+ *
+ */
+
+// Component style are also defined in "../_shared-styles.scss"
 
 .gc-features {
 	margin-bottom: $space-md;
@@ -14,5 +23,77 @@
 	.well {
 		border-radius: 0;
 		position: relative;
+	}
+}
+
+aside {
+	//Related site links before the footer features and after the main
+	&.site-related {
+		h2 {
+			font-size: 28px;
+			margin-top: 0;
+		}
+	}
+
+	//Footer features
+	&.features {
+		background-color: $wbGrayLight;
+		background-image: linear-gradient(to bottom, $wbGrayLight 0%, #eaebed 100%);
+		padding-bottom: 1.5em;
+
+		h2 {
+			border: 0;
+		}
+
+		figcaption {
+			font-weight: 700;
+			margin-top: 3px;
+		}
+
+		.thumbnail {
+			background-color: transparent;
+			border: 0;
+			border-radius: 0;
+			margin-bottom: 1.5em;
+			padding: 10px 10px 0;
+
+			img {
+				border: solid 1px #eee;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+/* Deprecated as v4.0.28 */
+.gc-nttvs {
+	border-top: 1px solid #ccc;
+}
+
+/*
+ * Feature
+ *
+ * Deprecated as v4.0.28
+ * - style applied for: h2, h3, h4
+ * - class .gc-nttvs
+ */
+.gc-prtts,
+.gc-nttvs {
+	a {
+		text-decoration: none;
+
+		h2,
+		h3,
+		h4,
+		figcaption {
+			font-size: $heading-link;
+			font-weight: bold;
+			margin-top: $heading-link-mrgn-tp;
+			text-decoration: underline;
+		}
+
+		p:last-child {
+			color:black;
+		}
 	}
 }

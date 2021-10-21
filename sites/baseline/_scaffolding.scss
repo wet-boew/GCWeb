@@ -1,0 +1,85 @@
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ * @title: Scaffolding
+ *
+ */
+
+//
+// Apply baseline font styling
+// For the font smooth, read the justification here: https://wet-boew.github.io/themes-dist/GCWeb/gcweb-theme/index.html#antialiasing
+//
+html {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+// TODO: The font-size to be applied to the HTML element, not to the main element.
+main {
+	font-size: 20px;
+	line-height: 1.65em;
+}
+
+//
+// Limit the width of the content
+//
+// TODO: Evaluate the impact on Canada.ca if we are applying it by default.
+.cnt-wdth-lmtd main,
+main .cnt-wdth-lmtd {
+	h2 {
+		max-width: 33ch;
+	}
+	h3 {
+		max-width: 50ch;
+	}
+	h4 {
+		max-width: 59ch;
+	}
+	li {
+		max-width: 63ch;
+	}
+	p, h5, h6, dt, dd {
+		max-width: 65ch;
+	}
+}
+main {
+	position: relative;
+}
+
+a {
+	color: $button-blue;
+
+	img {
+		&.thumbnail {
+			&:hover {
+				box-shadow: 1px 1px 5px #999;
+			}
+		}
+	}
+
+	&.no-undrln {
+		text-decoration: none;
+	}
+}
+
+/* Style only the figcaption as the link */
+a.figcaption {
+
+	text-decoration: none;
+
+	&:not( [class*="text-"] ) * :not( figcaption ) {
+		color: $text-color;
+	}
+
+	figure > *:not( blockquote):not( img ):not( table):not( div ) {
+		margin-left: .8ch;
+		margin-right: .8ch;
+	}
+
+	figcaption {
+		text-decoration: underline;
+	}
+
+}

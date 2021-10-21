@@ -5,6 +5,10 @@
 	text-decoration: none;
 }
 
+%gcweb-pagedetails-children-margin-top {
+	margin-top: .5em;
+}
+
 a {
 	&.shr-opn {
 		@extend %gcweb-share-text-decoration-none;
@@ -20,6 +24,75 @@ a {
 	&.text-right {
 		.shr-pg {
 			text-align: left;
+		}
+	}
+}
+main {
+
+	.pagedetails {
+		font-size: 16px;
+	}
+}
+
+.pagedetails {
+	padding-bottom: 2em;
+	padding-top: 2em;
+
+	// Needed for backwards compatibility with GCWeb 4.0.26 and below's HTML markup. Remove in GCWeb 4.1+.
+	&.row {
+		details {
+			margin: {
+				bottom: .25em;
+				left: 1.1em;
+				right: 1.1em;
+			}
+		}
+	}
+
+	// Add a top margin to the report a problem link/summary.
+	.row {
+		div {
+			&:first-child {
+				a {
+					@extend %gcweb-pagedetails-children-margin-top;
+				}
+
+				details {
+					@extend %gcweb-pagedetails-children-margin-top;
+				}
+			}
+		}
+	}
+
+	// Needed for backwards compatibility with GCWeb 4.0.26 and below's HTML markup. Remove in GCWeb 4.1+.
+	.datemod {
+		padding: {
+			bottom: 7px;
+			top: 7px;
+		}
+
+		#wb-dtmd {
+			margin-top: 0;
+		}
+	}
+
+	.well {
+		margin: {
+			left: -$details-identation;
+			right: -$details-identation;
+		}
+	}
+
+	details {
+		margin-bottom: 0;
+	}
+
+	// Add a top margin on the share button (only if its plugin has initialized).
+	div {
+		+ {
+			.wb-share-inited {
+				@extend %gcweb-pagedetails-children-margin-top;
+			}
 		}
 	}
 }
