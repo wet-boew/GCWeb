@@ -79,65 +79,12 @@
 	<div class="col-md-4 col-xs-12 pull-right">
 		{{>most-requested}}
 	</div>
-	<section class="gc-srvinfo col-md-8 pull-left">
-		<h2>Services et renseignements</h2>
-		<div class="wb-eqht row">
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-			<div class="col-md-6">
-				{{>task}}
-			</div>
-		</div>
-	</section>
+	{% include components/gc-servinfo/with-embed-col-pull.html %}
 	<div class="pull-right col-xs-12 col-md-4">
 		{{>contact-us}}
 		{{>more-info}}
 	</div>
 </div>
-<section class="whtwedo">
-	<h2>Ce que nous faisons</h2>
-	<div class="row wb-eqht">
-		<section class="col-lg-4 col-md-6">
-			{{>research}}
-		</section>
-		<section class="col-lg-4 col-md-6">
-			{{>surveys}}
-		</section>
-		<section class="col-lg-4 col-md-6">
-			{{>consultations}}
-		</section>
-	</div>
-</section>
+{% include templates/whtwedo-3-items.html %}
 {{>corp-info}}
 {{>deptfeatures}}

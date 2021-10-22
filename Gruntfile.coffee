@@ -113,6 +113,7 @@ module.exports = (grunt) ->
 			"clean:gemfileLock"
 			"copy:layouts"
 			"copy:includes"
+			"copy:samples"
 		]
 	)
 	@registerTask(
@@ -594,7 +595,12 @@ module.exports = (grunt) ->
 					rename: (dest, src) ->
 						dest + "/" + src.replace( '/include.html', '.html' )
 				]
-
+			samples:
+				expand: true
+				src: "{sites,components,templates}/**/samples/**.*"
+				dest: "_includes"
+				rename: (dest, src) ->
+					dest + "/" + src.replace( 'samples/', '' )
 			jekyllRunLocal:
 				src: [
 					"_includes/**.*",
