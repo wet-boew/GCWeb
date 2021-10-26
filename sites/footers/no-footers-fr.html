@@ -1,0 +1,32 @@
+---
+{
+	"title": "Masquer la section 'Au sujet du gouvernement' et les liens de la section 'Au sujet de ce site'",
+	"language":	"fr",
+	"altLangPage": "no-footers-en.html",
+	"breadcrumb": [
+		{ "title": "Canada.ca", "link": "https://www.canada.ca/fr.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2022-01-12",
+	"share": "true",
+	"noFooterAbout": "true",
+	"noFooterSite": "true"
+}
+---
+<p>En définnissant les variables <code>noFooterAbout</code> et <code>noFooterSite</code> à "true", la section «&nbsp;Au sujet du gouvernement&nbsp;» et les liens de la section « Au sujet de ce site » seront masqués au chargement de la page mais le le mot-symbole « Canada » restera affiché.</p>
+
+<p>De plus, en masquant tous les pieds de page, le lien «&nbsp;Passer à 'À propos de ce site'&nbsp;» est désactivé à partir des liens «&nbsp;saut de navigation&nbsp;».</p>
+
+<h2>Code de final attendu</h2>
+<pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="brand"&gt;
+		&lt;div class="container"&gt;
+			&lt;div class="row "&gt;
+				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
+					&lt;a href="#wb-cont"&gt;Haut de la page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
+				&lt;/div&gt;&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>

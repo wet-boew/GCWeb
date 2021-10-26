@@ -225,13 +225,13 @@ language: fr
 	<ul>
 	{% for item in site.data.sites %}
 		{% assign list-pages = item.pages %}
-		<li>{{ item.title[ page.lang ] }} (État: {{ comp_status[ item.status ] | default: "Non définie" }})
+		<li>{{ item.title[ page.language ] }} (État: {{ comp_status[ item.status ] | default: "Non définie" }})
 		<ul>
 		{% for pgGroup in list-pages %}
 			{% assign grpkey = pgGroup[0] %}
 			<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
 				<ul>
-				{% assign examples = pgGroup[1] | where: "language", page.lang %}
+				{% assign examples = pgGroup[1] | where: "language", page.language %}
 				{% for example in examples %}
 					{% if example.path %}
 					<li><a href="sites/
@@ -239,9 +239,9 @@ language: fr
 									{{ item.componentName }}/
 								{%- endif -%}
 							{{ example.path }}">{{ example.title }}</a></li>
-					{% elsif example.url %}
-						<li><a href="{{ example.url }}">{{ example.title }}</a></li>
-					{% else %}
+								{% elsif example.url %}
+									<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+								{% else %}
 						<li>{{ example.title }}</li>
 					{% endif %}
 				{% endfor %}
