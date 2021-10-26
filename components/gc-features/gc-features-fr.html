@@ -4,7 +4,7 @@ description: "Documentation et exemples pratiques des Promotions contextuelles."
 language: "fr"
 altLangPage: "gc-features-en.html"
 secondlevel: false
-dateModified: "2021-07-21"
+dateModified: "2021-11-29"
 share: "true"
 ---
 <div class="wb-prettify all-pre hide"></div>
@@ -40,7 +40,7 @@ share: "true"
 
 <h2>Working example</h2>
 
-<h3>Context-specific features - v9.4.2</h3>
+<h3>Context-specific features - v9.5.0</h3>
 <section class="gc-features">
 	<h2>Features</h2>
 	<div class="row wb-eqht">
@@ -67,7 +67,7 @@ share: "true"
 		</div>
 </section>
 
-<h3>GC activities and initiatives - v9.4.2</h3>
+<h3>GC activities and initiatives - v9.5.0</h3>
 <section class="gc-features">
 	<h2>Government initiatives</h2>
 	<div class="row wb-eqht">
@@ -88,7 +88,7 @@ share: "true"
 	</div>
 </section>
 
-<h3>Feature - Markup change - v9.4.2</h3>
+<h3>Feature - Markup change - v9.5.0</h3>
 <section class="gc-features">
 	<h2>One tile - Promotional feature</h2>
 	<div class="row">
@@ -266,7 +266,7 @@ share: "true"
 <details>
 	<summary>Version notes</summary>
 	<dl class="dl-horizontal">
-		<dt>Version 3.0 (v9.4.2)</dt>
+		<dt>Version 3.0 (v9.5.0)</dt>
 		<dd>
 			<ul>
 				<li>Added: <code>.well</code></li>
@@ -275,6 +275,7 @@ share: "true"
 				<li>Removed: <code>.mrgn-bttm-md</code></li>
 				<li>Removed: <code>.mrgn-bttm-sm</code></li>
 				<li>Removed: <code>.brdr-rds-0</code></li>
+				<li>Deprecated: <code>.gc-initiatives</code> (had no style nor behaviour attached)</li>
 			</ul>
 		</dd>
 		<dt>Version 2.1 (v6.1)</dt>
@@ -330,7 +331,7 @@ share: "true"
 <h5>Two or three feature tiles layout</h5>
 <pre><code>&lt;section class="gc-features"&gt;
 	&lt;h2&gt;[[comp:Feature dct:title]]&lt;/h2&gt;
-	&lt;div class="row"&gt;
+	&lt;div class="row wb-eqht"&gt;
 
 		&lt;!-- Column one --&gt;
 		&lt;div data-for="comp:FeatureItem in (comp:Feature comp:features )" class="col-lg-4 col-sm-6"&gt;
@@ -427,12 +428,13 @@ share: "true"
 &lt;/div&gt;</code></pre>
 
 <h4>Features Variant: Government initiatives</h4>
-<p>Distinguishable by its <code>.well</code> containers inside <code>.col-sm-6</code> columns. Image size of 520 x 200 and being on a two column layout only.</p>
-<pre><code>&lt;section class="gc-initiatives"&gt;
+<p>Distinguishable by its 50% width <code>.col-sm-6</code> columns and images of size of 520 x 200.</p>
+<p>The <code>.gc-initiatives</code> class was deprecated at version v9.5.0 (as mentioned above in the Class section of the API) and since it had no style nor behaviour attached, no side effects are to be expected by this removal.</p>
+<pre><code>&lt;section class="gc-features"&gt;
 	&lt;h2&gt;[[comp:Feature dct:title]]&lt;/h2&gt;
-	&lt;div class="row row-eqht"&gt;
+	&lt;div class="row wb-eqht"&gt;
 
-		&lt;!-- One column --&gt;
+		&lt;!-- Column one --&gt;
 		&lt;div data-if="comp:Feature comp:featureType == 'gc-initiatives'" data-for="comp:FeatureItem in (comp:Feature comp:features )" class="col-sm-6"&gt;
 			&lt;div class="well well-sm eqht-trgt"&gt;
 			&lt;img src="[[comp:FeatureItem html:img-src]]" alt="[[comp:FeatureItem html:img-alt]]"/&gt;
@@ -440,7 +442,7 @@ share: "true"
 			&lt;p&gt;[[comp:FeatureItem dct:description]]&lt;/p&gt;
 		&lt;/div&gt;
 
-		&lt;!-- Two column --&gt;
+		&lt;!-- Column two --&gt;
 		&lt;div data-if="comp:Feature comp:featureType == 'gc-initiatives'" data-for="comp:FeatureItem in (comp:Feature comp:features )" class="col-sm-6"&gt;
 			&lt;div class="well well-sm eqht-trgt"&gt;
 			&lt;img src="[[comp:FeatureItem html:img-src]]" alt="[[comp:FeatureItem html:img-alt]]"/&gt;
@@ -489,7 +491,7 @@ share: "true"
 	<summary>Version notes</summary>
 
 	<dl class="dl-horizontal">
-		<dt>Version 3.0 (v9.4.2)</dt>
+		<dt>Version 3.0 (v9.5.0)</dt>
 		<dd>
 			<ul>
 				<li>Simplified template and make features match goverment initiatives.</li>
@@ -500,6 +502,7 @@ share: "true"
 		<dd>
 			<ul>
 				<li>Removed: Drop shadow effect on mouse over</li>
+				<li>Removed: Thumbnail image not clickable on one-column layout</li>
 			</ul>
 		</dd>
 		<dt>Version 1.0 (prior to v6.1)</dt>
