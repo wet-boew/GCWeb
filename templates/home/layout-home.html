@@ -16,7 +16,7 @@
 {% include metadata.html %}
 {% include resources-inc/head.html %}
 </head>
-<body class="home page-type-nav" vocab="http://schema.org/" typeof="WebPage">
+<body class="home page-type-nav{% if page.pageclass %} {{ page.pageclass }}{% endif %}" vocab="http://schema.org/" typeof="WebPage">
 {% include sites/inc-skiplinks.html %}
 <header>
 	<div id="wb-bnr" class="container">
