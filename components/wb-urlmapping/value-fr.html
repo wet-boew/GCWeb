@@ -1,0 +1,52 @@
+---
+{
+	"title": "Correspondance d'URL - Établir une valeur",
+	"description": "Exécute des requête pré-établis selon la correspondance des paramètres de l'URL afin d'établir la valeur d'un champ",
+	"language": "fr",
+	"altLangPage": "value-en.html",
+	"dateModified": "2021-11-03"
+}
+---
+<p>Exécute des requête pré-établis selon la correspondance des paramètres de l'URL afin d'établir la valeur d'un champ.</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<ul>
+	<li><a href="?">Empty <code>?</code></a></li>
+	<li><a href="?province=ab">Valeur 1 <code>?province=ab</code></a></li>
+	<li><a href="?province=mb">Valeur 2 <code>?province=mb</code></a></li>
+	<li><a href="?province=bc">Valeur 3 <code>?province=bc</code></a></li>
+</ul>
+
+<select data-wb-urlmapping='{
+		"province=ab": { "action": "setVal", "value": "ab" },
+		"province=mb": { "action": "setVal", "value": "mb" },
+		"province=bc": { "action": "setVal", "value": "bc" }
+	}'>
+	<option value="">Choisir une province</option>
+	<option value="ab">Alberta</option>
+	<option value="mb">Manitoba</option>
+	<option value="bc">Colombie britannique</option>
+</select>
+
+<h2>Code source</h2>
+<details>
+	<summary>HTML</summary>
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;?&quot;&gt;Vide &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=ab&quot;&gt;Valeur 1 &lt;code&gt;?province=ab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=mb&quot;&gt;Valeur 2 &lt;code&gt;?province=mb&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=bc&quot;&gt;Valur 3 &lt;code&gt;?province=bc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;select data-wb-urlmapping='{
+		&quot;province=ab&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;ab&quot; },
+		&quot;province=mb&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;mb&quot; },
+		&quot;province=bc&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;bc&quot; }
+	}'&gt;
+	&lt;option value=&quot;&quot;&gt;Choisir une province&lt;/option&gt;
+	&lt;option value=&quot;ab&quot;&gt;Alberta&lt;/option&gt;
+	&lt;option value=&quot;mb&quot;&gt;Manitoba&lt;/option&gt;
+	&lt;option value=&quot;bc&quot;&gt;Colombie britannique&lt;/option&gt;
+&lt;/select&gt;
+</details>

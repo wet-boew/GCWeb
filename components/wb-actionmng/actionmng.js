@@ -31,6 +31,7 @@ var $document = wb.doc,
 		"ajax",
 		"addClass",
 		"removeClass",
+		"setVal",
 		"tblfilter",
 		"withInput",
 		"run"
@@ -169,6 +170,10 @@ var $document = wb.doc,
 			return;
 		}
 		$elm.removeClass( data.class );
+	},
+	setValAct = function( event, data ) {
+		var $elm = $( data.source || event.target );
+		$elm.val( data.value );
 	},
 	tblflrAct = function( event, data ) {
 		var elm = event.target,
@@ -584,6 +589,9 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 			break;
 		case "loadJSON":
 			loadJSON( data );
+			break;
+		case "setVal":
+			setValAct( event, data );
 			break;
 		case "withInput":
 			withInput( event, data );

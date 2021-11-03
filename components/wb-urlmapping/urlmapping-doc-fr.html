@@ -34,6 +34,7 @@
 		<li><a href="tblfilter-en.html">URL manager - Table filtering</a></li>
 		<li><a href="patches-en.html">URL manager - Patching JSON</a></li>
 		<li><a href="geomap-en.html">URL manager - Geomap filtering</a></li>
+		<li><a href="value-en.html">URL manager - Set value</a></li>
 	</ul>
 	<p>French:</p>
 	<ul>
@@ -41,6 +42,7 @@
 		<li><a href="tblfilter-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Filtrer un tableau</a></li>
 		<li><a href="patches-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Appliquer des correctifs JSON</a></li>
 		<li><a href="geomap-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Filtrage d'une géomap</a></li>
+		<li><a href="value-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Établir une valeur</a></li>
 	</ul>
 </section>
 <section>
@@ -86,6 +88,24 @@
 		<dd>The filtering will be applied on the column index 1. That is visually the second column of the table.</dd>
 		<dt><code>&quot;value&quot;: &quot;2016-07-26&quot;</code></dt>
 		<dd>The filter value will be the string &quot;2016-07-26&quot;.</dd>
+	</dl>
+
+	<h3>Setting value</h3>
+	<p>On an element with a source refering to a form control (input and select)</p>
+	<pre><code>&lt;select data-wb-urlmapping='{
+				"province=ab": {
+					"action": "setVal",
+					"value": "ab"
+				}
+			}'&gt;</code></pre>
+	<p>Where:</p>
+	<dl class="dl-horizontal">
+		<dt><code>province=ab</code></dt>
+		<dd>Is the query that must match to apply the related action</dd>
+		<dt><code>&quot;action&quot;: &quot;setVal&quot;</code></dt>
+		<dd>Will set value on the form control element (<code>select</code> in this case).</dd>
+		<dt><code>&quot;value&quot;: &quot;ab&quot;</code></dt>
+		<dd>Will set the value on an input or select the <code>option</code> element with &quot;ab&quot; as the <code>value</code> attribute.</dd>
 	</dl>
 
 	<h3>Patching</h3>
@@ -270,6 +290,7 @@
 				<li>patch</li>
 				<li>addClass</li>
 				<li>removeClass</li>
+				<li>setVal</li>
 				<li>mapfilter</li>
 			</ul>
 		</td>
@@ -286,6 +307,8 @@
 				<dd>Add a class to an element</dd>
 				<dt>removeClass</dt>
 				<dd>Remove a class to an element</dd>
+				<dt>setVal</dt>
+				<dd>Set value on an input</dd>
 				<dt>mapfilter</dt>
 				<dd>Apply a geomap filter</dd>
 			</dl>
@@ -435,14 +458,22 @@
 	</tr>
 	<tr>
 		<td>value</td>
-		<td><p>Required for table filtering, this specify on what value the filter should be applied. The <code>{qval}</code> placeholder can be used in the value, but it must match the regular expression set by <code>match</code> config, otherwise it will be replaced by an empty string.</p>
+		<td><p>Required for table filtering, this specify on what value the filter should be applied; and required for setting value on an input. For <code>tblfilter</code>, the <code>{qval}</code> placeholder can be used in the value, but it must match the regular expression set by <code>match</code> config, otherwise it will be replaced by an empty string.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>tblfilter</li>
+				<li>setVal</li>
 			</ul>
 		</td>
-		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "tblfilter", "value": "a value to be filtered about" } }'</code></td>
-		<td>A value that will be searched agains the specified column in order to filter the rows.</td>
+		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "[tblfilter|setVal]", "value": "a value to be filtered about or to set" } }'</code></td>
+		<td>
+			<dl>
+				<dt>tblfilter:</dt>
+				<dd>A value that will be searched against the specified column in order to filter the rows.</dd>
+				<dt>setVal:</dt>
+				<dd>A vaule that will be set on a specified element (input).</dd>
+			</dl>
+		</td>
 	</tr>
 	<tr>
 		<td>regex</td>
@@ -688,6 +719,15 @@
 				</td>
 				<td>Triggered automatically on addClass action execution.</td>
 				<td>Will removed the specified class to the specified source element.</td>
+			</tr>
+			<tr>
+				<td><code>setVal.action.wb-urlmapping</code>
+					<ul>
+						<li>setVal</li>
+					</ul>
+				</td>
+				<td>Triggered automatically on setVal action execution.</td>
+				<td>Will set value on the specified source element.</td>
 			</tr>
 			<tr>
 				<td><code>tblfilter.action.wb-urlmapping</code>

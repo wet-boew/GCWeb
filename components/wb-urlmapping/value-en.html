@@ -1,0 +1,52 @@
+---
+{
+	"title": "URL Mapping - Set value",
+	"description": "Execute pre-configured action based on url query string to set value on an input",
+	"language": "en",
+	"altLangPage": "value-fr.html",
+	"dateModified": "2021-11-03"
+}
+---
+<p>Execute pre-configured action based on url query string to set value on an input.</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<ul>
+	<li><a href="?">Empty <code>?</code></a></li>
+	<li><a href="?province=ab">Value 1 <code>?province=ab</code></a></li>
+	<li><a href="?province=mb">Value 2 <code>?province=mb</code></a></li>
+	<li><a href="?province=bc">Value 3 <code>?province=bc</code></a></li>
+</ul>
+
+<select data-wb-urlmapping='{
+		"province=ab": { "action": "setVal", "value": "ab" },
+		"province=mb": { "action": "setVal", "value": "mb" },
+		"province=bc": { "action": "setVal", "value": "bc" }
+	}'>
+	<option value="">Select province</option>
+	<option value="ab">Alberta</option>
+	<option value="mb">Manitoba</option>
+	<option value="bc">British Columbia</option>
+</select>
+
+<h2>Source code</h2>
+<details>
+	<summary>HTML</summary>
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;?&quot;&gt;Empty &lt;code&gt;?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=ab&quot;&gt;Value 1 &lt;code&gt;?province=ab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=mb&quot;&gt;Value 2 &lt;code&gt;?province=mb&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;?province=bc&quot;&gt;Value 3 &lt;code&gt;?province=bc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;select data-wb-urlmapping='{
+		&quot;province=ab&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;ab&quot; },
+		&quot;province=mb&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;mb&quot; },
+		&quot;province=bc&quot;: { &quot;action&quot;: &quot;setVal&quot;, &quot;value&quot;: &quot;bc&quot; }
+	}'&gt;
+	&lt;option value=&quot;&quot;&gt;Select province&lt;/option&gt;
+	&lt;option value=&quot;ab&quot;&gt;Alberta&lt;/option&gt;
+	&lt;option value=&quot;mb&quot;&gt;Manitoba&lt;/option&gt;
+	&lt;option value=&quot;bc&quot;&gt;British Columbia&lt;/option&gt;
+&lt;/select&gt;
+</details>
