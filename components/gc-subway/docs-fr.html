@@ -13,7 +13,16 @@
 <p>Afin d'utiliser la fonctionalité provisoire de navigation de style métro, vous devrez suivre les étapes suivantes:</p>
 <ol>
 	<li>Tout d'abord, vous aurez besoin d'un élément <code>&lt;nav&gt;</code> avec les classes <code>"provisoire"</code> et <code>"gc-subway"</code>. À l'intérieur de ce <code>&lt;nav&gt;</code>, mettez votre premier <code>&lt;h1&gt;</code>; il sera le plus petit, grisâtre et placé au haut de la page.</li>
-	<li>Ajoutez un <code>&lt;ul&gt;</code> à côté de ce <code>&lt;h1&gt;</code>. Placez-y les liens vers vos autres pages liées à la page de lancement de service.</li>
+	<li>Ajoutez un <code>&lt;ul&gt;</code> à côté de ce <code>&lt;h1&gt;</code>.</li>
+	<li>Chaque élément de la liste doit contenir les liens vers votre ensemble de pages ciblées par la navigation de style métro, comme suit:
+		<code>
+			&lt;a href="le-lien-vers-votre-page.html"&gt;[Page 1]&lt;/a&gt;
+		</code>. Optionnellement, vous pouvez offrir une sensation d'application monopage lorsque l'utilisateur est sur mobile en ajoutant un deuxième lien hypertexte avec une ancre au premier H1, comme ceci:
+		<code>
+			&lt;a href="le-lien-vers-votre-page.html#gc-document-nav" class="visible-xs visible-sm"&gt;[Page 1]&lt;/a&gt;
+		</code>. Si vous continuez avec cette option, assurez-vous de masquer le lien normal (celui sans l'ancre) sur les petits appareils avec l'attribut de classe suivant:
+		<code>class="hidden-xs hidden-sm"</code>, et le nouveau n'est visible que sur les appareils à petit écran (comme indiqué déjà dans l'extrait de code HTML ci-dessus).
+		</li>
 	<li>Le reste a juste besoin de votre propre contenu principal pour cette page. N'oubliez pas les boutons de navigation en bas des pages. Si vous voulez que la colonne de gauche cesse d'être aux 2/3 de la largeur d'un écran de bureau, vous pouvez alors arrêter la propagation en utilisant n'importe quel élément HTML avec une classe <code>"gc-subway-section-end"</code>; cet élément doit être un frère de votre <code>"&lt;nav class="gc-subway"&gt;</code>.</li>
 	<li>Si vous souhaitez utiliser le nouveau soulignement rouge court et gras sous votre H1, ajoutez-y les classes <code>"provisoire"</code> et <code>"gc-thickline"</code>.</li>
 </ol>

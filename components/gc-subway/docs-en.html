@@ -13,7 +13,16 @@
 <p>In order to use the provisional subway map navigation, you will need to complete the following steps:</p>
 <ol>
 	<li>First, you'll need a <code>&lt;nav&gt;</code> element with both the <code>"provisional"</code> and the <code>"gc-subway"</code> classes. Inside of that <code>&lt;nav&gt;</code>, put your first <code>&lt;h1&gt;</code>; it will be the smaller, gray-ish, upper one.</li>
-	<li>Add a <code>&lt;ul&gt;</code> next to that <code>&lt;h1&gt;</code>. Put the links to your other pages related to that service initiation template in there.</li>
+	<li>Add a <code>&lt;ul&gt;</code> next to that <code>&lt;h1&gt;</code>.</li>
+	<li>Each list item should contain the links to your set of pages targeted by the subway map navigation, as such:
+		<code>
+			&lt;a href="the-link-to-your-page.html"&gt;[Page 1]&lt;/a&gt;
+		</code>.Optionally, you could offer an SPA feel when the user is on mobile by adding a second hyperlink with an anchor to the first H1, like so:
+		<code>
+			&lt;a href="the-link-to-your-page.html#gc-document-nav" class="visible-xs visible-sm"&gt;[Page 1]&lt;/a&gt;
+		</code>. If you do go forward with this option, make sure to hide the regular link (the one without the anchor) on small devices with the following class attribute:
+		<code>class="hidden-xs hidden-sm"</code>, and the new one to be visible only on small screen devices (as shown in the HTML code snippet above already).
+	</li>
 	<li>The rest just needs your own main content for that page. Do not forget the navigation buttons at the bottom of the pages. If you want the left column to stop being at 2/3 of the width on desktop at some point, then you can stop the propagation by using any HTML element with a <code>"gc-subway-section-end"</code> class on it; that element needs to be a sibling of your <code>&lt;nav class="gc-subway"&gt;</code>.</li>
 	<li>If you want to use the new bold short red underline underneath your regular H1, then add both the <code>"provisional"</code> and <code>"gc-thickline"</code> classes on it.</li>
 </ol>
