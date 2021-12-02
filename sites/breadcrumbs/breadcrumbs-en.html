@@ -2,9 +2,10 @@
 {
 	"altLangPage": "breadcrumbs-fr.html",
 	"breadcrumbs": [
-		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index.html" }
+		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" },
+		{ "title": "Méli-mélo", "link": "https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html" }
 	],
-	"dateModified": "2021-03-30",
+	"dateModified": "2021-12-02",
 	"description": "Documentation on how to use breadcrumbs.",
 	"language": "en",
 	"title": "Breadcrumbs"
@@ -17,3 +18,34 @@
 <ul>
 	<li>The page title should not be included within the breadcrumbs list items.</li>
 </ul>
+
+<p>Here is the html output with structured data in RDFa format for the above breadcrumb example:</p>
+<pre>
+	<code>
+		&lt;nav id="wb-bc" property="breadcrumb"&gt;
+			&lt;h2&gt;You are here:&lt;/h2&gt;
+			&lt;div class="container"&gt;
+				&lt;ol class="breadcrumb" typeof="BreadcrumbList"&gt;
+					&lt;li property="itemListElement" typeof="ListItem"&gt;
+						&lt;a property="item" typeof="WebPage" href="https://www.canada.ca/en.html"&gt;
+							&lt;span property="name">Canada.ca&lt;/span&gt;
+						&lt;/a&gt;
+						&lt;meta property="position" content="1"&gt;
+					&lt;/li&gt;
+					&lt;li property="itemListElement" typeof="ListItem"&gt;
+						&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-en.html"&gt;
+							&lt;span property="name"&gt;GCWeb home&lt;/span&gt;
+						&lt;/a&gt;
+						&lt;meta property="position" content="2"&gt;
+					&lt;/li&gt;
+					&lt;li property="itemListElement" typeof="ListItem"&gt;
+						&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html"&gt;
+							&lt;span property="name"&gt;Méli-mélo&lt;/span&gt;
+						&lt;/a&gt;
+						&lt;meta property="position" content="3"&gt;
+					&lt;/li&gt;
+				&lt;/ol&gt;
+			&lt;/div&gt;
+		&lt;/nav&gt;
+	</code>
+</pre>
