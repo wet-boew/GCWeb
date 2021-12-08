@@ -2,11 +2,23 @@
 <nav id="wb-bc" property="breadcrumb">
 	<h2>{{ i18nText-breadcrumb }}</h2>
 	<div class="container">
-		<ol class="breadcrumb">
-			<li><a href="{{ i18nText-homePage }}">{{ i18nText-home }}</a></li>
+		<ol class="breadcrumb" typeof="BreadcrumbList">
+			<li property="itemListElement" typeof="ListItem">
+				<a property="item" typeof="WebPage" href="{{ i18nText-homePage }}">
+					<span property="name">{{ i18nText-home }}</span>
+				</a>
+				<meta property="position" content="1">
+			</li>
 {%- if page.breadcrumbs -%}
+	{% assign breadcrumbCounter = 2 %}
 	{% for breadcrumb in page.breadcrumbs %}
-			<li><a href="{{ breadcrumb.link | relative_url }}">{{ breadcrumb.title }}</a></li>
+		<li property="itemListElement" typeof="ListItem">
+			<a property="item" typeof="WebPage" href="{{ breadcrumb.link | relative_url }}">
+				<span property="name">{{ breadcrumb.title }}</span>
+			</a>
+			<meta property="position" content="{{ breadcrumbCounter }}">
+		</li>
+		{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
 	{%- endfor -%}
 {% endif %}
 		</ol>

@@ -2,11 +2,13 @@
 {
 	"altLangPage": "breadcrumbs-en.html",
 	"breadcrumbs": [
-		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index.html" }
+		{ "title": "GCWeb accueil", "link": "https://wet-boew.github.io/GCWeb/index-fr.html" },
+		{ "title": "Méli-mélo", "link": "https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html" }
+
 	],
-	"dateModified": "2021-03-30",
+	"dateModified": "2021-12-02",
 	"description": "Documentation sur l'utilisation du fil d'arianne.",
-	"lang": "fr",
+	"language": "fr",
 	"title": "Fil d'arianne"
 }
 ---
@@ -17,3 +19,34 @@
 <ul>
 	<li>Le titre de la page ne dois pas être inclus parmis la liste de fil d'arianne.</li>
 </ul>
+
+<p>Voici la sortie html avec des données structurées au format RDFa pour l'exemple de fil d'Ariane ci-dessus:</p>
+<pre>
+<code>
+	&lt;nav id="wb-bc" property="breadcrumb"&gt;
+		&lt;h2&gt;Vous êtes ici:&lt;/h2&gt;
+		&lt;div class="container"&gt;
+			&lt;ol class="breadcrumb" typeof="BreadcrumbList"&gt;
+				&lt;li property="itemListElement" typeof="ListItem"&gt;
+					&lt;a property="item" typeof="WebPage" href="https://www.canada.ca/fr.html"&gt;
+						&lt;span property="name">Canada.ca&lt;/span&gt;
+					&lt;/a&gt;
+					&lt;meta property="position" content="1"&gt;
+				&lt;/li&gt;
+				&lt;li property="itemListElement" typeof="ListItem"&gt;
+					&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-fr.html"&gt;
+						&lt;span property="name"&gt;GCWeb accueil&lt;/span&gt;
+					&lt;/a&gt;
+					&lt;meta property="position" content="2"&gt;
+				&lt;/li&gt;
+				&lt;li property="itemListElement" typeof="ListItem"&gt;
+					&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html"&gt;
+						&lt;span property="name"&gt;GCWeb accueil&lt;/span&gt;
+					&lt;/a&gt;
+					&lt;meta property="position" content="3"&gt;
+				&lt;/li&gt;
+			&lt;/ol&gt;
+		&lt;/div&gt;
+	&lt;/nav&gt;
+</code>
+</pre>
