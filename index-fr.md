@@ -102,13 +102,13 @@ language: fr
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }} 
 				{% if component.status == "stable" %}
-				<span class="label label-success small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% elsif component.status == "provisional" %}
-				<span class="label label-warning small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% elsif component.status == "deprecated" %}
-				<span class="label label-danger small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% else %}
-				<span class="label label-default small mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
 				</h3>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
@@ -155,13 +155,13 @@ language: fr
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }} 
 				{% if template.status == "stable" %}
-				<span class="label label-success small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% elsif template.status == "provisional" %}
-				<span class="label label-warning small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% elsif template.status == "deprecated" %}
-				<span class="label label-danger small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% else %}
-				<span class="label label-default small mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
 				</h3>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
