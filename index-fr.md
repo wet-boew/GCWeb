@@ -1,262 +1,280 @@
 ---
 title: GCWeb, le thème WET-BOEW de Canada.ca
-altLangPage: home.html
+altLangPage: index-en.html
 dateModified: 2021-12-09
 description: "Page d'accueil décrivant l'ensemble des composants du thème de Canada.ca, nommé GCWeb."
-lang: fr
+layout: no-container
+language: fr
 ---
 
 {::nomarkdown}
-<div class="row">
-	<div class="col-md-7 col-lg-8">
-		<p>Les gabarits et les conceptions communes si dessous sont une référence d'implémentation du <a href="https://conception.canada.ca">Système de conception de Canada.ca</a>, incluant les exigences obligatoire de la spécifications du contenu et de l’architecture de l'information (C&amp;AI) pour Canada.ca. Les ministères et organisme du gouvernement du Canada peuvent y contribuer en publiant leur modèle et leur conception commune via le <a href="https://github.com/wet-boew/GCWeb">dépôt github de GCWeb</a>.</p>
-	</div>
-	<div class="col-xs-12 col-md-auto pull-right">
-		<p><a href="https://github.com/wet-boew/GCWeb/archive/v10.2.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v10.2.0</strong></a><br />
-			<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v10.2.0">Note de version</a>)</small></p>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+<div class="container">
+	<h1 id="wb-cont" property="name">GCWeb, le thème WET-BOEW de Canada.ca</h1>
+	<div class="row">
+		<div class="col-md-7 col-lg-8">
+			<p>Les gabarits et les conceptions communes si dessous sont une référence d'implémentation du <a href="https://conception.canada.ca">Système de conception de Canada.ca</a>, incluant les exigences obligatoire de la spécifications du contenu et de l’architecture de l'information (C&amp;AI) pour Canada.ca. Les ministères et organisme du gouvernement du Canada peuvent y contribuer en publiant leur modèle et leur conception commune via le <a href="https://github.com/wet-boew/GCWeb">dépôt github de GCWeb</a>.</p>
+		</div>
+		<div class="col-xs-12 col-md-auto pull-right">
+			<p><a href="https://github.com/wet-boew/GCWeb/archive/v10.2.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v10.2.0</strong></a><br />
+				<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v10.2.0">Note de version</a>)</small></p>
+		</div>
 	</div>
 </div>
-
-<ul class="colcount-md-2">
-	<li><a href="docs/index.html" hreflang="en" lang="en">GCWeb v5 Summary and others technical notes</a> <br />(En anglais seulement)</li>
-	<li><a href="docs/implementing.html" hreflang="en" lang="en">Implementing GCWeb</a> <br />(En anglais seulement)</li>
-	<li><a href="#composants">Composants</a></li>
-	<li><a href="#gabarits">Gabarit</a></li>
-	<li><a href="méli-mélo/méli-mélo-fr.html">Fonctionalité méli-mélo</a></li>
-	<li><a href="thématique/gc-thématique-en.html" hreflang="en">Thématique promotionel du GC (en anglais seulement)</a></li>
-	<li><a href="#sitesglobal">Sites et fonctionalité général</a></li>
-</ul>
-
-<p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au dévelopement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://wet-boew.github.io/wet-boew-documentation/index-en.html#wet-boew-code-sprint" hreflang="en"><span lang="en">code sprint</span> hedbomadaire à chaque mardi</a>.</small></p>
-<!--
-Les états suivant n'ont été transposé encore avec la réorganisation de la structure du dépôt
-<details>
-	<summary>Définition des états</summary>
-	<dl class="dl-horizontal mrgn-bttm-0">
-		<dt><span class="label label-success">Conforme</span></dt>
-		<dd>Conforme aux exigences définie par la dernière version publié des spécifications du C&amp;AI.</dd>
-		<dt><span class="label label-success">Stable</span></dt>
-		<dd>Rencontre les exigences d'une spécification.</dd>
-		<dt><span class="label label-info">Information</span></dt>
-		<dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
-		<dt><span class="label label-info">Revalidation requise</span></dt>
-		<dd>Précédemment conforme, mais requière une nouvelle validation manuel afin de s'assurer qu'il continue à rencontrer les exigences tel que définie par la dernière version publié de sa spécification.</dd>
-		<dt><span class="label label-warning">Partiel</span></dt>
-		<dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
-		<dt><span class="label label-warning">Désuet</span></dt>
-		<dd>N'est pas conforme à la dernière spécification, mais il l'a précedemment été. Son rétablisement à la conformité nécessite des changements immédiat.</dd>
-		<dt><span class="label label-default">Arriéré</span></dt>
-		<dd>Nécessite du dévelopement.</dd>
-		<dt><span class="label label-danger">Incomplet</span></dt>
-		<dd>Incomplet car il ne se conforme pas complétement à toute les exigences de la spécification. Nécessite encore des travaux de dévelopement.</dd>
-		<dt><span class="label label-danger">Obsolète</span></dt>
-		<dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
-	</dl>
-</details>
--->
-<h2 id="composants">Composants</h2>
-
-{% assign page_group = site.data.i18n.page_group[ page.lang ] %}
-{% assign comp_status = site.data.i18n.component_status[ page.lang ] %}
-
-<ul>
-{% assign components = site.data.components %}
-{% for component in components %}
-	{% assign list-pages = component.pages %}
-	<li>{{ component.title[ page.lang ] }} (État: {{ comp_status[ component.status ] | default: "Non définie" }})
-	<ul>
-	{% for pgGroup in list-pages %}
-		{% assign grpkey = pgGroup[0] %}
-		<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-			<ul>
-			{% assign examples = pgGroup[1] | where: "language", page.lang %}
-			{% for example in examples %}
-				{% if example.path %}
-				<li><a href="components/
-							{%- if component.componentName -%}
-								{{ component.componentName }}/
-							{%- endif -%}
-						{{ example.path }}">{{ example.title }}</a></li>
-				{% elsif example.url %}
-					<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+<div class="container-fluid wb-inview show-none" data-inview="nav-menu">
+	<div class="row">
+		<nav class="well well-lg mrgn-tp-md">
+			<div class="container">
+				<h2 class="mrgn-tp-0">Débuter</h2>
+				<ul class="list-unstyled colcount-md-3">
+					<li><a href="#composantes"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Composantes</a></li>
+					<li><a href="#gabarits"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a></li>
+					<li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo et thématiques</a></li>
+					<li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Fonctionnalités globales et de sites</a></li>
+					<li><a href="#autre"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Autre documentation</a></li>
+					<li><a href="#developper-pour-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Développer pour GCWeb</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>
+<nav id="nav-menu" class="wb-overlay modal-content overlay-def wb-bar-t hidden-xs" aria-hidden="true">
+	<header class="pull-left">
+		<h2 class="modal-title">Débuter</h2>
+	</header>
+	<ul class="pull-left list-inline mrgn-lft-md mrgn-tp-sm">
+		<li>
+			<a href="#composantes" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Composantes</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#gabarits" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#experimentation" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo et thématiques</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Global et de sites</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#autre" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Autre</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#developper-pour-gcweb" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Développer pour GCWeb</a>
+		</li>
+	</ul>
+</nav>
+<div class="container">
+	<p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au dévelopement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://wet-boew.github.io/wet-boew-documentation/index-en.html#wet-boew-code-sprint" hreflang="en"><span lang="en">code sprint</span> hedbomadaire à chaque mardi</a>.</small></p>
+	{% assign page_group = site.data.i18n.page_group[ page.language ] %}
+	{% assign comp_status = site.data.i18n.component_status[ page.language ] %}
+	<details class="mrgn-tp-lg">
+		<summary>Définition des états</summary>
+		<dl class="dl-horizontal mrgn-bttm-0">
+			<dt><span class="label label-success">{{comp_status.stable}}</span></dt>
+			<dd>Rencontre les exigences d'une spécification.</dd>
+			<dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
+			<dd>Plutôt stable, mais expérimental; utilisez à vos risques et périls.</dd>
+			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
+			<dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
+			<dt><span class="label label-default">Défaut</span></dt>
+			<dd>Manque le statut dans la documentation de la composante.</dd>
+			<!--<dt><span class="label label-success">Conforme</span></dt>
+			<dd>Conforme aux exigences définie par la dernière version publié des spécifications du C&amp;AI.</dd>
+			<dt><span class="label label-info">Information</span></dt>
+			<dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+			<dt><span class="label label-info">Revalidation requise</span></dt>
+			<dd>Précédemment conforme, mais requière une nouvelle validation manuel afin de s'assurer qu'il continue à rencontrer les exigences tel que définie par la dernière version publié de sa spécification.</dd>
+			<dt><span class="label label-warning">Partiel</span></dt>
+			<dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
+			<dt><span class="label label-warning">Désuet</span></dt>
+			<dd>N'est pas conforme à la dernière spécification, mais il l'a précedemment été. Son rétablisement à la conformité nécessite des changements immédiat.</dd>
+			<dt><span class="label label-default">Arriéré</span></dt>
+			<dd>Nécessite du dévelopement.</dd>
+			<dt><span class="label label-danger">Incomplet</span></dt>
+			<dd>Incomplet car il ne se conforme pas complétement à toute les exigences de la spécification. Nécessite encore des travaux de dévelopement.</dd>-->
+		</dl>
+	</details>
+	<h2 id="composantes" class="mrgn-bttm-lg">Composantes</h2>
+	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	{% for component in site.data.components %}
+		{% assign list-pages = component.pages %}
+		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }} 
+				{% if component.status == "stable" %}
+				<span class="label label-success small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				{% elsif component.status == "provisional" %}
+				<span class="label label-warning small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				{% elsif component.status == "deprecated" %}
+				<span class="label label-danger small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% else %}
-					<li>{{ example.title }}</li>
+				<span class="label label-default small mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
-			{% endfor %}
-			</ul>
+				</h3>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ component.description[ page.language ] | default: "[Courte description de la composante]" }}</p>
+					{% if list-pages.docs %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					{% for doc in docs %}
+						<li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hodden="true"></span>Documentation</a></li>
+					{% endfor %}
+					</ul>
+					{% endif %}
+					{% if list-pages.examples %}
+					<details class="mrgn-tp-lg"><summary>Exemples</summary>
+						<ul class="mrgn-tp-md">
+						{% assign examples = list-pages.examples | where: "language", page.language %}
+						{% for example in examples %}
+							{% if example.path %}
+							<li><a href="components/
+										{%- if component.componentName -%}
+											{{ component.componentName }}/
+										{%- endif -%}
+									{{ example.path }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
+							{% elsif example.url %}
+								<li><a href="{{ example.url }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
+							{% else %}
+								<li>{{ example.title }}</li>
+							{% endif %}
+						{% endfor %}
+						</ul>
+					</details>
+					{% endif %}
+				</div>
+			</div>
 		</li>
 	{% endfor %}
-	</ul></li>
-{% endfor %}
-</ul>
-
-<h2 id="gabarits">Gabarits</h2>
-<ul>
-{% for template in site.data.templates %}
-	{% assign list-pages = template.pages %}
-	<li>{{ template.title[ page.lang ] }} (État: {{ comp_status[ template.status ] | default: "Non définie" }})
-	<ul>
-	{% for pgGroup in list-pages %}
-		{% assign grpkey = pgGroup[0] %}
-		<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-			<ul>
-			{% assign examples = pgGroup[1] | where: "language", page.lang %}
-			{% for example in examples %}
-				{% if example.path %}
-				<li><a href="templates/
-							{%- if template.componentName -%}
-								{{ template.componentName }}/
-							{%- endif -%}
-						{{ example.path }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
-				{% elsif example.url %}
-					<li><a href="{{ example.url }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
+	</ul>
+	<hr />
+	<h2 id="gabarits" class="mrgn-bttm-lg">Gabarits</h2>
+	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
+	{% for template in site.data.templates %}
+		{% assign list-pages = template.pages %}
+		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }} 
+				{% if template.status == "stable" %}
+				<span class="label label-success small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				{% elsif template.status == "provisional" %}
+				<span class="label label-warning small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				{% elsif template.status == "deprecated" %}
+				<span class="label label-danger small mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% else %}
-					<li>{{ example.title }}</li>
+				<span class="label label-default small mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
-			{% endfor %}
-			</ul>
+				</h3>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p>
+					{% if list-pages.docs %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					{% for doc in docs %}
+						<li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hodden="true"></span>Documentation</a></li>
+					{% endfor %}
+					</ul>
+					{% endif %}
+					{% if list-pages.examples %}
+					<details class="mrgn-tp-lg"><summary>Exemples</summary>
+						<ul class="mrgn-tp-md">
+						{% assign examples = list-pages.examples | where: "language", page.language %}
+						{% for example in examples %}
+							{% if example.path %}
+							<li><a href="templates/
+										{%- if template.componentName -%}
+											{{ template.componentName }}/
+										{%- endif -%}
+									{{ example.path }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
+							{% elsif example.url %}
+								<li><a href="{{ example.url }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
+							{% else %}
+								<li>{{ example.title }}</li>
+							{% endif %}
+						{% endfor %}
+						</ul>
+					</details>
+					{% endif %}
+				</div>
+			</div>
 		</li>
 	{% endfor %}
-	</ul></li>
-{% endfor %}
-</ul>
-
-<h2 id="méli-mélo">Méli-mélo</h2>
-
-<p><a href="méli-mélo/méli-mélo-fr.html">Consulter la page dédié aux fonctionalité méli-mélo</a></p>
-
-
-<h2 id="sitesglobal">Fonctionnalités global et de sites</h2>
-<ul>
-{% for item in site.data.sites %}
-	{% assign list-pages = item.pages %}
-	<li>{{ item.title[ page.lang ] }} (État: {{ comp_status[ item.status ] | default: "Non définie" }})
+	</ul>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="well well-lg mrgn-tp-md bg-gctheme text-white">
+			<div class="container mrgn-bttm-lg">
+				<h2 id="experimentation" class="mrgn-tp-md mrgn-bttm-0">Fonctionnalités spéciales</h2>
+					<div class="row">
+					    <div class="col-md-6">
+					    	<h3 id="méli-mélo">Méli-mélo</h3>
+						<p>L'espace d'expérimentation que vous attendiez&nbsp;! Les Méli-mélos permettent d'ajouter au thème de Canada.ca du nouveau code intéressant que vous considéreriez habituellement comme "personnalisé".</p>
+						<p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les méli-mélos</span></a></p>
+					    </div>
+					    <div class="col-md-6">
+						<h3 id="thematiques">Thématiques promotionnelles</h3><p>Avez-vous un ensemble de pages qui arborent un look original relié à une promotion spécifique&nbsp;? Dans ce cas, essayez plutôt cet espace de thématiques promotionnelles.</p>
+						<p class="mrgn-tp-lg"><a href="th%C3%A9matique/gc-th%C3%A9matique-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les thématiques promotionnelles</span></a></p>
+				</div>
+			</div>
+        	</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+	<h2 id="sitesglobal">Fonctionnalités global et de sites</h2>
 	<ul>
-	{% for pgGroup in list-pages %}
-		{% assign grpkey = pgGroup[0] %}
-		<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-			<ul>
-			{% assign examples = pgGroup[1] | where: "language", page.lang %}
-			{% for example in examples %}
-				{% if example.path %}
-				<li><a href="sites/
-							{%- if item.componentName -%}
-								{{ item.componentName }}/
-							{%- endif -%}
-						{{ example.path }}">{{ example.title }}</a></li>
-				{% elsif example.url %}
-					<li><a href="{{ example.url }}">{{ example.title }}</a></li>
-				{% else %}
-					<li>{{ example.title }}</li>
-				{% endif %}
-			{% endfor %}
-			</ul>
-		</li>
+	{% for item in site.data.sites %}
+		{% assign list-pages = item.pages %}
+		<li>{{ item.title[ page.lang ] }} (État: {{ comp_status[ item.status ] | default: "Non définie" }})
+		<ul>
+		{% for pgGroup in list-pages %}
+			{% assign grpkey = pgGroup[0] %}
+			<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+				<ul>
+				{% assign examples = pgGroup[1] | where: "language", page.lang %}
+				{% for example in examples %}
+					{% if example.path %}
+					<li><a href="sites/
+								{%- if item.componentName -%}
+									{{ item.componentName }}/
+								{%- endif -%}
+							{{ example.path }}">{{ example.title }}</a></li>
+					{% elsif example.url %}
+						<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+					{% else %}
+						<li>{{ example.title }}</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			</li>
+		{% endfor %}
+		</ul></li>
 	{% endfor %}
-	</ul></li>
-{% endfor %}
-</ul>
-
-
-<h2>Aperçu des fonctionnalités wet-boew avec le thème de Canada.ca</h2>
-<p><a href="/gcweb-compiled-demos/index.html#wet-boew">Aperçu des fonctionnalités wet-boew</a></p>
+	</ul>
+	<h2 id="autre">Autre documentation</h2>
+	<h3>Aperçu des fonctionnalités wet-boew avec le thème de Canada.ca</h3>
+	<p><a href="/gcweb-compiled-demos/index.html#wet-boew">Aperçu des fonctionnalités wet-boew</a></p>
+	<h3 id="gcweb-projet-documentation">Documentation du projet GCWeb</h3>
+	<ul lang="en">
+		<li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
+		<li><a href="docs/implementing.html">Quick implementation guide - GCWeb theme</a></li>
+		<li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
+		<li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
+		<li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
+		<li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
+		<li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
+	</ul>
+	<h4>Évaluations et rapports</h4>
+	<ul>
+		<li><a href="docs/evaluation-report/1-accessibility.html" lang="en" hreflang="en">1 - Accessibility assessment as 2018-11-14</a></li>
+		<li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html" lang="en" hreflang="en">2 - Regression user acceptance testing as 2018-11-16</a></li>
+	</ul>
+	<div class="row">
+		<div class="col-md-9">
+			<h2 id="developper-pour-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Développer pour GCWeb</h2>
+			<p>Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
+			<p class="mrgn-bttm-lg"><a href="docs/developing-fr.html" class="btn btn-call-to-action" hreflang="en">Commencer à programmer</a></p>
+		</div>
+	</div>
+</div>
 {:/}
-
-## Documentation du projet GCWeb
-
-* [GCWeb theme - Meta information (en anglais seulement)](docs/index.html)
-* [Quick implementation guide - GCWeb theme (en anglais seulement)](docs/implementing.html)
-* [Migration instruction - GCWeb theme V5 (en anglais seulement)](docs/v5-migration.html)
-* [Archivé - Documentation GCWeb](docs/GCWeb-fr.html)
-* [Archivé - Version](docs/release/index-fr.html)
-* [Skeleton - Static header/footer - Bootstrap 3 (en anglais seulement)](docs/static-header-footer/bootstrap-3.html)
-* [Prototype skeleton - Static header/footer - Bootstrap 4 (en anglais seulement)](docs/static-header-footer/bootstrap-4.html)
-
-Évaluations et rapports
-
-* [1 - Accessibility assessment as 2018-11-14 (en anglais seulement)](docs/evaluation-report/1-accessibility.html)
-* [2 - Regression user acceptance testing as 2018-11-16 (en anglais seulement)](docs/evaluation-report/2-wetplugin-gcweb2.html)
-
-## Developer pour GCWeb (en anglais seulement)
-
-Install NodeJS
-
-### Building GCweb
-
-* Build a local development version: `grunt` or `grunt debug`
-* Run code quality check: `grunt test`
-* Build production files: `grunt dist`
-* Compile and assemble méli-mélo:
-	* Run local: `grunt méli-mélo`
-	* Run from compiled dist: `grunt méli-mélo-runLocal`
-	* Run from wet-boew sites : `grunt méli-mélo-remote`
-* Regenerate site web content: `grunt site-contents`
-	* `_data/components.json`
-	* `_data/sites.json`
-	* `_data/templates.json`
-	* `_wetboew-demos/**`
-
-### Run GCWeb wetsite locally
-
-Ensure that you have builded GCWeb first
-
-After your are running docking container or the docker composer you will be able to access your local website at: `http://localhost:4000`
-
-Build Dockerfile locally
-
-```
-docker build -t jekyll-with-env-options .
-```
-
-Run your image
-```
-grunt debug
-
-docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='--config _config.yml,_localJekyll.yml' jekyll-with-env-options
-```
-
-#### alternative with docker-compose
-
-This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
-
-```
-docker-compose up
-```
-
-### Run the continous integration and deployment script locally
-
-Install ACT - [https://github.com/nektos/act](https://github.com/nektos/act)
-
-Github fork needed:
-
-* [wet-boew/gcweb](https://github.com/wet-boew/gcweb)
-* [wet-boew/gcweb-jekyll](https://github.com/wet-boew/gcweb-jekyll)
-* [wet-boew/gcweb-compiled-demos](https://github.com/wet-boew/gcweb-compiled-demos)
-* [wet-boew/themes-dist](https://github.com/wet-boew/themes-dist)
-* [wet-boew/themes-cdn](https://github.com/wet-boew/themes-cdn)
-
-Run the continuous deployment script
-
-```
-act -f deploy-gcweb -s my_token=<XXXXXXXXXXXXXX> -s my_username="<GITHUB USERNAME>" - my_email="<GITHUB HANDLE>@users.noreply.github.com" -a <GITHUB HANDLE>
-```
-
-Where:
-* `<GITHUB USERNAME>`: Your name, like "John Doe"
-* `<GITHUB HANDLE>`: Your github id
-* `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
-
-### Refresh your github pages with the latest theme changes
-
-You can make a commit to your site and it will get regenerated with the latest version of the jekyll theme. Alternatively, the following curl command will told github to regenerate your site.
-
-```
-curl -u <GITHUB HANDLE>:<XXXXXXXXXXXXXX> -X POST https://api.github.com/repos/<GITHUB HANDLE>/<GITHUB REPOSITORY>/pages/builds
-```
-
-Where:
-* `<GITHUB HANDLE>`: Your github id
-* `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
-* `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
-
-Note: A manual update is required if you have specified a version for your jekyll remote theme in your `config.yml` file.
