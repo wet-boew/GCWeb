@@ -1,7 +1,7 @@
 ---
 title: GCWeb, the WET-BOEW Canada.ca theme
 altLangPage: index-fr.html
-dateModified: 2021-12-09
+dateModified: 2022-01-13
 description: "Home page describing all the components of the Canada.ca theme, named GCWeb."
 layout: no-container
 language: en
@@ -16,8 +16,8 @@ language: en
 			<p>The page templates and design patterns below comprise a reference implementation of the <a href="https://design.canada.ca">Canada.ca design system</a>, including the mandatory requirement of the Content and Information Architecture (C&amp;IA) Specification. Government of Canada departments and agencies can contribute additional patterns and templates via <a href="https://github.com/wet-boew/GCWeb">GCWeb github repository</a>.</p>
 		</div>
 		<div class="col-xs-12 col-md-auto pull-right">
-			<p><a href="https://github.com/wet-boew/GCWeb/archive/v10.2.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v10.2.0</strong></a><br />
-				<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v10.2.0">Release notes</a>)</small></p>
+			<p><a href="https://github.com/wet-boew/GCWeb/archive/v10.3.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v10.3.0</strong></a><br />
+				<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/tag/v10.3.0">Release notes</a>)</small></p>
 		</div>
 	</div>
 </div>
