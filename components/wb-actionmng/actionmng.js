@@ -293,7 +293,10 @@ var $document = wb.doc,
 			fetch: {
 				url: fileUrl,
 				nocache: data.nocache,
-				nocachekey: data.nocachekey
+				nocachekey: data.nocachekey,
+				data: data.data,
+				contentType: data.contenttype,
+				method: data.method
 			}
 		} );
 
