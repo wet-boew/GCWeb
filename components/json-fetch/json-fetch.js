@@ -143,6 +143,18 @@ $document.on( fetchEvent, function( event ) {
 					fetchOpts.jsonp = false;
 				}
 
+				// Sending Data
+				if ( fetchOpts.data ) {
+					try {
+						fetchOpts.data = ( typeof fetchOpts.data === "string" ? fetchOpts.data : JSON.stringify( fetchOpts.data ) );
+					} catch ( err ) {
+						throw "JSON fetch - Data being sent to server - " + err;
+					}
+
+					fetchOpts.method = fetchOpts.method || "POST";
+					fetchOpts.contentType = fetchOpts.contentType || "application/json";
+				}
+
 				$.ajax( fetchOpts )
 					.done( function( response, status, xhr ) {
 						var i, i_len, i_cache, backlog;

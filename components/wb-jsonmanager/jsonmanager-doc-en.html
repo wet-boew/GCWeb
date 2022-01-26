@@ -390,6 +390,49 @@
 </dl>
 </td>
 </tr>
+	<tr>
+		<td><code>data</code></td>
+		<td>Add parameter in the request body.</td>
+		<td><code>data-wb-json='{ "url": "", "data": { "prop": "value" } }'</code> or <code>data-wb-json='{ "url": "", "data": "prop=value" } }'</code></td>
+		<td>
+			<dl>
+				<dt>Default</dt>
+				<dd>No data are sent in the request body</dd>
+				<dt>String</dt>
+				<dd>The value is sent as is in the request body</dd>
+				<dt>Javascript Object</dt>
+				<dd>The value is stringify before to be added to the request body</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td><code>contenttype</code></td>
+		<td>Set the content type of the request body when data are sent</td>
+		<td><code>data-wb-json='{ "url": "", "contenttype": "text/turtle", "data": "" }'</code></td>
+		<td>
+			<dl>
+				<dt>Default</dt>
+				<dd>When data is added, application/json</dd>
+				<dt>String</dt>
+				<dd>A valid content type as defined in the <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">IANA media type registry</a>.</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td><code>method</code></td>
+		<td>Set the HTTP method to be use when fetching the resource.</td>
+		<td><code>data-wb-json='{ "url": "", "data": "", "method": "PUT" }'</code></td>
+		<td>
+			<dl>
+				<dt>Default (no data)</dt>
+				<dd>The method is "GET".</dd>
+				<dt>Default (with data)</dt>
+				<dd>The method is "POST".</dd>
+				<dt>String</dt>
+				<dd>A valid method allowed by the browser.</dd>
+			</dl>
+		</td>
+	</tr>
 </tbody>
 </table>
 <h3 id="evalobj">Filtering (evaluation object)</h3>

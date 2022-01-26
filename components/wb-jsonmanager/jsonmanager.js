@@ -260,7 +260,10 @@ var componentName = "wb-jsonmanager",
 							fetch: {
 								url: url,
 								nocache: elmData.nocache,
-								nocachekey: elmData.nocachekey
+								nocachekey: elmData.nocachekey,
+								data: elmData.data,
+								contentType: elmData.contenttype,
+								method: elmData.method
 							}
 						} );
 

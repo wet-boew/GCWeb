@@ -99,19 +99,22 @@ var componentName = "wb-data-json",
 			i_len = lstCall.length;
 			for ( i = 0; i !== i_len; i += 1 ) {
 				i_cache = lstCall[ i ];
-				loadJSON( elm, i_cache.url, i, i_cache.nocache, i_cache.nocachekey );
+				loadJSON( elm, i_cache.url, i, i_cache.nocache, i_cache.nocachekey, i_cache.data, i_cache.contenttype, i_cache.method );
 			}
 
 		}
 	},
 
-	loadJSON = function( elm, url, refId, nocache, nocachekey ) {
+	loadJSON = function( elm, url, refId, nocache, nocachekey, data, contentType, method ) {
 		var $elm = $( elm ),
 			fetchObj = {
 				url: url,
 				refId: refId,
 				nocache: nocache,
-				nocachekey: nocachekey
+				nocachekey: nocachekey,
+				data: data,
+				contentType: contentType,
+				method: method
 			};
 
 		$elm.trigger( {
