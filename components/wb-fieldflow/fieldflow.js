@@ -134,7 +134,10 @@ var componentName = "wb-fieldflow",
 			// Transform the list into a select, use the first paragrap content for the label, and extract for i18n the name of the button action.
 			var bodyID = wb.getId(),
 				stdOut,
-				formElm, $form;
+				formElm,
+				$form,
+				btnStyle = config.btnStyle && [ "default", "primary", "success", "info", "warning", "danger", "link" ].indexOf( config.btnStyle ) >= 0 ? config.btnStyle : "default",
+				showLabel = !!config.showLabel;
 
 			if ( config.noForm ) {
 				stdOut = "<div class='mrgn-tp-md'><div id='" + bodyID + "'></div></div>";
@@ -146,8 +149,8 @@ var componentName = "wb-fieldflow",
 				}
 				$( formElm.parentElement ).addClass( formComponent );
 			} else if ( config.inline && !config.renderas ) {
-				stdOut = "<div class='wb-frmvld " + formComponent + "'><form><div class='input-group'><div id='" + bodyID + "'>";
-				stdOut = stdOut + "</div><span class='input-group-btn'><input type=\"submit\" value=\"" + i18n.btn + "\" class=\"btn btn-default mrgn-bttm-md\" /></span></div> </form></div>";
+				stdOut = "<div class='wb-frmvld mrgn-bttm-md " + formComponent + "'><form><div class='input-group'><div id='" + bodyID + "'>";
+				stdOut = stdOut + "</div><span class='input-group-btn" + ( showLabel ? " align-bottom" : "" ) + "'><input type=\"submit\" value=\"" + i18n.btn + "\" class=\"btn btn-" + btnStyle + "\" /></span></div> </form></div>";
 			} else {
 				stdOut = "<div class='wb-frmvld " + formComponent + "'><form><div id='" + bodyID + "'>";
 				stdOut = stdOut + "</div><input type=\"submit\" value=\"" + i18n.btn + "\" class=\"btn btn-primary mrgn-bttm-md\" /> </form></div>";
@@ -542,7 +545,8 @@ var componentName = "wb-fieldflow",
 				noreqlabel: data.noreqlabel,
 				items: $items,
 				inline: data.inline,
-				gcChckbxrdio: data.gcChckbxrdio
+				gcChckbxrdio: data.gcChckbxrdio,
+				showLabel: data.showLabel
 			} );
 		}
 	},
@@ -561,7 +565,7 @@ var componentName = "wb-fieldflow",
 			i18n = $elm.data( configData ).i18n,
 			autoID = wb.getId(),
 			labelPrefix = "<label for='" + autoID + "'",
-			labelInvisible = data.inline ? " wb-inv" : "",
+			labelInvisible = ( data.inline && !data.showLabel ) ? " wb-inv" : "",
 			labelSuffix = "</span>",
 			$out, $tmpLabel,
 			selectOut, $selectOut,

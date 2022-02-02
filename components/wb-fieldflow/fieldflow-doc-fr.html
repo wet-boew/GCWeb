@@ -335,14 +335,47 @@ dateModified: "2021-04-28"
 			</tr>
 			<tr>
 				<td>inline</td>
-				<td>Indicate to render a inline interface. Availble only for <code>{&quot;renderas&quot;:&quot;checkbox&quot;}</code> and <code>{&quot;renderas&quot;:&quot;radio&quot;}</code> </td>
-				<td><code>data-wb-fieldflow='{&quot;renderas&quot;: &quot;<em>[radio|checkbox]</em>&quot;, &quot;inline&quot;: <em>true</em>}</code></td>
+				<td>
+					<p>Indicate to render an inline interface. Available only for <code>{&quot;renderas&quot;:&quot;checkbox&quot;}</code> and <code>{&quot;renderas&quot;:&quot;radio&quot;}</code>.</p>
+					<p>Can also be applied to render an inline submit button <code>{&quot;inline&quot;:&quot;true&quot;}</code></p>
+				</td>
+				<td>
+					<p><code>data-wb-fieldflow='{&quot;renderas&quot;: &quot;<em>[radio|checkbox]</em>&quot;, &quot;inline&quot;: <em>true</em>}</code></p>
+					<p><code>data-wb-fieldflow='{ &quot;inline&quot;: <em>true</em>}</code></p>
+				</td>
 				<td>
 					<dl>
 						<dt>false (default):</dt>
 						<dd>Render one checkbox or radio per line</dd>
 						<dt>true</dt>
-						<dd>Checkbox or radio are side by side.</dd>
+						<dd>Checkbox or radio are side by side</dd>
+						<dd>(if applied without renderas)Submit button is inline.</dd>
+					</dl>
+				</td>
+			</tr>
+			<tr>
+				<td>btnStyle</td>
+				<td>Select color for inline submit button. Available only for inline button interface.</td>
+				<td><code>data-wb-fieldflow='{&quot;inline&quot;: <em>true</em>, &quot;btnStyle&quot;: <em>&quot;[color class]&quot;</em>}</code></td>
+				<td>
+					<dl>
+						<dt>Default:</dt>
+						<dd>default class is "default"</dd>
+						<dt>String:</dt>
+						<dd>Any valid color class suffix from Bootstrap 3:"default", "primary", "success", "info", "warning", "danger", "link"</dd>
+					</dl>
+				</td>
+			</tr>
+			<tr>
+				<td>showLabel</td>
+				<td>Showing label for drop-down (select) with inline button (optional, if not provided, label will be hidden by default). Available only for drop-down with inline button.</td>
+				<td><code>data-wb-fieldflow='{&quot;inline&quot;: <em>true</em>, &quot;showLabel&quot;: <em>&quot;true &quot;</em>}</code></td>
+				<td>
+					<dl>
+						<dt>Default: false</dt>
+						<dd>the label of the inline select is not visible</dd>
+						<dt>Boolean: true</dt>
+						<dd>the label of the inline select is visible</dd>
 					</dl>
 				</td>
 			</tr>
