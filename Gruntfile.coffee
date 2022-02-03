@@ -388,7 +388,7 @@ module.exports = (grunt) ->
 			path.join require.resolve( "jquery" ), "../../package.json"
 		).version
 		jqueryOldIEVersion: "1.12.4"
-		banner: "/*!\n * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
+		banner: "/*!\n * @title Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
 		# Placeholder modal for multimélo task
@@ -423,7 +423,8 @@ module.exports = (grunt) ->
 		concat:
 			plugins:
 				options:
-					stripBanners: false
+					stripBanners: true
+					banner: "<%= banner %>"
 				src: [
 					"{sites,components,templates}/**/*.js"
 					"!{sites,components,templates}/**/test.js"
