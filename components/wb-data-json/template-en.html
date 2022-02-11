@@ -42,8 +42,8 @@
 		{ &quot;name&quot;: &quot;Item 4&quot;, &quot;prop&quot;: &quot;purple&quot; }
 	],
 	&quot;offices&quot;: [
-		{ &quot;name&quot;: &quot;Jean Edmonds, North Tower&quot;, &quot;num&quot;: 300, &quot;street&quot;: &quot;Slater&quot;, &quot;city&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot; },
-		{ &quot;name&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;street&quot;: &quot;Victoria&quot;, &quot;city&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; }
+		{ &quot;name&quot;: &quot;Jean Edmonds, North Tower&quot;, &quot;num&quot;: 300, &quot;street&quot;: &quot;Slater&quot;, &quot;city&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot;, &quot;homeUrl&quot;: &quot;https://github.com/wet-boew&quot; },
+		{ &quot;name&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;street&quot;: &quot;Victoria&quot;, &quot;city&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot;, &quot;homeUrl&quot;: &quot;https://github.com/wet-boew&quot; }
 	],
 	&quot;comments&quot;: {
 		&quot;2017-1&quot;: {
@@ -485,7 +485,46 @@
 </template>
 
 
-<details>
+
+<!-- data-wb-json need to be set on the "table" element -->
+<table class="table wb-tables" data-wb-json='{
+	"url": "demo/data-fr.json#/bureaux",
+	"source": "#tbl3",
+	"mapping": [
+		{ "selector": "a", "value": "/nom" },
+		{ "selector": "a", "value": "/homeUrl", "attr": "href" },
+		{ "selector": "td:nth-child(2)", "value": "/css", "attr": "class" },
+		{ "selector": "td:nth-child(2)", "value": "/num" },
+		{ "selector": "td:nth-last-child(2)", "value": "/rue" },
+		{ "selector": "td:last-child", "value": "/ville" }
+	]
+}'>
+
+	<caption>Binding with the data table plugin <code>wb-tables</code></caption>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Number</th>
+			<th>Street</th>
+			<th>City</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<template id="tbl3">
+	<table>
+		<tr>
+			<td><a href=""></a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</template>
+
+
+<details class="mrgn-tp-lg">
 	<summary>Source code</summary>
 	<pre><code>&lt;table class=&quot;table&quot;&gt;
 	&lt;thead&gt;
@@ -563,6 +602,43 @@
 	&lt;table&gt;
 		&lt;tr&gt;
 			&lt;td&gt;Name is: [[name]]&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/template&gt;
+
+&lt;!-- data-wb-json need to be set on the &quot;table&quot; element --&gt;
+&lt;table class=&quot;table wb-tables&quot; data-wb-json='{
+	&quot;url&quot;: &quot;demo/data-fr.json#/bureaux&quot;,
+	&quot;source&quot;: &quot;#tbl3&quot;,
+	&quot;mapping&quot;: [
+		{ &quot;selector&quot;: &quot;a&quot;, &quot;value&quot;: &quot;/nom&quot; },
+		{ &quot;selector&quot;: &quot;a&quot;, &quot;value&quot;: &quot;/homeUrl&quot;, &quot;attr&quot;: &quot;href&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-child(2)&quot;, &quot;value&quot;: &quot;/css&quot;, &quot;attr&quot;: &quot;class&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-child(2)&quot;, &quot;value&quot;: &quot;/num&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-last-child(2)&quot;, &quot;value&quot;: &quot;/rue&quot; },
+		{ &quot;selector&quot;: &quot;td:last-child&quot;, &quot;value&quot;: &quot;/ville&quot; }
+	]
+}'&gt;
+
+	&lt;caption&gt;Binding with the data table plugin &lt;code&gt;wb-tables&lt;/code&gt;&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Name&lt;/th&gt;
+			&lt;th&gt;Number&lt;/th&gt;
+			&lt;th&gt;Street&lt;/th&gt;
+			&lt;th&gt;City&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;template id=&quot;tbl3&quot;&gt;
+	&lt;table&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
