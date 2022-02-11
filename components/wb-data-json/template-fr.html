@@ -42,8 +42,8 @@
 		{ &quot;nom&quot;: &quot;Item 4&quot;, &quot;prop&quot;: &quot;violet&quot; }
 	],
 	&quot;bureaux&quot;: [
-		{ &quot;nom&quot;: &quot;Jean Edmonds, Tour nord&quot;, &quot;num&quot;: 300, &quot;rue&quot;: &quot;Slater&quot;, &quot;ville&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot; },
-		{ &quot;nom&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;rue&quot;: &quot;Victoria&quot;, &quot;ville&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot; }
+		{ &quot;nom&quot;: &quot;Jean Edmonds, Tour nord&quot;, &quot;num&quot;: 300, &quot;rue&quot;: &quot;Slater&quot;, &quot;ville&quot;: &quot;Ottawa&quot;, &quot;css&quot;: &quot;bg-success&quot;, &quot;homeUrl&quot;: &quot;https://github.com/wet-boew&quot; },
+		{ &quot;nom&quot;: &quot;Place du portage, Phase I&quot;, &quot;num&quot;: 50, &quot;rue&quot;: &quot;Victoria&quot;, &quot;ville&quot;: &quot;Gatineau&quot;, &quot;css&quot;: &quot;bg-danger&quot;, &quot;homeUrl&quot;: &quot;https://github.com/wet-boew&quot; }
 	],
 	&quot;auteur&quot;: &quot;&lt;a href=\&quot;https://github.com/duboisp/\&quot;&gt;Pierre Dubois&lt;/a&gt; a créé la fonctionalité data-json&quot;,
 	&quot;commentaire&quot;: {
@@ -476,6 +476,46 @@
 	</tbody>
 </table>
 
+
+
+
+<table class="table">
+	<caption>Modifier des attributs et utiliser des espaces réservé</caption>
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Numéro</th>
+			<th>Rue</th>
+			<th>Ville</th>
+		</tr>
+	</thead>
+	<tbody data-wb-json='{
+		"url": "demo/data-fr.json#/bureaux",
+		"source": "#tbl2",
+		"tobeclone": "tr",
+		"mapping": [
+			{ "selector": "td", "value": "/nom", "placeholder": "[[nom]]" },
+			{ "selector": "td:nth-child(2)", "value": "/css", "attr": "class" },
+			{ "selector": "td:nth-child(2)", "value": "/num" },
+			{ "selector": "td:nth-last-child(2)", "value": "/rue" },
+			{ "selector": "td:last-child", "value": "/ville" }
+		]
+	}'>
+		<tr>
+			<td>Place du centre</td>
+			<td>200</td>
+			<td>Promenade du Portage</td>
+			<td>Gatineau</td>
+		</tr>
+		<tr>
+			<td>Jean Edmonds, Tour sud</td>
+			<td>365</td>
+			<td>Laurier ave O</td>
+			<td>Ottawa</td>
+		</tr>
+	</tbody>
+</table>
+
 <template id="tbl2">
 	<table>
 		<tr>
@@ -487,8 +527,44 @@
 	</table>
 </template>
 
+<!-- data-wb-json doit être définie sur le "table" element -->
+<table class="table wb-tables" data-wb-json='{
+	"url": "demo/data-fr.json#/bureaux",
+	"source": "#tbl3",
+	"mapping": [
+		{ "selector": "a", "value": "/nom" },
+		{ "selector": "a", "value": "/homeUrl", "attr": "href" },
+		{ "selector": "td:nth-child(2)", "value": "/css", "attr": "class" },
+		{ "selector": "td:nth-child(2)", "value": "/num" },
+		{ "selector": "td:nth-last-child(2)", "value": "/rue" },
+		{ "selector": "td:last-child", "value": "/ville" }
+	]
+}'>
+	<caption>Connection avec le plugiciels d'amélioration des tableaux <code>wb-tables</code></caption>
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Numéro</th>
+			<th>Rue</th>
+			<th>Ville</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
 
-<details>
+<template id="tbl3">
+	<table>
+		<tr>
+			<td><a href=""></a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</template>
+
+
+<details class="mrgn-tp-lg">
 	<summary>Source code</summary>
 	<pre><code>&lt;table class=&quot;table&quot;&gt;
 	&lt;thead&gt;
@@ -566,6 +642,43 @@
 	&lt;table&gt;
 		&lt;tr&gt;
 			&lt;td&gt;Le nom est: [[nom]]&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/template&gt;
+
+
+&lt;!-- data-wb-json doit être définie sur le &quot;table&quot; element --&gt;
+&lt;table class=&quot;table wb-tables&quot; data-wb-json='{
+	&quot;url&quot;: &quot;demo/data-fr.json#/bureaux&quot;,
+	&quot;source&quot;: &quot;#tbl3&quot;,
+	&quot;mapping&quot;: [
+		{ &quot;selector&quot;: &quot;a&quot;, &quot;value&quot;: &quot;/nom&quot; },
+		{ &quot;selector&quot;: &quot;a&quot;, &quot;value&quot;: &quot;/homeUrl&quot;, &quot;attr&quot;: &quot;href&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-child(2)&quot;, &quot;value&quot;: &quot;/css&quot;, &quot;attr&quot;: &quot;class&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-child(2)&quot;, &quot;value&quot;: &quot;/num&quot; },
+		{ &quot;selector&quot;: &quot;td:nth-last-child(2)&quot;, &quot;value&quot;: &quot;/rue&quot; },
+		{ &quot;selector&quot;: &quot;td:last-child&quot;, &quot;value&quot;: &quot;/ville&quot; }
+	]
+}'&gt;
+	&lt;caption&gt;Connection avec le plugiciels d'amélioration des tableaux &lt;code&gt;wb-tables&lt;/code&gt;&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Nom&lt;/th&gt;
+			&lt;th&gt;Numéro&lt;/th&gt;
+			&lt;th&gt;Rue&lt;/th&gt;
+			&lt;th&gt;Ville&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;template id=&quot;tbl3&quot;&gt;
+	&lt;table&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
 			&lt;td&gt;&lt;/td&gt;
