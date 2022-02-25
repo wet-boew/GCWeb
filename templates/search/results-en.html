@@ -2,13 +2,13 @@
 {
 	"title": "Search results",
 	"language": "en",
-	"altLangPrefix": "results",
+	"altLangPage": "results-fr.html",
 	"pageType": "search",
 	"pageclass": "page-type-search",
 	"breadcrumb": [
 		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
 	],
-	"dateModified": "2019-02-06",
+	"dateModified": "2022-02-25",
 	"share": "false",
 	"deptfeature": false
 }
@@ -17,13 +17,15 @@
 <form>
 	<label class="wb-inv" for="sch-inp">Search Government of Canada websites</label>
 	<div class="input-group mrgn-tp-lg">
-		<input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" />
+		<input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-rule-wbscrub />
 		<span class="input-group-btn">
 			<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
 		</span>
 	</div>
+	<input type="hidden" name="scrub" value="1" data-wbscrub-flag />
 </form>
 
+<p class="hidden alert alert-info mrgn-tp-md mrgn-bttm-lg" data-wb-urlmapping='{ "scrub=1": { "action": "removeClass", "class": "hidden" } }'>Protecting privacy and personal information represents a key effort throughout all services offered by Canada.ca Please note that all the personal information is detached from all search requests prior to any processing activities.</p>
 
 <section class="results">
 	<h2 class="wb-inv">Search results</h2>

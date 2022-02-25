@@ -2,13 +2,13 @@
 {
 	"title": "Résultats de la recherche",
 	"language": "fr",
-	"altLangPrefix": "results",
+	"altLangPage": "results-en.html",
 	"pageType": "recherche",
 	"pageclass": "page-type-search",
 	"breadcrumb": [
 		{ "title": "Canada.ca", "link": "https://www.canada.ca/fr.html" }
 	],
-	"dateModified": "2019-02-06",
+	"dateModified": "2022-02-25",
 	"share": "false",
 	"deptfeature": false
 }
@@ -16,13 +16,15 @@
 <form>
 	<label class="wb-inv" for="sch-inp">Recherchez le site Web du Gouvernement du Canada</label>
 	<div class="input-group mrgn-tp-lg">
-		<input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" />
+		<input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-rule-wbscrub />
 		<span class="input-group-btn">
 			<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Recherche</span></button>
 		</span>
 	</div>
+	<input type="hidden" name="scrub" value="1" data-wbscrub-flag />
 </form>
 
+<p class="hidden alert alert-info mrgn-tp-md mrgn-bttm-lg" data-wb-urlmapping='{ "scrub=1": { "action": "removeClass", "class": "hidden" } }'>La protection de la vie privée et des renseignements personnels représente un effort clé dans tous les services offerts par Canada.ca. Veuillez noter que tous les renseignements personnels sont détachés de toutes demandes de recherche avant toute activité de traitement.</p>
 
 <section class="results">
 	<h2 class="wb-inv">Résultats de recherche</h2>

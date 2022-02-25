@@ -4,7 +4,7 @@
 	<form action="#" method="post" name="cse-search-box" role="search">
 		<div class="form-group wb-srch-qry">
 			<label for="wb-srch-q" class="wb-inv">{{ i18nText-searchSite }}</label>
-			<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="{{ i18nText-searchSite }}" />
+			<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="{{ i18nText-searchSite }}" data-rule-wbscrub />
 			<datalist id="wb-srch-q-ac"></datalist>
 		</div>
 		<div class="form-group submit">
@@ -13,5 +13,6 @@
 				<span class="wb-inv">{{ i18nText-search }}</span>
 			</button>
 		</div>
+		<input type="hidden" name="scrub" value="1" data-wbscrub-flag />
 	</form>
 </section>
