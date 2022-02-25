@@ -10,6 +10,12 @@
 "use strict";
 
 /*
+ * Global variable addition to the wet-boew main object.
+ */
+wb.allowAttrNames = /(href|src|data-*|pattern|min|max|step|low|high)/;
+wb.allowPropNames = /(checked|selected|disabled|required|readonly|multiple|hidden)/;
+
+/*
  * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
@@ -27,8 +33,6 @@ var componentName = "wb-data-json",
 		"[data-" + shortName + "]"
 	],
 	allowJsonTypes = [ "after", "append", "before", "prepend", "val" ],
-	allowAttrNames = /(href|src|data-*|pattern|min|max|step|low|high)/,
-	allowPropNames = /(checked|selected|disabled|required|readonly|multiple|hidden)/,
 	selectorsLength = selectors.length,
 	selector = selectors.join( "," ),
 	initEvent = "wb-init." + componentName,
@@ -170,9 +174,9 @@ var componentName = "wb-data-json",
 				$elm.addClass( content );
 			} else if ( jsonType === "removeclass" ) {
 				$elm.removeClass( content );
-			} else if ( jsonType === "prop" && attrname && allowPropNames.test( attrname ) ) {
+			} else if ( jsonType === "prop" && attrname && wb.allowPropNames.test( attrname ) ) {
 				$elm.prop( attrname, content );
-			} else if ( jsonType === "attr" && attrname && allowAttrNames.test( attrname ) ) {
+			} else if ( jsonType === "attr" && attrname && wb.allowAttrNames.test( attrname ) ) {
 				$elm.attr( attrname, content );
 			} else if ( typeof $elm[ jsonType ] === "function" && allowJsonTypes.indexOf( jsonType ) !== -1 ) {
 				$elm[ jsonType ]( content );

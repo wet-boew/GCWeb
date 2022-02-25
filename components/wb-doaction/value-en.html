@@ -1,0 +1,86 @@
+---
+{
+	"title": "Do action - Set value",
+	"description": Set value, property and attribute on an input",
+	"language": "en",
+	"altLangPage": "value-fr.html",
+	"dateModified": "2022-02-24"
+}
+---
+<p>Execute pre-configured action based on url query string to set value on an input created during the initialization of wet-boew.</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<h2>Set value for an attribute</h2>
+
+<p>List of allowed attribute:</p>
+<ul>
+	<li><code>href</code></li>
+	<li><code>src</code></li>
+	<li><code>data-*</code></li>
+	<li><code>pattern</code></li>
+	<li><code>min</code></li>
+	<li><code>max</code></li>
+	<li><code>step</code></li>
+	<li><code>low</code></li>
+	<li><code>high</code></li>
+</ul>
+
+<p>Example, the following two button would change the <code>href</code> value of the following link.</p>
+
+<ul class="list-inline">
+	<li>
+		<button type="button" class="btn btn-default" data-wb-doaction='{
+			"source": "#id-anchor",
+			"action": "setVal",
+			"asvalueof": "href",
+			"value": "doaction-doc-en.html"
+		}'>Continue toward the documentation of do-action</button>
+	</li>
+	<li>
+		<button type="button" class="btn btn-default" data-wb-doaction='{
+			"source": "#id-meter",
+			"action": "setVal",
+			"asvalueof": "href",
+			"value": "tblfilter-en.html"
+		}'>Continue toward the table filtering example</button>
+	</li>
+</ul>
+<p><a id="id-anchor" href="https://wet-boew.github.io/GCWeb/index-en.html">Continue</a></p>
+
+<h2>Set value for a property</h2>
+
+<p>List of allowed property:</p>
+<ul>
+	<li><code>checked</code></li>
+	<li><code>selected</code></li>
+	<li><code>disabled</code></li>
+	<li><code>required</code></li>
+	<li><code>readonly</code></li>
+	<li><code>multiple</code></li>
+	<li><code>hidden</code></li>
+</ul>
+
+<p>Example to use a button to change the checked state of checkbox</p>
+
+<ul class="list-inline">
+	<li>
+		<button type="button" class="btn btn-default" data-wb-doaction='{
+			"source": "#id-checkbox",
+			"action": "setVal",
+			"asvalueof": "checked",
+			"value": true
+		}'>Check</button>
+	</li>
+	<li>
+		<button type="button" class="btn btn-default" data-wb-doaction='{
+			"source": "#id-checkbox",
+			"action": "setVal",
+			"asvalueof": "checked",
+			"value": false
+		}'>Uncheck</button>
+	</li>
+</ul>
+
+<input id="id-checkbox" type="checkbox" />
+<label for="id-checkbox">Checkbox where a button can change it's checked state too</label>

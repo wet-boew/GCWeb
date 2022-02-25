@@ -53,31 +53,12 @@ var componentName = "wb-urlmapping",
 				$elm.trigger( doMappingEvent );
 			}
 		}
-	},
-	getUrlParams = function() {
-
-		// https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript#answer-2880929
-		var urlParams = {},
-			pl = /\+/g, // Regex for replacing addition symbol with a space
-			search = /([^&=]+)=?([^&]*)/g,
-			decode = function( s ) {
-				return decodeURIComponent( s.replace( pl, " " ) );
-			},
-			query = window.location.search.substring( 1 ),
-			match = search.exec( query );
-
-		while ( match ) {
-			urlParams[ decode( match[ 1 ] ) ] = decode( match[ 2 ] );
-			match = search.exec( query );
-		}
-
-		return urlParams;
 	};
 
 $document.on( doMappingEvent, selector, function( event ) {
 
 	var $elm = $( event.target ),
-		urlParams = getUrlParams(),
+		urlParams = wb.pageUrlParts.params,
 		cKey, cValue, settingQuery,
 		settings = $.extend( {}, window[ componentName ] || { }, wb.getData( $elm, componentName ) );
 
@@ -93,7 +74,7 @@ $document.on( doMappingEvent, selector, function( event ) {
 				actions: {
 					action: "withInput",
 					actions: settingQuery,
-					cValue: cValue,
+					cValue: cValue.replace( /\+/g, " " ),
 					dntwb: $elm[ 0 ] !== authTrigger
 				}
 			} );

@@ -43,6 +43,8 @@ var $document = wb.doc,
 		from: "{base}/{qval}"
 	},
 
+	allowSetValEventTrigger = /(change|search)/,
+
 	/**
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered the function call
@@ -172,8 +174,19 @@ var $document = wb.doc,
 		$elm.removeClass( data.class );
 	},
 	setValAct = function( event, data ) {
-		var $elm = $( data.source || event.target );
-		$elm.val( data.value );
+		var $elm = $( data.source || event.target ),
+			value = data.value,
+			setValueOf = data.asvalueof;
+		if ( setValueOf && wb.allowPropNames.test( setValueOf ) ) { // allowPropNames is defined in data-json
+			$elm.prop( setValueOf, value );
+		} else if ( setValueOf && wb.allowAttrNames.test( setValueOf ) ) { // allowAttrNames is defined in data-json
+			$elm.attr( setValueOf, value );
+		} else {
+			$elm.val( value );
+		}
+		if ( data.trigger && allowSetValEventTrigger.test( data.trigger ) ) {
+			$elm.trigger( data.trigger );
+		}
 	},
 	tblflrAct = function( event, data ) {
 		var elm = event.target,
