@@ -436,21 +436,21 @@ module.exports = (grunt) ->
 			components:
 				options:
 					banner: "["
-					footer: "]"
+					footer: "]\n"
 					separator: ","
 				src: "components/**/index.json-ld"
 				dest: "_data/components.json"
 			templates:
 				options:
 					banner: "["
-					footer: "]"
+					footer: "]\n"
 					separator: ","
 				src: "templates/**/index.json-ld"
 				dest: "_data/templates.json"
 			sites:
 				options:
 					banner: "["
-					footer: "]"
+					footer: "]\n"
 					separator: ","
 				src: "sites/**/index.json-ld"
 				dest: "_data/sites.json"
