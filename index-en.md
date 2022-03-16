@@ -1,14 +1,16 @@
 ---
 title: GCWeb, the WET-BOEW Canada.ca theme
 altLangPage: index-fr.html
-dateModified: 2022-03-10
+dateModified: 2022-03-11
 description: "Home page describing all the components of the Canada.ca theme, named GCWeb."
 layout: no-container
 language: en
+css:
+- href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
+  integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
 {::nomarkdown}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
 <div class="container">
 	<h1 id="wb-cont" property="name">GCWeb, the WET-BOEW Canada.ca theme</h1>
 	<div class="row">
@@ -32,7 +34,7 @@ language: en
 					<li><a href="#experiment"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo and thematics</a></li>
 					<li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Sites and global functionality</a></li>
 					<li><a href="#other"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Other documentation</a></li>
-					<li><a href="#developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for GCWeb</a></li>
+					<li><a href="#implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -44,27 +46,27 @@ language: en
 	</header>
 	<ul class="pull-left list-inline mrgn-lft-md mrgn-tp-sm">
 		<li>
-			<a href="#components" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Components</a>
+			<a href="#components" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Components</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#templates" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Templates</a>
+			<a href="#templates" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-sm"></span>Templates</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#experiment" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo and thematics</a>
+			<a href="#experiment" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Méli-mélo and thematics</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Sites and global</a>
+			<a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-sm"></span>Sites and global</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#other" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Other</a>
+			<a href="#other" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-sm"></span>Other</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#developing-for-gcweb" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for GCWeb</a>
+			<a href="#implementing-developing" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-sm"></span>Implementing&nbsp;/ Developing</a>
 		</li>
 	</ul>
 </nav>
 <div class="container">
-	<p><small>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submiting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our <a href="https://wet-boew.github.io/wet-boew-documentation/index-en.html#wet-boew-code-sprint">WET-BOEW weekly Tuesday code sprint</a>.</small></p>
+	<p><small>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submiting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
 	{% assign page_group = site.data.i18n.page_group[ page.language ] %}
 	{% assign comp_status = site.data.i18n.component_status[ page.language ] %}
 	<details class="mrgn-tp-lg">
@@ -95,12 +97,12 @@ language: en
 		</dl>
 	</details>
 	<h2 id="components" class="mrgn-bttm-lg">Components</h2>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for component in site.data.components %}
 		{% assign list-pages = component.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }} 
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }}
 				{% if component.status == "stable" %}
 				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
 				{% elsif component.status == "provisional" %}
@@ -113,34 +115,70 @@ language: en
 				</h3>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
 					<p>{{ component.description[ page.language ] | default: "[Short description of the component]" }}</p>
-					{% if list-pages.docs %}
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="components/
+								{%- if component.componentName -%}
+									{{ component.componentName }}/
+								{%- endif -%}
+							{{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
+					{% endif %}
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
 					{% assign docs = list-pages.docs | where: "language", page.language %}
 					{% for doc in docs %}
-						<li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hodden="true"></span>Documentation</a></li>
+						<li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+					{% endfor %}
+					{% endif %}
+					<li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>All examples and info</summary>
+					<ul class="list-unstyled">
+					{% for pgGroup in list-pages %}
+						{% assign grpkey = pgGroup[0] %}
+						<li>{{ page_group[ grpkey ] | default: "Unknown group" }}
+							<ul>
+							{% assign examples = pgGroup[1] %}
+							{% for example in examples %}
+								{% if example.path %}
+								<li><a href="components/
+											{%- if component.componentName -%}
+												{{ component.componentName }}/
+											{%- endif -%}
+										{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+								{% elsif example.url %}
+									<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+								{% else %}
+									<li>{{ example.title }}</li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						</li>
 					{% endfor %}
 					</ul>
-					{% endif %}
-					{% if list-pages.examples %}
-					<details class="mrgn-tp-lg"><summary>Examples</summary>
-						<ul class="mrgn-tp-md">
-						{% assign examples = list-pages.examples | where: "language", page.language %}
-						{% for example in examples %}
-							{% if example.path %}
-							<li><a href="components/
-										{%- if component.componentName -%}
-											{{ component.componentName }}/
-										{%- endif -%}
-									{{ example.path }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
-							{% elsif example.url %}
-								<li><a href="{{ example.url }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
-							{% else %}
-								<li>{{ example.title }}</li>
-							{% endif %}
-						{% endfor %}
-						</ul>
 					</details>
-					{% endif %}
 				</div>
 			</div>
 		</li>
@@ -148,12 +186,12 @@ language: en
 	</ul>
 	<hr />
 	<h2 id="templates" class="mrgn-bttm-lg">Templates</h2>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
 	{% for template in site.data.templates %}
 		{% assign list-pages = template.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }} 
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }}
 				{% if template.status == "stable" %}
 				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ template.status ] }}</span>
 				{% elsif template.status == "provisional" %}
@@ -166,34 +204,69 @@ language: en
 				</h3>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
 					<p>{{ template.description[ page.language ] | default: "[Short description of the template]" }}</p>
-					{% if list-pages.docs %}
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="templates/
+								{%- if template.componentName -%}
+									{{ template.componentName }}/
+								{%- endif -%}
+							{{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
+					{% endif %}
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
 					{% assign docs = list-pages.docs | where: "language", page.language %}
 					{% for doc in docs %}
-						<li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hodden="true"></span>Documentation</a></li>
+						<li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
 					{% endfor %}
-					</ul>
 					{% endif %}
-					{% if list-pages.examples %}
-					<details class="mrgn-tp-lg"><summary>Examples</summary>
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>All examples and info</summary>
 						<ul class="mrgn-tp-md">
-						{% assign examples = list-pages.examples | where: "language", page.language %}
-						{% for example in examples %}
-							{% if example.path %}
-							<li><a href="templates/
-										{%- if template.componentName -%}
-											{{ template.componentName }}/
-										{%- endif -%}
-									{{ example.path }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
-							{% elsif example.url %}
-								<li><a href="{{ example.url }}" lang="{{ example.language }}" hreflang="{{ example.language }}">{{ example.title }}</a></li>
-							{% else %}
-								<li>{{ example.title }}</li>
-							{% endif %}
+							{% for pgGroup in list-pages %}
+							{% assign grpkey = pgGroup[0] %}
+							<li>{{ page_group[ grpkey ] | default: "Unknown group" }}
+								<ul>
+								{% assign examples = pgGroup[1] %}
+								{% for example in examples %}
+									{% if example.path %}
+									<li><a href="templates/
+												{%- if template.componentName -%}
+													{{ template.componentName }}/
+												{%- endif -%}
+											{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+									{% elsif example.url %}
+										<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+									{% else %}
+										<li>{{ example.title }}</li>
+									{% endif %}
+								{% endfor %}
+								</ul>
+							</li>
 						{% endfor %}
 						</ul>
 					</details>
-					{% endif %}
 				</div>
 			</div>
 		</li>
@@ -257,7 +330,6 @@ language: en
 	<h3 id="gcweb-project-documentation">GCWeb project documentation</h3>
 	<ul>
 		<li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
-		<li><a href="docs/implementing.html">Quick implementation guide - GCWeb theme</a></li>
 		<li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
 		<li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
 		<li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
@@ -269,12 +341,14 @@ language: en
 		<li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
 		<li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
 	</ul>
-	<div class="row">
-		<div class="col-md-9">
-			<h2 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developping for GCWeb</h2>
-			<p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
-			<p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-call-to-action">Start coding</a></p>
-		</div>
+	<div class="cnt-wdth-lmtd">
+		<h2 id="implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</h2>
+		<h3>Implementing GCWeb on your site</h3>
+		<p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
+		<p><a href="docs/implementing.html" class="btn btn-lg btn-default">Quick guide</a></p>
+		<h3 id="developing-for-gcweb">Developing for WET / GCWeb</h3>
+		<p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
+		<p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-call-to-action">Start coding</a></p>
 	</div>
 </div>
 {:/}
