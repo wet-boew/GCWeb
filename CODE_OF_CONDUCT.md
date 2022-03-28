@@ -1,8 +1,8 @@
-# Contributor Covenant Code of Conduct for the `GCWeb` project
+# Contributor Covenant Code of Conduct for the GCWeb project
 
 ([Français](#Code-de-conduite-pour-le-projet-GCweb))
 
-Contributors to repositories hosted in [`WET-BOEW`](https://github.com/wet-boew/) are expected to follow the Contributor Covenant Code of Conduct, and those working within Government are also expected to follow the Values and Ethics Code for the Public Sector
+Contributors to repositories hosted in [**WET-BOEW**](https://github.com/wet-boew/) are expected to follow the Contributor Covenant Code of Conduct, and those working within Government are also expected to follow the Values and Ethics Code for the Public Sector
 
 ## Values and Ethics Code for the Public Sector
 
@@ -44,7 +44,7 @@ Representation of a project may be further defined and clarified by project main
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [`dto-btn@tbs-sct.gc.ca`].
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported through [Principal Publisher Service desk](http://requestform.portal.gc.ca/tickets.html) or by contacting the project team at ESDC.SD.DEV-DEV.DS.EDSC@servicecanada.gc.ca.
 All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.
 The project team is obligated to maintain confidentiality with regard to the reporter of an incident.
 Further details of specific enforcement policies may be posted separately.
@@ -53,20 +53,24 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 
 ## Attribution [EN]
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
+This Code of Conduct is adapted from the [Template for Government of Canada open source code repositories](https://github.com/canada-ca/template-gabarit/blob/main/CODE_OF_CONDUCT.md) repository
+
+This Code of Conduct is also adapted from the [Contributor Covenant][homepage], version 1.4,
 available at [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)
 
 [homepage]: https://www.contributor-covenant.org
 
-This Code of Conduct is also inspired by GDS' `alphagov` [Code of conduct](https://github.com/alphagov/code-of-conduct)
+This Code of Conduct is also inspired by GDS' **alphagov** [Code of conduct](https://github.com/alphagov/code-of-conduct)
+
+This Code of Conduct is also inspired by the [Guide for Publishing Open Source Code](https://github.com/canada-ca/open-source-logiciel-libre/blob/master/en/guides/publishing-open-source-code.md)
 
 ___
 
-# Code de conduite pour le projet `GCWeb`
+# Code de conduite pour le projet GCWeb
 
 ([English](#Contributor-Covenant-Code-of-Conduct-for-the-GCWeb-project))
 
-Les contributeurs aux dépôts hébergés dans [`WET-BOEW`](https://github.com/wet-boew/) sont tenus de respecter le Code de conduite du Pacte des contributeurs, et ceux qui travaillent au sein du gouvernement sont également tenus de respecter le Code de valeurs et d'éthique du secteur public.
+Les contributeurs aux dépôts hébergés dans [**WET-BOEW**](https://github.com/wet-boew/) sont tenus de respecter le Code de conduite du Pacte des contributeurs, et ceux qui travaillent au sein du gouvernement sont également tenus de respecter le Code de valeurs et d'éthique du secteur public.
 
 ## Notre engagement
 
@@ -104,7 +108,7 @@ La représentation d'un projet peut être mieux défini et clarifié par les res
 
 ## Application des règles
 
-Les cas de comportement abusif, de harcèlement ou d'autres comportements inacceptables peuvent être rapportés en communiquant avec l'équipe de projet à l'adresse suivante :[`dto-btn@tbs-sct.gc.ca`].
+Les cas de comportement abusif, de harcèlement ou d'autres comportements inacceptables peuvent être rapportés à travers le [Bureau de service de l'Éditeur principal](http://requestform.portal.gc.ca/billets.html) ou en communiquant avec l'équipe de projet à l'adresse suivante : ESDC.SD.DEV-DEV.DS.EDSC@servicecanada.gc.ca.
 Toutes les plaintes feront l'objet d'un examen et d'une enquête et donneront lieu à une réponse qui est jugée nécessaire et appropriée dans les circonstances.
 L'équipe de projet est dans l'obligation de respecter la confidentialité à l'égard du déclarant d'un incident.
 De plus amples détails sur les politiques d'application spécifiques peuvent être affichés séparément.
@@ -113,9 +117,13 @@ Les responsables de projet qui ne respectent pas ou n'appliquent pas le Code de 
 
 ## Attribution [FR]
 
-Le présent Code de conduite est adapté de la version 1.4 du [Pacte du contributeur][page d'accueil],
+Le présent Code de conduite est adapté du répertoire [Gabarit pour dépôts de code source ouvert du gouvernement du Canada](https://github.com/canada-ca/template-gabarit/blob/main/CODE_OF_CONDUCT.md)
+
+Le présent Code de conduite est également adapté de la version 1.4 du [Pacte du contributeur][page d'accueil],
 disponible à l'adresse [https://www.contributor-covenant.org/version/1/4/code-of-conduct.html](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)
 
 [page d'accueil]: https://www.contributor-covenant.org
 
-Le présent Code de conduite s'inspire également du " Code de conduite " du [alphaGov](https://github.com/alphagov/code-of-conduct) de GDS.
+Le présent Code de conduite s'inspire également du " [Code de conduite](https://github.com/alphagov/code-of-conduct) " du **alphaGov** de GDS.
+
+Le présent Code de conduite s'inspire également du [Guide pour la publication du code source libre](https://github.com/canada-ca/open-source-logiciel-libre/blob/master/fr/guides/publication-code-source-ouvert.md)

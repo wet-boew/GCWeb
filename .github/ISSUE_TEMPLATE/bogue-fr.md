@@ -10,6 +10,8 @@ assignees: ''
 <!-- Obligatoire -->
 Une description claire et concise du bogue.
 
+Note : Si votre demande est reliée à la sécurité, veuillez ne pas ouvrir une "issue" publiquement visible; référez-vous au [SECURITY.md](https://github.com/wet-boew/GCWeb/blob/master/SECURITY.md).
+
 ## To Reproduce
 <!-- Obligatoire -->
 Étapes pour reproduire le comportement :

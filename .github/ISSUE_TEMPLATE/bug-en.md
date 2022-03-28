@@ -9,6 +9,8 @@ assignees: ''
 <!-- Mandatory -->
 A clear and concise description of what the bug is.
 
+Note: If your request is related to security, please do not open a publicly visible "issue"; refer to [SECURITY.md](https://github.com/wet-boew/GCWeb/blob/master/SECURITY.md).
+
 ## To Reproduce
 <!-- Mandatory -->
 Steps to reproduce the behaviour:
