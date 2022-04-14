@@ -1,7 +1,7 @@
 ---
 title: "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / We couldn't find that Web page (Error 404) - Canada.ca theme"
 language: "fr"
-layout: layout-servermessage
+layout: servermessage
 ---
 {::nomarkdown}
 <h1 class="wb-inv">Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / <span lang="en">We couldn't find that Web page (Error 404) - Canada.ca theme</span></h1>
