@@ -4,9 +4,6 @@ title: "Page de contenu fluide"
 language: fr
 altLangPrefix: content
 altLangPage: content-fluid-en.html
-breadcrumb:
-- title: "Canada.ca"
-  link: https://www.canada.ca/fr.html
 secondlevel: false
 dateModified: 2021-02-05
 share: true
