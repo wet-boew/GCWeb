@@ -4,13 +4,13 @@
 	"language": "en",
 	"description": "Instructions on how to develop for the Canada.ca theme.",
 	"altLangPage": "developing-fr.html",
-	"dateModified": "2021-12-03"
+	"dateModified": "2022-04-12"
 }
 ---
 
 Install NodeJS
 
-### Building GCweb
+## Building GCweb
 
 * Build a local development version: `grunt` or `grunt debug`
 * Run code quality check: `grunt test`
@@ -25,7 +25,7 @@ Install NodeJS
 	* `_data/templates.json`
 	* `_wetboew-demos/**`
 
-### Run GCWeb wetsite locally
+## Run GCWeb wetsite locally
 
 Ensure that you have builded GCWeb first
 
@@ -44,7 +44,7 @@ grunt debug
 docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='--config _config.yml,_localJekyll.yml' jekyll-with-env-options
 ```
 
-#### alternative with docker-compose
+### alternative with docker-compose
 
 This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
 
@@ -52,7 +52,7 @@ This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent i
 docker-compose up
 ```
 
-### Run the continous integration and deployment script locally
+## Run the continous integration and deployment script locally
 
 Install ACT - [https://github.com/nektos/act](https://github.com/nektos/act)
 
@@ -75,7 +75,7 @@ Where:
 * `<GITHUB HANDLE>`: Your github id
 * `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
 
-### Refresh your github pages with the latest theme changes
+## Refresh your github pages with the latest theme changes
 
 You can make a commit to your site and it will get regenerated with the latest version of the jekyll theme. Alternatively, the following curl command will told github to regenerate your site.
 
@@ -89,3 +89,7 @@ Where:
 * `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
 
 Note: A manual update is required if you have specified a version for your jekyll remote theme in your `config.yml` file.
+
+## Contribute to GCWeb
+
+When you work on fixing or improving GCWeb, for example by troubleshooting a bug or creating a new feature, it could be interesting for all if you would contribute back to the project so that every implementation of GCWeb can benefit from your work. To do so, please read our [code of conduct](https://github.com/wet-boew/GCWeb/blob/master/CONTRIBUTING.md).

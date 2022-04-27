@@ -12,7 +12,7 @@ __[Needs translation]__
 
 Install NodeJS
 
-### Building GCweb
+## Building GCweb
 
 * Build a local development version: `grunt` or `grunt debug`
 * Run code quality check: `grunt test`
@@ -27,7 +27,7 @@ Install NodeJS
 	* `_data/templates.json`
 	* `_wetboew-demos/**`
 
-### Run GCWeb wetsite locally
+## Run GCWeb wetsite locally
 
 Ensure that you have builded GCWeb first
 
@@ -46,7 +46,7 @@ grunt debug
 docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='--config _config.yml,_localJekyll.yml' jekyll-with-env-options
 ```
 
-#### alternative with docker-compose
+### alternative with docker-compose
 
 This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
 
@@ -54,7 +54,7 @@ This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent i
 docker-compose up
 ```
 
-### Run the continous integration and deployment script locally
+## Run the continous integration and deployment script locally
 
 Install ACT - [https://github.com/nektos/act](https://github.com/nektos/act)
 
@@ -77,7 +77,7 @@ Where:
 * `<GITHUB HANDLE>`: Your github id
 * `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
 
-### Refresh your github pages with the latest theme changes
+## Refresh your github pages with the latest theme changes
 
 You can make a commit to your site and it will get regenerated with the latest version of the jekyll theme. Alternatively, the following curl command will told github to regenerate your site.
 
@@ -91,3 +91,7 @@ Where:
 * `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
 
 Note: A manual update is required if you have specified a version for your jekyll remote theme in your `config.yml` file.
+
+## Contribuer à GCWeb
+
+Lorsque vous effectuez des correctifs ou améliorations à GCWeb, tels que la correction d'un bogue ou l'ajout d'une fonctionnalité, il pourrait être intéressant pour toutes et tous de contribuer au projet afin que tous les implémentations de GCWeb puissent en bénéficier. Pour ce faire, veuillez consulter les [lignes directrices de contribution de GCWeb](https://github.com/wet-boew/GCWeb/blob/master/CONTRIBUTING.md#comment-contribuer).
