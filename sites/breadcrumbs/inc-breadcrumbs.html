@@ -1,4 +1,4 @@
-{%- unless page.pageclass contains "home" -%}
+{%- unless page.pageclass contains "home" or page.breadcrumbs == false -%}
 <nav id="wb-bc" property="breadcrumb">
 	<h2>{{ i18nText-breadcrumb }}</h2>
 	<div class="container">
@@ -12,13 +12,13 @@
 {%- if page.breadcrumbs -%}
 	{% assign breadcrumbCounter = 2 %}
 	{% for breadcrumb in page.breadcrumbs %}
-		<li property="itemListElement" typeof="ListItem">
-			<a property="item" typeof="WebPage" href="{{ breadcrumb.link | relative_url }}">
-				<span property="name">{{ breadcrumb.title }}</span>
-			</a>
-			<meta property="position" content="{{ breadcrumbCounter }}">
-		</li>
-		{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
+			<li property="itemListElement" typeof="ListItem">
+				<a property="item" typeof="WebPage" href="{{ breadcrumb.link | relative_url }}">
+					<span property="name">{{ breadcrumb.title }}</span>
+				</a>
+				<meta property="position" content="{{ breadcrumbCounter }}">
+			</li>
+			{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
 	{%- endfor -%}
 {% endif %}
 		</ol>

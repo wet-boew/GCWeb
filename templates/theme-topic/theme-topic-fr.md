@@ -5,11 +5,6 @@ language: "fr"
 altLangPage: "theme-topic-en.html"
 pageclass: "page-type-nav"
 pageType: "theme-topic"
-breadcrumb:
- - title: "Canada.ca"
-   link": "https://www.canada.ca/fr.html"
- - title: "[Titre du thème ou du sujet]"
-   link: "theme-topic-fr.html"
 dateModified: "2021-01-19"
 share: true
 noMainContainer: true
