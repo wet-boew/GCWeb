@@ -1,0 +1,107 @@
+---
+{
+	"altLangPage": "authentication-fr.html",
+	"breadcrumb": {
+		"title": "Canada.ca", "link": "https://www.canada.ca/en.html"
+	},
+	"dateModified": "2022-05-17",
+	"description": "Documentation on how to use the various authentication patterns.",
+	"language": "en",
+	"title": "Authentication patterns"
+}
+---
+<p>This component support the following 3 design pattern variant:</p>
+<ul>
+	<li>Contextual Sign-in button: A link pointing to a dedicated sign-in web page</li>
+	<li>Signed-off: A pattern that show how the user can sign-on directly from the current page. Note: The prompt sign-in dialog and the interaction resulting of the signed-on are currently out-of-scope.</li>
+	<li>Signed-on: A pattern that shows the user is logged in, a way to access your account and how to disconnect.</li>
+</ul>
+
+<h2>Contextual Sign-in button</h2>
+
+<p>With proper parameters, the button will appear on page load and will be located on the top right-hand side of the page, below the horizontal line as indicated in the <a href="https://design.canada.ca/common-design-patterns/buttons.html#sign-in">design.canada guidelines</a>.</p>
+
+<h3>GCWeb Jekyll configuration</h3>
+
+<p>The <code>auth</code> variable MUST be set along with the <code>type</code> parameter with the value "contextual" in order to initiate the contextual sign-in button pattern.</p>
+
+<p>Parameters to be set:</p>
+<ul>
+	<li><code>link</code> this parameter MUST be set in order to assign a URL to the link button for pointing to the application where users will be redirected.</li>
+	<li><code>label</code> with a maximum lenght of 12 characters allowed including spaces, this parameter MUST be set to generate the text appearing on the button for any viewports from extra-extra-small to extra-large (xxs, xxs, sm, md, lg and xl).</li>
+	<li><code>labelExtended</code> with a maximum lenght of 25 characters allowed including spaces, this parameter is optional but must be set along with the <code>label</code> paramter and if set, it will generate the text appearing on the button for small viewport and up (sm, md, lg and xl).</li>
+</ul>
+
+<h3>HTML Structure - Version 1.0</h3>
+
+<p>Code sample of the include showing the HTML of the component</p>
+<ul>
+	<li><a href="contextual-signin-en.html">Contextual Sign-in button</a></li>
+	<li><a href="contextual-signin-label-extended-en.html">Contextual Sing-in button with extended label</a></li>
+	<li><a href="contextual-signin-nolabels-en.html">Contextual Sign-in button without custom labels</a></li>
+	<li><a href="contextual-signin-nomenu-en.html">Contextual Sign-in button without the GCWeb Menu</a></li>
+</ul>
+
+<h2>Signed-off / Signed-on</h2>
+
+<p>On page load, the buttons will appear on the top right-hand side of the page, below the horizontal line.</p>
+
+<h3>GCWeb Jekyll Configuration</h3>
+
+<p>The <code>auth</code> variable MUST be set along with the <code>type</code> parameter set with either the value "signedoff" or "signedon" in order to initiate the Signed-off or Signed-on pattern.</p>
+
+<p>Parameters to be set:</p>
+<ul>
+	<li><strong>signedoff</strong> set as value to the <code>type</code> parameter will generate the "Register" and "Sign in" buttons to appear on the top right-hand side of the page, below the horizontal line.</li>
+	<li><strong>signedon</strong> set as value to the <code>type</code> parameter will generate the "My account" and "Sign out" buttons to appear on the top right-hand side of the page, below the horizontal line along with the wording "Signed in as [full name]" right underneath.</li>
+</ul>
+
+<h3>HTML Structure - Version 2.0</h3>
+
+<p>Code sample of the include showing the HTML of the component</p>
+
+<ul>
+	<li><a href="signedoff-en.html">Authentication - Signed Off</a></li>
+	<li><a href="signedon-en.html">Authentication - Signed On</a></li>
+</ul>
+
+<h3>Previous design patterns</h3>
+<details>
+	<summary>Previous pattern (Authentication Signed off)</summary>
+	<p>The "Register" and "Sign in" buttons were located on the right-hand side of the page, at the end of the <code>&lt;header&gt;</code> section so appearing between the breadcrumb and the <code>&lt;h1&gt;</code> element.</p>
+	<p><img src="assets/previous-signedoff-en.png" alt="Government of Canada, Gouvernement du Canada, Français, Search Canada.ca, Menu, Canada.ca, Register, Sign in, Content page - Signed Off, Heading 2 (h2)" /></p>
+	<h3>Code</h3>
+	<pre><code>&lt;section id="wb-so"&gt;
+	&lt;h2 class="wb-inv"&gt;Sign-on information&lt;/h2&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-md-12"&gt;
+				&lt;button class="btn btn-default" type="button"&gt;Register&lt;/button&gt;
+				&lt;button class="btn btn-primary" type="button"&gt;Sign in&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
+
+<details>
+	<summary>Previous pattern (Authentication Signed on)</summary>
+	<p>The "My account" and "Sign out" buttons along with the wording "Signed in as [full name]" right underneath were located on the right-hand side of the page, at the end of the <code>&lt;header&gt;</code> section so appearing between the breadcrumb and the <code>&lt;h1&gt;</code> element.</p>
+	<p><img src="assets/previous-signedon-en.png" alt="Government of Canada, Gouvernement du Canada, Français, Search Canada.ca, Menu, Canada.ca, Signed in as John Doe, My account, Sign out, Content page - Signed On, Heading 2 (h2)" /></p>
+	<h3>Code</h3>
+	<pre><code>&lt;section id="wb-so"&gt;
+	&lt;h2 class="wb-inv"&gt;Sign-on information&lt;/h2&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-md-12"&gt;
+				&lt;p&gt;&lt;span class="mrgn-rght-md"&gt;Signed in as &lt;span&gt;John Doe&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+				&lt;button class="btn btn-default" type="button"&gt;My account&lt;/button&gt;
+				&lt;button class="btn btn-primary" type="button"&gt;Sign out&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
+
+<h2>CSS Class</h2>
+<p>Specific classes have been added to the unique component id <code>#wb-so</code>.</p>

@@ -2,15 +2,13 @@
  * Site menu
  */
 
-/* Special style for the home page - GCWeb v5 (gcweb-menu) */
-.home {
-	.gcweb-menu {
-		border-top: 1px solid #ddd;
-		color: #284162;
-		margin-left: 0px;
-	}
+/*
+ * Special style for the home page - GCWeb v5 (gcweb-menu)
+ */
+.home .gcweb-menu {
+	color: #284162;
 
-	.gcweb-menu button[aria-haspopup=true] {
+	button[aria-haspopup=true] {
 		background-color: #fff;
 		border-color: #fff;
 		color: #284162;
@@ -22,6 +20,11 @@
 	}
 }
 
+// This block is to only support GCWeb menu version 1
+.home #wb-bnr + .gcweb-menu {
+	margin-left: 0px;
+}
+
 /*
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *
@@ -29,11 +32,13 @@
  *
  */
 
-.gcweb-menu {
+// This block is to only support GCWeb menu version 1
+#wb-bnr + .gcweb-menu {
 
 	/*
 	 * Level 0 - button menu
-	 */
+	*/
+
 	border-top: 3px solid #38414d;
 	font-size: 20px;
 	margin-top: 5px;
@@ -41,6 +46,9 @@
 	.container {
 		padding: 0px;
 	}
+}
+
+.gcweb-menu {
 
 	button[aria-haspopup=true] {
 		background-color: #26374a;
