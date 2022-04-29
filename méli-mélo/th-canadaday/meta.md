@@ -1,10 +1,10 @@
 ---
 feature: thématique
 lang: en
-title: Canada Day 2021
-description: Background color used for the Canada Day 2021 campaign
+title: Canada Day theme
+description: Background colours used for the Canada Day campaign
 componentName: th-canadaday
-expiry: June 30, 2022
+expiry: June 30, 2023
 mainPage: canada-day.html
 cssClass:
 - bg-canadaday
@@ -18,7 +18,7 @@ peNote:
 - The <code>panel-canadaday</code> class must be accompagnied with a fall back color such as <code>panel-default</code>
 pages:
   examples:
-    - title: Canada day 2021
+    - title: Canada Day theme
       language: en
       path: canada-day.html
 sponsor: PCH - Nick Frenette (@nfrenette)
