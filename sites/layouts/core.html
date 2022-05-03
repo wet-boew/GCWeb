@@ -17,7 +17,7 @@
 {% include resources-inc/head.html %}
 </head>
 <body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
-{%- if page.pageType == "archived" -%}
+{%- if page.archived -%}
 	{% include headers-includes/archive.html %}
 {%- endif -%}
 {% include sites/inc-skiplinks.html %}
