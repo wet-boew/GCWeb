@@ -14,8 +14,8 @@
 		{{ page.lang }}
 	{%- elsif page.language -%}
 		{{ page.language }}
-	{%- elsif site.lang -%}
-		{{ site.lang }}
+	{%- elsif site.global.lang -%}
+		{{ site.global.lang }}
 	{%- else -%}
 		fr
 	{%- endif -%}
@@ -23,8 +23,8 @@
 {%- capture i18nText-langDir -%}
 	{%- if page.langDir -%}
 		{{ page.langDir }}
-	{%- elsif site.langDir -%}
-		{{ site.langDir }}
+	{%- elsif site.global.langDir -%}
+		{{ site.global.langDir }}
 	{%- else -%}
 		ltr
 	{%- endif -%}

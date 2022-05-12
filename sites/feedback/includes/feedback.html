@@ -1,0 +1,22 @@
+{%- capture feedbackPath -%}
+	{%- if page.feedbackPath -%}
+		{{ page.feedbackPath }}
+	{%- elsif site.global.feedbackPath and site.global.feedbackPath.first -%}
+		{{ site.global.feedbackPath[ i18nText-lang ] }}
+	{%- endif -%}
+{%- endcapture -%}
+
+
+<div {% if feedbackPath -%}
+		data-ajax-replace="{{feedbackPath}}"
+	{%- endif -%}>
+	<div class="row row-no-gutters">
+		{%- if i18nText-lang == "en" -%}
+			<div class="col-sm-9 col-md-6 col-lg-5">
+		{%- else -%}
+			<div class="col-sm-11 col-md-7 col-lg-6">
+		{%- endif -%}
+			<a class="btn btn-default btn-block" href="{{ i18nText-feedbackLink }}">{{ i18nText-feedback }}</a>
+		</div>
+	</div>
+</div>
