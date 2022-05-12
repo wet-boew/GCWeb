@@ -1,0 +1,212 @@
+---
+{
+	"title": "Home page - Meta information",
+	"language": "en",
+	"altLangPrefix": "fr",
+	"altLangPage": "api-fr.html",
+	"breadcrumb": [
+		{ "title": "GCWeb home", "link": "../index-en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2022-04-27",
+	"share": "true"
+}
+---
+
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable for GCWeb V5</dd>
+
+	<dt>Type</dt>
+	<dd>Template <!-- Common design patter --></dd>
+
+	<dt>Last review</dt>
+	<dd>2022-04-27</dd>
+
+	<dt>Conforming to</dt>
+	<dd>Going to be: Content and IA spec 2.0</dd>
+
+	<dt>Specification</dt>
+	<dd><a href="https://design.canada.ca/mandatory-templates/home-page.html">Home page for Canada.ca</a>
+</dl>
+
+<h2>Technical specification</h2>
+
+<h3>Component list and latest version</h3>
+<ul>
+	<li><a href="#home-page-banner">Home page banner</a> - Version 2.0</li>
+	<li><a href="#promotional-banner">Promotional banner</a> - Version 2.0</li>
+	<li>Most requested - Version 1.0</li>
+	<li>Service and information - Version 1.0</li>
+	<li>Focus on - Version 1.0</li>
+	<li><a href="#your-government">Your government</a> - Version 2.0</li>
+	<li>Government initiatives - Version 1.0</li>
+</ul>
+
+<h3 id="home-page-banner">Home page banner</h3>
+<dl>
+	<dt>Version</dt>
+	<dd>2</dd>
+	<dt>Updated</dt>
+	<dd>2019-05-09</dd>
+</dl>
+<p>The background image is loaded with the provisional plugin bgimg which set the background image. The background image is hosted in the WMS at this location. <code>https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg</code>.</p>
+<p>The intend is to publish background image that represent natural Canadian landscape and may get updated montly or seasonal.</p>
+<h4>Previous version</h4>
+<details>
+	<summary>Version 1 - 2018-12-27</summary>
+	<p>The default background is gray (#eee) without image. The background image is hosted in the WMS at this location. <code>https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg</code>.</p>
+	<p>The intend is to publish background image that represent natural Canadian landscape and may get updated montly or seasonal.</p>
+</details>
+
+<h3 id="promotional-banner">Promotional banner</h3>
+<p>The promotional banner are over, at the bottom, of the home page banner background image.</p>
+<dl>
+	<dt>Version</dt>
+	<dd>2</dd>
+	<dt>Updated</dt>
+	<dd>2019-05-09</dd>
+	<dt>Notes</dt>
+	<dd>Provisional color was removed.</dd>
+</dl>
+<pre><code>&lt;div class="provisional bg-cover" data-bgimg="https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg"&gt;
+	&lt;div class="container p-0 p-sm-3"&gt;
+		&lt;div class="well header-rwd brdr-0 brdr-rds-0 text-white bg-gctheme"&gt;
+			&lt;h1 property="name" id="wb-cont"&gt;Canada.ca&lt;/h1&gt;
+			&lt;p class="mrgn-tp-md"&gt;The official website of the Government of Canada&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="bg-gctheme opct-90"&gt;
+		&lt;div class="container"&gt;
+			&lt;a class="figcaption text-white" href="#"&gt;
+				&lt;figure class="clearfix"&gt;
+					&lt;div&gt;&lt;p class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;Featured:&lt;/p&gt;&lt;/div&gt;
+					&lt;figcaption class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;[Promotion title]&lt;/figcaption&gt;
+				&lt;/figure&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4>Previous version</h4>
+<details>
+	<summary>Version 1 - 2018-12-27</summary>
+	<pre><code>&lt;div class="home-banner"&gt;
+		&lt;div class="container"&gt;
+			&lt;div class="innerbox"&gt;
+				&lt;h1 property="name" id="wb-cont"&gt;Canada.ca&lt;/h1&gt;
+				&lt;p&gt;The official website of the Government of Canada&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="promo"&gt;
+			&lt;div class="container"&gt;
+				&lt;a class="figcaption" href="#"&gt;
+					&lt;figure class="clearfix"&gt;
+						&lt;div&gt;&lt;p class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;Featured:&lt;/p&gt;&lt;/div&gt;
+						&lt;figcaption class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;[Promotion title]&lt;/figcaption&gt;
+					&lt;/figure&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	</code></pre>
+	<h5>Provisional</h5>
+	<p>Support for a set of predefined color to match the season. The intend is to set the color of the inner box with the site title to match the promotional banner background color.</p>
+	<p>The promotional color theme are set on the <code>div.home-banner</code>. Here the supported theme with their corresponding CSS class name</p>
+	<ul>
+		<li>(default) Sky - <code>sky</code></li>
+		<li>Earth - <code>earth</code></li>
+		<li>Vegetation - <code>vegetation</code></li>
+		<li>Night - <code>night</code></li>
+		<li>Forest - <code>forest</code></li>
+		<li>Autumn - <code>autumn</code></li>
+	</ul>
+</details>
+
+<h3 id="your-government">Your government</h3>
+<dl>
+	<dt>Version</dt>
+	<dd>2.0</dd>
+	<dt>Updated</dt>
+	<dd>2022-04-27</dd>
+	<dt>Notes</dt>
+	<dd>Links description was removed.</dd>
+</dl>
+<p>There are 8 links in this section presented in 2 columns.</p>
+<pre><code>&lt;section class="home-your-gov well well-bold well-sm brdr-0"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2&gt;Your government&lt;/h2&gt;
+		&lt;div class="row mrgn-bttm-lg"&gt;
+			&lt;div class="col-lg-7 col-xs-12 col-md-6"&gt;
+				&lt;ul class="row wb-eqht-grd list-unstyled small"&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/contact.html"&gt;Contact us&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/news.html"&gt;News&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://pm.gc.ca/en"&gt;Prime Minister&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/government/dept.html"&gt;Departments and agencies&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/government/system.html"&gt;About government&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://open.canada.ca/en"&gt;Open government and data&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/government/publicservice.html"&gt;Working for the government&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;li class="col-xs-12 col-sm-6 mrgn-tp-sm mrgn-bttm-sm"&gt;
+						&lt;a href="https://www.canada.ca/en/government/system/laws.html"&gt;Treaties, laws and regulations&lt;/a&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<h4>Previous version</h4>
+<details>
+	<summary>Deprecated - Version 1.0</summary>
+	<p>There were four links with descriptions.</p>
+	<pre><code>&lt;section class="home-your-gov well well-sm brdr-0"&gt;
+		&lt;div class="container"&gt;
+			&lt;h2&gt;Your government&lt;/h2&gt;
+			&lt;div class="row mrgn-bttm-md"&gt;
+				&lt;div class="col-lg-7 col-xs-12 col-md-6"&gt;
+					&lt;div class="wb-eqht row"&gt;
+						&lt;div class="col-lg-6"&gt;
+							&lt;h3&gt;&lt;a href="https://www.canada.ca/en/contact.html"&gt;Contact us&lt;/a&gt;&lt;/h3&gt;
+							&lt;p&gt;Department and agency contacts, change your address&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;div class="col-lg-6"&gt;
+							&lt;h3&gt;&lt;a href="https://www.canada.ca/en/government/dept.html"&gt;Departments and agencies&lt;/a&gt;&lt;/h3&gt;
+							&lt;p&gt;A list of current government and related organizations&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;div class="col-lg-6"&gt;
+							&lt;h3&gt;&lt;a href="https://www.canada.ca/en/government/system.html"&gt;How government works&lt;/a&gt;&lt;/h3&gt;
+							&lt;p&gt;Government structure, priorities, finances and regulations&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;div class="col-lg-6"&gt;
+							&lt;h3&gt;&lt;a href="https://open.canada.ca/en"&gt;Open government&lt;/a&gt;&lt;/h3&gt;
+							&lt;p&gt;Accessible government, open information and data, open dialogue&lt;/p&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;</code></pre>
+</details>
+
+<h2>Evaluation and report</h2>
+<p>There is no evaluation and report available for this component.</p>
+
+<h2>Test cases</h2>
+<ul>
+	<li>Removed: <del>Provisional - Test-1: Promotional color theme</del></li>
+</ul>
