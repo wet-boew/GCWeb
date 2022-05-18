@@ -1,9 +1,50 @@
+---
+{
+	"layout": false,
+	"title": "Page de contenu incluant le pied de page complet version 1.0 (dépréciée)",
+	"language":	"fr",
+	"altLangPage": "footers-v1-en.html",
+	"secondlevel": false,
+	"dateModified": "2022-05-18",
+	"share": "true"
+}
+---
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+<head>
+<meta charset="utf-8">
+{% include license.html %}
+<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+{% include metadata.html %}
+{% include resources-inc/head.html %}
+</head>
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+{%- if page.archived -%}
+	{% include headers-includes/archive.html %}
+{%- endif -%}
+{% include sites/inc-skiplinks.html %}
+{% include headers-includes/header.html %}
+<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+<p>Voici la version 1.0 (dépréciée) du pied de page.</p>
+<p>Ça utilise la classe <code>colcount-sm-2</code> dans la section «&#160;Au sujet du gouvernement&#160;». À partir de la version 2.0, la classe a été remplacé avec <code>colcount-xs-2</code> pour correspondre à la section «&#160;Au sujet de ce site&#160;».</p>
+{% include main-footer/inc-footer.html %}
+</main>
 <footer id="wb-info">
 {% unless page.noFooterAbout %}
 	<div class="landscape">
 		<nav class="container wb-navcurr">
 			<h2 class="wb-inv">{{ i18nText-footerAbout }}</h2>
-			<ul class="list-unstyled colcount-xs-2 colcount-md-3">
+			<ul class="list-unstyled colcount-sm-2 colcount-md-3">
 {%- if i18nText-lang == "fr" -%}
 				<li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
 				<li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
@@ -66,3 +107,6 @@
 	</div>
 </div>
 </footer>
+{% include resources-inc/footer.html %}
+</body>
+</html>
