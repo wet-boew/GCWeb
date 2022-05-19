@@ -1,0 +1,30 @@
+---
+{
+	"title": "Page feedback form",
+	"language": "en",
+	"altLangPage": "feedback-fr.html",
+	"breadcrumbs": [
+		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2022-04-26",
+	"share": "true",
+	"feedbackPath": "ajax/report-problem-en.html"
+}
+---
+<p>This page feedback form leverage the version 2 of the <a href="../page-details/page-details-docs-en.html">page-details</a> container which leverage the <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">data ajax plugin</a>.</p>
+<p>Data ajax replace links:</p>
+<ul>
+	<li>Version 2 - https://www.canada.ca/ .... /report-problem-en.html (link to come)</li>
+	<li>Version 2 with Adobe Analytic - https://www.canada.ca/ .... /report-problem-en.html (link to come)</li>
+	<li>Version 1 - Deprecated, see the documentation for a code sample</li>
+</ul>
+<p>The version 2 of the <a href="../page-details/page-details-docs-en.html">page-details</a> container leverage a progressive enhancement design and that is why a link element need be created to point at the report a problem form page: <code>&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;</code>. You can experience that fallback through the basic HTML version mode.</p>
+<h2>HTML code</h2>
+<pre><code>&lt;div data-ajax-replace="ajax/report-problem-en.html"&gt;
+	&lt;div class=&quot;row row-no-gutters&quot;&gt;
+		&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
+			&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>

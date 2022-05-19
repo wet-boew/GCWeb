@@ -1,0 +1,271 @@
+---
+{
+	"title": "Documentation for page details site functionality",
+	"language": "en",
+	"altLangPage": "page-details-docs-fr.html",
+	"breadcrumbs": [
+		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
+	],
+	"secondlevel": false,
+	"dateModified": "2022-04-25",
+	"share": true,
+	"feedbackPath": "/sites/feedback/ajax/report-problem-en.html"
+}
+---
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca site functionality</dd>
+	<dt>Last review</dt>
+	<dd>2022-04-25</dd>
+</dl>
+
+<h2>Purpose</h2>
+<p>Displays the Page details section in a footer tag.</p>
+<p>Can contain the following components:</p>
+<ul>
+	<li>Report a problem on this page</li>
+	<li>Share this page</li>
+	<li>Date modified</li>
+</ul>
+
+<h2>Working example</h2>
+<ul>
+	<li><a href="default-page-details-en.html">Default page details example</a></li>
+	<li><a href="page-details-without-buttons-en.html">Page details without Report a problem and Share this page buttons example</a></li>
+	<li><a href="page-details-without-report-btn-en.html">Page details without Report a problem button example</a></li>
+	<li><a href="page-details-without-share-btn-en.html">Page details without Share this page button example</a></li>
+	<li><a href="page-details-v1-en.html">Page details v.1.0 (deprecated) example</a></li>
+</ul>
+
+<h2>How to implement</h2>
+<ul>
+	<li><p>To show the "Report a problem on this page" button, create a <code>&lt;div&gt;</code> with the following data attribute: <code>data-ajax-replace="../feedback/ajax/report-problem-en.html"</code>.</p>
+		<p>For the basic HTML version, a link element should be created that points to the report a problem form page: <code>&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;</code></p>
+		<p>For more information about Data Ajax plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">Data Ajax documentation page</a></p>
+	</li>
+	<li><p>To show the "Share this page" button create a <code>&lt;div&gt;</code> with the following data attribute:<code>data-wb-share='{"lnkClass": "btn btn-default btn-block"}'</code> and the following CSS class <code>class="wb-share"</code></p>
+		<p>For more information about Share widget plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/share/share-en.html">Share widget page</a></p>
+	</li>
+	<li><p>The Date modified - normal text format containing the modified date.</p></li>
+</ul>
+
+<h2>Evaluation and report</h2>
+<p>There is no evaluation and report available for this component.</p>
+
+<h2>API (Version 2.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>CSS Class</th>
+		<th>Template</th>
+		<th>Visual rendering</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 2.0</td>
+		<td>Version 1.0</td>
+		<td>n.a.</td>
+	</tr>
+</table>
+
+<h3>CSS Class (v1.0)</h3>
+<p><code>pagedetails</code></p>
+
+
+<h3>Template (v2.0)</h3>
+<p>Template migration notes</p>
+
+<h4>Page details with "Report a problem on this page" and "Share this page" enabled</h4>
+<div class="row">
+	<div class="col-md-6">
+		<h5>Version 2.0</h5>
+		<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html">this page</a> for the html inserted by the Data Ajax plugin </p>
+<pre><code><ins>&lt;footer class="pagedetails"&gt;
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+			&lt;div data-ajax-replace="../feedback/ajax/report-problem-en.html" &gt;
+					&lt;div class=&quot;row row-no-gutters&quot;&gt;
+						&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
+							&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3" data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}' &gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</ins></code></pre>
+	</div>
+	<div class="col-md-6">
+		<h5>Before, Version 1.0</h5>
+<pre><code><del>&lt;div class="pagedetails"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
+			&lt;details class="brdr-0"&gt;
+				&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
+				&lt;div class="well row"&gt;
+					&lt;div class="gc-rprt-prblm"&gt;
+						&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl" id="wb-auto-4"&gt;
+							{ feedback form }
+						&lt;/div&gt;
+						&lt;div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide" id="wb-auto-5"&gt;
+							&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
+							&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/details&gt;
+		&lt;/div&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5 wb-init wb-share-inited" data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}' &gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;dl id="wb-dtmd"&gt;
+		&lt;dt&gt;Date modified:&lt;/dt&gt;
+		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;</del></code></pre>
+	</div>
+</div>
+
+<h4>Page details with "Report a problem on this page" and "Share this page" disabled</h4>
+<div class="row">
+	<div class="col-md-6">
+		<h5>Version 2.0</h5>
+<pre><code><ins>&lt;footer class="pagedetails container"&gt;
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;&lt;dl id="wb-dtmd"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</ins></code></pre>
+	</div>
+	<div class="col-md-6">
+		<h5>Before, Version 1.0</h5>
+<pre><code><del>&lt;div class="pagedetails container"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;dl id="wb-dtmd"&gt;
+		&lt;dt&gt;Date modified:&lt;/dt&gt;
+		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;</del></code></pre>
+	</div>
+</div>
+
+<h4>Page details without "Report a problem on this page" button</h4>
+<div class="row">
+	<div class="col-md-6">
+		<h5>Version 2.0</h5>
+<pre><code><ins>&lt;footer class="pagedetails"&gt;
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}'&gt;&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</ins></code></pre>
+	</div>
+	<div class="col-md-6">
+		<h5>Before, Version 1.0</h5>
+<pre><code><del>&lt;div class="pagedetails container"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
+		&lt;div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"&gt;
+			&lt;div class="wb-share " data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}' &gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;dl id="wb-dtmd"&gt;
+		&lt;dt&gt;Date modified:&lt;/dt&gt;
+		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;</del></code></pre>
+	</div>
+</div>
+
+<h4>Page details without "Share this page" button</h4>
+<div class="row">
+	<div class="col-md-6">
+		<h5>Version 2.0</h5>
+		<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html" >this page</a> for the html inserted by the Data Ajax plugin </p>
+<pre><code><ins>&lt;footer class="pagedetails"&gt;
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+			&lt;/sites/feedback/ajax/report-problem-en.html" &gt;
+				&lt;div class=&quot;row row-no-gutters&quot;&gt;
+					&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
+						&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</ins></code></pre>
+	</div>
+	<div class="col-md-6">
+		<h5>Before, Version 1.0</h5>
+<pre><code><del>&lt;div class="pagedetails"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
+			&lt;details class="brdr-0"&gt;
+				&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
+				&lt;div class="well row"&gt;
+					&lt;div class="gc-rprt-prblm"&gt;
+						&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl" &gt;
+							{ feedback form }
+						&lt;/div&gt;
+						&lt;div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide" &gt;
+							&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
+							&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/details&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;dl id="wb-dtmd"&gt;
+		&lt;dt&gt;Date modified:&lt;/dt&gt;
+		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;</del></code></pre>
+	</div>
+</div>
+
+<h3>Visual Rendering (v2.0)</h3>
+<ul>
+	<li>Report a problem (on the left side of the page) as described in the <a href="page-details-without-share-btn-en.html">report a problem example</a></li>
+	<li>Share this page (on the right side of the page) as described in the <a href="https://wet-boew.github.io/wet-boew/demos/share/share-en.html">Share widget documentation</a> </li>
+	<li>Date modified - normal text format containing the modified date having the date format <strong>YYYY-MM-DD</strong>, on the bottom :
+<pre><code>&lt;dl id="wb-dtmd"&gt;
+	&lt;dt&gt;Date modified:&lt;/dt&gt;
+	&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+	</li>
+</ul>
