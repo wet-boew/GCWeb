@@ -1,0 +1,49 @@
+---
+{
+	"title": "Menu GCWeb",
+	"language": "fr",
+	"altLangPage": "gcweb-menu-en.html",
+	"secondlevel": false,
+	"dateModified": "2022-05-13",
+	"share": "true"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<p>La <a href="#v1">première version (v1) de menu</a> est obsolète mais toujours supportée.</p>
+
+<h2>Version 2</h2>
+
+<p>Doit être utilisé accompagné de la <a href="../header/header-fr.html">version 2 de l'entête</a>.</p>
+
+<p>Liste des changements depuis la version 1 : Suppression du <code>&lt;div class="container"&gt;</code>.</p>
+
+<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
+	&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
+	&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+	&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
+&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
+		...
+&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
+		...
+&#123;&#37;&#45; endif &#45;&#37;&#125;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+<h2 id="v1">Version 1 (obsolète)</h2>
+<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
+		&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
+&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
+			...
+&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
+			...
+&#123;&#37;&#45; endif &#45;&#37;&#125;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>Exemple pratique</h3>
+<p><a href="../header/deprecated/header-v1.html">Version 1 de l'entête et du menu GCWeb</a></p>

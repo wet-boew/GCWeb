@@ -1,0 +1,64 @@
+---
+{
+	"layout": false,
+	"title": "Content page including header version 1"
+}
+---
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+	<head>
+		<meta charset="utf-8">
+		{% include license.html %}
+		<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		{% include metadata.html %}
+		{% include resources-inc/head.html %}
+	</head>
+	<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+		{%- if page.pageType == "archived" -%}
+			{% include headers-includes/archive.html %}
+		{%- endif -%}
+		{% include sites/inc-skiplinks.html %}
+		<header>
+			<div id="wb-bnr" class="container">
+				<div class="row">
+					{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+					{% include headers-includes/brand.html %}
+					{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
+				</div>
+			</div>
+		{%- unless page.nomenu -%}
+			<!-- Example to support the version 1 of header and the version 1 of GCWeb-menu -->
+			{% include gcweb-menu/sitemenu-v1.html %}
+		{%- endunless -%}
+		{% include breadcrumbs/inc-breadcrumbs.html %}
+		<!--{%- if page.signing -%}
+			{% include headers-includes/sign-on-off.html %}
+		{%- endif -%}-->
+		</header>
+		{%- capture page-title -%}
+			{%- if page.titleH1 -%}
+				{{ page.titleH1 }}
+			{%- elsif page.title -%}
+				{{ page.title }}
+			{%- else -%}
+				Page untitled
+			{%- endif -%}
+		{%- endcapture -%}
+		<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+		<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+		{% include web-contents/placeholdercontent-en.html %}
+		{% include main-footer/inc-footer.html %}
+		</main>
+		{% include footers/footer.html %}
+		{% include resources-inc/footer.html %}
+	</body>
+</html>

@@ -32,7 +32,25 @@
 			{% include headers-includes/sitesearch.html %}
 		</div>
 	</div>
-{% include gcweb-menu/inc-sitemenu.html %}
+	<hr>
+	<div class="container">
+		<div class="row">
+			{%- unless page.nomenu -%}
+				{%- if page.auth -%}
+					<div class="col-sm-9">
+				{%- else -%}
+					<div class="col-sm-12">
+				{%- endif -%}
+				{% include gcweb-menu/sitemenu.html %}
+			{%- endunless -%}
+		</div>
+		{%- if page.auth -%}
+			<div class="col-sm-3">
+				{% include authentication/authentication.html %}
+			</div>
+		{%- endif -%}
+		</div>
+	</div>
 </header>
 <main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
 {{ content }}

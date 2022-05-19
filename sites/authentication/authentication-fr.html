@@ -1,0 +1,106 @@
+---
+{
+	"altLangPage": "authentication-en.html",
+	"breadcrumb": {
+		"title": "Canada.ca", "link": "https://www.canada.ca/fr.html"
+	},
+	"dateModified": "2022-05-17",
+	"description": "Documentation sur l'utilisation des divers modèles d'authentification.",
+	"language": "fr",
+	"title": "Modèles d'authentification"
+}
+---
+<p>Ce composant supporte les 3 variants de modèle de conception suivants:</p>
+<ul>
+	<li>Bouton de connexion contextuel: Un lien pointant vers une page d'authentification désignée</li>
+	<li>Session fermée: Un modèle qui présente un bouton de d'inscription et un bouton de connexion.</li>
+	<li>Session ouverte: Un modèle qui présente un bouton afin d'acceder au compte de l'utilisateur, un bouton de déconnexion et que l'utilisateur est bien connecté. Note: La boîte de dialogue d'invite et l'intéraction résultant de la connexion sont actuellement hors de portée.</li>
+</ul>
+
+<h2>Bouton de connexion contextuel</h2>
+
+<p>En définissant les paramètres appropriés, le bouton de connexion contextuel apparaîtra au chargement de la page et sera situé dans le coin supérieur droit de la page sous la ligne horizontale tel qu'indiqué dans les <a href="https://conception.canada.ca/configurations-conception-communes/boutons.html#connecter">lignes directrices de conception.canada</a>.</p>
+
+<h3>Configuration GCWeb Jekyll</h3>
+
+<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "contextual" afin d'initialiser le modèle du bouton de connexion contextuel.</p>
+
+<p>Paramètres à définir :</p>
+<ul>
+	<li><code>link</code> ce paramètre DOIT être défini afin d'assigner un lien (URL) d'application au bouton vers laquelle les usagés seront redirigés pour se connecter.</li>
+	<li><code>label</code> avec un maximum de 12 caractères alloué incluant les espacements, ce paramètre est OBLIGATOIRE et si défini et il générera le text du bouton pour toutes les fenêtre d'affichage d'extra-extra-petite à extra-large (xs, xxs, sm, md, lg et xl).</li>
+	<li><code>labelExtend</code> avec un maximum de 25 caractères alloué incluant les espacements, ce paramètre est optionnel et si défini, il générera le text du bouton pour les fenêtre d'affichages petite et au dessus (sm, md, lg et xl).</li>
+</ul>
+
+<h3>Structure HTML - Version 1.0</h3>
+
+<ul>
+	<li><a href="contextual-signin-fr.html">Bouton de connexion contextuel</a></li>
+	<li><a href="contextual-signin-label-extended-fr.html">Bouton de connexion contextuel incluant un libelé allongé</a></li>
+	<li><a href="contextual-signin-nolabels-fr.html">Bouton de connexion contextuel sans aucun libelés personnalisés</a></li>
+	<li><a href="contextual-signin-nomenu-fr.html">Bouton de connexion contextuel sans le menu GCWeb</a></li>
+</ul>
+
+<h2>Modèles de Session fermée / Session ouverte</h2>
+
+<p>Les boutons apparaîtront au chargement de la page et seront localisés dans le coin supérieur droit de la page sous la ligne horizontale.</p>
+
+<h3>Configuration GCWeb Jekyll</h3>
+
+<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "signedoff" ou "signedon" afin d'initialiser le model Session fermée ou Session ouverte.</p>
+
+<p>Paramètres à définir :</p>
+<ul>
+	<li><strong>signedoff</strong> attribué comme valeur au paramètre <code>type</code>, les boutons "Inscription" et "Connexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale.</li>
+	<li><strong>signedon</strong>attribué comme valeur au paramètre <code>type</code>, les boutons "Mon compte" et "Déconnexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale suivi du texte "Connecté en tant que [nom complet]" juste en dessous..</li>
+</ul>
+
+<h3>Structure HTML - Version 2.0</h3>
+
+<p>Example de code de l'inclusion démontrant le HTML du composant:</p>
+
+<ul>
+	<li><a href="signedoff-fr.html">Modèle de Session fermée.</a></li>
+	<li><a href="signedon-fr.html">Modèle de Session ouverte.</a></li>
+</ul>
+
+<h3>Modèles de conception précédents</h3>
+<details>
+	<summary>Modèle précédent (Page de contenu - Session fermée)</summary>
+	<p>Les boutons "Inscription" et "Ouvrir une session" étaient situés du coté droit de la page, dernier élément de l'entête <code>&lt;header&gt;</code> donc apparaissant entre le fil d'ariane et la balise <code>&lt;h1&gt;</code> du contenu.</p>
+	<p><img src="assets/previous-signedoff-fr.png" alt="Gouvernement du Canada, Government of Canada, English, Rechercher dans Canada.ca, Menu, Canada.ca, Inscription, Ouvrir une session, Page de contenu - Session Fermée, En-tête 2 (h2) " /></p>
+	<h3>Code</h3>
+	<pre><code>&lt;section id="wb-so"&gt;
+	&lt;h2 class="wb-inv"&gt;Information de l'utilisateur actuel&lt;/h2&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-md-12"&gt;
+				&lt;button class="btn btn-default" type="button"&gt;Inscription&lt;/button&gt;
+				&lt;button class="btn btn-primary" type="button"&gt;Ouvrir une session&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
+
+<details>
+	<summary>Modèle précédent (Page de contenu - Session ouverte)</summary>
+	<p>Les boutons "Mon compte" et "Fermer la session" ainsi que le texte "Connecté en tant que [nom complet]" étaient situés du coté droit de la page, dernier élément de l'entête <code>&lt;header&gt;</code> donc apparaissant entre le fil d'ariane et la balise <code>&lt;h1&gt;</code> du contenu.</p>
+	<p><img src="assets/previous-signedon-fr.png" alt="Gouvernement du Canada, Government of Canada, English, Rechercher dans Canada.ca, Menu, Canada.ca, Connecté en tant que John Doe, Mon compte, Fermer la session, Page de contenu - Session Ouverte, En-tête 2 (h2)" /></p>
+	<h3>Code</h3>
+	<pre><code>&lt;section id="wb-so"&gt;
+	&lt;h2 class="wb-inv"&gt;Information de l'utilisateur actuel&lt;/h2&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-md-12"&gt;
+				&lt;p&gt;&lt;span class="mrgn-rght-md"&gt;Connecté en tant que &lt;span&gt;John Doe&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+				&lt;button class="btn btn-default" type="button"&gt;Mon compte&lt;/button&gt;
+				&lt;button class="btn btn-primary" type="button"&gt;Fermer la session&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
+
+<h2>Classe CSS</h2>
+<p>Certaines classes CSS spécifiques ont été ajoutées à l'id unique <code>#wb-so</code> du composant.</p>

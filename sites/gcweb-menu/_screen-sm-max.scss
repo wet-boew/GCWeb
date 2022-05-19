@@ -3,6 +3,14 @@
   @title: Small view and under (screen only)
  */
 
+// This block is to only support GCWeb menu version 1
+#wb-bnr + .gcweb-menu {
+
+	button[aria-haspopup=true] {
+		margin-left: calc( 50% - 360px );
+	}
+}
+
 .gcweb-menu {
 
 	.container {
@@ -19,8 +27,6 @@
 	}
 
 	button[aria-haspopup=true] {
-		margin-left: calc( 50% - 360px ); /* 360px is half the container, minus the padding */
-
 		&[aria-expanded=true] + [role=menu] {
 			border-right: #eee solid 1px;
 		}
