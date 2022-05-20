@@ -1,84 +1,81 @@
 ---
 {
-	"title": "Entête",
+	"title": "En-tête",
 	"language": "fr",
 	"altLangPage": "header-en.html",
 	"secondlevel": false,
-	"dateModified": "2022-05-19",
+	"dateModified": "2022-05-20",
 	"share": "true"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>La <a href="#v1">première version (v1) de l'entête</a> est obsolète mais toujours supportée.</p>
-
-<h2>Version 2.0</h2>
-
-<p>Cette version requière l'implémentation de la <a href="../gcweb-menu/gcweb-menu-en.html">version 2 du menu GCWeb</a> ou le code <code>&lt;div class="container"&gt;</code> a été relocalisé dans l'entête donc l'extérieur du composant "gcweb-menu".</p>
-
 <div class="row">
 	<div class="col-md-6">
-	<h3>Entête</h3>
-<pre><code>&lt;header&gt;
-	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
-		&lt;div class=&quot;row&quot;&gt;
-			&lt;!-- Changer de langue [version 1] --&gt;
-			&lt;!-- Image de marque [version 1] --&gt;
-			&lt;!-- Recherche [version 1] --&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;hr&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;row&quot;&gt;
-			&lt;div class=&quot;col-sm-12&quot;&gt;
-				&lt;!-- Menu du site [version 2] --&gt;
+		<h2>Version 2.0</h2>
+
+		<p>Cette version requière l'implémentation de la <a href="../gcweb-menu/gcweb-menu-en.html">version 2.0 du menu GCWeb</a> ou le code <code>&lt;div class="container"&gt;</code> a été relocalisé dans l'en-tête donc l'extérieur du composant "gcweb-menu".</p>
+
+		<pre><code>&lt;header&gt;
+			&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;!-- Changer de langue [version 1.0] --&gt;
+					&lt;!-- Image de marque [version 1.0] --&gt;
+					&lt;!-- Recherche [version 1.0] --&gt;
+				&lt;/div&gt;
 			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;!-- Fil d'Ariane [version 1] --&gt;
-&lt;/header&gt;</code></pre>
-	</div>
-	<div class="col-md-6">
+			<ins>&lt;hr&gt;
+			&lt;div class=&quot;container&quot;&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;div class=&quot;col-md-12&quot;&gt;</ins>
+						&lt;!-- Menu du site [version 2.0] --&gt;
+					<ins>&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;</ins>
+			&lt;!-- Fil d'Ariane [version 1.0] --&gt;
+		&lt;/header&gt;</code></pre>
+
 		<h3>Incluant la section d'authentification (optionnelle)</h3>
 		<pre><code>&lt;header&gt;
 		&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
 			&lt;div class=&quot;row&quot;&gt;
-				&lt;!-- Changer de langue [version 1] --&gt;
-				&lt;!-- Image de marque [version 1] --&gt;
-				&lt;!-- Recherche [version 1] --&gt;
+				&lt;!-- Changer de langue [version 1.0] --&gt;
+				&lt;!-- Image de marque [version 1.0] --&gt;
+				&lt;!-- Recherche [version 1.0] --&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-		&lt;hr&gt;
+		<ins>&lt;hr&gt;
 		&lt;div class=&quot;container&quot;&gt;
 			&lt;div class=&quot;row&quot;&gt;
-				&lt;div class=&quot;col-sm-8&quot;&gt;
-					&lt;!-- Menu du site [version 2] --&gt;
-				&lt;/div&gt;
+				&lt;div class=&quot;col-md-8&quot;&gt;</ins>
+					&lt;!-- Menu du site [version 2.0] --&gt;
+				<ins>&lt;/div&gt;
 				&lt;div class=&quot;col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4&quot;&gt;
-					&lt;!-- Section d'authentification optionnelle [version 1] --&gt;
+					&lt;!-- Section d'authentification optionnelle [version 1.0] --&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;!-- Breadcrumbs [version 1] --&gt;
+		&lt;/div&gt;</ins>
+		&lt;!-- Breadcrumbs [version 1.0] --&gt;
 	&lt;/header&gt;</code></pre>
 	</div>
+	<div class="col-md-6">
+		<h2 id="v1">Version 1 (obsolète)</h2>
+		<p>La version 1.0 de l'en-tête est obsolète mais toujours supportée.</p>
+		<pre><code>&lt;header&gt;
+			&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+				&lt;div class=&quot;row&quot;&gt;
+					&lt;!-- Language toggle [version 1.0] --&gt;
+					&lt;!-- Branding [version 1.0] --&gt;
+					&lt;!-- Search [version 1.0] --&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;!-- GCWeb Menu [Version 1.0] --&gt;
+			&lt;!-- Breadcrumbs [version 1.0] --&gt;
+		&lt;/header&gt;</code></pre>
+		<h3>Exemples pratiques</h3>
+		<ul>
+			<li><a href="deprecated/header-v1.html" hreflang="en">En-tête Version 1.0</a></li>
+			<li><a href="deprecated/home-v1.html" hreflang="en">Page d'accueil En-tête Version 1.0</a></li>
+		</ul>
+	</div>
 </div>
-
-<h2 id="v1">Version 1 (obsolète)</h2>
-<pre><code>&lt;header&gt;
-	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
-		&lt;div class=&quot;row&quot;&gt;
-			&lt;!-- Language toggle [version 1] --&gt;
-			&lt;!-- Branding [version 1] --&gt;
-			&lt;!-- Search [version 1] --&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;!-- GCWeb Menu [Version 1] --&gt;
-	&lt;!-- Breadcrumbs [version 1] --&gt;
-&lt;/header&gt;</code></pre>
-
-<h3>Exemples de travail obsolètes mais supportées</h3>
-<ul>
-	<li><a href="deprecated/header-v1.html" hreflang="en">Entête Version 1</a></li>
-	<li><a href="deprecated/home-v1.html" hreflang="en">Page d'accueil Entête Version 1</a></li>
-</ul>
