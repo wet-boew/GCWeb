@@ -15,6 +15,8 @@ css:
 	<li>2021-10 - Review and identify requirement to make this functionality enterprise ready</li>
 	<li>2021-11 - Produce accessibility and usability report on its usage on Canada.ca</li>
 	<li>2022-02 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+	<li>2022-05 - updated to focus more on using as list items (with or without headers)</li>
+	<li>2022-06 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 </ul>
 
 <p>Todo and for future consideration</p>
@@ -25,12 +27,83 @@ css:
 <p>Lead: CRA - Christopher Oakes (@christopher-o)</p>
  <h2>Base configurations</h2>
 <p><a href="index-fr.html">Link to French examples</a></p>
-        <p>Not all screen readers can read CSS text, so include the word or concept of "or" with <code>wb-inv</code> class.</p>
+        <p>Most screen readers can read CSS text, but it's good to lead with or allude to the fact that the options are either mutually exclusive, or part of the entire concept.</p>
         <p>Some options are:</p>
         <ul>
+		<li>Creating the and/or using the list (<code>&lt;ul&gt;</code>) element</li>
+		
     <li>Adding option X of X to all headers</li>
     <li>Adding the word &quot;or&quot; as part of the last statement in each column (except the last column)</li>
   </ul>
+<h3>Using a simple list (without headers) <span class="label label-info">New</span></h3>
+<h4>Never stacked (always side-by-side)</h4>
+  <ul class="cnjnctn-type-or cnjnctn-xs">
+<li class="cnjnctn-col">This is content for option A </li>
+    <li class="cnjnctn-col">This is content for option B</li>
+          </ul>
+
+        <ul class="cnjnctn-type-and cnjnctn-xs">
+    <li class="cnjnctn-col">This is content for part A </li>
+    <li class="cnjnctn-col">This is content for part B</li>
+</ul>
+
+<h4>Always stacked (mobile first, no side-by-side)</h4>
+  <ul class="cnjnctn-type-or">
+<li class="cnjnctn-col">This is content for option A </li>
+    <li class="cnjnctn-col">This is content for option B</li>
+          </ul>
+
+        <ul class="cnjnctn-type-and">
+    <li class="cnjnctn-col">This is content for part A </li>
+    <li class="cnjnctn-col">This is content for part B</li>
+</ul>
+
+
+   <details>
+    <summary>
+            <p>Code</p>
+          </summary>
+    <pre><code>//Never stacked "or"
+&lt;ul class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option B
+	&lt;/li&gt;
+&lt;/ul&gt;
+//Never stacked "and"
+&lt;ul class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for  part A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part B
+	&lt;/li&gt;
+&lt;/li&gt;
+
+//Always stacked "or"
+&lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option B
+	&lt;/li&gt;
+&lt;/ul&gt;
+//Always stacked "and"
+&lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for  part A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part B
+	&lt;/li&gt;
+&lt;/li&gt;</code>
+  </pre>
+  </details>
+
+
         <h3>Never stacked (always side-by-side) </h3>
         <div class="cnjnctn-type-or cnjnctn-xs">
     <div class="cnjnctn-col">
