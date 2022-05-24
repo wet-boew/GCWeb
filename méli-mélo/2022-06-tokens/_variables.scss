@@ -1,0 +1,171 @@
+/*
+ Global variables for GCWeb
+ */
+// Canada.ca foundations (core)
+//   Typography
+//     Font families
+$gcds-core-font-families-heading: Lato;
+$gcds-core-font-families-body: "Noto Sans";
+$gcds-core-font-families-monospace: Menlo;
+$gcds-core-font-families-icons: "Glyphicons Halflings";
+
+//     Font sizes
+$gcds-core-font-size-base: 1.25; // Sets base font size to 20px
+$gcds-core-font-scale-base: 1.125;
+$gcds-core-font-sizes-100: 1.1111111111111112rem;
+$gcds-core-font-sizes-200: 1.25rem;
+$gcds-core-font-sizes-300: 1.40625rem;
+$gcds-core-font-sizes-400: 1.58203125rem;
+$gcds-core-font-sizes-500: 1.77978515625rem;
+$gcds-core-font-sizes-600: 2.00225830078125rem;
+$gcds-core-font-sizes-700: 2.2525405883789062rem;
+$gcds-core-font-sizes-800: 2.5341081619262695rem;
+
+//     Font weights
+$gcds-core-font-weights-300: 300;
+$gcds-core-font-weights-400: 400;
+$gcds-core-font-weights-600: 600;
+$gcds-core-font-weights-700: 700;
+
+//   Sizing and spacing
+//     Line heights
+$gcds-core-line-height-base: 1.3;
+$gcds-core-line-heights-100: 146.25%;
+$gcds-core-line-heights-200: 130%;
+$gcds-core-line-heights-300: 115.55555555555556%;
+$gcds-core-line-heights-400: 102.71604938271605%;
+$gcds-core-line-heights-500: 182.60631001371743%;
+$gcds-core-line-heights-600: 162.31672001219326%;
+$gcds-core-line-heights-700: 144.28152889972733%;
+$gcds-core-line-heights-800: 128.25024791086875%;
+
+//      Spacing
+$gcds-core-spacing-000: 0;
+$gcds-core-spacing-050: .26rem;
+$gcds-core-spacing-100: .325rem;
+$gcds-core-spacing-200: .43333333333333335rem;
+$gcds-core-spacing-300: .65rem;
+$gcds-core-spacing-400: 1.3rem;
+$gcds-core-spacing-500: 2.6rem;
+$gcds-core-spacing-600: 3.9000000000000004rem;
+$gcds-core-spacing-700: 5.2rem;
+$gcds-core-spacing-800: 6.5rem;
+$gcds-core-spacing-900: 7.800000000000001rem;
+$gcds-core-spacing-1000: 9.1rem;
+
+//   Colors
+//   TBD
+// End of Canada.ca foundations
+
+$bg-gctheme: #355688; // Blue gc theme background.
+$wbGray: #e1e4e7;
+$button-blue: #284162;
+$wbGrayLight: #eaebed;
+$accent-blue: #26374a;
+$border-red: #af3c43;
+$active-blue: #243850;
+$search-gray: #e0e0e0;
+$profile-gray: #eaebed;
+$gray-light: #6f6f6f; // Light grey colour (Bootstrap override).
+
+// Colours for the alert styles
+$alert-danger-color: #d3080c;
+$alert-warning-color: #ee7100;
+$alert-info-color: #269abc;
+$alert-success-color: #278400;
+
+// Body
+$body-bg: #fff; // Body element's background colour (WET-BOEW override).
+$font-family-base: $gcds-core-font-families-body, sans-serif; // (Bootstrap override), "Noto Sans" is a Google font but it is not loaded yet
+
+// Exclude temporary the form element from the font update, keep same style as before
+$input-height-base: 37px;
+
+// Button - Ensure we have a target touch of 44px x 44px, the following value was set based on the top right search button.
+$padding-base-vertical: 10px;
+$padding-base-horizontal: 14px;
+
+/* Headings font-sizes */
+
+$font-size-h1: $gcds-core-font-sizes-800; // expected 38px;
+$font-size-h2: $gcds-core-font-sizes-700; // expected 36px;
+$font-size-h3: $gcds-core-font-sizes-600; // expected 24px;
+$font-size-h4: $gcds-core-font-sizes-500; // expected 22px;
+$font-size-h5: $gcds-core-font-sizes-400; // expected 20px;
+$font-size-h6: $gcds-core-font-sizes-300; // expected 19px;
+
+// Small font-size
+$small-size: $gcds-core-font-sizes-100;
+
+// Font weight
+$normal-weight: $gcds-core-font-weights-400;
+$bold-weight: $gcds-core-font-weights-700;
+
+
+//Breadcrumb
+$breadcrumb-bg: transparent; // Inner background colour (Bootstrap override).
+$wb-bc-separator-content: ">"; // GCWeb v5
+$wb-bc-separator-content-rtl: "<"; // GCWeb v5
+$wb-bc-separator-font-size: .7em; // GCWeb v5
+
+//Heading links on landing pages
+$heading-link: 20px; // same as h5
+$heading-link-mrgn-tp: 23px;
+
+// "About this site" footer links
+$footer-about-li-horizontal-spacing: .7em;
+
+// Left menu variables
+$menu-background: #fff;
+$menu-colour: #555;
+
+// Spaces variables
+$space-0: 0px;
+$space-md: 15px;
+
+$input-color-placeholder: #5c5c5c !important;
+
+@import "wet-boew/src/variables";
+
+// WET Custom font scales
+$font-scale-xxxl: 2.125 !default;
+$font-scale-xxl: 1.625 !default;
+$font-scale-xl: 1.375 !default;
+$font-scale-lg: 1.125 !default;
+$font-scale-sm: .875 !default;
+
+// Bootstrap Overrides
+$font-size-base: 16px !default;
+$font-size-large: ceil($font-size-base * $font-scale-lg) !default;
+$font-size-small: ceil($font-size-base * $font-scale-sm) !default;
+
+$font-size-h1: ceil($font-size-base * $font-scale-xxxl) !default;
+$font-size-h2: ceil($font-size-base * $font-scale-xxl) !default;
+$font-size-h3: ceil($font-size-base * $font-scale-xl) !default;
+$font-size-h4: ceil($font-size-base * $font-scale-lg) !default;
+$font-size-h6: ceil($font-size-base * $font-scale-sm) !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+// 20/14 -> 23/16 on the basis of ceil((20/14)*16) = 23
+$line-height-base: 1.4375 !default;
+
+// WET Custom
+$pager-border-radius: 4px !default;
+
+//== Expand/collapse (Details/summary)
+//
+//##
+$details-identation: 1.1em !default;
+
+//== Footnotes
+//
+//##
+
+$spacing: .375em !default;
+$ddRtnWidth: 3.5em !default;
+
+//== Multimedia player
+//
+//##
+$mm-volume-thumb-height: 1.3em !default;
+$mm-volume-thumb-width: 10px !default;
