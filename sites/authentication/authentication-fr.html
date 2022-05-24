@@ -4,7 +4,7 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/fr.html"
 	},
-	"dateModified": "2022-09-26",
+	"dateModified": "2022-06-30",
 	"description": "Documentation sur l'utilisation des divers modèles d'authentification.",
 	"language": "fr",
 	"title": "Modèles d'authentification"
@@ -21,43 +21,49 @@
 
 <p>En définissant les paramètres appropriés, le bouton de connexion contextuel apparaîtra au chargement de la page et sera situé dans le coin supérieur droit de la page sous la ligne horizontale tel qu'indiqué dans les <a href="https://conception.canada.ca/configurations-conception-communes/connexion-contextuel.html">conseils sur le bouton contextuel «&nbsp;Se connecter&nbsp;»</a>.</p>
 
-<h3>Comment mettre en œuvre</h3>
-
+<h3>Structure HTML - Version 1.0</h3>
 <ul>
-	<li>Identifier le groupe de pages qui devraient inclure le bouton «&nbsp;Se connecter&nbsp;» pour un service authentifié spécifique</li>
-	<li>Lier le bouton «&nbsp;Se connecter&nbsp;» directement à la page où vous commencez votre processus de connexion, ou à une page qui vous permet de sélectionner les différents comptes auxquels vous pouvez vous connecter</li>
-	<li>Utiliser «&nbsp;Se connecter&nbsp;» comme étiquette
+	<li><a href="contextual-signin-fr.html">Bouton de connexion contextuel</a></li>
+	<li><a href="contextual-signin-label-extended-fr.html">Bouton de connexion contextuel incluant un libelé allongé</a></li>
+	<li><a href="contextual-signin-nolabels-fr.html">Bouton de connexion contextuel sans aucun libelés personnalisés</a></li>
+	<li><a href="contextual-signin-nomenu-fr.html">Bouton de connexion contextuel sans le menu GCWeb</a></li>
+</ul>
+
+<details>
+	<summary>Configuration pour GCWeb Jekyll</summary>
+	<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "contextual" afin d'initialiser le modèle du bouton de connexion contextuel.</p>
+
+	<p>Paramètres à définir :</p>
 	<ul>
-		<li><strong>Petits écrans</strong>&nbsp;: 12 caractères au total y compris les espaces (pas de texte descriptif supplémentaire)</li>
-		<li><strong>Écrans de taille moyenne et de grande taille</strong>&nbsp;: 25 caractères au total (pour du texte descriptif supplémentaire au besoin, par exemple «&nbsp;Se connecter à [nom du compte]&nbsp;»)</li>
+		<li><code>link</code> ce paramètre DOIT être défini afin d'assigner un lien (URL) d'application au bouton vers laquelle les usagés seront redirigés pour se connecter.</li>
+		<li><code>label</code> avec un maximum de 12 caractères alloué incluant les espacements, ce paramètre est OBLIGATOIRE et si défini et il générera le text du bouton pour toutes les fenêtre d'affichage d'extra-extra-petite à extra-large (xs, xxs, sm, md, lg et xl).</li>
+		<li><code>labelExtend</code> avec un maximum de 25 caractères alloué incluant les espacements, ce paramètre est optionnel et si défini, il générera le text du bouton pour les fenêtre d'affichages petite et au dessus (sm, md, lg et xl).</li>
 	</ul>
-	</li>
-</ul>
-
-<h3>Configuration GCWeb Jekyll</h3>
-
-<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "contextual" afin d'initialiser le modèle du bouton de connexion contextuel.</p>
-
-<p>Paramètres à définir :</p>
-<ul>
-	<li><code>link</code> ce paramètre DOIT être défini afin d'assigner un lien (URL) d'application au bouton vers laquelle les usagés seront redirigés pour se connecter.</li>
-	<li><code>label</code> avec un maximum alloué pour petits écrans incluant les espacements, ce paramètre est OBLIGATOIRE et si défini et il générera le text du bouton pour toutes les fenêtre d'affichage d'extra-extra-petite à extra-large (<code>xs, xxs, sm, md, lg</code> et <code>xl</code>).</li>
-	<li><code>labelExtend</code> avec un maximum alloué pour écrans de taille moyenne et de grande taille incluant les espacements, ce paramètre est optionnel et si défini, il générera le text du bouton pour les fenêtre d'affichages petite et au dessus (<code>sm, md, lg</code> et <code>xl</code>).</li>
-</ul>
+</details>
 
 <h2>Modèles de Session fermée / Session ouverte</h2>
 
-<p>Les boutons apparaîtront au chargement de la page et seront localisés dans le coin supérieur droit de la page sous la ligne horizontale.</p>
+<p>Au chargement de la page, les boutons doivent apparaîtres dans le coin supérieur droit de la page sous la ligne horizontale.</p>
 
-<h3>Configuration GCWeb Jekyll</h3>
+<h3>Structure HTML - Version 2.0</h3>
 
-<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "signedoff" ou "signedon" afin d'initialiser le model Session fermée ou Session ouverte.</p>
+<p>Example de code de l'inclusion démontrant le HTML du composant:</p>
 
-<p>Paramètres à définir :</p>
 <ul>
-	<li><strong>signedoff</strong> attribué comme valeur au paramètre <code>type</code>, les boutons "Inscription" et "Connexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale.</li>
-	<li><strong>signedon</strong>attribué comme valeur au paramètre <code>type</code>, les boutons "Mon compte" et "Déconnexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale suivi du texte "Connecté en tant que [nom complet]" juste en dessous..</li>
+	<li><a href="signedoff-fr.html">Modèle de Session fermée.</a></li>
+	<li><a href="signedon-fr.html">Modèle de Session ouverte.</a></li>
 </ul>
+
+<details>
+	<summary>Configuration pour GCWeb Jekyll</summary>
+	<p>La variable <code>auth</code> DOIT être définie et complémentée du paramètre <code>type</code> avec la valeur "signedoff" ou "signedon" afin d'initialiser le model Session fermée ou Session ouverte.</p>
+
+	<p>Paramètres à définir :</p>
+	<ul>
+		<li><strong>signedoff</strong> attribué comme valeur au paramètre <code>type</code>, les boutons "Inscription" et "Connexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale.</li>
+		<li><strong>signedon</strong>attribué comme valeur au paramètre <code>type</code>, les boutons "Mon compte" et "Déconnexion" apparaîtront au chargement de la page et seront localisé dans le coin supérieur droit de la page sous la ligne horizontale suivi du texte "Connecté en tant que [nom complet]" juste en dessous..</li>
+	</ul>
+</details>
 
 <h3>Modèles de conception précédents</h3>
 <details>

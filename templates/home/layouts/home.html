@@ -8,55 +8,22 @@
 {%- endcapture -%}
 <!DOCTYPE html>
 <html class="no-js" lang="{{ page.lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
-<head>
-<meta charset="utf-8">
-{% include license.html %}
-<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
-<meta content="width=device-width, initial-scale=1" name="viewport">
-{% include metadata.html %}
-{% include resources-inc/head.html %}
-</head>
-<body class="home page-type-nav{% if page.pageclass %} {{ page.pageclass }}{% endif %}" vocab="http://schema.org/" typeof="WebPage">
-{% include skiplinks/skiplinks.html %}
-<header>
-	<div id="wb-bnr" class="container">
-		<div class="row">
-			{% if page.altLangPage %}{% include language/languagetoggle.html %}{% endif %}
-			<div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
-				<img src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-sigBlk }}" alt="{{ i18nText-goc }}" property="logo" /><span class="wb-inv"> / {{ i18nText-gocAltLang }}</span>
-				<link property="url" href="{{ setting-website }}" />
-				<meta property="name" content="{{ i18nText-goc }}">
-				<meta property="areaServed" typeof="Country" content="Canada" />
-				<link property="logo" href="{{ setting-resourcesBasePathTheme }}/assets/wmms-blk.svg" />
-			</div>
-			{% include headers-includes/sitesearch.html %}
-		</div>
-	</div>
-	<hr>
-	<div class="container">
-		<div class="row">
-			{%- unless page.nomenu -%}
-				{%- if page.auth -%}
-					<div class="col-md-8">
-				{%- else -%}
-					<div class="col-sm-12">
-				{%- endif -%}
-				{% include gcweb-menu/sitemenu.html %}
-			{%- endunless -%}
-		</div>
-		{%- if page.auth -%}
-			<div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4">
-				{% include authentication/authentication.html %}
-			</div>
-		{%- endif -%}
-		</div>
-	</div>
-</header>
-<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
-{{ content }}
-{% include page-details/footer.html addContainer=true %}
-</main>
-{% include footers/footer.html %}
-{% include resources-inc/footer.html %}
-</body>
+	<head>
+		<meta charset="utf-8">
+		{% include license.html %}
+		<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		{% include metadata.html %}
+		{% include resources-inc/head.html %}
+	</head>
+	<body class="home page-type-nav{% if page.pageclass %} {{ page.pageclass }}{% endif %}" vocab="http://schema.org/" typeof="WebPage">
+		{% include skiplinks/skiplinks.html %}
+		{% include header/header.html %}
+		<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+			{{ content }}
+			{% include page-details/footer.html addContainer=true %}
+		</main>
+		{% include footers/footer.html %}
+		{% include resources-inc/footer.html %}
+	</body>
 </html>

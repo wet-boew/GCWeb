@@ -14,17 +14,11 @@
 	<div class="container">
 		<div class="row">
 			{%- unless page.nomenu -%}
-				{%- if page.auth -%}
-					<div class="col-md-8">
-						{% include gcweb-menu/sitemenu.html %}
-					</div>
-				{%- else -%}
-					<div class="col-md-12">
-						{% include gcweb-menu/sitemenu.html %}
-					</div>
-				{%- endif -%}
+				<div class="col-md-8">
+					{% include gcweb-menu/sitemenu.html %}
+				</div>
 			{%- endunless -%}
-			{%- assign colSo = "col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4" -%}
+			{%- assign colSo = "col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4" -%}
 			{%- if page.nomenu -%}
 				{%- assign colSo = "col-xs-12" -%}
 			{%- endif -%}
