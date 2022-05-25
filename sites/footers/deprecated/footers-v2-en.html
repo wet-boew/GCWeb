@@ -1,3 +1,44 @@
+---
+{
+	"layout": false,
+	"title": "Content page including complete footer version 2.0 (deprecated)",
+	"language": "en",
+	"altLangPage": "footers-v1-fr.html",
+	"secondlevel": false,
+	"dateModified": "2022-05-25",
+	"share": "true"
+}
+---
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+<head>
+<meta charset="utf-8">
+{% include license.html %}
+<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+{% include metadata.html %}
+{% include resources-inc/head.html %}
+</head>
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+{%- if page.archived -%}
+	{% include headers-includes/archive.html %}
+{%- endif -%}
+{% include sites/inc-skiplinks.html %}
+{% include header/header.html %}
+<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+<p>This is version 2.0 (deprecated) of the page footer.</p>
+<p>Its "Top of page" link points to <code>#wb-cont</code> (top of the content area). As of version 3.0, the link's destination has changed to <code>#wb-tphp</code> (top of the page).</p>
+{% include page-details/footer.html %}
+</main>
 <footer id="wb-info">
 {% unless page.noFooterAbout %}
 	<div class="landscape">
@@ -66,3 +107,6 @@
 	</div>
 </div>
 </footer>
+{% include resources-inc/footer.html %}
+</body>
+</html>
