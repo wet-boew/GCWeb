@@ -62,6 +62,7 @@
 
 <h2>Version history</h2>
 <ul>
+	<li><time>2020-03-25</time> Version 2.2 - Adding data-fusion-query in the input field</li>
 	<li><time>2020-02-12</time> Version 2.1 - Advanced search is added under pagination tab</li>
 	<li><time>2019-02-06</time> Version 2 - Search results, Contextualized search result, Faceted results</li>
 	<li><time>2013-01-01</time> Version 1 - Undocumented search results template. Associated with the version 1.x of the Canada.ca Content and IA specification</li>
@@ -116,7 +117,7 @@
 &lt;form&gt;
 	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 	&lt;div class="input-group mrgn-tp-lg"&gt;
-		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" /&gt;
+		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-fusion-query /&gt;
 		&lt;span class="input-group-btn"&gt;
 			&lt;button type="submit" class="btn btn-primary"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;&lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
 		&lt;/span&gt;
@@ -124,8 +125,45 @@
 &lt;/form&gt;
 </code></pre>
 
+<details>
+<summary>Version 2.1</summary>
+<pre><code>
+&lt;form&gt;
+	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+	&lt;div class="input-group mrgn-tp-lg"&gt;
+		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" /&gt;
+		&lt;span class="input-group-btn"&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;&lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+</details>
+
 <h3>Search bar contextual</h3>
 
+<pre><code>
+&lt;div class="well"&gt;
+	&lt;form class="mrgn-tp-sm"&gt;
+		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query&gt;
+		&lt;div class="mrgn-tp-md"&gt;
+			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+			&lt;ul class="radio-inline list-inline mrgn-lft-sm"&gt;
+				&lt;li&gt;&lt;input type="radio" name="resultsfrom" id="opt-allresults" value="allresults" /&gt; &lt;label for="opt-allresults"&gt;All Government of Canada websites&lt;/label&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg current" aria-current="location"&gt;&lt;input type="radio" name="resultsfrom" id="opt-context" value="context" checked="checked" /&gt; &lt;label for="opt-context"&gt;Context label&lt;/label&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;div class="pull-right"&gt;
+				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<details>
+<summary>Version 2.1</summary>
 <pre><code>
 &lt;div class="well"&gt;
 	&lt;form class="mrgn-tp-sm"&gt;
@@ -145,6 +183,7 @@
 	&lt;/form&gt;
 &lt;/div&gt;
 </code></pre>
+</details>
 
 <p>Notes:</p>
 <ul>
@@ -189,6 +228,28 @@
 &lt;div class="well"&gt;
 	&lt;form class="mrgn-tp-sm"&gt;
 		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query&gt;
+		&lt;div class="mrgn-tp-md"&gt;
+			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+			&lt;ul class="list-inline mrgn-lft-sm pull-left"&gt;
+				&lt;li class="current" aria-current="location"&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link ot contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;div class="pull-right"&gt;
+				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<details>
+<summary>Version 2.1</summary>
+<pre><code>
+&lt;div class="well"&gt;
+	&lt;form class="mrgn-tp-sm"&gt;
+		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search"&gt;
 		&lt;div class="mrgn-tp-md"&gt;
 			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
@@ -204,6 +265,7 @@
 	&lt;/form&gt;
 &lt;/div&gt;
 </code></pre>
+</details>
 
 <h3>Search result</h3>
 
