@@ -715,7 +715,9 @@ module.exports = (grunt) ->
 						"./node_modules"
 						"./node_modules/wet-boew/node_modules"
 						if grunt.file.exists( "misc/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
-					]
+					],
+					indentType: "tab",
+					indentWidth: 1
 				expand: true
 				cwd: "sites"
 				src: [
@@ -726,7 +728,9 @@ module.exports = (grunt) ->
 				ext: ".css"
 			mélimélo:
 				options:
-					implementation: sass
+					implementation: sass,
+					indentType: "tab",
+					indentWidth: 1
 				expand: true
 				src: [
 					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.scss"
