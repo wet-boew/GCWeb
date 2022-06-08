@@ -160,7 +160,6 @@ module.exports = (grunt) ->
 			"copy:assets"
 			"copy:fonts"
 			"copy:wetboew"
-			"copy:js_lib"
 			"copy:depsJS_custom"
 		]
 	)
@@ -630,15 +629,6 @@ module.exports = (grunt) ->
 					"wet-boew/**/*.*"
 				]
 				dest: "dist"
-			js_lib:
-				expand: true
-				flatten: true
-				cwd: "node_modules"
-				src: [
-					"jsonpointer.js/src/jsonpointer.js",
-					"fast-json-patch/src/json-patch.js"
-				]
-				dest: "<%= themeDist %>/deps-js"
 			depsJS_custom:
 				expand: true
 				flatten: true
