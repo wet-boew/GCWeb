@@ -8,6 +8,7 @@ ENV JEKYLL_OPTIONS ""
 
 RUN apk --update add --virtual build_deps \
     build-base ruby-dev libc-dev linux-headers \
+  && gem update --system \
   && gem install --verbose --no-document \
     json:${JSON_GEM_VERSION} \
     github-pages:${GITHUB_GEM_VERSION} \
