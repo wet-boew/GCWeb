@@ -1,33 +1,26 @@
 ---
 {
-	"title": "Hide utility links from 'About this site' section",
+	"title": "Hide 'Contextual' section in footer",
 	"language": "en",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
 	],
-	"altLangPage": "no-footer-site-fr.html",
+	"altLangPage": "no-footer-contextual-fr.html",
 	"secondlevel": false,
 	"dateModified": "2022-06-20",
 	"share": "true",
-	"noFooterSite": "true"
+	"noFooterContextual": "true"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>By setting the <code>noFooterSite</code> variable to "true", all utility links from "About this site" section will be hidden on page load but the Canada wordmark will remain.</p>
+<p>By setting the <code>noFooterContextual</code> variable to "true", the "Contextual" section will will be hidden on page load.</p>
+
+<p>The "Contextual" section is defined in <code>_config.yml</code>, but can also be overwritten on any given page in the front matter section (view <a href="footers-en.html">Complete footer</a> for an example).</p>
 
 <h2>Expected output code</h2>
 <pre><code>&lt;footer id="wb-info"&gt;
-	&lt;div class="contextual"&gt;
-		&lt;nav class="container"&gt;
-			&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
-			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
-				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/nav&gt;
-	&lt;/div&gt;
+	&lt;h2 class="wb-inv"&gt;About government&lt;/h2&gt;
 	&lt;div class="landscape"&gt;
 		&lt;nav class="container wb-navcurr"&gt;
 			&lt;h3&gt;Government of Canada&lt;/h3&gt;
@@ -62,11 +55,20 @@
 	&lt;div class="brand"&gt;
 		&lt;div class="container"&gt;
 			&lt;div class="row "&gt;
+				&lt;nav class="col-md-9 col-lg-10 ftr-urlt-lnk"&gt;
+					&lt;h2 class="wb-inv"&gt;About this site&lt;/h2&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/social.html"&gt;Social media&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/mobile.html"&gt;Mobile applications&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="https://www1.canada.ca/en/newsite.html"&gt;About Canada.ca&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/terms.html"&gt;Terms and conditions&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/privacy.html"&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/nav&gt;
 				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
 					&lt;a href="#wb-cont"&gt;Top of Page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
 				&lt;/div&gt;
-				&lt;div class="col-xs-6 col-md-12 text-right"&gt;
-					&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
+				&lt;div class="col-xs-6 col-md-3 col-lg-2 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;

@@ -1,0 +1,42 @@
+---
+{
+	"title": "Hide 'About government' section and 'About this site' links from footer",
+	"language": "en",
+	"breadcrumbs": [
+		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
+	],
+	"altLangPage": "only-footer-contextual-fr.html",
+	"secondlevel": false,
+	"dateModified": "2022-07-12",
+	"share": "true",
+	"noFooterAbout": "true",
+	"noFooterSite": "true"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<p>By setting the <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "About government" section and all utility links from "About this site" will be hidden on page load but the Canada wordmark and "Contextual" section will remain.</p>
+
+<h2>Expected output code</h2>
+<pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="contextual"&gt;
+		&lt;nav class="container"&gt;
+			&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
+	&lt;div class="brand"&gt;
+		&lt;div class="container"&gt;
+			&lt;div class="row "&gt;
+				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
+					&lt;a href="#wb-cont"&gt;Top of Page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
+				&lt;/div&gt;&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>

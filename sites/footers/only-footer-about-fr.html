@@ -1,22 +1,23 @@
 ---
 {
-	"title": "Masquer les liens de la section 'Au sujet de ce site'",
+	"title": "Masquer la section 'Contextuel' et les liens 'Au sujet de ce site' du pied de page",
 	"language":	"fr",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-fr.html" }
 	],
-	"altLangPage": "no-footer-site-en.html",
+	"altLangPage": "only-footer-about-en.html",
 	"secondlevel": false,
-	"dateModified": "2022-06-20",
+	"dateModified": "2022-07-12",
 	"share": "true",
+	"noFooterContextual": "true",
 	"noFooterSite": "true"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>En définissant la variable <code>noFooterSite</code> à "true", les liens de la section «&nbsp;Au sujet de ce site&nbsp;» seront masqués au chargement de la page mais le mot-symbole «&nbsp;Canada&nbsp;» restera affiché.</p>
+<p>En définissant les variables <code>noFooterContextual</code> et <code>noFooterSite</code> à «&nbsp;true&nbsp;», la section «&nbsp;Contextuel&nbsp;» et les liens de la section «&nbsp;Au sujet de ce site&nbsp;» seront masqués au chargement de la page mais le mot-symbole «&nbsp;Canada&nbsp;» ainsi que la section «&nbsp;Au sujet du gouvernement&nbsp;» resteront affichés.</p>
 
-<h2>Code de final attendu</h2>
+<h2>Code final attendu</h2>
 <pre><code>&lt;footer id="wb-info"&gt;
 	&lt;div class="landscape"&gt;
 		&lt;nav class="container wb-navcurr"&gt;
@@ -54,8 +55,7 @@
 			&lt;div class="row "&gt;
 				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
 					&lt;a href="#wb-cont"&gt;Haut de la page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
-				&lt;/div&gt;
-				&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada"&gt;
+				&lt;/div&gt;&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada"&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;

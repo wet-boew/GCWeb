@@ -2,6 +2,9 @@
 {
 	"title": "Masquer la section 'Au sujet du gouvernement' du pied de page",
 	"language":	"fr",
+	"breadcrumbs": [
+		{ "title": "Footer", "link": "sites/footers/footers-fr.html" }
+	],
 	"altLangPage": "no-footer-about-en.html",
 	"secondlevel": false,
 	"dateModified": "2022-01-12",
@@ -9,10 +12,22 @@
 	"noFooterAbout": "true"
 }
 ---
-<p>En définnissant la variable <code>noFooterAbout</code> à "true", la section 'Au sujet du gouvernement' sera masquée au chargement de la page.</p>
+<div class="wb-prettify all-pre hide"></div>
 
-<h2>Code de final attendu</h2>
+<p>En définissant la variable <code>noFooterAbout</code> à "true", la section «&nbsp;Au sujet du gouvernement&nbsp;» sera masquée au chargement de la page.</p>
+
+<h2>Code final attendu</h2>
 <pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="contextual"&gt;
+		&lt;nav class="container"&gt;
+			&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/fr"&gt;Lien 1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/fr"&gt;Lien 2&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/fr"&gt;Lien 3&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
 	&lt;div class="brand"&gt;
 		&lt;div class="container"&gt;
 			&lt;div class="row "&gt;

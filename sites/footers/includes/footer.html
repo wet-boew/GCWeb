@@ -1,29 +1,95 @@
+{%- capture contextualFooterTitle -%}
+	{%- if page.contextualFooter.title -%}
+		{{ page.contextualFooter.title }}
+	{%- elsif site.global.contextualFooter.title[i18nText-lang] -%}
+		{{ site.global.contextualFooter.title[i18nText-lang] }}
+	{%- endif -%}
+{%- endcapture -%}
+
 <footer id="wb-info">
+	<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
+{% unless page.noFooterContextual %}
+{%- if contextualFooterTitle != "" and site.global.contextualFooter.links[i18nText-lang] or page.contextualFooter.links -%}
+	<div class="gc-contextual">
+		<nav class="container">
+			<h3>{{ contextualFooterTitle }}</h3>
+			<ul class="list-col-xs-1 list-col-sm-2 list-col-md-3">
+				{%- if page.contextualFooter.links -%}
+					{%- for link in page.contextualFooter.links -%}
+						<li><a href="{{ link.url }}">{{ link.text }}</a></li>
+						{%- if forloop.index > 5 -%}
+							{% break %}
+						{%- endif -%}
+					{%- endfor -%}
+				{%- else -%}
+					{%- for link in site.global.contextualFooter.links[i18nText-lang] -%}
+						<li><a href="{{ link.url }}">{{ link.text }}</a></li>
+						{%- if forloop.index > 5 -%}
+							{% break %}
+						{%- endif -%}
+					{%- endfor -%}
+				{%- endif -%}
+			</ul>
+		</nav>
+	</div>
+{%- endif -%}
+{% endunless %}
+
 {% unless page.noFooterAbout %}
 	<div class="landscape">
-		<nav class="container wb-navcurr">
-			<h2 class="wb-inv">{{ i18nText-footerAbout }}</h2>
-			<ul class="list-unstyled colcount-xs-2 colcount-md-3">
-{%- if i18nText-lang == "fr" -%}
-				<li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
+		<nav class="container">
+			<h3>{{ i18nText-goc }}</h3>
+			<ul class="list-col-xs-1 list-col-sm-2 list-col-md-3">
+				{%- if i18nText-lang == "fr" -%}
+				<li><a href="https://www.canada.ca/fr/contact.html">Toutes les coordonnées</a></li>
 				<li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
-				<li><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">Fonction publique et force militaire</a></li>
-				<li><a href="https://www.canada.ca/fr/nouvelles.html">Nouvelles</a></li>
-				<li><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">Traités, lois et règlements</a></li>
-				<li><a href="https://www.canada.ca/fr/transparence/rapports.html">Rapports à l'échelle du gouvernement</a></li>
-				<li><a href="https://pm.gc.ca/fra">Premier ministre</a></li>
-				<li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">Comment le gouvernement fonctionne</a></li>
-				<li><a href="https://ouvert.canada.ca/">Gouvernement ouvert</a></li>
-{%- elsif i18nText-lang == "en" -%}
-				<li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
+				<li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">À propos du gouvernement</a></li>
+				{%- elsif i18nText-lang == "en" -%}
+				<li><a href="https://www.canada.ca/en/contact.html">All Contacts</a></li>
 				<li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
-				<li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
-				<li><a href="https://www.canada.ca/en/news.html">News</a></li>
-				<li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-				<li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-				<li><a href="https://pm.gc.ca/eng">Prime Minister</a></li>
-				<li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
-				<li><a href="https://open.canada.ca/en/">Open government</a></li>
+				<li><a href="https://www.canada.ca/en/government/system.html">About government</a></li>
+				{%- endif -%}
+			</ul>
+			<h4 class="wb-inv">{{ i18nText-themeLinks }}</h4>
+			<ul class="list-col-xs-1 list-col-sm-2 list-col-md-3">
+{%- if i18nText-lang == "fr" -%}
+				<li><a href="https://www.canada.ca/fr/services/emplois.html">Emplois</a></li>
+				<li><a href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration et citoyenneté</a></li>
+				<li><a href="https://voyage.gc.ca/">Voyage et tourisme</a></li>
+				<li><a href="https://www.canada.ca/fr/services/entreprises.html">Entreprises et industrie</a></li>
+				<li><a href="https://www.canada.ca/fr/services/prestations.html">Prestations</a></li>
+				<li><a href="https://www.canada.ca/fr/services/sante.html">Santé</a></li>
+				<li><a href="https://www.canada.ca/fr/services/impots.html">Impôts</a></li>
+				<li><a href="https://www.canada.ca/fr/services/environnement.html">Environnement et ressources naturelles</a></li>
+				<li><a href="https://www.canada.ca/fr/services/defense.html">Sécurité nationale et défense</a></li>
+				<li><a href="https://www.canada.ca/fr/services/culture.html">Culture, histoire et sport</a></li>
+				<li><a href="https://www.canada.ca/fr/services/police.html">Services de police, justice et urgences</a></li>
+				<li><a href="https://www.canada.ca/fr/services/transport.html">Transport et infrastructure</a></li>
+				<li><a href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Le Canada et le monde</a></li>
+				<li><a href="https://www.canada.ca/fr/services/finance.html">Argent et finances</a></li>
+				<li><a href="https://www.canada.ca/fr/services/science.html">Science et innovation</a></li>
+				<li><a href="https://www.canada.ca/fr/services/autochtones.html">Autochtones</a></li>
+				<li><a href="https://www.canada.ca/fr/services/veterans.html">Vétérans</a></li>
+				<li><a href="https://www.canada.ca/fr/services/jeunesse.html">Jeunesse</a></li>
+{%- elsif i18nText-lang == "en" -%}
+				<li><a href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a></li>
+				<li><a href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration and citizenship</a></li>
+				<li><a href="https://travel.gc.ca/">Travel and tourism</a></li>
+				<li><a href="https://www.canada.ca/en/services/business.html">Business and industry</a></li>
+				<li><a href="https://www.canada.ca/en/services/benefits.html">Benefits</a></li>
+				<li><a href="https://www.canada.ca/en/services/health.html">Health</a></li>
+				<li><a href="https://www.canada.ca/en/services/taxes.html">Taxes</a></li>
+				<li><a href="https://www.canada.ca/en/services/environment.html">Environment and natural resources</a></li>
+				<li><a href="https://www.canada.ca/en/services/defence.html">National security and defence</a></li>
+				<li><a href="https://www.canada.ca/en/services/culture.html">Culture, history and sport</a></li>
+				<li><a href="https://www.canada.ca/en/services/policing.html">Policing, justice and emergencies</a></li>
+				<li><a href="https://www.canada.ca/en/services/transport.html">Transport and infrastructure</a></li>
+				<li><a href="https://international.gc.ca/world-monde/index.aspx?lang=eng">Canada and the world</a></li>
+				<li><a href="https://www.canada.ca/en/services/finance.html">Money and finances</a></li>
+				<li><a href="https://www.canada.ca/en/services/science.html">Science and innovation</a></li>
+				<li><a href="https://www.canada.ca/en/services/indigenous-peoples.html">Indigenous peoples</a></li>
+				<li><a href="https://www.canada.ca/en/services/veterans.html">Veterans</a></li>
+				<li><a href="https://www.canada.ca/en/services/youth.html">Youth</a></li>
 {%- endif -%}
 			</ul>
 		</nav>
@@ -34,7 +100,7 @@
 		<div class="row ">
 {% unless page.noFooterSite %}
 			<nav class="col-md-9 col-lg-10 ftr-urlt-lnk">
-				<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
+				<h3 class="wb-inv">{{ i18nText-supportLinks }}</h3>
 				<ul>
 {%- if i18nText-lang == "fr" -%}
 					<li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>

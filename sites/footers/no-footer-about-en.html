@@ -1,18 +1,34 @@
 ---
 {
-	"title": "Hide 'About government' section from the footer",
-	"language": "en",
-	"altLangPage": "no-footer-about-fr.html",
-	"secondlevel": false,
-	"dateModified": "2022-01-12",
-	"share": "true",
-	"noFooterAbout": "true"
+"title": "Hide 'About government' section from the footer",
+"language": "en",
+"breadcrumbs": [
+{ "title": "Footer", "link": "sites/footers/footers-en.html" }
+],
+"altLangPage": "no-footer-about-fr.html",
+"secondlevel": false,
+"dateModified": "2022-01-12",
+"share": "true",
+"noFooterAbout": "true"
 }
 ---
-<p>By setting the <code>noFooterAbout</code> variable to "true", the 'About government' section will will be hidden on page load.</p>
+<div class="wb-prettify all-pre hide"></div>
+
+<p>By setting the <code>noFooterAbout</code> variable to "true", the "About government" section will will be hidden on
+	page load.</p>
 
 <h2>Expected output code</h2>
 <pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="contextual"&gt;
+		&lt;nav class="container"&gt;
+			&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
 	&lt;div class="brand"&gt;
 		&lt;div class="container"&gt;
 			&lt;div class="row "&gt;

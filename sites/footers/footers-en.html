@@ -1,30 +1,86 @@
 ---
 {
-	"title": "Content page including complete footer",
+	"title": "Footer",
 	"language": "en",
 	"altLangPage": "footers-fr.html",
 	"secondlevel": false,
-	"dateModified": "2022-05-18",
-	"share": "true"
+	"dateModified": "2022-06-20",
+	"share": "true",
+	"contextualFooter": {
+		"title": "[Contextual footer title]",
+		"links": [
+			{ "url": "http://canada.ca/en", "text": "Page-specific Link 1"},
+			{ "url": "http://canada.ca/en", "text": "Page-specific Link 2"},
+			{ "url": "http://canada.ca/en", "text": "Page-specific Link 3"}
+		]
+	}
 }
 ---
-<p>Content page presenting complete default footer including the "About gvernment" section and all utility links from "About this site" section.</p>
-<p>Updated to use the <code>colcount-xs-2</code> class instead of <code>colcount-sm-2</code>.</p>
+<div class="wb-prettify all-pre hide"></div>
 
-<h2>Expected output code</h2>
+<h2>Version 3.0</h2>
+<p>The following changes have been made since version 2.0:</p>
+<ul>
+	<li>Added a "Contextual" section above the "About government" section.
+		<ul>
+			<li>GCWeb Jekyll specific: The title and links are defined globally in <code>_config.yml</code>. It is also possible to remove the contextual footer globally by removing its definition in  <code>_config.yml</code>.</li>
+			<li>GCWeb Jekyll specific: The title and links can be changed for specific pages in the page's <code>contextualFooter</code> property.</li>
+		</ul>
+	</li>
+	<li>Added new heading "Government of Canada" in the "About government" section.</li>
+	<li>Added row of government-wide links.</li>
+	<li>Added short white horizontal rule (<code>&lt;hr /&gt;</code>) to separate government-wide links and theme links.</li>
+	<li>Modified the list of theme links.</li>
+	<li>The classes for the thematic links list were updated to <code>list-col-xs-1 list-col-sm-2 list-col-md-3</code>.
+		<ul>
+			<li>The columns now use the CSS "Flexbox" feature which distributes links horizontally instead of vertically.</li>
+			<li>Links are now displayed in one (1) column on extra small screens, in two (2) columns on small screens, and in three (3) columns on medium screens and up.</li>
+		</ul>
+	</li>
+	<li>GCWeb Jekyll specific: Footer skip link should remain when only the contextual footer is displayed.</li>
+</ul>
+<p>Working example: <a href="#wb-info">Scroll to the bottom of this page</a></p>
+
+<h3>Expected output code</h3>
 <pre><code>&lt;footer id="wb-info"&gt;
+	&lt;div class="contextual"&gt;
+		&lt;nav class="container"&gt;
+			&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="http://canada.ca/en"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
 	&lt;div class="landscape"&gt;
-		&lt;nav class="container wb-navcurr"&gt;
-			&lt;h2 class="wb-inv"&gt;About government&lt;/h2&gt;
-			&lt;ul class="list-unstyled colcount-xs-2 colcount-md-3"&gt;&lt;li&gt;&lt;a href="https://www.canada.ca/en/contact.html"&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+		&lt;nav class="container"&gt;
+			&lt;h3&gt;Government of Canada&lt;/h3&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/contact.html"&gt;All Contacts&lt;/a&gt;&lt;/li&gt;
 				&lt;li&gt;&lt;a href="https://www.canada.ca/en/government/dept.html"&gt;Departments and agencies&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/en/government/publicservice.html"&gt;Public service and military&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/en/news.html"&gt;News&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/en/government/system/laws.html"&gt;Treaties, laws and regulations&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/reporting.html"&gt;Government-wide reporting&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://pm.gc.ca/eng"&gt;Prime Minister&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/en/government/system.html"&gt;How government works&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://open.canada.ca/en/"&gt;Open government&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/government/system.html"&gt;About government&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/jobs.html"&gt;Jobs and the workplace&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/immigration-citizenship.html"&gt;Immigration and citizenship&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://travel.gc.ca/"&gt;Travel and tourism&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/business.html"&gt;Business and industry&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/benefits.html"&gt;Benefits&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/health.html"&gt;Health&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/taxes.html"&gt;Taxes&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/environment.html"&gt;Environment and natural resources&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/defence.html"&gt;National security and defence&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/culture.html"&gt;Culture, history and sport&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/policing.html"&gt;Policing, justice and emergencies&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/transport.html"&gt;Transport and infrastructure&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://international.gc.ca/world-monde/index.aspx?lang=eng"&gt;Canada and the world&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/finance.html"&gt;Money and finances&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/science.html"&gt;Science and innovation&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/indigenous-peoples.html"&gt;Indigenous peoples&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/veterans.html"&gt;Veterans&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="https://www.canada.ca/en/services/youth.html"&gt;Youth&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
 		&lt;/nav&gt;
 	&lt;/div&gt;
 	&lt;div class="brand"&gt;
@@ -32,17 +88,107 @@
 			&lt;div class="row "&gt;
 				&lt;nav class="col-md-9 col-lg-10 ftr-urlt-lnk"&gt;
 					&lt;h2 class="wb-inv"&gt;About this site&lt;/h2&gt;
-					&lt;ul&gt;&lt;li&gt;&lt;a href="https://www.canada.ca/en/social.html"&gt;Social media&lt;/a&gt;&lt;/li&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/social.html"&gt;Social media&lt;/a&gt;&lt;/li&gt;
 						&lt;li&gt;&lt;a href="https://www.canada.ca/en/mobile.html"&gt;Mobile applications&lt;/a&gt;&lt;/li&gt;
 						&lt;li&gt;&lt;a href="https://www1.canada.ca/en/newsite.html"&gt;About Canada.ca&lt;/a&gt;&lt;/li&gt;
 						&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/terms.html"&gt;Terms and conditions&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/privacy.html"&gt;Privacy&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+						&lt;li&gt;&lt;a href="https://www.canada.ca/en/transparency/privacy.html"&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
 				&lt;/nav&gt;
 				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
 					&lt;a href="#wb-cont"&gt;Top of Page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
 				&lt;/div&gt;
-				&lt;div class="col-xs-6 col-md-3 col-lg-2 text-right"&gt;
-					&lt;img src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
+				&lt;div class="col-xs-6 col-md-3 col-lg-2 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+
+<h2>Version 2.0 (deprecated)</h2>
+<p>This is version 2.0 (deprecated) of the default page footer.</p>
+<p>Updated to use the <code>colcount-xs-2</code> class instead of <code>colcount-sm-2</code>.</p>
+<p>Working example: <a href="deprecated/footers-v2-en.html">Footer version 2.0 (deprecated)</a></p>
+<h3>Expected output code</h3>
+<pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
+	&lt;div class=&quot;landscape&quot;&gt;
+		&lt;nav class=&quot;container wb-navcurr&quot;&gt;
+			&lt;h2 class=&quot;wb-inv&quot;&gt;About government&lt;/h2&gt;
+			&lt;ul class=&quot;list-unstyled colcount-xs-2 colcount-md-3&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/contact.html&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/dept.html&quot;&gt;Departments and agencies&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/publicservice.html&quot;&gt;Public service and military&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/news.html&quot;&gt;News&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/system/laws.html&quot;&gt;Treaties, laws and regulations&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/reporting.html&quot;&gt;Government-wide reporting&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://pm.gc.ca/eng&quot;&gt;Prime Minister&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/system.html&quot;&gt;How government works&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://open.canada.ca/en/&quot;&gt;Open government&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;brand&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;nav class=&quot;col-md-9 col-lg-10 ftr-urlt-lnk&quot;&gt;
+					&lt;h2 class=&quot;wb-inv&quot;&gt;About this site&lt;/h2&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/social.html&quot;&gt;Social media&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/mobile.html&quot;&gt;Mobile applications&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www1.canada.ca/en/newsite.html&quot;&gt;About Canada.ca&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/terms.html&quot;&gt;Terms and conditions&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/privacy.html&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/nav&gt;
+				&lt;div class=&quot;col-xs-6 visible-sm visible-xs tofpg&quot;&gt;
+					&lt;a href=&quot;#wb-cont&quot;&gt;Top of Page &lt;span class=&quot;glyphicon glyphicon-chevron-up&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;col-xs-6 col-md-3 col-lg-2 text-right&quot;&gt;&lt;img src=&quot;/dist/GCWeb/assets/wmms-blk.svg&quot; alt=&quot;Symbol of the Government of Canada&quot;&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+
+<h2>Version 1.0 (deprecated)</h2>
+<p>This is version 1.0 (deprecated) of the default page footer.</p>
+<p>Working example: <a href="deprecated/footers-v1-en.html">Footer version 1.0 (deprecated)</a></p>
+<h3>Expected output code</h3>
+<pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
+	&lt;div class=&quot;landscape&quot;&gt;
+		&lt;nav class=&quot;container wb-navcurr&quot;&gt;
+			&lt;h2 class=&quot;wb-inv&quot;&gt;About government&lt;/h2&gt;
+			&lt;ul class=&quot;list-unstyled colcount-sm-2 colcount-md-3&quot;&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/contact.html&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/dept.html&quot;&gt;Departments and agencies&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/publicservice.html&quot;&gt;Public service and military&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/news.html&quot;&gt;News&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/system/laws.html&quot;&gt;Treaties, laws and regulations&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/reporting.html&quot;&gt;Government-wide reporting&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://pm.gc.ca/eng&quot;&gt;Prime Minister&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/government/system.html&quot;&gt;How government works&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;https://open.canada.ca/en/&quot;&gt;Open government&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;brand&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;nav class=&quot;col-md-9 col-lg-10 ftr-urlt-lnk&quot;&gt;
+					&lt;h2 class=&quot;wb-inv&quot;&gt;About this site&lt;/h2&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/social.html&quot;&gt;Social media&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/mobile.html&quot;&gt;Mobile applications&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www1.canada.ca/en/newsite.html&quot;&gt;About Canada.ca&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/terms.html&quot;&gt;Terms and conditions&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/privacy.html&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/nav&gt;
+				&lt;div class=&quot;col-xs-6 visible-sm visible-xs tofpg&quot;&gt;
+					&lt;a href=&quot;#wb-cont&quot;&gt;Top of Page &lt;span class=&quot;glyphicon glyphicon-chevron-up&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;col-xs-6 col-md-3 col-lg-2 text-right&quot;&gt;&lt;img src=&quot;/dist/GCWeb/assets/wmms-blk.svg&quot; alt=&quot;Symbol of the Government of Canada&quot;&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
