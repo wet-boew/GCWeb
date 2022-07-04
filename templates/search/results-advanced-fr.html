@@ -1,8 +1,8 @@
 ---
 {
-	"title": "Résultats de la recherche (Contextuel)",
+	"title": "Résultats de la recherche (Avancée)",
 	"language": "fr",
-	"altLangPage": "results-contextual-en.html",
+	"altLangPage": "results-advanced-en.html",
 	"pageType": "recherche",
 	"pageclass": "page-type-search",
 	"dateModified": "2022-08-02",
@@ -10,33 +10,57 @@
 	"deptfeature": false
 }
 ---
-
-<div class="well">
-	<form class="mrgn-tp-sm">
-		<label class="wb-inv" for="sch-inp">Recherchez le site Web du Gouvernement du Canada</label>
-		<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi" />
-
-		<div class="mrgn-tp-md">
-			<p class="wb-inv">Voir les résultats pour:</p>
-
-			<ul class="list-inline mrgn-lft-sm pull-left">
-				<li><a href="#">Tout le site web du gouvernement du Canada</a></li>
-				<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Etiquette contextuel</a></li>
-			</ul>
-
-			<div class="pull-right">
-				<button type="submit" class="btn btn-primary" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span> Recherche</button>
-			</div>
-			<div class="clearfix"></div>
+<form action="#wb-land" method="get" role="form">
+	<fieldset>
+		<legend class="h3 mrgn-tp-sm"> Trouvez des pages avec… </legend>
+		<div class="form-group">
+			<label for="advseacon1"> tous les mots suivants : </label>
+			<input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon2"> ce mot ou groupe de mots exact :</label>
+			<input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon3"> l'un des mots suivants :</label>
+			<input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon4"> aucun des mots suivants :</label>
+			<input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
 		</div>
 		<p id="gc-pi" class="mrgn-tp-md">Veuillez <strong>ne pas fournir de renseignements personnels de nature délicate</strong> dans le champ de recherche, comme votre numéro d'assurance sociale, vos données financières personnelles et vos antécédents médicaux ou professionnels.</p>
-	</form>
+	</fieldset>
+	<fieldset>
+		<legend class="h3 mrgn-tp-sm"> Affinez ensuite la recherche par…</legend>
+		<div class="form-group">
+			<label for="advseacon5"> dernière mise à jour :</label>
+			<select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"> <option selected value=""> à une date indifférente </option> <option value="dateModified_dt:[NOW-1DAY TO NOW]"> au cours des dernières 24 heures </option> <option value="dateModified_dt:[NOW-7DAYS TO NOW]"> au cours des 7 derniers jours </option> <option value="dateModified_dt:[NOW-1MONTH TO NOW]"> au cours des 31 derniers jours </option> <option value="dateModified_dt:[NOW-1YEAR TO NOW]"> au cours des 365 derniers jours </option> </select>
+		</div>
+		<div class="form-group">
+			<label for="advseacon7"> site ou domaine :</label>
+			<input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon8"> termes paraissant :</label>
+			<select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"> <option value=""> n'importe où dans la page </option> <option value="title_t"> dans le titre de la page </option> <option value="url_t"> dans l'URL de la page </option> <option value="body_t"> dans le corps de la page </option> </select>
+		</div>
+	</fieldset>
+	<button type="submit" class="btn btn-md btn-primary"> Recherche </button>
+</form>
+
+<div class="row mrgn-tp-md">
+	<div class="col-md-2">
+		<a href="/content/canadasite/fr/sr/srb.html">Recherche de base</a>
+	</div>
+	<div class="col-md-2">
+		<a href="/content/canadasite/fr/sr/tr.html">Trucs de recherche</a>
+	</div>
 </div>
 
 <section class="results">
 	<h2 class="wb-inv">Résultats de recherche</h2>
 	<p class="h4">[nombre de] résultats de recherché pour "[le terme recherché]"</p>
-	<p>De [Context label]</p>
 	<section>
 		<h3><a href="#">[Titre du résultat de recherche]</a></h3>
 		<ol class="location">
@@ -95,5 +119,3 @@
 		</ul>
 	</div>
 </section>
-
-<p class="text-center"><small><a href="#URL-of-the-advance-search-page">Effectuer une recherche avancée</a></small></p>
