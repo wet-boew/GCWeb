@@ -1,6 +1,7 @@
 ---
 {
 	"title": "[Topic title]",
+	"layout": "without-h1",
 	"language": "en",
 	"altLangPage": "topic-fr.html",
 	"pageclass": "page-type-nav",
@@ -14,9 +15,9 @@
 ---
 <div class="row profile">
 	<div class="col-md-6">
-		<h1 property="name" id="wb-cont">{{{title}}}</h1>
+		<h1 property="name" id="wb-cont">{{ page.title }}</h1>
 		<p>1-2 sentences that describe the topics and top tasks that can be accessed on this page.</p>
-		{{>follow}}
+		{% include templates/follow.html %}
 	</div>
 	<div class="col-md-6 mrgn-tp-sm hidden-sm hidden-xs">
 		<img src="../img/banner-520x200.png" alt="" class="pull-right img-responsive thumbnail"/>
@@ -24,7 +25,7 @@
 </div>
 <div class="row">
 	<div class="col-md-4 col-xs-12 pull-right">
-		{{>most-requested}}
+		{% include templates/most-requested.html %}
 	</div>
 	<section class="gc-srvinfo col-md-8 pull-left">
 		<h2>Services and information</h2>
@@ -80,8 +81,15 @@
 		</div>
 	</section>
 	<div class="pull-right col-xs-12 col-md-4">
-		{{>supported-by}}
-		{{>more-info}}
+		<section class="lnkbx">
+			<h2>Contributors</h2>
+			<ul>
+				<li><a href="#">[Institution name]</a></li>
+				<li><a href="#">[Institution name]</a></li>
+				<li><a href="#">[Institution name]</a></li>
+			</ul>
+		</section>
+		{% include templates/more-info.html %}
 	</div>
 </div>
 {% include templates/whtwedo-3-items.html %}

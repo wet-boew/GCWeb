@@ -1,7 +1,6 @@
 ---
 {
 	"title": "[Nom du service] - 2. [Nom de la page de la section ou de l’étape]",
-	"secondTitle": "2. [Nom de la page de la section ou de l’étape]",
 	"language": "fr",
 	"altLangPage": "page2-en.html",
 	"breadcrumbs": [
@@ -11,9 +10,7 @@
 	],
 	"secondlevel": false,
 	"dateModified": "2017-04-07",
-	"share": "true",
-	"previous": [ { "title": "1. [Nom de la page de la section ou de l’étape]", "link": "index-fr.html" } ],
-	"next": [ { "title": "3. [Nom de la page de la section ou de l’étape]", "link": "page3-fr.html" } ]
+	"share": "true"
 }
 ---
 <p class="gc-byline"><strong>De <a href="../institutional/institution-fr.html">[nom de l'institution]</a></strong></p>
@@ -32,7 +29,7 @@
 </div>
 <div class="row">
 	<section class="col-md-8">
-		<h2>{{secondTitle}}</h2>
+		<h2>2. [Nom de la page de la section ou de l’étape]</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
@@ -47,16 +44,12 @@
 		<nav role="navigation" class="row">
 			<h3 class="wb-inv">Navigation dans le document</h3>
 			<ul class="pager">
-				{{#previous}}
-				<li class="previous"><a href="{{link}}" rel="prev">Précédent<span class="wb-inv"> : {{title}}</span></a></li>
-				{{/previous}}
-				{{#next}}
-				<li class="next"><a href="{{link}}" rel="next">Suivant<span class="wb-inv"> : {{title}}</span></a></li>
-				{{/next}}
+				<li class="previous"><a href="index-fr.html" rel="prev">Précédent<span class="wb-inv"> : 1. [Nom de la page de la section ou de l’étape]</span></a></li>
+				<li class="next"><a href="page3-fr.html" rel="next">Suivant<span class="wb-inv"> : 3. [Nom de la page de la section ou de l’étape]</span></a></li>
 			</ul>
 		</nav>
 	</section>
 	<div class="col-md-4">
-		{{>service-right-panel}}
+		{% include_relative includes/service-right-panel-fr.html %}
 	</div>
 </div>

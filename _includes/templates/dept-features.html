@@ -1,0 +1,42 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ List of department features
++
++ Used by organizational and institutional page
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+
+<section class="gc-prtts">
+	{%- if page.language == "fr" -%}
+	<h2>En vedette</h2>
+	{%- else -%}
+	<h2>Features</h2>
+	{%- endif -%}
+	<div class="row">
+		{% for i in (1..3) %}
+		{%- if page.language == "fr" -%}
+		<div class="col-lg-4 col-md-6 mrgn-bttm-md">
+			<a href="#">
+				<figure>
+					<figcaption>[Lien à l’élément en vedette]</figcaption>
+					<img src="https://via.placeholder.com/360x203/000" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+					<p>Brève description de l’élément en vedette.</p>
+				</figure>
+			</a>
+		</div>
+		{%- else -%}
+		<div class="col-lg-4 col-md-6 mrgn-bttm-md">
+			<a href="#">
+				<figure>
+					<figcaption>[Feature hyperlink text]</figcaption>
+					<img src="https://via.placeholder.com/360x203/000" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+					<p>Brief description of the feature being promoted.</p>
+				</figure>
+			</a>
+		</div>
+		{%- endif -%}
+		{% endfor %}
+	</div>
+</section>

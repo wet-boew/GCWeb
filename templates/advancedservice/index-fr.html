@@ -1,7 +1,6 @@
 ---
 {
 	"title": "[Nom du service] - 1. [Nom de la page de la section ou de l’étape]",
-	"secondTitle": "1. [Nom de la page de la section ou de l’étape]",
 	"language": "fr",
 	"altLangPage": "index-en.html",
 	"breadcrumbs": [
@@ -11,8 +10,7 @@
 	],
 	"secondlevel": false,
 	"dateModified": "2017-04-07",
-	"share": "true",
-	"next": [ { "title": "2. [Nom de la page de la section ou de l’étape]", "link": "page2-fr.html" } ]
+	"share": "true"
 }
 ---
 <p class="gc-byline"><strong>De <a href="../institutional/institution-fr.html">[nom de l'institution]</a></strong></p>
@@ -31,7 +29,7 @@
 </div>
 <div class="row">
 	<section class="col-md-8">
-		<h2>{{secondTitle}}</h2>
+		<h2>1. [Nom de la page de la section ou de l’étape]</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
@@ -46,13 +44,11 @@
 		<nav role="navigation" class="mrgn-bttm-lg">
 			<h3 class="wb-inv">Navigation dans le document</h3>
 			<ul class="pager">
-				{{#next}}
-				<li class="next"><a href="{{link}}" rel="next">Suivant<span class="wb-inv"> : {{title}}</span></a></li>
-				{{/next}}
+				<li class="next"><a href="page2-fr.html" rel="next">Suivant<span class="wb-inv"> : 2. [Nom de la page de la section ou de l’étape]</span></a></li>
 			</ul>
 		</nav>
 	</section>
 	<div class="col-md-4">
-		{{>service-right-panel}}
+		{% include_relative includes/service-right-panel-fr.html %}
 	</div>
 </div>
