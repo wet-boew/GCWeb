@@ -2,7 +2,7 @@
 	{%- if page.feedbackPath -%}
 		{{ page.feedbackPath }}
 	{%- elsif site.global.feedbackPath and site.global.feedbackPath.first -%}
-		{{ site.global.feedbackPath[ i18nText-lang ] }}
+		{{ site.global.feedbackPath[ i18nText-lang ] | relative_url }}
 	{%- endif -%}
 {%- endcapture -%}
 
