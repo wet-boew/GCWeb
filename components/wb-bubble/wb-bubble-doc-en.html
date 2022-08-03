@@ -1,0 +1,140 @@
+---
+title: Bubble - Documentation
+language: en
+category: Plugins
+description: Bubble that opens an overlay or execute a quick action.
+altLangPage: wb-bubble-doc-fr
+dateModified: 2021-07-22
+---
+<div class="wb-prettify all-pre"></div>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>GC Web component</dd>
+	<dt>Last review</dt>
+	<dd>2021-07-22</dd>
+	<dt>Conforming to</dt>
+	<dd>n/a</dd>
+	<dt>Guidance</dt>
+	<dd>n/a</dd>
+	<dt>Technical name</dt>
+	<dd>
+		<ul>
+			<li><code>wb-bubble</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>Purpose</h2>
+<p>Quick action bubble located at the bottom-right corner of a page that open an overlay in the context of a  virtual assistant or action a link to a page.</p>
+
+<h2>Usage</h2>
+<div class="row wb-eqht-grd mrgn-tp-lg mrgn-bttm-xl">
+	<div class="col-md-6">
+		<h3 class="mrgn-tp-0 text-success h4">Use when <span class="glyphicon glyphicon-ok-circle"></span></h3>
+		<p>To send an action to a wet-boew bubble plugin.</p>
+	</div>
+	<div class="col-md-6 brdr-lft">
+		<h3 class="mrgn-tp-0 text-danger h4">Do not use when <span class="glyphicon glyphicon-remove-circle"></span></h3>
+		<p>When executing a such action can make your page not WCAG compliant.</p>
+	</div>
+</div>
+
+<h2>Working examples</h2>
+<ul>
+	<li>English: <a href="wb-bubble-qa-en.html">Quick action bubble with default avatar - opening a link</a></li>
+	<li>French: <a href="wb-bubble-qa-fr.html" lang="fr">Bulle liée à une action rapide avec l'avatar par défaut - overture d'un lien</a></li>
+	<li>English: <a href="wb-bubble-va-en.html">Virtual assistant bubble with customized avatar - opening an overlay</a></li>
+	<li>French: <a href="wb-bubble-va-fr.html" lang="fr">Bulle d'assistant virtuel avec un avatar personnalisé - overture d'une fenêtre superposée</a></li>
+</ul>
+
+<h2>How to implement</h2>
+<ul>
+	<li>Add the <code>wb-bubble</code> class to a <code>&lt;button&gt;</code> or a <code>&lt;a&gt;</code> element in order to apply the bubble pattern.</li>
+	<li>When using the <code>&lt;button&gt;</code> element, add and set the <code>data-wb-doaction</code> attribute in order to open the overlay wet pluggin.</li>
+	<li>When using the link <code>&lt;a&gt;</code> element, set the <code>href</code>attribute to the page as direct link..</li>
+</ul>
+
+<h2>Evaluation and report</h2>
+<p>There is no evaluation and report available for this component.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>CSS Class</th>
+		<th>Template</th>
+		<th>Visual rendering</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>n.a.</td>
+	</tr>
+</table>
+
+<h3>CSS Class (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>wb-bubble</code></dt>
+	<dd>Component: Quick action bubble</dd>
+</dl>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Created: <code>.wb-bubble</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Template (v1.0)</h3>
+<p>Notes:</p>
+<ul>
+	<li>Can only be used with a button (<code>&lt;button&gt;</code>) to open an overlay or with a link element (<code>&lt;a&gt;</code>) to open a page.</li>
+</ul>
+
+<h4>Button</h4>
+<pre>
+	<code>&lt;button data-wb-doaction='{ &quot;action&quot;: &quot;openDialog&quot;, &quot;source&quot;: &quot;#mid-screen&quot; }' class=&quot;wb-bubble&quot;&gt;&lt;/button&gt;</code>
+</pre>
+
+<p>Where:</p>
+<dl class="dl-horizontal">
+	<dt><code>&quot;action&quot;: &quot;openDialog&quot;</code></dt>
+	<dd>Will open an overlay by using the overlay plugin.</dd>
+	<dt><code>&quot;source&quot;: #mid-screen</code></dt>
+	<dd>The source represent a pointer to section id, which will be included in the overlay panel</dd>
+</dl>
+
+<h4>Hyperlink</h4>
+<pre><code>&lt;a href="#" class="wb-bubble"&gt;Quick link&lt;/a&gt;</code></pre>
+
+<h3>Visual rendering (v1.0)</h3>
+<ul>
+	<li>Round shape icon.</li>
+	<li>Drop shadow.</li>
+	<li>White background.</li<>
+	<li>Red maple leaf avatar (default).</li>
+	<li>Black 1px border on focus</li>
+	<li>Bottom-right corner fix location.</li>
+	<li>Size of 60px x 60px.</li>
+	<li>Dedicated space of 30px from the right and bottom.</li>
+	<li>Notification panel:
+		<ul>
+			<li>Hidden by default</li>
+			<li>Open on the left of the bublle</li>
+			<li>White text on blue background (hex #335075)</li>
+			<li>Small font-size (.8em)</li>
+			<li>Close button "X" is bigger in mobile view</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>Source code</h2>
+<p><a href="https://github.com/wet-boew/GCWeb/tree/master/components/wb-actionmng">Action manager plugin source code on GitHub</a></p>

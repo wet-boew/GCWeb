@@ -1,0 +1,141 @@
+---
+title: Bulle - Documentation
+language: fr
+category: Plugiciels
+description: Bulle qui ouvre du contenu superposé ou qui génère une action rapide.
+altLangPage: wb-bubble-doc-en
+dateModified: 2021-07-22
+---
+<div class="wb-prettify all-pre"></div>
+
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Composant GC Web</dd>
+	<dt>Dernière revue</dt>
+	<dd>2021-07-22</dd>
+	<dt>Est conforme à</dt>
+	<dd>n/a</dd>
+	<dt>Spécification</dt>
+	<dd>n/a</dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>wb-bubble</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>But</h2>
+<p>Bulle d'action rapide située dans le coin inférieur droit d'une page qui ouvre une superposition dans le contexte d'un assistant virtuel ou actionne un lien vers une page. </p>
+
+<h2>Utilisation</h2>
+<div class="row wb-eqht-grd mrgn-tp-lg mrgn-bttm-xl">
+	<div class="col-md-6">
+		<h3 class="mrgn-tp-0 text-success h4">Utiliser quand <span class="glyphicon glyphicon-ok-circle"></span></h3>
+		<p>Pour envoyer une action au plugiciel de bulle wet-boew. </p>
+	</div>
+	<div class="col-md-6 brdr-lft">
+		<h3 class="mrgn-tp-0 text-danger h4">Ne pas utiliser quand <span class="glyphicon glyphicon-remove-circle"></span></h3>
+		<p>L'exécution d'une telle action peut rendre votre page non conforme aux normes d'accessibilités (WCAG).</p>
+	</div>
+</div>
+
+<h2>Exemples pratiques</h2>
+<p></p>
+<ul>
+	<li>French: <a href="wb-bubble-qa-fr.html">Bulle liée à une action rapide avec l'avatar par défaut - overture d'un lien</a></li>
+	<li>English: <a href="wb-bubble-qa-en.html" lang="en">Quick action bubble with default avatar - opening a link</a></li>
+	<li>French: <a href="wb-bubble-va-fr.html">Bulle d'assistant virtuel avec un avatar personnalisé - overture d'une fenêtre superposée</a></li>
+	<li>English: <a href="wb-bubble-va-en.html"lang="en">Virtual assistant bubble with customized avatar - opening an overlay</a></li>
+</ul>
+
+<h2>Comment mettre en œuvre</h2>
+<ul>
+	<li>Ajouter la classe <code>wb-bubble</code> à un élément <code>&lt;button&gt;</code> ou <code>&lt;a&gt;</code> afin d'appliquer l'aspect de bulle.</li>
+	<li>Lorsque l'élément boutton est utilisé <code>&lt;button&gt;</code>, ajoutez et configurez l'attribut <code>data-wb-doaction</code> afin d'actionner le plugiciel superposé de wet-boew.</li>
+	<li>Lorsque l'élément de lien <code>&lt;a&gt;</code> est utilisé, ajoutez l'URL de la page à l'attribut <code>href</code>.</li>
+</ul>
+
+<h2>Évaluation et rapport</h2>
+<p>Il n'y a pas d'évaluation et de rapport disponible pour ce composant.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Classe CSS</th>
+		<th>Gabarit</th>
+		<th>Rendu visuel</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>Version 1.0</td>
+		<td>s.o.</td>
+	</tr>
+</table>
+
+<h3>Classe CSS (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>wb-bubble</code></dt>
+	<dd>Composant&nbsp;: Bulle d'action rapide</dd>
+</dl>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Crée&nbsp;: <code>.wb-bubble</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Gabarit (v1.0)</h3>
+<p>Notes:</p>
+<ul>
+	<li>Ne peut être utilisé qu'avec un élément boutton (<code>&lt;button&gt;</code>) ou de lien (<code>&lt;a&gt;</code>).</li>
+</ul>
+
+<h4>Boutton</h4>
+<pre>
+	<code>&lt;button  data-wb-doaction='{ &quot;action&quot;: &quot;openDialog&quot;, &quot;source&quot;: &quot;#mid-screen&quot; }' class=&quot;wb-bubble&quot;&gt;&lt;/button&gt;</code>
+</pre>
+
+<p>Ou:</p>
+<dl class="dl-horizontal">
+	<dt><code>&quot;action&quot;: &quot;openDialog&quot;</code></dt>
+	<dd>Will open an overlay by using the overlay plugin.</dd>
+	<dt><code>&quot;source&quot;: #mid-screen</code></dt>
+	<dd>The source represent a pointer to section id, which will be included in the overlay panel</dd>
+</dl>
+
+<h4>Hyperlien</h4>
+<pre><code>&lt;a href="#" class="wb-bubble"&gt;Lien rapide&lt;/a&gt;</code></pre>
+
+<h3>Rendu visuel (v1.0)</h3>
+<ul>
+	<li>Icône de forme ronde</li>
+	<li>Ombre portée</li>
+	<li>Arrière-plan blanc</li<>
+	<lI>Bordure noir de 1px lorsqu'elle obtient le focus</lI>
+	<li>Feuille d'érable rouge comme avatar (par défaut)</li>
+	<li>Positionnement fixe dans le coin inférieur droit</li>
+	<li>Dimmensions de 60px x 60px</li>
+	<li>Espace dédiée de 30px du bas et de la droite</li>
+	<li>Panneau de notification:
+		<ul>
+			<li>Caché par défaut</li>
+			<li>Ouvre à la gauche de la bulle</li>
+			<li>Texte blanc sur arrière-plan bleu (hex #335075)</li>
+			<li>Taille de la police petite (.8em)</li>
+			<li>Boutton de fermeture "X" plus gros en mode mobile</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>Code source</h2>
+<p><a href="https://github.com/wet-boew/GCWeb/tree/master/components/wb-actionmng">Action manager plugin source code on GitHub</a></p>
