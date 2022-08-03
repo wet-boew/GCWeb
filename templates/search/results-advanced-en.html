@@ -1,8 +1,8 @@
 ---
 {
-	"title": "Search results",
+	"title": "Search results (Advanced)",
 	"language": "en",
-	"altLangPage": "results-fr.html",
+	"altLangPage": "results-advanced-fr.html",
 	"pageType": "search",
 	"pageclass": "page-type-search",
 	"dateModified": "2022-08-02",
@@ -10,16 +10,52 @@
 	"deptfeature": false
 }
 ---
-<form>
-	<label class="wb-inv" for="sch-inp">Search Government of Canada websites</label>
-	<div class="input-group mrgn-tp-lg">
-		<input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-fusion-query name="q" aria-describedby="gc-pi" />
-		<span class="input-group-btn">
-			<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-		</span>
-	</div>
-	<p id="gc-pi" class="mrgn-tp-md">Please <strong>do not include sensitive personal information</strong> in the search box, such as your social insurance number, personal finance data and medical or work history.</p>
+<form action="#wb-land" method="get" role="form">
+	<fieldset>
+		<legend class="h3 mrgn-tp-sm">Find pages with...</legend>
+		<div class="form-group">
+			<label for="advseacon1">all these words:</label>
+			<input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon2">this exact word or phrase:</label>
+			<input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon3">any of these words:</label>
+			<input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon4">none of these words:</label>
+			<input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<p id="gc-pi" class="mrgn-tp-md">Please <strong>do not include sensitive personal information</strong> in the search box, such as your social insurance number, personal finance data and medical or work history.</p>
+	</fieldset>
+	<fieldset>
+		<legend class="h3 mrgn-tp-sm">Then narrow your results by...</legend>
+		<div class="form-group">
+			<label for="advseacon5">pages updated:</label>
+			<select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"> <option selected value="">anytime</option> <option value="dateModified_dt:[NOW-1DAY TO NOW]">past 24 hours</option> <option value="dateModified_dt:[NOW-7DAYS TO NOW]">past week</option> <option value="dateModified_dt:[NOW-1MONTH TO NOW]">past month</option> <option value="dateModified_dt:[NOW-1YEAR TO NOW]">past year</option> </select>
+		</div>
+		<div class="form-group">
+			<label for="advseacon7">site or domain:</label>
+			<input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" >
+		</div>
+		<div class="form-group">
+			<label for="advseacon8">terms appearing:</label>
+			<select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"> <option value="">anywhere in the page</option> <option value="title_t">in the title of the page</option> <option value="url_t">in the URL of the page</option> <option value="body_t">in the body of the page </option></select>
+		</div>
+	</fieldset>
+	<button type="submit" class="btn btn-md btn-primary">Search</button>
 </form>
+<div class="row mrgn-tp-md">
+	<div class="col-md-2">
+		<a href="/content/canadasite/en/sr/srb.html">Basic search</a>
+	</div>
+	<div class="col-md-2">
+		<a href="/content/canadasite/en/sr/st.html">Search tips</a>
+	</div>
+</div>
 
 <section class="results">
 	<h2 class="wb-inv">Search results</h2>
@@ -196,5 +232,3 @@
 		</ul>
 	</div>
 </section>
-
-<p class="text-center"><small><a href="#URL-of-the-advance-search-page">Perform an advanced search</a></small></p>

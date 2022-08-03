@@ -1,37 +1,41 @@
 ---
 {
-	"title": "Search template - Meta information",
+	"title": "Search results",
 	"language": "en",
 	"breadcrumbs": [
-		{ "title": "GCWeb home", "link": "index-en.html" }
+		{ "title": "GCWeb home", "link": "index-fr.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2019-07-31",
+	"altLangPage": "api-fr.html",
+	"dateModified": "2022-08-02",
 	"share": "true"
 }
 ---
+<div class="wb-prettify all-pre hide"></div>
 
 <p>Published: March 2019</p>
 
 <h2>Working Example</h2>
 
 <ul>
-	<li><a href="results-en.html">Results (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-en.hbs">Source code</a>)</li>
-	<li><a href="results-fr.html" hreflang="fr" lang="fr">Résultats (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-fr.hbs">Source code</a>)</li>
-	<li><a href="results-contextual-en.html">Results contextual (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-contextual-en.hbs">Source code</a>)</li>
-	<li><a href="results-contextual-fr.html" hreflang="fr" lang="fr">Résultats contextuel (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-contextual-en.hbs">Source code</a>)</li>
-	<li><span class="label label-warning">Partial</span> <a href="results-filters-en.html">Results with filters (English)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-filters-en.hbs">Source code</a>)
+	<li><a href="results-en.html">Results (English)</a></li>
+	<li><a href="results-fr.html" hreflang="fr" lang="fr">Résultats (Français)</a></li>
+	<li><a href="results-contextual-en.html">Results contextual (English)</a></li>
+	<li><a href="results-contextual-fr.html" hreflang="fr" lang="fr">Résultats contextuels (Français)</a></li>
+	<li><span class="label label-warning">Partial</span> <a href="results-filters-en.html">Results with filters (English)</a>
 		<ul>
 			<li>The "show more" link in the filter box aren't working via a client side implementation.</li>
 			<li>The "Clear all" link at the top of the filter box aren't working via a client side implementation.</li>
 		</ul>
 	</li>
-	<li><span class="label label-warning">Partial</span> <a href="results-filters-fr.html" hreflang="fr" lang="fr">Résultats avec filtre (Français)</a> (<a href="https://github.com/wet-boew/GCWeb/blob/master/site/pages/search/results-filters-fr.hbs">Source code</a>)
+	<li><span class="label label-warning">Partial</span> <a href="results-filters-fr.html" hreflang="fr" lang="fr">Résultats avec filtres (Français)</a>
 		<ul>
 			<li>The "show more" link in the filter box aren't working via a client side implementation.</li>
 			<li>The "Clear all" link at the top of the filter box aren't working via a client side implementation.</li>
 		</ul>
 	</li>
+	<li><a href="results-advanced-en.html">Results advanced (English)</a></li>
+	<li><a href="results-advanced-fr.html" hreflang="fr" lang="fr">Résultats advancés (Français)</a></li>
 </ul>
 
 <h3>Prototype:</h3>
@@ -50,7 +54,6 @@
 <p>Their is not GCWeb corresponding template yet</p>
 <ul>
 	<li><span class="label label-default">Backlog</span> Starting page for search (<a href="https://www.search-recherche.gc.ca/rGs/s_r?st=s&amp;st1rt=0&amp;num=10&amp;cdn=canada&amp;langs=eng">Reference/Existing implementation</a>)</li>
-	<li><span class="label label-default">Backlog</span> Advanced search page (<a href="https://www.search-recherche.gc.ca/rGs/s_r?as_q=&amp;st1rt=0&amp;st=a&amp;num=10&amp;langs=eng&amp;cdn=canada&amp;hq=">Reference/Existing implementation</a>)</li>
 </ul>
 
 <h2>Usability Research</h2>
@@ -62,6 +65,12 @@
 
 <h2>Version history</h2>
 <ul>
+	<li><time>2022-07-05</time> Version 2.3:
+		<ul>
+			<li>Adding a paragraph with a unique ID in the form to let users know not entering personal information.</li>
+			<li>Adding an aria-describedby in the input field pointing to the ID of the personal info paragraph.</li>
+		</ul>
+	</li>
 	<li><time>2020-03-25</time> Version 2.2 - Adding data-fusion-query in the input field</li>
 	<li><time>2020-02-12</time> Version 2.1 - Advanced search is added under pagination tab</li>
 	<li><time>2019-02-06</time> Version 2 - Search results, Contextualized search result, Faceted results</li>
@@ -113,8 +122,23 @@
 
 <h3>Search bar</h3>
 
-<pre><code>
-&lt;form&gt;
+<div class="row">
+	<div class="col-md-6">
+		<h4>Version 2.3</h4>
+		<pre><code>&lt;form&gt;
+	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+	&lt;div class="input-group mrgn-tp-lg"&gt;
+		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-fusion-query <ins>aria-describedby="gc-pi"</ins> /&gt;
+		&lt;span class="input-group-btn"&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;&lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+	<ins>&lt;p id="gc-pi" class="mrgn-tp-md"&gt;Please &lt;strong&gt;do not include sensitive personal information&lt;/strong> in the search box, such as your social insurance number, personal finance data and medical or work history.&lt;/p&gt;</ins>
+&lt;/form&gt;</code></pre>
+</div>
+<div class="col-md-6">
+<h4>Version 2.2</h4>
+<pre><code>&lt;form&gt;
 	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 	&lt;div class="input-group mrgn-tp-lg"&gt;
 		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-fusion-query /&gt;
@@ -122,13 +146,13 @@
 			&lt;button type="submit" class="btn btn-primary"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;&lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
 		&lt;/span&gt;
 	&lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
+&lt;/form&gt;</code></pre>
+	</div>
+</div>
 
 <details>
-<summary>Version 2.1</summary>
-<pre><code>
-&lt;form&gt;
+	<summary>Version 2.1</summary>
+	<pre><code>&lt;form&gt;
 	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 	&lt;div class="input-group mrgn-tp-lg"&gt;
 		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" /&gt;
@@ -142,8 +166,31 @@
 
 <h3>Search bar contextual</h3>
 
-<pre><code>
-&lt;div class="well"&gt;
+<div class="row">
+	<div class="col-md-6">
+		<h4>Version 2.3</h4>
+		<pre><code>&lt;div class="well"&gt;
+	&lt;form class="mrgn-tp-sm"&gt;
+		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query <ins>aria-describedby="gc-pi"</ins> &gt;
+		&lt;div class="mrgn-tp-md"&gt;
+			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+			&lt;ul class="radio-inline list-inline mrgn-lft-sm"&gt;
+				&lt;li&gt;&lt;input type="radio" name="resultsfrom" id="opt-allresults" value="allresults" /&gt; &lt;label for="opt-allresults"&gt;All Government of Canada websites&lt;/label&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg current" aria-current="location"&gt;&lt;input type="radio" name="resultsfrom" id="opt-context" value="context" checked="checked" /&gt; &lt;label for="opt-context"&gt;Context label&lt;/label&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+			&lt;div class="pull-right"&gt;
+				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		<ins>&lt;p id="gc-pi" class="mrgn-tp-md"&gt;Please &lt;strong&gt;do not include sensitive personal information&lt;/strong> in the search box, such as your social insurance number, personal finance data and medical or work history.&lt;/p&gt;</ins>
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h4>Version 2.2</h4>
+		<pre><code>&lt;div class="well"&gt;
 	&lt;form class="mrgn-tp-sm"&gt;
 		&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 		&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query&gt;
@@ -161,6 +208,8 @@
 	&lt;/form&gt;
 &lt;/div&gt;
 </code></pre>
+	</div>
+</div>
 
 <details>
 <summary>Version 2.1</summary>
@@ -184,6 +233,94 @@
 &lt;/div&gt;
 </code></pre>
 </details>
+
+<h3>Search bar advanced</h3>
+
+<div class="row">
+	<div class="col-md-6">
+		<h4>Version 2.2</h4>
+		<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
+	&lt;fieldset&gt;
+		&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
+			&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
+			&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
+			&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
+			&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
+		&lt;/div&gt;
+		&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
+	<ins>&lt;p id="gc-pi" class="mrgn-tp-md"&gt;Please &lt;strong&gt;do not include sensitive personal information&lt;/strong&gt; in the search box, such as your social insurance number, personal finance data and medical or work history.&lt;/p&gt;</ins>
+	&lt;/fieldset&gt;
+	&lt;fieldset&gt;
+		&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
+			&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
+			&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
+			&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h4>Version 2.1</h4>
+		<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
+	&lt;fieldset&gt;
+		&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
+			&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
+			&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
+			&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
+			&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" &gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+	&lt;fieldset&gt;
+		&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
+			&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
+			&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+		&lt;/div&gt;
+		&lt;div class="form-group"&gt;
+			&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
+			&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+	&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+	</div>
+</div>
+
+
 
 <p>Notes:</p>
 <ul>
