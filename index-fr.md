@@ -119,7 +119,7 @@ css:
 					Main working example
 					- First working example in the example list where the language match
 					-->
-					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
 					{% if mainExamples %}
 					<li>
