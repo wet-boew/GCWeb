@@ -4,7 +4,7 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/en.html"
 	},
-	"dateModified": "2022-05-17",
+	"dateModified": "2022-09-26",
 	"description": "Documentation on how to use the various authentication patterns.",
 	"language": "en",
 	"title": "Authentication patterns"
@@ -12,34 +12,37 @@
 ---
 <p>This component support the following 3 design pattern variant:</p>
 <ul>
-	<li>Contextual Sign-in button: A link pointing to a dedicated sign-in web page</li>
-	<li>Signed-off: A pattern that show how the user can sign-on directly from the current page. Note: The prompt sign-in dialog and the interaction resulting of the signed-on are currently out-of-scope.</li>
-	<li>Signed-on: A pattern that shows the user is logged in, a way to access your account and how to disconnect.</li>
+	<li>Contextual Sign in button: A link pointing to a dedicated sign in web page</li>
+	<li>Signed-off: A pattern that show how the user can sign-on directly from the current page. Note: The prompt sign in dialog and the interaction resulting of the signed-on are currently out-of-scope.</li>
+	<li>Signed-on: A pattern that shows that the user is logged in, a way to access user's account and how to disconnect.</li>
 </ul>
 
-<h2>Contextual Sign-in button</h2>
+<h2>Contextual Sign in button</h2>
 
-<p>With proper parameters, the button will appear on page load and will be located on the top right-hand side of the page, below the horizontal line as indicated in the <a href="https://design.canada.ca/common-design-patterns/buttons.html#sign-in">design.canada guidelines</a>.</p>
+<p>With proper parameters, the button will appear on page load and will be located on the top right-hand side of the page, below the horizontal line as indicated in the <a href="https://design.canada.ca/common-design-patterns/contextual-signin.html">Canada.ca design guidelines</a>.</p>
+
+<h3>How to implement</h3>
+
+<ul>
+	<li>Identify the group of pages that should include the contextual Sign in button for a  specific authenticated service</li>
+	<li>Link the Sign in button directly to the page where you begin your sign-in process, or to an account-chooser page with the different accounts you can sign in to</li>
+	<li>Use “Sign in” as the label
+	<ul>
+		<li><strong>Small screens</strong>: total of 12 characters including spaces (no additional descriptive text)</li>
+		<li><strong>Large/medium screens</strong>: total of 25 characters including spaces (for additional descriptive text if needed, such as “Sign in to [account name]”)</li>
+	</ul>
+	</li>
+</ul>
 
 <h3>GCWeb Jekyll configuration</h3>
 
-<p>The <code>auth</code> variable MUST be set along with the <code>type</code> parameter with the value "contextual" in order to initiate the contextual sign-in button pattern.</p>
+<p>The <code>auth</code> variable MUST be set along with the <code>type</code> parameter with the value "contextual" in order to initiate the contextual sign in button pattern.</p>
 
 <p>Parameters to be set:</p>
 <ul>
 	<li><code>link</code> this parameter MUST be set in order to assign a URL to the link button for pointing to the application where users will be redirected.</li>
-	<li><code>label</code> with a maximum lenght of 12 characters allowed including spaces, this parameter MUST be set to generate the text appearing on the button for any viewports from extra-extra-small to extra-large (xxs, xxs, sm, md, lg and xl).</li>
-	<li><code>labelExtended</code> with a maximum lenght of 25 characters allowed including spaces, this parameter is optional but must be set along with the <code>label</code> paramter and if set, it will generate the text appearing on the button for small viewport and up (sm, md, lg and xl).</li>
-</ul>
-
-<h3>HTML Structure - Version 1.0</h3>
-
-<p>Code sample of the include showing the HTML of the component</p>
-<ul>
-	<li><a href="contextual-signin-en.html">Contextual Sign-in button</a></li>
-	<li><a href="contextual-signin-label-extended-en.html">Contextual Sing-in button with extended label</a></li>
-	<li><a href="contextual-signin-nolabels-en.html">Contextual Sign-in button without custom labels</a></li>
-	<li><a href="contextual-signin-nomenu-en.html">Contextual Sign-in button without the GCWeb Menu</a></li>
+	<li><code>label</code> with a maximum length for small screens allowed including spaces, this parameter MUST be set to generate the text appearing on the button for any viewports from extra-extra-small to extra-large (<code>xxs, xs, sm, md, lg</code> and <code>xl</code>).</li>
+	<li><code>labelExtended</code> with a maximum lenght for large screens allowed including spaces, this parameter is optional but must be set along with the <code>label</code> parameter and if set, it will generate the text appearing on the button for small viewport and up (<code>sm, md, lg</code> and <code>xl</code>).</li>
 </ul>
 
 <h2>Signed-off / Signed-on</h2>
@@ -54,15 +57,6 @@
 <ul>
 	<li><strong>signedoff</strong> set as value to the <code>type</code> parameter will generate the "Register" and "Sign in" buttons to appear on the top right-hand side of the page, below the horizontal line.</li>
 	<li><strong>signedon</strong> set as value to the <code>type</code> parameter will generate the "My account" and "Sign out" buttons to appear on the top right-hand side of the page, below the horizontal line along with the wording "Signed in as [full name]" right underneath.</li>
-</ul>
-
-<h3>HTML Structure - Version 2.0</h3>
-
-<p>Code sample of the include showing the HTML of the component</p>
-
-<ul>
-	<li><a href="signedoff-en.html">Authentication - Signed Off</a></li>
-	<li><a href="signedon-en.html">Authentication - Signed On</a></li>
 </ul>
 
 <h3>Previous design patterns</h3>
@@ -102,6 +96,19 @@
 	&lt;/div&gt;
 &lt;/section&gt;</code></pre>
 </details>
+
+<h2>HTML Structure - Version 2.0</h2>
+
+<p>Code sample of the include showing the HTML of the component</p>
+
+<ul>
+	<li><a href="contextual-signin-en.html">Contextual Sign in button</a></li>
+	<li><a href="contextual-signin-label-extended-en.html">Contextual Sing-in button with extended label</a></li>
+	<li><a href="contextual-signin-nolabels-en.html">Contextual Sign in button without custom labels</a></li>
+	<li><a href="contextual-signin-nomenu-en.html">Contextual Sign in button without the GCWeb Menu</a></li>
+	<li><a href="signedoff-en.html">Authentication - Signed Off</a></li>
+	<li><a href="signedon-en.html">Authentication - Signed On</a></li>
+</ul>
 
 <h2>CSS Class</h2>
 <p>Specific classes have been added to the unique component id <code>#wb-so</code>.</p>
