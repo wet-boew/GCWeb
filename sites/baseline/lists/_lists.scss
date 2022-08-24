@@ -51,3 +51,28 @@
 		margin-top: 20px;
 	}
 }
+
+/* Display lists in columns using Flexbox
+ *	Add this class to a ul or ol to distribute its items in columns horizontally. Handles up to 4 columns.
+ *	It has variants defined for some specific views:
+ *	- _screen-sm-min
+ *	- _screen-md-min
+ *	- _screen-lg-min
+*/
+ul[class*=list-col] {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+
+	> li {
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}
+
+ul.list-col-xs-1 > li { flex-basis: 100% }
+ul.list-col-xs-2 > li { flex-basis: 50% }
+ul.list-col-xs-3 > li { flex-basis: 33.33% }
+ul.list-col-xs-4 > li { flex-basis: 25% }

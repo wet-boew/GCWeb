@@ -1,18 +1,18 @@
 ---
 {
-	"title": "List - Additional style - GCWeb theme V5",
+	"title": "List - Additional styles - GCWeb theme V5",
 	"language": "en",
 	"altLangPage": "list-fr.html",
 	"breadcrumbs": [
 		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-en.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2018-11-07",
+	"dateModified": "2022-07-07",
 	"share": "true"
 }
 ---
 
-<p>The following style is an addition to list styling availble in <a href="https://wet-boew.github.io/wet-boew-styleguide/design/lists-en.html">WET-BOEW Style Guide</a> and it is exclusive to GCWeb v5 theme</p>
+<p>The following styles are an addition to list styling availble in <a href="https://wet-boew.github.io/wet-boew-styleguide/design/lists-en.html">WET-BOEW Style Guide</a> and it is exclusive to GCWeb v5 theme</p>
 
 <h2>List double spaced <code>.lst-spcd-2</code></h2>
 
@@ -32,3 +32,39 @@
 	&lt;li&gt;Item&lt;/li&gt;
 	&lt;li&gt;Item&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
+
+<h2>Lists in columns <code>.list-col-[breakpoint]-[columns]</code></h2>
+<p>Add the class <code>list-col-[breakpoint]-[columns]</code> to display any list in a column format, where <code>[breakpoint]</code> can be either <code>xs</code>, <code>sm</code>, <code>md</code> or <code>lg</code> and <code>[columns]</code> can be either <code>1</code>, <code>2</code>, <code>3</code> or <code>4</code></p>
+<p>The smallest breakpoint defined will affect its breakpoint and all breakpoints above unless a larger breakpoint is defined. For example <code>list-col-sm-2</code> will display the list in two (2) columns for the <code>sm</code>, <code>md</code> and <code>lg</code> breakpoints. The default number of columns is one (1), so, in this example, the list would be displayed in one column for the <code>xs</code> breakpoint.</p>
+<p>Classes can be combined to display the items in a different amount of columns for different breakpoints. See following example.</p>
+<ul class="list-col-xs-1 list-col-sm-2 list-col-md-3 list-col-lg-4">
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+	<li>Item</li>
+</ul>
+<h3>Source code</h3>
+<pre><code>
+&lt;ul class="<strong>list-col-xs-1 list-col-sm-2 list-col-md-3 list-col-lg-4</strong>"&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+	&lt;li&gt;Item&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
