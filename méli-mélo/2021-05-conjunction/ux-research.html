@@ -17,3 +17,8 @@ css:
 <p>This design is currently being used in the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-22900-other-employment-expenses/work-space-home-expenses/compare-methods.html">Home office expenses for employees</a> area of CRA. It has been helpful to better frame differences between two options rather than simply using a grid or stacking the options on top of each other and hope that the user catches the "and", or "or" phrase.</p>
 <p>An unexpected occurance was the fact that is was used as a visual aid, similar to an infographic in a tweet when the home office expenses was launched.  This adds the benefit of using html design over the need to also provide a more visually pleasing infographic.</p>
 <img src="or-tweet.jpg" class="img-responsive" alt="" />
+
+<h2>Screen reader and accessibility</h2>
+<p>New versions of screen reader technology (such as NVDA and JAWS) now reads the <code>content: ""</code> value of CSS.  This helps support the user's ability to hear the conjunction without it being coded invisibily.</p>
+<p>The push for default use of <code>&lt;ul&gt;</code> with the recent update also users to hear how many "options/parts" or "choices" of the and/or, which provides them with a knowledge of the amounts of options/choices in advance.</p>
+<p><strong>Note:</strong> it is still important to write the lead in statement/header in a way, to indicate the following conjunction component is a choice/option (or part if using the "and" option), for the rare situations where a user may have CSS turned off (and cannot see the and/or component).</p>  
