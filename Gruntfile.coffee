@@ -567,7 +567,6 @@ module.exports = (grunt) ->
 					expand: true
 					src: [
 						"{sites,components,templates}/**/*-{includes,inc}/**.html"
-						"{sites,components,templates}/**/{include,inc}-*.html"
 						"!{sites,components,templates}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"

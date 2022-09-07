@@ -26,11 +26,11 @@
 		{%- if page.pageType == "archived" -%}
 			{% include headers-includes/archive.html %}
 		{%- endif -%}
-		{% include sites/inc-skiplinks.html %}
+		{% include skiplinks/skiplinks.html %}
 		<header>
 			<div id="wb-bnr" class="container">
 				<div class="row">
-					{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+					{% if page.altLangPage %}{% include language/languagetoggle.html %}{% endif %}
 					{% include headers-includes/brand.html %}
 					{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
 				</div>
