@@ -345,7 +345,7 @@ css:
 		<h2 id="implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</h2>
 		<h3>Implementing GCWeb on your site</h3>
 		<p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
-		<p><a href="docs/implementing.html" class="btn btn-lg btn-default">Quick guide</a></p>
+		<p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
 		<h3 id="developing-for-gcweb">Developing for WET / GCWeb</h3>
 		<p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
 		<p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-call-to-action">Start coding</a></p>
