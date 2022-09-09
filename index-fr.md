@@ -97,7 +97,7 @@ css:
 		</dl>
 	</details>
 	<h2 id="composantes" class="mrgn-bttm-lg">Composantes</h2>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
 	{% for component in site.data.components %}
 		{% assign list-pages = component.pages %}
 		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
@@ -185,7 +185,7 @@ css:
 	{% endfor %}
 	</ul>
 	<hr />
-	<h2 id="gabarits" class="mrgn-bttm-lg">Gabarits</h2>
+	<h2 id="gabarits" class="mrgn-bttm-lg pt-4">Gabarits</h2>
 	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
 	{% for template in site.data.templates %}
 		{% assign list-pages = template.pages %}
@@ -294,34 +294,91 @@ css:
     </div>
 </div>
 <div class="container">
-	<h2 id="sitesglobal">Fonctionnalités global et de sites</h2>
-	<ul>
+	<h2 id="sitesglobal">Fonctionnalités globales et de sites</h2>
+	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for item in site.data.sites %}
 		{% assign list-pages = item.pages %}
-		<li>{{ item.title[ page.language ] }} (État: {{ comp_status[ item.status ] | default: "Non définie" }})
-		<ul>
-		{% for pgGroup in list-pages %}
-			{% assign grpkey = pgGroup[0] %}
-			<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-				<ul>
-				{% assign examples = pgGroup[1] | where: "language", page.language %}
-				{% for example in examples %}
-					{% if example.path %}
-					<li><a href="sites/
+		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
+				{% if item.status == "stable" %}
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "provisional" %}
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "deprecated" %}
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+				{% else %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+				{% endif %}
+				</h3>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="sites/
 								{%- if item.componentName -%}
 									{{ item.componentName }}/
 								{%- endif -%}
-							{{ example.path }}">{{ example.title }}</a></li>
-								{% elsif example.url %}
-									<li><a href="{{ example.url }}">{{ example.title }}</a></li>
-								{% else %}
-						<li>{{ example.title }}</li>
+							{{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
 					{% endif %}
-				{% endfor %}
-				</ul>
-			</li>
-		{% endfor %}
-		</ul></li>
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					{% for doc in docs %}
+						<li><a href="sites/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+					{% endfor %}
+					{% endif %}
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+						<ul class="mrgn-tp-md">
+							{% for pgGroup in list-pages %}
+							{% assign grpkey = pgGroup[0] %}
+							<li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+								<ul>
+								{% assign examples = pgGroup[1] %}
+								{% for example in examples %}
+									{% if example.path %}
+									<li><a href="sites/
+												{%- if item.componentName -%}
+													{{ item.componentName }}/
+												{%- endif -%}
+											{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+									{% elsif example.url %}
+										<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+									{% else %}
+										<li>{{ example.title }}</li>
+									{% endif %}
+								{% endfor %}
+								</ul>
+							</li>
+						{% endfor %}
+						</ul>
+					</details>
+				</div>
+			</div>
+		</li>
 	{% endfor %}
 	</ul>
 	<h2 id="autre">Autre documentation</h2>
