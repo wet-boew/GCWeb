@@ -403,7 +403,7 @@ css:
 			<h2 id="implementer-developper"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implémenter&nbsp;/ Développer</h2>
 			<h3>Implémenter GCWeb sur votre site</h3>
 			<p>Guide d'implémentation pour le thème de Canada.ca avec la Boîte à outils de l'expérience web version 4.x.</p>
-			<p><a href="docs/implementing.html" class="btn btn-lg btn-default" hreflang="en">Guide rapide (en anglais)</a></p>
+			<p><a href="docs/implementing-fr.html" class="btn btn-lg btn-default" hreflang="en">Guide rapide</a></p>
 			<h3 id="developper-pour-gcweb">Développer pour GCWeb</h3>
 			<p>Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
 			<p class="mrgn-bttm-lg"><a href="docs/developing-fr.html" class="btn btn-call-to-action" hreflang="en">Commencer à programmer</a></p>

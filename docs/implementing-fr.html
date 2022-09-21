@@ -1,0 +1,232 @@
+---
+{
+	"title": "Guide d’implémentation rapide – thème GCWeb",
+	"language": "fr",
+	"secondlevel": false,
+	"altLangPage": "implementing-en.html",
+	"dateModified": "2022-09-09",
+	"share": "true"
+}
+---
+
+<p>Le présent guide porte sur l’implémentation du thème de Canada.ca avec la version 4.x de la Boîte à outils de l’expérience Web (WET-BOEW).</p>
+
+<p>Le nom de code du thème de Canada.ca est GCWeb. Nous utilisons ces deux termes de façon interchangeable. GCWeb est basé sur WET-BOEW 4.</p>
+
+<div class="row">
+	<div class="col-md-7">
+		<p>WET-BOEW 4 est basé sur plusieurs autres projets Web, y compris&nbsp;:</p>
+		<ul>
+			<li>Bootstrap 3 SASS (pour une couche de base CSS)</li>
+			<li>Code prettify</li>
+			<li>Datatable.net</li>
+			<li>Flot chart</li>
+			<li>jQuery</li>
+			<li>jQuery Validation</li>
+			<li>Mathjax</li>
+			<li>Magnific popup</li>
+			<li>Open Layer</li>
+		</ul>
+	</div>
+	<div class="col-md-5">
+		<p>GCWeb comporte des plugiciels additionnels tels que&nbsp;:</p>
+		<ul>
+			<li>Data JSON</li>
+			<li>Do action</li>
+			<li>URL mapping</li>
+			<li>Field flow</li>
+		</ul>
+	</div>
+</div>
+
+<h2>Configurer votre gabarit</h2>
+
+<h3>1. Télécharger la bibliothèque de GCWeb</h3>
+
+<p><a href="https://wet-boew.github.io/themes-dist/GCWeb/gcweb-theme/release/index-fr.html">Historique des versions - Canada.ca theme (GCWeb)</a></p>
+
+<h3>2. Copier le contenu des dossiers suivants dans votre serveur Web</h3>
+
+<ul>
+	<li>GCWeb</li>
+	<li>WET-BOEW</li>
+</ul>
+
+<h3>3. Créer votre gabarit</h3>
+
+<p>Nous vous recommandons d’utiliser l’<a href="#static-header-footer">entête et bas de page statiques</a> pour Bootstrap 3 comme point de départ.</p>
+
+<p>Vous pouvez également utiliser une page statique, telle que la <a href="https://wet-boew.github.io/GCWeb/templates/content-fr.html">page de contenu générique</a>, comme une base pour créer votre gabarit.</p>
+
+<p>Vous devrez modifier les parties suivantes du gabarit&nbsp;:</p>
+<ul>
+	<li>Titre de la page</li>
+	<li>Description de la page</li>
+	<li>Métadonnées de la page</li>
+	<li>Lien vers la page dans la langue opposée</li>
+	<li>Éléments du fil d’Ariane</li>
+	<li>Contenu (corps) de la page</li>
+	<li>Date de modification de la page</li>
+	<li>Lien relatif à GCWeb et au dossier WET-BOEW pour&nbsp;:
+		<ul>
+			<li>les fichiers CSS</li>
+			<li>les images</li>
+			<li>le Javascript</li>
+		</ul>
+	</li>
+	<li>Le lieu où soumettre le formulaire de recherche</li>
+</ul>
+
+<p>Si vous concevez un squelette de gabarit bilingue, vous devrez également&nbsp;:</p>
+<ul>
+	<li>Basculer l'attribut <code>lang</code> pour la bonne langue</li>
+	<li>Créer des partiels  pour chaque élément de contenu du gabarit tel que&nbsp;:
+		<ul>
+			<li>Liens de saut (« skip links ») </li>
+			<li>Sélection de la langue</li>
+			<li>FIP – Texte et image pour l’éditeur d’organisme  du gouvernement du Canada</li>
+			<li>Formulaire de recherche</li>
+			<li>Menu principal – Vous pourriez vouloir utiliser le <a href="#menuCDN">menu CDN</a> en changeant la valeur de l’attribut data-ajax</li>
+			<li>Fil d’Ariane</li>
+			<li>Signaler un problème</li>
+			<li>Date de modification</li>
+			<li>Bas de page</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Personnaliser votre gabarit</h3>
+
+<p>Le <a href="https://www.canada.ca/fr/gouvernement/a-propos/systeme-conception.html">système de conception de Canada.ca</a> et les <a href="https://www.canada.ca/fr/secretariat-conseil-tresor/services/communications-gouvernementales/specifications-contenu-architecture-information-canada.html">spécifications du contenu de l’architecture de l’information</a> permettent de personnaliser les scénarios transactionnels et les campagnes. Voir les lignes directrices pour plus de détails sur ce qui est permis.</p>
+
+<h3>Utiliser le style de Canada.ca sans le Javascript de WET-BOEW</h3>
+
+<p>GCWeb est conçu pour fonctionner avec WET-BOEW. Il est conforme à WCAG 2.0 Niveau AA et s’appuie entièrement sur le cadre WET-BOEW 4. Si vous n’utilisez que le CSS et le balisage HTML de base, on vous encourage à&nbsp;:</p>
+<ul>
+	<li>Effectuer une évaluation WCAG complète pour chaque page publiée.</li>
+	<li>Créer votre propre JS pour le comportement du menu principal.</li>
+	<li>Recréer et tenir à jour chaque plugiciel, conception commune et comportement mis en place par WET-BOEW.</li>
+</ul>
+
+<h2>Migrer votre contenu</h2>
+
+<p>Avant de migrer votre contenu, il est recommandé de&nbsp;:</p>
+<ul>
+	<li>Créer un inventaire du contenu</li>
+	<li>Identifier vos taches principales et pages principales afin de prioriser votre analyse du contenu</li>
+	<li>Compléter un exercice de nettoyage du contenu qui comprend au moins de&nbsp;:
+		<ul>
+			<li>Prendre des mesures sur le contenu redondant, insignifiant et dépassé (RID)</li>
+			<li>Réparer tout problème de lien HTML qui pourrait être signalé par le logiciel de validation W3C HTML5</li>
+			<li>Supprimer tout CSS personnalisé et CSS en ligne – si cela est impossible, identifier ces pages et centraliser le CSS dans unseul fichier</li>
+		</ul>
+	</li>
+</ul>
+
+<p>Convertir vos pages de contenu en balisage compatible avec GCWeb signifie que&nbsp;:</p>
+<ul>
+	<li>Vous utilisez un balisage HTML5 valide</li>
+	<li>Il n`y a pas de CSS personnalisé et de CSS en ligne</li>
+	<li>Vous utilisez la <a href="https://getbootstrap.com/docs/3.3/css/" lang="en">grille CSS Bootstrap 3</a></li>
+	<li>Vous utilisez GCWeb CSS et WET-BOEW 4 CSS, documentés dans&nbsp;:
+		<ul>
+			<li><a href="https://wet-boew.github.io/wet-boew-styleguide/index-fr"></a>le Guide de style WET-BOEW</a></li>
+			<li>les <a href="https://wet-boew.github.io/GCWeb/index-fr.html">notes et autres ressources dans GCWeb</a></li>
+			<li>l’échantillon de code et les <a href="https://wet-boew.github.io/GCWeb/index-fr.html#gabarits">gabarits de pages publiés dans GCWeb</a> (tel que le gabarit Sujet)</li>
+		</ul>
+	</li>
+	<li>Vous utilisez les plugiciels WET-BOEW 4 et GCWeb
+		<ul>
+			<li><a href="https://wet-boew.github.io/v4.0-ci/demos/index-fr.html">plugiciels WET-BOEW 4</a></li>
+			<li><a href="https://wet-boew.github.io/GCWeb/index-fr.html#composantes">plugiciels GCWeb</a></li>
+		</ul>
+	</li>
+</ul>
+
+<p>Voici des problèmes bien connus sur la migration d’un site à partir de WET-BOEW 3&nbsp;:</p>
+<ul>
+	<li>Le système de grille, <code>.span-*</code> doit être converti en une combinaison de <code>div.row</code> et <code>div.col-*-*</code>.</li>
+	<li>Tout module légende devrait être converti en une alerte ou en un panneau en combinaison avec une grille CSS. Ils doivent être codés en balisage distinct.</li>
+	<li>D’autres changements qui ne sont pas entièrement documentés, comme le mappage de classe CSS.</li>
+</ul>
+
+<h2>Rester à jour</h2>
+
+<p>Chaque version de GCWeb suit une numérotation stricte des versions et les notes de version contiennent tous les renseignements requis pour mettre à jour votre implémentation. Cela comprend&nbsp;:</p>
+<ul>
+	<li>une liste de tous les changements marqués comme Majeur, Mineur ou Correctif</li>
+	<li>un survol de tous les changements apportés à la dépendance WET-BOEW 4</li>
+	<li>une liste de fichiers modifiés que vous auriez à remplacer</li>
+	<li>des liens à tous les codes de hachage de l’intégrité des sous-ressources (SRI)</li>
+	<li>des détails ad hoc sur des mises à jour de contenu spécifiques qui n’ont pas encore leur propre page de documentation</li>
+</ul>
+
+<p>Depuis février 2019, nous utilisons et publions les versions selon la gestion sémantique de version 2.0.0 (<a href="https://wet-boew.github.io/wet-boew-documentation/decision/6-fr">décision sur la conception 6</a>), où notre interface de protocole d’application (API) est définie par <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3-fr">décision sur la conception 3</a></p>
+
+<h2>Obtenir de l’aide</h2>
+
+<ul>
+	<li>Consultez la documentation publiée dans <a href="https://wet-boew.github.io/GCWeb/index-fr.html">GCWeb</a> et dans le <a href="https://www.canada.ca/fr/gouvernement/a-propos/systeme-conception.html">système de conception de Canada.ca</a></li>
+	<li>Consultez la liste des <a href="https://github.com/wet-boew/GCWeb/issues">problèmes en cours et fermés dans GitHub</a>.</li>
+	<li>Soumettez un  <a href="https://github.com/wet-boew/GCWeb/issues/new">nouveau problème</a> dans Github.</li>
+	<li>Participez aux Heures de service de la BOEW hebdomadaires (chaque mardi) et posez des questions.</li>
+</ul>
+
+<h2 id="menuCDN">Menu CDN</h2>
+<p>L’Éditeur principal met à jour le fragment du fichier HTML suivant à chaque fois qu’un changement est apporté au menu principal de Canada.ca&nbsp;:</p>
+<ul>
+	<li>Français : <a href="https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-fr.html">https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-fr.html</a></li>
+	<li>Anglais : <a href="https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html">https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html</a></li>
+</ul>
+
+<h2 id="static-header-footer">En-tête et bas de page statiques</h2>
+<p>Voici les en-têtes et les bas de pages HTML que vous pouvez copier et coller dans votre projet, avec quelques modifications (p. ex. les métadonnées).</p>
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<td></td>
+<th>Bootstrap 3</th>
+<th>Bootstrap 4 (experimental)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<th>Exemple</th>
+	<td><a href="static-header-footer/bootstrap-3.html">Anglais</td>
+	<td><a href="static-header-footer/bootstrap-4.html">Anglais</a></td>
+</tr>
+<tr>
+	<th>Entête</th>
+	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L1-L86" rel="external">Code source, lignes 1 à 86</a></td>
+	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L1-L66" rel="external">Code source, lignes 1 à 66</a></td>
+</tr>
+<tr>
+	<th>Bas de page</th>
+	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L182-L218" rel="external">Code source, lignes 182 à 218</a></td>
+	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L82-L117" rel="external">Code source, lignes 82 à 117</a></td>
+</tr>
+<tr>
+	<th>Remarques</th>
+	<td>
+		<ul>
+			<li>Inclut des scripts WET-BOEW</li>
+			<li>Inclut les styles GCWeb</li>
+			<li>Nécessite que les chemins d’accès aux ressources soient modifiés afin de s’intégrer dans votre structure de dossiers</li>
+		</ul>
+	</td>
+	<td>
+		<ul>
+			<li>N’inclut pas de scripts WET-BOEW</li>
+			<li>N’inclut pas de styles GCWeb </li>
+			<li>N’inclut pas le menu</li>
+			<li>S’appuie sur une feuille de style expérimentale pour l’apparence de Canada.ca</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<th>Ressources particulières</th>
+	<td>Tout inclus dans la version actuelle de GCWeb</td>
+	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/site-assets/x-bootstrap-4.css" rel="external">Télécharger le CSS expérimental</a></td>
+</tr>
+</tbody>
+</table>
