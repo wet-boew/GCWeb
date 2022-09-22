@@ -40,7 +40,7 @@ implementationPlan:
 
 todos:
   - Review code and governance to balance optimal accessibility and ease of implementation for users.
-  - Review and change the CSS class name for something more meaningful: "st0" is not descriptive enougth of what it is and how it should be applied to the SVG.
+  - Review and change the CSS class name for something more meaningful: st0 is not descriptive enougth of what it is and how it should be applied to the SVG.
   - Contextualisation of the CSS classes to limit their application to this component/feature only.
   - Review color schemes: They should match the sequence of colors used by the charts and graphs.
   - Revise in order to provide more details for implementation instructions: Like how to organize the sibling styles and how to group them with the anchor elements.
