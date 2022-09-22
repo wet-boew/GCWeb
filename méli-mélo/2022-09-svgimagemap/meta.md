@@ -39,12 +39,13 @@ implementationPlan:
     what: Move this contribution into GCWeb as a provisional feature
 
 todos:
-  - Review code and governance to balance optimal accessibility and ease of implementation by users.
-  - Review and change the CSS class name for more meaningful name. st0 are not descritive enougth what it is and how it should be applied inside the SVG.
-  - Contextify at this component all its CSS
-  - Review the set of colors. Should they match the sequence of colors used by the charts and graph.
-  - Revise and details more the implementation instruction. Like how to organize the sibling style and how to group it with the anchor element.
-  - Investigate and apply best practice regarding the SVG viewbox versus how it's get rendered (scaled) in browser.
+  - Review code and governance to balance optimal accessibility and ease of implementation for users.
+  - Review and change the CSS class name for something more meaningful: "st0" is not descriptive enougth of what it is and how it should be applied to the SVG.
+  - Contextualisation of the CSS classes to limit their application to this component/feature only.
+  - Review color schemes: They should match the sequence of colors used by the charts and graphs.
+  - Revise in order to provide more details for implementation instructions: Like how to organize the sibling styles and how to group them with the anchor elements.
+  - Investigate and apply best practices regarding the SVG viewbox versus how it get rendered (scaled) in browser.
+  - Review tabulation order: suggested pattern is top - bottom - left and right.
   - Produce a WCAG 2.1 ACR
 
 output: false
