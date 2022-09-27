@@ -7,7 +7,7 @@
     en:
     fr:
   lang: en
-  layout: splashpage
+  layout: splashpage-en
   pageclass: splash
   permalink: /
   section: message
