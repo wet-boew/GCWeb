@@ -16,7 +16,8 @@ css:
 	<li>2021-11 - Produce accessibility and usability report on its usage on Canada.ca</li>
 	<li>2022-02 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 	<li>2022-05 - updated to focus more on using as list items (with or without headers)</li>
-	<li>2022-06 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+	<li>2022-09 - updated CSS to allow nested decision points</li>
+	<li>2022-12 - Have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 </ul>
 
 <p>Todo and for future consideration</p>
@@ -343,6 +344,60 @@ css:
 &lt;/div&gt;</code></pre>
   </details>
 <p>If you require more than four options (columns), consider the always stacked default design.</p>
+
+<h3>Nested conjunction<span class="label label-info">New</span></h3>
+<p>For instances where one of the decision points may have it's own set of decision points.</p>
+<h4>An or decision point that stacks on small, nested with an always stacked and decision point</h4>
+<div class="cnjnctn-type-or cnjnctn-lg">
+	<div class="cnjnctn-col-80">
+		<h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h4>
+		<p>This is content for header A</p>
+	</div>
+	<div class="cnjnctn-col">
+		<h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h4>
+		<p>This is content for header B</p>
+		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+    <div class="cnjnctn-type-and"> 
+	<div class="cnjnctn-col"> 
+		<h4 class="text-muted">Header B.1</h4>
+		<p>This is content for header B.1</p>
+	</div>
+	<div class="cnjnctn-col">
+		<h4 class="text-muted">Header B.2</h4>
+		<p>This is content for header B.2</p>
+	</div>
+</div>
+	</div>
+</div>
+<details>
+    <summary>Code</summary>
+    <pre><code>//nested decision point example
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+&lt;div class=&quot;cnjnctn-col-80&quot;&gt;
+&lt;h4 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;This is content for header A&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cnjnctn-col&quot;&gt;
+&lt;h4 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;This is content for header B&lt;/p&gt;
+&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+&lt;div class=&quot;cnjnctn-col&quot;&gt;
+&lt;h4 class=&quot;text-muted&quot;&gt;Header B.1&lt;/h4&gt;
+&lt;p&gt;This is content for header B.1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;cnjnctn-col&quot;&gt;
+&lt;h4 class=&quot;text-muted&quot;&gt;Header B.2&lt;/h4&gt;
+&lt;p&gt;This is content for header B.2&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+</details>
+
+
+
 <h3>Width of column</h3>
 <p>To accommodate options that might be lopsided in the amount of text but a need to be visually pleasing, the columns can be set to a percentage of itself to allow larger content to wrap less. The default is 100% (<code>cnjnctn-col</code>).</p>
 <p><strong>Note:</strong> The width cannot be adjusted based on different resolutions, best to stack the columns when content becomes difficult to read on smaller devices.</p>
