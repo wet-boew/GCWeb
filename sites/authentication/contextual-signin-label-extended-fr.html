@@ -4,33 +4,33 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/fr.html"
 	},
-	"dateModified": "2022-05-16",
-	"description": Exemple du bouton de connexion contextuel avec <code>labelExtended</code>.",
+	"dateModified": "2022-09-28",
+	"description": Exemple du bouton de connexion contextuel incluant un libellé personnalisé étendu.",
 	"language": "fr",
-	"title": "Bouton de connexion contextuel avec <code>labelExtended</code>",
+	"title": "Bouton contextuel « Se connecter » incluant un libellé personnalisé étendu",
 	"auth": {
 		"type": "contextual",
 		"link": "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html",
-		"label": "Compte ARC",
-		"labelExtended": "Mon Compte ARC"
+		"label": "Se connecter",
+		"labelExtended": "Se connecter à [compte]"
 	}
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
+<h2>Code source attendu</h2>
+<pre><code>&lt;div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4"&gt;
+			&lt;section id="wb-so"&gt;
+				&lt;h2 class="wb-inv"&gt;Se connecter&lt;/h2&gt;
+				&lt;a class="btn btn-primary" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"&gt;&lt;span class="visible-xs"&gt;Se connecter&lt;/span&gt;
+				&lt;span class="hidden-xs"&gt;Se connecter à [compte]&lt;/span&gt;&lt;/a&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;</code></pre>
+
 <h2>Exemple de l'initialisation pour GCWeb Jekyll</h2>
 <pre><code>"auth": {
 		"type": "contextual",
 		"link": "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html",
-		"label": "Compte ARC",
-		"labelExtended": "Mon Compte ARC"
+		"label": "Se connecter",
+		"labelExtended": "Se connecter à [compte]"
 	}</code></pre>
-
-<h2>Code source attendu</h2>
-<pre><code>&lt;div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4"&gt;
-			&lt;section id="wb-so"&gt;
-				&lt;h2 class="wb-inv"&gt;Ouvrir une session&lt;/h2&gt;
-				&lt;a class="btn btn-primary" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"&gt;&lt;span class="visible-xs"&gt;Compte ARC&lt;/span&gt;
-				&lt;span class="hidden-xs"&gt;Mon Compte ARC&lt;/span&gt;&lt;/a&gt;
-			&lt;/section&gt;
-		&lt;/div&gt;</code></pre>
