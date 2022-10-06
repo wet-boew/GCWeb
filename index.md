@@ -32,13 +32,13 @@
     - https://www.canada.ca/content/dam/canada/splash/sp-bg-12.jpg
 ---
 
-<div class="row">
-	<section class="col-xs-6 text-right">
-		<h2 class="wb-inv">GCWeb, the WET-BOEW Canada.ca theme</h2>
-		<p><a href="./index-en.html" class="btn btn-primary">English</a></p>
+<div class="row wb-eqht-grd">
+	<section class="col-sm-6 text-sm-right">
+		<h2 class="hght-inhrt h4">GCWeb, the Canada.ca theme</h2>
+		<p><a href="index-en.html" class="btn btn-primary">English</a></p>
 	</section>
-	<section class="col-xs-6" lang="fr">
-		<h2 class="wb-inv">GCWeb, le thème WET-BOEW de Canada.ca</h2>
-		<p><a href="./index-fr.html" class="btn btn-primary">Français</a></p>
+		<section class="col-sm-6" lang="fr">
+		<h2 class="hght-inhrt h4">GCWeb, le thème de Canada.ca</h2>
+		<p><a href="index-fr.html" class="btn btn-primary">Français</a></p>
 	</section>
 </div>
