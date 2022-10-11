@@ -1,6 +1,6 @@
 ---
 {
-	"title": "Masquer les sections 'Contextuel' et 'Au sujet du gouvernement' ainsi que les liens de la section 'Au sujet de ce site'",
+	"title": "Masquer les sections 'Contextuel' et 'Au sujet du gouvernement' ainsi que certains liens de la section 'Liens d'assistance' du pied de page",
 	"language":	"fr",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-fr.html" }
@@ -16,19 +16,23 @@
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>En définissant les variables <code>noFooterContextual</code>, <code>noFooterAbout</code> et <code>noFooterSite</code> à «&nbsp;true&nbsp;», les sections «&nbsp;Contextuel&nbsp;» et «&nbsp;Au sujet du gouvernement&nbsp;» ainsi que les liens de la section «&nbsp;Au sujet de ce site&nbsp;» seront masqués au chargement de la page mais le mot-symbole «&nbsp;Canada&nbsp;» restera affiché.</p>
-
-<p>De plus, en masquant tous les pieds de page, le lien «&nbsp;Passer à 'À propos de ce site'&nbsp;» est désactivé à partir des liens «&nbsp;saut de navigation&nbsp;».</p>
+<p>En définissant les variables <code>noFooterContextual</code>, <code>noFooterAbout</code> et <code>noFooterSite</code> à «&nbsp;true&nbsp;», les sections «&nbsp;Contextuel&nbsp;» et «&nbsp;Au sujet du gouvernement&nbsp;» ainsi que certains liens de la section «&nbsp;Liens d'assistance&nbsp;» seront masqués au chargement de la page.</p>
 
 <h2>Code final attendu</h2>
-<pre><code>&lt;footer id="wb-info"&gt;
-	&lt;div class="brand"&gt;
-		&lt;div class="container"&gt;
-			&lt;div class="row "&gt;
-				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
-					&lt;a href="#wb-cont"&gt;Haut de la page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
-				&lt;/div&gt;&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada"&gt;
-				&lt;/div&gt;
+<pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
+	&lt;h2 class=&quot;wb-inv&quot;&gt;À propos de ce site&lt;/h2&gt;
+	&lt;div class=&quot;brand&quot;&gt;
+		&lt;div class=&quot;container d-flex align-items-center&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3 class=&quot;wb-inv&quot;&gt;Liens d&apos;assistance&lt;/h3&gt;
+				&lt;h4&gt;&lt;span class=&quot;wb-inv&quot;&gt;Transparence&lt;/span&gt;&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/transparence/avis.html&quot;&gt;Avis&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/transparence/confidentialite.html&quot;&gt;Confidentialité&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+			&lt;div class=&quot;wtrmrk align-self-end&quot;&gt;
+				&lt;img src=&quot;/dist/GCWeb/assets/wmms-blk.svg&quot; alt=&quot;Symbole du gouvernement du Canada&quot;&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

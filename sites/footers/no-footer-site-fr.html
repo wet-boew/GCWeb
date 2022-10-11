@@ -1,6 +1,6 @@
 ---
 {
-	"title": "Masquer les liens de la section 'Au sujet de ce site'",
+	"title": "Masquer certains liens de la section 'Liens d'assistance' du pied de page",
 	"language":	"fr",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-fr.html" }
@@ -14,49 +14,68 @@
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>En définissant la variable <code>noFooterSite</code> à "true", les liens de la section «&nbsp;Au sujet de ce site&nbsp;» seront masqués au chargement de la page mais le mot-symbole «&nbsp;Canada&nbsp;» restera affiché.</p>
+<p>En définissant la variable <code>noFooterSite</code> à "true", certains liens de la section «&nbsp;Liens d'assitance&nbsp;» seront masqués au chargement de la page.</p>
 
 <h2>Code de final attendu</h2>
-<pre><code>&lt;footer id="wb-info"&gt;
-	&lt;div class="landscape"&gt;
-		&lt;nav class="container wb-navcurr"&gt;
-			&lt;h3&gt;Gouvernement du Canada&lt;/h3&gt;
-			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/contact.html"&gt;Tous les coordonnées&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/gouvernement/min.html"&gt;Ministères et organismes&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/gouvernement/systeme.html"&gt;À propos du gouvernement&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-			&lt;hr&gt;
-			&lt;ul class="list-col-xs-1 list-col-sm-2 list-col-md-3"&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/emplois.html"&gt;Emplois&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/immigration-citoyennete.html"&gt;Immigration et citoyenneté&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://voyage.gc.ca/"&gt;Voyage et tourisme&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/entreprises.html"&gt;Entreprises et industrie&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/prestations.html"&gt;Prestations&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/sante.html"&gt;Santé&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/impots.html"&gt;Impôts&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/environnement.html"&gt;Environnement et ressources naturelles&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/defense.html"&gt;Sécurité nationale et défense&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/culture.html"&gt;Culture, histoire et sport&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/police.html"&gt;Services de police, justice et urgences&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/transport.html"&gt;Transport et infrastructure&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra"&gt;Le Canada et le monde&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/finance.html"&gt;Argent et finances&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/science.html"&gt;Science et innovation&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/autochtones.html"&gt;Autochtones&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/veterans.html"&gt;Vétérans&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href="https://www.canada.ca/fr/services/jeunesse.html"&gt;Jeunesse&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/nav&gt;
+<pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
+	&lt;h2 class=&quot;wb-inv&quot;&gt;À propos de ce site&lt;/h2&gt;
+	&lt;div class=&quot;gc-contextual&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3&gt;[Titre du menu contextuel]&lt;/h3&gt;
+				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 1]&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 2]&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 3]&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;div class="brand"&gt;
-		&lt;div class="container"&gt;
-			&lt;div class="row "&gt;
-				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
-					&lt;a href="#wb-cont"&gt;Haut de la page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
-				&lt;/div&gt;
-				&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada"&gt;
-				&lt;/div&gt;
+	&lt;div class=&quot;landscape&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3&gt;Gouvernement du Canada&lt;/h3&gt;
+				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/contact.html&quot;&gt;Toutes les coordonnées&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/gouvernement/min.html&quot;&gt;Ministères et organismes&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/gouvernement/systeme.html&quot;&gt;À propos du gouvernement&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;h4&gt;&lt;span class=&quot;wb-inv&quot;&gt;Liens thématiques&lt;/span&gt;&lt;/h4&gt;
+				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/emplois.html&quot;&gt;Emplois&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/immigration-citoyennete.html&quot;&gt;Immigration et citoyenneté&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://voyage.gc.ca/&quot;&gt;Voyage et tourisme&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/entreprises.html&quot;&gt;Entreprises et industrie&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/prestations.html&quot;&gt;Prestations&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/sante.html&quot;&gt;Santé&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/impots.html&quot;&gt;Impôts&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/environnement.html&quot;&gt;Environnement et ressources naturelles&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/defense.html&quot;&gt;Sécurité nationale et défense&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/culture.html&quot;&gt;Culture, histoire et sport&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/police.html&quot;&gt;Services de police, justice et urgences&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/transport.html&quot;&gt;Transport et infrastructure&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.international.gc.ca/world-monde/index.aspx?lang=fra&quot;&gt;Le Canada et le monde&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/finance.html&quot;&gt;Argent et finances&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/science.html&quot;&gt;Science et innovation&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/autochtones.html&quot;&gt;Autochtones&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/veterans.html&quot;&gt;Vétérans&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/services/jeunesse.html&quot;&gt;Jeunesse&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;brand&quot;&gt;
+		&lt;div class=&quot;container d-flex align-items-center&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3 class=&quot;wb-inv&quot;&gt;Liens d&apos;assistance&lt;/h3&gt;
+				&lt;h4&gt;&lt;span class=&quot;wb-inv&quot;&gt;Transparence&lt;/span&gt;&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/transparence/avis.html&quot;&gt;Avis&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/transparence/confidentialite.html&quot;&gt;Confidentialité&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+			&lt;div class=&quot;wtrmrk align-self-end&quot;&gt;
+				&lt;img src=&quot;/dist/GCWeb/assets/wmms-blk.svg&quot; alt=&quot;Symbole du gouvernement du Canada&quot;&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;

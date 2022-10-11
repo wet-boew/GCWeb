@@ -1,6 +1,6 @@
 ---
 {
-	"title": "Hide 'Contextual' and 'About government' sections and utility links from 'About this site'",
+	"title": "Hide 'Contextual' and 'About government' sections and some links from 'Support links' section from the footer",
 	"language": "en",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
@@ -16,19 +16,23 @@
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>By setting the <code>noFooterContextual</code>, <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "Contextual" and "About government" sections and all utility links from "About this site" will be hidden on page load but the Canada wordmark will remain.</p>
-
-<p>Also, by hiding all footers, the "Skip to About this site" is disabled from the skip navigation links.</p>
+<p>By setting the <code>noFooterContextual</code>, <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "Contextual" and "About government" sections and some links from "Support links" section will be hidden on page load.</p>
 
 <h2>Expected output code</h2>
-<pre><code>&lt;footer id="wb-info"&gt;
-	&lt;div class="brand"&gt;
-		&lt;div class="container"&gt;
-			&lt;div class="row "&gt;
-				&lt;div class="col-xs-6 visible-sm visible-xs tofpg"&gt;
-					&lt;a href="#wb-cont"&gt;Top of Page &lt;span class="glyphicon glyphicon-chevron-up"&gt;&lt;/span&gt;&lt;/a&gt;
-				&lt;/div&gt;&lt;div class="col-xs-6 col-md-12 text-right"&gt;&lt;img src="/dist/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"&gt;
-				&lt;/div&gt;
+<pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
+	&lt;h2 class=&quot;wb-inv&quot;&gt;About this site&lt;/h2&gt;
+	&lt;div class=&quot;brand&quot;&gt;
+		&lt;div class=&quot;container d-flex align-items-center&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3 class=&quot;wb-inv&quot;&gt;Support links&lt;/h3&gt;
+				&lt;h4&gt;&lt;span class=&quot;wb-inv&quot;&gt;Transparency&lt;/span&gt;&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/terms.html&quot;&gt;Terms and conditions&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/en/transparency/privacy.html&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+			&lt;div class=&quot;wtrmrk align-self-end&quot;&gt;
+				&lt;img src=&quot;/dist/GCWeb/assets/wmms-blk.svg&quot; alt=&quot;Symbol of the Government of Canada&quot;&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
