@@ -2,12 +2,6 @@
  * Site information (extra-extra-small view)
  */
 #wb-info {
-	.ftr-urlt-lnk {
-		ul {
-			column-count: 1;
-		}
-	}
-
 	.brand {
 		object,
 		img {
@@ -16,9 +10,13 @@
 			max-width: 100%;
 			padding-right: 10px;
 		}
-	}
 
-	.tofpg {
-		line-height: 60px;
+		/* START: To support footer <= v2.0 */
+		.row {
+			nav ul {
+				column-count: 1;
+			}
+		}
+		/* END */
 	}
 }

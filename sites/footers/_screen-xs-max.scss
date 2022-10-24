@@ -1,0 +1,51 @@
+/*
+  WET-BOEW
+  @title: Footer extra-small view and under (screen only)
+ */
+
+#wb-info {
+	.brand {
+		nav {
+			ul {
+				li {
+					display: block;
+
+					&:not(:last-child) {
+						margin-bottom: .75em;
+					}
+
+					&:not(:first-child)::before {
+						display: none;
+					}
+				}
+
+				& + h4 {
+					margin-top: 0;
+
+					&::before {
+						border-width: 0 0 1px 0;
+						display: block !important;
+						height: 0;
+						margin: 1em 0;
+						position: static;
+						width: 1.5em;
+					}
+				}
+			}
+		}
+
+		/* START: To support footer <= v2.0 */
+		.row {
+			nav {
+				ul {
+					li {
+						&:not(:first-child)::before {
+							display: inline;
+						}
+					}
+				}
+			}
+		}
+		/* END */
+	}
+}

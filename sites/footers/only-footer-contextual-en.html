@@ -1,26 +1,37 @@
 ---
 {
-	"title": "Hide 'Contextual' and 'About government' sections and some links from 'Support links' section from the footer",
+	"title": "Hide 'About government' section and some links from the 'Support links' section from the footer",
 	"language": "en",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
 	],
-	"altLangPage": "no-footers-fr.html",
+	"altLangPage": "only-footer-contextual-fr.html",
 	"secondlevel": false,
-	"dateModified": "2022-01-12",
+	"dateModified": "2022-07-12",
 	"share": "true",
 	"noFooterAbout": "true",
-	"noFooterSite": "true",
-	"noFooterContextual": "true"
+	"noFooterSite": "true"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>By setting the <code>noFooterContextual</code>, <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "Contextual" and "About government" sections and some links from "Support links" section will be hidden on page load.</p>
+<p>By setting the <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "About government" section and some links from the "Support links" secion will be hidden on page load but the "Contextual" section will remain.</p>
 
 <h2>Expected output code</h2>
 <pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
 	&lt;h2 class=&quot;wb-inv&quot;&gt;About this site&lt;/h2&gt;
+	&lt;div class=&quot;gc-contextual&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;nav&gt;
+				&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
+				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 1]&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 2]&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 3]&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
 	&lt;div class=&quot;brand&quot;&gt;
 		&lt;div class=&quot;container d-flex align-items-center&quot;&gt;
 			&lt;nav&gt;

@@ -1,36 +1,26 @@
 ---
 {
-	"title": "Masquer certains liens de la section 'Liens d'assistance' du pied de page",
-	"language":	"fr",
+	"title": "Masquer la section 'Contextuel' du pied de page",
+	"language": "fr",
 	"breadcrumbs": [
 		{ "title": "Footer", "link": "sites/footers/footers-fr.html" }
 	],
-	"altLangPage": "no-footer-site-en.html",
+	"altLangPage": "no-footer-contextual-en.html",
 	"secondlevel": false,
 	"dateModified": "2022-06-20",
 	"share": "true",
-	"noFooterSite": "true"
+	"noFooterContextual": "true"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>En définissant la variable <code>noFooterSite</code> à "true", certains liens de la section «&nbsp;Liens d'assitance&nbsp;» seront masqués au chargement de la page.</p>
+<p>En définissant la variable <code>noFooterContextual</code> à «&nbsp;true&nbsp;», la section «&nbsp;Contextuel&nbsp;» sera masquée au chargement de la page.</p>
 
-<h2>Code de final attendu</h2>
+<p>La section «&nbsp;Contextuel&nbsp;» est définie dans <code>_config.yml</code>, mais peut également être écrasée sur n'importe quelle page donnée dans le «&nbsp;front matter&nbsp;» (voir <a href="footers-fr.html">Pied de page complet</a> pour un exemple).</p>
+
+<h2>Code final attendu</h2>
 <pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
 	&lt;h2 class=&quot;wb-inv&quot;&gt;À propos de ce site&lt;/h2&gt;
-	&lt;div class=&quot;gc-contextual&quot;&gt;
-		&lt;div class=&quot;container&quot;&gt;
-			&lt;nav&gt;
-				&lt;h3&gt;[Titre du menu contextuel]&lt;/h3&gt;
-				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 1]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 2]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/fr&quot;&gt;[Lien contextuel 3]&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/nav&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
 	&lt;div class=&quot;landscape&quot;&gt;
 		&lt;div class=&quot;container&quot;&gt;
 			&lt;nav&gt;
@@ -68,6 +58,11 @@
 		&lt;div class=&quot;container d-flex align-items-center&quot;&gt;
 			&lt;nav&gt;
 				&lt;h3 class=&quot;wb-inv&quot;&gt;Liens d&apos;assistance&lt;/h3&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/sociaux.html&quot;&gt;Médias sociaux&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/mobile.html&quot;&gt;Applications mobiles&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;https://www1.canada.ca/fr/nouveausite.html&quot;&gt;À propos de Canada.ca&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
 				&lt;h4&gt;&lt;span class=&quot;wb-inv&quot;&gt;Transparence&lt;/span&gt;&lt;/h4&gt;
 				&lt;ul&gt;
 					&lt;li&gt;&lt;a href=&quot;https://www.canada.ca/fr/transparence/avis.html&quot;&gt;Avis&lt;/a&gt;&lt;/li&gt;
