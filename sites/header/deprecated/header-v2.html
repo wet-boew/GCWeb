@@ -1,7 +1,7 @@
 ---
 {
 	"layout": false,
-	"title": "Header version 1.0"
+	"title": "Header version 2.0"
 }
 ---
 {%- include variable-core.liquid -%}
@@ -30,19 +30,38 @@
 		<header>
 			<div id="wb-bnr" class="container">
 				<div class="row">
-					{% if page.altLangPage %}{% include language/languagetoggle.html %}{% endif %}
+					{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
 					{% include headers-includes/brand.html %}
 					{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
 				</div>
 			</div>
-		{%- unless page.nomenu -%}
-			<!-- Example to support the version 1 of header and the version 1 of GCWeb-menu -->
-			{% include gcweb-menu/sitemenu-v1.html %}
-		{%- endunless -%}
-		{% include breadcrumbs/breadcrumbs.html %}
-		<!--{%- if page.signing -%}
-			{% include headers-includes/sign-on-off.html %}
-		{%- endif -%}-->
+			<!-- Example to support the version 2.0 of header and the version 2.0 of GCWeb-menu -->
+			<hr>
+			<div class="container">
+				<div class="row">
+					{%- unless page.nomenu -%}
+						{%- if page.auth -%}
+							<div class="col-md-8">
+								{% include gcweb-menu/sitemenu.html %}
+							</div>
+						{%- else -%}
+							<div class="col-sm-12">
+								{% include gcweb-menu/sitemenu.html %}
+							</div>
+						{%- endif -%}
+				{%- endunless -%}
+				{%- assign colSo = "col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4" -%}
+				{%- if page.nomenu -%}
+					{%- assign colSo = "col-xs-12" -%}
+				{%- endif -%}
+				{%- if page.auth -%}
+					<div class="{{ colSo }}">
+						{% include authentication/authentication.html %}
+					</div>
+				{%- endif -%}
+				</div>
+			</div>
+	{% include breadcrumbs/breadcrumbs.html %}
 		</header>
 		{%- capture page-title -%}
 			{%- if page.titleH1 -%}
