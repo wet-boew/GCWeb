@@ -1,39 +1,28 @@
 ---
 {
-"title": "Hide some links from the 'Support links' section from the footer",
-"language": "en",
-"breadcrumbs": [
-{ "title": "Footer", "link": "sites/footers/footers-en.html" }
-],
-"altLangPage": "no-footer-site-fr.html",
-"secondlevel": false,
-"dateModified": "2022-06-20",
-"share": "true",
-"noFooterSite": "true",
-"includes": { "footer": "edge" }
+	"title": "Hide 'Contextual' section and some links from the 'Support links' section from the footer",
+	"language": "en",
+	"breadcrumbs": [
+		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
+	],
+	"altLangPage": "only-footer-about-gov-fr.html",
+	"secondlevel": false,
+	"dateModified": "2022-07-12",
+	"share": "true",
+	"noFooterContextual": "true",
+	"noFooterSupportLinks": "true",
+	"includes": { "footer": "edge" }
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
 {% include alert-softlaunch.html component="site footer" version="3" %}
 
-<p>By setting the <code>noFooterSite</code> variable to "true", some links from the "Support links" section will be hidden on page load.</p>
+<p>By setting the <code>noFooterContextual</code> and <code>noFooterSupportLinks</code> variables to "true", the "Contextual" section and some links from the "Support links" section will be hidden on page load but the "About government" section will remain.</p>
 
 <h2>Expected output code</h2>
 <pre><code>&lt;footer id=&quot;wb-info&quot;&gt;
 	&lt;h2 class=&quot;wb-inv&quot;&gt;About this site&lt;/h2&gt;
-	&lt;div class=&quot;gc-contextual&quot;&gt;
-		&lt;div class=&quot;container&quot;&gt;
-			&lt;nav&gt;
-				&lt;h3&gt;[Contextual footer title]&lt;/h3&gt;
-				&lt;ul class=&quot;list-col-xs-1 list-col-sm-2 list-col-md-3&quot;&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 1]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 2]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;http://canada.ca/en&quot;&gt;[Contextual Link 3]&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/nav&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
 	&lt;div class=&quot;landscape&quot;&gt;
 		&lt;div class=&quot;container&quot;&gt;
 			&lt;nav&gt;
