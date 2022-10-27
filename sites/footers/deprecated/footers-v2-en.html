@@ -1,7 +1,7 @@
 ---
 {
 "layout": false,
-"title": "Content page including complete footer version 2.0 (deprecated)",
+"title": "Content page including complete footer version 2.0",
 "language": "en",
 "breadcrumbs": [
 	{ "title": "Footer", "link": "sites/footers/footers-en.html" }
@@ -41,27 +41,15 @@ Page untitled
 	{% include header/header.html %}
 	<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
 		<h1 id="wb-cont" property="name">{{ page-title }}</h1>
-		<p>This is version 2.0 (deprecated) of the page footer including the "About government" section and all utility links from "About this site" section.</p>
+		<p>This is version 2.0 of the page footer including the "About government" section and all utility links from "About this site" section.</p>
 		<p>Updated to use the <code>colcount-xs-2</code> class instead of <code>colcount-sm-2</code>.</p>
 		{% include page-details/footer.html %}
 	</main>
 	<footer id="wb-info">
-		{% unless page.noFooterAboutGov %}
 		<div class="landscape">
 			<nav class="container wb-navcurr">
 				<h2 class="wb-inv">About government</h2>
 				<ul class="list-unstyled colcount-xs-2 colcount-md-3">
-					{%- if i18nText-lang == "fr" -%}
-					<li><a href="https://www.canada.ca/fr/contact.html">Contactez-nous</a></li>
-					<li><a href="https://www.canada.ca/fr/gouvernement/min.html">Ministères et organismes</a></li>
-					<li><a href="https://www.canada.ca/fr/gouvernement/fonctionpublique.html">Fonction publique et force militaire</a></li>
-					<li><a href="https://www.canada.ca/fr/nouvelles.html">Nouvelles</a></li>
-					<li><a href="https://www.canada.ca/fr/gouvernement/systeme/lois.html">Traités, lois et règlements</a></li>
-					<li><a href="https://www.canada.ca/fr/transparence/rapports.html">Rapports à l'échelle du gouvernement</a></li>
-					<li><a href="https://pm.gc.ca/fra">Premier ministre</a></li>
-					<li><a href="https://www.canada.ca/fr/gouvernement/systeme.html">Comment le gouvernement fonctionne</a></li>
-					<li><a href="https://ouvert.canada.ca/">Gouvernement ouvert</a></li>
-					{%- elsif i18nText-lang == "en" -%}
 					<li><a href="https://www.canada.ca/en/contact.html">Contact us</a></li>
 					<li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
 					<li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
@@ -71,47 +59,31 @@ Page untitled
 					<li><a href="https://pm.gc.ca/eng">Prime Minister</a></li>
 					<li><a href="https://www.canada.ca/en/government/system.html">How government works</a></li>
 					<li><a href="https://open.canada.ca/en/">Open government</a></li>
-					{%- endif -%}
 				</ul>
 			</nav>
 		</div>
-		{% endunless %}
 		<div class="brand">
 			<div class="container">
-				<div class="row ">
-					{% unless page.noFooterSupportLinks %}
+				<div class="row">
 					<nav class="col-md-9 col-lg-10 ftr-urlt-lnk">
-						<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
+						<h2 class="wb-inv">About this site</h2>
 						<ul>
-							{%- if i18nText-lang == "fr" -%}
-							<li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
-							<li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>
-							<li><a href="https://www1.canada.ca/fr/nouveausite.html">À propos de Canada.ca</a></li>
-							<li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
-							<li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
-							{%- elsif i18nText-lang == "en" -%}
 							<li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
 							<li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
 							<li><a href="https://www1.canada.ca/en/newsite.html">About Canada.ca</a></li>
 							<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
 							<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-							{%- endif -%}
 						</ul>
 					</nav>
-					{% endunless %}
 					<div class="col-xs-6 visible-sm visible-xs tofpg">
 						<a href="#wb-cont">Top of page <span class="glyphicon glyphicon-chevron-up"></span></a>
 					</div>
-					{%- if page.noFooterSupportLinks == "true" -%}
-					<div class="col-xs-6 col-md-12 text-right">
-						{%- else -%}
-						<div class="col-xs-6 col-md-3 col-lg-2 text-right">
-							{%- endif -%}
-							<img src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-wmmsImg }}" alt="{{ i18nText-wmms }}" />
-						</div>
+					<div class="col-xs-6 col-md-3 col-lg-2 text-right">
+						<img src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-wmmsImg }}" alt="{{ i18nText-wmms }}" />
 					</div>
 				</div>
 			</div>
+		</div>
 	</footer>
 	{% include resources-inc/footer.html %}
 </body>

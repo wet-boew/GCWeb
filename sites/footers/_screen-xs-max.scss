@@ -4,21 +4,10 @@
  */
 
 #wb-info {
-	.brand {
+	.gc-sub-footer, .brand { // ".brand" to support footer v2.0
+		/* START: To support footer v3.0 */
 		nav {
 			ul {
-				li {
-					display: block;
-
-					&:not(:last-child) {
-						margin-bottom: .75em;
-					}
-
-					&:not(:first-child)::before {
-						display: none;
-					}
-				}
-
 				& + h4 {
 					margin-top: 0;
 
@@ -33,13 +22,14 @@
 				}
 			}
 		}
+		/* END */
 
 		/* START: To support footer <= v2.0 */
 		.row {
 			nav {
 				ul {
 					li {
-						&:not(:first-child)::before {
+						&:first-child::before {
 							display: inline;
 						}
 					}

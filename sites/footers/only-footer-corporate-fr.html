@@ -1,15 +1,16 @@
 ---
 {
-	"title": "Masquer la bande contextuelle du pied de page",
+	"title": "Masquer les bandes contextuelle et principale du pied de page",
 	"language": "fr",
 	"breadcrumbs": [
 		{ "title": "Pied de page", "link": "sites/footers/footers-fr.html" }
 	],
-	"altLangPage": "no-footer-contextual-en.html",
+	"altLangPage": "only-footer-corporate-en.html",
 	"secondlevel": false,
 	"dateModified": "2022-11-14",
 	"share": "true",
 	"noFooterContextual": "true",
+	"noFooterMain": "true",
 	"includes": { "footer": "edge" }
 }
 ---
@@ -17,9 +18,7 @@
 
 {% include alert-softlaunch.html component="pied de page" version="4" %}
 
-<p>En définissant la variable <code>noFooterContextual</code> à «&nbsp;true&nbsp;», la bande contextuelle sera masquée au chargement de la page.</p>
-
-<p>La bande contextuelle est définie dans <code>_config.yml</code>, mais peut également être écrasée sur n'importe quelle page donnée dans le «&nbsp;front matter&nbsp;» (voir <a href="footers-fr.html">Pied de page complet</a> pour un exemple).</p>
+<p>En définissant les variables <code>noFooterContextual</code> et <code>noFooterMain</code> à «&nbsp;true&nbsp;», les bandes contextuelle et principale seront masquées au chargement de la page.</p>
 
 <h2>Code final attendu</h2>
 {%- include variable-core.liquid -%}
