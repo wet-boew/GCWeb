@@ -1,0 +1,62 @@
+---
+{
+	"altLangPage": "language-en.html",
+	"dateModified": "2022-11-01",
+	"description": "Documentation et exemple pratique sur l'utilisation du lien pour changer de langue.",
+	"language": "fr",
+	"title": "Lien pour changer de langue"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Fonctionnalité du site Canada.ca</dd>
+	<dt>Dernière révision</dt>
+	<dd>2022-11-01</dd>
+	<dt>Version de la composante</dt>
+	<dd>Version 1.1</dd>
+</dl>
+
+<h2>Objectif</h2>
+<p>Le lien permettant de changer de langue dirige systématiquement la personne vers la page équivalente dans l’autre langue officielle, ce qui fait en sorte qu’il peut passer d’une langue à l’autre sans perdre l’endroit où il se trouvait auparavant.</p>
+
+<h2>Comment mettre en œuvre</h2>
+<ul>
+	<li>Le lien permettant de changer de langue ne consiste qu’en un seul élément : il s’agit d’un simple lien textuel indiquant «&nbsp;English&nbsp;» ou «&nbsp;Français&nbsp;».</li>
+	<li>Le lien est toujours affiché dans le coin supérieur droit de l’en-tête général, peu importe la taille de l'écran.</li>
+</ul>
+
+<h2>Avant et après</h2>
+<div class="row">
+	<div class="col-md-6">
+		<h2 id="v2">Version 1.1</h2>
+
+		<p>Liste des changements depuis la version 1.0 : Ajout de l'attribut <code>translation="no"</code>.</p>
+
+		<pre><code>&lt;ul class="list-inline mrgn-bttm-0"&gt;
+						&lt;li&gt;
+							&lt;a href="/en.html" lang="en"&gt;
+								&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
+								&lt;abbr title="English" <ins>translate="no"</ins> class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;
+							&lt;/a&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h2>Version 1.0 (obsolète)</h2>
+
+		<p>La version 1.0 du lien pour changer de langue est obsolète mais toujours supportée.</p>
+
+		<pre><code>&lt;ul class="list-inline mrgn-bttm-0"&gt;
+						&lt;li&gt;
+							&lt;a href="/en.html" lang="en"&gt;
+								&lt;span class="hidden-xs"&gt;English&lt;/span&gt;
+								&lt;abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;en&lt;/abbr&gt;
+							&lt;/a&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;</code></pre>
+	</div>
+</div>

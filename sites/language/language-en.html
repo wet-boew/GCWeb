@@ -1,0 +1,63 @@
+---
+{
+	"altLangPage": "language-fr.html",
+	"dateModified": "2022-11-01",
+	"description": "Documentation and working example on how to use language toggle link.",
+	"language": "en",
+	"title": "Language toggle link"
+}
+---
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca site functionality</dd>
+	<dt>Last review</dt>
+	<dd>2022-11-01</dd>
+	<dt>Component version</dt>
+	<dd>Version 1.1</dd>
+</dl>
+
+<h2>Purpose</h2>
+<p>The language toggle link always leads people to the equivalent page in the other official language, ensuring that people are able to switch between languages without losing track of where they were before </p>
+
+<h2>How to implement</h2>
+<ul>
+	<li>The language toggle link consists of only one element—a simple text link indicating either “English” or “Français”</li>
+	<li>The link is always presented in the top right corner of the global header area, regardless of the screen size</li>
+</ul>
+
+<h2>Before and After</h2>
+<div class="row">
+	<div class="col-md-6">
+		<h2 id="v2">Version 1.1</h2>
+
+		<p>List of change since version 1.0: Addition the <code>translation="no"</code> attribute.</p>
+
+		<pre><code>&lt;ul class="list-inline mrgn-bttm-0"&gt;
+				&lt;li&gt;
+					&lt;a href="/fr.html" lang="fr"&gt;
+						&lt;span class="hidden-xs"&gt;Français&lt;/span&gt;
+						&lt;abbr title="Français" <ins>translate="no"</ins> class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;fr&lt;/abbr&gt;
+					&lt;/a&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+<h2>Version 1.0 (deprecated)</h2>
+
+<p>The language toggle version 1.0 is deprecated but still supported.</p>
+
+<pre><code>&lt;ul class="list-inline mrgn-bttm-0"&gt;
+				&lt;li&gt;
+					&lt;a href="/fr.html" lang="fr"&gt;
+						&lt;span class="hidden-xs"&gt;Français&lt;/span&gt;
+						&lt;abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase"&gt;fr&lt;/abbr&gt;
+					&lt;/a&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;</code></pre>
+
+	</div>
+</div>
