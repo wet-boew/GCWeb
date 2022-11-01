@@ -9,6 +9,8 @@
 }
 ---
 
+<div class="wb-prettify all-pre"></div>
+
 <p>This is an implementation guide for the Canada.ca theme with version 4.x of the Web Experience Toolkit (WET-BOEW).</p>
 
 <p>The code name for the Canada.ca theme is GCWeb. We use these two terms interchangeably. GCWeb is built on top of WET-BOEW 4.</p>
@@ -26,12 +28,12 @@
 			<li>Mathjax</li>
 			<li>Magnific popup</li>
 			<li>Open Layer</li>
+			<li>Data JSON</li>
 		</ul>
 	</div>
 	<div class="col-md-5">
 		<p>GCWeb has some additional plugins like:</p>
 		<ul>
-			<li>Data JSON</li>
 			<li>Do action</li>
 			<li>URL mapping</li>
 			<li>Field flow</li>
@@ -42,23 +44,24 @@
 <h2>Set up your template</h2>
 
 <h3>1. Download the GCWeb library</h3>
-
 <p><a href="https://github.com/wet-boew/GCWeb/releases">Version history - Canada.ca theme (GCWeb)</a></p>
-
-<h3>2. Copy the content from the following folders to your Web Server</h3>
-
+<p>Every release contains the following assets (at the end of the release notes):</p>
 <ul>
-	<li>GCWeb</li>
-	<li>WET-BOEW</li>
+	<li><em>themes-<strong>dist</strong>-[version]-gcweb.zip</em>: this is the file you need in order to build your GCWeb site.</li>
+	<li><em>themes-<strong>cdn</strong>-[version]-gcweb.zip</em>: this file only contains the GCWeb builder (excludes WET-BOEW builder).</li>
+	<li><em>Source code (zip)</em>: this file contains a snapshot of the GCWeb repository at the moment of the release. To be used only if you intend to build your site using GCWeb-Jekyll or contribute to the project.</li>
 </ul>
 
+<h3>2. Copy the content to your Web Server</h3>
+<p>After downloading the zip file (<em>themes-<strong>dist</strong>-[version]-gcweb.zip</em>), copy the following folders to your Web server:</p>
+<ul>
+	<li><em>GCWeb/</em></li>
+	<li><em>wet-boew/</em></li>
+</ul>
+<p>The rest of the zip file contains complementary information and demos.</p>
+
 <h3>3. Create your page template</h3>
-
-<p>As a starting point, we recommend using the <a href="#static-header-footer">Static header and footer</a> for Bootstap 3.</p>
-
-<p>Alternatively you can use a static page, like the <a href="https://wet-boew.github.io/GCWeb/templates/content-en.html">generic content page</a>, as a baseline to create your template.</p>
-
-<p>You will need to modify the following parts of the template:</p>
+<p>As a baseline to create your template, we recommend using a static page, like the <a href="https://wet-boew.github.io/GCWeb/templates/content-en.html">generic content page</a>. You can then copy your template from page to page. However, you will need to modify the following parts of the template:</p>
 <ul>
 	<li>Page title</li>
 	<li>Page description</li>
@@ -76,11 +79,10 @@
 	</li>
 	<li>Where the search form is submited</li>
 </ul>
-
 <p>If you are designing a bilingual template skeleton, you will also need to:</p>
 <ul>
 	<li>Toggle the <code>lang</code> attribute for the proper language</li>
-	<li>Create partials for each template content pieces such:
+	<li>Create partials for each template content pieces such as:
 		<ul>
 			<li>Skip links</li>
 			<li>Language selection</li>
@@ -94,13 +96,21 @@
 		</ul>
 	</li>
 </ul>
+<p>To help you create your pages, take a look at the following sections of our documentation:</p>
+<ul>
+	<li><a href="https://wet-boew.github.io/GCWeb/index-en.html#components">Components</a>: contains GC components and design pattern to be used in your page content area.</li>
+	<li><a href="https://wet-boew.github.io/GCWeb/index-en.html#templates">Templates</a>: contains pages component layout (ex. Institutional template) and special page template (ex. Splash page)</li>
+	<li><a href="https://wet-boew.github.io/GCWeb/index-en.html#sitesglobal">Sites</a>: contains components for the Canada.ca site baseline template.</li>
+</ul>
 
 <h3>Customize your template</h3>
-
-<p>The <a href="https://www.canada.ca/en/government/about/design-system.html">Canada.ca design system</a> and the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification.html">Content and IA specification</a> allow customization for transactional scenarios and campaigns. Read the guidance for more detailed information about what is allowed.</p>
+<p>The Digital Transformation Office at Treasury Board Secretariat (DTO-TBS) provides the guidance on how to use the components implemented in our reference implementation of the Canada.ca theme. While DTO-TBS allows customization for transactional scenarios and campaigns, we recommend you read the guidance for more detailed information about what is allowed:</p>
+<ul>
+	<li><a href="https://www.canada.ca/en/government/about/design-system.html">Canada.ca design system</a></li>
+	<li><a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification.html">Content and IA specification</a></li>
+</ul>
 
 <h3>Use only the Canada.ca style without WET-BOEW's Javascript</h3>
-
 <p>GCWeb is designed to work with WET-BOEW. It is compliant with WCAG 2.0 Level AA and fully relies on the WET-BOEW 4 framework. If you are only using the CSS and the base HTML markup, you are encouraged to:</p>
 <ul>
 	<li>Peform a full WCAG assessment for every published pages</li>
@@ -109,8 +119,7 @@
 </ul>
 
 <h2>Migrate your content</h2>
-
-<p>Before you migrate your content, it is recommended to:</p>
+<p>Before you migrate your content, we recommend you to:</p>
 <ul>
 	<li>Create a content inventory</li>
 	<li>Identify your top tasks and top pages in order to prioritize your content review</li>
@@ -122,7 +131,6 @@
 		</ul>
 	</li>
 </ul>
-
 <p>Converting your content pages into GCWeb compatible markup means:</p>
 <ul>
 	<li>You are using valid HTML5 markup</li>
@@ -142,17 +150,44 @@
 		</ul>
 	</li>
 </ul>
-
 <p>Here are some well-known challenges regarding migrating a site from WET-BOEW 3:</p>
 <ul>
 	<li>The grid system, <code>.span-*</code> needs to be converted into a combination of <code>div.row</code> and <code>div.col-*-*</code>.</li>
 	<li>Any callout module would need to be converted into alerts or panels in combination with a CSS grid. They need to be coded in a distinct markup</li>
 	<li>Other changes that are not fully documented, like the CSS class mapping</li>
 </ul>
+<details>
+	<summary>Migrating from CLF 2.0, WET 3.1/4 or other</summary>
+	<p>The WET 4 web authoring coding is still current and it is currently used by the official reference implementation of the Canada.ca theme. Therefor, moving your content page coding toward WET 4 will be compatible with the latest version of GCWeb.</p>
+	<p>Here are some challenges that might happen during your migration towards the latest version of Canada.ca's theme.</p>
+	<ul>
+		<li>You might rewrite your Information Architecture (IA) to get aligned with the Content and IA specification.
+			<ul>
+				<li>There is now a clear separation between the institution and the content. Traditionally, a user needed to go to the institution as a starting point in order to get the content. Now, the main starting point must go through the Canada.ca IA starting with the themes followed by topics and sub-topics. If you need assistance to figure out where your content fits into the global IA, we suggest you to contact DTO.</li>
+				<li>There is no institutional menu anymore. All the content must be re-organized by topic via topic pages.</li>
+			</ul>
+		</li>
+		<li>You might test and adjust content that depends on the left navigation. Around version 4.0.22 of WET and GCWeb, the release includes an undocumented breaking change that impacts the left navigation. Some code adjustments are required. Note that a left navigation is rendered and displayed to the user only after and at the end of the content of the page. The recommendation is to not use the left navigation and leverage the topics navigation instead.</li>
+		<li>The content organized with the WET 3.x are incompatible with WET 4.x. A manual migration might be required. WET 4 separate the grid (layout) with the component (module).</li>
+	</ul>
+	<p>For example, in WET 3.x, if you are using an info module with a span of 3...</p>
+<pre><code>&lt;div class=&quot;module-info span-3&quot;&gt;
+	&lt;h3&gt;…&lt;/h3&gt;
+	&lt;p&gt;…&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+	<p>...will need to be converted like this:</p>
+<pre><code>&lt;div class=”row”&gt;
+	&lt;div class=”col-md-6”&gt;
+		&lt;section class=”alert alert-info”&gt;
+			&lt;h3&gt;…&lt;/h3&gt;
+			&lt;p&gt;…&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</details>
 
 <h2>Stay up-to-date</h2>
-
-<p>Every GCWeb release follows a strict version numbering and the release notes contain all the information needed to update your implementation. This includes:</p>
+<p>Every GCWeb release follows a strict version numbering and the <a href="https://github.com/wet-boew/GCWeb/releases">release notes</a> contain all the information needed to update your implementation. This includes:</p>
 <ul>
 	<li>a list of all changes that are marked as Major, Minor or Patch</li>
 	<li>an overview of all changes that were applied to the WET-BOEW 4 dependency</li>
@@ -160,16 +195,16 @@
 	<li>links to all “Subresource integrity” (SRI) hashes</li>
 	<li>ad hoc details on specific content updates that do not have their own documentation page yet</li>
 </ul>
-
-<p>Since February 2019, we have been using and releasing versions in accordance with the semantic versioning 2.0.0 (<a href="https://wet-boew.github.io/wet-boew-documentation/decision/6.html">Design decision #6</a>) where our API is defined by the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3.html">Design decision #3</a></p>
+<p>Since February 2019, we have been using and releasing versions in accordance with the semantic versioning 2.0.0 (<a href="https://wet-boew.github.io/wet-boew-documentation/decision/6.html">Design decision #6</a>) where our API is defined by the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3.html">Design decision #3</a>.</p>
+<p>We try and avoid to make breaking changes that impact web authors. Most of our breaking changes impact only the site baseline template and all major changes have a backwards support for at least one (1) year to ease the transition.</p>
+<p>Please note that while we work on improving the documentation of all our components, there are still a few gaps. If you have any questions regarding those gaps, feel free to ask us during our weekly office hours.</p>
 
 <h2>Get help</h2>
-
 <ul>
 	<li>Consult the documentation published on <a href="https://wet-boew.github.io/GCWeb/index-en.html">GCWeb</a> and on the <a href="https://www.canada.ca/en/government/about/design-system.html">Canada.ca design system</a></li>
 	<li>Look at the list of <a href="https://github.com/wet-boew/GCWeb/issues">current and closed GitHub issues</a></li>
 	<li>Submit a <a href="https://github.com/wet-boew/GCWeb/issues/new">new issue</a> on Github</li>
-	<li>Attend the weekly WET Office hours (every Tuesday) and ask questions.</li>
+	<li>Attend the weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET Office hours</a> (every Tuesday) and ask questions.</li>
 </ul>
 
 <h2 id="menuCDN">CDN Menu</h2>
@@ -182,56 +217,56 @@
 <h2 id="static-header-footer">Static header and footer</h2>
 <p>Here are static HTML headers and footers that you can copy and paste into your project, with slight modifications (e.g. metadata).</p>
 <table class="table table-bordered table-hover">
-<thead>
-<tr>
-<td></td>
-<th>Bootstrap 3</th>
-<th>Bootstrap 4 (experimental)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-	<th>Example</th>
-	<td><a href="static-header-footer/bootstrap-3.html">English</a></td>
-	<td><a href="static-header-footer/bootstrap-4.html">English</a></td>
-</tr>
-<tr>
-	<th>Header</th>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L1-L106" rel="external">Source code, line 1 to 106</a></td>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L1-L66" rel="external">Source code, line 1 to 66</a> (Outdated)</td>
-</tr>
-<tr>
-	<th>Main content footer</th>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L115-L132" rel="external">Source code, line 115 to 132</a></td>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L74-L79" rel="external">Source code, line 74 to 79</a> (Outdated)</td>
-</tr>
-<tr>
-	<th>Footer</th>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L132-L174" rel="external">Source code, line 135 to 174</a></td>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L82-L117" rel="external">Source code, line 82 to 117</a> (Outdated)</td>
-</tr>
-<tr>
-	<th>Notes</th>
-	<td>
-		<ul>
-			<li>Includes WET scripts</li>
-			<li>Includes GCWeb styles</li>
-			<li>Needs to have assets paths updated to fit your folder structure</li>
-		</ul>
-	</td>
-	<td>
-		<ul>
-			<li>Does not include WET scripts</li>
-			<li>Does not include GCWeb styles</li>
-			<li>Does not include the menu</li>
-			<li>Relies on an experimental stylesheet for a Canada.ca look</li>
-		</ul>
-	</td>
-</tr>
-<tr>
-	<th>Special assets</th>
-	<td>All included in the current GCWeb release</td>
-	<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/site-assets/x-bootstrap-4.css" rel="external">Download experimental CSS</a></td>
-</tr>
-</tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<th>Bootstrap 3</th>
+			<th>Bootstrap 4 (experimental)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Example</th>
+			<td><a href="static-header-footer/bootstrap-3.html">English</a></td>
+			<td><a href="static-header-footer/bootstrap-4.html">English</a></td>
+		</tr>
+		<tr>
+			<th>Header</th>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L1-L106" rel="external">Source code, line 1 to 106</a></td>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L1-L66" rel="external">Source code, line 1 to 66</a> (Outdated)</td>
+		</tr>
+		<tr>
+			<th>Main content footer</th>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L115-L132" rel="external">Source code, line 115 to 132</a></td>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L74-L79" rel="external">Source code, line 74 to 79</a> (Outdated)</td>
+		</tr>
+		<tr>
+			<th>Footer</th>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-3.html#L132-L174" rel="external">Source code, line 135 to 174</a></td>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/bootstrap-4.html#L82-L117" rel="external">Source code, line 82 to 117</a> (Outdated)</td>
+		</tr>
+		<tr>
+			<th>Notes</th>
+			<td>
+				<ul>
+					<li>Includes WET scripts</li>
+					<li>Includes GCWeb styles</li>
+					<li>Needs to have assets paths updated to fit your folder structure</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Does not include WET scripts</li>
+					<li>Does not include GCWeb styles</li>
+					<li>Does not include the menu</li>
+					<li>Relies on an experimental stylesheet for a Canada.ca look</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>Special assets</th>
+			<td>All included in the current GCWeb release</td>
+			<td><a href="https://github.com/wet-boew/GCWeb/blob/master/docs/static-header-footer/site-assets/x-bootstrap-4.css" rel="external">Download experimental CSS</a></td>
+		</tr>
+	</tbody>
 </table>
