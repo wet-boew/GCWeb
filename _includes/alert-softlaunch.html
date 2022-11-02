@@ -1,0 +1,11 @@
+{%- if page.language == "fr" -%}
+<section class="alert alert-info">
+	<h2>Prélancement</h2>
+	<p>{%- if include.genre == "f" -%}La composante{%- else -%}Le composant{%- endif %} <strong>{{ include.component }}</strong> sur cette page implémente la <em>version {{ include.version }}</em> qui a été prélancé{%- if include.genre == "f" -%}e{%- endif %} jusqu'à ce que les lignes directrices officielles soient publiées par le Bureau de la transformation numérique du SCT.</p>
+</section>
+{%- elsif page.language == "en" -%}
+<section class="alert alert-info">
+	<h2>Soft launch</h2>
+	<p>The <strong>{{ include.component }}</strong> component on this page implements the <em>version {{ include.version }}</em> which has been soft launched until the official guidance is published by the Digital Transformation Office at TBS.</p>
+</section>
+{%- endif -%}

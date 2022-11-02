@@ -1,3 +1,10 @@
+{%- capture footerIncludeVersion -%}
+	{%- if page.includes.footer -%}
+		{{ page.includes.footer }}
+	{%- else -%}
+		{{ site.includes.footer }}
+	{%- endif -%}
+{%- endcapture -%}
 {%- capture contextualFooterTitle -%}
 	{%- if page.contextualFooter.title -%}
 		{{ page.contextualFooter.title }}
@@ -6,6 +13,13 @@
 	{%- endif -%}
 {%- endcapture -%}
 
+{%- comment -%} Footer version control, allow to use multiple version of an include to ease migration {%- endcomment -%}
+{%- if footerIncludeVersion == "v2" -%}
+
+	{%- comment -%} +TODO+ Removal not before December 2023 {%- endcomment -%}
+	{% include footers/deprecated/footers-v2.html %}
+
+{%- else -%}
 <footer id="wb-info">
 	<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
 {% unless page.noFooterContextual %}
@@ -133,3 +147,5 @@
 		</div>
 	</div>
 </footer>
+
+{%- endif -%}
