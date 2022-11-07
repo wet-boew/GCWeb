@@ -3,134 +3,157 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
- *
- *	Provisional GC Subway map menu
 */
 
-@mixin dt-li($paddingBottom, $fcb-left, $fcb-width, $ahb-height, $ahb-left, $ahb-width ) {
-	border-left: 4px solid #26374a;
-	padding: 0px 20px $paddingBottom 1em;
-
-	a {
-		&::before {
-			background-color: #fff;
-			border: 3px solid #26374a;
-			border-radius: 50%;
-			content: "";
-			height: 1.2em;
-			left: $fcb-left;
-			position: absolute;
-			transition: width .2s, height .2s, left .2s, margin-top .2s;
-			width: $fcb-width;
-		}
-		&.active {
-			color: $text-color;
-			text-decoration: none;
-
-			&::before {
-				background-color: #26374a;
-			}
-
-			&:hover,
-			&:focus {
-				color: $link-hover-color;
-				text-decoration: underline;
-			}
-		}
-		&:not(.active) {
-			&:hover::before,
-			&:focus::before {
-				height: 1.5em;
-				left: -.1em;
-				margin-top: -.1em;
-				width: 1.5em;
-			}
-		}
-	}
+@mixin subway-dot {
+	background-color: $accent-blue;
+	border: 3px solid $accent-blue;
+	border-radius: 50%;
+	box-shadow: 0 0 0 10px #fff inset;
+	content: "";
+	height: 1.2em;
+	left: -.7em;
+	position: absolute;
+	top: 0;
+	transition: box-shadow .25s ease;
+	width: 1.2em;
 }
 
-.provisional {
+.gc-subway.provisional {
+	&:not(.gc-subway-index) {
+		border: 4px solid $accent-blue;
+		border-radius: 6px;
+		margin: 2em 0 0 .5em;
+		padding-bottom: 1em;
+		position: relative;
 
-	/*** GC Subway mobile first styles ***/
-	&.gc-subway {
-		border-radius: 0px 6px 6px 0px;
-		border-right: 4px solid #26374a;
-		border-top: 4px solid #26374a;
-		margin-top: 38px;
-
-		ul,
-		dl {
+		ul {
 			clear: both;
 			list-style: none;
-			padding-left: .57em;
-			padding-top: 10px;
-			position: relative;
-
-			dt {
-				@include dt-li(3px, 0em, 1.3em, 1.5em, -.1em, 1.5em);
-				font-weight: normal;
-				&:last-of-type {
-					border-left: 5px solid transparent;
-					padding-bottom: 0;
-				}
-			}
-
-			dd {
-				border-left: 4px solid #26374a;
-				line-height: inherit;
-				margin-bottom: 0px;
-				margin-top: -3px;
-				padding: 0px 20px 20px 1em;
-
-				&:last-child {
-					border-left: 5px solid transparent;
-					padding-bottom: 0;
-				}
-			}
+			margin-bottom: 0;
+			margin-left: -.685em;
+			padding-left: .5em;
 
 			li {
-				@include dt-li(30px, .05em, 1.2em, 1.4em, -.05em, 1.4em);
-				&::first-line {
-					line-height: 1;
-				}
+				border-left: 4px solid $accent-blue;
+				line-height: 1.25em;
+				padding-bottom: 1.25em;
+				padding-left: 1em;
+				position: relative;
+
 				&:last-child {
-					border-bottom: 4px solid #26374a;
-					border-bottom-left-radius: 6px;
-					border-left: 4px solid #26374a;
+					border-left-color: transparent;
+					padding-bottom: 0;
+				}
+
+				a {
+					display: inline-block;
+
+					&::before {
+						@include subway-dot;
+					}
+
+					&.active {
+						color: #333;
+						cursor: default;
+						text-decoration: none;
+
+						&::before {
+							box-shadow: 0 0 0 10px $accent-blue inset;
+						}
+
+						&:hover, &:focus {
+							color: #333;
+							text-decoration: none;
+						}
+					}
+
+					&:not(.active):hover::before,
+					&:not(.active):focus::before {
+						box-shadow: 0 0 0 4px #fff inset;
+					}
 				}
 
 				ul {
-					margin-top: 20px;
-					padding-left: .55em;
+					margin: 1em 0 0;
 
-					li:last-child {
-						border-bottom-width: 0px;
-						padding-bottom: 0px;
+					li {
+						&:last-child {
+							padding-bottom: 0;
+						}
+					}
+
+					&.noline {
+						li {
+							border-left-color: transparent;
+
+							&::before {
+								display: none;
+							}
+
+							a.active::after {
+								background-color: $accent-blue;
+								content: "";
+								display: block;
+								height: 4px;
+								left: -1.75em;
+								position: absolute;
+								top: .5em;
+								width: 1.125em;
+							}
+						}
 					}
 				}
 			}
 		}
-
-		h1 {
-			float: left;
-		}
 	}
+	&.gc-subway-index {
+		h2 {
+			position: static;
+		}
 
-	/* Double H1 */
-	&.gc-subway h1,
-	&.gc-subway-section .gc-subway-h1 {
-		background-color: #fff;
-		border-bottom-width: 0px;
-		color: #555;
-		font-size: 1.3em;
-		margin-right: 20px;
-		margin-top: -19px;
-		padding: 0px 20px 10px 0px;
+		dl {
+			margin-left: .5em;
+
+			dt, dd {
+				border-left: 4px solid $accent-blue;
+				font-weight: normal;
+				margin: 0;
+				padding-left: 1em;
+				position: relative;
+
+				&:last-of-type {
+					border-left-color: transparent;
+					padding-bottom: 0;
+				}
+			}
+
+			dt {
+				a::before {
+					@include subway-dot;
+				}
+			}
+
+			dd {
+				padding-bottom: 1.25em;
+				padding-top: .25em;
+			}
+		}
 	}
 }
 
-// Remove the border for index pages, when an h1 precede the subway nav.
-h1 ~ .provisional.gc-subway {
-	border-right: none;
-	border-top: none;
+.gc-subway-section {
+	hgroup {
+		p {
+			display: none;
+		}
+	}
+}
+
+.gc-subway-support {
+	margin-top: 3em;
+}
+
+.gc-subway-landmark-end {
+	@extend .clearfix;
 }
