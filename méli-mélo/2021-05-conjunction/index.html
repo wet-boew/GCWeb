@@ -17,6 +17,7 @@ css:
 	<li>2022-02 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 	<li>2022-05 - updated to focus more on using as list items (with or without headers)</li>
 	<li>2022-09 - updated CSS to allow nested decision points</li>
+	<li>2022-11 - updated CSS to allow no border on always stacked items</li>
 	<li>2022-12 - Have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 </ul>
 
@@ -82,6 +83,7 @@ css:
 		This is content for part B
 	&lt;/li&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
 
 //Always stacked "or"
 &lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
@@ -100,9 +102,78 @@ css:
 	&lt;li class=&quot;cnjnctn-col&quot;&gt;
 		This is content for part B
 	&lt;/li&gt;
-&lt;/li&gt;</code>
+&lt;/li&gt;
+&lt;/ul&gt;</code>
   </pre>
   </details>
+
+<h3>No border on always stacked <span class="label label-info">New</span></h3>
+<p>This can be used when a border or design (e.g. zebra striping) has already defined the border of the content.</p>
+<h4>Always stacked (mobile first, no side-by-side)</h4>
+<div class="panel panel-default">
+    <header class="panel-heading">
+      <h5 class="panel-title">Heading</h5>
+    </header>
+    <div class="panel-body">
+  <ul class="cnjnctn-type-or brdr-0">
+<li class="cnjnctn-col">This is content for option A </li>
+    <li class="cnjnctn-col">This is content for option B</li>
+          </ul>
+	</div>
+</div>
+ <div class="panel panel-default">
+    <header class="panel-heading">
+      <h5 class="panel-title">Heading</h5>
+    </header>
+    <div class="panel-body">
+        <ul class="cnjnctn-type-and brdr-0">
+    <li class="cnjnctn-col">This is content for part A </li>
+    <li class="cnjnctn-col">This is content for part B</li>
+</ul>
+	 </div>
+</div>
+
+   <details>
+    <summary>
+            <p>Code</p>
+          </summary>
+    <pre><code>//Always stacked "or" with no border
+&lt;div class=&quot;panel panel-default&quot;&gt;
+&lt;header class=&quot;panel-heading&quot;&gt;
+&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
+&lt;/header&gt;
+&lt;div class=&quot;panel-body&quot;&gt;	
+&lt;ul class=&quot;cnjnctn-type-or brdr-0&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option B
+	&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+//Always stacked "and" with no border
+&lt;div class=&quot;panel panel-default&quot;&gt;
+&lt;header class=&quot;panel-heading&quot;&gt;
+&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
+&lt;/header&gt;
+&lt;div class=&quot;panel-body&quot;&gt;
+&lt;ul class=&quot;cnjnctn-type-and brdr-0&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for  part A
+	&lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part B
+	&lt;/li&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code>
+  </pre>
+  </details>
+
 
 
         <h3>Never stacked (always side-by-side) </h3>
