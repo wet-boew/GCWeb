@@ -30,23 +30,32 @@ css:
 		 <h2>Classes used</h2>
 		 <ul class="colcount-sm-2 colcount-md-4">
 			<li><code>lst-stps</code></li>
+			 <li><code>ld-zr</code></li>
 			<li><code>stps-strpd</code></li>
 			<li><code>lst-stps-itm</code></li>
 			<li><code>lst-stps-sub</code></li>
 		 </ul>
-      <h2>Steps as an single-level <code>&lt;ol&gt;</code></h2>
+   <h2>Steps as an single-level <code>&lt;ol&gt;</code></h2>
   <div class="row">
     <div class="col-md-6">
       <h3>Default design</h3>
       <span class="wb-prettify all-pre"></span>
       <ol class="lst-stps">
-        <li>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</li>
+        <li data-custom="blah">Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
+          <ul>
+            <li>Test</li>
+            <li>Test 2</li>
+          </ul>
+        </li>
         <li>List item 2</li>
         <li>
           <p>List item 3</p>
           <p>Second paragraph</p>
         </li>
-        <li>List item 4</li>
+        <li>
+          <h3>Header here</h3>
+          <p>Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+        </li>
       </ol>
       <details>
         <summary>View code</summary>
@@ -59,19 +68,73 @@ css:
       </details>
     </div>
     <div class="col-md-6">
-      <h3>With zebra striping</h3>
-      <ol class="lst-stps stps-strpd">
-        <li>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</li>
+      <h3>Leading zero design</h3>
+      <span class="wb-prettify all-pre"></span>
+      <ol class="lst-stps ld-zr">
+        <li data-custom="blah">Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</li>
         <li>List item 2</li>
         <li>
           <p>List item 3</p>
           <p>Second paragraph</p>
         </li>
-        <li>List item 4</li>
+        <li>
+          <h3>Header here</h3>
+          <p>Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+        </li>
       </ol>
       <details>
         <summary>View code</summary>
-        <pre><code>&lt;ol class="lst-stps stps-strpd"&gt;
+        <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </details>
+    </div>
+    <div class="col-md-6">
+      <h3>Default design striped</h3>
+      <span class="wb-prettify all-pre"></span>
+      <ol class="lst-stps stps-strpd">
+        <li data-custom="blah">Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</li>
+        <li>List item 2</li>
+        <li>
+          <p>List item 3</p>
+          <p>Second paragraph</p>
+        </li>
+        <li>
+          <h3>Header here</h3>
+          <p>Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+        </li>
+      </ol>
+      <details>
+        <summary>View code</summary>
+        <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </details>
+    </div>
+    <div class="col-md-6">
+      <h3>Leading zero design striped</h3>
+      <span class="wb-prettify all-pre"></span>
+      <ol class="lst-stps ld-zr stps-strpd">
+        <li data-custom="blah">Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</li>
+        <li>List item 2</li>
+        <li>
+          <p>List item 3</p>
+          <p>Second paragraph</p>
+        </li>
+        <li>
+          <h3>Header here</h3>
+          <p>Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+        </li>
+      </ol>
+      <details>
+        <summary>View code</summary>
+        <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -80,24 +143,42 @@ css:
       </details>
     </div>
   </div>
-  <h2>Steps as an <code>&lt;ol&gt;</code> with sub-steps (nested <code>&lt;ol&gt;</code>)</h2>
+  <h2>Steps as an <code>&lt;ol&gt;</code> with sub-steps (nested <code>&lt;ol&gt;</code>) and headers</h2>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h3>Default design</h3>
       <ol class="lst-stps">
-        <li> Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
+        <li>
+          <h3>Header for step 1</h3>
+          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
           <ol class="lst-stps-sub">
-            <li>List item 1 sub item 1</li>
-            <li>List item 1 sub item 2</li>
-            <li>List item 1 sub item 3</li>
+            <li>
+              <h4>Header for sub step 1a</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>
+              <h4>Header for sub step 1b</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>
+              <h4>Header for sub step 1c</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
           </ol>
         </li>
-        <li>List item 2</li>
         <li>
-          <p>List item 3</p>
-          <p>Second paragraph</p>
+          <div>
+            <h3>Header for step 2</h3>
+            <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+          </div>
         </li>
-        <li> List item 4
+        <li>
+          <h3>Header for step 3</h3>
+          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. </p>
+        </li>
+        <li>
+          <h3>Header for step 4</h3>
+          <p>List item 4</p>
           <ol class="lst-stps-sub">
             <li>List item 4 sub item 1</li>
             <li>List item 4 sub item 2</li>
@@ -107,7 +188,7 @@ css:
       </ol>
       <details>
         <summary>View code</summary>
-        <pre><code>&lt;ol class="lst-stps"&gt;
+        <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
   &lt;li&gt;...
     &lt;ol class="lst-stps-sub"&gt;
 	 &lt;li&gt;...&lt;/li&gt;
@@ -127,7 +208,70 @@ css:
 &lt;/ol&gt;</code></pre>
       </details>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
+      <h3>Leading zero design</h3>
+      <ol class="lst-stps ld-zr">
+        <li>
+          <h3>Header for step 1</h3>
+          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+          <ol class="lst-stps-sub">
+            <li>
+              <h4>Header for sub step 1a</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>
+              <h4>Header for sub step 1b</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>
+              <h4>Header for sub step 1c</h4>
+              <p>List item 1 sub item 1</p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h3>Header for step 3</h3>
+          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+        </li>
+        <li>
+          <h3>Header for step 3</h3>
+          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. </p>
+        </li>
+        <li>
+          <h3>Header for step 4</h3>
+          <p>List item 4</p>
+          <ol class="lst-stps-sub">
+            <li>List item 4 sub item 1</li>
+            <li>List item 4 sub item 2</li>
+            <li>List item 4 sub item 3</li>
+          </ol>
+        </li>
+      </ol>
+      <details>
+        <summary>View code</summary>
+        <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      </details>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
       <h3>With zebra striping</h3>
       <ol class="lst-stps  stps-strpd">
         <li> Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
@@ -172,12 +316,15 @@ css:
 &lt;/ol&gt;</code></pre>
       </details>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h3>With zebra striping on sub list</h3>
       <ol class="lst-stps  stps-strpd">
         <li> Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
           <ol class="lst-stps-sub stps-strpd">
-            <li>List item 1 sub item 1</li>
+            <li>
+              <h3>Header 1</h3>
+              <p>List item 1 sub item 1</p>
+            </li>
             <li>List item 1 sub item 2</li>
             <li>List item 1 sub item 3</li>
           </ol>
@@ -217,91 +364,103 @@ css:
 &lt;/ol&gt;</code></pre>
       </details>
     </div>
-  </div>
-  <h2>Steps as a <code>&lt;div&gt;</code>/<code>&lt;section&gt;</code></h2>
-  <div class="row">
     <div class="col-md-6">
-      <h3>Default design</h3>
-      <section class="lst-stps">
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 1</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 2</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 3</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 4</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-      </section>
+      <h3>With zebra striping on sub list (Leading zero)</h3>
+      <ol class="lst-stps  ld-zr stps-strpd">
+        <li> Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
+          <ol class="lst-stps-sub">
+            <li>
+              <h3>Header here</h3>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>List item 1 sub item 2</li>
+            <li>List item 1 sub item 3</li>
+          </ol>
+        </li>
+        <li>List item 2</li>
+        <li>
+          <p>List item 3</p>
+          <p>Second paragraph</p>
+        </li>
+        <li> List item 4
+          <ol class="lst-stps-sub">
+            <li>List item 4 sub item 1</li>
+            <li>List item 4 sub item 2</li>
+            <li>List item 4 sub item 3</li>
+          </ol>
+        </li>
+      </ol>
       <details>
         <summary>View code</summary>
-        <pre><code>&lt;section class="lst-stps"&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 1&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 2&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 3&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 4&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+        <pre><code>&lt;ol class="lst-stps ld-zr stps-strpd"&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub stps-strpd"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub stps-strpd"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
       </details>
     </div>
     <div class="col-md-6">
-      <h3>With zebra stripping</h3>
-      <section class="lst-stps stps-strpd">
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 1</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 2</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 3</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-        <div class="lst-stps-itm">
-          <h3><span class="wb-inv">Step 4</span> Heading goes here</h3>
-          <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
-        </div>
-      </section>
+      <h3>With zebra striping on sub list (Leading zero)</h3>
+      <ol class="lst-stps  ld-zr stps-strpd">
+        <li> Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.
+          <ol class="lst-stps-sub stps-strpd">
+            <li>
+              <h3>Header here</h3>
+              <p>List item 1 sub item 1</p>
+            </li>
+            <li>List item 1 sub item 2</li>
+            <li>List item 1 sub item 3</li>
+          </ol>
+        </li>
+        <li>List item 2</li>
+        <li>
+          <p>List item 3</p>
+          <p>Second paragraph</p>
+        </li>
+        <li> List item 4
+          <ol class="lst-stps-sub stps-strpd">
+            <li>List item 4 sub item 1</li>
+            <li>
+              <h3>Header here</h3>
+              <p>List item 4 sub item 2</p>
+            </li>
+            <li>List item 4 sub item 3</li>
+          </ol>
+        </li>
+      </ol>
       <details>
         <summary>View code</summary>
-        <pre><code>&lt;section class="lst-stps stps-strpd"&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 1&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 2&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 3&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-  &lt;div class="lst-stps-itm"&gt;
-   &lt;h2&gt;&lt;span class="wb-inv"&gt;Step 4&lt;/span&gt; Heading goes here&lt;/h2&gt;
-    ...
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+        <pre><code>&lt;ol class="lst-stps  stps-strpd"&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub stps-strpd"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...
+    &lt;ol class="lst-stps-sub stps-strpd"&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+	 &lt;li&gt;...&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
       </details>
     </div>
   </div>
@@ -554,3 +713,99 @@ css:
       </details>
     </div>
   </div>
+  <h3>Leading zero design</h3>
+  <section class="lst-stps ld-zr">
+    <div class="lst-stps-itm">
+      <h3><span class="wb-inv">Step 1</span> Heading goes here</h3>
+      <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+      <section class="lst-stps-sub">
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 1a</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 1b</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 1c</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+      </section>
+    </div>
+    <div class="lst-stps-itm">
+      <h3><span class="wb-inv">Step 2</span> Heading goes here</h3>
+      <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+    </div>
+    <div class="lst-stps-itm">
+      <h3><span class="wb-inv">Step 3</span> Heading goes here</h3>
+      <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+    </div>
+    <div class="lst-stps-itm">
+      <h3><span class="wb-inv">Step 4</span> Heading goes here</h3>
+      <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
+      <section class="lst-stps-sub">
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 4a</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 4b</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+        <div class="lst-stps-itm">
+          <h3><span class="wb-inv">Step 4c</span> Heading goes here</h3>
+          <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <details>
+    <summary>View code</summary>
+    <pre><code>&lt;section class=&quot;lst-stps ld-zr&quot;&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 1&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.&lt;/p&gt;
+&lt;section class=&quot;lst-stps-sub&quot;&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 1a&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 1b&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 1c&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 2&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 3&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 4&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.&lt;/p&gt;
+&lt;section class=&quot;lst-stps-sub&quot;&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 4a&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 4b&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;lst-stps-itm&quot;&gt;
+&lt;h3&gt;&lt;span class=&quot;wb-inv&quot;&gt;Step 4c&lt;/span&gt; Heading goes here&lt;/h3&gt;
+&lt;p&gt;Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+  </details>
