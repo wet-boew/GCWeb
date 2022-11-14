@@ -9,8 +9,16 @@
 	"secondlevel": false,
 	"dateModified": "2022-07-12",
 	"share": "true",
-	"noFooterAbout": "true",
-	"noFooterSite": "true",
+	"noFooterAboutGov": "true",
+	"noFooterSupportLinks": "true",
+	"contextualFooter": {
+		"title": "[Contextual footer title]",
+		"links": [
+			{ "url": "http://canada.ca/en", "text": "Contextual Link 1"},
+			{ "url": "http://canada.ca/en", "text": "Contextual Link 2"},
+			{ "url": "http://canada.ca/en", "text": "Contextual Link 3"}
+		]
+	},
 	"includes": { "footer": "edge" }
 }
 ---
@@ -18,7 +26,7 @@
 
 {% include alert-softlaunch.html component="site footer" version="3" %}
 
-<p>By setting the <code>noFooterAbout</code> and <code>noFooterSite</code> variables to "true", the "About government" section and some links from the "Support links" secion will be hidden on page load but the "Contextual" section will remain.</p>
+<p>By setting the <code>noFooterAboutGov</code> and <code>noFooterSupportLinks</code> variables to "true", the "About government" section and some links from the "Support links" secion will be hidden on page load but the "Contextual" section will remain.</p>
 
 <h2>Expected output code</h2>
 <pre><code>&lt;footer id=&quot;wb-info&quot;&gt;

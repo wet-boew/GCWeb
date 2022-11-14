@@ -46,7 +46,7 @@ Page untitled
 		{% include page-details/footer.html %}
 	</main>
 	<footer id="wb-info">
-		{% unless page.noFooterAbout %}
+		{% unless page.noFooterAboutGov %}
 		<div class="landscape">
 			<nav class="container wb-navcurr">
 				<h2 class="wb-inv">Au sujet du gouvernement</h2>
@@ -79,7 +79,7 @@ Page untitled
 		<div class="brand">
 			<div class="container">
 				<div class="row ">
-					{% unless page.noFooterSite %}
+					{% unless page.noFooterSupportLinks %}
 					<nav class="col-md-9 col-lg-10 ftr-urlt-lnk">
 						<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
 						<ul>
@@ -102,7 +102,7 @@ Page untitled
 					<div class="col-xs-6 visible-sm visible-xs tofpg">
 						<a href="#wb-cont">Haut de la page <span class="glyphicon glyphicon-chevron-up"></span></a>
 					</div>
-					{%- if page.noFooterSite == "true" -%}
+					{%- if page.noFooterSupportLinks == "true" -%}
 					<div class="col-xs-6 col-md-12 text-right">
 						{%- else -%}
 						<div class="col-xs-6 col-md-3 col-lg-2 text-right">
