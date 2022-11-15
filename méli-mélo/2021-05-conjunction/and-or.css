@@ -7,7 +7,6 @@ ul[class*=cnjnctn-type-] {
 	flex-wrap: nowrap;
 	flex-direction: column;
 	margin-bottom: 15px;
-	margin-left: 5px;
 	margin-right: 0px;
 	margin-top: 15px;
 	min-height: 60px;
@@ -137,6 +136,13 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
 }
 .cnjnctn-type-and.cnjnctn-xs>[class*=cnjnctn-col]:not(:first-child):before {
 	border-width: 3px 0px 3px 0px;
+}
+[class*=cnjnctn-type-]:not(:is(.cnjnctn-sm, .cnjnctn-md, .cnjnctn-lg)).brdr-0>[class*=cnjnctn-col]:after {
+ background-image:none;
+}
+ [class*=cnjnctn-type-]:not(:is(.cnjnctn-sm, .cnjnctn-md, .cnjnctn-lg)).brdr-0>[class*=cnjnctn-col] {
+ padding-left: 0px;
+ padding-right: 0px;
 }
 
 @media all and (min-width: 768px) {

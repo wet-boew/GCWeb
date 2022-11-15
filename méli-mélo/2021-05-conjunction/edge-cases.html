@@ -1,0 +1,85 @@
+---
+title: Edge cases of And/Or decision points (Conjunctions)
+dateModified: 2022-11-14
+description: "Test of edge cases about conjunctions for stacked or side by side decision points, and/or"
+lang: en
+css:
+- and-or.css
+---
+<p>Test of edge cases about conjunctions for stacked or side by side decision points, and/or.</p>
+
+<nav>
+	<h2 class="h5">Table of content</h2>
+	<ul>
+		<li><a href="index.html">And/Or decision points (Conjunctions)</a></li>
+		<li><a href="index-fr.html" hreflang="fr"><span lang="en">And/Or decision points (Conjunctions)</span> - Français</a></li>
+		<li>Edge cases of And/Or decision points (Conjunctions)</li>
+	</ul>
+</nav>
+
+<h2>No border shall not work for responsive break point</h2>
+
+<p><strong>Test expectation:</strong> The border style <code>.brdr-0</code> is ignored when stack except for "Test 4".</p>
+
+<section>
+	<h3>Test 1 - Stacks on extra small devices, phones (&lt;768px)</h3>
+	<div class="cnjnctn-type-or cnjnctn-sm  brdr-0">
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h4>
+			<p>This is content for header A </p>
+		</div>
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h4>
+			<p>This is content for header B</p>
+		</div>
+	</div>
+</section>
+<section>
+	<h3>Test 2 - Stacks on small devices, tablets (768px to 992px)</h3>
+	<div class="cnjnctn-type-or cnjnctn-md  brdr-0">
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h4>
+			<p>This is content for header A </p>
+		</div>
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h4>
+			<p>This is content for header B</p>
+		</div>
+	</div>
+</section>
+<section>
+	<h3>Test 3 - Stacks on medium devices (992px to 1200px)</h3>
+	<div class="cnjnctn-type-or cnjnctn-lg  brdr-0">
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h4>
+			<p>This is content for header A </p>
+		</div>
+		<div class="cnjnctn-col">
+			<h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h4>
+			<p>This is content for header B</p>
+		</div>
+	</div>
+</section>
+<h3>Test 4 - Always stacked (mobile first, no side-by-side)</h3>
+<section class="panel panel-default">
+	<header class="panel-heading">
+		<h5 class="panel-title">Heading</h5>
+	</header>
+	<div class="panel-body">
+		<ul class="cnjnctn-type-or brdr-0">
+			<li class="cnjnctn-col">This is content for option A </li>
+			<li class="cnjnctn-col">This is content for option B</li>
+		</ul>
+	</div>
+</section>
+<section class="panel panel-default">
+	<header class="panel-heading">
+		<h5 class="panel-title">Heading</h5>
+	</header>
+	<div class="panel-body">
+		<ul class="cnjnctn-type-and brdr-0">
+			<li class="cnjnctn-col">This is content for part A </li>
+			<li class="cnjnctn-col">This is content for part B</li>
+		</ul>
+	</div>
+</section>
