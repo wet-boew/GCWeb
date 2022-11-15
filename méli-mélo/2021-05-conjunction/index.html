@@ -8,6 +8,15 @@ css:
 ---
 <p>Providing a more visual seperation between two decision points by a visual cue (or) based on user testing.  Also provide a connecting conjunction to show two parts are connected (and).</p>
 
+<nav>
+	<h2 class="h5">Table of content</h2>
+	<ul>
+		<li>And/Or decision points (Conjunctions)</li>
+		<li><a href="index-fr.html" hreflang="fr"><span lang="en">And/Or decision points (Conjunctions)</span> - Français</a></li>
+		<li><a href="edge-cases.html">Edge cases of And/Or decision points (Conjunctions)</a></li>
+	</ul>
+</nav>
+
 <h2>GCWeb implementation plan</h2>
 <ul>
 	<li>2021-06 - Engage with TBS to show them this design pattern</li>
@@ -33,7 +42,7 @@ css:
         <p>Some options are:</p>
         <ul>
 		<li>Creating the and/or using the list (<code>&lt;ul&gt;</code>) element</li>
-		
+
     <li>Adding option X of X to all headers</li>
     <li>Adding the word &quot;or&quot; as part of the last statement in each column (except the last column)</li>
   </ul>
@@ -144,7 +153,7 @@ css:
 &lt;header class=&quot;panel-heading&quot;&gt;
 &lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
 &lt;/header&gt;
-&lt;div class=&quot;panel-body&quot;&gt;	
+&lt;div class=&quot;panel-body&quot;&gt;
 &lt;ul class=&quot;cnjnctn-type-or brdr-0&quot;&gt;
 	&lt;li class=&quot;cnjnctn-col&quot;&gt;
 		This is content for option A
@@ -201,7 +210,7 @@ css:
             <p>This is content for header B</p>
           </div>
   </div>
-</section>	
+</section>
 <section>
         <h3>Always stacked (mobile first, no side-by-side)</h3>
         <div class="cnjnctn-type-or">
@@ -224,7 +233,7 @@ css:
             <p>This is content for header B</p>
           </div>
   </div>
-</section>	
+</section>
         <details>
     <summary>
         View code
@@ -253,8 +262,8 @@ css:
 &lt;/div&gt;
 
 //Always stacked "or"
-&lt;div class="cnjnctn-type-or"&gt; 
-	&lt;div class="cnjnctn-col"&gt; 
+&lt;div class="cnjnctn-type-or"&gt;
+	&lt;div class="cnjnctn-col"&gt;
 		&lt;h4 class="text-muted"&gt;Header A&lt;span class="wb-inv"&gt;: Option 1 of 2&lt;/span&gt;&lt;/h4&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
@@ -264,8 +273,8 @@ css:
 	&lt;/div&gt;
 &lt;/div&gt;
 //Always stacked "and"
-&lt;div class="cnjnctn-type-and"&gt; 
-	&lt;div class="cnjnctn-col"&gt; 
+&lt;div class="cnjnctn-type-and"&gt;
+	&lt;div class="cnjnctn-col"&gt;
 		&lt;h4 class="text-muted"&gt;Header A&lt;/h4&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
@@ -278,7 +287,7 @@ css:
   </details>
         <h3>Responsive design</h3>
         <p><strong>Note:</strong> all designs going forward will use the "or" model to simplify the amount of examples.</p>
-<section>      
+<section>
 <h4>Stacks on extra small devices, phones (&lt;768px)</h4>
         <div class="cnjnctn-type-or cnjnctn-sm">
     <div class="cnjnctn-col">
@@ -316,10 +325,10 @@ css:
             <p>This is content for header B</p>
           </div>
   </div>
-</section>	
+</section>
         <details>
     <summary>View code</summary>
-    <pre><code>//Stacks on extra small devices, phones	
+    <pre><code>//Stacks on extra small devices, phones
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-sm&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
 		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
@@ -329,8 +338,8 @@ css:
 		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;				
-//Stacks on small devices, tablets	
+&lt;/div&gt;
+//Stacks on small devices, tablets
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
 		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
@@ -340,7 +349,7 @@ css:
 		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;				
+&lt;/div&gt;
 //Stacks on medium devices
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
@@ -356,7 +365,7 @@ css:
         <p>Use the <strong>always stacked</strong> design to stack across all resolutions.</p>
         <h2>Extended configurations</h2>
         <h3>Column count</h3>
-<section>        
+<section>
 <h4>Three columns (example stacks on small devices)</h4>
         <div class="cnjnctn-type-or cnjnctn-md">
     <div class="cnjnctn-col">
@@ -446,8 +455,8 @@ css:
 		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
 		<p>This is content for header B</p>
 		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-    <div class="cnjnctn-type-and"> 
-	<div class="cnjnctn-col"> 
+    <div class="cnjnctn-type-and">
+	<div class="cnjnctn-col">
 		<h6 class="text-muted">Header B.1</h6>
 		<p>This is content for header B.1</p>
 	</div>
