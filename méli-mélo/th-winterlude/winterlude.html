@@ -1,202 +1,195 @@
 ---
 title: Winterlude theme
-dateModified: 2022-10-13
+dateModified: 2022-11-17
 description: Winterlude CSS styles
 lang: en
 css:
 - style.css
-layout: no-container
+layout: without-h1
 ---
-    <div class="container">
-    <h1 property="name" id="wb-cont" dir="ltr">{{ page.title }}</h1>
-    {% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-winterlude" | first %}
-    <p>Sponsor: {{ metadata.sponsor }}</p>
-    <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
-    <p>Progressive enhancement note:</p>
-    <ul>
-        {% for peNote in metadata.peNote %}
-        <li>{{ peNote }}</li>
-        {% endfor %}
-    </ul>
-    <h2>On this page</h2>
-    <ul>
-        <li><a href="#a0">Customized heading 1 with larger font and a blue bottom border underline</a></li>
-        <li><a href="#a1">Blue background and white text</a></li>
-        <li><a href="#a2">Light blue background</a></li>
-    </ul>
-    <h2 id="a0">Customized heading 1 with larger font and a blue bottom border underline</h2>
-    <p>Use to increase the font size and add a blue bottom border underline to the h1.</p>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h3 class="mrgn-tp-0">Appearance</h3>
-            <h1 class="winterlude">This h1 is styled with <code>.winterlude</code></h1>
-        </div>
+<h1 property="name" id="wb-cont" dir="ltr">{{ page.title }}</h1>
+{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-winterlude" | first %}
+<p>Sponsor: {{ metadata.sponsor }}</p>
+<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+<p>Progressive enhancement note:</p>
+<ul>
+    {% for peNote in metadata.peNote %}
+    <li>{{ peNote }}</li>
+    {% endfor %}
+</ul>
+<h2>On this page</h2>
+<ul>
+    <li><a href="#a0">Customized heading 1 with larger font and a blue bottom border underline</a></li>
+    <li><a href="#a1">Blue background and white text</a></li>
+    <li><a href="#a2">Light blue background</a></li>
+</ul>
+<h2 id="a0">Customized heading 1 with larger font and a blue bottom border underline</h2>
+<p>Use to increase the font size and add a blue bottom border underline to the h1.</p>
+<p>For an example of the appearance, please see the h1 of this page that is styled with the class <code>.winterlude</code>.</p>
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to style the h1 for Winterlude campaign pages</li>
+        </ul>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Use to style the h1 for Winterlude campaign pages</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-            </ul>
-        </div>
+    <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+        </ul>
     </div>
-    <h3>Code</h3>
-    <pre><code>&lt;h1 class="winterlude"&gt;...&lt;/h1&gt;</code></pre>
-    <h3>CSS classes</h3>
-    <dl class="dl-horizontal">
-        <dt><code>.winterlude</code></dt>
-        <dd>Increase the font size and add a blue bottom border underline</dd>
-    </dl>
-    <h2 id="a1">Blue background and white text</h2>
-    <p>Use to make text appear white in colour on a blue background.</p>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h3 class="mrgn-tp-0">Appearance</h3>
-            <p class="bg-dark bg-winterlude text-white">This text is styled with <code>.bg-dark</code>, <code>.bg-winterlude</code> and <code>.text-white</code>.</p>
-        </div>
+</div>
+<h3>Code</h3>
+<pre><code>&lt;h1 class="winterlude"&gt;...&lt;/h1&gt;</code></pre>
+<h3>CSS classes</h3>
+<dl class="dl-horizontal">
+    <dt><code>.winterlude</code></dt>
+    <dd>Increase the font size and add a blue bottom border underline</dd>
+</dl>
+<h2 id="a1">Blue background and white text</h2>
+<p>Use to make text appear white in colour on a blue background.</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3 class="mrgn-tp-0">Appearance</h3>
+        <p class="bg-dark bg-winterlude text-white">This text is styled with <code>.bg-dark</code>, <code>.bg-winterlude</code> and <code>.text-white</code>.</p>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Use to introduce contrast to information</li>
-                <li>Use <code>.bg-winterlude</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
-                <li>Use a fallback colour such as <code>.bg-dark</code> for sections and paragraphs, <code>.btn-info</code> for buttons or <code>.panel-default</code> for panels to accommodate progressive enhancement</li>
-                <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-                <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
-            </ul>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use <code>.bg-winterlude</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
+            <li>Use a fallback colour such as <code>.bg-dark</code> for sections and paragraphs, <code>.btn-info</code> for buttons or <code>.panel-default</code> for panels to accommodate progressive enhancement</li>
+            <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        </ul>
     </div>
-    <h3>Code</h3>
-    <pre><code>&lt;p class="bg-dark bg-winterlude text-white"&gt;...&lt;/p&gt;</code></pre>
-    <h3>CSS classes</h3>
-    <dl class="dl-horizontal">
-        <dt><code>.bg-winterlude</code></dt>
-        <dd>Set a background colour to blue</dd>
-        <dt><code>.panel-winterlude</code></dt>
-        <dd>Set border colour for panel to blue</dd>
-        <dt><code>hr.brdr-winterlude</code></dt>
-        <dd>Set border colour for &lt;hr&gt; to blue</dd>
-    </dl>
-    <h3>Examples</h3>
-    <h4>Section example</h4>
-    <section class="well bg-dark bg-winterlude text-white">
-        <h5 class="h2 mrgn-tp-0">Example of a heading</h5>
-        <p>This section is styled with <code>.bg-dark</code>, <code>.bg-winterlude</code> and <code>.text-white</code>.</p>
-        <p><a class="text-white" href="#">Link example</a></p>
-        <button class="btn-info bg-winterlude text-white" type="button">Button example</button>
-    </section>
-    <h5>Code</h5>
-    <pre><code>&lt;section class="well bg-dark bg-winterlude text-white"&gt;
+    <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+    </div>
+</div>
+<h3>Code</h3>
+<pre><code>&lt;p class="bg-dark bg-winterlude text-white"&gt;...&lt;/p&gt;</code></pre>
+<h3>CSS classes</h3>
+<dl class="dl-horizontal">
+    <dt><code>.bg-winterlude</code></dt>
+    <dd>Set a background colour to blue</dd>
+    <dt><code>.panel-winterlude</code></dt>
+    <dd>Set border colour for panel to blue</dd>
+    <dt><code>hr.brdr-winterlude</code></dt>
+    <dd>Set border colour for &lt;hr&gt; to blue</dd>
+</dl>
+<h3>Examples</h3>
+<h4>Section example</h4>
+<section class="well bg-dark bg-winterlude text-white">
+    <h5 class="h2 mrgn-tp-0">Example of a heading</h5>
+    <p>This section is styled with <code>.bg-dark</code>, <code>.bg-winterlude</code> and <code>.text-white</code>.</p>
+    <p><a class="text-white" href="#">Link example</a></p>
+    <button class="btn-info bg-winterlude text-white" type="button">Button example</button>
+</section>
+<h5>Code</h5>
+<pre><code>&lt;section class="well bg-dark bg-winterlude text-white"&gt;
     &lt;h5 class="h2 mrgn-tp-0"&gt;Example of a heading&lt;/h5&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-dark&lt;/code&gt;, &lt;code&gt;.bg-winterlude&lt;/code&gt; and &lt;code&gt;.text-white&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-info bg-winterlude text-white" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-    <h3>&lt;button&gt; .btn example</h3>
-    <button class="btn btn-info bg-winterlude text-white" type="button">Button</button>
-    <h4>Code</h4>
-    <pre><code>&lt;button class="btn btn-info bg-winterlude text-white" type="button"&gt;Button&lt;/button&gt;</code></pre>
-    <h3>&lt;a&gt; .btn example</h3>
-    <a href="#" class="btn btn-info bg-winterlude text-white">Anchor</a>
-    <h4>Code</h4>
-    <pre><code>&lt;a href="#" class="btn btn-info bg-winterlude text-white"&gt;Anchor&lt;/a&gt;</code></pre>
-    <h3>&lt;hr&gt; example</h3>
-    <hr class="brdr-winterlude">
-    <h4>Code</h4>
-    <pre><code>&lt;hr class="brdr-winterlude"&gt;</code></pre>
-    <h4>Standard &lt;hr&gt; for visual comparison reference</h4>
-    <hr>
-    <h3>Panel border example</h3>
-    <div class="panel panel-default panel-winterlude">
-        <div class="panel-body">
-            <p>Lorem ipsum dolor sit amet.</p>
-        </div>
+<h3><code>&lt;button&gt; .btn</code> example</h3>
+<button class="btn btn-info bg-winterlude text-white" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-info bg-winterlude text-white" type="button"&gt;Button&lt;/button&gt;</code></pre>
+<h3><code>&lt;a&gt; .btn</code> example</h3>
+<a href="#" class="btn btn-info bg-winterlude text-white">Anchor</a>
+<h4>Code</h4>
+<pre><code>&lt;a href="#" class="btn btn-info bg-winterlude text-white"&gt;Anchor&lt;/a&gt;</code></pre>
+<h3><code>&lt;hr&gt;</code> example</h3>
+<hr class="brdr-winterlude">
+<h4>Code</h4>
+<pre><code>&lt;hr class="brdr-winterlude"&gt;</code></pre>
+<h4>Standard &lt;hr&gt; for visual comparison reference</h4>
+<hr>
+<h3>Panel border example</h3>
+<div class="panel panel-default panel-winterlude">
+    <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <h4>Code</h4>
-    <pre><code>&lt;div class="panel panel-default panel-winterlude"&gt;
+</div>
+<h4>Code</h4>
+<pre><code>&lt;div class="panel panel-default panel-winterlude"&gt;
     &lt;div class="panel-body"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-    <h4>Standard default panel border for visual comparison reference</h4>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <p>Lorem ipsum dolor sit amet.</p>
-        </div>
+<h4>Standard default panel border for visual comparison reference</h4>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
     </div>
-    <h2 id="a2">Light blue background</h2>
-    <p>Use to make text appear on a lightblue background.</p>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h3 class="mrgn-tp-0">Appearance</h3>
-            <p class="bg-winterlude-lightblue">This text is styled with <code>.bg-winterlude-lightblue</code>.</p>
-        </div>
+</div>
+<h2 id="a2">Light blue background</h2>
+<p>Use to make text appear on a lightblue background.</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3 class="mrgn-tp-0">Appearance</h3>
+        <p class="bg-winterlude-lightblue">This text is styled with <code>.bg-winterlude-lightblue</code>.</p>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Use to introduce contrast to information</li>
-                <li>Use <code>.bg-winterlude-lightblue</code> with the default text colour to ensure sufficient contrast between text and background</li>
-                <li>Use a fallback colour such as <code>.btn-default</code> for buttons to accommodate progressive enhancement</li>
-                <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
-            <p>Compliance point(s):</p>
-            <ul>
-                <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-                <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
-            </ul>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use <code>.bg-winterlude-lightblue</code> with the default text colour to ensure sufficient contrast between text and background</li>
+            <li>Use a fallback colour such as <code>.btn-default</code> for buttons to accommodate progressive enhancement</li>
+            <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        </ul>
     </div>
-    <h3>Code</h3>
-    <pre><code>&lt;p class="bg-winterlude-lightblue"&gt;...&lt;/p&gt;</code></pre>
-    <h3>CSS classes</h3>
-    <dl class="dl-horizontal">
-        <dt><code>.bg-winterlude-lightblue</code></dt>
-        <dd>Set a background colour to light blue</dd>
-    </dl>
-    <h3>Examples</h3>
-    <h4>Section example</h4>
-    <section class="well bg-winterlude-lightblue">
-        <h5 class="h2 mrgn-tp-0">Example of a heading</h5>
-        <p>This section is styled with <code>.bg-winterlude-lightblue</code>.</p>
-        <p><a href="#">Link example</a></p>
-        <button class="btn-default bg-winterlude-lightblue" type="button">Button example</button>
-    </section>
-    <h5>Code</h5>
-    <pre><code>&lt;section class="well bg-winterlude-lightblue"&gt;
+    <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+    </div>
+</div>
+<h3>Code</h3>
+<pre><code>&lt;p class="bg-winterlude-lightblue"&gt;...&lt;/p&gt;</code></pre>
+<h3>CSS classes</h3>
+<dl class="dl-horizontal">
+    <dt><code>.bg-winterlude-lightblue</code></dt>
+    <dd>Set a background colour to light blue</dd>
+</dl>
+<h3>Examples</h3>
+<h4>Section example</h4>
+<section class="well bg-winterlude-lightblue">
+    <h5 class="h2 mrgn-tp-0">Example of a heading</h5>
+    <p>This section is styled with <code>.bg-winterlude-lightblue</code>.</p>
+    <p><a href="#">Link example</a></p>
+    <button class="btn-default bg-winterlude-lightblue" type="button">Button example</button>
+</section>
+<h5>Code</h5>
+<pre><code>&lt;section class="well bg-winterlude-lightblue"&gt;
     &lt;h5 class="h2 mrgn-tp-0"&gt;Example of a heading&lt;/h5&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-winterlude-lightblue&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-default bg-winterlude-lightblue" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-    <h3>&lt;button&gt; .btn example</h3>
-    <button class="btn btn-default bg-winterlude-lightblue" type="button">Button</button>
-    <h4>Code</h4>
-    <pre><code>&lt;button class="btn btn-default bg-winterlude-lightblue" type="button"&gt;Button&lt;/button&gt;</code></pre>
-    <h3>&lt;a&gt; .btn example</h3>
-    <a href="#" class="btn btn-default bg-winterlude-lightblue">Anchor</a>
-    <h4>Code</h4>
-    <pre><code>&lt;a href="#" class="btn btn-default bg-winterlude-lightblue"&gt;Anchor&lt;/a&gt;</code></pre>
-</div>
+<h3><code>&lt;button&gt; .btn</code> example</h3>
+<button class="btn btn-default bg-winterlude-lightblue" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-default bg-winterlude-lightblue" type="button"&gt;Button&lt;/button&gt;</code></pre>
+<h3><code>&lt;a&gt; .btn</code> example</h3>
+<a href="#" class="btn btn-default bg-winterlude-lightblue">Anchor</a>
+<h4>Code</h4>
+<pre><code>&lt;a href="#" class="btn btn-default bg-winterlude-lightblue"&gt;Anchor&lt;/a&gt;</code></pre>
