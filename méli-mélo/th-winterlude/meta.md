@@ -14,7 +14,7 @@ cssClass:
 - winterlude
 a11yStatement: >
   These colours meet the colour contrast requirements as outlined in WCAG 2.1 AA Success Criterion 1.4.3: Contrast (Minimum).
-  Tested by Nick Frenette, nick.frenette at canada.ca. 2022-11-01.
+  Tested by Nick Frenette, nick.frenette at canada.ca. 2022-11-17.
 peNote:
 - The <code>bg-winterlude</code> class must be accompagnied with another dark contrast background colour such as <code>bg-dark</code>
 - The <code>panel-winterlude</code> class must be accompagnied with a fall back color such as <code>panel-default</code>
