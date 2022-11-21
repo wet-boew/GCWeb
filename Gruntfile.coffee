@@ -818,16 +818,8 @@ module.exports = (grunt) ->
 						"The “navigation” role is unnecessary for element “nav”."
 					]
 				src: [
-					"dist/unmin/**/*.html"
-					"!dist/unmin/**/ajax/**/*.html"
-					"!dist/unmin/assets/**/*.html"
-					"!dist/unmin/demos/menu/demo/*.html"
-					"!dist/unmin/test/*.html"
-					"!dist/unmin/demos/data-json/template-en.html"
-					"!dist/unmin/demos/data-json/template-fr.html"
-					"!dist/unmin/gcweb-theme/test-case-1.html"
-					"!dist/unmin/xprmntl/pink-day-en.html"
-					"!dist/unmin/xprmntl/pink-day-fr.html"
+					"~sites/**/*.html"
+					"!~sites/wetboew-demos/*"
 				]
 
 		bootlint:
@@ -853,14 +845,16 @@ module.exports = (grunt) ->
 						"E018" # GCWeb wants to support explicit labels when using radio inputs under the .gc-chckbxrdio .radio classes
 					]
 				src: [
-					"dist/**/*.html"
+					"~sites/**/*.html"
+					# Ignore wet-boew demos files
+					"!~sites/wetboew-demos/*"
 					# Ignore HTML fragments used for the menus
-					"!dist/**/assets/*.html"
-					"!dist/**/ajax/*.html"
+					"!~sites/**/assets/*.html"
+					"!~sites/**/ajax/*.html"
 					# Ignore deprecated page as it is just for testing
-					"!dist/**/deprecated-*.html"
+					"!~sites/**/deprecated-*.html"
 					# Ignore Bootstrap 4 test page
-					"!dist/**/gcweb-theme/static-header-footer/bootstrap-4.html"
+					"!~sites/**/bootstrap-4.html"
 				]
 			bootstrap4:
 				options:
@@ -876,7 +870,7 @@ module.exports = (grunt) ->
 						"W015" # Detected what appears to be Bootstrap v4 or later. This version of Bootlint only supports Bootstrap v3.
 					]
 				src: [
-					"dist/**/gcweb-theme/static-header-footer/bootstrap-4.html"
+					"~sites/**/bootstrap-4.html"
 				]
 
 		watch:

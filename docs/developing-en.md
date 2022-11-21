@@ -49,8 +49,11 @@ docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='
 This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
 
 ```
+grunt debug
 docker-compose up
 ```
+
+First time run: `docker-compose up --build`
 
 ## Run the continous integration and deployment script locally
 
@@ -74,6 +77,35 @@ Where:
 * `<GITHUB USERNAME>`: Your name, like "John Doe"
 * `<GITHUB HANDLE>`: Your github id
 * `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
+
+### Run additional CI test locally
+
+Pre-requites
+
+```
+grunt debug
+docker-compose up
+
+```
+
+HTML link checker
+
+
+```
+docker exec -i gcweb_jekyll rake
+```
+
+Bootlint test
+
+```
+grunt bootlint
+```
+
+HTML lint
+
+```
+grunt htmllint:all
+```
 
 ## Refresh your github pages with the latest theme changes
 
