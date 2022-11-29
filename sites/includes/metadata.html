@@ -3,7 +3,7 @@
 <meta name="dcterms.title" content="{{ page.title }}"/>
 <meta name="dcterms.description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description[page.lang] }} {% endif %}"/>
 <meta name="dcterms.creator" content="{% if page.creator %}{{ page.creator }}{% else %}{{ site.creator[page.lang] }} {% endif %}"/>
-<meta name="dcterms.language" title="ISO639-2/T" content="{{ i18nText-language | downcase | truncate: 3, '' }}"/>
-<meta name="dcterms.subject" title="gccore" content="{{ page.subject }}"/>
-<meta name="dcterms.issued" title="W3CDTF" content="{{ page.dateIssued | default: page.date }}"/>
-<meta name="dcterms.modified" title="W3CDTF" content="{% if page.dateModified %}{{ page.dateModified }}{% else %}{{ page.dateIssued | default: page.date }}{% endif %}"/>
+<meta name="dcterms.language" content="{{ i18nText-iso639-2T }}"/>
+<meta name="dcterms.subject" content="{{ page.subject }}"/>
+<meta name="dcterms.issued" content="{{ page.dateIssued | default: page.date }}"/>
+<meta name="dcterms.modified" content="{% if page.dateModified %}{{ page.dateModified }}{% else %}{{ page.dateIssued | default: page.date }}{% endif %}"/>
