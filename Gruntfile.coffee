@@ -49,6 +49,17 @@ module.exports = (grunt) ->
 	)
 
 	@registerTask(
+		"demo"
+		"Build a demo ready version of the site"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runDemo"
+			"core-dist-DEBUG"
+			"site-contents"
+		]
+	)
+
+	@registerTask(
 		"méli-mélo"
 		"Build méli-mélo files and run it in-place"
 		[
@@ -59,7 +70,6 @@ module.exports = (grunt) ->
 			"copy:méliméloGelé"
 		]
 	)
-
 
 	@registerTask(
 		"site-contents"
@@ -72,7 +82,6 @@ module.exports = (grunt) ->
 			"copy:wetboew_demos"
 		]
 	)
-
 
 	@registerTask(
 		"méli-mélo-remote"
@@ -116,12 +125,22 @@ module.exports = (grunt) ->
 			"copy:samples"
 		]
 	)
+
 	@registerTask(
 		"jekyll-theme-runLocal"
 		"DEBUG - Jekyll theme but with the run local variant"
 		[
 			"usebanner:jekyllRunLocal"
 			"copy:jekyllRunLocal"
+		]
+	)
+
+	@registerTask(
+		"jekyll-theme-runDemo"
+		"DEBUG - Jekyll theme but with the run demo variant"
+		[
+			"usebanner:jekyllRunDemo"
+			"copy:jekyllRunDemo"
 		]
 	)
 
@@ -135,6 +154,7 @@ module.exports = (grunt) ->
 			"usebanner:jekyllRunUnminified"
 		]
 	)
+
 	@registerTask(
 		"core-dist-PROD"
 		"Compile core GCWeb files"
@@ -163,6 +183,7 @@ module.exports = (grunt) ->
 			"copy:depsJS_custom"
 		]
 	)
+
 	@registerTask(
 		"core-dist-POST"
 		"Post task to complete the compilation of core GCWeb files"
@@ -172,7 +193,6 @@ module.exports = (grunt) ->
 			"clean:depsJS"
 		]
 	)
-
 
 	@registerTask(
 		"deploy-packagejson"
@@ -198,7 +218,6 @@ module.exports = (grunt) ->
 			};
 			grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
 	)
-
 
 	@registerTask(
 		"linting"
@@ -472,6 +491,7 @@ module.exports = (grunt) ->
 					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.css"
 				]
 				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/<%= curMéliPack %>.css"
+
 		usebanner:
 			css:
 				options:
@@ -494,6 +514,11 @@ module.exports = (grunt) ->
 			jekyllRunLocal:
 				options:
 					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}"""
+					position: "bottom"
+				src: "<%= jekyllDist %>/_includes/settings.liquid"
+			jekyllRunDemo:
+				options:
+					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:
@@ -597,6 +622,13 @@ module.exports = (grunt) ->
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
 			jekyllRunLocal:
+				src: [
+					"_includes/**.*",
+					"_includes/**/*.*",
+					"_layouts/**.*"
+				]
+				dest: "<%= jekyllDist %>/"
+			jekyllRunDemo:
 				src: [
 					"_includes/**.*",
 					"_includes/**/*.*",
@@ -734,6 +766,7 @@ module.exports = (grunt) ->
 #					console.log( src )
 #					console.log( dest )
 #					return dest
+
 		postcss:
 			options:
 				processors: [
@@ -747,6 +780,7 @@ module.exports = (grunt) ->
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
+
 		cssmin:
 			theme:
 				expand: true
