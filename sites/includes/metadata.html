@@ -1,1 +1,9 @@
-<meta name="description" content="{% if page.description[page.lang] %}{{ page.description[page.lang] }}{% else %}{{ site.site-description[page.lang] }} {% endif %}" />
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description[page.lang] }} {% endif %}" />
+<meta name="author" content="{% if page.creator %}{{ page.creator }}{% else %}{{ site.creator[page.lang] }} {% endif %}"/>
+<meta name="dcterms.title" content="{{ page.title }}"/>
+<meta name="dcterms.description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description[page.lang] }} {% endif %}"/>
+<meta name="dcterms.creator" content="{% if page.creator %}{{ page.creator }}{% else %}{{ site.creator[page.lang] }} {% endif %}"/>
+<meta name="dcterms.language" content="{{ i18nText-iso639-2T }}"/>
+<meta name="dcterms.subject" content="{{ page.subject }}"/>
+<meta name="dcterms.issued" content="{{ page.dateIssued | default: page.date }}"/>
+<meta name="dcterms.modified" content="{% if page.dateModified %}{{ page.dateModified }}{% else %}{{ page.dateIssued | default: page.date }}{% endif %}"/>
