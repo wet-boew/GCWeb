@@ -7,7 +7,7 @@
 		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/themes-dist/GCWeb/index-en.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2021-01-19",
+	"dateModified": "2022-12-06",
 	"share": "true"
 }
 ---
@@ -93,9 +93,16 @@
 	</tr>
 	<tr>
 		<th>Template <code>.gc-pg-hlpfl</code></th>
-		<td>"Page success widget" design pattern to let users share their experience on the page.</td>
+		<td>
+			<p>"Page success widget" design pattern to let users share their experience on the page.</p>
+			<p>Feature has been revised and renamed to "page feedback tool" (<code>.gc-pft</code>):</p>
+			<ul>
+				<li><a href="../sites/gc-page-feedback/gc-page-feedback-en.html">Page feedback tool - Canada.ca site functionality</a></li>
+				<li><a href="../sites/gc-page-feedback/gc-page-feedback-custom-en.html">Page feedback tool with custom parameters - Canada.ca site functionality</a></li>
+			</ul>
+		</td>
 		<td>v7.0</td>
-		<td></td>
+		<td>Stable (vX.X.X) (TODO)</td>
 	</tr>
 	<tr>
 		<th>Plugin <code>.wb-chtwzrd</code></th>
@@ -401,81 +408,4 @@ if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
 	<p class="h1">
 		<span class="glyphicon glyphicon-warning-sign provisional icon-warning-light mrgn-rght-md"></span> With "provisional icon-warning-light" class
 	</p>
-</div>
-<h3 id="gc-pg-hlpfl">Page success widget</h3>
-<p>Planned to eventually replace Report a problem. Uses multiple features: <code>wb-postback</code> and <code>data-wb-doaction</code> plugins, as well as <code>nojs-*</code> styles and Font Awesome.</p>
-<div class="row row-no-gutters mrgn-tp-xl">
-	<div class="col-sm-7 col-lg-6">
-		<section class="provisional gc-pg-hlpfl">
-			<div class="well mrgn-bttm-0">
-				<form id="gc-pg-hlpfl-frm" action="index-en.html" method="post" autocomplete="off" class="provisional wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.gc-pg-hlpfl-thnk&quot;,&quot;content&quot;:&quot;#gc-pg-hlpfl-frm&quot;}">
-					<input type="hidden" name="pageTitle" value="Provisional functionality - GCWeb theme">
-					<input type="hidden" name="submissionPage" value="https://wet-boew.github.io/themes-dist/GCWeb/provisional-en.html">
-					<input type="hidden" name="tid" value="1234">
-					<input type="hidden" name="auke" value="5678">
-					<div class="gc-pg-hlpfl-btn">
-						<div class="row row-no-gutters">
-							<div class="col-xs-12 col-sm-7 mrgn-tp-sm">
-								<h2 class="mrgn-tp-sm h5">Did you find what you were looking for?</h2>
-							</div>
-							<div class="col-xs-8 col-sm-5 text-right">
-								<button type="submit" name="helpful" value="Yes" class="btn btn-primary">Yes</button>
-								<button type="button" class="btn btn-primary mrgn-lft-sm nojs-hide" data-wb-doaction="[
-									{&quot;action&quot;:&quot;removeClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-no&quot;,&quot;class&quot;:&quot;nojs-show&quot;},
-									{&quot;action&quot;:&quot;addClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-btn&quot;,&quot;class&quot;:&quot;hide&quot;}
-								]">No</button>
-							</div>
-						</div>
-					</div>
-					<p class="h3 hidden nojs-show">If not, tell us why:</p>
-					<div class="gc-pg-hlpfl-no nojs-show">
-						<fieldset>
-							<legend class="h4 mrgn-tp-0 mrgn-bttm-md">What was wrong?</legend>
-							<div class="radio">
-								<label>
-									<input name="problem" id="problem01" type="radio" value="The answer I need is missing">
-									The answer I need is missing
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input name="problem" id="problem02" type="radio" value="The information isn’t clear">
-									The information isn’t clear
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input name="problem" id="problem03" type="radio" value="I’m not in the right place">
-									I’m not in the right place
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input name="problem" id="problem04" type="radio" value="Something is broken or incorrect">
-									Something is broken or incorrect
-								</label>
-							</div>
-							<div class="radio">
-								<label>
-									<input name="problem" id="problem05" type="radio" value="Other reason">
-									Other reason
-								</label>
-							</div>
-						</fieldset>
-						<label for="problem06">Please provide more details</label>
-						<p class="small">
-							<strong>(Don’t include any personal information)</strong>
-							<br>
-							<span class="small">Maximum 300 characters</span>
-						</p>
-						<textarea name="details" id="problem06" class="full-width" maxlength="300"></textarea>
-						<button type="submit" name="helpful" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">Submit</button>
-					</div>
-				</form>
-				<div class="gc-pg-hlpfl-thnk hide">
-					<p class="h6 mrgn-tp-sm mrgn-bttm-sm"><span class="far fa-check-circle text-success mrgn-rght-sm" aria-hidden="true"></span> Thank you for your feedback</p>
-				</div>
-			</div>
-		</section>
-	</div>
 </div>
