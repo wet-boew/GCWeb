@@ -1,0 +1,24 @@
+/*
+  @title: Page feedback tool - Base
+ */
+
+/* In noscript/basic HTML mode... */
+.no-js,
+.wb-disable {
+	.gc-pft {
+		/* Disable row gutters (default selector isn't specific-enough) */
+		.row-no-gutters {
+			@extend .row-no-gutters;
+		}
+
+		/* Make the legend full width */
+		.nojs-col-sm-12 {
+			@extend .col-sm-12;
+		}
+
+		/* Left-align the legend and yes/no buttons */
+		.nojs-text-left {
+			text-align: left;
+		}
+	}
+}

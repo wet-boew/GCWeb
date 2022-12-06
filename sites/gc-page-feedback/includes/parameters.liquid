@@ -1,0 +1,57 @@
+{%- comment -%}
+Set parameter variables
+{%- endcomment -%}
+
+{%- capture pft_institutionopt_value -%}
+	{%- if page.pageFeedback.institutionopt -%}
+		{{ page.pageFeedback.institutionopt }}
+	{%- else -%}
+		Institution - required - must use same abbreviation value EN and FR
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture pft_themeopt_value -%}
+	{%- if page.pageFeedback.themeopt -%}
+		{{ page.pageFeedback.themeopt }}
+	{%- else -%}
+		Theme - required - must use same value EN and FR
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture pft_sectionopt_value -%}
+	{%- if page.pageFeedback.sectionopt -%}
+		{{ page.pageFeedback.sectionopt }}
+	{%- else -%}
+		Section - required but can be blank - same value EN and FR
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture pft_pageTitle_value -%}
+	{%- if page.pageFeedback.pageTitle == "true" -%}
+		{{ page.title }}
+	{%- elsif page.pageFeedback.title -%}
+		{{ page.pageFeedback.pageTitle }}
+	{%- else -%}
+		Page title (EN) - required
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture pft_language_value -%}
+	{%- if page.pageFeedback.language == "true" -%}
+		{{ i18nText-lang }}
+	{%- elsif page.pageFeedback.language -%}
+		{{ page.pageFeedback.language }}
+	{%- else -%}
+		Language - required - use EN or FR
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture pft_submissionPage_value -%}
+	{%- if page.pageFeedback.submissionPage == "true" -%}
+		{{ page.url | absolute_url }}
+	{%- elsif page.pageFeedback.submissionPage -%}
+		{{ page.pageFeedback.submissionPage }}
+	{%- else -%}
+		Page URL - required
+	{%- endif -%}
+{%- endcapture -%}
