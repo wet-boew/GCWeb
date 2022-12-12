@@ -109,6 +109,12 @@ HTML lint
 grunt htmllint:all
 ```
 
+## Build demo files
+
+Run the following command to generate files for a demo on https://github.com/ServiceCanada/wet-boew-demos where `[branchName]` refers to the branch name where your demo is hosted.
+
+`grunt demo --branch=[branchName]`
+
 ## Refresh your github pages with the latest theme changes
 
 You can make a commit to your site and it will get regenerated with the latest version of the jekyll theme. Alternatively, the following curl command will told github to regenerate your site.
