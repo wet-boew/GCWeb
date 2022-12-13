@@ -1,0 +1,40 @@
+---
+{
+	"title": "Customize 'Terms and conditions' and 'Privacy' links in footer",
+	"language": "en",
+	"breadcrumbs": [
+		{ "title": "Footer", "link": "sites/footers/footers-en.html" }
+	],
+	"altLangPage": "custom-transparency-links-fr.html",
+	"secondlevel": false,
+	"dateModified": "2022-12-12",
+	"share": "true",
+	"contextualFooter": {
+		"title": "[Contextual footer header]",
+		"links": [
+			{ "url": "http://canada.ca/en", "text": "Contextual link 1"},
+			{ "url": "http://canada.ca/en", "text": "Contextual link 2"},
+			{ "url": "http://canada.ca/en", "text": "Contextual link 3"}
+		]
+	},
+	"termsUrl": "http://canada.ca/en",
+	"privacyUrl": "http://canada.ca/en",
+	"includes": { "footer": "edge" }
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+{% include alert-softlaunch.html component="site footer" version="4" %}
+
+<p>By setting the <code>termsUrl</code> and/or <code>privacyUrl</code> variable to a specific URL, their respective link's URL will be updated.</p>
+<p>GCWeb Jekyll specific:</p>
+<ul>
+	<li>If the <code>termsUrl</code> variable is not defined in the front-matter of the page, the link's URL defined in <code>_config.yml</code> will be used instead. If it is neither defined in the front-matter nor in <code>_config.yml</code>, the URL will default to: "https://www.canada.ca/en/transparency/terms.html".</li>
+	<li>If the <code>privacyUrl</code> variable is not defined in the front-matter of the page, the link's URL defined in <code>_config.yml</code> will be used instead. If it is neither defined in the front-matter nor in <code>_config.yml</code>, the URL will default to: "https://www.canada.ca/en/transparency/privacy.html".</li>
+</ul>
+
+<h2>Expected output code</h2>
+{%- include variable-core.liquid -%}
+{% highlight html %}
+	{%- include footers/footer.html -%}
+{% endhighlight %}

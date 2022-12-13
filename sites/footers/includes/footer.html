@@ -14,6 +14,26 @@
 	{%- endif -%}
 {%- endcapture -%}
 
+{%- capture termsUrl -%}
+	{%- if page.termsUrl -%}
+		{{ page.termsUrl }}
+	{%- elsif site.global.termsUrl[i18nText-lang] -%}
+		{{ site.global.termsUrl[i18nText-lang] }}
+	{%- else -%}
+		{{ i18nText-termsUrl }}
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture privacyUrl -%}
+	{%- if page.privacyUrl -%}
+		{{ page.privacyUrl }}
+	{%- elsif site.global.privacyUrl[i18nText-lang] -%}
+		{{ site.global.privacyUrl[i18nText-lang] }}
+	{%- else -%}
+		{{ i18nText-privacyUrl }}
+	{%- endif -%}
+{%- endcapture -%}
+
 {%- comment -%} Footer version control, allow to use multiple version of an include to ease migration {%- endcomment -%}
 {%- if footerIncludeVersion == "v2" -%}
 
@@ -131,11 +151,11 @@
 					{%- endif -%}
 					{% endunless %}
 					{%- if i18nText-lang == "fr" -%}
-					<li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
-					<li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
+					<li><a href="{{termsUrl}}">Avis</a></li>
+					<li><a href="{{privacyUrl}}">Confidentialité</a></li>
 					{%- elsif i18nText-lang == "en" -%}
-					<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-					<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+					<li><a href="{{termsUrl}}">Terms and conditions</a></li>
+					<li><a href="{{privacyUrl}}">Privacy</a></li>
 					{%- endif -%}
 				</ul>
 			</nav>

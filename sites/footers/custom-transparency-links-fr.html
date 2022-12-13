@@ -1,0 +1,40 @@
+---
+{
+	"title": "Personnaliser les liens 'Avis' et 'Confidentialité' dans le pied de page",
+	"language":	"fr",
+	"breadcrumbs": [
+		{ "title": "Pied de page", "link": "sites/footers/footers-fr.html" }
+	],
+	"altLangPage": "custom-transparency-links-en.html",
+	"secondlevel": false,
+	"dateModified": "2022-12-12",
+	"share": "true",
+	"contextualFooter": {
+		"title": "[Bande du pied de page contextuel]",
+		"links": [
+			{ "url": "http://canada.ca/fr", "text": "Lien contextuel 1"},
+			{ "url": "http://canada.ca/fr", "text": "Lien contextuel 2"},
+			{ "url": "http://canada.ca/fr", "text": "Lien contextuel 3"}
+		]
+	},
+	"termsUrl": "http://canada.ca/fr",
+	"privacyUrl": "http://canada.ca/fr",
+	"includes": { "footer": "edge" }
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+{% include alert-softlaunch.html component="pied de page" version="4" %}
+
+<p>En définissant la variable <code>termsUrl</code> et/ou <code>privacyUrl</code> avec une URL spécifique, l'URL de leur lien respectif sera mise à jour.</p>
+<p>Spécifique à GCWeb Jekyll&nbsp;:</p>
+<ul>
+	<li>Si la variable <code>termsUrl</code> n'est pas définie dans le front-matter de la page, l'URL du lien défini dans <code>_config.yml</code> sera utilisée à la place. Si elle n'est défini ni dans le front-matter ni dans <code>_config.yml</code>, l'URL par défaut sera&nbsp;: "https://www.canada.ca/fr/transparence/avis.html".</li>
+	<li>Si la variable <code>privacyUrl</code> n'est pas définie dans le front-matter de la page, l'URL du lien défini dans <code>_config.yml</code> sera utilisée à la place. Si elle n'est défini ni dans le front-matter ni dans <code>_config.yml</code>, l'URL par défaut sera&nbsp;: "https://www.canada.ca/fr/transparence/confidentialite.html".</li>
+</ul>
+
+<h2>Code de final attendu</h2>
+{%- include variable-core.liquid -%}
+{% highlight html %}
+	{%- include footers/footer.html -%}
+{% endhighlight %}
