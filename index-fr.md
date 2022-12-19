@@ -382,8 +382,19 @@ css:
 	{% endfor %}
 	</ul>
 	<h2 id="autre">Autre documentation</h2>
-	<h3>Aperçu des fonctionnalités wet-boew avec le thème de Canada.ca</h3>
-	<p><a href="/gcweb-compiled-demos/index.html#wet-boew">Aperçu des fonctionnalités wet-boew</a></p>
+	<div class="row mrgn-tp-md">
+		<div class="col-md-8">
+			<section class="row d-flex">
+				<div class="col-xs-3 col-md-2 d-flex align-self-center">
+					<img src="https://raw.github.com/wet-boew/wet-boew-attachments/master/Promo/WET_Logo.png" class="full-width" alt="">
+				</div>
+				<div class="col-xs-9 col-md-10">
+					<h3 class="mrgn-tp-md" id="wet-boew-demos">Fonctionnalités BOEW avec le thème de Canada.ca</h3>
+					<p><a href="/gcweb-compiled-demos/index.html#wet-boew">Voir les démos</a></p>
+				</div>
+			</section>
+		</div>
+	</div>
 	<h3 id="gcweb-projet-documentation">Documentation du projet GCWeb</h3>
 	<ul lang="en">
 		<li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
