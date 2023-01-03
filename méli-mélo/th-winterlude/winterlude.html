@@ -136,60 +136,45 @@ layout: without-h1
     </div>
 </div>
 <h3>Details/summary polyfill example</h3>
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h4>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use only with block elements <code>&lt;p&gt;</code>, <code>&lt;ol&gt;</code>, and <code>&lt;ul&gt;</code> and inline elements <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>.</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h4>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+    </div>
+</div>
 <details class="bg-winterlude mrgn-tp-sm mrgn-bttm-sm">
     <summary>Lorem ipsum</summary>
-    <p>Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipiscing elit.</p>
+    <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
     <ul>
         <li>List item 1</li>
-        <li>List item 2</li>
     </ul>
-    <table class="table table-bordered">
-        <caption class="text-left">
-        Table caption
-        </caption>
-        <thead>
-            <tr class="active">
-                <th>Header 1</th>
-                <th>Header 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Cell 2</td>
-                <td>Cell 1</td>
-            </tr>
-        </tbody>
-    </table>
 </details>
 <h4>Code</h4>
-<pre><code>&lt;details class=&quot;bg-winterlude&quot;&gt;
+<pre><code>&lt;details class=&quot;bg-winterlude mrgn-tp-sm mrgn-bttm-sm&quot;&gt;
     &lt;summary&gt;Lorem ipsum&lt;/summary&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum &lt;a href=&quot;#&quot;&gt;dolor sit amet&lt;/a&gt;, &lt;strong&gt;consectetur&lt;/strong&gt; &lt;em&gt;adipiscing elit&lt;/em&gt;.&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;List item 1&lt;/li&gt;
+    &lt;/ul&gt;
 &lt;/details&gt;</code></pre>
 <details class="mrgn-tp-lg">
     <summary>Lorem ipsum</summary>
-    <p>Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipiscing elit.</p>
+    <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
     <ul>
         <li>List item 1</li>
-        <li>List item 2</li>
     </ul>
-    <table class="table table-bordered">
-        <caption class="text-left">
-        Table caption
-        </caption>
-        <thead>
-            <tr class="active">
-                <th>Header 1</th>
-                <th>Header 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Cell 2</td>
-                <td>Cell 1</td>
-            </tr>
-        </tbody>
-    </table>
 </details>
 <h2 id="a2">Light blue background</h2>
 <p>Use to make text appear on a lightblue background.</p>
