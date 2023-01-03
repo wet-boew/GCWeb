@@ -29,6 +29,8 @@ module.exports = (grunt) ->
 		"dist"
 		"Build distribution files ready for production"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"test"
 			"jekyll-theme"
 			"core-dist-PROD"
@@ -41,6 +43,8 @@ module.exports = (grunt) ->
 		"debug"
 		"Build a local working copy"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
 			"core-dist-DEBUG"
@@ -63,6 +67,8 @@ module.exports = (grunt) ->
 		"méli-mélo"
 		"Build méli-mélo files and run it in-place"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
 			"clean:mélimélo"
@@ -395,10 +401,27 @@ module.exports = (grunt) ->
 
 	)
 
+	@registerMultiTask(
+		"check-wet-version"
+		"Ensure WET-BOEW's version is the same in package as in node_modules",
+		(src) ->
+			installedFull = this.data[0]
+			installed = installedFull.substring(installedFull.indexOf("#") + 2)
+			expectedFull = this.data[1]
+			expected = expectedFull.substring(expectedFull.indexOf("#") + 2)
+
+			if (installed != expected)
+				grunt.log.writeln(">> "['red'] + "wet-boew: installed: " + installed['red'] + ", expected: " + expected['green'])
+				grunt.fail.fatal(">> "['red'] + "Invoke " + "npm install"['green'] + " to update WET-BOEW version")
+			else
+				grunt.log.writeln(">> "['green'] + "WET-BOEW version up to date with package's version.")
+	)
+
 	@initConfig
 
 		# Metadata.
 		pkg: @file.readJSON "package.json"
+		pkgWET: @file.readJSON "node_modules/wet-boew/package.json"
 		distFolder: "dist"
 		themeDist: "<%= distFolder %>/<%= pkg.name %>"
 		jekyllDist: "~jekyll-dist"
@@ -418,6 +441,10 @@ module.exports = (grunt) ->
 			all:
 				options:
 					npmInstall: false
+					checkGitUrls: true
+
+		"check-wet-version":
+			src: ["<%= pkgWET._from %>", "<%= pkg.dependencies['wet-boew'] %>"]
 
 		clean:
 			dist: [ "dist"]
