@@ -7,3 +7,14 @@ ul.list-col-lg-1 > li { flex-basis: 100% }
 ul.list-col-lg-2 > li { flex-basis: 50% }
 ul.list-col-lg-3 > li { flex-basis: 33.33% }
 ul.list-col-lg-4 > li { flex-basis: 25% }
+
+/* Make a simple list multi-column and responsive (overide _defaults.scss) */
+.list-responsive {
+	> li {
+		width: 25%;
+
+		&:nth-child(4n+4) {
+			clear:right;
+		}
+	}
+}
