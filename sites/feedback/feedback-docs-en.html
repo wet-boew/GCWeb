@@ -1,397 +1,379 @@
 ---
 {
-	"title": "Page feedback (RAP) - Documentation",
+	"title": "Feedback area - Documentation",
 	"language": "en",
 	"altLangPage": "feedback-docs-fr.html",
-	"breadcrumbs": [
-		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
-	],
 	"secondlevel": false,
-	"dateModified": "2022-04-26",
-	"share": true,
-	"feedbackPath": "ajax/report-problem-en.html"
+	"dateModified": "2023-01-10",
+	"share": true
 }
 ---
 <span class="wb-prettify all-pre hide"></span>
 <dl class="horizontal">
 	<dt>Status</dt>
 	<dd>Stable</dd>
+	<dt>Version</dt>
+	<dd>5.0.0</dd>
 	<dt>Type</dt>
 	<dd>Canada.ca site functionality</dd>
-	<dt>Last review</dt>
-	<dd>2022-04-26</dd>
 </dl>
 
-<h2>Purpose</h2>
-<p>Displays the Page feedback form</p>
+<h2>Introduction</h2>
+<h3>Purpose</h3>
+<p>Provide feedback on any given page through a form.</p>
 
-
-<h2>Working example</h2>
-<ul>
-	<li><a href="feedback-en.html">Default page feedback form example</a></li>
-	<li><a href="feedback-aa-en.html">Default page feedback form with analytics data attributes example</a></li>
-	<li><a href="/sites/page-details/deprecated/page-details-v1-en.html">Default page feedback form version 1 example</a></li>
-</ul>
-
-<h2>How to implement</h2>
-<ul>
-	<li><p>To show the page feedback form, create a <code>&lt;div&gt;</code> with the following data attribute: <code>data-ajax-replace="ajax/report-problem-en.html"</code>.</p>
-		<p>For the basic HTML version, a link element should be created inside a <code>&lt;div&gt;</code> that points to the report a problem form page: <code>&lt;div&gt;&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;&lt;/div&gt;</code></p>
-		<p>For more information about Data Ajax plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">Data Ajax documentation page</a></p>
-	</li>
-</ul>
-
-<h2>Evaluation and report</h2>
+<h3>Evaluation and report</h3>
 <p>There is no evaluation and report available for this component.</p>
 
-<h2>API (Version 2.0)</h2>
+<h3>Guidance</h3>
+<ul>
+	<li><a href="https://design.canada.ca/continuous-improvement/monitoring/feedback.html">Page feedback tool</a></li>
+	<li><a href="https://design.canada.ca/common-design-patterns/report-problem.html">Report a problem</a></li>
+</ul>
 
+<h3>Variants</h3>
+<p>This component supports the following variants:</p>
+<ul>
+	<li><a href="#variantPFT">Page Feedback Tool (default)</a></li>
+	<li><a href="#variantPFTContact">Page Feedback Tool with contact link</a></li>
+	<li><a href="#variantRAP">Report a Problem (RAP)</a></li>
+</ul>
+<div class="alert alert-info">
+	<h4>Note</h4>
+	<p>All variants are comprised of two sub-components:</p>
+	<ul>
+		<li>The first one is used for the integration on the page.</li>
+		<li>The second one is the form which is inserted dynamically via an Ajax call. This sub-component is however out of scope of the API.</li>
+	</ul>
+</div>
+
+<h2 id="variantPFT">Variant 1: Page Feedback Tool (default) <span class="label label-warning mrgn-lft-md">Provisional</span></h2>
+<h3>Iteration 1</h3>
+
+<h4>Working example(s)</h4>
+<ul>
+	<li><a href="page-feedback-en.html">Page feedback</a></li>
+</ul>
+
+<h4>How to implement</h4>
+<ul>
+	<li>To show the page feedback form, create a <code>&lt;div class="wb-disable-allow"&gt;</code> with the following data attributes:
+		<ul>
+			<li>Mandatory: <code>data-ajax-replace="ajax/page-feedback-en.html"</code></li>
+			<li>Optional: <code>data-feedback-theme="[Text defining the theme of your page]"</code></li>
+			<li>Optional: <code>data-feedback-section="[Text defining the section where your page resides]"</code></li>
+		</ul>
+	</li>
+	<li>Additionally, your page needs to have the following metadata: <code>&lt;meta name="dcterms.creator" content="[Department name]"&gt;</code></li>
+</ul>
+<p>For more information about Data Ajax plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">Data Ajax documentation page</a>.</p>
+
+<h5>GCWeb Jekyll specific</h5>
+<p>To apply this variant's optional attributes on any given page, you will need to do the following in the page's front-matter:</p>
+<ul>
+	<li>Set the variable <code>feedbackData</code> to an object containing the following customizable strings:
+		<ul>
+			<li><code>section</code>: to define the section where your page resides.</li>
+			<li><code>theme</code>: to define the theme of your page.</li>
+		</ul>
+	</li>
+</ul>
+<p>For example:</p>
+<pre><code>"feedbackData": {
+	"theme": "Theme",
+	"section": "Section"
+}</code></pre>
+
+<h4>Code sample</h4>
+{%- highlight html -%}
+<div class="wb-disable-allow" data-ajax-replace="ajax/page-feedback-en.html"
+	data-feedback-section="[Text defining the theme of your page]"
+	data-feedback-theme="[Text defining the section where your page resides]"></div>
+{%- endhighlight -%}
+<details>
+	<summary>Ajaxed-in content</summary>
+	{%- highlight html -%}
+	{%- include_relative ajax/page-feedback-en.html -%}
+	{%- endhighlight -%}
+</details>
+
+<h2 id="variantPFTContact">Variant 2: Page Feedback Tool With Contact Link <span class="label label-warning mrgn-lft-md">Provisional</span></h2>
+<h3>Iteration 1</h3>
+
+<h4>Working example(s)</h4>
+<ul>
+	<li><a href="page-feedback-contact-en.html">Page feedback tool with contact link</a></li>
+</ul>
+
+<h4>How to implement</h4>
+<ul>
+	<li>To show the page feedback form, create a <code>&lt;div class="wb-disable-allow"&gt;</code> with the following data attributes:
+		<ul>
+			<li>Mandatory: <code>data-ajax-replace="ajax/page-feedback-en.html"</code></li>
+			<li>Mandatory: <code>data-feedback-link="[Contact link text]"</code></li>
+			<li>Mandatory: <code>data-feedback-url="[Contact link URL]"</code></li>
+			<li>Optional: <code>data-feedback-theme="[Text defining the theme of your page]"</code></li>
+			<li>Optional: <code>data-feedback-section="[Text defining the section where your page resides]"</code></li>
+		</ul>
+	</li>
+	<li>For the basic HTML version, a link element should be created inside your <code>&lt;div&gt;</code> that points to the report a problem form page: <code>&lt;div&gt;&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;&lt;/div&gt;</code>.</li>
+	<li>Additionally, you can define the following metadata: <code>&lt;meta name="dcterms.creator" content="[Department name]"&gt;</code></li>
+</ul>
+<p>For more information about Data Ajax plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">Data Ajax documentation page</a>.</p>
+
+<h5>GCWeb Jekyll specific</h5>
+<p>To apply this variant on any given page, you will need to do the following in the page's front-matter:</p>
+<ul>
+	<li>Set the variable <code>feedbackContact</code> to an object containing the following customizable strings:
+		<ul>
+			<li><code>link</code>: to define the contact link's text.</li>
+			<li><code>url</code>: to define the contact link's URL.</li>
+		</ul>
+	</li>
+	<li>Optionally, you can set the variable <code>feedbackData</code> to an object containing the following customizable strings:
+		<ul>
+			<li><code>section</code>: to define the section where your page resides.</li>
+			<li><code>theme</code>: to define the theme of your page.</li>
+		</ul>
+	</li>
+</ul>
+<p>For example:</p>
+<pre><code>"feedbackContact": {
+	"link": "Contact link",
+	"url": "https://canada.ca"
+},
+"feedbackData": {
+	"theme": "Theme",
+	"section": "Section"
+}</code></pre>
+
+<h4>Code sample</h4>
+{%- highlight html -%}
+<div class="wb-disable-allow" data-ajax-replace="ajax/page-feedback-en.html"
+	data-feedback-link="[Contact link text]"
+	data-feedback-url="[Contact link URL]"
+	data-feedback-section="[Text defining the theme of your page]"
+	data-feedback-theme="[Text defining the section where your page resides]"></div>
+{%- endhighlight -%}
+<details>
+	<summary>Ajaxed-in content</summary>
+	{%- highlight html -%}
+	{%- include_relative ajax/page-feedback-en.html -%}
+	{%- endhighlight -%}
+</details>
+
+<h2 id="variantRAP">Variant 3: Report a Problem (RAP) <span class="label label-success mrgn-lft-md">Stable</span></h2>
+<h3>Iteration 5</h3>
+<p>Here is a list of changes that happened since the previous iteration:</p>
 <table class="table table-bordered">
 	<tr>
-		<th>CSS Class</th>
-		<th>Template</th>
-		<th>Visual rendering</th>
-		<th>Schema</th>
+		<th style="width:0;">Breaking</th>
+		<td>
+			<ul>
+				<li>Removed JSON Manager extraction for "externalReferer" and "subject".</li>
+			</ul>
+		</td>
 	</tr>
 	<tr>
-		<td>n.a.</td>
-		<td>Version 2.0</td>
-		<td>n.a.</td>
-		<td>n.a.</td>
+		<th>Additions</th>
+		<td>
+			<ul>
+				<li>Added static hidden inputs for "externalReferer" and "subject"</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th>Fixes</th>
+		<td>n/a</td>
 	</tr>
 </table>
 
-<h3>Template (latest: v2.0)</h3>
-<p>Template migration notes</p>
-<h4>Site template includes</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
-		<p>The html inserted by the Data Ajax plugin can be found on the following page: <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/feedback/ajax/report-problem-en.html" >https://github.com/wet-boew/GCWeb/blob/master/sites/feedback/ajax/report-problem-en.html</a>.</p>
-<pre><code><ins>&lt;div data-ajax-replace="ajax/report-problem-en.html"&gt;
-	&lt;div class=&quot;row row-no-gutters&quot;&gt;
-		&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
-			&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Before, version 1.0</h5>
-<pre><code><del>&lt;details class="brdr-0"&gt;
-	&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
-	&lt;div class="well row"&gt;
-		&lt;div class="gc-rprt-prblm"&gt;
-			&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl" id="wb-auto-4"&gt;
-				{ feedback form }
-			&lt;/div&gt;
-			&lt;div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide" id="wb-auto-5"&gt;
-				&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
-				&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/details&gt;</del></code></pre>
-	</div>
-</div>
-
-<h4>Report a problem (RAP) form (feedback)</h4>
-<p>Implemented ajax files reference</p>
+<h4>Working example(s)</h4>
 <ul>
-	<li><a href="ajax/report-problem-en.html">Version 4.0</a></li>
-	<li><a href="ajax/report-problem-v3-en.html">Version 3.0</a></li>
-	<li><a href="ajax/report-problem-v2-en.html">Version 2.0</a></li>
-	<li><a href="ajax/report-problem-aa-en.html">Version 2.0 with Adobe Analytic configuration</a></li>
-	<li><a href="ajax/report-problem-v1-en.html">Version 1.0</a></li>
+	<li><a href="report-problem-en.html">Report a problem</a></li>
 </ul>
 
-<h5>Version 4.0</h5>
-<pre><code>&lt;div class="row row-no-gutters"&gt;
-	&lt;div class="col-sm-9 col-md-6 col-lg-5"&gt;
-		&lt;details class="brdr-0"&gt;
-			&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
-			&lt;div class="well row"&gt;
-				&lt;div class="gc-rprt-prblm"&gt;
-					&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl"&gt;
-						&lt;form action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback"
-							data-wb-postback=&apos;{
-								"success": ".success-message",
-								"failure": ".failure-message"}&apos;
-							<ins>data-wb-jsonmanager=&apos;{
-								"name": "rap",
-								"extractor": [
-									{ "interface": "referer", "path": "externalReferer" },
-									{ "selector": "title", "path": "pageTitle" },
-									{ "interface": "locationHref", "path": "submissionPage" },
-									{ "selector": "html", "attr": "lang", "path": "lang" },
-									{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "pageOwner" },
-									{ "selector": "meta[name=\"dcterms.subject\"]", "attr": "content", "path": "subject" }
-								]
-							}&apos;&gt;
-							&lt;div data-wb-json=&apos;{
-								"url": "#[rap]",
-								"mapping": [
-									{ "selector": "input", "attr": "name", "value": "/@id" },
-									{ "selector": "input", "attr": "value", "value": "/@value" }
-								]
-							}&apos;&gt;
-								&lt;template&gt;
-									&lt;input type="hidden" name=" value=" /&gt;
-								&lt;/template&gt;
-							&lt;/div&gt;</ins>
-							&lt;fieldset&gt;
-								&lt;legend&gt;
-									&lt;span class="field-name"&gt;Please select all that apply:&lt;/span&gt;
-								&lt;/legend&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem1"&gt;
-										&lt;input name="problem1" id="problem1" type="checkbox" value="Yes" &gt;A link, button or video is not working
-									&lt;/label&gt;
-									&lt;input name="problem1" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem2"&gt;
-										&lt;input name="problem2" id="problem2" type="checkbox" value="Yes" &gt;It has a spelling mistake
-									&lt;/label&gt;
-									&lt;input name="problem2" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem3"&gt;
-										&lt;input name="problem3" id="problem3" type="checkbox" value="Yes" &gt;Information is missing
-									&lt;/label&gt;
-									&lt;input name="problem3" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem4"&gt;
-										&lt;input name="problem4" id="problem4" type="checkbox" value="Yes" &gt;Information is outdated or wrong
-									&lt;/label&gt;
-									&lt;input name="problem4" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem5"&gt;
-										&lt;input name="problem5" id="problem5" type="checkbox" value="Yes" &gt;Login error when trying to access an account
-									&lt;/label&gt;
-									&lt;input name="problem5" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem11"&gt;
-										&lt;input name="problem11" id="problem11" type="checkbox" value="Yes" &gt;I can&apos;t find what I&apos;m looking for
-									&lt;/label&gt;
-									&lt;input name="problem11" type="hidden" value="&gt;
-								&lt;/div&gt;
-								&lt;div class="checkbox"&gt;
-									&lt;label for="problem12"&gt;
-										&lt;input name="problem12" id="problem12" type="checkbox" value="Yes" &gt;Other issue not in this list
-									&lt;/label&gt;
-									&lt;input name="problem12" type="hidden" value="&gt;
-								&lt;/div&gt;
-							&lt;/fieldset&gt;
-							&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
-						&lt;/form&gt;
-					&lt;/div&gt;
-					&lt;div class="success-message hide"&gt;
-						&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
-						&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
-					&lt;/div&gt;
-					&lt;p class="failure-message hide"&gt;Something went wrong. Please submit your information via an alternative method.&lt;/p&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/details&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+<h4>How to implement</h4>
+<ul>
+	<li>To show the Report a problem form, create a <code>&lt;div&gt;</code> with the following data attribute: <code>data-ajax-replace="ajax/report-problem-en.html"</code>.</li>
+	<li>For the basic HTML version, a link element should be created inside a <code>&lt;div&gt;</code> that points to the report a problem form page: <code>&lt;div&gt;&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;&lt;/div&gt;</code>.</li>
+</ul>
 
-<h5 class="wb-inv">Previous versions</h5>
+<p>For more information about Data Ajax plugin, please visit <a href="https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html">Data Ajax documentation page</a>.</p>
 <details>
-	<summary>Version 3.0</summary>
-	<pre><code>&lt;form action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}" &gt;
-		&lt;fieldset&gt;
-			&lt;legend&gt;
-				&lt;span class="field-name"&gt;Please select all that apply:&lt;/span&gt;
-			&lt;/legend&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem1"&gt;
-					&lt;input name="problem1" id="problem1" type="checkbox" value="Yes" &gt;A link, button or video is not working
-				&lt;/label&gt;
-				&lt;input name="problem1" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem2"&gt;
-					&lt;input name="problem2" id="problem2" type="checkbox" value="Yes" &gt;It has a spelling mistake
-				&lt;/label&gt;
-				&lt;input name="problem2" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem3"&gt;
-					&lt;input name="problem3" id="problem3" type="checkbox" value="Yes" &gt;Information is missing
-				&lt;/label&gt;
-				&lt;input name="problem3" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem4"&gt;
-					&lt;input name="problem4" id="problem4" type="checkbox" value="Yes" &gt;Information is outdated or wrong
-				&lt;/label&gt;
-				&lt;input name="problem4" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			<ins>&lt;div class="checkbox"&gt;
-				&lt;label for="problem5"&gt;
-					&lt;input name="problem5" id="problem5" type="checkbox" value="Yes" &gt;Login error when trying to access an account
-				&lt;/label&gt;
-				&lt;input name="problem5" type="hidden" value=""&gt;
-			&lt;/div&gt;</ins>
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem11"&gt;
-					&lt;input name="problem11" id="problem11" type="checkbox" value="Yes" &gt;I can't find what I'm looking for
-				&lt;/label&gt;
-				&lt;input name="problem11" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem12"&gt;
-					&lt;input name="problem12" id="problem12" type="checkbox" value="Yes" &gt;Other issue not in this list
-				&lt;/label&gt;
-				&lt;input name="problem12" type="hidden" value=""&gt;
-			&lt;/div&gt;
-		&lt;/fieldset&gt;
-		&lt;strong&gt;&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;&lt;/strong&gt;
-	&lt;/form&gt;
-	&lt;div class="success-message hide"&gt;
-		&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
-		&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;p class="failure-message hide"&gt;Something went wrong. Please submit your information via an alternative method.&lt;/p&gt;</code></pre>
+	<summary>Adobe Analytics implementation</summary>
+	<p>To implement Adobe Analytics in the Report a problem form, simply add the attribute <code>data-gc-analytics-rap</code> to every checkbox with the value being the same as the current language's label, followed by a dash and followed by the other language's label.</p>
+	<p>For example:</p>
+	<pre><code>&lt;div class=&quot;checkbox&quot;&gt;
+	&lt;label for=&quot;problem2&quot;&gt;
+		&lt;input name=&quot;problem2&quot; id=&quot;problem2&quot; type=&quot;checkbox&quot; value=&quot;Yes&quot; <ins>data-gc-analytics-rap=&quot;It has a spelling mistake-Il y a une erreur d&apos;orthographe ou de grammaire&quot;</ins>&gt;It has a spelling mistake
+	&lt;/label&gt;
+	&lt;input name=&quot;problem2&quot; type=&quot;hidden&quot; value=&quot;&quot;&gt;
+&lt;/div&gt;</code></pre>
 </details>
-<details>
-	<summary>Version 2.0</summary>
-	<pre><code>&lt;form <ins>action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}"</ins> &gt;
-		&lt;fieldset&gt;
-			&lt;legend&gt;
-				&lt;span class="field-name"&gt;Please select all that apply:&lt;/span&gt;
-			&lt;/legend&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem1"&gt;
-					&lt;input name="problem1" id="problem1" type="checkbox" value="Yes" &gt;A link, button or video is not working
-				&lt;/label&gt;
-				&lt;input name="problem1" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem2"&gt;
-					&lt;input name="problem2" id="problem2" type="checkbox" value="Yes" &gt;It has a spelling mistake
-				&lt;/label&gt;
-				&lt;input name="problem2" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem3"&gt;
-					&lt;input name="problem3" id="problem3" type="checkbox" value="Yes" &gt;Information is missing
-				&lt;/label&gt;
-				&lt;input name="problem3" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem4"&gt;
-					&lt;input name="problem4" id="problem4" type="checkbox" value="Yes" &gt;Information is outdated or wrong
-				&lt;/label&gt;
-				&lt;input name="problem4" type="hidden" value=""&gt;
-			&lt;/div&gt;<ins>
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem5"&gt;
-					&lt;input name="problem5" id="problem5" type="checkbox" value="Yes" &gt;Login error when trying to access an account (e.g. My Service Canada Account)
-				&lt;/label&gt;
-				&lt;input name="problem5" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;ul&gt;
-				&lt;li class="checkbox"&gt;
-					&lt;label for="problem6a"&gt;
-						&lt;input name="problem6" id="problem6a" type="checkbox" value="Yes" &gt;GC Key access
-					&lt;/label&gt;
-					&lt;input name="problem6" type="hidden" value=""&gt;
-				&lt;/li&gt;
-				&lt;li class="checkbox"&gt;
-					&lt;label for="problem7"&gt;
-						&lt;input name="problem7" id="problem7" type="checkbox" value="Yes" &gt;SecureKey Concierge (Banking Credential) access
-					&lt;/label&gt;
-					&lt;input name="problem7" type="hidden" value=""&gt;
-				&lt;/li&gt;
-				&lt;li class="checkbox"&gt;
-					&lt;label for="problem8"&gt;
-						&lt;input name="problem8" id="problem8" type="checkbox" value="Yes" &gt;Personal Access Code (PAC) problems or EI Access Code (AC) problems
-					&lt;/label&gt;
-					&lt;input name="problem8" type="hidden" value=""&gt;
-				&lt;/li&gt;
-				&lt;li class="checkbox"&gt;
-					&lt;label for="problem9"&gt;
-						&lt;input name="problem9" id="problem9" type="checkbox" value="Yes" &gt;Social Insurance Number (SIN) validation problems
-					&lt;/label&gt;
-					&lt;input name="problem9" type="hidden" value=""&gt;
-				&lt;/li&gt;
-				&lt;li class="checkbox"&gt;
-					&lt;label for="problem10"&gt;
-						&lt;input name="problem10" id="problem10" type="checkbox" value="Yes" &gt;Other login error not in this list
-					&lt;/label&gt;
-					&lt;input name="problem10" type="hidden" value=""&gt;
-				&lt;/li&gt;
-			&lt;/ul&gt;</ins>
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem11"&gt;
-					&lt;input name="problem11" id="problem11" type="checkbox" value="Yes" &gt;I can't find what I'm looking for
-				&lt;/label&gt;
-				&lt;input name="problem11" type="hidden" value=""&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="problem12"&gt;
-					&lt;input name="problem12" id="problem12" type="checkbox" value="Yes" &gt;Other issue not in this list
-				&lt;/label&gt;
-				&lt;input name="problem12" type="hidden" value=""&gt;
-			&lt;/div&gt;
-		&lt;/fieldset&gt;
-		&lt;strong&gt;&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;&lt;/strong&gt;
-	&lt;/form&gt;
-	<ins>&lt;div class="success-message hide"&gt;
-		&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
-		&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;p class="failure-message hide"&gt;Something went wrong. Please submit your information via an alternative method.&lt;/p&gt;</ins></code></pre>
-</details>
-<details>
-	<summary>Version 1.0</summary>
-	<pre><code>&lt;form action="#"&gt;
-		&lt;fieldset&gt;
-			&lt;legend&gt;&lt;span class="field-name"&gt;Please select all that apply:&lt;/span&gt;&lt;/legend&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f1"&gt;
-					&lt;input type="checkbox" name="problem1" value="Yes" id="gc-rprt-prblm-f1" /&gt;A link, button or video is not working
-				&lt;/label&gt;
-				&lt;input name="problem1" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f2"&gt;
-					&lt;input type="checkbox" name="problem2" value="Yes" id="gc-rprt-prblm-f2" /&gt;It has a spelling mistake
-				&lt;/label&gt;
-				&lt;input name="problem2" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f3"&gt;
-					&lt;input type="checkbox" name="problem3" value="Yes" id="gc-rprt-prblm-f3" /&gt;Information is missing
-				&lt;/label&gt;
-				&lt;input name="problem3" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f4"&gt;
-					&lt;input type="checkbox" name="problem4" value="Yes" id="gc-rprt-prblm-f4" /&gt;Information is outdated or wrong
-				&lt;/label&gt;
-				&lt;input name="problem4" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f5"&gt;
-					&lt;input type="checkbox" name="problem5" value="Yes" id="gc-rprt-prblm-f5" /&gt;I can't find what I'm looking for
-				&lt;/label&gt;
-				&lt;input name="problem5" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-			&lt;div class="checkbox"&gt;
-				&lt;label for="gc-rprt-prblm-f6"&gt;
-					&lt;input type="checkbox" name="problem6" value="Yes" id="gc-rprt-prblm-f6" /&gt;Other issue not in this list
-				&lt;/label&gt;
-				&lt;input name="problem6" type="hidden" value="No" /&gt;
-			&lt;/div&gt;
-		&lt;/fieldset&gt;
-		&lt;button type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'&gt;Submit&lt;/button&gt;
-	&lt;/form&gt;</code></pre>
+
+<h5>Hidden input fields</h5>
+<p>The Report a problem variant leverages JSON Manager and Data JSON to get information about the page and generate hidden input fields in the form.<p>
+<p>The following tag <strong>needs</strong> to be present in the page: <code>&lt;meta name="dcterms.creator" content="[Department name]"&gt;</code><br>Where [Department name] is a department name from canada.ca controlled vocabulary, for example: <code>gc:institutions/service-canada</code></p>
+
+<h5>GCWeb Jekyll specific</h5>
+<p>To apply this variant on any given page, you will need to do the following in the page's front-matter or in the site configurations (<code>_config.yml</code>):</p>
+<ul>
+	<li>set the variable <code>feedbackPath</code> to <code>"ajax/report-problem-en.html"</code>.</li>
+	<li>set the variable <code>feedbackFallback</code> to <code>true</code>.</li>
+</ul>
+
+<h4>Code sample</h4>
+{%- highlight html -%}
+<div data-ajax-replace="ajax/report-problem-en.html">
+	<div class="row row-no-gutters">
+		<div class="col-sm-9 col-md-6 col-lg-5">
+			<a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html">Report a problem on this page</a>
+		</div>
 	</div>
+</div>
+{%- endhighlight -%}
+<details>
+	<summary>Ajaxed-in content</summary>
+	{%- highlight html -%}
+	{%- include_relative ajax/report-problem-en.html -%}
+	{%- endhighlight -%}
+</details>
+
+<h3>Previous iterations</h3>
+
+<details>
+	<summary>Iteration 4</summary>
+	<p>Here is a list of changes that happened since the previous iteration:</p>
+	<table class="table table-bordered">
+		<tr>
+			<th style="width:0;">Breaking</th>
+			<td>
+				<ul>
+					<li>Leveraging JSON Manager Extractor and Data JSON to generate hidden input fields</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>Additions</th>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<th>Fixes</th>
+			<td>n/a</td>
+		</tr>
+	</table>
+
+	<h4>Code sample</h4>
+	{%- highlight html -%}
+	<div data-ajax-replace="ajax/report-problem-v4-en.html">
+		<div class="row row-no-gutters">
+			<div class="col-sm-9 col-md-6 col-lg-5">
+				<a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html">Report a problem on this page</a>
+			</div>
+		</div>
+	</div>
+	{%- endhighlight -%}
+	<details>
+		<summary>Ajaxed-in content</summary>
+		{%- highlight html -%}
+		{%- include_relative ajax/deprecated/report-problem-v4-en.html -%}
+		{%- endhighlight -%}
+	</details>
+</details>
+
+<details>
+	<summary>Iteration 3</summary>
+	<p>Here is a list of changes that happened since the previous iteration:</p>
+	<table class="table table-bordered">
+		<tr>
+			<th style="width:0;">Breaking</th>
+			<td>
+				<ul>
+					<li>Removed login error sub-options.</li>
+					<li>Renamed login error option.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>Additions</th>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<th>Fixes</th>
+			<td>n/a</td>
+		</tr>
+	</table>
+
+	<h4>Code sample</h4>
+	{%- highlight html -%}
+	<div data-ajax-replace="ajax/report-problem-v3-en.html">
+		<div class="row row-no-gutters">
+			<div class="col-sm-9 col-md-6 col-lg-5">
+				<a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html">Report a problem on this page</a>
+			</div>
+		</div>
+	</div>
+	{%- endhighlight -%}
+	<details>
+		<summary>Ajaxed-in content</summary>
+		{%- highlight html -%}
+		{%- include_relative ajax/deprecated/report-problem-v3-en.html -%}
+		{%- endhighlight -%}
+	</details>
+</details>
+
+
+<details>
+	<summary>Iteration 2</summary>
+	<p>Here is a list of changes that happened since the previous iteration:</p>
+	<table class="table table-bordered">
+		<tr>
+			<th style="width:0;">Breaking</th>
+			<td>
+				<ul>
+					<li>Rework of the template to use data-ajax. Includes fallback for basic HTML version.</li>
+					<li>Updated form:
+						<ul>
+							<li>Now implements wb-postback for form validation and no longer uses data-toggle on submit.</li>
+							<li>Added login error options (problem 5 to problem 10).</li>
+							<li>Added error and success messages.</li>
+						</ul>
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<th>Additions</th>
+			<td>n/a</td>
+		</tr>
+		<tr>
+			<th>Fixes</th>
+			<td>n/a</td>
+		</tr>
+	</table>
+
+	<h4>Code sample</h4>
+	{%- highlight html -%}
+	<div data-ajax-replace="ajax/report-problem-v2-en.html">
+		<div class="row row-no-gutters">
+			<div class="col-sm-9 col-md-6 col-lg-5">
+				<a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html">Report a problem on this page</a>
+			</div>
+		</div>
+	</div>
+	{%- endhighlight -%}
+	<details>
+		<summary>Ajaxed-in content</summary>
+		{%- highlight html -%}
+		{%- include_relative ajax/deprecated/report-problem-v2-en.html -%}
+		{%- endhighlight -%}
+	</details>
+</details>
+<details>
+	<summary>Iteration 1</summary>
+	<h4>Code sample</h4>
+	{%- highlight html -%}
+	{%- include_relative ajax/deprecated/report-problem-v1-en.html -%}
+	{%- endhighlight -%}
 </details>

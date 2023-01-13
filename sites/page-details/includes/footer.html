@@ -2,7 +2,7 @@
 	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
 
 	{% assign col-modified = "col-xs-12" %}
-	{%- if page.pageFeedback or page.noReportProblem != true -%}
+	{%- if page.noFeedback != true -%}
 		{% assign col-feedback = "col-sm-8 col-md-9 col-lg-9" %}
 		{%- if page.share -%}
 			{% assign col-share = "col-sm-4 col-md-3" %}
@@ -15,15 +15,9 @@
 	{%- endif -%}
 
 	<div class="row">
-		{%- if page.pageFeedback or page.noReportProblem != true -%}
+		{%- if page.noFeedback != true -%}
 			<div class="{{ col-feedback }}">
-				{%- if page.pageFeedback -%}
-					{% include gc-page-feedback/gc-page-feedback.html %}
-				{%- else -%}
-					{%- unless page.noReportProblem -%}
-						{% include feedback/feedback.html %}
-					{%- endunless -%}
-				{%- endif -%}
+				{% include feedback/feedback.html %}
 			</div>
 		{%- endif -%}
 		{%- if page.share -%}

@@ -12,10 +12,12 @@
 							data-wb-jsonmanager='{
 								"name": "rap",
 								"extractor": [
+									{ "interface": "referer", "path": "externalReferer" },
 									{ "selector": "title", "path": "pageTitle" },
 									{ "interface": "locationHref", "path": "submissionPage" },
 									{ "selector": "html", "attr": "lang", "path": "lang" },
 									{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "pageOwner" },
+									{ "selector": "meta[name=\"dcterms.subject\"]", "attr": "content", "path": "subject" }
 								]
 							}'>
 							<div data-wb-json='{
@@ -29,8 +31,6 @@
 									<input type="hidden" name="" value="" />
 								</template>
 							</div>
-							<input type="hidden" name="externalReferer" value="">
-							<input type="hidden" name="subject" value="Report a problem or mistake on this page">
 							<fieldset>
 								<legend>
 									<span class="field-name">Please select all that apply:</span>
