@@ -184,3 +184,150 @@ dateModified: "2021-04-28"
 		&lt;/ul&gt;
 	&lt;/div&gt;</code></pre>
 </section>
+
+<section>
+	<h2>Action <code>query</code> (requête) Utilisation d'une valeur vide</h2>
+	<h3>Pour des actions <code>query</code> (requête) individuelles</h2>
+	<div class="wb-frmvld">
+		<form action="alternative-en.html" method="get">
+			<div class="wb-fieldflow hidden" data-wb-fieldflow='{
+				"noForm": true,
+				"defaultselectedlabel": false
+			}'>
+				<p>Choisir une option</p>
+				<ul>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q1", "value": "" }
+					]'>Personalisé: Faites votre sélection...</li>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q1", "value": "opt1" }
+					]'>Option 1</li>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q1", "value": "opt2" }
+					]'>Option 2</li>
+				</ul>
+			</div>
+			<button>Soumettre</button>
+		</form>
+	</div>
+	<pre class="mrgn-tp-md"><code>&lt;div class=&quot;wb-frmvld&quot;&gt;
+	&lt;form action=&quot;alternative-en.html&quot; method=&quot;get&quot;&gt;
+		&lt;div class=&quot;wb-fieldflow hidden&quot; data-wb-fieldflow='{
+			&quot;noForm&quot;: true,
+			&quot;defaultselectedlabel&quot;: false
+		}'&gt;
+			&lt;p&gt;Choisir une option&lt;/p&gt;
+			&lt;ul&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q1&quot;, &quot;value&quot;: &quot;&quot; }
+				]'&gt;Personalisé: Faites votre sélection...&lt;/li&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q1&quot;, &quot;value&quot;: &quot;opt1&quot; }
+				]'&gt;Option 1&lt;/li&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q1&quot;, &quot;value&quot;: &quot;opt2&quot; }
+				]'&gt;Option 2&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;button&gt;Soumettre&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+
+	<h3>Lorsque le nouveau défaut de l'action globale est <code>query</code> (requête)</h3>
+	<div class="wb-frmvld">
+		<form action="alternative-en.html" method="get">
+			<div class="wb-fieldflow hidden" data-wb-fieldflow='{
+				"noForm": true,
+				"defaultselectedlabel": false,
+				"action": "query", "name": "q2", "prop": "value"
+			}'>
+				<p>Choisir une option</p>
+				<ul>
+					<li data-wb-fieldflow=''>Personalisé: Faites votre sélection...</li>
+					<li data-wb-fieldflow='opt1'>Option 1</li>
+					<li data-wb-fieldflow='opt2'>Option 2</li>
+				</ul>
+			</div>
+			<button>Soumettre</button>
+		</form>
+	</div>
+	<pre class="mrgn-tp-md"><code>&lt;div class=&quot;wb-frmvld&quot;&gt;
+	&lt;form action=&quot;alternative-en.html&quot; method=&quot;get&quot;&gt;
+		&lt;div class=&quot;wb-fieldflow hidden&quot; data-wb-fieldflow='{
+			&quot;noForm&quot;: true,
+			&quot;defaultselectedlabel&quot;: false,
+			&quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q2&quot;, &quot;prop&quot;: &quot;value&quot;
+		}'&gt;
+			&lt;p&gt;Choisir une option&lt;/p&gt;
+			&lt;ul&gt;
+				&lt;li data-wb-fieldflow=''&gt;Personalisé: Faites votre sélection...&lt;/li&gt;
+				&lt;li data-wb-fieldflow='opt1'&gt;Option 1&lt;/li&gt;
+				&lt;li data-wb-fieldflow='opt2'&gt;Option 2&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;button&gt;Soumettre&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+
+	<h3>Avec plusieurs actions</h3>
+	<p>Cette notation peut améliorer la lisibilité du code comparativement à l'utilisation du paramètre "default" appartenant à l'instance du composant..</p>
+	<div class="alert alert-warning"><p><strong>L'example suivant est seulement utile afin de vérifier le bon opérabilité de la fonctionalité et il pourrait produire une expérience et du code qui n'est pas entièrement conforme à WCAG niveau AA.</strong></p></div>
+	<div class="wb-frmvld">
+		<form action="http://localhost/" method="post">
+			<div class="wb-fieldflow hidden" data-wb-fieldflow='{
+				"noForm": true,
+				"defaultselectedlabel": false
+			}'>
+				<p>Choisir une option</p>
+				<ul>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q3", "value": "" },
+						{ "action": "addClass", "source": ".redgreen", "class": "text-danger", "live": true },
+						{ "action": "removeClass", "source": ".redgreen", "class": "text-success", "live": true }
+					]'>Personalisé: Faites votre sélection....</li>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q3", "value": "opt1" },
+						{ "action": "addClass", "source": ".redgreen", "class": "text-success", "live": true },
+						{ "action": "removeClass", "source": ".redgreen", "class": "text-danger", "live": true }
+					]'>Option 1</li>
+					<li data-wb-fieldflow='[
+						{ "action": "query", "name": "q3", "value": "opt2" },
+						{ "action": "addClass", "source": ".redgreen", "class": "text-success", "live": true },
+						{ "action": "removeClass", "source": ".redgreen", "class": "text-danger", "live": true }
+					]'>Option 2</li>
+				</ul>
+			</div>
+			<p class="redgreen">Rouge lorsque l'option par défaut est sélectionné <strong>ou</strong> vert lorsque qu'une option valide est sélectionné.</p>
+			<button>Soumettre</button>
+		</form>
+	</div>
+	<pre class="mrgn-tp-md"><code>&lt;div class=&quot;wb-frmvld&quot;&gt;
+	&lt;form action=&quot;http://localhost/&quot; method=&quot;post&quot;&gt;
+		&lt;div class=&quot;wb-fieldflow hidden&quot; data-wb-fieldflow='{
+			&quot;noForm&quot;: true,
+			&quot;defaultselectedlabel&quot;: false
+		}'&gt;
+			&lt;p&gt;Choisir une option&lt;/p&gt;
+			&lt;ul&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q3&quot;, &quot;value&quot;: &quot;&quot; },
+					{ &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-danger&quot;, &quot;live&quot;: true },
+					{ &quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-success&quot;, &quot;live&quot;: true }
+				]'&gt;Personalisé: Faites votre sélection....&lt;/li&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q3&quot;, &quot;value&quot;: &quot;opt1&quot; },
+					{ &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-success&quot;, &quot;live&quot;: true },
+					{ &quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-danger&quot;, &quot;live&quot;: true }
+				]'&gt;Option 1&lt;/li&gt;
+				&lt;li data-wb-fieldflow='[
+					{ &quot;action&quot;: &quot;query&quot;, &quot;name&quot;: &quot;q3&quot;, &quot;value&quot;: &quot;opt2&quot; },
+					{ &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-success&quot;, &quot;live&quot;: true },
+					{ &quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;.redgreen&quot;, &quot;class&quot;: &quot;text-danger&quot;, &quot;live&quot;: true }
+				]'&gt;Option 2&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+		&lt;p class=&quot;redgreen&quot;&gt;Rouge lorsque l'option par défaut est sélectionné &lt;strong&gt;ou&lt;/strong&gt; vert lorsque qu'une option valide est sélectionné.&lt;/p&gt;
+		&lt;button&gt;Soumettre&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+</section>
