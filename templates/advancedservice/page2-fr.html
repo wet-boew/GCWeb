@@ -12,8 +12,14 @@
 	"secondlevel": false,
 	"dateModified": "2017-04-07",
 	"share": "true",
-	"previous": [ { "title": "1. [Nom de la page de la section ou de l’étape]", "link": "index-fr.html" } ],
-	"next": [ { "title": "3. [Nom de la page de la section ou de l’étape]", "link": "page3-fr.html" } ]
+	"previous": {
+		"title": "1. [Nom de la page de la section ou de l’étape]",
+		"link": "index-fr.html"
+	},
+	"next": {
+		"title": "3. [Nom de la page de la section ou de l’étape]",
+		"link": "page3-fr.html"
+	}
 }
 ---
 <p class="gc-byline"><strong>De <a href="../institutional/institution-fr.html">[nom de l'institution]</a></strong></p>
@@ -22,7 +28,7 @@
 	<div class="row">
 		<ul class="toc lst-spcd col-md-12">
 			<li class="col-md-4 col-sm-6"><a class="list-group-item" href="index-fr.html">1. [Nom de la page de la section ou de l’étape]</a></li>
-			<li class="col-md-4 col-sm-6"><a class="list-group-item active">2. [Nom de la page de la section ou de l’étape]</a></li>
+			<li class="col-md-4 col-sm-6"><a class="list-group-item active">{{page.secondTitle}}</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-sm"><a class="list-group-item" href="page3-fr.html">3. [Nom de la page de la section ou de l’étape]</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-md clr-lft-lg"><a class="list-group-item" href="page4-fr.html">4. [Nom de la page de la section ou de l’étape]</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-sm"><a class="list-group-item" href="page5-fr.html">5. [Nom de la page de la section ou de l’étape]</a></li>
@@ -32,7 +38,7 @@
 </div>
 <div class="row">
 	<section class="col-md-8">
-		<h2>{{secondTitle}}</h2>
+		<h2>{{page.secondTitle}}</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
@@ -47,16 +53,12 @@
 		<nav role="navigation" class="row">
 			<h3 class="wb-inv">Navigation dans le document</h3>
 			<ul class="pager">
-				{{#previous}}
-				<li class="previous"><a href="{{link}}" rel="prev">Précédent<span class="wb-inv"> : {{title}}</span></a></li>
-				{{/previous}}
-				{{#next}}
-				<li class="next"><a href="{{link}}" rel="next">Suivant<span class="wb-inv"> : {{title}}</span></a></li>
-				{{/next}}
+				<li class="previous"><a href="{{page.previous.link}}" rel="prev">Précédent<span class="wb-inv"> : {{page.previous.title}}</span></a></li>
+				<li class="next"><a href="{{page.next.link}}" rel="next">Suivant<span class="wb-inv"> : {{page.next.title}}</span></a></li>
 			</ul>
 		</nav>
 	</section>
 	<div class="col-md-4">
-		{{>service-right-panel}}
+		{% include_relative samples/service-side-panel-fr.html %}
 	</div>
 </div>
