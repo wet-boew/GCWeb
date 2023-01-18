@@ -709,6 +709,10 @@ module.exports = (grunt) ->
 				dest: "_wetboew-demos"
 				rename: (dest, src) ->
 					return dest + "/" + src.replace( 'node_modules/wet-boew/src/plugins/', '' ).replace( ".hbs", ".html" )
+				options: {
+					process: (content, srcpath) ->
+						return content.replace(/{{>alertariahidden}}/g, "")
+				}
 
 			# méli-mélo tasks
 			mélimélo:
