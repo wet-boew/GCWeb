@@ -1,0 +1,100 @@
+<section class="provisional gc-followus">
+	<h2>
+		{%- if include.isInline -%}
+			{%- if i18nText-lang == "fr" -%}
+				Suivez-nous
+			{%- else -%}
+				Follow us
+			{%- endif -%}
+		{%- else -%}
+			{%- if i18nText-lang == "fr" -%}
+				Dans les médias sociaux
+			{%- else -%}
+				On social media
+			{%- endif -%}
+		{%- endif -%}
+	</h2>
+	<ul{% if include.isInline %} class="list-inline"{% endif %}>
+		<li>
+			<a href="#facebook" class="facebook wb-lbx">
+				{%- if i18nText-lang == "fr" -%}
+					<span class="wb-inv">Facebook&nbsp;: </span>NomPageFacebook
+				{%- else -%}
+					<span class="wb-inv">Facebook: </span>FacebookPageName
+				{%- endif -%}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="twitter">
+				{%- if i18nText-lang == "fr" -%}
+					<span class="wb-inv">Twitter&nbsp;: </span>@CompteTwitter
+				{%- else -%}
+					<span class="wb-inv">Twitter: </span>@TwitterAccount
+				{%- endif -%}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="youtube">
+				{%- if i18nText-lang == "fr" -%}
+					<span class="wb-inv">Youtube&nbsp;: </span>NomYouTube
+				{%- else -%}
+					<span class="wb-inv">Youtube: </span>YouTubeName
+				{%- endif -%}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="instagram">
+				{%- if i18nText-lang == "fr" -%}
+					<span class="wb-inv">Instagram&nbsp;: </span>NomInstagram
+				{%- else -%}
+					<span class="wb-inv">Instagram: </span>InstagramName
+				{%- endif -%}
+			</a>
+		</li>
+		<li>
+			<a href="#" rel="external" class="linkedin">
+				{%- if i18nText-lang == "fr" -%}
+					<span class="wb-inv">LinkedIn&nbsp;: </span>NomLinkedIn
+				{%- else -%}
+					<span class="wb-inv">LinkedIn: </span>LinkedInName
+				{%- endif -%}
+			</a>
+		</li>
+	</ul>
+</section>
+<section id="facebook" class="modal-dialog modal-content overlay-def mfp-hide">
+	<header class="modal-header">
+		<h2 class="modal-title" id="lbx-title">Facebook</h2>
+	</header>
+	<div class="modal-body">
+		<ul class="list-unstyled lst-spcd">
+			<li>
+				<a href="#" rel="external">
+					{%- if i18nText-lang == "fr" -%}
+						[Titre du premier compte Facebook]
+					{%- else -%}
+						[First Facebook account title]
+					{%- endif -%}
+				</a>
+			</li>
+			<li>
+				<a href="#" rel="external">
+					{%- if i18nText-lang == "fr" -%}
+						[Titre du deuxième compte Facebook]
+					{%- else -%}
+						[Second Facebook account title]
+					{%- endif -%}
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-sm btn-primary pull-left popup-modal-dismiss">
+			{%- if i18nText-lang == "fr" -%}
+				Fermer<span class="wb-inv">Fermer la fenêtre superposée</span>
+			{%- else -%}
+				Close<span class="wb-inv">Close overlay</span>
+			{%- endif -%}
+		</button>
+	</div>
+</section>
