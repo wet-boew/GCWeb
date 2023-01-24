@@ -19,7 +19,7 @@ css:
 		</div>
 		<div class="col-xs-12 col-md-auto pull-right">
 			<p><a href="https://github.com/wet-boew/GCWeb/archive/v12.6.0.zip" class="btn btn-primary">Télécharger le thème <strong>GCWeb v12.6.0</strong></a><br />
-				<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Note de version</a>)</small></p>
+				<small>(<time>{{ page.dateModified | date: %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Note de version</a>)</small></p>
 		</div>
 	</div>
 </div>
