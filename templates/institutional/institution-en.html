@@ -60,10 +60,17 @@
 	</div>
 	{% include components/gc-servinfo/with-embed-col-pull.html %}
 	<div class="pull-right col-xs-12 col-md-4">
-		{{>contact-us}}
+		<section class="lnkbx">
+			<h2>Contact us</h2>
+			<ul>
+				{%- for i in (1..3) -%}
+				<li><a href="#">Contact number link</a></li>
+				{%- endfor -%}
+			</ul>
+		</section>
 		{{>more-info}}
 	</div>
 </div>
 {% include templates/whtwedo-3-items.html %}
-{{>corp-info}}
+{% include components/gc-corporate/inst-info.html %}
 {{>deptfeatures}}

@@ -1,0 +1,71 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ List of institutional links and head of institution image
++
++ Used by institutional pages
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+
+<section class="gc-crprt">
+	{%- if page.language == "fr" -%}
+	<h2>Renseignements sur l’organisation</h2>
+	{%- else -%}
+	<h2>Corporate information</h2>
+	{%- endif -%}
+	<div class="row">
+		<div class="col-md-4">
+			<ul>
+				{%- if page.language == "fr" -%}
+				<li><a href="#">Mandat</a></li>
+				<li><a href="#">Programmes</a></li>
+				<li><a href="#">Structure organisationnelle</a></li>
+				<li><a href="#">Portefeuille</a></li>
+				<li><a href="#">Partenaires</a></li>
+				<li><a href="#">Transparence</a></li>
+				<li><a href="#">Possibilités d’emplois</a></li>
+				<li><a href="#">Compte rendu du rendement des services</a></li>
+				{%- else -%}
+				<li><a href="#">Mandate</a></li>
+				<li><a href="#">Programs</a></li>
+				<li><a href="#">Organizational structure</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Partners</a></li>
+				<li><a href="#">Transparency</a></li>
+				<li><a href="#">Job opportunities</a></li>
+				<li><a href="#">Service performance reporting</a></li>
+				{%- endif -%}
+			</ul>
+		</div>
+		<div class="col-md-8">
+			<div class="wb-eqht row">
+				{% for i in (1..3) %}
+				{%- if page.language == "fr" -%}
+				<section class="col-md-4">
+					<h3>Ministre</h3>
+					<a href="#">
+						<figure>
+							<img src="https://via.placeholder.com/218x291/000000/FFFFFF.png" alt="" class="img-responsive thumbnail">
+							<figcaption>[L’honorable (nom du ministre)]</figcaption>
+						</figure>
+					</a>
+					<p class="mrgn-tp-sm">Titre officiel du ministre</p>
+				</section>
+				{%- else -%}
+				<section class="col-md-4">
+					<h3>Minister</h3>
+					<a href="#">
+						<figure>
+							<img src="https://via.placeholder.com/218x291/000000/FFFFFF.png" alt="" class="img-responsive thumbnail">
+							<figcaption>[(Honourable) first and last name of Minister]</figcaption>
+						</figure>
+					</a>
+					<p class="mrgn-tp-sm">Minister's official title</p>
+				</section>
+				{%- endif -%}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
