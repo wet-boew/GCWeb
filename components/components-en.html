@@ -9,6 +9,8 @@
 	"share": "true"
 }
 ---
+<span class="wb-prettify all-pre">
+
 <p>Generic destination pages share many characteristics. For example, they are often long-form documents requiring structure to facilitate usability and readability. In many cases, they include images, charts, graphs or tables. Following are patterns aimed at increasing the usability and consistency of destination pages of various types.</p>
 
 <nav role="navigation" class="gc-toc">
@@ -25,7 +27,21 @@
 	<p>Download links are used for referencing and linking to non-HTML files on Canada.ca web pages.</p>
 	<div class="row">
 		<div class="col-sm-4">
-			{{>comp-download}}
+			<a class="gc-dwnld-lnk" href="#">
+				<div class="well gc-dwnld">
+					<div class="row">
+						<div class="col-xs-4">
+							<p><img class="img-responsive thumbnail gc-dwnld-img" src="./../templates/img/doc.png" alt="" /></p>
+						</div>
+						<div class="col-xs-8">
+							<p class="gc-dwnld-txt">
+								<span>Document Title</span>
+								<span class="gc-dwnld-info">(<abbr title="Portable Document Format">PDF</abbr>, 273 <abbr title="KiloByte">KB/abbr>)</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</a>
 		</div>
 	</div>
 </section>
@@ -53,9 +69,24 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam delectus iusto repellat assumenda nobis, modi accusamus, rerum praesentium ad dignissimos ipsam? Facilis repellat, quibusdam qui? Et dolore ipsa ut repellendus.</p>
 	</section>
 </section>
-<div id="min-port">
-{{>minister-port}}
-</div>
+<section id="min-port" class="gc-mnstr-prtfl">
+	<h2>Portfolio ministers</h2>
+
+	<p>Provides access to the profiles of all portfolio ministers under the institution’s portfolio</p>
+	<div class="row wb-eqht-grd">
+		{% for i in (1..4) %}
+		<div class="col-md-3 col-sm-6">
+			<a href="#">
+				<figure>
+					<img src="https://via.placeholder.com/218x291?text=[President]" alt="" class="img-responsive thumbnail">
+					<figcaption>[Chairperson]</figcaption>
+				</figure>
+			</a>
+			<p>[Organization head]</p>
+		</div>
+		{% endfor %}
+	</div>
+</section>
 
 <section>
 <h2 id="alert">Alert designs</h2>

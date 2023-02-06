@@ -9,6 +9,8 @@
 	"share": "true"
 }
 ---
+<span class="wb-prettify all-pre">
+
 <p>Les pages de destination génériques ont plusieurs caractéristiques en commun. Par exemple, elles consistent souvent en de longs documents nécessitant une structure afin qu’ils soient faciles à utiliser et à lire. Dans bien des cas, elles comprennent des images, des graphiques ou des tableaux. Vous trouverez ci-dessous une description des configurations visant à accroître la convivialité et l’uniformité des pages de destination de différents types.</p>
 <nav role="navigation" class="gc-toc">
 	<h2>Table des matières</h2>
@@ -24,7 +26,21 @@
 	<p>Les liens de téléchargement servent à renvoyer ou à lier à des fichiers de format autre que HTML sur les pages Web de Canada.ca.</p>
 	<div class="row">
 		<div class="col-sm-4">
-			{{>comp-download}}
+			<a class="gc-dwnld-lnk" href="#">
+				<div class="well gc-dwnld">
+					<div class="row">
+						<div class="col-xs-4">
+							<p><img class="img-responsive thumbnail gc-dwnld-img" src="./../templates/img/doc.png" alt="" /></p>
+						</div>
+						<div class="col-xs-8">
+							<p class="gc-dwnld-txt">
+								<span>Titre du document</span>
+								<span class="gc-dwnld-info">(<abbr lang="en" title="Portable Document Format">PDF</abbr>, 273 <abbr title="kilo octet">Ko</abbr>)</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</a>
 		</div>
 	</div>
 </section>
@@ -52,9 +68,24 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam delectus iusto repellat assumenda nobis, modi accusamus, rerum praesentium ad dignissimos ipsam? Facilis repellat, quibusdam qui? Et dolore ipsa ut repellendus.</p>
 	</section>
 </section>
-<div id="min-port">
-{{>minister-port}}
-</div>
+<section id="min-port" class="gc-mnstr-prtfl">
+	<h2>Ministres du portefeuille</h2>
+
+	<p>Donne accès à un profil de plus grande visibilité des ministres détenant un portefeuille au sein de l’institution</p>
+	<div class="row wb-eqht-grd">
+		{% for i in (1..4) %}
+		<div class="col-md-3 col-sm-6">
+			<a href="#">
+				<figure>
+					<img src="https://via.placeholder.com/218x291?text=[Président]" alt="" class="img-responsive thumbnail">
+					<figcaption>[Président]</figcaption>
+				</figure>
+			</a>
+			<p>[Chef de l’organisme]</p>
+		</div>
+		{% endfor %}
+	</div>
+</section>
 
 <section>
 <h2 id="avis">Conceptions des avis</h3>
