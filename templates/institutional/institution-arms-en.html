@@ -24,7 +24,7 @@
 		<p>[Institution name] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
 	</div>
 	<div class="col-xs-12 col-sm-5 pull-right">
-		{{>follow}}
+		{% include components/gc-follow-us/gc-follow-us.html isInline=true %}
 	</div>
 </div>
 <section>
@@ -62,7 +62,7 @@
 </section>
 <div class="row">
 	<div class="col-md-4 col-xs-12 pull-right">
-		{{>most-requested}}
+		{% include components/most-requested/most-requested.html %}
 	</div>
 	{% include components/gc-servinfo/with-embed-col-pull.html %}
 	<div class="pull-right col-xs-12 col-md-4">
@@ -74,7 +74,7 @@
 				{%- endfor -%}
 			</ul>
 		</section>
-		{{>more-info}}
+		{% include components/more-info/more-info.html %}
 	</div>
 </div>
 {% include templates/whtwedo-3-items.html %}
