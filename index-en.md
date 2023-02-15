@@ -75,7 +75,7 @@ css:
 			<dt><span class="label label-success">{{comp_status.stable}}</span></dt>
 			<dd>Meet the latest published specification.</dd>
 			<dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
-			<dd>Relatively stable, yet experimental; use as your own risks.</dd>
+			<dd>Relatively stable, yet experimental; use at your own risks.</dd>
 			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
 			<dd>Do not use because it's deprecated, but listed here for your information.</dd>
 			<dt><span class="label label-default">Undefined</span></dt>
