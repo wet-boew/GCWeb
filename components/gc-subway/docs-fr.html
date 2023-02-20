@@ -27,14 +27,24 @@
 <p>Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante. Idéal pour présenter un service ou un processus.</p>
 
 <h2 id="workingExamples">Exemples pratiques</h2>
-<ul>
-	<li><a href="index-fr.html">Page d'introduction</a></li>
-	<li><a href="section1-fr.html">Page de section</a></li>
-	<li><a href="sub-section-fr.html">Page de sous-section (par défaut)</a></li>
-	<li><a href="sub-section-noline-fr.html">Page de sous-section (sans ligne)</a></li>
-	<li><a href="section-subtitle-fr.html">Page de section avec sous-titre personnalisé</a></li>
-	<li><a href="section-end-fr.html">Page de section avec élément d'arrêt de section</a></li>
-	<li><a href="section-rel-info-fr.html">Page de section avec information additionnelle</a></li>
+<div data-wb-jsonmanager='{
+	"url": "index.json-ld",
+	"name": "gc-subway",
+	"fpath": "/pages/examples",
+	"filter": [
+		{ "path": "/language", "value": "fr" }
+	]
+}'></div>
+<ul data-wb-json='{
+	"url": "#[gc-subway]/pages/examples",
+	"mapping": [
+		{ "selector": "a", "value": "/title" },
+		{ "selector": "a", "value": "/path", "attr": "href" }
+	]
+}'>
+	<template>
+		<li><a href></a></li>
+	</template>
 </ul>
 
 <h2 id="layout">Mise en page</h2>
@@ -95,7 +105,7 @@
 	...
 
 	<!-- 4: Navigation du document -->
-	<nav class="mrgn-bttm-lg mrgn-tp-lg">
+	<nav class="gc-subway-pagination">
 		<h2 class="wb-inv">Navigation du document</h2>
 		<ul class="pager">
 			<li class="next"><a href="section2-fr.html" rel="next"><span class="wb-inv">Suivant: </span>[Page 2]</a></li>
@@ -109,13 +119,6 @@
 	</aside>
 </main>
 {% endhighlight %}
-
-<h4>Notes</h4>
-<p>Sur les pages de section, le plugin GC Métro enveloppe tout le contenu après l'élément <code>.gc-subway</code> jusqu'à l'élément <code>.pagedetails</code> ou l'élément <code>.gc-subway-support</code> (selon la première éventualité). Pour arrêter l'enveloppe avant cela, insérez simplement l'élément suivant à l'endroit où vous voulez la pause&nbsp;: <code>&lt;div class="gc-subway-landmark-end"&gt;&lt;/div&gt;</code></p>
-<div class="alert alert-info">
-	<h5>Important</h5>
-	<p>La fonctionnalité <code>gc-subway-landmark-end</code> ne peut pas être utilisée en combinaison avec l'élément <code>gc-subway-support</code> (information additionnelle).</p>
-</div>
 
 <h2 id="style">Style</h2>
 <dl>
@@ -170,7 +173,7 @@
 <h4>Navigation du document</h4>
 <p>À ajouter à la fin de votre contenu, avant le bloc d'information additionnelle (le cas échéant). Cette navigation est obligatoire pour les pages de <strong>section</strong>.</p>
 {% highlight html %}
-<nav class="mrgn-bttm-lg mrgn-tp-lg">
+<nav class="gc-subway-pagination">
 	<h2 class="wb-inv">Navigation du document</h2>
 	<ul class="pager">
 		<li class="previous"><a href="#" rel="prev"><span class="wb-inv">Précédent: </span>[Page 3]</a></li>

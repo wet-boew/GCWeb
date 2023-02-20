@@ -27,14 +27,24 @@
 <p>Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section. Ideal for presenting services and processes.</p>
 
 <h2 id="workingExamples">Working examples</h2>
-<ul>
-	<li><a href="index-en.html">Index page</a></li>
-	<li><a href="section1-en.html">Section page</a></li>
-	<li><a href="sub-section-en.html">Sub-section page (default)</a></li>
-	<li><a href="sub-section-noline-en.html">Sub-section page (no line)</a></li>
-	<li><a href="section-subtitle-en.html">Section page with custom subtitle</a></li>
-	<li><a href="section-end-en.html">Section page with section end element</a></li>
-	<li><a href="section-rel-info-en.html">Section page with related information</a></li>
+<div data-wb-jsonmanager='{
+	"url": "index.json-ld",
+	"name": "gc-subway",
+	"fpath": "/pages/examples",
+	"filter": [
+		{ "path": "/language", "value": "en" }
+	]
+}'></div>
+<ul data-wb-json='{
+	"url": "#[gc-subway]/pages/examples",
+	"mapping": [
+		{ "selector": "a", "value": "/title" },
+		{ "selector": "a", "value": "/path", "attr": "href" }
+	]
+}'>
+	<template>
+		<li><a href></a></li>
+	</template>
 </ul>
 
 <h2 id="layout">Layout</h2>
@@ -95,7 +105,7 @@
 	...
 
 	<!-- 4: Document navigation -->
-	<nav class="mrgn-bttm-lg mrgn-tp-lg">
+	<nav class="gc-subway-pagination">
 		<h2 class="wb-inv">Document navigation</h2>
 		<ul class="pager">
 			<li class="next"><a href="section2-en.html" rel="next"><span class="wb-inv">Next: </span>[Page 2]</a></li>
@@ -109,13 +119,6 @@
 	</aside>
 </main>
 {% endhighlight %}
-
-<h4>Notes</h4>
-<p>On section pages, the GC Subway plugin wraps all the content after the <code>.gc-subway</code> element until the <code>.pagedetails</code> element or the <code>.gc-subway-support</code> element (whichever comes first). To stop the wrapping before then, simply insert the following element where you want the break: <code>&lt;div class="gc-subway-landmark-end"&gt;&lt;/div&gt;</code></p>
-<div class="alert alert-info">
-	<h5>Important</h5>
-	<p>The <code>gc-subway-landmark-end</code> feature cannot be used in combination with the <code>gc-subway-support</code> element (Related information).</p>
-</div>
 
 <h2 id="style">Style</h2>
 <dl>
@@ -170,7 +173,7 @@
 <h4>Document navigation</h4>
 <p>To be added at the end of your content, before the related information block (if applicable). This navigation is mandatory for <strong>section</strong> pages.</p>
 {% highlight html %}
-<nav class="mrgn-bttm-lg mrgn-tp-lg">
+<nav class="gc-subway-pagination">
 	<h2 class="wb-inv">Document navigation</h2>
 	<ul class="pager">
 		<li class="previous"><a href="#" rel="prev"><span class="wb-inv">Previous: </span>[Page 3]</a></li>

@@ -11,10 +11,13 @@ var $document = wb.doc,
 	componentName = "gc-subway",
 	selector = ".provisional." + componentName,
 	initEvent = "wb-init " + selector,
-	mainClass = "gc-subway-section",
-	indexClass = "gc-subway-index",
+	mainClass = componentName + "-section",
+	indexClass = componentName + "-index",
+	supportClass = componentName + "-support",
+	wrapperClass = componentName + "-wrapper",
 	sectionsTitle,
 	$navH1, $pageH1,
+	$support,
 	$subwayLinks,
 
 	/**
@@ -48,8 +51,10 @@ var $document = wb.doc,
 					wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + $navH1.text(), { href: "#" + $navH1.id } );
 				}
 
-				// Wrap all content until it hits either: ".pagedetails, .gc-subway-landmark-end, .gc-subway-support"
-				$elm.nextUntil( ".pagedetails, .gc-subway-landmark-end, .gc-subway-support" ).wrapAll( "<section class='" + mainClass + "'>" );
+				// Wrap all content until it hits either: ".pagedetails", or "".gc-subway-support"
+				$elm.nextUntil( ".pagedetails, .gc-subway-support" ).wrapAll( "<section class='" + mainClass + "'>" );
+
+				$elm.wrap( "<div class='" + wrapperClass + "'></div>" );
 
 				$pageH1 = $( "." + mainClass + " h1" );
 
@@ -61,13 +66,28 @@ var $document = wb.doc,
 
 				$elm.find( "a.active" ).attr( { tabindex: "0", "aria-current": "page" } );
 
-				$subwayLinks = $( selector + " a, ." + mainClass + " .gc-pagination a" );
+				//$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" ); Put back once correctly implemented
+				$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a, main .pager a" );// Remove once correctly implemented
+
+				// Cloning .gc-subway-support
+				$support = $( "." + supportClass );
+				if ( $support ) {
+					$support.clone().addClass( "hidden-xs hidden-sm" ).insertAfter( "." + componentName );
+					$support.addClass( "hidden-md hidden-lg" );
+				}
 
 				// Duplicating GC-Subway links for single-page application feel on mobile
 				$subwayLinks.each( function( i, el ) {
 					let $el = $( el ),
 						elHref = $el.attr( "href" ),
+
+						//cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont"; Put back once correctly implemented
+						cloneHref;
+
+					// Remove once correctly implemented
+					if ( elHref ) {
 						cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont";
+					}
 
 					$el.clone()
 						.addClass( "hidden-md hidden-lg" )
