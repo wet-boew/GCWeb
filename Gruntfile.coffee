@@ -81,6 +81,7 @@ module.exports = (grunt) ->
 		"site-contents"
 		"Build méli-mélo files"
 		[
+			"concat:common"
 			"concat:components"
 			"concat:templates"
 			"concat:sites"
@@ -471,13 +472,20 @@ module.exports = (grunt) ->
 					stripBanners: true
 					banner: "<%= banner %>"
 				src: [
-					"{sites,components,templates}/**/*.js"
-					"!{sites,components,templates}/**/test.js"
-					"!{sites,components,templates}/**/assets"
-					"!{sites,components,templates}/**/demo"
-					"!{sites,components,templates}/**/demos"
+					"{sites,common,components,templates}/**/*.js"
+					"!{sites,common,components,templates}/**/test.js"
+					"!{sites,common,components,templates}/**/assets"
+					"!{sites,common,components,templates}/**/demo"
+					"!{sites,common,components,templates}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
+			common:
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "common/**/index.json-ld"
+				dest: "_data/common.json"
 			components:
 				options:
 					banner: "["
@@ -644,7 +652,7 @@ module.exports = (grunt) ->
 				]
 			samples:
 				expand: true
-				src: "{sites,components,templates}/**/samples/**.*"
+				src: "{sites,common,components,templates}/**/samples/**.*"
 				dest: "_includes"
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
@@ -667,15 +675,15 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 				src: [
-					"{sites,components,templates}/**/fonts/**.*"
+					"{sites,common,components,templates}/**/fonts/**.*"
 					"!**/*.scss"
 				]
 				dest: "<%= themeDist %>/fonts"
 			assets:
 				expand: true
 				src: [
-					"{sites,components,templates}/**/assets/**.*"
-					"{sites,components,templates}/**/assets/**/*.*"
+					"{sites,common,components,templates}/**/assets/**.*"
+					"{sites,common,components,templates}/**/assets/**/*.*"
 				]
 				dest: "<%= themeDist %>/assets"
 				rename: (dest, src) ->
@@ -690,7 +698,7 @@ module.exports = (grunt) ->
 			depsJS_custom:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates}/deps/**.js"
+				src: "{sites,common,components,templates}/deps/**.js"
 				dest: "<%= themeDist %>/deps-js"
 			depsJS:
 				expand: true
@@ -954,13 +962,13 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"{sites,components,templates}/**/*.js"
+					"{sites,common,components,templates}/**/*.js"
 				]
 		jsonlint:
 			all:
 				src: [
-					"{sites,components,templates}/**/*.json",
-					"{sites,components,templates}/**/*.json-ld"
+					"{sites,common,components,templates}/**/*.json",
+					"{sites,common,components,templates}/**/*.json-ld"
 				]
 				options: {
 					indent: "\t"
@@ -971,7 +979,7 @@ module.exports = (grunt) ->
 			all:
 				expand: true
 				src: [
-						"{sites,components,templates}/**/*.scss"
+						"{sites,common,components,templates}/**/*.scss"
 						"!*-jekyll.scss"
 						"!node_modules"
 					]
@@ -991,7 +999,7 @@ module.exports = (grunt) ->
 						"Rakefile"
 
 						# Folders
-						"{sites,components,templates}/**"
+						"{sites,common,components,templates}/**"
 
 						#
 						# Exemptions...
@@ -1001,17 +1009,17 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,components,templates}/**/*.md"
+						"!{sites,common,components,templates}/**/*.md"
 						# "{sites,components,templates}/*/*.{md,html}"
 						# "{sites,components,templates}/*.{md, html}"
 						# "!{sites,components,templates}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,components,templates}/**/*.{jpg,png,ico}"
-						"!{sites,components,templates}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates}/**/*.{jpg,png,ico}"
+						"!{sites,common,components,templates}/*.{ico,jpg,png}"
 
 						# External fonts
-						"!{sites,components,templates}/**/*.{eot,svg,ttf,woff}"
+						"!{sites,common,components,templates}/**/*.{eot,svg,ttf,woff}"
 
 						# Docker environment file
 						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
