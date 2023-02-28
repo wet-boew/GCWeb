@@ -97,10 +97,10 @@ css:
 		</dl>
 	</details>
 	<h2 id="composantes" class="mrgn-bttm-lg">Composantes</h2>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
 	{% for component in site.data.components %}
 		{% assign list-pages = component.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }}
 				{% if component.status == "stable" %}
@@ -186,10 +186,10 @@ css:
 	</ul>
 	<hr />
 	<h2 id="gabarits" class="mrgn-bttm-lg pt-4">Gabarits</h2>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
 	{% for template in site.data.templates %}
 		{% assign list-pages = template.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }}
 				{% if template.status == "stable" %}
@@ -301,10 +301,10 @@ css:
 	</ul>
 
 	<h3 id="Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</h3>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for item in site.data.sites %}
 		{% assign list-pages = item.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
 				{% if item.status == "stable" %}
@@ -389,10 +389,10 @@ css:
 	</ul>
 
 	<h3 id="composantes-communes">Composantes communes</h3>
-	<ul class="row list-unstyled wb-eqht wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for item in site.data.common %}
 		{% assign list-pages = item.pages %}
-		<li class="col-md-6 mrgn-tp-md mrgn-bttm-md">
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
 				<h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
 				{% if item.status == "stable" %}
