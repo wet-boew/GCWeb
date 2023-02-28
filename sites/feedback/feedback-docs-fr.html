@@ -31,7 +31,7 @@
 <ul>
 	<li><a href="feedback-fr.html">Exemple de formulaire de commentaires de page</a></li>
 	<li><a href="feedback-aa-fr.html">Exemple de formulaire de commentaires de page en utilisant les attributs de données analytiques</a></li>
-	<li><a href="/sites/page-details/page-details-v1-fr.html">Exemple de formulaire de commentaires de page version 1</a></li>
+	<li><a href="/sites/page-details/deprecated/page-details-v1-fr.html">Exemple de formulaire de commentaires de page version 1</a></li>
 
 </ul>
 
@@ -99,14 +99,112 @@
 <h4>Formulaire de signalement d'un problème (SUP) (commentaires)</h4>
 <p>Référence des fichiers ajax implémentés</p>
 <ul>
-	<li><a href="ajax/report-problem-fr.html">Version 3</a></li>
-	<li><a href="ajax/report-problem-v2-fr.html">Version 2</a></li>
-	<li><a href="ajax/report-problem-aa-fr.html">Version 2 avec configuration Adobe Analytic</a></li>
-	<li><a href="ajax/report-problem-v1-fr.html">Version 1</a></li>
+	<li><a href="ajax/report-problem-fr.html">Version 4.0</a></li>
+	<li><a href="ajax/report-problem-v3-fr.html">Version 3.0</a></li>
+	<li><a href="ajax/report-problem-v2-fr.html">Version 2.0</a></li>
+	<li><a href="ajax/report-problem-aa-fr.html">Version 2.0 avec configuration Adobe Analytic</a></li>
+	<li><a href="ajax/report-problem-v1-fr.html">Version 1.0</a></li>
 </ul>
 
-<h5>Version 3</h5>
-<pre><code>&lt;form action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}"&gt;
+<h5>Version 4.0</h5>
+<pre><code>&lt;div class="row row-no-gutters"&gt;&lt;div class="col-sm-11 col-md-7 col-lg-6"&gt;
+	&lt;details class="brdr-0"&gt;
+		&lt;summary class="btn btn-default text-center"&gt;Signaler un problème ou une erreur sur cette page&lt;/summary&gt;
+		&lt;div class="well row"&gt;
+			&lt;div class="gc-rprt-prblm"&gt;
+				&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl"&gt;
+					&lt;form action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback"
+						data-wb-postback=&apos;{
+							"success": ".success-message",
+							"failure": ".failure-message"}&apos;
+						<ins>data-wb-jsonmanager=&apos;{
+							"name": "rap",
+							"extractor": [
+								{ "interface": "referer", "path": "externalReferer" },
+								{ "selector": "title", "path": "pageTitle" },
+								{ "interface": "locationHref", "path": "submissionPage" },
+								{ "selector": "html", "attr": "lang", "path": "lang" },
+								{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "pageOwner" },
+								{ "selector": "meta[name=\"dcterms.subject\"]", "attr": "content", "path": "subject" }
+							]
+						}&apos;&gt;
+						&lt;div data-wb-json=&apos;{
+							"url": "#[rap]",
+							"mapping": [
+								{ "selector": "input", "attr": "name", "value": "/@id" },
+								{ "selector": "input", "attr": "value", "value": "/@value" }
+							]
+						}&apos;&gt;
+							&lt;template&gt;
+								&lt;input type="hidden" name=" value=" /&gt;
+							&lt;/template&gt;
+						&lt;/div&gt;</ins>
+						&lt;fieldset&gt;
+							&lt;legend&gt;
+								&lt;span class="field-name"&gt;Veuillez sélectionner toutes les cases qui s&apos;appliquent :&lt;/span&gt;
+							&lt;/legend&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem1"&gt;
+									&lt;input name="problem1" id="problem1" type="checkbox" value="Yes" &gt;Un lien, un bouton ou une vidéo ne fonctionne pas
+								&lt;/label&gt;
+								&lt;input name="problem1" type="hidden" value="&gt;
+							&lt;/div&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem2"&gt;
+									&lt;input name="problem2" id="problem2" type="checkbox" value="Yes" &gt;Il y a une erreur d&apos;orthographe ou de grammaire
+								&lt;/label&gt;
+								&lt;input name="problem2" type="hidden" value="&gt;
+							&lt;/div&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem3"&gt;
+									&lt;input name="problem3" id="problem3" type="checkbox" value="Yes" &gt;Les renseignements sont incomplets
+								&lt;/label&gt;
+								&lt;input name="problem3" type="hidden" value="&gt;
+							&lt;/div&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem4"&gt;
+									&lt;input name="problem4" id="problem4" type="checkbox" value="Yes" &gt;L&apos;information n&apos;est plus à jour ou est erronée
+								&lt;/label&gt;
+								&lt;input name="problem4" type="hidden" value="&gt;
+							&lt;/div&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem5"&gt;
+									&lt;input name="problem5" id="problem5" type="checkbox" value="Yes" &gt;Message d&apos;erreur à l&apos;ouverture de la session lorsque je tente d&apos;accéder à un compte
+								&lt;/label&gt;
+								&lt;input name="problem5" type="hidden" value="&gt;
+							&lt;/div&gt;
+							&lt;div class="checkbox"&gt;
+								&lt;label for="problem11"&gt;
+									&lt;input name="problem11" id="problem11" type="checkbox" value="Yes" &gt;Je n&apos;arrive pas à trouver ce que je cherche
+								&lt;/label&gt;
+								&lt;input name="problem11" type="hidden" value="&gt;
+							&lt;/div&gt;
+								&lt;div class="checkbox"&gt;
+									&lt;label for="problem12"&gt;
+										&lt;input name="problem12" id="problem12" type="checkbox" value="Yes" &gt;Autre problème qui ne figure pas sur cette liste
+									&lt;/label&gt;
+								&lt;input name="problem12" type="hidden" value="&gt;
+							&lt;/div&gt;
+						&lt;/fieldset&gt;
+						&lt;button type="submit" class="btn btn-primary"&gt;Soumettre&lt;/button&gt;
+					&lt;/form&gt;
+				&lt;/div&gt;
+				&lt;div class="success-message hide"&gt;
+					&lt;h3&gt;Merci de votre aide!&lt;/h3&gt;
+					&lt;p&gt;Vous ne recevrez pas de réponse. Pour toute question, s’il vous plaît &lt;a href="https://www.canada.ca/fr/contact.html"&gt;contactez-nous&lt;/a&gt;.&lt;/p&gt;
+				&lt;/div&gt;
+				&lt;p class="failure-message hide"&gt;Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l&apos;information via une méthode alternative.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/details&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h5 class="wb-inv">Versions précédentes</h5>
+<details>
+	<summary>Version 3.0</summary>
+	<pre><code>&lt;form action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}"&gt;
 	&lt;fieldset&gt;
 		&lt;legend&gt;
 			&lt;span class="field-name"&gt;Veuillez sélectionner toutes les cases qui s'appliquent :&lt;/span&gt;
@@ -160,8 +258,10 @@
 	&lt;p&gt;Vous ne recevrez pas de réponse. Pour toute question, s’il vous plaît &lt;a href="https://www.canada.ca/fr/contact.html"&gt;contactez-nous&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p class="failure-message hide"&gt;Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l'information via une méthode alternative.&lt;/p&gt;</code></pre>
-<h5>Avant, version 2.0</h5>
-<pre><code>&lt;form <ins>action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}" </ins> &gt;
+</details>
+<details>
+	<summary>Version 2.0</summary>
+	<pre><code>&lt;form <ins>action="/sites/feedback/feedback-form-destination.html" id="gc-rprt-prblm-form" class="wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.success-message&quot;,&quot;failure&quot;:&quot;.failure-message&quot;,&quot;content&quot;:&quot;.form-content&quot;}" </ins> &gt;
 	&lt;fieldset&gt;
 		&lt;legend&gt;
 			&lt;span class="field-name"&gt;Veuillez sélectionner toutes les cases qui s'appliquent :&lt;/span&gt;
@@ -247,8 +347,10 @@
 	&lt;p&gt;Vous ne recevrez pas de réponse. Pour toute question, s'il vous plaît &lt;a href="https://www.canada.ca/fr/contact.html"&gt;contactez-nous&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p class="failure-message hide"&gt;Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l'information via une méthode alternative.&lt;/p&gt;</ins></code></pre>
-<h5>Avant, la version 1.0</h5>
-<pre><code>&lt;form action="#"&gt;
+</details>
+<details>
+	<summary>Version 1.0</summary>
+	<pre><code>&lt;form action="#"&gt;
 	&lt;fieldset&gt;
 		&lt;legend&gt;&lt;span class="field-name"&gt;Veuillez cocher toutes les réponses pertinentes&nbsp;:&lt;/span&gt;&lt;/legend&gt;
 		&lt;div class="checkbox"&gt;
@@ -290,4 +392,5 @@
 	&lt;/fieldset&gt;
 	&lt;button type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'&gt;Soumettre&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-</div>
+	</div>
+</details>
