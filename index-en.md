@@ -1,7 +1,7 @@
 ---
 title: GCWeb, the WET-BOEW Canada.ca theme
 altLangPage: index-fr.html
-dateModified: 2022-12-06
+dateModified: 2023-02-28
 description: "Home page describing all the components of the Canada.ca theme, named GCWeb."
 layout: no-container
 language: en
@@ -18,8 +18,8 @@ css:
 			<p>The page templates and design patterns below comprise a reference implementation of the <a href="https://design.canada.ca">Canada.ca design system</a>, including the mandatory requirement of the Content and Information Architecture (C&amp;IA) Specification. Government of Canada departments and agencies can contribute additional patterns and templates via <a href="https://github.com/wet-boew/GCWeb">GCWeb github repository</a>.</p>
 		</div>
 		<div class="col-xs-12 col-md-auto pull-right">
-			<p><a href="https://github.com/wet-boew/GCWeb/archive/v12.4.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v12.4.0</strong></a><br />
-				<small>(<time>{{ page.dateModified | %F }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Release notes</a>)</small></p>
+			<p><a href="https://github.com/wet-boew/GCWeb/archive/v12.10.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v12.10.0</strong></a><br />
+				<small>(<time>{{ page.dateModified | date: '%F' }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Release notes</a>)</small></p>
 		</div>
 	</div>
 </div>
@@ -75,7 +75,7 @@ css:
 			<dt><span class="label label-success">{{comp_status.stable}}</span></dt>
 			<dd>Meet the latest published specification.</dd>
 			<dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
-			<dd>Relatively stable, yet experimental; use as your own risks.</dd>
+			<dd>Relatively stable, yet experimental; use at your own risks.</dd>
 			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
 			<dd>Do not use because it's deprecated, but listed here for your information.</dd>
 			<dt><span class="label label-default">Undefined</span></dt>
@@ -119,7 +119,7 @@ css:
 					Main working example
 					- First working example in the example list where the language match
 					-->
-					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
 					{% if mainExamples %}
 					<li>
@@ -208,7 +208,7 @@ css:
 					Main working example
 					- First working example in the example list where the language match
 					-->
-					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
 					{% if mainExamples %}
 					<li>
@@ -295,12 +295,18 @@ css:
 </div>
 <div class="container">
 	<h2 id="sitesglobal">Sites and global functionality</h2>
+	<ul>
+	  <li><a href="#core-canadaca-theme">Core components for the Canada.ca theme</a></li>
+	  <li><a href="#common-components">Common components</a></li>
+	</ul>
+
+	<h3 id="core-canadaca-theme">Core components for the Canada.ca theme</h3>
 	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for item in site.data.sites %}
 		{% assign list-pages = item.pages %}
 		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
+				<h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
 				{% if item.status == "stable" %}
 				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
 				{% elsif item.status == "provisional" %}
@@ -310,14 +316,14 @@ css:
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
-				</h3>
+				</h4>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
 					<p>{{ item.description[ page.language ] | default: "[Short description of the site global functionality]" }}</p>
 					<!--
 					Main working example
 					- First working example in the example list where the language match
 					-->
-					{% assign mainExamples = list-pages.examples | where: "language", page.lang | first %}
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
 					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
 					{% if mainExamples %}
 					<li>
@@ -381,9 +387,109 @@ css:
 		</li>
 	{% endfor %}
 	</ul>
+
+	<h3 id="common-components">Common components</h3>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
+	{% for item in site.data.common %}
+		{% assign list-pages = item.pages %}
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
+				{% if item.status == "stable" %}
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "provisional" %}
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "deprecated" %}
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
+				{% else %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
+				{% endif %}
+				</h4>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ item.description[ page.language ] | default: "[Short description of the common component]" }}</p>
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="common/
+								{%- if item.componentName -%}
+									{{ item.componentName }}/
+								{%- endif -%}
+							{{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
+					{% endif %}
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					{% for doc in docs %}
+						<li><a href="common/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+					{% endfor %}
+					{% endif %}
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>All examples and info</summary>
+						<ul class="mrgn-tp-md">
+							{% for pgGroup in list-pages %}
+							{% assign grpkey = pgGroup[0] %}
+							<li>{{ page_group[ grpkey ] | default: "Unknown group" }}
+								<ul>
+								{% assign examples = pgGroup[1] %}
+								{% for example in examples %}
+									{% if example.path %}
+									<li><a href="commun/
+												{%- if item.componentName -%}
+													{{ item.componentName }}/
+												{%- endif -%}
+											{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+									{% elsif example.url %}
+										<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+									{% else %}
+										<li>{{ example.title }}</li>
+									{% endif %}
+								{% endfor %}
+								</ul>
+							</li>
+						{% endfor %}
+						</ul>
+					</details>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+
 	<h2 id="other">Other documentation</h2>
-	<h3>WET-BOEW feature demos styled with Canada.ca theme</h3>
-	<p><a href="/gcweb-compiled-demos/index.html#wet-boew">WET-BOEW feature overview</a></p>
+	<div class="row mrgn-tp-md">
+		<div class="col-md-8">
+			<section class="row d-flex">
+				<div class="col-xs-3 col-md-2 d-flex align-self-center">
+					<img src="https://raw.github.com/wet-boew/wet-boew-attachments/master/Promo/WET_Logo.png" class="full-width" alt="">
+				</div>
+				<div class="col-xs-9 col-md-10">
+					<h3 class="mrgn-tp-md" id="wet-boew-demos">WET features styled with Canada.ca theme</h3>
+					<p><a href="/gcweb-compiled-demos/index.html#wet-boew">view list of demos</a></p>
+				</div>
+			</section>
+		</div>
+	</div>
 	<h3 id="gcweb-project-documentation">GCWeb project documentation</h3>
 	<ul>
 		<li><a href="docs/index.html">GCWeb theme - Meta information</a></li>

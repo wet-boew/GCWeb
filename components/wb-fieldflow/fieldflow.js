@@ -229,7 +229,7 @@ var componentName = "wb-fieldflow",
 		if ( fieldName ) {
 			data.provEvt.setAttribute( "name", fieldName );
 		}
-		if ( fieldValue ) {
+		if ( typeof fieldValue === "string" ) {
 			$selectElm.val( fieldValue );
 		}
 
@@ -1031,7 +1031,7 @@ $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event
 				// Retreive action set on the binded element
 				bindToElm = document.getElementById( bindTo );
 				actionAttr = bindToElm.getAttribute( "data-" + componentName );
-				if ( actionAttr ) {
+				if ( typeof actionAttr === "string" ) {
 					if ( actionAttr.startsWith( "{" ) || actionAttr.startsWith( "[" ) ) {
 						try {
 							cacheAction = JSON.parse( actionAttr );

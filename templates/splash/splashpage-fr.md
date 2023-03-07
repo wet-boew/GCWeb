@@ -9,7 +9,7 @@ creator-fr: Gouvernement du Canada
 subject-en: GV Government and Politics
 subject-fr: GV Gouvernement et vie politique
 dateIssued: 2022-09-27
-dateModified: 2022-09-28
+dateModified: 2022-10-31
 
 images:
   - https://www.canada.ca/content/dam/canada/splash/sp-bg-1.jpg
@@ -28,10 +28,10 @@ images:
 <div class="row">
 	<section class="col-xs-6 text-right">
 	  <h2 class="wb-inv">Gouvernement du Canada</h2>
-	  <p><a href="../home/home-fr.html" class="btn btn-primary">Français</a></p>
+	  <p><a href="../home/home-fr.html" class="btn btn-primary" translate="no">Français</a></p>
 	</section>
 	<section class="col-xs-6" lang="en">
 	  <h2 class="wb-inv">Government of Canada</h2>
-	  <p><a href="../home/home-en.html " class="btn btn-primary">English</a></p>
+	  <p><a href="../home/home-en.html " class="btn btn-primary" translate="no">English</a></p>
 	</section>
 </div>

@@ -119,7 +119,7 @@ noMainContainer: true
 			</section>
 		</div>
 		<div class="col-md-4">
-			{% include components/gc-follow-us.html %}
+			{% include components/gc-follow-us/gc-follow-us.html %}
 		</div>
 	</div>
 	<section class="provisional gc-contributors">

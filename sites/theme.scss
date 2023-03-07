@@ -154,13 +154,13 @@
 @import "wet-boew/src/plugins/feeds/base";
 
 // Components GC Theme
-@import "../components/shared-styles";
 @import "../components/baseline/base";
 @import "../components/base";
 @import "../components/base2";
 @import "../components/provisional";
 
 @import "../components/gc-nws/base";
+@import "../components/gc-servinfo/base";
 @import "../components/redacted";
 @import "../components/dshbrd/base";
 @import "../components/triangle-up";
@@ -206,38 +206,28 @@
 @import "wet-boew/src/base/component";
 
 
-
-/*
- * GCWeb custom implementation
- *
- * Copy and rename the folder "variant-default" to "variant".
- * - the "variant" folder should not GIT conflict with your custom implementation when updating to the latest gcweb
- */
-@import "../misc/variant-default/variant-default";
-
 /*
  Views
  */
 /* All screen views */
 @media screen {
 	@import "wet-boew/src/base/views/screen";
-	@import "../misc/views/screen";
 
+	@import "skiplinks/screen";
 
+	@import "../components/overlay/screen";
 	@import "wet-boew/src/plugins/prettify/screen";
 	@import "wet-boew/src/plugins/tabs/screen";
 	@import "../components/tabs/screen";
 	@import "../components/gc-features/screen"; /* Deprecated as v4.0.28 */
-
-	@import "../misc/variant-default/variant-screen";
 }
 
 /* Extra-small view and under */
 @media screen and (max-width: $screen-xs-max) {
 	@import "wet-boew/src/base/views/screen-xs-max";
-	@import "../misc/views/screen-xs-max";
 
 	@import "banner/screen-xs-max";
+	@import "baseline/lists/screen-xs-max";
 	@import "gcweb-menu/screen-xs-max";
 	@import "page-details/screen-xs-max";
 	@import "footers/screen-xs-max";
@@ -248,67 +238,58 @@
 	@import "../components/toc/screen-xs-max";
 
 	@import "../templates/campaign/screen-xs-max";
-
-	@import "../misc/variant-default/variant-screen-xs-max";
 }
 
 /* Small view and under */
 @media screen and (max-width: $screen-sm-max) {
 	@import "wet-boew/src/base/views/screen-sm-max";
-	@import "../misc/views/screen-sm-max";
-
 
 	@import "banner/screen-sm-max";
+	@import "baseline/heading-screen-sm-max";
 	@import "gcweb-menu/screen-sm-max";
 	@import "authentication/screen-sm-max";
 	@import "footers/screen-sm-max";
 
 	@import "../components/dshbrd/screen-sm-max";
+	@import "../components/gc-features/screen-sm-max";
 	@import "../components/gc-subway/screen-sm-max";
 	@import "wet-boew/src/plugins/tables/screen-sm-max";
 	@import "../components/gc-table/screen-sm-max"; // Provisional CSS for GC table
 	@import "../components/gc-chckbxrdio/screen-sm-max";
 	@import "wet-boew/src/plugins/tabs/screen-sm-max";
+	@import "../components/gc-servinfo/screen-sm-max";
 
-	@import "../misc/variant-default/variant-screen-sm-max";
+	@import "../templates/home/screen-sm-max";
+	@import "../templates/theme-topic/screen-sm-max";
 }
 
 /* Medium view and under */
 @media screen and (max-width: $screen-md-max) {
 	@import "wet-boew/src/base/views/screen-md-max";
-	@import "../misc/views/screen-md-max";
 
 	@import "gcweb-menu/screen-md-max";
 
 	@import "../components/header-rwd/screen-md-max";
-
-	@import "../misc/variant-default/variant-screen-md-max";
 }
 
 /* Large view and under */
 @media screen and (max-width: $screen-lg-max) {
 	@import "wet-boew/src/base/views/screen-lg-max";
-	@import "../misc/views/screen-lg-max";
-	@import "../misc/variant-default/variant-screen-lg-max";
 }
 
 /* Extra-small view and over */
 @media screen and (min-width: $screen-xs-min) {
 	@import "wet-boew/src/base/views/screen-xs-min";
-	@import "../misc/views/screen-xs-min";
 
 	@import "wet-boew/src/plugins/menu/screen-xs-min";
 	@import "wet-boew/src/plugins/tables/screen-xs-min";
 
 	@import "wet-boew/src/base/proximity/screen-xs-min";
-
-	@import "../misc/variant-default/variant-screen-xs-min";
 }
 
 /* Small view and over */
 @media screen and (min-width: $screen-sm-min) {
 	@import "wet-boew/src/base/views/screen-sm-min";
-	@import "../misc/views/screen-sm-min";
 
 	@import "baseline/lists/screen-sm-min";
 
@@ -321,14 +302,11 @@
 
 	@import "wet-boew/src/base/proximity/screen-sm-min";
 	@import "wet-boew/src/base/views/_bootstrap-4-screen-sm-min";
-
-	@import "../misc/variant-default/variant-screen-sm-min";
 }
 
 /* Medium view and over */
 @media screen and (min-width: $screen-md-min) {
 	@import "wet-boew/src/base/views/screen-md-min";
-	@import "../misc/views/screen-md-min";
 
 	@import "baseline/lists/screen-md-min";
 	@import "gcweb-menu/screen-md-min";
@@ -338,15 +316,14 @@
 	@import "../components/social-media-icons/screen-md-min";
 	@import "../components/gc-subway/screen-md-min";
 
-	@import "wet-boew/src/base/proximity/screen-md-min";
+	@import "../templates/theme-topic/screen-md-min";
 
-	@import "../misc/variant-default/variant-screen-md-min";
+	@import "wet-boew/src/base/proximity/screen-md-min";
 }
 
 /* Large view and over */
 @media screen and (min-width: $screen-lg-min) {
 	@import "wet-boew/src/base/views/screen-lg-min";
-	@import "../misc/views/screen-lg-min";
 
 	@import "baseline/lists/screen-lg-min";
 
@@ -355,60 +332,51 @@
 	@import "../components/equalheight/screen-lg-min";
 
 	@import "wet-boew/src/base/proximity/screen-lg-min";
-
-	@import "../misc/variant-default/variant-screen-lg-min";
 }
 
 /* Extra-extra-small view */
 @media screen and (max-width: $screen-xxs-max) {
 	@import "wet-boew/src/base/views/screen-xxs-max";
-	@import "../misc/views/screen-xxs-max";
 
 	@import "banner/screen-xxs-max";
 	@import "footers/screen-xxs-max";
+	@import "gcweb-menu/screen-xxs-max";
+	@import "search/screen-xxs-max";
 
+	@import "../components/screen-xxs-max";
 	@import "wet-boew/src/plugins/menu/screen-xxs-max";
 	@import "wet-boew/src/plugins/tables/screen-xxs-max";
 	@import "../components/header-rwd/screen-xxs-max";
 	@import "wet-boew/src/plugins/tabs/screen-xxs-max";
 	@import "../components/tabs/screen-xxs-max";
-
-	@import "../misc/variant-default/variant-screen-xxs-max";
 }
 
 /* Extra-small view */
 @media screen and (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
 	@import "wet-boew/src/base/views/screen-xs-min-to-screen-xs-max";
-	@import "../misc/views/screen-xs-min-to-screen-xs-max";
+
+	@import "search/screen-xs-min-to-screen-xs-max";
 
 	@import "../components/header-rwd/screen-xs-min-to-screen-xs-max";
-
-	@import "../misc/variant-default/variant-screen-xs-min-to-screen-xs-max";
 }
 
 /* Small view */
 @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 	@import "wet-boew/src/base/views/screen-sm-min-to-screen-sm-max";
-	@import "../misc/views/screen-sm-min-to-screen-sm-max";
 
 	@import "search/screen-sm-min-to-screen-sm-max";
 
 	@import "../templates/campaign/screen-sm-min-to-screen-sm-max";
-
-	@import "../misc/variant-default/variant-screen-sm-min-to-screen-sm-max";
 }
 
 /* Medium view */
 @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
 	@import "wet-boew/src/base/views/screen-md-min-to-screen-md-max";
-	@import "../misc/views/screen-md-min-to-screen-md-max";
 
 	@import "gcweb-menu/screen-md-min-to-screen-md-max";
 
 	@import "../components/header-rwd/screen-md-min-to-screen-md-max";
 	@import "../components/equalheight/screen-md-min-to-screen-md-max";
-
-	@import "../misc/variant-default/variant-screen-md-min-to-screen-md-max";
 
 	@import "../templates/home/screen-md-min-to-screen-md-max";
 }
@@ -416,28 +384,24 @@
 /* Large view */
 @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
 	@import "wet-boew/src/base/views/screen-lg-min-to-screen-lg-max";
-	@import "../misc/views/screen-lg-min-to-screen-lg-max";
-	@import "../misc/variant-default/variant-screen-lg-min-to-screen-lg-max";
 }
 
 /* Extra-large view */
 @media screen and (min-width: $screen-xl-min) {
 	@import "wet-boew/src/base/views/screen-xl-min";
-	@import "../misc/views/screen-xl-min";
 
 	@import "wet-boew/src/base/proximity/screen-xl-min";
-
-	@import "../misc/variant-default/variant-screen-xl-min";
 }
 
 /* Print view */
 @media print {
 	@import "wet-boew/src/base/views/print";
-	@import "../misc/views/print";
 
+	@import "header/print";
 	@import "wet-boew/src/base/breadcrumb/print";
 	@import "footers/print";
 	@import "gcweb-menu/print";
+	@import "language/print";
 	@import "search/print";
 	@import "secondary-menu/print";
 	@import "page-details/print";
@@ -454,8 +418,6 @@
 
 	@import "../templates/pagebrand/print";
 	@import "../templates/campaign/print";
-
-	@import "../misc/variant-default/variant-print";
 }
 
 /* Testing WCAG Spacing */

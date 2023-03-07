@@ -1,0 +1,1163 @@
+---
+{
+	"title": "Formulaires - Échafaudage",
+	"language": "fr",
+	"altLangPage": "forms.html",
+	"breadcrumbs": [
+		{ "title": "GCWeb accueil", "link": "https://wet-boew.github.io/GCWeb/index-fr.html" }
+	],
+	"dateModified": "2023-02-20"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<p>Cette page nécessite une traduction.</p>
+
+<div lang="en">
+<div class="alert alert-warning">
+<p>The purpose of this page is to test all native forms related elements, if they are aligned with our design and are compliant to our accessibility guideline when used as is without any special customization. The following include all form elements in the HTML5 specification and a few examples was inspired by the <a href="https://html.spec.whatwg.org/multipage/forms.html#forms">WHATWG section 4.10</a> as February 2023. This page may not contain all the possible forms element combination.</p>
+</div>
+
+<h2>The <code>form</code> element</h2>
+<form></form>
+<pre><code>&lt;form>&lt;/form></code></pre>
+
+<h2>The <code>label</code> element</h2>
+<form>
+	<label>This is a label</label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>This is a label&lt;/label>
+&lt;/form></code></pre>
+
+
+<h2>The <code>input</code> element</h2>
+<div class="row"><div class="col-md-6">
+	<h3>Implicit labeling</h3>
+	<form>
+		<label>Label: <input></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input>&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h3>Explicit labeling</h3>
+	<form>
+		<label for="input">Label: </label><input id="input">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input">Label: &lt;/label>&lt;input id="input">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+
+
+<h3>Hidden state (<code>type=hidden</code>)</h3>
+<form>
+	<input type="hidden">
+</form>
+<pre><code>&lt;form>
+	&lt;input type="hidden">
+&lt;/form></code></pre>
+
+
+<h3>Text (<code>type=text</code>) state</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="text"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="text">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-text">Label: </label><input id="input-text" type="text">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-text">Label: &lt;/label>&lt;input id="input-text" type="text">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode text (<code>inputmode=text</code>)</h4>
+<form>
+	<label>Label: <input type="text" inputmode="text"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="text" inputmode="text">&lt;/label>
+&lt;/form></code></pre>
+
+<h4>With the input mode none (<code>inputmode=none</code>)</h4>
+<form>
+	<label>Label: <input type="text" inputmode="none"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="text" inputmode="none">&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>Search state (<code>type=search</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="search"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="search">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-search">Label: </label><input id="input-search" type="search">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-search">Label: &lt;/label>&lt;input id="input-search" type="search">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode search (<code>inputmode=search</code>)</h4>
+<form>
+	<label>Label: <input type="search" inputmode="search"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="search" inputmode="search">&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>Telephone state (<code>type=tel</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="tel"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="tel">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-tel">Label: </label><input id="input-tel" type="tel">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-tel">Label: &lt;/label>&lt;input id="input-tel" type="tel">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode tel (<code>inputmode=tel</code>)</h4>
+<form>
+	<label>Label: <input type="tel" inputmode="tel"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="tel" inputmode="tel">&lt;/label>
+&lt;/form></code></pre>
+
+<h3>URL state (<code>type=url</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="url"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="url">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-url">Label: </label><input id="input-url" type="url">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-url">Label: &lt;/label>&lt;input id="input-url" type="url">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode url (<code>inputmode=url</code>)</h4>
+<form>
+	<label>Label: <input type="url" inputmode="url"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="url" inputmode="url">&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>Email state (<code>type=email</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="email"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="email">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-email">Label: </label><input id="input-email" type="email">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-email">Label: &lt;/label>&lt;input id="input-email" type="email">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode email (<code>inputmode=email</code>)</h4>
+<form>
+	<label>Label: <input type="email" inputmode="email"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="email" inputmode="email">&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>Password state (<code>type=password</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="password"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="password">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-password">Label: </label><input id="input-password" type="password">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-password">Label: &lt;/label>&lt;input id="input-password" type="password">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Date state (<code>type=date</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="date"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="date">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-date">Label: </label><input id="input-date" type="date">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-date">Label: &lt;/label>&lt;input id="input-date" type="date">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Month state (<code>type=month</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="month"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="month">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-month">Label: </label><input id="input-month" type="month">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-month">Label: &lt;/label>&lt;input id="input-month" type="month">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Week state (<code>type=week</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="week"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="week">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-week">Label: </label><input id="input-week" type="week">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-week">Label: &lt;/label>&lt;input id="input-week" type="week">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Time state (<code>type=time</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="time"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="time">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-time">Label: </label><input id="input-time" type="time">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-time">Label: &lt;/label>&lt;input id="input-time" type="time">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Local Date and Time state (<code>type=datetime-local</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="datetime-local"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="datetime-local">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-datetime-local">Label: </label><input id="input-datetime-local" type="datetime-local">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-datetime-local">Label: &lt;/label>&lt;input id="input-datetime-local" type="datetime-local">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Number state (<code>type=number</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="number"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="number">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-number">Label: </label><input id="input-number" type="number">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-number">Label: &lt;/label>&lt;input id="input-number" type="number">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h4>With the input mode numeric (<code>inputmode=numeric</code>)</h4>
+<form>
+	<label>Label: <input type="number" inputmode="numeric"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="number" inputmode="numeric">&lt;/label>
+&lt;/form></code></pre>
+
+<h4>With the input mode decimal (<code>inputmode=decimal</code>)</h4>
+<form>
+	<label>Label: <input type="number" inputmode="decimal"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="number" inputmode="decimal">&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>Range state (<code>type=range</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="range"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="range">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-range">Label: </label><input id="input-range" type="range">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-range">Label: &lt;/label>&lt;input id="input-range" type="range">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Color state (<code>type=color</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="color"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="color">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-color">Label: </label><input id="input-color" type="color">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-color">Label: &lt;/label>&lt;input id="input-color" type="color">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Checkbox state (<code>type=checkbox</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<p><label>(single) Label: <input type="checkbox"></label>
+		<p>
+		<label>(multiple) Label 1: <input type="checkbox" name="input-checkbox-implicit"></label>
+		<label>(multiple) Label 2: <input type="checkbox" name="input-checkbox-implicit"></label>
+		<label>(multiple) Label 3: <input type="checkbox" name="input-checkbox-implicit"></label>
+		<p>
+		<label><input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 1</label>
+		<label><input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 2</label>
+		<label><input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 3</label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;p>&lt;label>(single) Label: &lt;input type="checkbox">&lt;/label>
+	&lt;p>
+	&lt;label>(multiple) Label 1: &lt;input type="checkbox" name="input-checkbox-implicit">&lt;/label>
+	&lt;label>(multiple) Label 2: &lt;input type="checkbox" name="input-checkbox-implicit">&lt;/label>
+	&lt;label>(multiple) Label 3: &lt;input type="checkbox" name="input-checkbox-implicit">&lt;/label>
+	&lt;p>
+	&lt;label>&lt;input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 1&lt;/label>
+	&lt;label>&lt;input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 2&lt;/label>
+	&lt;label>&lt;input type="checkbox" name="input-checkbox-implicit"> (multiple) Label after 3&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<p><label for="input-checkbox">(single) Label: </label><input id="input-checkbox" type="checkbox">
+		<p>
+		<label for="input-checkbox-a1">(multiple) Label 1: </label><input id="input-checkbox-a1" type="checkbox" name="input-checkbox-explicit">
+		<label for="input-checkbox-a2">(multiple) Label 2: </label><input id="input-checkbox-a2" type="checkbox" name="input-checkbox-explicit">
+		<label for="input-checkbox-a3">(multiple) Label 3: </label><input id="input-checkbox-a3" type="checkbox" name="input-checkbox-explicit">
+		<p>
+		<input id="input-checkbox-b1" type="checkbox" name="input-checkbox-explicit"><label for="input-checkbox-b1"> (multiple) Label after 1</label>
+		<input id="input-checkbox-b2" type="checkbox" name="input-checkbox-explicit"><label for="input-checkbox-b2"> (multiple) Label after 2</label>
+		<input id="input-checkbox-b3" type="checkbox" name="input-checkbox-explicit"><label for="input-checkbox-b3"> (multiple) Label after 3</label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;p>&lt;label for="input-checkbox">(single) Label: &lt;/label>&lt;input id="input-checkbox" type="checkbox">
+	&lt;p>
+	&lt;label for="input-checkbox-a1">(multiple) Label 1: &lt;/label>&lt;input id="input-checkbox-a1" type="checkbox" name="input-checkbox-explicit">
+	&lt;label for="input-checkbox-a2">(multiple) Label 2: &lt;/label>&lt;input id="input-checkbox-a2" type="checkbox" name="input-checkbox-explicit">
+	&lt;label for="input-checkbox-a3">(multiple) Label 3: &lt;/label>&lt;input id="input-checkbox-a3" type="checkbox" name="input-checkbox-explicit">
+	&lt;p>
+	&lt;input id="input-checkbox-b1" type="checkbox" name="input-checkbox-explicit">&lt;label for="input-checkbox-b1"> (multiple) Label after 1&lt;/label>
+	&lt;input id="input-checkbox-b2" type="checkbox" name="input-checkbox-explicit">&lt;label for="input-checkbox-b2"> (multiple) Label after 2&lt;/label>
+	&lt;input id="input-checkbox-b3" type="checkbox" name="input-checkbox-explicit">&lt;label for="input-checkbox-b3"> (multiple) Label after 3&lt;/label>
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Radio Button state (<code>type=radio</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>(single) Label: <input type="radio"></label>
+		<p>
+		<label>(multiple) Label 1: <input type="radio" name="input-radio-implicit"></label>
+		<label>(multiple) Label 2: <input type="radio" name="input-radio-implicit"></label>
+		<label>(multiple) Label 3: <input type="radio" name="input-radio-implicit"></label>
+		<p>
+		<label><input type="radio" name="input-radio-implicit"> (multiple) Label after 1</label>
+		<label><input type="radio" name="input-radio-implicit"> (multiple) Label after 2</label>
+		<label><input type="radio" name="input-radio-implicit"> (multiple) Label after 3</label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>(single) Label: &lt;input type="radio">&lt;/label>
+	&lt;p>
+	&lt;label>(multiple) Label 1: &lt;input type="radio" name="input-radio-implicit">&lt;/label>
+	&lt;label>(multiple) Label 2: &lt;input type="radio" name="input-radio-implicit">&lt;/label>
+	&lt;label>(multiple) Label 3: &lt;input type="radio" name="input-radio-implicit">&lt;/label>
+	&lt;p>
+	&lt;label>&lt;input type="radio" name="input-radio-implicit"> (multiple) Label after 1&lt;/label>
+	&lt;label>&lt;input type="radio" name="input-radio-implicit"> (multiple) Label after 2&lt;/label>
+	&lt;label>&lt;input type="radio" name="input-radio-implicit"> (multiple) Label after 3&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-radio">(single) Label: </label><input id="input-radio" type="radio">
+		<p>
+		<label for="input-radio-a1">(multiple) Label 1: </label><input id="input-radio-a1" type="radio" name="input-radio-explicit">
+		<label for="input-radio-a2">(multiple) Label 2: </label><input id="input-radio-a2" type="radio" name="input-radio-explicit">
+		<label for="input-radio-a3">(multiple) Label 3: </label><input id="input-radio-a3" type="radio" name="input-radio-explicit">
+		<p>
+		<input id="input-radio-b1" type="radio" name="input-radio-explicit"><label for="input-radio-b1"> (multiple) Label after 1</label>
+		<input id="input-radio-b2" type="radio" name="input-radio-explicit"><label for="input-radio-b2"> (multiple) Label after 2</label>
+		<input id="input-radio-b3" type="radio" name="input-radio-explicit"><label for="input-radio-b3"> (multiple) Label after 3</label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-radio">(single) Label: &lt;/label>&lt;input id="input-radio" type="radio">
+	&lt;p>
+	&lt;label for="input-radio-a1">(multiple) Label 1: &lt;/label>&lt;input id="input-radio-a1" type="radio" name="input-radio-explicit">
+	&lt;label for="input-radio-a2">(multiple) Label 2: &lt;/label>&lt;input id="input-radio-a2" type="radio" name="input-radio-explicit">
+	&lt;label for="input-radio-a3">(multiple) Label 3: &lt;/label>&lt;input id="input-radio-a3" type="radio" name="input-radio-explicit">
+	&lt;p>
+	&lt;input id="input-radio-b1" type="radio" name="input-radio-explicit">&lt;label for="input-radio-b1"> (multiple) Label after 1&lt;/label>
+	&lt;input id="input-radio-b2" type="radio" name="input-radio-explicit">&lt;label for="input-radio-b2"> (multiple) Label after 2&lt;/label>
+	&lt;input id="input-radio-b3" type="radio" name="input-radio-explicit">&lt;label for="input-radio-b3"> (multiple) Label after 3&lt;/label>
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>File Upload state (<code>type=file</code>)</h3>
+<div class="row"><div class="col-md-6">
+	<h4>Implicit labeling</h4>
+	<form>
+		<label>Label: <input type="file"></label>
+	</form>
+	<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="file">&lt;/label>
+&lt;/form></code></pre>
+	</div><div class="col-md-6">
+
+	<h4>Explicit labeling</h4>
+	<form>
+		<label for="input-file">Label: </label><input id="input-file" type="file">
+	</form>
+	<pre><code>&lt;form>
+	&lt;label for="input-file">Label: &lt;/label>&lt;input id="input-file" type="file">
+&lt;/form></code></pre>
+	</div>
+</div>
+
+<h3>Submit Button state (<code>type=submit</code>)</h3>
+<form>
+	<input type="submit">
+</form>
+<form>
+	<input type="submit" value="Submit">
+</form>
+<pre><code>&lt;form>
+	&lt;input type="submit">
+&lt;/form>
+&lt;form>
+	&lt;input type="submit" value="Submit">
+&lt;/form></code></pre>
+
+<h3>Image Button state (<code>type=image</code>)</h3>
+<p>Note: It will submit the coordinate of the mouse click on the image.
+<h4>Implicit labeling</h4>
+<form>
+	<label>Label: <input type="image" src="img/input-image-sample.jpg" alt="Implicit image input type example"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="image" src="img/input-image-sample.jpg" alt="Implicit image input type example">&lt;/label>
+&lt;/form></code></pre>
+
+<h4>Explicit labeling</h4>
+<form>
+	<label for="input-image">Label: </label><input id="input-image" type="image" src="img/input-image-sample.jpg" alt="Explicit image input type example">
+</form>
+<pre><code>&lt;form>
+	&lt;label for="input-image">Label: &lt;/label>&lt;input id="input-image" type="image" src="img/input-image-sample.jpg" alt="Explicit image input type example">
+&lt;/form></code></pre>
+
+
+<h3>Reset Button state (<code>type=reset</code>)</h3>
+<form>
+	<label>Label: <input type="text" value="This is a value"></label>
+	<input type="reset">
+</form>
+<form>
+	<label>Label: <input type="text" value="This is a value"></label>
+	<input type="reset" value="Reset">
+</form>
+<pre><code>&lt;form>s
+	&lt;label>Label: &lt;input type="text" value="This is a value">&lt;/label>
+	&lt;input type="reset">
+&lt;/form>
+&lt;form>
+	&lt;label>Label: &lt;input type="text" value="This is a value">&lt;/label>
+	&lt;input type="reset" value="Reset">
+&lt;/form></code></pre>
+
+<h3>Button state (<code>type=button</code>)</h3>
+<form>
+	<input type="button" value="Button">
+</form>
+<pre><code>&lt;form>
+	&lt;input type="button" value="Button">
+&lt;/form></code></pre>
+
+
+<h2>Common input element attributes</h2>
+
+<h3>The <code>value</code> attribute</h3>
+<form>
+	<label>Label: <input type="text" value="This is a value"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input type="text" value="This is a value">&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>readonly</code> attribute</h3>
+<form>
+	<label>Label: <input readonly value="this is a value"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input readonly value="this is a value">&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>disabled</code> attribute</h3>
+<form>
+	<label>Label: <input disabled value="this is a value"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input disabled value="this is a value">&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>placeholder</code> attribute</h3>
+<form>
+	<p><label>Description: <input type="text" name="desc" placeholder="My Email Account"></label></p>
+</form>
+<pre><code>&lt;form>
+	&lt;p>&lt;label>Description: &lt;input type="text" name="desc" placeholder="My Email Account">&lt;/label>&lt;/p>
+&lt;/form></code></pre>
+
+<h3>The <code>required</code> attribute</h3>
+<form>
+	<label>Label: <input required></label>
+	<input type="submit">
+</form>
+<pre><code>&lt;form>
+	&lt;label>Label: &lt;input required>&lt;/label>
+	&lt;input type="submit">
+&lt;/form></code></pre>
+
+<h3>The <code>multiple</code> attribute</h3>
+<form>
+	<label>To: <input type=email multiple name=to></label>
+</form>
+<form>
+	<label>Attachments: <input type=file multiple name=att></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>To: &lt;input type=email multiple name=to>&lt;/label>
+&lt;/form>
+&lt;form>
+	&lt;label>Attachments: &lt;input type=file multiple name=att>&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>pattern</code> attribute</h3>
+<form>
+	<label> Part number:
+	<input pattern="[0-9][A-Z]{3}" name="part"
+		title="A part number is a digit followed by three uppercase letters."/>
+</label>
+<input type="submit">
+</form>
+<pre><code>&lt;form>
+	&lt;label> Part number:
+	&lt;input pattern="[0-9][A-Z]{3}" name="part"
+		title="A part number is a digit followed by three uppercase letters."/>
+&lt;/label>
+&lt;input type="submit">
+&lt;/form></code></pre>
+
+<h3>The <code>maxlength</code> and <code>minlength</code> attributes</h3>
+<form>
+	<p><label>What are you doing? <input name=status maxlength=25></label>
+	<p><label>Username: <input name=u required></label>
+	<p><label>Password: <input name=p required minlength=12></label>
+</form>
+<pre><code>&lt;form>
+	&lt;p>&lt;label>What are you doing? &lt;input name=status maxlength=25>&lt;/label>
+	&lt;p>&lt;label>Username: &lt;input name=u required>&lt;/label>
+	&lt;p>&lt;label>Password: &lt;input name=p required minlength=12>&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>size</code> attribute</h3>
+<form>
+	<label>Size <input size=50></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Size &lt;input size=50>&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>min</code> and <code>max</code> attributes</h3>
+<form>
+	<label>Quantity <input name=quantity required="" type="number" min="1" max="10" value="1"></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Quantity &lt;input name=quantity required="" type="number" min="1" max="10" value="1">&lt;/label>
+&lt;/form></code></pre>
+
+<h3>The <code>step</code> attribute</h3>
+<form>
+	<label>Sleep start <input name="sleepStart" type=time min="21:00" max="06:00" step="60" value="00:00"></label>
+</form>
+<form>
+	<label>Opacity (256 steps) <input name=opacity type=range min=0 max=1 step=0.00392156863></label>
+</form>
+<form>
+	<label>Favority time (any steps) <input name=favtime type=time step=any></label>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Sleep start &lt;input name="sleepStart" type=time min="21:00" max="06:00" step="60" value="00:00">&lt;/label>
+&lt;/form>
+&lt;form>
+	&lt;label>Opacity (256 steps) &lt;input name=opacity type=range min=0 max=1 step=0.00392156863>&lt;/label>
+&lt;/form>
+&lt;form>
+	&lt;label>Favority time (any steps) &lt;input name=favtime type=time step=any>&lt;/label>
+&lt;/form></code></pre>
+
+
+<h3>The <code>list</code> attribute</h3>
+<form>
+	<label>Function types <input type="text" list="function-types"></label>
+	<datalist id="function-types">
+		<option value="function">function</option>
+		<option value="async function">async function</option>
+		<option value="function*">generator function</option>
+		<option value="=>">arrow function</option>
+		<option value="async =>">async arrow function</option>
+		<option value="async function*">async generator function</option>
+	</datalist>
+</form>
+<pre><code>&lt;form>
+	&lt;label>Function types &lt;input type="text" list="function-types">&lt;/label>
+	&lt;datalist id="function-types">
+		&lt;option value="function">function&lt;/option>
+		&lt;option value="async function">async function&lt;/option>
+		&lt;option value="function*">generator function&lt;/option>
+		&lt;option value="=>">arrow function&lt;/option>
+		&lt;option value="async =>">async arrow function&lt;/option>
+		&lt;option value="async function*">async generator function&lt;/option>
+	&lt;/datalist>
+&lt;/form></code></pre>
+
+
+<h2>The <code>button</code> element</h2>
+<form>
+	<button>Default</button>
+</form>
+<form>
+	<button type="submit">Submit</button>
+</form>
+<form>
+	<button type="reset">Reset</button>
+</form>
+<form>
+	<button type="button">Button</button>
+</form>
+<button type="button">Button in no form</button>
+<pre><code>&lt;form>
+	&lt;button>Default&lt;/button>
+&lt;/form>
+&lt;form>
+	&lt;button type="submit">Submit&lt;/button>
+&lt;/form>
+&lt;form>
+	&lt;button type="reset">Reset&lt;/button>
+&lt;/form>
+&lt;form>
+	&lt;button type="button">Button&lt;/button>
+&lt;/form>
+&lt;button type="button">Button in no form&lt;/button></code></pre>
+
+
+<h2>The <code>select</code> element</h2>
+
+<h3>No default, explicit label</h3>
+<form>
+<p>
+	<label for="unittype">Select unit type:</label>
+	<select id="unittype" name="unittype">
+		<option value="1"> Miner </option>
+		<option value="2"> Puffer </option>
+		<option value="3" selected> Snipey </option>
+		<option value="4"> Max </option>
+		<option value="5"> Firebot </option>
+	</select>
+</p>
+</form>
+<pre><code>&lt;form>
+&lt;p>
+	&lt;label for="unittype">Select unit type:&lt;/label>
+	&lt;select id="unittype" name="unittype">
+		&lt;option value="1"> Miner &lt;/option>
+		&lt;option value="2"> Puffer &lt;/option>
+		&lt;option value="3" selected> Snipey &lt;/option>
+		&lt;option value="4"> Max &lt;/option>
+		&lt;option value="5"> Firebot &lt;/option>
+	&lt;/select>
+&lt;/p>
+&lt;/form></code></pre>
+
+
+<h3>No default, implicit label</h3>
+<form>
+<p>
+	<label>Select unit type:
+	<select name="unittype">
+		<option value="1"> Miner </option>
+		<option value="2"> Puffer </option>
+		<option value="3" selected> Snipey </option>
+		<option value="4"> Max </option>
+		<option value="5"> Firebot </option>
+	</select>
+	</label>
+</p>
+</form>
+<pre><code>&lt;form>
+&lt;p>
+	&lt;label>Select unit type:
+	&lt;select name="unittype">
+		&lt;option value="1"> Miner &lt;/option>
+		&lt;option value="2"> Puffer &lt;/option>
+		&lt;option value="3" selected> Snipey &lt;/option>
+		&lt;option value="4"> Max &lt;/option>
+		&lt;option value="5"> Firebot &lt;/option>
+	&lt;/select>
+	&lt;/label>
+&lt;/p>
+&lt;/form></code></pre>
+
+
+<h3>With placeholder</h3>
+<form>
+<p>
+	<label for="unittypeplaceholder">Select unit type:</label>
+	<select id="unittypeplaceholder" name="unittypeplaceholder" required>
+	<option value=""> Select unit type </option>
+	<option value="1"> Miner </option>
+	<option value="2"> Puffer </option>
+	<option value="3"> Snipey </option>
+	<option value="4"> Max </option>
+	<option value="5"> Firebot </option>
+</select>
+</p>
+</form>
+<pre><code>&lt;form>
+&lt;p>
+	&lt;label for="unittypeplaceholder">Select unit type:&lt;/label>
+	&lt;select id="unittypeplaceholder" name="unittypeplaceholder" required>
+	&lt;option value=""> Select unit type &lt;/option>
+	&lt;option value="1"> Miner &lt;/option>
+	&lt;option value="2"> Puffer &lt;/option>
+	&lt;option value="3"> Snipey &lt;/option>
+	&lt;option value="4"> Max &lt;/option>
+	&lt;option value="5"> Firebot &lt;/option>
+&lt;/select>
+&lt;/p>
+&lt;/form></code></pre>
+
+
+<h3>All selected</h3>
+<form>
+<p>
+	<label for="allowedunits">Select unit types to enable on this map:</label>
+	<select id="allowedunits" name="allowedunits" multiple>
+		<option value="1" selected> Miner </option>
+		<option value="2" selected> Puffer </option>
+		<option value="3" selected> Snipey </option>
+		<option value="4" selected> Max </option>
+		<option value="5" selected> Firebot </option>
+	</select>
+</p>
+</form>
+<pre><code>&lt;form>
+&lt;p>
+	&lt;label for="allowedunits">Select unit types to enable on this map:&lt;/label>
+	&lt;select id="allowedunits" name="allowedunits" multiple>
+		&lt;option value="1" selected> Miner &lt;/option>
+		&lt;option value="2" selected> Puffer &lt;/option>
+		&lt;option value="3" selected> Snipey &lt;/option>
+		&lt;option value="4" selected> Max &lt;/option>
+		&lt;option value="5" selected> Firebot &lt;/option>
+	&lt;/select>
+&lt;/p>
+&lt;/form></code></pre>
+
+
+<h3>With option group (<code>optgroup</code>)</h3>
+<form>
+	<p><label>Course:
+		<select name="c">
+			<optgroup label="8.01 Physics I: Classical Mechanics">
+				<option value="8.01.1">Lecture 01: Powers of Ten
+				<option value="8.01.2">Lecture 02: 1D Kinematics
+				<option value="8.01.3">Lecture 03: Vectors
+			<optgroup label="8.02 Electricity and Magnetism">
+				<option value="8.02.1">Lecture 01: What holds our world together?
+				<option value="8.02.2">Lecture 02: Electric Field
+				<option value="8.02.3">Lecture 03: Electric Flux
+			<optgroup label="8.03 Physics III: Vibrations and Waves">
+				<option value="8.03.1">Lecture 01: Periodic Phenomenon
+				<option value="8.03.2">Lecture 02: Beats
+				<option value="8.03.3">Lecture 03: Forced Oscillations with Damping
+		</select>
+	</label>
+</form>
+<pre><code>&lt;form>
+	&lt;p>&lt;label>Course:
+		&lt;select name="c">
+			&lt;optgroup label="8.01 Physics I: Classical Mechanics">
+				&lt;option value="8.01.1">Lecture 01: Powers of Ten
+				&lt;option value="8.01.2">Lecture 02: 1D Kinematics
+				&lt;option value="8.01.3">Lecture 03: Vectors
+			&lt;optgroup label="8.02 Electricity and Magnetism">
+				&lt;option value="8.02.1">Lecture 01: What holds our world together?
+				&lt;option value="8.02.2">Lecture 02: Electric Field
+				&lt;option value="8.02.3">Lecture 03: Electric Flux
+			&lt;optgroup label="8.03 Physics III: Vibrations and Waves">
+				&lt;option value="8.03.1">Lecture 01: Periodic Phenomenon
+				&lt;option value="8.03.2">Lecture 02: Beats
+				&lt;option value="8.03.3">Lecture 03: Forced Oscillations with Damping
+		&lt;/select>
+	&lt;/label>
+&lt;/form></code></pre>
+
+
+<h2>The <code>datalist</code> element</h2>
+<form>
+<label>
+	Animal:
+	<input name=animal list=animals>
+	<datalist id=animals>
+		<option value="Cat">
+		<option value="Dog">
+	</datalist>
+</label>
+</form>
+<pre><code>&lt;form>
+&lt;label>
+	Animal:
+	&lt;input name=animal list=animals>
+	&lt;datalist id=animals>
+		&lt;option value="Cat">
+		&lt;option value="Dog">
+	&lt;/datalist>
+&lt;/label>
+&lt;/form></code></pre>
+
+<h2><code>textarea</code> element</h2>
+<form>
+<label>Textarea: <textarea>Dear Madam Speaker,
+
+Regarding your letter dated ...
+
+...
+
+Yours Sincerely,
+
+...</textarea>
+</label>
+</form>
+<pre><code>&lt;form>
+&lt;label>Textarea: &lt;textarea>Dear Madam Speaker,
+
+Regarding your letter dated ...
+
+...
+
+Yours Sincerely,
+
+...&lt;/textarea>
+&lt;/label>
+&lt;/form></code></pre>
+
+<h3>With placeholder text</h3>
+<form>
+<label>Textarea: <textarea placeholder="Dear Francine,
+
+They closed the parks this week, so we won't be able to
+meet your there. Should we just have dinner?
+
+Love,
+Daddy"></textarea>
+</label>
+</form>
+<pre><code>&lt;form>
+&lt;label>Textarea: &lt;textarea placeholder="Dear Francine,
+
+They closed the parks this week, so we won't be able to
+meet your there. Should we just have dinner?
+
+Love,
+Daddy">&lt;/textarea>
+&lt;/label>
+&lt;/form></code></pre>
+
+<h2>The <code>output</code> element</h2>
+<form>
+<output id="resultEmpty"></output>
+</form>
+<pre><code>&lt;form>
+&lt;output id="resultEmpty">&lt;/output>
+&lt;/form></code></pre>
+
+<h3>With a value</h3>
+<form>
+<output id="resultNonEmpty">With a non empty result</output>
+</form>
+<pre><code>&lt;form>
+&lt;output id="resultNonEmpty">With a non empty result&lt;/output>
+&lt;/form></code></pre>
+
+
+<h2>The <code>progress</code> element</h2>
+<p><label>Progress: <progress id=p max=100 value="30"><span>30</span>%</progress></label></p>
+<pre><code>&lt;p>&lt;label>Progress: &lt;progress id=p max=100 value="30">&lt;span>30&lt;/span>%&lt;/progress>&lt;/label>&lt;/p></code></pre>
+
+<h3>Indeterminate state</h3>
+<p><label>Loading: <progress></progress></label></p>
+<pre><code>&lt;p>&lt;label>Loading: &lt;progress>&lt;/progress>&lt;/label>&lt;/p></code></pre>
+
+
+<h2>The <code>meter</code> element</h2>
+<p><label>Measure 10%: <meter value="10" max="100">10 percent</meter></label>
+<p><label>Measure 60%: <meter value="60" max="100">60 percent</meter></label>
+<p><label>Low: <meter value="30" max="100" low="40" high="80">30 percent</meter></label>
+<p><label>Normal: <meter value="50" max="100" low="40" high="80">50 percent</meter></label>
+<p><label>High: <meter value="90" max="100" low="40" high="80">90 percent</meter></label>
+<p><label>Optimum value (39) is higher: <meter value="30" max="100" optimum="39">30 percent</meter></label>
+<p><label>Optimum value (39) is lower: <meter value="69" max="100" optimum="39">69 percent</meter></label>
+<p><label>Optimum value (39) is on it: <meter value="39" max="100" optimum="39">39 percent</meter></label>
+<p><label>Optimum value (default) is on it: <meter value="50" max="100">50 percent</meter></label>
+<p><label>Optimum region low: <meter value="20" max="100" low="40" high="80" optimum="30">20 percent</meter></label>
+<p><label>Optimum region normal: <meter value="50" max="100" low="40" high="80" optimum="51">50 percent</meter></label>
+<p><label>Optimum region high: <meter value="95" max="100" low="40" high="80" optimum="90">95 percent</meter></label>
+<pre><code>&lt;p>&lt;label>Measure 10%: &lt;meter value="10" max="100">10 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Measure 60%: &lt;meter value="60" max="100">60 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Low: &lt;meter value="30" max="100" low="40" high="80">30 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Normal: &lt;meter value="50" max="100" low="40" high="80">50 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>High: &lt;meter value="90" max="100" low="40" high="80">90 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum value (39) is higher: &lt;meter value="30" max="100" optimum="39">30 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum value (39) is lower: &lt;meter value="69" max="100" optimum="39">69 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum value (39) is on it: &lt;meter value="39" max="100" optimum="39">39 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum value (default) is on it: &lt;meter value="50" max="100">50 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum region low: &lt;meter value="20" max="100" low="40" high="80" optimum="30">20 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum region normal: &lt;meter value="50" max="100" low="40" high="80" optimum="51">50 percent&lt;/meter>&lt;/label>
+&lt;p>&lt;label>Optimum region high: &lt;meter value="95" max="100" low="40" high="80" optimum="90">95 percent&lt;/meter>&lt;/label></code></pre>
+
+
+<h2>The <code>fieldset</code> and <code>legend</code> element</h2>
+<form>
+<fieldset>
+	<legend>Display</legend>
+	<p><label><input type=radio name=c value=0 checked> Black on White</label>
+	<p><label><input type=radio name=c value=1> White on Black</label>
+	<p><label><input type=checkbox name=g> Use grayscale</label>
+	<p><label>Enhance contrast <input type=range name=e list=contrast min=0 max=100 value=0 step=1></label>
+	<datalist id=contrast>
+		<option label=Normal value=0>
+		<option label=Middle value=50>
+		<option label="Middle high" value="78">
+		<option label=Maximum value=100>
+	</datalist>
+</fieldset>
+</form>
+<pre><code>&lt;form>
+&lt;fieldset>
+	&lt;legend>Display&lt;/legend>
+	&lt;p>&lt;label>&lt;input type=radio name=c value=0 checked> Black on White&lt;/label>
+	&lt;p>&lt;label>&lt;input type=radio name=c value=1> White on Black&lt;/label>
+	&lt;p>&lt;label>&lt;input type=checkbox name=g> Use grayscale&lt;/label>
+	&lt;p>&lt;label>Enhance contrast &lt;input type=range name=e list=contrast min=0 max=100 value=0 step=1>&lt;/label>
+	&lt;datalist id=contrast>
+		&lt;option label=Normal value=0>
+		&lt;option label=Middle value=50>
+		&lt;option label="Middle high" value="78">
+		&lt;option label=Maximum value=100>
+	&lt;/datalist>
+&lt;/fieldset>
+&lt;/form></code></pre>
+
+<h3>Disabled fieldset</h3>
+<form>
+<fieldset name="clubfields" disabled>
+	<legend> <label>
+		<input type=checkbox name=club onchange="form.clubfields.disabled = !checked">
+		Use Club Card
+	</label> </legend>
+	<p><label>Name on card: <input name=clubname required></label></p>
+	<p><label>Card number: <input name=clubnum required pattern="[-0-9]+"></label></p>
+	<p><label>Expiry date: <input name=clubexp type=month></label></p>
+</fieldset>
+</form>
+<pre><code>&lt;form>
+&lt;fieldset name="clubfields" disabled>
+	&lt;legend> &lt;label>
+		&lt;input type=checkbox name=club onchange="form.clubfields.disabled = !checked">
+		Use Club Card
+	&lt;/label> &lt;/legend>
+	&lt;p>&lt;label>Name on card: &lt;input name=clubname required>&lt;/label>&lt;/p>
+	&lt;p>&lt;label>Card number: &lt;input name=clubnum required pattern="[-0-9]+">&lt;/label>&lt;/p>
+	&lt;p>&lt;label>Expiry date: &lt;input name=clubexp type=month>&lt;/label>&lt;/p>
+&lt;/fieldset>
+&lt;/form></code></pre>
+
+<h3>Grouping controls</h3>
+<form>
+<fieldset>
+	<legend> <h4>
+		How can we best reach you?
+	</h4> </legend>
+	<p> <label>
+	<input type=radio checked name=contact_pref>
+		Phone
+	</label> </p>
+	<p> <label>
+		<input type=radio name=contact_pref>
+		Text
+	</label> </p>
+	<p> <label>
+		<input type=radio name=contact_pref>
+		Email
+	</label> </p>
+</fieldset>
+</form>
+<pre><code>&lt;form>
+&lt;fieldset>
+	&lt;legend> &lt;h4>
+		How can we best reach you?
+	&lt;/h4> &lt;/legend>
+	&lt;p> &lt;label>
+	&lt;input type=radio checked name=contact_pref>
+		Phone
+	&lt;/label> &lt;/p>
+	&lt;p> &lt;label>
+		&lt;input type=radio name=contact_pref>
+		Text
+	&lt;/label> &lt;/p>
+	&lt;p> &lt;label>
+		&lt;input type=radio name=contact_pref>
+		Email
+	&lt;/label> &lt;/p>
+&lt;/fieldset>
+&lt;/form></code></pre>

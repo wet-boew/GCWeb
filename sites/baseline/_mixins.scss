@@ -7,7 +7,40 @@
  *
  */
 
+/* Screen xxs-max grid override for brand component */
+@mixin brand-screen-xxs-max-override-grid {
+	float: none !important;
+	width: auto !important;
+}
+
+/* Display none important for print */
+@mixin print-display-none-important() {
+	display: none !important;
+}
+
 /* Theme base styles */
 @mixin defaults-alternative-font-family() {
 	font-family: Lato, sans-serif;
+}
+
+/* Sub-component: Increase text size for small devices like mobile */
+@mixin subcomponent() {
+	p {
+		font-size: 17px;
+		line-height: 1.5em;
+	}
+
+	// Overwride sizing
+	h3, h4, h5, h6 {
+		font-size: $font-size-h5;
+		margin-bottom: 5px;
+		margin-top: 23px; // same as h5
+	}
+}
+
+/* Sub-component: Increase text size for small devices like mobile */
+@mixin subcomponent-small-devices() {
+	p {
+		font-size: 19px;
+	}
 }

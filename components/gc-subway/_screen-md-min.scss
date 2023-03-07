@@ -1,54 +1,81 @@
 /*
- *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
- *
- *	Provisional GC Subway map menu
+ * Medium view and over (screen only) - Variable $screen-md-min >= 992px
 */
 
-.provisional {
+/*** GC subway desktop styles ***/
 
-	/*** GC subway desktop styles ***/
-	&.gc-subway {
-		border-right: 0px;
-		border-top: 0px;
-		display: none;
-		margin-top: 25px;
-		padding-left: 15px;
-
+.gc-subway.provisional {
+	&:not(.gc-subway-index) {
 		&.no-blink {
 			display: block;
 		}
-		.gc-subway-menu-nav {
-			float: right;
-			width: 33.33%;
-		}
-		ul li:last-child {
-			border-bottom: 0px;
-			border-left: 4px solid transparent;
-		}
-	}
 
-	/* Double H1 */
-	&.gc-subway-section {
-		padding-right: 15px;
-		width: 66.66%;
+		border-color: transparent;
+		display: none;
 
-		h1, .gc-subway-h1 {
-			margin-top: 0px;
+		.wb-disable & {
+			display: block;
 		}
-		.gc-subway-h1 {
-			font-family: Lato, sans-serif;
-			font-weight: inherit;
-			margin-bottom: 0px;
-			margin-right: 0px;
-			padding-bottom: 0px !important;
-			padding-left: 0px;
+
+		hgroup {
+			left: -.5em;
+			position: absolute;
+			top: -2em;
+
+			h1 {
+				clip: rect(1px, 1px, 1px, 1px);
+				height: 1px;
+				margin: 0;
+				overflow: hidden;
+				position: absolute;
+				width: 1px;
+			}
+		}
+
+		ul {
+			li {
+				&:last-child:has(ul) {
+					border-left: 4px solid $accent-blue;
+					padding-bottom: 1.25em;
+
+					&::after {
+						background-color: $accent-blue;
+						bottom: 0;
+						content: "";
+						height: 4px;
+						left: -.45em;
+						position: absolute;
+						width: .75em;
+					}
+				}
+			}
 		}
 	}
 }
 
-.wb-disable .provisional.gc-subway {
-	display: block;
+.gc-subway-wrapper {
+	float: right;
+	//width: calc(33.33% - .5em);
+	width: calc(33.33% - .5em - 5px); // Revert to line above when correctly implemented
+}
+
+.gc-subway-section {
+	float: left;
+	padding-right: 30px;
+	width: 66.66%;
+
+	hgroup:first-of-type {
+		h1 {
+			margin-top: 0;
+		}
+
+		p {
+			display: block;
+			font-size: 1.25em;
+			margin-bottom: 0;
+		}
+	}
 }

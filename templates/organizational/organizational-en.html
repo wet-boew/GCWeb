@@ -12,13 +12,13 @@
 	"share": "true"
 }
 ---
-<h1 property="name" id="wb-cont">{{{title}}}</h1>
+<h1 property="name" id="wb-cont">{{ page.title }}</h1>
 <div class="row">
 	<div class="col-sm-7 pull-left">
 		<p>[Institution name] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor. Cras sagittis massa sed libero eleifend, ac iaculis urna tempor.</p>
 	</div>
 	<div class="col-sm-5 col-xs-12 pull-right">
-		{{>follow}}
+		{% include components/gc-follow-us/gc-follow-us.html isInline=true %}
 	</div>
 </div>
 <section>
@@ -56,14 +56,21 @@
 </section>
 <div class="row">
 	<div class="col-md-4 col-xs-12 pull-right">
-		{% include templates/most-requested.html %}
+		{% include components/most-requested/most-requested.html %}
 	</div>
 	{% include components/gc-servinfo/with-embed-col-pull.html %}
 	<div class="pull-right col-xs-12 col-md-4">
-		{% include templates/contact-us.html %}
-		{% include templates/more-info.html %}
+		<section class="lnkbx">
+			<h2>Contact us</h2>
+			<ul>
+				{%- for i in (1..3) -%}
+				<li><a href="#">Contact number link</a></li>
+				{%- endfor -%}
+			</ul>
+		</section>
+		{% include components/more-info/more-info.html %}
 	</div>
 </div>
 {% include templates/whtwedo-3-items.html %}
-{{>corp-info}}
-{{>deptfeatures}}
+{% include components/gc-corporate/org-info.html %}
+{% include components/gc-features/features.html %}

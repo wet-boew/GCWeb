@@ -29,6 +29,8 @@ module.exports = (grunt) ->
 		"dist"
 		"Build distribution files ready for production"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"test"
 			"jekyll-theme"
 			"core-dist-PROD"
@@ -41,8 +43,21 @@ module.exports = (grunt) ->
 		"debug"
 		"Build a local working copy"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
+			"core-dist-DEBUG"
+			"site-contents"
+		]
+	)
+
+	@registerTask(
+		"demo"
+		"Build a demo ready version of the site"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runDemo"
 			"core-dist-DEBUG"
 			"site-contents"
 		]
@@ -52,6 +67,8 @@ module.exports = (grunt) ->
 		"méli-mélo"
 		"Build méli-mélo files and run it in-place"
 		[
+			"checkDependencies"
+			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
 			"clean:mélimélo"
@@ -60,11 +77,11 @@ module.exports = (grunt) ->
 		]
 	)
 
-
 	@registerTask(
 		"site-contents"
 		"Build méli-mélo files"
 		[
+			"concat:common"
 			"concat:components"
 			"concat:templates"
 			"concat:sites"
@@ -72,7 +89,6 @@ module.exports = (grunt) ->
 			"copy:wetboew_demos"
 		]
 	)
-
 
 	@registerTask(
 		"méli-mélo-remote"
@@ -116,12 +132,22 @@ module.exports = (grunt) ->
 			"copy:samples"
 		]
 	)
+
 	@registerTask(
 		"jekyll-theme-runLocal"
 		"DEBUG - Jekyll theme but with the run local variant"
 		[
 			"usebanner:jekyllRunLocal"
 			"copy:jekyllRunLocal"
+		]
+	)
+
+	@registerTask(
+		"jekyll-theme-runDemo"
+		"DEBUG - Jekyll theme but with the run demo variant"
+		[
+			"usebanner:jekyllRunDemo"
+			"copy:jekyllRunDemo"
 		]
 	)
 
@@ -135,6 +161,7 @@ module.exports = (grunt) ->
 			"usebanner:jekyllRunUnminified"
 		]
 	)
+
 	@registerTask(
 		"core-dist-PROD"
 		"Compile core GCWeb files"
@@ -163,6 +190,7 @@ module.exports = (grunt) ->
 			"copy:depsJS_custom"
 		]
 	)
+
 	@registerTask(
 		"core-dist-POST"
 		"Post task to complete the compilation of core GCWeb files"
@@ -172,7 +200,6 @@ module.exports = (grunt) ->
 			"clean:depsJS"
 		]
 	)
-
 
 	@registerTask(
 		"deploy-packagejson"
@@ -198,7 +225,6 @@ module.exports = (grunt) ->
 			};
 			grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
 	)
-
 
 	@registerTask(
 		"linting"
@@ -376,10 +402,27 @@ module.exports = (grunt) ->
 
 	)
 
+	@registerMultiTask(
+		"check-wet-version"
+		"Ensure WET-BOEW's version is the same in package as in node_modules",
+		(src) ->
+			installedFull = this.data[0]
+			installed = installedFull.substring(installedFull.indexOf("#") + 2)
+			expectedFull = this.data[1]
+			expected = expectedFull.substring(expectedFull.indexOf("#") + 2)
+
+			if (installed != expected)
+				grunt.log.writeln(">> "['red'] + "wet-boew: installed: " + installed['red'] + ", expected: " + expected['green'])
+				grunt.fail.fatal(">> "['red'] + "Invoke " + "npm install"['green'] + " to update WET-BOEW version")
+			else
+				grunt.log.writeln(">> "['green'] + "WET-BOEW version up to date with package's version.")
+	)
+
 	@initConfig
 
 		# Metadata.
 		pkg: @file.readJSON "package.json"
+		pkgWET: @file.readJSON "node_modules/wet-boew/package.json"
 		distFolder: "dist"
 		themeDist: "<%= distFolder %>/<%= pkg.name %>"
 		jekyllDist: "~jekyll-dist"
@@ -399,6 +442,10 @@ module.exports = (grunt) ->
 			all:
 				options:
 					npmInstall: false
+					checkGitUrls: true
+
+		"check-wet-version":
+			src: ["<%= pkgWET._from %>", "<%= pkg.dependencies['wet-boew'] %>"]
 
 		clean:
 			dist: [ "dist"]
@@ -425,13 +472,20 @@ module.exports = (grunt) ->
 					stripBanners: true
 					banner: "<%= banner %>"
 				src: [
-					"{sites,components,templates}/**/*.js"
-					"!{sites,components,templates}/**/test.js"
-					"!{sites,components,templates}/**/assets"
-					"!{sites,components,templates}/**/demo"
-					"!{sites,components,templates}/**/demos"
+					"{sites,common,components,templates}/**/*.js"
+					"!{sites,common,components,templates}/**/test.js"
+					"!{sites,common,components,templates}/**/assets"
+					"!{sites,common,components,templates}/**/demo"
+					"!{sites,common,components,templates}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
+			common:
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "common/**/index.json-ld"
+				dest: "_data/common.json"
 			components:
 				options:
 					banner: "["
@@ -472,6 +526,7 @@ module.exports = (grunt) ->
 					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.css"
 				]
 				dest: "<%= méliméloFolder %>/<%= curMéliPack %>/<%= curMéliPack %>.css"
+
 		usebanner:
 			css:
 				options:
@@ -494,6 +549,11 @@ module.exports = (grunt) ->
 			jekyllRunLocal:
 				options:
 					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}"""
+					position: "bottom"
+				src: "<%= jekyllDist %>/_includes/settings.liquid"
+			jekyllRunDemo:
+				options:
+					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:
@@ -592,11 +652,18 @@ module.exports = (grunt) ->
 				]
 			samples:
 				expand: true
-				src: "{sites,components,templates}/**/samples/**.*"
+				src: "{sites,common,components,templates}/**/samples/**.*"
 				dest: "_includes"
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
 			jekyllRunLocal:
+				src: [
+					"_includes/**.*",
+					"_includes/**/*.*",
+					"_layouts/**.*"
+				]
+				dest: "<%= jekyllDist %>/"
+			jekyllRunDemo:
 				src: [
 					"_includes/**.*",
 					"_includes/**/*.*",
@@ -608,15 +675,15 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 				src: [
-					"{sites,components,templates}/**/fonts/**.*"
+					"{sites,common,components,templates}/**/fonts/**.*"
 					"!**/*.scss"
 				]
 				dest: "<%= themeDist %>/fonts"
 			assets:
 				expand: true
 				src: [
-					"{sites,components,templates}/**/assets/**.*"
-					"{sites,components,templates}/**/assets/**/*.*"
+					"{sites,common,components,templates}/**/assets/**.*"
+					"{sites,common,components,templates}/**/assets/**/*.*"
 				]
 				dest: "<%= themeDist %>/assets"
 				rename: (dest, src) ->
@@ -631,7 +698,7 @@ module.exports = (grunt) ->
 			depsJS_custom:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates}/deps/**.js"
+				src: "{sites,common,components,templates}/deps/**.js"
 				dest: "<%= themeDist %>/deps-js"
 			depsJS:
 				expand: true
@@ -650,6 +717,10 @@ module.exports = (grunt) ->
 				dest: "_wetboew-demos"
 				rename: (dest, src) ->
 					return dest + "/" + src.replace( 'node_modules/wet-boew/src/plugins/', '' ).replace( ".hbs", ".html" )
+				options: {
+					process: (content, srcpath) ->
+						return content.replace(/{{>alertariahidden}}/g, "")
+				}
 
 			# méli-mélo tasks
 			mélimélo:
@@ -734,6 +805,7 @@ module.exports = (grunt) ->
 #					console.log( src )
 #					console.log( dest )
 #					return dest
+
 		postcss:
 			options:
 				processors: [
@@ -747,6 +819,7 @@ module.exports = (grunt) ->
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
+
 		cssmin:
 			theme:
 				expand: true
@@ -889,13 +962,13 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"{sites,components,templates}/**/*.js"
+					"{sites,common,components,templates}/**/*.js"
 				]
 		jsonlint:
 			all:
 				src: [
-					"{sites,components,templates}/**/*.json",
-					"{sites,components,templates}/**/*.json-ld"
+					"{sites,common,components,templates}/**/*.json",
+					"{sites,common,components,templates}/**/*.json-ld"
 				]
 				options: {
 					indent: "\t"
@@ -906,7 +979,7 @@ module.exports = (grunt) ->
 			all:
 				expand: true
 				src: [
-						"{sites,components,templates}/**/*.scss"
+						"{sites,common,components,templates}/**/*.scss"
 						"!*-jekyll.scss"
 						"!node_modules"
 					]
@@ -926,7 +999,7 @@ module.exports = (grunt) ->
 						"Rakefile"
 
 						# Folders
-						"{sites,components,templates}/**"
+						"{sites,common,components,templates}/**"
 
 						#
 						# Exemptions...
@@ -936,17 +1009,17 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,components,templates}/**/*.md"
+						"!{sites,common,components,templates}/**/*.md"
 						# "{sites,components,templates}/*/*.{md,html}"
 						# "{sites,components,templates}/*.{md, html}"
 						# "!{sites,components,templates}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,components,templates}/**/*.{jpg,png,ico}"
-						"!{sites,components,templates}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates}/**/*.{jpg,png,ico}"
+						"!{sites,common,components,templates}/*.{ico,jpg,png}"
 
 						# External fonts
-						"!{sites,components,templates}/**/*.{eot,svg,ttf,woff}"
+						"!{sites,common,components,templates}/**/*.{eot,svg,ttf,woff}"
 
 						# Docker environment file
 						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.

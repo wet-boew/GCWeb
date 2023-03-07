@@ -1,11 +1,13 @@
-/* Thematic blue */
+/*** Thematic blue ***/
 .bg-winterlude {
     background-color: #003c77;
 }
+/** panel, hr **/
 .panel-winterlude,
 hr.brdr-winterlude {
     border-color: #003c77;
 }
+/** a, button **/
 /* Hover and focus state */
 a.bg-winterlude:hover,
 a.bg-winterlude:focus,
@@ -31,11 +33,35 @@ button.bg-winterlude:focus,
 button.bg-winterlude:active {
     color: #fff !important;
 }
+/** details/summary **/
+details.bg-winterlude {
+   margin: 0;
+}
+details.bg-winterlude * {
+   color: #fff;
+}
+details.bg-winterlude summary {
+   background-color: #003c77;
+    color: #fff;
+    border: 1px solid #003c77;
+}
+details.bg-winterlude[open]>summary {
+    border: none;
+    border-bottom: 1px solid #fff;    
+}
+details.bg-winterlude[open] {
+    border: 1px solid #003c77;
+    padding-bottom: 0.35em;
+} 
+details.bg-winterlude a:focus, details.bg-winterlude a:hover {
+   color: #b3ffff;
+}
 
-/* Thematic light blue */
+/*** Thematic light blue ***/
 .bg-winterlude-lightblue {
     background-color: #c7e6f5;
 }
+/** a, button **/
 /* Hover and focus state */
 a.bg-winterlude-lightblue:hover,
 a.bg-winterlude-lightblue:focus,
@@ -55,7 +81,7 @@ button.bg-winterlude-lightblue:active:hover {
     background-color: #009ec9 !important;
 }
 
-/* Thematic Heading 1 */
+/*** Thematic Heading 1 ***/
 @media screen and (min-width: 768px) {
     h1.winterlude {
         font-size: 2.4em;

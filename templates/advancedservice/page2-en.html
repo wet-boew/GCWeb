@@ -12,8 +12,14 @@
 	"secondlevel": false,
 	"dateModified": "2017-04-07",
 	"share": "true",
-	"previous": [ { "title": "1. [Step / section page name]", "link": "index-en.html" } ],
-	"next": [ { "title": "3. [Step / section page name]", "link": "page3-en.html" } ]
+	"previous": {
+		"title": "1. [Step / section page name]",
+		"link": "index-en.html"
+	},
+	"next": {
+		"title": "3. [Step / section page name]",
+		"link": "page3-en.html"
+	}
 }
 ---
 <p class="gc-byline"><strong>From <a href="../institutional/institution-en.html">[Institution name]</a></strong></p>
@@ -22,7 +28,7 @@
 	<div class="row">
 		<ul class="toc lst-spcd col-md-12">
 			<li class="col-md-4 col-sm-6"><a class="list-group-item" href="index-en.html">1. [Step / section page name]</a></li>
-			<li class="col-md-4 col-sm-6"><a class="list-group-item active">{{secondTitle}}</a></li>
+			<li class="col-md-4 col-sm-6"><a class="list-group-item active">{{page.secondTitle}}</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-sm"><a class="list-group-item" href="page3-en.html">3. [Step / section page name]</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-md clr-lft-lg"><a class="list-group-item" href="page4-en.html">4. [Step / section page name]</a></li>
 			<li class="col-md-4 col-sm-6 clr-lft-sm"><a class="list-group-item" href="page5-en.html">5. [Step / section page name]</a></li>
@@ -32,7 +38,7 @@
 </div>
 <div class="row">
 	<section class="col-md-8">
-		<h2>{{secondTitle}}</h2>
+		<h2>{{page.secondTitle}}</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
@@ -47,16 +53,12 @@
 		<nav role="navigation" class="mrgn-bttm-lg">
 			<h3 class="wb-inv">Document navigation</h3>
 			<ul class="pager">
-				{{#previous}}
-				<li class="previous"><a href="{{link}}" rel="prev">Previous<span class="wb-inv">: {{title}}</span></a></li>
-				{{/previous}}
-				{{#next}}
-				<li class="next"><a href="{{link}}" rel="next">Next<span class="wb-inv">: {{title}}</span></a></li>
-				{{/next}}
+				<li class="previous"><a href="{{page.previous.link}}" rel="prev">Previous<span class="wb-inv">: {{page.previous.title}}</span></a></li>
+				<li class="next"><a href="{{page.next.link}}" rel="next">Next<span class="wb-inv">: {{page.next.title}}</span></a></li>
 			</ul>
 		</nav>
 	</section>
 	<div class="col-md-4">
-		{{>service-right-panel}}
+		{% include_relative samples/service-side-panel-en.html %}
 	</div>
 </div>

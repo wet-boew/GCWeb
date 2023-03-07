@@ -2,38 +2,17 @@
  Banner (extra-extra-small view)
  */
 
-%brand-screen-xxs-max-override-grid {
-	float: none !important;
-	width: auto !important;
-}
-
 header {
 	.brand {
 
 		/* Solely for the purpose of having the previous header look decent */
 		&.col-xs-5 {
-			@extend %brand-screen-xxs-max-override-grid;
+			@include brand-screen-xxs-max-override-grid;
 		}
 
 		object,
 		img {
 			padding-right: 0;
-		}
-	}
-}
-
-#wb-glb-mn {
-	@extend %brand-screen-xxs-max-override-grid;
-
-	ul {
-		width: 100%;
-
-		&.chvrn {
-			margin-left: auto;
-
-			&:before {
-				border: 0;
-			}
 		}
 	}
 }
