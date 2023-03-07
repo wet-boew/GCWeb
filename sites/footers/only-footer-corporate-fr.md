@@ -1,8 +1,10 @@
 ---
 altLangPage: only-footer-corporate-en.html
 breadcrumbs:
-- title: Pied de page
-  link: sites/footers/footers-fr.html
+  - title: GCWeb
+    link: https://wet-boew.github.io/GCWeb/index-fr.html
+  - title: Pied de page
+    link: sites/footers/footers-fr.html
 dateModified: 2023-01-16
 includes:
   footer: edge
@@ -23,16 +25,18 @@ Le pied de page général (à l'échelle du site) situé au bas de chaque page W
 * bande principale
 * bande sous pied de page
 
-La bande sous pied de page est obligatoire sur toutes les types de pages.
+La bande sous pied de page est obligatoire sur toutes les types de pages (régulière, transactionnelle, de campagne).
 
 ## Implémentation de référence
-### Code final attendu - Bande sous pied de page uniquement
+<figure>
+  <figcaption class="h3">Code final attendu - Bande sous pied de page uniquement</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
-## Pour la thème GCWeb-Jekyll
+## Pour le thème GCWeb-Jekyll
 En définissant les variables `noFooterContextual` et `noFooterMain` à «&nbsp;true&nbsp;», les bandes contextuelle et principale seront masquées au chargement de la page.
 
 ## Lignes directrices

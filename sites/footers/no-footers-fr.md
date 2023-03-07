@@ -27,13 +27,15 @@ Le pied de page général (à l'échelle du site) situé au bas de chaque page W
 La bande sous pied de page est obligatoire sur toutes les types de pages, mais sur les pages **transactionnelles** et de **campagne**, vous pouvez omettre les liens Médias sociaux, Applications mobiles et À propos de Canada.ca.
 
 ## Implémentation de référence
-### Code final attendu - Pied de page minimum avec la bande sous pied de page uniquement et sans les liens facultatifs
+<figure>
+  <figcaption class="h3">Code final attendu - Pied de page minimum avec la bande sous pied de page uniquement et sans les liens facultatifs</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
-## Pour la thème GCWeb-Jekyll
+## Pour le thème GCWeb-Jekyll
 En définissant les variables `noFooterContextual`, `noFooterMain` et `noFooterCorporate` à «&nbsp;true&nbsp;», les bandes contextuelle et principale ainsi que les liens optionnels de la bande sous le pied de page seront masqués au chargement de la page.
 
 ## Lignes directrices

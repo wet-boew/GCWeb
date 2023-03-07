@@ -18,20 +18,21 @@ titleH1: Display main footer band and sub-footer band
 {% include alert-softlaunch.html component="site footer" version="4" %}
 
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
-* contextual band
-* main band
-* sub-footer band
+* Contextual band
+* Main band
+* Sub-footer band
 
 The contextual band is optional on all page types (standard, transactional, campaign).
 
 ## Reference implementation
 
-### Expected output code - Footer with no contextual band
-
+<figure>
+  <figcaption class="h3">Expected output code - Footer with no contextual band</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
 ## GCWeb-Jekyll implementation
 

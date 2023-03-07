@@ -1,5 +1,8 @@
 ---
-altLangPage: footers-fr.html
+altLangPage: footers-fr.
+breadcrumbs:
+  - title: GCWeb
+    link: https://wet-boew.github.io/GCWeb/index-en.html
 contextualFooter:
   title: "[Contextual footer header]"
   links:
@@ -21,7 +24,7 @@ title: Footer
 
 {% include alert-softlaunch.html component="site footer" version="5" %}
 
-The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
+The global (site-wide) footer at the bottom of each web page can contain up to 3 bands:
 * Contextual band
 * Main band
 * Sub-footer band
@@ -51,35 +54,36 @@ The following changes have been made since version 2.0 and 3.0:
 
 ## Reference implementation
 
-### Expected output code - Complete footer
-
+<figure>
+  <figcaption class="h3">Expected output code - Complete footer</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
 ## Alternate implementations
 
 ### Standard pages
 
-* [Main band and sub-footer band only](https://wet-boew.github.io/GCWeb/sites/footers/no-footer-contextual-en.html)
+* [Main band and sub-footer band only (default implementation)](no-footer-contextual-en.html)
 
 ### Transactional or campaign pages only
 
-* [Main band and sub-footer band only](https://wet-boew.github.io/GCWeb/sites/footers/no-footer-contextual-en.html)
-* [Main band and sub-footer band with no optional links ](https://wet-boew.github.io/GCWeb/sites/footers/only-footer-main-en.html)
-* [Contextual band and sub-footer band ](https://wet-boew.github.io/GCWeb/sites/footers/no-footer-main-en.html)
-* [Contextual band and sub-footer band with no optional links](https://wet-boew.github.io/GCWeb/sites/footers/only-footer-contextual-en.html)
-* [Sub-footer band only](https://wet-boew.github.io/GCWeb/sites/footers/only-footer-corporate-en.html)
-* [Sub-footer band with no optional links](https://wet-boew.github.io/GCWeb/sites/footers/no-footers-en.html)
+* [Main band and sub-footer band only](no-footer-contextual-en.html)
+* [Main band and sub-footer band with no optional links](only-footer-main-en.html)
+* [Contextual band and sub-footer band](no-footer-main-en.html)
+* [Contextual band and sub-footer band with no optional links](only-footer-contextual-en.html)
+* [Sub-footer band only](only-footer-corporate-en.html)
+* [Sub-footer band with no optional links](no-footers-en.html)
 
 ## GCWeb-Jekyll implementation
 
-* The title and links are defined globally in `_config.yml`. It is also possible to remove the contextual footer globally by removing its definition in `_config.yml`.
+* The title and links are defined globally in `_config.yml`. It is also possible to remove the contextual band globally by removing its definition in `_config.yml`.
 * The title and links can be changed for specific pages in the page's `contextualFooter` property.
 * The links "Terms and conditions" and "Privacy" are visible at all times, even when `noFooterCorporate` is set to true.
 * Footer skip link should always remain.
 
 ## Previous footer versions
 
-Here is a list of [previous footer versions](https://wet-boew.github.io/GCWeb/sites/footers/old-footers-en.html) with their associated code samples.
+Here is a list of [previous footer versions](old-footers-en.html) with their associated code samples.

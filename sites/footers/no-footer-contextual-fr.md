@@ -10,7 +10,7 @@ language: fr
 noFooterContextual: true
 secondlevel: false
 share: true
-title: Bande principale et la bande sous pied de page
+title: Bande principale et bande sous pied de page
 titleH1: Afficher la bande principale et la bande sous pied de page
 ---
 <div class="wb-prettify all-pre hide"></div>
@@ -26,14 +26,15 @@ La bande contextuelle est facultative sur tous les types de page (régulière, t
 
 ## Implémentation de référence
 
-### Code final attendu - Pied de page sans la bande contextuelle
-
+<figure>
+  <figcaption class="h3">Code final attendu - Pied de page sans la bande contextuelle</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
-## Pour la thème GCWeb-Jekyll
+## Pour le thème GCWeb-Jekyll
 * En définissant la variable `noFooterContextual` à «&nbsp;true&nbsp;», la bande contextuelle sera masquée au chargement de la page.
 * La bande contextuelle est définie dans `_config.yml`, mais peut également être écrasée sur n'importe quelle page donnée dans le «&nbsp;front matter&nbsp;» (voir [Pied de page complet](footers-fr.html) pour un exemple).
 
@@ -42,4 +43,3 @@ La bande contextuelle est facultative sur tous les types de page (régulière, t
 Consultez le système de conception de Canada.ca pour savoir quels éléments de pied de page ou quelles implémentations adaptées utiliser en fonction du type de page que vous créez :
 
 * [Pied de page général - Système de conception Canada.ca](https://conception.canada.ca/configurations-conception-communes/pied-page.html)
-

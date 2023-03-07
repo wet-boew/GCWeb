@@ -26,12 +26,14 @@ The global (site-wide) footer at the bottom of each web page contains up to 3 ba
 
 The sub-footer band is mandatory on all page types, but on **transactional** and **campaign** pages, you can omit the Social media, Mobile applications and About Canada.ca links.
 
-## Reference implementation 
-### Expected output code - Minimum footer with only sub-footer band and no optional links
+## Reference implementation
+<figure>
+  <figcaption class="h3">Expected output code - Minimum footer with only sub-footer band and no optional links</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
 ## For GCWeb-Jekyll theme
 By setting the `noFooterContextual`, `noFooterMain` and `noFooterCorporate` variables to "true", the contextual and main footer bands as well as optional links from the sub-footer band will be hidden on page load.

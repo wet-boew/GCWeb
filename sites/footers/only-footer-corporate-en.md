@@ -1,8 +1,10 @@
 ---
 altLangPage: only-footer-corporate-fr.html
 breadcrumbs:
-- title: Footer
-  link: sites/footers/footers-en.html
+  - title: GCWeb
+    link: https://wet-boew.github.io/GCWeb/index-en.html
+  - title: Footer
+    link: sites/footers/footers-en.html
 dateModified: 2023-01-16
 includes:
   footer: edge
@@ -22,14 +24,17 @@ The global (site-wide) footer at the bottom of each web page contains up to 3 ba
 * Contextual band
 * Main band
 * Sub-footer band
-The sub-footer band is mandatory on all page types.
+
+The sub-footer band is mandatory on all page types (standard, transactional, campaign).
 
 ## Reference implementation
-### Expected output code - Sub-footer only
+<figure>
+  <figcaption class="h3">Expected output code - Sub-footer only</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
 ## For GCWeb-Jekyll theme
 By setting the `noFooterContextual` and `noFooterMain` variables to "true", the contextual and main bands will be hidden on page load.

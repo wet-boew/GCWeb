@@ -28,18 +28,20 @@ titleH1: Display contextual band and sub-footer band with no optional links
 {% include alert-softlaunch.html component="site footer" version="4" %}
 
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
-* contextual band
-* main band
-* sub-footer band
-  
+* Contextual band
+* Main band
+* Sub-footer band
+
 On **transactional** and **campaign** pages, the main band is optional. You can also omit the Social media, Mobile applications and About Canada.ca links from the sub-footer band.
 
 ## Reference implementation
-### ]Expected output code - Footer with no main band and no optional links in sub-footer band
+<figure>
+  <figcaption class="h3">Expected output code - Footer with no main band and no optional links in sub-footer band</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
+</figure>
 
 ## For GCWeb-Jekyll theme
 By setting the `noFooterMain` and `noFooterCorporate` variables to "true", the main band and optional links from the sub-footer band will be hidden on page load.
