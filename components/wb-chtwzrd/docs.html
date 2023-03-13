@@ -1,9 +1,23 @@
 ---
-title: Chat wizard - How to implement
+title: Chat wizard
 language: en
+description: Transforms a simple form into a conversation like experience used as a wizard.
+dateModified: 2023-03-07
 ---
+<h2>Purpose</h2>
+<p>Transforms a simple form into a conversation like experience used as a wizard. The chat wizard has especially proven itself useful in emergency situations, as a crutch to help users better find the right information while strategies are being developed to improve content structure and/or on-page content in an effort to make proper information and access to support and/or benefits easily available to users in said situations, without the permanent necessity of a chat wizard. Therefore, the chat wizard is a convenient temporary solution to fill an informational/structural gap; COVID-19 was a good example.</p>
+
+<h2>Working example</h2>
+<ul>
+	<li><a href="chatwizard-en.html">English - default example</a></li>
+	<li><a href="chatwizard-json-en.html">English - JSON example</a></li>
+	<li><a href="chatwizard-fr.html" hreflang="fr">French - default example</a></li>
+	<li><a href="chatwizard-json-fr.html" hreflang="fr">French - JSON example</a></li>
+</ul>
+
+<h2>How to implement</h2>
 <p>There are two ways to implement the chat wizard. The more common way is to code a form, and add according classes and data attributes. The other way is to load it from a JSON file, which will generate both the form and the wizard, is useful in case one would want to implement the same chat wizard on multiple pages.</p>
-<h4>1. Code a form</h4>
+<h3>1. Code a form</h3>
 <ol>
 	<li>Code a form that has a decision tree logic, with the idea that an answer could affect what the next question would be. At the moment, all choices of answer to a question must be radio buttons only.</li>
 	<li>Wrap your form in a section, aside or div tag with a class named “.provisional.wb-chtwzrd”, along with the class “.hidden” to avoid the basic form to flicker on load. Other options are:
@@ -31,7 +45,7 @@ language: en
 	<li>If you only want external button to enable the chat wizard instead of chat bubble, simply add the class named <code>.wb-chtwzrd-btn-extrnl</code> on your chat wizard and the chat bubble will not be displayed.</li>
 </ol>
 <p>There you have it! A conversational-like experience driven by a fairly simple form.</p>
-<h4>2. Import a JSON File</h4>
+<h3>2. Import a JSON File</h3>
 <p>Accepting JSON File as an input for batch deployments. If you have a JSON file that follows the Data API logic shown below, it can be implemented as a chat wizard instance.</p>
 <p>JSON File API</p>
 <pre><code>{
