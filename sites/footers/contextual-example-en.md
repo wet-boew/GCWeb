@@ -14,6 +14,8 @@ contextualFooter:
       text: Query string and anchor
     - url: ../../
       text: Up two folders
+    - url: tel:555-0123
+      text: Telephone number 555-0123
 dateModified": 2023-03-28
 includes:
   footer: edge
