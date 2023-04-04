@@ -5,46 +5,142 @@
 		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" },
 		{ "title": "Méli-mélo", "link": "https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html" }
 	],
-	"dateModified": "2022-05-13",
-	"description": "Documentation on how to use breadcrumbs.",
+	"dateModified": "2023-03-08",
+	"description": "Documentation on how to use breadcrumb trail.",
 	"language": "en",
-	"title": "Breadcrumbs"
+	"title": "Breadcrumb trail"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>Documentation on how to use breadcrumbs.</p>
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Version</dt>
+	<dd>1.1.0</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca site functionality</dd>
+</dl>
 
-<p>Note: GCWeb vX.0 are no longuer compatible with the pre 2019 megamenu pattern (GCWEB v4.x) that was taking the full page width.</p>
+<h2>Introduction</h2>
 
-<p>Recommendation</p>
+<h3>Purpose</h3>
+<p>The purpose of the breadcrumb trail is to reinforce a visitor’s current location in the Canada.ca user navigation model. It indicates the location of the current page in relation to its parent in the site structure. It also provides a simple method to navigate to higher levels in the site structure.</p>
+
+<h3>Evaluation and report</h3>
+<p>There is no evaluation and report available for this component.</p>
+
+<h3>Guidance</h3>
 <ul>
-	<li>The page title should not be included within the breadcrumbs list items.</li>
+	<li><a href="https://design.canada.ca/common-design-patterns/breadcrumb-trail.html">Breadcrumb trail</a></li>
 </ul>
 
-<p>Here is the html output with structured data in RDFa format for the above breadcrumb example:</p>
-<pre><code>&lt;nav id="wb-bc" property="breadcrumb"&gt;
-			&lt;h2&gt;You are here:&lt;/h2&gt;
-			&lt;div class="container"&gt;
-				&lt;ol class="breadcrumb" typeof="BreadcrumbList"&gt;
-					&lt;li property="itemListElement" typeof="ListItem"&gt;
-						&lt;a property="item" typeof="WebPage" href="https://www.canada.ca/en.html"&gt;
-							&lt;span property="name">Canada.ca&lt;/span&gt;
-						&lt;/a&gt;
-						&lt;meta property="position" content="1"&gt;
-					&lt;/li&gt;
-					&lt;li property="itemListElement" typeof="ListItem"&gt;
-						&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-en.html"&gt;
-							&lt;span property="name"&gt;GCWeb home&lt;/span&gt;
-						&lt;/a&gt;
-						&lt;meta property="position" content="2"&gt;
-					&lt;/li&gt;
-					&lt;li property="itemListElement" typeof="ListItem"&gt;
-						&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html"&gt;
-							&lt;span property="name"&gt;Méli-mélo&lt;/span&gt;
-						&lt;/a&gt;
-						&lt;meta property="position" content="3"&gt;
-					&lt;/li&gt;
-				&lt;/ol&gt;
-			&lt;/div&gt;
-		&lt;/nav&gt;</code></pre>
+<h3>Variants</h3>
+<p>This component supports only 1 variant:</p>
+<ul>
+	<li><a href="#variantDefault">Breadcrumb trail (default)</a></li>
+</ul>
+
+<h2 id="variantDefault">Breadcrumb trail (default)</h2>
+
+<h3>Iteration 2</h3>
+<p>Here is a list of changes that happened since the previous iteration:</p>
+<table class="table table-bordered">
+	<tr>
+		<th style="width:0;">Breaking</th>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<th>Additions</th>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<th>Fixes</th>
+		<td>
+			<ul>
+				<li>Styles: changing levels separator from a greater-than sign (&gt;) to a chevron right icon (<span class="glyphicon glyphicon-chevron-right"></span>)</li>
+			</ul>
+		</td>
+	</tr>
+</table>
+
+<h4>Working example(s)</h4>
+<p>Refer to the breadcrumb trail at the top of this page.</p>
+
+<h4>How to implement</h4>
+<ul>
+	<li>The first item is always “Canada.ca”, which always links to the Canada.ca home page in the current language</li>
+	<li>The current page is never displayed at the end of the breadcrumb trail</li>
+	<li>Use a chevron right icon (<span class="glyphicon glyphicon-chevron-right"></span>) to separate levels</li>
+	<li>Longer page titles are to be shortened where possible to reduce the space required to display the trail</li>
+</ul>
+<p>Each page or section name on the Canada.ca site should be associated with a shortened version of the name, for the purposes of breadcrumb and other navigation systems.</p>
+<p>For example, when on the “Planning a business” page in the Business and industry theme, the breadcrumb trail will be:</p>
+<p class="mrgn-tp-md">Canada.ca&nbsp;&nbsp; &gt;&nbsp;&nbsp; Business&nbsp;&nbsp; &gt;&nbsp;&nbsp; Starting a business</p>
+<p><strong>Note</strong>: GCWeb vX.0 are no longuer compatible with the pre 2019 megamenu pattern (GCWEB v4.x) that was taking the full page width.</p>
+<p><strong>Recommendation</strong>: The page title should not be included within the breadcrumbs list items.</p>
+
+<h4>Code sample (same as iteration 1)</h4>
+	<p>Here is the html output with structured data in RDFa format for the above breadcrumb example:</p>
+	{%- highlight html -%}
+	<nav id="wb-bc" property="breadcrumb">
+		<h2>You are here:</h2>
+		<div class="container">
+			<ol class="breadcrumb" typeof="BreadcrumbList">
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://www.canada.ca/en.html">
+						<span property="name">Canada.ca</span>
+					</a>
+					<meta property="position" content="1">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-en.html">
+						<span property="name">GCWeb home</span>
+					</a>
+					<meta property="position" content="2">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html">
+						<span property="name">Méli-mélo</span>
+					</a>
+					<meta property="position" content="3">
+				</li>
+			</ol>
+		</div>
+	</nav>
+	{%- endhighlight -%}
+
+<h3>Previous iterations</h3>
+
+<details>
+	<summary>Iteration 1</summary>
+	<h4>Code sample</h4>
+	<p>Here is the html output with structured data in RDFa format for the above breadcrumb example:</p>
+	{%- highlight html -%}
+	<nav id="wb-bc" property="breadcrumb">
+		<h2>You are here:</h2>
+		<div class="container">
+			<ol class="breadcrumb" typeof="BreadcrumbList">
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://www.canada.ca/en.html">
+						<span property="name">Canada.ca</span>
+					</a>
+					<meta property="position" content="1">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-en.html">
+						<span property="name">GCWeb home</span>
+					</a>
+					<meta property="position" content="2">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-en.html">
+						<span property="name">Méli-mélo</span>
+					</a>
+					<meta property="position" content="3">
+				</li>
+			</ol>
+		</div>
+	</nav>
+	{%- endhighlight -%}
+</details>

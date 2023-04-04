@@ -7,7 +7,7 @@
 		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2022-06-30",
+	"dateModified": "2023-02-27",
 	"share": true,
 	"feedbackPath": "../feedback/ajax/report-problem-en.html"
 }
@@ -56,7 +56,7 @@
 <h2>Evaluation and report</h2>
 <p>There is no evaluation and report available for this component.</p>
 
-<h2>API (Version 2.0)</h2>
+<h2>API (Version 2.1)</h2>
 <table class="table table-bordered">
 	<tr>
 		<th>CSS Class</th>
@@ -66,7 +66,7 @@
 	</tr>
 	<tr>
 		<td>Version 1.0</td>
-		<td>Version 2.0</td>
+		<td>Version 2.1</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -76,14 +76,54 @@
 <p><code>pagedetails</code></p>
 
 
-<h3>Template (v2.0)</h3>
+<h3>Template (v2.1)</h3>
 <p>Template migration notes</p>
 
+<div class="alert alert-info">
+	<h4>Version 2.0 support</h4>
+	<p>Although the template has been updated to version 2.1, the version 2.0 is still supported. However, the page content and the <code>&lt;footer></code> have to be located inside an <code>&lt;article></code>. Here's a code example:</p>
+<pre><code>&lt;main>
+	&lt;article>
+		...
+		Page content
+		...
+		&lt;footer class="pagedetails">
+			...
+		&lt;/footer>
+	&lt;/article>
+&lt;/main></code></pre>
+</div>
+
 <h4>Page details with "Report a problem on this page" and "Share this page" enabled</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
-		<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html">this page</a> for the html inserted by the Data Ajax plugin </p>
+<h5>Version 2.1</h5>
+<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html">this page</a> for the html inserted by the Data Ajax plugin.</p>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+			&lt;div data-ajax-replace="../feedback/ajax/report-problem-en.html" &gt;
+					&lt;div class=&quot;row row-no-gutters&quot;&gt;
+						&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
+							&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3" data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}' &gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Previous versions</h5>
+<details>
+	<summary>Version 2.0</summary>
+	<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html">this page</a> for the html inserted by the Data Ajax plugin.</p>
 <pre><code><ins>&lt;footer class="pagedetails"&gt;
 	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
 	&lt;div class="row"&gt;
@@ -106,10 +146,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Before, Version 1.0</h5>
-<pre><code><del>&lt;div class="pagedetails"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
 			&lt;details class="brdr-0"&gt;
@@ -134,14 +175,27 @@
 		&lt;dt&gt;Date modified:&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+&lt;/div&gt;</code></pre>
+</details>
 
 <h4>Page details with "Report a problem on this page" and "Share this page" disabled</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails container"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;&lt;dl id="wb-dtmd"&gt;
+	&lt;div class="row"&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Previous versions</h5>
+<details>
+	<summary>Version 2.0</summary>
 <pre><code><ins>&lt;footer class="pagedetails container"&gt;
 	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;&lt;dl id="wb-dtmd"&gt;
 	&lt;div class="row"&gt;
@@ -153,10 +207,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Before, Version 1.0</h5>
-<pre><code><del>&lt;div class="pagedetails container"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails container"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
 	&lt;/div&gt;
@@ -164,14 +219,28 @@
 		&lt;dt&gt;Date modified:&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+&lt;/div&gt;</code></pre>
+</details>
 
 <h4>Page details without "Report a problem on this page" button</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" data-wb-share='{&quot;lnkClass&quot;: &quot;btn btn-default btn-block&quot;}'&gt;&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date modified:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Previous versions</h5>
+<details>
+	<summary>Version 2.0</summary>
 <pre><code><ins>&lt;footer class="pagedetails"&gt;
 	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
 	&lt;div class="row"&gt;
@@ -184,10 +253,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Before, Version 1.0</h5>
-<pre><code><del>&lt;div class="pagedetails container"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails container"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
 		&lt;div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"&gt;
@@ -199,16 +269,14 @@
 		&lt;dt&gt;Date modified:&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+&lt;/div&gt;</code></pre>
+</details>
 
 <h4>Page details without "Share this page" button</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
-		<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html" >this page</a> for the html inserted by the Data Ajax plugin </p>
-<pre><code><ins>&lt;footer class="pagedetails"&gt;
+
+<h5>Version 2.0</h5>
+<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html" >this page</a> for the html inserted by the Data Ajax plugin </p>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
 	&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
@@ -227,36 +295,61 @@
 			&lt;/dl&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Before, Version 1.0</h5>
-<pre><code><del>&lt;div class="pagedetails"&gt;
-	&lt;div class="row"&gt;
-		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
-			&lt;details class="brdr-0"&gt;
-				&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
-				&lt;div class="well row"&gt;
-					&lt;div class="gc-rprt-prblm"&gt;
-						&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl" &gt;
-							{ feedback form }
-						&lt;/div&gt;
-						&lt;div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide" &gt;
-							&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
-							&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Previous versions</h5>
+<details>
+	<summary>Version 2.0</summary>
+	<p>Check <a href="https://github.com/wet-boew/GCWeb/blob/master/sites/main-footer/inc-report-problem-en.html" >this page</a> for the html inserted by the Data Ajax plugin </p>
+	<pre><code><ins>&lt;footer class="pagedetails"&gt;
+		&lt;h2 class="wb-inv"&gt;Page details&lt;/h2&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+				&lt;div data-ajax-replace="../feedback/ajax/report-problem-en.html" &gt;
+					&lt;div class=&quot;row row-no-gutters&quot;&gt;
+						&lt;div class=&quot;col-sm-9 col-md-6 col-lg-5&quot;&gt;
+							&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/en/report-problem.html"&gt;Report a problem on this page&lt;/a&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
-			&lt;/details&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;col-xs-12&quot;&gt;
+				&lt;dl id="wb-dtmd"&gt;
+					&lt;dt&gt;Date modified:&lt;/dt&gt;
+					&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+				&lt;/dl&gt;
+			&lt;/div&gt;
 		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;dl id="wb-dtmd"&gt;
-		&lt;dt&gt;Date modified:&lt;/dt&gt;
-		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
-	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+	&lt;/footer&gt;</ins></code></pre>
+</details>
+
+<details>
+	<summary>Before, Version 1.0</summary>
+	<pre><code>&lt;div class="pagedetails"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
+				&lt;details class="brdr-0"&gt;
+					&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
+					&lt;div class="well row"&gt;
+						&lt;div class="gc-rprt-prblm"&gt;
+							&lt;div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl" &gt;
+								{ feedback form }
+							&lt;/div&gt;
+							&lt;div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide" &gt;
+								&lt;h3&gt;Thank you for your help!&lt;/h3&gt;
+								&lt;p&gt;You will not receive a reply. For enquiries, please &lt;a href="https://www.canada.ca/en/contact.html"&gt;contact us&lt;/a&gt;.&lt;/p&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/details&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;dl id="wb-dtmd"&gt;
+			&lt;dt&gt;Date modified:&lt;/dt&gt;
+			&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+		&lt;/dl&gt;
+	&lt;/div&gt;</code></pre>
+</details>
 
 <h3>Visual Rendering (v2.0)</h3>
 <ul>

@@ -7,7 +7,7 @@
 		{ "title": "Canada.ca", "link": "https://www.canada.ca/en.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2022-06-30",
+	"dateModified": "2023-02-27",
 	"share": "true",
 	"feedbackPath": "../feedback/ajax/report-problem-en.html"
 }
@@ -58,7 +58,7 @@
 <h2>Évaluation et rapport</h2>
 <p>Il n'y a pas d'évaluation ni de rapport disponible pour ce composant.</p>
 
-<h2>API (version 2.0)</h2>
+<h2>API (version 2.1)</h2>
 <table class="table bordée de table">
 	<tr>
 		<th>Classe CSS</th>
@@ -68,7 +68,7 @@
 	</tr>
 	<tr>
 		<td>Version 1.0</td>
-		<td>Version 2.0</td>
+		<td>Version 2.1</td>
 		<td>Version 1.0</td>
 		<td>n.d.</td>
 	</tr>
@@ -78,13 +78,53 @@
 <p><code>page-details</code></p>
 
 
-<h3>Gabarit (v.2.0)</h3>
+<h3>Gabarit (v.2.1)</h3>
 <p>Notes sur la migration du gabarit</p>
 
+<div class="alert alert-info">
+	<h4>Support de la version 2.0</h4>
+	<p>Bien que le gabarit ait été mis à jour vers la version 2.1, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer></code> doivent être situés à l'intérieur d'un <code>&lt;article></code>. Voici un exemple de code&nbsp;:</p>
+<pre><code>&lt;main>
+	&lt;article>
+		...
+		Contenu de la page
+		...
+		&lt;footer class="pagedetails">
+			...
+		&lt;/footer>
+	&lt;/article>
+&lt;/main></code></pre>
+</div>
+
 <h4>Détails de la page avec "Signaler un problème sur cette page" et "Partager cette page" activés</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+			&lt;div data-ajax-replace="../feedback/ajax/report-problem-fr.html"&gt;
+				&lt;div class=&quot;row row-no-gutters&quot;&gt;
+					&lt;div class=&quot;col-sm-11 col-md-7 col-lg-6&quot;&gt;
+						&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/fr/signaler-probleme.html"&gt;Signaler un problème ou une erreur sur cette page &lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="wb-share col-sm-4 col-md-3" data-wb-share="{&quot;lnkClass&quot; : &quot;btn btn-default btn-block&quot;}" &gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date de modification&nbsp;:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Version précécentes</h5>
+<details>
+	<summary>Version 2.0</summary>
 <pre><code><ins>&lt;footer class="pagedetails"&gt;
 	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
 	&lt;div class="row"&gt;
@@ -107,10 +147,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Avant la version 2.0</h5>
-<pre><code><del>&lt;div class="pagedetails"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
 			&lt;details class="brdr-0"&gt;
@@ -135,14 +176,27 @@
 		&lt;dt&gt;Date de modification :&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+&lt;/div&gt;</code></pre>
+</details>
 
 <h5>Détails de la page avec "Signaler un problème sur cette page" et "Partager cette page" désactivés</h5>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails container"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date de modification&nbsp;:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Version précécentes</h5>
+<details>
+	<summary>Version 2.0</summary>
 <pre><code><ins>&lt;footer class="pagedetails container"&gt;
 	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
 	&lt;div class="row"&gt;
@@ -154,10 +208,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Avant la version 2.0</h5>
-<pre><code><del>&lt;div class="pagedetails container"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails container"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
 	&lt;/div&gt;
@@ -165,15 +220,13 @@
 		&lt;dt&gt;Date de modification :&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+&lt;/div&gt;</code></pre>
+</details>
 
 <h4>Détails de la page sans le bouton "Signaler un problème sur cette page"</h4>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
-<pre><code><ins>&lt;footer class="pagedetails"&gt;
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
 	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="wb-share col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" data-wb-share='{&quot;lnkClass&quot; : &quot;btn btn-default btn-block&quot;}' &gt;
@@ -185,30 +238,70 @@
 			&lt;/dl&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Avant la version 2.0</h5>
-<pre><code><del>&lt;div class="pagedetails container"&gt;
-	&lt;div class="row"&gt;
-		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
-		&lt;div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"&gt;
-			&lt;div class="wb-share" data-wb-share='{&quot;lnkClass&quot; : &quot;btn btn-default btn-block&quot;}' &gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Version précécentes</h5>
+<details>
+	<summary>Version 2.0</summary>
+	<pre><code><ins>&lt;footer class="pagedetails"&gt;
+		&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="wb-share col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" data-wb-share='{&quot;lnkClass&quot; : &quot;btn btn-default btn-block&quot;}' &gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3&quot;&gt;
+				&lt;dl id="wb-dtmd"&gt;
+					&lt;dt&gt;Date de modification&nbsp;:&lt;/dt&gt;
+					&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+				&lt;/dl&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;dl id="wb-dtmd"&gt;
-		&lt;dt&gt;Date de modification :&lt;/dt&gt;
-		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
-	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
+	&lt;/footer&gt;</ins></code></pre>
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+	<pre><code>&lt;div class="pagedetails container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;&lt;/div&gt;
+			&lt;div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5"&gt;
+				&lt;div class="wb-share" data-wb-share='{&quot;lnkClass&quot; : &quot;btn btn-default btn-block&quot;}' &gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;dl id="wb-dtmd"&gt;
+			&lt;dt&gt;Date de modification :&lt;/dt&gt;
+			&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
+		&lt;/dl&gt;
+	&lt;/div&gt;</code></pre>
+</details>
 
 <h5>Détails de la page sans le bouton "Partager cette page"</h5>
-<div class="row">
-	<div class="col-md-6">
-		<h5>Version 2.0</h5>
+
+<h5>Version 2.1</h5>
+<pre><code><ins>&lt;section class="pagedetails"&gt;</ins>
+	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-sm-8 col-md-9 col-lg-9"&gt;
+			&lt;div data-ajax-replace="../feedback/ajax/report-problem-fr.html"&gt;
+				&lt;div class=&quot;row row-no-gutters&quot;&gt;
+					&lt;div class=&quot;col-sm-11 col-md-7 col-lg-6&quot;&gt;
+						&lt;a class="btn btn-default btn-block" href="https://www.canada.ca/fr/signaler-probleme.html"&gt;Signaler un problème <ins>ou une erreur</ins> sur cette page &lt;/a&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-xs-12&quot;&gt;
+			&lt;dl id="wb-dtmd"&gt;
+				&lt;dt&gt;Date de modification&nbsp;:&lt;/dt&gt;
+				&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-14&lt;/time&gt;&lt;/dd&gt;
+			&lt;/dl&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+<ins>&lt;/section&gt;</ins></code></pre>
+
+<h5 class="wb-inv">Version précécentes</h5>
+<details>
+	<summary>Version 2.0</summary>
 <pre><code><ins>&lt;footer class="pagedetails"&gt;
 	&lt;h2 class="wb-inv"&gt;Détails de la page&lt;/h2&gt;
 	&lt;div class="row"&gt;
@@ -229,10 +322,11 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/footer&gt;</ins></code></pre>
-	</div>
-	<div class="col-md-6">
-		<h5>Avant la version 2.0</h5>
-<pre><code><del>&lt;div class="pagedetails"&gt;
+</details>
+
+<details>
+	<summary>Version 1.0</summary>
+<pre><code>&lt;div class="pagedetails"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
 			&lt;details class="brdr-0"&gt;
@@ -248,17 +342,15 @@
 						&lt;/div&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
-			&lt;/détails&gt;
+			&lt;/details&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 		&lt;dl id="wb-dtmd"&gt;
 		&lt;dt&gt;Date de modification :&lt;/dt&gt;
 		&lt;dd&gt;&lt;time property="dateModified"&gt;2022-04-25&lt;/time&gt;&lt;/dd&gt;
 	&lt;/dl&gt;
-&lt;/div&gt;</del></code></pre>
-	</div>
-</div>
-
+&lt;/div&gt;</code></pre>
+</details>
 
 <h3>Rendu visuel (v2.0)</h3>
 <ul>

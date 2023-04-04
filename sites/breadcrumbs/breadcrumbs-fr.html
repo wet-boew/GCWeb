@@ -6,46 +6,142 @@
 		{ "title": "Méli-mélo", "link": "https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html" }
 
 	],
-	"dateModified": "2022-05-13",
-	"description": "Documentation sur l'utilisation du fil d'arianne.",
+	"dateModified": "2023-03-08",
+	"description": "Documentation sur l'utilisation du fil d'Ariane.",
 	"language": "fr",
-	"title": "Fil d'arianne"
+	"title": "Fil d'Ariane"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<p>Documentation sur l'utilisation du fil d'arianne.</p>
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Stable</dd>
+	<dt>Version</dt>
+	<dd>1.1.0</dd>
+	<dt>Type</dt>
+	<dd>Fonctionnalité globale de site de Canada.ca</dd>
+</dl>
 
-<p>Note: GCWeb vX.0 n'est plus compatible avec le modèle de mégamenu antérieur à 2019 (GCWEB v4.x) qui prenait toute la largeur de la page.</p>
+<h2>Introduction</h2>
 
-<p>Recommendation</p>
+<h3>Objectif</h3>
+<p>L’objectif du fil d'Ariane est de renforcer l’emplacement actuel des visiteurs dans le modèle de navigation de l’utilisateur du site Canada.ca. Il indique l’emplacement de la page actuelle par rapport à son parenr dans la structure du site. Il fournit également aux utilisateurs une méthode simple pour accéder à des sections supérieures de la structure du site.</p>
+
+<h3>Évaluation et rapport</h3>
+<p>Il n'y a pas d'évaluation ni de rapport disponible pour cette composante.</p>
+
+<h3>Orientation</h3>
 <ul>
-	<li>Le titre de la page ne dois pas être inclus parmis la liste de fil d'arianne.</li>
+	<li><a href="https://conception.canada.ca/configurations-conception-communes/fil-ariane.html">Fil d'Ariane</a></li>
 </ul>
 
-<p>Voici la sortie html avec des données structurées au format RDFa pour l'exemple de fil d'Ariane ci-dessus:</p>
-<pre><code>&lt;nav id="wb-bc" property="breadcrumb"&gt;
-		&lt;h2&gt;Vous êtes ici:&lt;/h2&gt;
-		&lt;div class="container"&gt;
-			&lt;ol class="breadcrumb" typeof="BreadcrumbList"&gt;
-				&lt;li property="itemListElement" typeof="ListItem"&gt;
-					&lt;a property="item" typeof="WebPage" href="https://www.canada.ca/fr.html"&gt;
-						&lt;span property="name">Canada.ca&lt;/span&gt;
-					&lt;/a&gt;
-					&lt;meta property="position" content="1"&gt;
-				&lt;/li&gt;
-				&lt;li property="itemListElement" typeof="ListItem"&gt;
-					&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-fr.html"&gt;
-						&lt;span property="name"&gt;GCWeb accueil&lt;/span&gt;
-					&lt;/a&gt;
-					&lt;meta property="position" content="2"&gt;
-				&lt;/li&gt;
-				&lt;li property="itemListElement" typeof="ListItem"&gt;
-					&lt;a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html"&gt;
-						&lt;span property="name"&gt;GCWeb accueil&lt;/span&gt;
-					&lt;/a&gt;
-					&lt;meta property="position" content="3"&gt;
-				&lt;/li&gt;
-			&lt;/ol&gt;
-		&lt;/div&gt;
-	&lt;/nav&gt;</code></pre>
+<h3>Variantes</h3>
+<p>Ce composant prend en charge 1 variante:</p>
+<ul>
+	<li><a href="#variantDefault">Fil d'Ariane (par défaut)</a></li>
+</ul>
+
+<h2 id="variantDefault">Fil d'Ariane (par défaut)</h2>
+
+<h3>Itération 2</h3>
+<p>Voici une liste des changements qui se sont produits depuis l'itération précédente&nbsp;:</p>
+<table class="table table-bordered">
+	<tr>
+		<th style="width:0;">Majeurs</th>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<th>Additions</th>
+		<td>n/a</td>
+	</tr>
+	<tr>
+		<th>Correctifs</th>
+		<td>
+			<ul>
+				<li>Styles: Modification du séparateur de niveaux d'un signe «&nbsp;plus grand que&nbsp;» (&gt;) à une icône de chevron à droite (<span class="glyphicon glyphicon-chevron-right"></span>)</li>
+			</ul>
+		</td>
+	</tr>
+</table>
+
+<h4>Exemple(s) pratique(s)</h4>
+<p>Veuillez vous référer au fil d'Ariane au haut de cette page.</p>
+
+<h4>Comment mettre en œuvre</h4>
+<ul>
+	<li>Le fil d'Ariane commence toujours par «&nbsp;Canada.ca&nbsp;», qui est toujours un lien vers la page d'accueil de Canada.ca dans la langue actuelle.</li>
+	<li>La page en cours n’est jamais affichée à la fin de la piste de navigation.</li>
+	<li>Utilisez une icône de chevron à droite (<span class="glyphicon glyphicon-chevron-right"></span>) pour séparer les niveaux</li>
+	<li>Les longs titres de page doivent être raccourcis dans la mesure du possible, pour permettre de réduire l’espace horizontal nécessaire pour afficher la piste.</li>
+</ul>
+<p>Le nom de chaque page ou section dans le site Canada.ca doit être associé à une version raccourcie du nom, aux fins du fil d'Ariane et d’autres systèmes de navigation. </p>
+<p>Par exemple, lorsqu'une personne est sur la page «&nbsp;Planification d'entreprise&nbsp;» dans le thème «&nbsp;Entreprises et industrie&nbsp;» le fil d'Ariane sera&nbsp;:</p>
+<p>Canada.ca &gt; Entreprises &gt; Lancer une entreprise</p>
+<p><strong>Note</strong>: GCWeb vX.0 n'est plus compatible avec le modèle de mégamenu antérieur à 2019 (GCWEB v4.x) qui prenait toute la largeur de la page.</p>
+<p><strong>Recommendation</strong>: Le titre de la page ne dois pas être inclus parmis la liste de fil d'arianne.</p>
+
+<h4>Exemple de code (identique à l'itération 1)</h4>
+	<p>Voici la sortie html avec des données structurées au format RDFa pour l'exemple de fil d'Ariane ci-dessus&nbsp;:</p>
+	{%- highlight html -%}
+	<nav id="wb-bc" property="breadcrumb">
+		<h2>Vous êtes ici:</h2>
+		<div class="container">
+			<ol class="breadcrumb" typeof="BreadcrumbList">
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://www.canada.ca/fr.html">
+						<span property="name">Canada.ca</span>
+					</a>
+					<meta property="position" content="1">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-fr.html">
+						<span property="name">GCWeb accueil</span>
+					</a>
+					<meta property="position" content="2">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html">
+						<span property="name">GCWeb accueil</span>
+					</a>
+					<meta property="position" content="3">
+				</li>
+			</ol>
+		</div>
+	</nav>
+	{%- endhighlight -%}
+
+<h3>Itérations précédentes</h3>
+
+<details>
+	<summary>Itération 1</summary>
+	<h4>Exemple de code</h4>
+	<p>Voici la sortie html avec des données structurées au format RDFa pour l'exemple de fil d'Ariane ci-dessus&nbsp;:</p>
+	{%- highlight html -%}
+	<nav id="wb-bc" property="breadcrumb">
+		<h2>Vous êtes ici:</h2>
+		<div class="container">
+			<ol class="breadcrumb" typeof="BreadcrumbList">
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://www.canada.ca/fr.html">
+						<span property="name">Canada.ca</span>
+					</a>
+					<meta property="position" content="1">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/index-fr.html">
+						<span property="name">GCWeb accueil</span>
+					</a>
+					<meta property="position" content="2">
+				</li>
+				<li property="itemListElement" typeof="ListItem">
+					<a property="item" typeof="WebPage" href="https://wet-boew.github.io/GCWeb/méli-mélo/méli-mélo-fr.html">
+						<span property="name">GCWeb accueil</span>
+					</a>
+					<meta property="position" content="3">
+				</li>
+			</ol>
+		</div>
+	</nav>
+	{%- endhighlight -%}
+</details>
