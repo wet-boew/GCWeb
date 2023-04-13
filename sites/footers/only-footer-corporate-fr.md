@@ -18,8 +18,6 @@ titleH1: Afficher la bande sous pied de page uniquement
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-{% include alert-softlaunch.html component="site footer" version="4" %}
-
 Le pied de page général (à l'échelle du site) situé au bas de chaque page Web contient jusqu'à 3 bandes&nbsp;:
 * bande contextuelle
 * bande principale
