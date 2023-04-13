@@ -37,6 +37,92 @@
 
 <p>This version requires the implementation of the <a href="../gcweb-menu/gcweb-menu-docs-en.html">gcweb-menu version 2.0</a> where the <code>&lt;div class="container"&gt;</code> has been relocated in the header so outside the "gcweb-menu" component.</p>
 
+<p>Here a code sample showing all the commonly included component where some might require some customization by your web content management system such the breadcrumb components.</p>
+
+<pre><code>&lt;nav>
+	&lt;ul id="wb-tphp">
+		&lt;li class="wb-slc">&lt;a class="wb-sl" href="#wb-cont">Skip to main content&lt;/a>&lt;/li>
+		&lt;li class="wb-slc visible-sm visible-md visible-lg">&lt;a class="wb-sl" href="#wb-info">Skip to About this site&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/nav>
+
+&lt;header>
+&lt;div id="wb-bnr" class="container">&lt;div class="row">
+&lt;section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
+	&lt;h2 class="wb-inv">Language selection&lt;/h2>
+	&lt;ul class="list-inline mrgn-bttm-0">
+		&lt;li>&lt;a lang="fr" hreflang="fr" href="header-docs-fr.html">
+				&lt;span class="hidden-xs" translate="no">Français&lt;/span>
+				&lt;abbr title="Français" translate="no" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">fr&lt;/abbr>
+		&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/section>
+
+&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+	&lt;a href="https://www.canada.ca/en.html" property="url">
+		&lt;img src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/sig-blk-en.svg" alt="Government of Canada" property="logo" />&lt;span class="wb-inv"> / &lt;span lang="fr">Gouvernement du Canada&lt;/span>&lt;/span>
+	&lt;/a>
+	&lt;meta property="name" content="Government of Canada">
+	&lt;meta property="areaServed" typeof="Country" content="Canada" />
+	&lt;link property="logo" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" />
+&lt;/div>
+
+&lt;section id="wb-srch" class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4">
+	&lt;h2>Search&lt;/h2>
+	&lt;form action="https://www.canada.ca/en/sr/srb.html" name="cse-search-box" role="search">
+		&lt;div class="form-group wb-srch-qry">
+			&lt;label for="wb-srch-q" class="wb-inv">Search Canada.ca&lt;/label>
+			&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Search Canada.ca" />
+			&lt;datalist id="wb-srch-q-ac">&lt;/datalist>
+		&lt;/div>
+		&lt;div class="form-group submit">
+			&lt;button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">&lt;span class="glyphicon-search glyphicon">&lt;/span>&lt;span class="wb-inv">Search&lt;/span>&lt;/button>
+		&lt;/div>
+	&lt;/form>
+&lt;/section>
+
+&lt;/div>&lt;/div>
+&lt;hr>
+&lt;div class="container">&lt;div class="row">&lt;div class="col-md-8">
+
+&lt;nav class="gcweb-menu" typeof="SiteNavigationElement">
+	&lt;h2 class="wb-inv">Menu&lt;/h2>
+	&lt;button type="button" aria-haspopup="true" aria-expanded="false">&lt;span class="wb-inv">Main &lt;/span>Menu &lt;span class="expicon glyphicon glyphicon-chevron-down">&lt;/span>&lt;/button>
+	&lt;ul role="menu" aria-orientation="vertical" data-ajax-replace="https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-en.html">&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration and citizenship&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://travel.gc.ca/">Travel and tourism&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/business.html">Business and industry&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/benefits.html">Benefits&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/health.html">Health&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/taxes.html">Taxes&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/environment.html">Environment and natural resources&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/defence.html">National security and defence&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/culture.html">Culture, history and sport&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/policing.html">Policing, justice and emergencies&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/transport.html">Transport and infrastructure&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://international.gc.ca/world-monde/index.aspx?lang=eng">Canada and the world&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/finance.html">Money and finances&lt;/a>&lt;/li>
+		&lt;li role="presentation">&lt;a role="menuitem" href="https://www.canada.ca/en/services/science.html">Science and innovation&lt;/a>&lt;/li>&lt;/ul>
+&lt;/nav>
+
+&lt;/div>&lt;/div>&lt;/div>
+
+&lt;nav id="wb-bc" property="breadcrumb">
+	&lt;h2>You are here:&lt;/h2>
+	&lt;div class="container">
+		&lt;ol class="breadcrumb" typeof="BreadcrumbList">
+			&lt;li property="itemListElement" typeof="ListItem">
+				&lt;a property="item" typeof="WebPage" href="https://www.canada.ca/en.html">
+					&lt;span property="name">Canada.ca&lt;/span>
+				&lt;/a>
+				&lt;meta property="position" content="1">
+			&lt;/li>
+		&lt;/ol>
+	&lt;/div>
+&lt;/nav>
+
+&lt;/header></code></pre>
+
 <h2>Evaluation and report</h2>
 <p>There is no evaluation and report available for this component.</p>
 
