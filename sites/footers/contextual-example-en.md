@@ -26,8 +26,6 @@ titleH1: Display contextual band and Contextual band and link variations
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-{% include alert-softlaunch.html component="site footer" version="4" %}
-
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
 * Contextual band
 * Main band
