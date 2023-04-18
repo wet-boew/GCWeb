@@ -1,20 +1,28 @@
 ---
-altLangPage: only-footer-corporate-en.html
+altLangPage: no-footer-main-en.html
 breadcrumbs:
   - title: GCWeb
     link: https://wet-boew.github.io/GCWeb/index-fr.html
   - title: Pied de page
     link: sites/footers/footers-fr.html
-dateModified: 2023-01-16
+contextualFooter:
+  title: "[Bande du pied de page contextuel]"
+  links:
+  - url: mailto:info@example.com
+    text: Courriel envoie vers
+  - url: ?abc=123#ancre
+    text: Paramètre de lien et ancre
+  - url: ../../
+    text: Deux dossiers parent 
+  - url: tel:555-0123
+    text: Numéro de téléphone 555-0123
+dateModified: 2023-03-28
 includes:
   footer: edge
 language: fr
-noFooterContextual: 'true'
-noFooterMain: 'true'
-secondlevel: false
-share: 'true'
-title: Bande sous pied de page uniquement
-titleH1: Afficher la bande sous pied de page uniquement
+share: true
+title: Bande contextuelle et des variations de lien
+titleH1: Afficher la bande contextuelle et des variations de lien
 ---
 <div class="wb-prettify all-pre hide"></div>
 
@@ -23,19 +31,14 @@ Le pied de page général (à l'échelle du site) situé au bas de chaque page W
 * bande principale
 * bande sous pied de page
 
-La bande sous pied de page est obligatoire sur toutes les types de pages (régulière, transactionnelle, de campagne).
-
 ## Implémentation de référence
 <figure>
-  <figcaption class="h3">Code final attendu - Bande sous pied de page uniquement</figcaption>
+  <figcaption class="h3">Code final attendu - Pied de page sans la bande principale</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
 	{%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
-
-## Pour le thème GCWeb-Jekyll
-En définissant les variables `noFooterContextual` et `noFooterMain` à «&nbsp;true&nbsp;», les bandes contextuelle et principale seront masquées au chargement de la page.
 
 ## Lignes directrices
 Consultez le système de conception de Canada.ca pour savoir quels éléments de pied de page ou quelles implémentations adaptées utiliser en fonction du type de page que vous créez&nbsp;:

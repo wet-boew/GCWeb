@@ -17,8 +17,6 @@ titleH1: Display sub-footer band only, with no optional links
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-{% include alert-softlaunch.html component="site footer" version="4" %}
-
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
 * Contextual band
 * Main band
