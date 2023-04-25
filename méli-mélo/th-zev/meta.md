@@ -22,7 +22,6 @@ peNote:
 - The <code>panel-zev-purple</code> or <code>panel-zev-green</code> class must be accompagnied with a fall back color such as <code>panel-default</code>
 - Use <code>bg-zev-green</code> with standard text colour to ensure sufficient contrast between text and background
 - Use <code>bg-zev-purple</code> with <code>text-white</code> colour to ensure sufficient contrast between text and background
-- <code>zev-header-padding</code> shouldn't have any accessibility impacts. Use to adjust padding within elements
 pages:
   examples:
     - title: Zero Emission Vehicles (ZEV) Theme
