@@ -33,9 +33,9 @@ layout: no-container
         <h3 class="mrgn-tp-0">Appearance</h3>
         <div class="row wb-eqht-grd mrgn-tp-md">
           <div class="col-md-4">
-            <section class="well bg-zev-green well-sm">
+            <section class="well bg-zev-green">
               <h4 class="h2 mrgn-tp-0">ZEV Green</h4>
-              <p>This section is styled with <code>.bg-zev-green</code> and <code>.well-sm</code>.</p>
+              <p>This section is styled with <code>.bg-zev-green</code>.</p>
               <p><a class="well-link" href="#">Link example. Note the smaller padding on this well.</a></p>
               <button class="btn-info mrgn-bttm-md btn-zev-green" type="button">Button example</button>
               <button class="btn-info mrgn-bttm-md btn-zev-purple text-white" type="button">Button example</button>
@@ -45,7 +45,7 @@ layout: no-container
             <section class="well bg-dark text-white bg-zev-purple well-lg">
               <h4 class="h2 mrgn-tp-0">ZEV Purple</h4>
               <p>This section is styled with <code>.bg-dark</code>, <code>.bg-zev-purple</code> and <code>.text-white</code>.</p>
-              <p><a class="text-white" href="#">Link example</a></p>
+              <p><a class="text-white well-link" href="#">Link example</a></p>
               <button class="btn-info mrgn-bttm-md btn-zev-green" type="button">Button example</button>
               <button class="btn-info mrgn-bttm-md btn-zev-purple text-white" type="button">Button example</button>
             </section>
@@ -116,18 +116,48 @@ layout: no-container
       </ul>    
     </div>
 
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well well-sm bg-zev-green">
+          <h4 class="well-text">This is a <code>.bg-zev-green</code> with <code>.well-sm</code> for smaller padding</h4>
+          <p>Donec at sem in augue accumsan scelerisque.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="well well-sm bg-dark text-white bg-zev-purple">
+          <h4 class="well-text">This is a <code>.bg-zev-purple</code> with <code>.well-sm</code> for smaller padding</h4>
+          <p>Donec at sem in augue accumsan scelerisque.</p>
+        </div>  
+      </div>
+    </div>
+
     <h4>Code</h4>
     <pre><code>&lt;div class=&quot;well mrgn-bttm-0 text-center bg-zev-green&quot;&gt;
-  &lt;h4 class=&quot;well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-green&lt;/code&gt; well wrapper with &lt;code&gt;.well-text&lt;/code&gt; on the header&lt;/h4&gt;
-  &lt;p&gt;&lt;a class=&quot;btn btn-lg btn-default mrgn-tp-md btn-zev-purple&quot; href=&quot;#&quot;&gt;Station locator&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;well bg-dark text-white bg-zev-purple&quot;&gt;
-  &lt;ul class=&quot;list-unstyled lst-spcd mrgn-lft-md mrgn-rght-sm mrgn-bttm-0 text-white&quot;&gt;      
-    &lt;li&gt;&lt;h4 class=&quot;text-white mrgn-tp-sm well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-purple&lt;/code&gt; well&lt;/h4&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;text-white well-link&quot; href=&quot;#&quot;&gt;Incentives for buyers and dealerships&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a class=&quot;text-white well-link&quot; href=&quot;#&quot;&gt;Infrastructure and awareness project funding&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;    
-&lt;/div&gt;</code></pre>
+      &lt;h4 class=&quot;well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-green&lt;/code&gt; well wrapper with &lt;code&gt;.well-text&lt;/code&gt; on the header&lt;/h4&gt;
+      &lt;p&gt;&lt;a class=&quot;btn btn-lg btn-default mrgn-tp-md btn-zev-purple&quot; href=&quot;#&quot;&gt;Station locator&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;well bg-dark text-white bg-zev-purple&quot;&gt;
+      &lt;ul class=&quot;list-unstyled lst-spcd mrgn-lft-md mrgn-rght-sm mrgn-bttm-0 text-white&quot;&gt;      
+        &lt;li&gt;&lt;h4 class=&quot;text-white mrgn-tp-sm well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-purple&lt;/code&gt; well&lt;/h4&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;text-white well-link&quot; href=&quot;#&quot;&gt;Incentives for buyers and dealerships&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;text-white well-link&quot; href=&quot;#&quot;&gt;Infrastructure and awareness project funding&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;    
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;div class=&quot;well well-sm bg-zev-green&quot;&gt;
+          &lt;h4 class=&quot;well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-green&lt;/code&gt; with &lt;code&gt;.well-sm&lt;/code&gt; for smaller padding&lt;/h4&gt;
+          &lt;p&gt;Donec at sem in augue accumsan scelerisque.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;div class=&quot;well well-sm bg-dark text-white bg-zev-purple&quot;&gt;
+          &lt;h4 class=&quot;well-text&quot;&gt;This is a &lt;code&gt;.bg-zev-purple&lt;/code&gt; with &lt;code&gt;.well-sm&lt;/code&gt; for smaller padding&lt;/h4&gt;
+          &lt;p&gt;Donec at sem in augue accumsan scelerisque.&lt;/p&gt;
+        &lt;/div&gt;  
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
     
     <h3 id="a3">Button example</h3>
     <ul>
