@@ -406,49 +406,8 @@
 <summary>Version 2.2 Vs Version 2.1</summary>
 <div class="row">
      <div class="col-md-6">
-			<h4>Version 2.3</h4>
+			<h4>Version 2.2</h4>
 			<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
-		&lt;fieldset&gt;
-			&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
-				&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
-			&lt;/div&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
-				&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
-			&lt;/div&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
-				&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
-			&lt;/div&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
-				&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
-			&lt;/div&gt;
-			&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
-		&lt;p id="gc-pi" class="mrgn-tp-md"&gt;<del>Please &lt;strong&gt;do not include sensitive personal information&lt;/strong&gt; in the search box, such as your social insurance number, personal finance data and medical or work history.</del>&lt;/p&gt;
-		&lt;/fieldset&gt;
-		&lt;fieldset&gt;
-			&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
-				&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
-			&lt;/div&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
-				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
-			&lt;/div&gt;
-			&lt;div class="form-group"&gt;
-				&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
-				&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
-			&lt;/div&gt;
-		&lt;/fieldset&gt;
-	&lt;/form&gt;</code></pre>
- </div>
-<div class="col-md-6">
-		<h4>Version 2.2</h4>
-		<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
 		&lt;fieldset&gt;
 			&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
 			&lt;div class="form-group"&gt;
@@ -468,7 +427,7 @@
 				&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
 			&lt;/div&gt;
 			&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
-			<ins>&lt;p id="gc-pi" class="mrgn-tp-md"&gt;Please &lt;strong&gt;do not include sensitive personal information&lt;/strong&gt; in the search box, such as your social insurance number, personal finance data and medical or work history.&lt;/p&gt;</ins>
+		<ins>&lt;p id="gc-pi" class="mrgn-tp-md"&gt;Please &lt;strong&gt;do not include sensitive personal information&lt;/strong&gt; in the search box, such as your social insurance number, personal finance data and medical or work history.&lt;/p&gt;</ins>
 		&lt;/fieldset&gt;
 		&lt;fieldset&gt;
 			&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
@@ -478,13 +437,53 @@
 			&lt;/div&gt;
 			&lt;div class="form-group"&gt;
 				&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
-				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" <ins>aria-describedby="gc-pi"</ins> &gt;
+				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
 			&lt;/div&gt;
 			&lt;div class="form-group"&gt;
 				&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
 				&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
 			&lt;/div&gt;
 		&lt;/fieldset&gt;
+	&lt;/form&gt;</code></pre>
+ </div>
+<div class="col-md-6">
+	<h4>Version 2.1</h4>
+	<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
+				&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
+				&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
+				&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
+				&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" &gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
+				&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
+				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
+				&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+		&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
 	&lt;/form&gt;</code></pre>
 		</div>
         </div>
