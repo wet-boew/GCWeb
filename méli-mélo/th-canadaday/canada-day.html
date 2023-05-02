@@ -1,170 +1,211 @@
 ---
 title: Canada Day theme
-dateModified: 2022-05-04
+dateModified: 2023-05-02
 description: Canada Day CSS styles
 lang: en
 css:
 - style.css
-layout: no-container
+layout: without-h1
 ---
-    <div class="container">
-    <h1>{{ page.title }}</h1>
-    {% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
-    <p>Sponsor: {{ metadata.sponsor }}</p>
-    <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
-    <p>Progressive enhancement note:</p>
-    <ul>
-      {% for peNote in metadata.peNote %}
-      <li>{{ peNote }}</li>
-      {% endfor %}
-    </ul>
-    <h2>On this page</h2>
-    <ul>
-      <li><a href="#a1">Red background and white text</a></li>
-      <li><a href="#a2">Beige background</a></li>
-    </ul>
-    <h2 id="a1">Red background and white text</h2>
-    <p>Use to make text appear white in colour on a red background.</p>
-    <div class="panel panel-default">
-      <div class="panel-body">
+<h1 property="name" id="wb-cont" dir="ltr" class="gc-thickline canadaday">{{ page.title }}</h1>
+
+{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
+<p>Sponsor: {{ metadata.sponsor }}</p>
+<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+<p>Progressive enhancement note:</p>
+<ul>
+    {% for peNote in metadata.peNote %}
+    <li>{{ peNote }}</li>
+    {% endfor %}
+</ul>
+<h2>On this page</h2>
+<ul>
+    <li><a href="#a1">Red background and white text</a></li>
+    <li><a href="#a2">Beige background</a></li>
+</ul>
+<h2 id="a1">Red background and white text</h2>
+<p>Use to make text appear white in colour on a red background.</p>
+<div class="panel panel-default">
+    <div class="panel-body">
         <h3 class="mrgn-tp-0">Appearance</h3>
         <p class="bg-dark bg-canadaday text-white">This text is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
+</div>
+<div class="row">
+    <div class="col-md-6">
         <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
         <p>Compliance point(s):</p>
         <ul>
-          <li>Use to introduce contrast to information</li>
-          <li>Use <code>.bg-canadaday</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
-          <li>Use a fallback colour such as <code>.bg-dark</code> for sections and paragraphs, <code>.btn-info</code> for buttons or <code>.panel-default</code> for panels to accommodate progressive enhancement</li>
-          <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+            <li>Use to introduce contrast to information</li>
+            <li>Use <code>.bg-canadaday</code> in combination with <code>.text-white</code> to ensure sufficient contrast between text and background</li>
+            <li>Use a fallback colour such as <code>.bg-dark</code> for sections and paragraphs, <code>.btn-info</code> for buttons or <code>.panel-default</code> for panels to accommodate progressive enhancement</li>
+            <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
         </ul>
-      </div>
-      <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
         <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
         <p>Compliance point(s):</p>
         <ul>
-          <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-          <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
         </ul>
-      </div>
     </div>
-    <h3>Code</h3>
-    <pre><code>&lt;p class="bg-dark bg-canadaday text-white"&gt;...&lt;/p&gt;</code></pre>
-    <h3>CSS classes</h3>
-    <dl class="dl-horizontal">
-      <dt><code>.bg-canadaday</code></dt>
-      <dd>Set a background colour to red</dd>
-      <dt><code>.panel-canadaday</code></dt>
-      <dd>Set border colour for panel to red</dd>
-      <dt><code>hr.brdr-canadaday</code></dt>
-      <dd>Set border colour for &lt;hr&gt; to red</dd>
-    </dl>
-    <h2>Examples</h2>
-    <h3>Section example</h3>
-    <section class="well bg-dark bg-canadaday text-white">
-      <h2 class="mrgn-tp-0">Example of a heading</h2>
-      <p>This section is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
-      <p><a class="text-white" href="#">Link example</a></p>
-      <button class="btn-info bg-canadaday text-white" type="button">Button example</button>
-    </section>
-    <h4>Code</h4>
-    <pre><code>&lt;section class="well bg-dark bg-canadaday text-white"&gt;
+</div>
+<h3>Code</h3>
+<pre><code>&lt;p class="bg-dark bg-canadaday text-white"&gt;...&lt;/p&gt;</code></pre>
+<h3>CSS classes</h3>
+<dl class="dl-horizontal">
+    <dt><code>.bg-canadaday</code></dt>
+    <dd>Set a background colour to red</dd>
+    <dt><code>.panel-canadaday</code></dt>
+    <dd>Set border colour for panel to red</dd>
+    <dt><code>hr.brdr-canadaday</code></dt>
+    <dd>Set border colour for &lt;hr&gt; to red</dd>
+</dl>
+<h2>Examples</h2>
+<h3>Section example</h3>
+<section class="well bg-dark bg-canadaday text-white">
+    <h2 class="mrgn-tp-0">Example of a heading</h2>
+    <p>This section is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
+    <p><a class="text-white" href="#">Link example</a></p>
+    <button class="btn-info bg-canadaday text-white" type="button">Button example</button>
+</section>
+<h4>Code</h4>
+<pre><code>&lt;section class="well bg-dark bg-canadaday text-white"&gt;
     &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-dark&lt;/code&gt;, &lt;code&gt;.bg-canadaday&lt;/code&gt; and &lt;code&gt;.text-white&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-info bg-canadaday text-white" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-    <h3>&lt;button&gt; .btn example</h3>
-    <button class="btn btn-info bg-canadaday text-white" type="button">Button</button>
-    <h4>Code</h4>
-    <pre><code>&lt;button class="btn btn-info bg-canadaday text-white" type="button"&gt;Button&lt;/button&gt;</code></pre>
-    <h3>&lt;a&gt; .btn example</h3>
-    <a href="#" class="btn btn-info bg-canadaday text-white" role="button">Button</a>
-    <h4>Code</h4>
-    <pre><code>&lt;a href="#" class="btn btn-info bg-canadaday text-white" role="button"&gt;Button&lt;/a&gt;</code></pre>
-    <h3>&lt;hr&gt; example</h3>
-    <hr class="brdr-canadaday">
-    <h4>Code</h4>
-    <pre><code>&lt;hr class="brdr-canadaday"&gt;</code></pre>
-    <h4>Standard &lt;hr&gt; for visual comparison reference</h4>
-    <hr>
-    <h3>Panel border example</h3>
-    <div class="panel panel-default panel-canadaday">
-      <div class="panel-body">
+<h3>&lt;button&gt; .btn example</h3>
+<button class="btn btn-info bg-canadaday text-white" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-info bg-canadaday text-white" type="button"&gt;Button&lt;/button&gt;</code></pre>
+<h3>&lt;a&gt; .btn example</h3>
+<a href="#" class="btn btn-info bg-canadaday text-white" role="button">Button</a>
+<h4>Code</h4>
+<pre><code>&lt;a href="#" class="btn btn-info bg-canadaday text-white" role="button"&gt;Button&lt;/a&gt;</code></pre>
+<h3>&lt;hr&gt; example</h3>
+<hr class="brdr-canadaday">
+<h4>Code</h4>
+<pre><code>&lt;hr class="brdr-canadaday"&gt;</code></pre>
+<h4>Standard &lt;hr&gt; for visual comparison reference</h4>
+<hr>
+<h3>Panel border example</h3>
+<div class="panel panel-default panel-canadaday">
+    <div class="panel-body">
         <p>Lorem ipsum dolor sit amet.</p>
-      </div>
     </div>
-    <h4>Code</h4>
-    <pre><code>&lt;div class="panel panel-default panel-canadaday"&gt;
+</div>
+<h4>Code</h4>
+<pre><code>&lt;div class="panel panel-default panel-canadaday"&gt;
     &lt;div class="panel-body"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-    <h4>Standard default panel border for visual comparison reference</h4>
-    <div class="panel panel-default">
-      <div class="panel-body">
+<h4>Standard default panel border for visual comparison reference</h4>
+<div class="panel panel-default">
+    <div class="panel-body">
         <p>Lorem ipsum dolor sit amet.</p>
-      </div>
     </div>
-    <h2 id="a2">Beige background</h2>
-    <p>Use to make text appear on a beige background.</p>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3 class="mrgn-tp-0">Appearance</h3>
-        <p class="bg-canadaday-beige">This text is styled with <code>.bg-canadaday-beige</code>.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+</div>
+<h3>Details/summary polyfill example</h3>
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h4>
         <p>Compliance point(s):</p>
-       <ul>
-          <li>Use to introduce contrast to information</li>
-          <li>Use <code>.bg-canadaday-beige</code> with the default text colour to ensure sufficient contrast between text and background</li>
-          <li>Use a fallback colour such as <code>.btn-default</code> for buttons to accommodate progressive enhancement</li>
-          <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use only with block elements <code>&lt;p&gt;</code>, <code>&lt;ol&gt;</code>, and <code>&lt;ul&gt;</code> and inline elements <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>.</li>
         </ul>
-      </div>
-      <div class="col-md-6">
-        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
-          <p>Compliance point(s):</p>
-          <ul>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h4>
+        <p>Compliance point(s):</p>
+        <ul>
             <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
             <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
-          </ul>
-      </div>
+        </ul>
     </div>
-    <h3>Code</h3>
-    <pre><code>&lt;p class="bg-canadaday-beige"&gt;...&lt;/p&gt;</code></pre>
-    <h3>CSS classes</h3>
-    <dl class="dl-horizontal">
-      <dt><code>.bg-canadaday-beige</code></dt>
-      <dd>Set a background colour to beige</dd>
-    </dl>
-    <h2>Examples</h2>
-    <h3>Section example</h3>
-    <section class="well bg-canadaday-beige">
-      <h2 class="mrgn-tp-0">Example of a heading</h2>
-      <p>This section is styled with <code>.bg-canadaday-beige</code>.</p>
-      <p><a href="#">Link example</a></p>
-      <button class="btn-default bg-canadaday-beige" type="button">Button example</button>
-    </section>
-    <h4>Code</h4>
-    <pre><code>&lt;section class="well bg-canadaday-beige"&gt;
+</div>
+<details class="bg-canadaday">
+    <summary>Lorem ipsum</summary>
+    <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
+    <ul>
+        <li>List item 1</li>
+    </ul>
+</details>
+<h4>Code</h4>
+<pre><code>&lt;details class=&quot;bg-canadaday&quot;&gt;
+    &lt;summary&gt;Lorem ipsum&lt;/summary&gt;
+    &lt;p&gt;Lorem ipsum &lt;a href=&quot;#&quot;&gt;dolor sit amet&lt;/a&gt;, &lt;strong&gt;consectetur&lt;/strong&gt; &lt;em&gt;adipiscing elit&lt;/em&gt;.&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;List item 1&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+<h4>Standard default Details/summary polyfill for visual comparison reference</h4>
+<details class="mrgn-tp-lg">
+    <summary>Lorem ipsum</summary>
+    <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
+    <ul>
+        <li>List item 1</li>
+    </ul>
+</details>
+<h2 id="a2">Beige background</h2>
+<p>Use to make text appear on a beige background.</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3 class="mrgn-tp-0">Appearance</h3>
+        <p class="bg-canadaday-beige">This text is styled with <code>.bg-canadaday-beige</code>.</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use <code>.bg-canadaday-beige</code> with the default text colour to ensure sufficient contrast between text and background</li>
+            <li>Use a fallback colour such as <code>.btn-default</code> for buttons to accommodate progressive enhancement</li>
+            <li>Wrap text in a &lt;span&gt; tag if a style does not appear as it is meant to, due to specificity reasons</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h3 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h3>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+    </div>
+</div>
+<h3>Code</h3>
+<pre><code>&lt;p class="bg-canadaday-beige"&gt;...&lt;/p&gt;</code></pre>
+<h3>CSS classes</h3>
+<dl class="dl-horizontal">
+    <dt><code>.bg-canadaday-beige</code></dt>
+    <dd>Set a background colour to beige</dd>
+</dl>
+<h2>Examples</h2>
+<h3>Section example</h3>
+<section class="well bg-canadaday-beige">
+    <h2 class="mrgn-tp-0">Example of a heading</h2>
+    <p>This section is styled with <code>.bg-canadaday-beige</code>.</p>
+    <p><a href="#">Link example</a></p>
+    <button class="btn-default bg-canadaday-beige" type="button">Button example</button>
+</section>
+<h4>Code</h4>
+<pre><code>&lt;section class="well bg-canadaday-beige"&gt;
     &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-canadaday-beige&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-default bg-canadaday-beige" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-    <h3>&lt;button&gt; .btn example</h3>
-    <button class="btn btn-default bg-canadaday-beige" type="button">Button</button>
-    <h4>Code</h4>
-    <pre><code>&lt;button class="btn btn-default bg-canadaday-beige" type="button"&gt;Button&lt;/button&gt;</code></pre>
-    <h3>&lt;a&gt; .btn example</h3>
-    <a href="#" class="btn btn-default bg-canadaday-beige" role="button">Button</a>
-    <h4>Code</h4>
-    <pre><code>&lt;a href="#" class="btn btn-default bg-canadaday-beige" role="button"&gt;Button&lt;/a&gt;</code></pre>      
-    </div>
+<h3>&lt;button&gt; .btn example</h3>
+<button class="btn btn-default bg-canadaday-beige" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-default bg-canadaday-beige" type="button"&gt;Button&lt;/button&gt;</code></pre>
+<h3>&lt;a&gt; .btn example</h3>
+<a href="#" class="btn btn-default bg-canadaday-beige" role="button">Button</a>
+<h4>Code</h4>
+<pre><code>&lt;a href="#" class="btn btn-default bg-canadaday-beige" role="button"&gt;Button&lt;/a&gt;</code></pre>
