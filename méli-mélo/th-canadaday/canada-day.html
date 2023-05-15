@@ -1,6 +1,6 @@
 ---
 title: Canada Day theme
-dateModified: 2023-05-02
+dateModified: 2023-05-12
 description: Canada Day CSS styles
 lang: en
 css:
@@ -8,7 +8,6 @@ css:
 layout: without-h1
 ---
 <h1 property="name" id="wb-cont" dir="ltr" class="gc-thickline canadaday">{{ page.title }}</h1>
-
 {% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-canadaday" | first %}
 <p>Sponsor: {{ metadata.sponsor }}</p>
 <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
@@ -22,6 +21,7 @@ layout: without-h1
 <ul>
     <li><a href="#a1">Red background and white text</a></li>
     <li><a href="#a2">Beige background</a></li>
+    <li><a href="#a3">Feature tiles using panels</a></li>
 </ul>
 <h2 id="a1">Red background and white text</h2>
 <p>Use to make text appear white in colour on a red background.</p>
@@ -62,72 +62,54 @@ layout: without-h1
     <dt><code>hr.brdr-canadaday</code></dt>
     <dd>Set border colour for &lt;hr&gt; to red</dd>
 </dl>
-<h2>Examples</h2>
-<h3>Section example</h3>
+<h3>Examples</h3>
+<h4>Section example</h4>
 <section class="well bg-dark bg-canadaday text-white">
-    <h2 class="mrgn-tp-0">Example of a heading</h2>
+    <h5 class="h3 mrgn-tp-0">Example of a heading</h5>
     <p>This section is styled with <code>.bg-dark</code>, <code>.bg-canadaday</code> and <code>.text-white</code>.</p>
     <p><a class="text-white" href="#">Link example</a></p>
     <button class="btn-info bg-canadaday text-white" type="button">Button example</button>
 </section>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;section class="well bg-dark bg-canadaday text-white"&gt;
-    &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
+    &lt;h5 class="h3 mrgn-tp-0"&gt;Example of a heading&lt;/h5&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-dark&lt;/code&gt;, &lt;code&gt;.bg-canadaday&lt;/code&gt; and &lt;code&gt;.text-white&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a class="text-white" href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-info bg-canadaday text-white" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-<h3>&lt;button&gt; .btn example</h3>
+<h4>&lt;button&gt; .btn example</h4>
 <button class="btn btn-info bg-canadaday text-white" type="button">Button</button>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;button class="btn btn-info bg-canadaday text-white" type="button"&gt;Button&lt;/button&gt;</code></pre>
-<h3>&lt;a&gt; .btn example</h3>
+<h4>&lt;a&gt; .btn example</h4>
 <a href="#" class="btn btn-info bg-canadaday text-white" role="button">Button</a>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;a href="#" class="btn btn-info bg-canadaday text-white" role="button"&gt;Button&lt;/a&gt;</code></pre>
-<h3>&lt;hr&gt; example</h3>
+<h4>&lt;hr&gt; example</h4>
 <hr class="brdr-canadaday">
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;hr class="brdr-canadaday"&gt;</code></pre>
-<h4>Standard &lt;hr&gt; for visual comparison reference</h4>
+<h5>Standard &lt;hr&gt; for visual comparison reference</h5>
 <hr>
-<h3>Panel border example</h3>
+<h4>Panel border example</h4>
 <div class="panel panel-default panel-canadaday">
     <div class="panel-body">
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
 </div>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;div class="panel panel-default panel-canadaday"&gt;
     &lt;div class="panel-body"&gt;
         &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-<h4>Standard default panel border for visual comparison reference</h4>
+<h5>Standard default panel border for visual comparison reference</h5>
 <div class="panel panel-default">
     <div class="panel-body">
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
 </div>
-<h3>Details/summary polyfill example</h3>
-<div class="row">
-    <div class="col-md-6">
-        <h4 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h4>
-        <p>Compliance point(s):</p>
-        <ul>
-            <li>Use to introduce contrast to information</li>
-            <li>Use only with block elements <code>&lt;p&gt;</code>, <code>&lt;ol&gt;</code>, and <code>&lt;ul&gt;</code> and inline elements <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>.</li>
-        </ul>
-    </div>
-    <div class="col-md-6">
-        <h4 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h4>
-        <p>Compliance point(s):</p>
-        <ul>
-            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
-            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
-        </ul>
-    </div>
-</div>
+<h4>Details/summary polyfill example</h4>
 <details class="bg-canadaday">
     <summary>Lorem ipsum</summary>
     <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
@@ -135,7 +117,25 @@ layout: without-h1
         <li>List item 1</li>
     </ul>
 </details>
-<h4>Code</h4>
+<div class="row">
+    <div class="col-md-6">
+        <h5 class="text-success"><span class="glyphicon glyphicon-ok-circle"></span> Correct use</h5>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Use to introduce contrast to information</li>
+            <li>Use only with block elements <code>&lt;p&gt;</code>, <code>&lt;ol&gt;</code>, and <code>&lt;ul&gt;</code> and inline elements <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>.</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h5 class="text-danger"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect use</h5>
+        <p>Compliance point(s):</p>
+        <ul>
+            <li>Do not use this component in a way that conflicts with the preceding compliance <span class="nowrap">point(s)</span></li>
+            <li>Do not use as the only way to communicate information or intent, as colour alone is not accessible</li>
+        </ul>
+    </div>
+</div>
+<h5>Code</h5>
 <pre><code>&lt;details class=&quot;bg-canadaday&quot;&gt;
     &lt;summary&gt;Lorem ipsum&lt;/summary&gt;
     &lt;p&gt;Lorem ipsum &lt;a href=&quot;#&quot;&gt;dolor sit amet&lt;/a&gt;, &lt;strong&gt;consectetur&lt;/strong&gt; &lt;em&gt;adipiscing elit&lt;/em&gt;.&lt;/p&gt;
@@ -143,7 +143,7 @@ layout: without-h1
         &lt;li&gt;List item 1&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/details&gt;</code></pre>
-<h4>Standard default Details/summary polyfill for visual comparison reference</h4>
+<h5>Standard default Details/summary polyfill for visual comparison reference</h5>
 <details class="mrgn-tp-lg">
     <summary>Lorem ipsum</summary>
     <p>Lorem ipsum <a href="#">dolor sit amet</a>, <strong>consectetur</strong> <em>adipiscing elit</em>.</p>
@@ -186,26 +186,102 @@ layout: without-h1
     <dt><code>.bg-canadaday-beige</code></dt>
     <dd>Set a background colour to beige</dd>
 </dl>
-<h2>Examples</h2>
-<h3>Section example</h3>
+<h3>Examples</h3>
+<h4>Section example</h4>
 <section class="well bg-canadaday-beige">
-    <h2 class="mrgn-tp-0">Example of a heading</h2>
+    <h5 class="h3 mrgn-tp-0">Example of a heading</h5>
     <p>This section is styled with <code>.bg-canadaday-beige</code>.</p>
     <p><a href="#">Link example</a></p>
     <button class="btn-default bg-canadaday-beige" type="button">Button example</button>
 </section>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;section class="well bg-canadaday-beige"&gt;
-    &lt;h2 class="mrgn-tp-0"&gt;Example of a heading&lt;/h2&gt;
+    &lt;h5 class="h3 mrgn-tp-0"&gt;Example of a heading&lt;/h5&gt;
     &lt;p&gt;This section is styled with &lt;code&gt;.bg-canadaday-beige&lt;/code&gt;.&lt;/p&gt;
     &lt;p&gt;&lt;a href="#"&gt;Link example&lt;/a&gt;&lt;/p&gt;
     &lt;button class="btn-default bg-canadaday-beige" type="button"&gt;Button example&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-<h3>&lt;button&gt; .btn example</h3>
+<h4>&lt;button&gt; .btn example</h4>
 <button class="btn btn-default bg-canadaday-beige" type="button">Button</button>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;button class="btn btn-default bg-canadaday-beige" type="button"&gt;Button&lt;/button&gt;</code></pre>
-<h3>&lt;a&gt; .btn example</h3>
+<h4>&lt;a&gt; .btn example</h4>
 <a href="#" class="btn btn-default bg-canadaday-beige" role="button">Button</a>
-<h4>Code</h4>
+<h5>Code</h5>
 <pre><code>&lt;a href="#" class="btn btn-default bg-canadaday-beige" role="button"&gt;Button&lt;/a&gt;</code></pre>
+<h2 id="a3">Feature tiles using panels</h2>
+<h3>Appearance</h3>
+<div class="row wb-eqht mrgn-tp-md">
+    <div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md">
+        <section class="panel panel-default panel-canadaday-card p-0 hght-inhrt">            
+            <header class="panel-heading">
+                <img class="img-responsive full-width" src="https://placehold.co/992x661" alt="">
+                <h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"><a href="#" class="stretched-link">Title 1 with new CSS</a></h4>
+            </header>
+            <div class="panel-body mrgn-bttm-0">
+                <p class="mrgn-bttm-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet turpis sapien. Nam eget blandit tortor, quis lacinia arcu.</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md">
+        <section class="panel panel-default panel-canadaday-card p-0 hght-inhrt">            
+            <header class="panel-heading">
+                <img class="img-responsive full-width" src="https://placehold.co/992x661" alt="">
+                <h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"><a href="#" class="stretched-link">Title 2 with new CSS</a></h4>
+            </header>
+            <div class="panel-body mrgn-bttm-0">
+                <p class="mrgn-bttm-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md">
+        <section class="panel panel-default panel-canadaday-card p-0 hght-inhrt">            
+            <header class="panel-heading">
+                <img class="img-responsive full-width" src="https://placehold.co/992x661" alt="">
+                <h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"><a href="#" class="stretched-link">Title 3 with new CSS</a></h4>
+            </header>
+            <div class="panel-body mrgn-bttm-0">
+                <p class="mrgn-bttm-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet turpis sapien. Nam eget blandit tortor, quis lacinia arcu. Ut sit amet turpis sapien.</p>
+            </div>
+        </section>
+    </div>
+</div>
+<h3>Code</h3>
+<pre><code>&lt;div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md"&gt;
+        &lt;section class="panel panel-default panel-canadaday-card p-0 hght-inhrt"&gt;            
+            &lt;header class="panel-heading"&gt;
+                &lt;img class="img-responsive full-width" src="https://placehold.co/992x661" alt=""&gt;
+                &lt;h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"&gt;&lt;a href="#" class="stretched-link"&gt;Title 1 with new CSS&lt;/a&gt;&lt;/h4&gt;
+            &lt;/header&gt;
+            &lt;div class="panel-body mrgn-bttm-0"&gt;
+                &lt;p class="mrgn-bttm-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet turpis sapien. Nam eget blandit tortor, quis lacinia arcu.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md"&gt;
+        &lt;section class="panel panel-default panel-canadaday-card p-0 hght-inhrt"&gt;            
+            &lt;header class="panel-heading"&gt;
+                &lt;img class="img-responsive full-width" src="https://placehold.co/992x661" alt=""&gt;
+                &lt;h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"&gt;&lt;a href="#" class="stretched-link"&gt;Title 2 with new CSS&lt;/a&gt;&lt;/h4&gt;
+            &lt;/header&gt;
+            &lt;div class="panel-body mrgn-bttm-0"&gt;
+                &lt;p class="mrgn-bttm-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12 col-sm-4 col-md-4 mrgn-bttm-md"&gt;
+        &lt;section class="panel panel-default panel-canadaday-card p-0 hght-inhrt"&gt;            
+            &lt;header class="panel-heading"&gt;
+                &lt;img class="img-responsive full-width" src="https://placehold.co/992x661" alt=""&gt;
+                &lt;h4 class="panel-title mrgn-tp-lg mrgn-bttm-0"&gt;&lt;a href="#" class="stretched-link"&gt;Title 3 with new CSS&lt;/a&gt;&lt;/h4&gt;
+            &lt;/header&gt;
+            &lt;div class="panel-body mrgn-bttm-0"&gt;
+                &lt;p class="mrgn-bttm-0"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet turpis sapien. Nam eget blandit tortor, quis lacinia arcu. Ut sit amet turpis sapien.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;</code></pre>
+<h4>CSS classes</h4>
+<dl class="dl-horizontal">
+    <dt><code>.panel-canadaday-card</code></dt>
+    <dd>Use <code>.panel-canadaday-card</code> to spotlight features</dd>
+</dl>
