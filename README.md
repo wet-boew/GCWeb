@@ -1,8 +1,8 @@
 ![Statut du déploiement continu](https://github.com/wet-boew/GCWeb/workflows/Continuous%20deployment/badge.svg) [![Statut de devDependency](https://david-dm.org/wet-boew/GCWeb/dev-status.png?theme=shields.io)](https://david-dm.org/wet-boew/GCWeb#info=devDependencies) [![Pacte du contributeur](https://img.shields.io/badge/Pacte%20du%20contributeur-v1.4%20adopt%E9-ff69b4.svg)](CODE-OF-CONDUCT.md) [![Slack](https://img.shields.io/badge/Slack-Espace%20de%20travaill%20du%20systemes%20de%20conception%20GC-yellow?style=flat&logo=slack)](https://join.slack.com/t/design-gc-conception/shared_invite/enQtODE1OTc5Mzg5NzQ4LWQ3MjZjMTdjMjk2ZTZmMTJjYWQ3ZmRiNDYwYjRmN2NjYzQyNjFlNDBlY2FkNWE1ODg2YjExY2QwZmVjN2MwMGM)
 
-([English](#gcweb-theme-de-canada-da))
+([English](#gcweb---canadaca-theme))
 
-# CGWeb - Thème de Canada.ca
+# GCWeb - Thème de Canada.ca
 
 [Aller vers le site officiel de cette référence d'implémentation du thème de Canada.ca (GCWeb)](https://wet-boew.github.io/GCWeb/)
 
@@ -36,7 +36,7 @@ ______________________
 ![Continuous deployment status](https://github.com/wet-boew/GCWeb/workflows/Continuous%20deployment/badge.svg) [![devDependency Status](https://david-dm.org/wet-boew/GCWeb/dev-status.png?theme=shields.io)](https://david-dm.org/wet-boew/GCWeb#info=devDependencies) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![Slack](https://img.shields.io/badge/Slack-GC%20Design%20System%20workspace-yellow?style=flat&logo=slack)](https://join.slack.com/t/design-gc-conception/shared_invite/enQtODE1OTc5Mzg5NzQ4LWQ3MjZjMTdjMjk2ZTZmMTJjYWQ3ZmRiNDYwYjRmN2NjYzQyNjFlNDBlY2FkNWE1ODg2YjExY2QwZmVjN2MwMGM)
 
-([Français](#gcweb-theme-du-canada-ca))
+([Français](#gcweb---thème-de-canadaca))
 
 # GCWeb - Canada.ca theme
 
