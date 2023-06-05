@@ -620,7 +620,7 @@ module.exports = (grunt) ->
 			layouts:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates}/**/layouts/**.*"
+				src: "{sites,components,templates,docs}/**/layouts/**.*"
 				dest: "<%= jekyllDist %>/_layouts"
 			includes:
 				files: [
