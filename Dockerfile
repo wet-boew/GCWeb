@@ -1,25 +1,22 @@
-# Base on: Starefossen/docker-github-pages
 
-FROM starefossen/ruby-node:2-6-alpine
+ARG RUBY_VERSION=2.7.3
+FROM ruby:$RUBY_VERSION
 
-ENV GITHUB_GEM_VERSION 227
-ENV JSON_GEM_VERSION 2.6.2
-
-RUN apk --update add --virtual build_deps \
-    build-base ruby-dev libc-dev linux-headers \
+RUN apt-get update \
+  && apt-get install -y \
+    git \
+    locales \
+    make \
+    nodejs \
   && gem update --system \
   && gem install --verbose --no-document \
-    json:${JSON_GEM_VERSION} \
+    json \
     github-pages \
     jekyll-github-metadata \
     minitest \
   && gem install rake html-proofer \
-  && apk del build_deps \
-  && apk add git \
   && mkdir -p /usr/src/app \
   && rm -rf /usr/lib/ruby/gems/*/cache/*.gem
-
-#     github-pages:${GITHUB_GEM_VERSION} \
 
 WORKDIR /usr/src/app
 
