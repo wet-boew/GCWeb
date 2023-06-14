@@ -1,8 +1,10 @@
+---
 {
 	"title": "Buttons",
 	"language": "en",
+	"altLangPage": "button-fr.html",
 	"description": "Buttons page including working examples to test how various button styles appear and function",
-	"dateModified": "2023-06-09"
+	"dateModified": "2023-06-14"
 }
 ---
 
@@ -11,8 +13,7 @@
 <ul>
 	<li><a href="#purpose">Purpose</a></li>
 	<li><a href="#basic">Basic use</a></li>
-	<li><a href="#enhanced">Enhanced use</a>
-	<ul>
+	<li><a href="#enhanced">Enhanced use</a></li>
 	<li><a href="#colours/styles">Colours/Styles</a></li>
 	<li><a href="#calltoaction">Call to Action</a></li>
 	<li><a href="#sizing">Sizing</a></li>
@@ -24,27 +25,29 @@
 	<li><a href="#buttontoolbar">Button Toolbar</a></li>
 	<li><a href="#inputgroups">Input Groups</a></li>
 	<li><a href="#datatoggle">Data-toggle Buttons</a></li>
-	</ul></li>
 </ul>
 
-<h2 id="purpose">Purpose</h2>
-<p>Use buttons to create a call to action that entices the user to submit content from a form. Also, use buttons to take users to a webpage that provides additional information.</p>
-
-
+<h2>Button vs links</h2>
+<dl class="dl-horizontal">
+<dt>Button</dt>
+<dd>A button will perform an action on the current page without moving the focus or without navigating the user away</dd>
+<dt>Link</dt>
+<dd>A link will send the user at a location, in the same page via an anchor (`#`) link or to an another page without sending any data over.</dd>
+</dl>
+<p>Do not use the role button on an anchor, use a button element instead.</p>
 
 <h2 id="basic">Basic use</h2>
 
 <h3>Default</h3>
-<p>Use the button classes on <code>a</code>, <code>button</code>, or <code>input</code> elements to create visual consistency. The browser shows certain elements as a button. However, there is often a lack of visual consistency for each button type. Each browser can have a different button default appearance.</p>
 
 <h4>Working example</h4>
-<h5>Default:</h5>
+<h5>Scaffolding (Default):</h5>
 <button type="submit">Button</button>
 <input type="button" value="Input" />
 <input type="submit" value="Submit" />
 <a href="#" >Link</a>
 
-<h5>Styled:</h5>
+<h5>With the default style:</h5>
 <button class="btn btn-default" type="submit">Button</button>
 <input class="btn btn-default" type="button" value="Input" />
 <input class="btn btn-default" type="submit" value="Submit" />
@@ -52,7 +55,7 @@
 
 <h4>Code Sample</h4>
 <pre><code>
-	<span class="com">// Default button:</span>
+	// Default button:
 	&lt;button type="submit"&gt;
 	Button
 	&lt;/button&gt;
@@ -62,7 +65,7 @@
 	Link
 	&lt;/a&gt;
 
-	<span class="com">// Styled button:</span>
+	// Styled button:
 	&lt;button class="<strong>btn btn-default</strong>" type="submit"&gt;
 	Button
 	&lt;/button&gt;
@@ -76,7 +79,7 @@
 <h2 id="enhanced">Enhanced use</h2>
 
 <h3 id="colours/styles">Colours/Styles</h3>
-<p>Use to add colours to buttons. Colours signify various things such as a link to warning information (caution button) to a link to the next learning module (success button).</p>
+<p>Colours <strong>signify</strong> various things such as a link to warning information (caution styled button). The text of that styled button will also contains word describing the state like "Warning notice".</p>
 <h4>Working example</h4>
 <button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
@@ -85,53 +88,59 @@
 <button type="button" class="btn btn-warning">Warning</button>
 <button type="button" class="btn btn-danger">Danger</button>
 <button type="button" class="btn btn-link">Link</button>
+<a href="#" class="btn btn-default">Link styled as a button</a>
 
 <h4>Code sample</h4>
 <pre><code>
-	<span class="com">// Default:</span>
+	// Default:
 	&lt;button type="button" class="btn <strong>btn-default</strong>"&gt;
 	Default
 	&lt;/button&gt;
 
-	<span class="com">// Primary:</span>
+	// Primary:
 	&lt;button type="button" class="btn <strong>btn-primary</strong>"&gt;
 	Primary
 	&lt;/button&gt;
 
-	<span class="com">// Success:</span>
+	// Success:
 	&lt;button type="button" class="btn <strong>btn-success</strong>"&gt;
 	Success
 	&lt;/button&gt;
 
-	<span class="com">// Info:</span>
+	// Info:
 	&lt;button type="button" class="btn <strong>btn-info</strong>"&gt;
 	Info
 	&lt;/button&gt;
 
-	<span class="com">// Warning:</span>
+	// Warning:
 	&lt;button type="button" class="btn <strong>btn-warning</strong>"&gt;
 	Warning
 	&lt;/button&gt;
 
-	<span class="com">// Danger:</span>
+	// Danger:
 	&lt;button type="button" class="btn <strong>btn-danger</strong>"&gt;
 	Danger
 	&lt;/button&gt;
 
-	<span class="com">// Link:</span>
+	// Link:
 	&lt;button type="button" class="btn <strong>btn-link</strong>"&gt;
 	Link
 	&lt;/button&gt;
+
+	//Link styled as a button
+	&lt;a class="<strong>btn btn-default</strong>" href="#"&gt;
+	Link styled as a button
+	&lt;/a&gt;
 	</code></pre>
 
-<h3 id="calltoaction">Call to Action</h3>
+<h3 id="calltoaction">Supertask (Call to Action)</h3>
 <h4>Working example</h4>
-<button type="button" class="btn btn-call-to-action">Call to Action</button>
+<button type="button" class="btn btn-call-to-action">Supertask (Call to Action)</button>
 
 <h4>Code sample</h4>
 <pre><code>
-<span class="com">// Call to action button:</span>
-&lt;button type="button" class="btn btn-call-to-action"&gt;Call to Action&lt;/button&gt;
+// Supertask (Call to Action) button:
+&lt;button type="button" class="btn btn-call-to-action"&gt;Supertask (Call to Action)&lt;/button&gt;
 </code></pre>
 
 
@@ -145,22 +154,22 @@
 
 <h4>Code sample</h4>
 <pre><code>
-	<span class="com">// Extra small button:</span>
+	// Extra small button:
 	&lt;button type="button" class="btn btn-default <strong>btn-xs</strong>"&gt;
 	Extra small button
 	&lt;/button&gt;
 
-	<span class="com">// Small button:</span>
+	// Small button:
 	&lt;button type="button" class="btn btn-default <strong>btn-sm</strong>"&gt;
 	Small button
 	&lt;/button&gt;
 
-	<span class="com">// Default button:</span>
+	// Default button:
 	&lt;button type="button" class="btn btn-default"&gt;
 	Default button
 	&lt;/button&gt;
 
-	<span class="com">// Large button:</span>
+	// Large button:
 	&lt;button type="button" class="btn btn-default <strong>btn-lg</strong>"&gt;
 	Large button
 	&lt;/button&gt;</code></pre>
@@ -172,7 +181,7 @@
 
 <h4>Code sample</h4>
 <pre><code>
-<span class="com">// Block level button:</span>
+// Block level button:
 &lt;button type="button" class="btn btn-default <strong>btn-block</strong>"&gt;Button&lt;/button&gt;
 </code></pre>
 
@@ -184,10 +193,10 @@
 
 <h4>Code sample</h4>
 <pre><code>
-<span class="com">// Active button:</span>
+// Active button:
 &lt;button type="button" class="btn btn-default <strong>active</strong>"&gt;Button&lt;/button&gt;
 
-<span class="com">// Active link:</span>
+// Active link:
 &lt;a class="btn btn-default <strong>active</strong>" href="#" role="button"&gt;
 Link
 &lt;/a&gt;
@@ -201,10 +210,10 @@ Link
 
 <h4>Code sample</h4>
 <pre><code>
-<span class="com">// Disabled button:</span>
+// Disabled button:
 &lt;button type="button" class="btn btn-default <strong>disabled</strong>"&gt;Button&lt;/button&gt;
 
-<span class="com">// Disabled link:</span>
+// Disabled link:
 &lt;a class="btn btn-default <strong>disabled</strong>" href="#" role="button"&gt;
 Link
 &lt;/a&gt;
@@ -262,30 +271,30 @@ Link
 </div>
 
 <h4>Code sample</h4>
-<pre><code><span class="com">// Default:</span>
+<pre><code>// Default:
 &lt;div class="<strong>btn-group</strong>"&gt;
 	&lt;button type="button" class="btn btn-default"&gt;...&lt;/button&gt;
 &lt;/div&gt;
 
-<span class="com">// Large button group:</span>
+// Large button group:
 &lt;div class="btn-group <strong>btn-group-lg</strong>"&gt;...
 &lt;/div&gt;
 
-<span class="com">// Small button group:</span>
+// Small button group:
 &lt;div class="btn-group <strong>btn-group-sm</strong>"&gt;...
 &lt;/div&gt;
 
-<span class="com">// Extra small button group:</span>
+// Extra small button group:
 &lt;div class="btn-group <strong>btn-group-xs</strong>"&gt;...
 &lt;/div&gt;
 
-<span class="com">// Justified links:</span>
+// Justified links:
 &lt;div class="btn-group <strong>btn-group-justified</strong>"&gt;
 &lt;a class="btn btn-default" href="#" role="button"&gt;...
 &lt;/a&gt;
 &lt;/div&gt;
 
-<span class="com">// Justified button group:</span>
+// Justified button group:
 &lt;div class="btn-group <strong>btn-group-justified</strong>"&gt;
 &lt;div class="<strong>btn-group</strong>"&gt;
 	&lt;button type="button" class=" <strong>btn btn-default</strong>"&gt;...
@@ -304,7 +313,7 @@ Link
 </div>
 
 <h4>Code sample</h4>
-<pre><code><span class="com">// Vertical button group:</span>
+<pre><code>// Vertical button group:
 &lt;div class="<strong>btn-group-vertical</strong>"&gt;
 	&lt;button type="button" class="btn btn-default"&gt;
 	Top
@@ -318,27 +327,27 @@ Link
 &lt;/div&gt;</code></pre>
 
 <h3 id="buttontoolbar">Button toolbar</h3>
-<p>Use to display multiple groups of buttons together on a single line with the <code>btn-toolbar</code> class.</p>
+<p>Use to display multiple groups of buttons together on a single line with the <code>btn-toolbar</code> class. Note the use of this feature requires some additional requirements in order to comform to WCAG.</p>
 <h4>Working Example</h4>
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-default">1</button>
-    <button type="button" class="btn btn-default">2</button>
-    <button type="button" class="btn btn-default">3</button>
-    <button type="button" class="btn btn-default">4</button>
-  </div>
-  <div class="btn-group mr-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-default">5</button>
-    <button type="button" class="btn btn-default">6</button>
-    <button type="button" class="btn btn-default">7</button>
-  </div>
-  <div class="btn-group" role="group" aria-label="Third group">
-    <button type="button" class="btn btn-default">8</button>
-  </div>
+<div class="btn-group" role="group" aria-label="First group">
+<button type="button" class="btn btn-default">1</button>
+<button type="button" class="btn btn-default">2</button>
+<button type="button" class="btn btn-default">3</button>
+<button type="button" class="btn btn-default">4</button>
+</div>
+<div class="btn-group" role="group" aria-label="Second group">
+<button type="button" class="btn btn-default">5</button>
+<button type="button" class="btn btn-default">6</button>
+<button type="button" class="btn btn-default">7</button>
+</div>
+<div class="btn-group" role="group" aria-label="Third group">
+<button type="button" class="btn btn-default">8</button>
+</div>
 </div>
 
 <h4>Code sample</h4>
-<pre><code><span class="com">// Button toolbar:</span>
+<pre><code>// Button toolbar:
 &lt;div class="<strong>btn-toolbar</strong>" role="toolbar" aria-label="Toolbar with button groups"&gt;
 	&lt;div class="btn-group" role="group" aria-label="First group"&gt;
 		&lt;button type="button" class="btn btn-default"&gt;
@@ -378,21 +387,21 @@ Link
 <p>Easily extend form controls by adding buttons, or button groups on either side of textual inputs with the <code>input-group</code> and <code>input-group-btn</code> classes.</p>
 <h4>Working Example</h4>
 <div class="input-group mb-3">
-  <div class="input-group-btn">
-    <button class="btn btn-default" type="button">Button</button>
-  </div>
-  <input type="text" class="form-control">
+<div class="input-group-btn">
+<button class="btn btn-default" type="button">Button</button>
+</div>
+<input type="text" class="form-control">
 </div>
 
 <div class="input-group mb-3">
-  <input type="text" class="form-control">
-   <div class="input-group-btn">
-    <button class="btn btn-default" type="button">Button</button>
-  </div>
+<input type="text" class="form-control">
+<div class="input-group-btn">
+<button class="btn btn-default" type="button">Button</button>
+</div>
 </div>
 
 <h4>Code Sample</h4>
-<pre><code><span class="com">// Input groups:</span>
+<pre><code>// Input groups:
 &lt;div class="<strong>input-group</strong> mb-3"&gt;
 	&lt;div class="<strong>input-group-btn</strong>"&gt;
 		&lt;button class="btn btn-default" type="button"&gt;Button&lt;/button&gt;
@@ -408,8 +417,12 @@ Link
 &lt;/div&gt;</code></pre>
 
 <h3 id="datatoggle">Data-toggle buttons</h3>
-<p>Bootstrap’s <code>.button</code> styles can be applied to other elements, such as <code>label</code>s, to provide checkbox or radio style button toggling. Add <code>data-toggle="buttons"</code> to a <code>.btn-group</code> containing those modified buttons to enable their toggling behavior via JavaScript and add <code>.btn-group-toggle</code> to style the <code>input</code>s within your buttons.</p>
 
 <div class="alert alert-info">
-  <p>Currently, this feature is not functional as we do not implement Bootstrap's JavaScript.</p>
+	<p>Currently, this feature is not functional as we do not implement Bootstrap's JavaScript.</p>
 </div>
+
+<p>Bootstrap’s <code>.button</code> styles can be applied to other elements, such as <code>label</code>s, to provide checkbox or radio style button toggling. Add <code>data-toggle="buttons"</code> to a <code>.btn-group</code> containing those modified buttons to enable their toggling behavior via JavaScript and add <code>.btn-group-toggle</code> to style the <code>input</code>s within your buttons.</p>
+
+<h2>Resource</h2>
+<p><a href="https://design.canada.ca/common-design-patterns/buttons.html">Design system guidance on buttons</a></p>
