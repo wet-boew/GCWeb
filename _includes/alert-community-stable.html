@@ -1,0 +1,37 @@
+{%- if page.language == "fr" -%}
+<div class="alert alert-info">
+	<p>Veuillez noter que la présente page web représente une contribution communautaire et qu'elle <strong>ne bénéficie pas</strong> de la validation ni de l'approbation formelle du Bureau de la transformation numérique comparativement à une conception officielle. Il est à souligner que cette contribution ne va pas à l'encontre d'une version officielle publiée au moment de l'ajout. Si une conception officielle équivalente est élaborée et soit formellement publiée, il est possible que la conception démontrée sur la présente page en diffère en partie ou en totalité.</p>
+
+	<p>Cette conception est <strong>stable</strong> et par conséquent elle bénificie des mêmes avantages que toutes autres fonctionnalités et conceptions stables telles que définies par <a href="https://wet-boew.github.io/wet-boew-documentation/decision/14.html" hreflang="en">l'ébauche de l'API publique de version de GCWeb</a>.</p>
+
+	{%- if page.concerns -%}
+		<p>Veuillez noter, cet example a soulevé les préoccupations et/ou les commentaires suivants qui devrait être prise en compte:</p>
+		<ul>
+			{% for concern in page.concerns %}
+				<li>{{ concern }}</li>
+			{% endfor %}
+		</ul>
+	{%- endif -%}
+	{%- if page.discussionUrl -%}
+		<p><a href="{{ page.discussionUrl }}">Participer à la discussion.</a></p>
+	{%- endif -%}
+</div>
+{%- elsif page.language == "en" -%}
+<div class="alert alert-info">
+	<p>Please note that the current web page represents a community contribution and <strong>does not yet have</strong> formal validation or approval from the Digital Transformation Office compared to an official design. It should be noted that this contribution does not contradict any officially published version at the time of its addition. It is possible that when an equivalent official design is developed and gets formally published, it may differ partially or entirely from the design shown on this page.</p>
+
+	<p>This <strong>stable</strong> design does share the same benefits as any other stable functionalities and design as defined by the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/14.html">GCWeb public versioning API draft</a>.</p>
+
+	{%- if page.concerns -%}
+		<p>Please note, this example have raised the following concerns/comments for consideration:</p>
+		<ul>
+			{% for concern in page.concerns %}
+				<li>{{ concern }}</li>
+			{% endfor %}
+		</ul>
+	{%- endif -%}
+	{%- if page.discussionUrl -%}
+		<p><a href="{{ page.discussionUrl }}">Participate at the discussion</a></p>
+	{%- endif -%}
+</div>
+{%- endif -%}

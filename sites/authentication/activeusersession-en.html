@@ -10,10 +10,20 @@
 	"title": "Authentication - User active session",
 	"auth": {
 		"type": "active"
-	}
+	},
+	"concerns": [
+		"Need clarification: Context of use is ambiguous (raised by DTO)",
+		"Alignment/Consistency: How does it align with how the major authentication services currently do it? (e.g. CRA MyAccount, Service Canada MSCA) (raised by DTO)",
+		"Alignment/Consistency: Does this align with the direction that TBS OCIO is heading with their Sign in Canada project? (raised by DTO)",
+		"Alignment/Consistency: Does this impact other authentication patterns? (raised by DTO)",
+		"Comment: Concern about the use of the power icon on the sign out button - not sure this makes sense for the action (raised by DTO)"
+	],
+	"discussionUrl": "https://github.com/wet-boew/GCWeb/pull/2139"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
+
+{% include alert-community-stable.html %}
 
 <h2>Expected output code</h2>
 <pre>&lt;div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4"&gt;
