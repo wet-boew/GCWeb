@@ -1,25 +1,20 @@
 ---
 {
-	"title": "[Service name] - 1. [Step / section page name]",
-	"secondTitle": "1. [Step / section page name]",
+	"title": "[Service name] - 2. [Step / section page name]",
+	"secondTitle": "2. [Step / section page name]",
 	"language": "en",
-	"altLangPage": "index-fr.html",
+	"altLangPage": "gc-stp-stp-fr.html",
 	"breadcrumbs": [
 		{ "title": "[Institution name]", "link": "#" },
 		{ "title": "[Topic name]", "link": "#" },
 		{ "title": "[Service name]", "link": "#" }
 	],
 	"secondlevel": false,
-	"dateModified": "2017-04-07",
+	"dateModified": "2023-09-05",
 	"share": "true",
-	"next": {
-		"title": "2. [Step / section page name]",
-		"link": "page2-en.html"
-	},
-	"pageType": "advance service",
 	"steps": [
-		{ "name": "1. [Step / section page name]", "isActive": true },
-		{ "name": "2. [Step / section page name]", "link": "page2-en.html" },
+		{ "name": "1. [Step / section page name]", "link": "index-en.html" },
+		{ "name": "2. [Step / section page name]", "isActive": true },
 		{ "name": "3. [Step / section page name]", "link": "page3-en.html" },
 		{ "name": "4. [Step / section page name]", "link": "page4-en.html" },
 		{ "name": "5. [Step / section page name]", "link": "page5-en.html" },
@@ -33,7 +28,7 @@
 
 <div class="row">
 	<section class="col-md-8">
-		<h2>{{page.secondTitle}}</h2>
+		<h2>2. [Step / section page name]</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et a adipisci nostrum optio dolorum sint ipsa facilis nisi quisquam laboriosam.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio adipisci ad neque distinctio quod molestias, molestiae accusamus quo aspernatur expedita blanditiis quam! Esse cum modi atque, beatae aliquam, dolor.</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid hic numquam obcaecati ea, laborum accusamus culpa atque voluptate distinctio et omnis! Alias, beatae, tenetur.</p>
@@ -48,11 +43,19 @@
 		<nav role="navigation" class="mrgn-bttm-lg">
 			<h3 class="wb-inv">Document navigation</h3>
 			<ul class="pager">
-				<li class="next"><a href="{{page.next.link}}" rel="next">Next<span class="wb-inv">: {{page.next.title}}</span></a></li>
+				<li class="previous"><a href="#" rel="prev">Previous<span class="wb-inv">: 1. [Step / section page name]</span></a></li>
+				<li class="next"><a href="#" rel="next">Next<span class="wb-inv">: 3. [Step / section page name]</span></a></li>
 			</ul>
 		</nav>
 	</section>
 	<div class="col-md-4">
-		{% include_relative samples/service-side-panel-en.html %}
+		<aside class="lnkbx">
+			<h2>Guides and help</h2>
+			<ul class="lst-spcd">
+				<li><a href="#">[Related guides and help 1]</a></li>
+				<li><a href="#">[Related guides and help 2]</a></li>
+				<li><a href="#">[Related guides and help 3]</a></li>
+			</ul>
+		</aside>
 	</div>
 </div>
