@@ -1,0 +1,236 @@
+---
+{
+	"title": "Contenu de groupement - Échafaudage",
+	"language": "fr",
+	"altLangPage": "grouping-en.html",
+	"dateModified": "2023-06-28"
+}
+---
+
+<div class="alert alert-warning">
+<p>Le but de cette page est de tester tous les éléments liés au regroupement de contenu natif, s'ils sont alignés avec notre conception et sont conformes à nos directives d'accessibilité lorsqu'ils sont utilisés tels quels sans aucune personnalisation particulière. Ce qui suit inclut tous les éléments de regroupement de contenu dans la spécification HTML5 et quelques exemples ont été inspirés par le <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#grouping-content">WHATWG section 4.4</a> comme août 2023. Cette page peut ne pas contenir toutes les combinaisons possibles d'éléments de contenu de regroupement.</p>
+</div>
+
+<h2>L'élément <code>P</code></h2>
+<p>Ceci est du texte dans un paragraphe.</p>
+<pre><code>&lt;p> ... &lt;/p></code></pre>
+
+<h2>L'élément P <code>hr</code> </h2>
+<hr>
+<pre><code>&lt;hr></code></pre>
+
+<h2>L'élément <code>pre</code></h2>
+<pre> Voici du texte préformaté </pre>
+<pre><code>&lt;pre> ... &lt;/pre></code></pre>
+
+<h2>L'élément <code>blockquote</code></h2>
+<blockquote>
+	<p>Ceci est un exemple de citation en bloc</p>
+</blockquote>
+<pre><code>&lt;blockquote&gt;
+&lt;p&gt; ... &lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+
+<h2>L'élément <code>ol</code></h2>
+<ol>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+	<li>Norway</li>
+</ol>
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<h2>L'élément <code>ul</code></h2>
+<ul>
+	<li>Norway</li>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+</ul>
+<pre><code>&lt;ul&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<h2>L'élément <code>menu</code></h2>
+<menu>
+	<li><button>Copie</button></li>
+	<li><button>Couper</button></li>
+	<li><button>Pâte</button></li>
+	<li>Élément de liste</li>
+	<li><a href="#">Ancre</a></li>
+</menu>
+<pre><code>&lt;menu&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/menu&gt;</code></pre>
+
+<h2 id="dl-element">L'élément <code>dl</code></h2>
+<dl>
+	<dt> Terme 1 </dt>
+	<dd> la description 1 </dd>
+	<dt> Terme 2</dt>
+	<dd> la description 2 </dd>
+</dl>
+<h3>Avec deux descriptions consécutives </h3>
+<dl>
+	<dt> Auteurs </dt>
+	<dd> Jean </dd>
+	<dd> Luc </dd>
+	<dt> Editeur </dt>
+	<dd> Franck </dd>
+</dl>
+<h3>Avec deux mandats consécutifs </h3>
+<dl>
+	<dt lang="en-US"> couleur </dt>
+	<dt lang="fr-GB"> couleur </dt>
+	<dd> Une sensation qui (chez les humains) dérive de la capacité de
+	la structure fine de l'œil pour en distinguer trois différemment
+	analyses filtrées d’une vue. </dd>
+</dl>
+<h3>Avec division de regroupement <code>&lt;div></code></h3>
+<dl>
+	<div>
+		<dt> Heure de la dernière modification </dt>
+		<dd> 2004-12-23T23:33Z </dd>
+	</div>
+	<div>
+		<dt> Intervalle de mise à jour recommandé </dt>
+		<dd> années 60 </dd>
+	</div>
+	<div>
+		<dt> Auteurs </dt>
+		<dt> Editeurs </dt>
+		<dd> Robert Rothman </dd>
+		<dd> Daniel Jackson </dd>
+	</div>
+</dl>
+<h3>Comme glossaire avec définition du terme <code>&lt;dfn></code></h3>
+<dl>
+	<dt><dfn>Appartement</dfn>, n.</dt>
+	<dd>Un contexte d'exécution regroupant un ou plusieurs threads avec un ou
+	plus d'objets COM.</dd>
+	<dt><dfn>Plat</dfn>, n.</dt>
+	<dd>Un pneu dégonflé.</dd>
+	<dt><dfn>Accueil</dfn>, n.</dt>
+	<dd>Le répertoire de connexion de l'utilisateur.</dd>
+</dl>
+<h2>L'élément <code>dt</code></h2>
+<p>Démonstration avec l'élément suivant : <a href="#dl-element"><code>dl</code></a></p>
+<h2>L'élément <code>dd</code></h2>
+<p>Démonstration avec l'élément suivant : <a href="#dl-element"><code>dl</code></a></p>
+
+<pre><code>&lt;p&gt; l' exemple 1 &lt;/p&gt;
+&lt;dl&gt;
+	&lt;dt&gt; .. &lt;/dt&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	...
+&lt;/dl&gt;
+
+
+&lt;p&gt; l' exemple 2 &lt;/p&gt;
+&lt;dl&gt;
+	&lt;dt lang="en-US"&gt; &lt;dfn&gt;color&lt;/dfn&gt; &lt;/dt&gt;
+	&lt;dt lang="en-US"&gt; &lt;dfn&gt;color&lt;/dfn&gt; &lt;/dt&gt;
+	&lt;dd&gt; ... &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt; l' exemple 3 &lt;/p&gt;
+&lt;dl&gt;
+	&lt;div&gt;
+		&lt;dt&gt; .. &lt;/dt&gt;
+		&lt;dd&gt; .. &lt;/dd&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;dt&gt; .. &lt;/dt&gt;
+		&lt;dd&gt; .. &lt;/dd&gt;
+	&lt;/div&gt;
+&lt;/dl&gt;
+
+&lt;p&gt; l' exemple 4 &lt;/p&gt;
+&lt;dl&gt;
+	&lt;dt&gt; .. &lt;/dt&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	&lt;dt&gt; .. &lt;/dt&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	...
+&lt;/dl&gt;
+
+&lt;p&gt; l' exemple 5 &lt;/p&gt;
+&lt;dl&gt;
+	&lt;dt&gt;&lt;dfn&gt; .. &lt;/dfn&gt; .. &lt;/dt&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	&lt;dt&gt;&lt;dfn&gt; .. &lt;/dfn&gt; .. &lt;/dt&gt;
+	&lt;dd&gt; .. &lt;/dd&gt;
+	...
+&lt;/dl&gt;</code></pre>
+
+<h2>L'élément <code>figure</code></h2>
+<figure>
+	<img src="pic_trulli.jpg" alt="Trulli">
+	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
+<figure>
+	<p>'C'était génial, et les toves glissants<br>
+	J'ai tourné et gimble dans le wabe ;<br>
+	Tous les mimsy étaient les borogoves,<br>
+	Et la maman est plutôt dépassée.</p>
+	<figcaption><cite>Jabberwocky</cite> (premier couplet). Lewis Carroll, 1832-98</figcaption>
+</figure>
+<figure>
+	<figcaption><cite>Jabberwocky</cite> (premier couplet). Lewis Carroll, 1832-98</figcaption>
+	<p>'C'était génial, et les toves glissants<br>
+	J'ai tourné et gimble dans le wabe ;<br>
+	Tous les mimsy étaient les borogoves,<br>
+	Et la maman est plutôt dépassée.</p>
+</figure>
+<pre><code>&lt;figure&gt;
+	&lt;p&gt;...&lt;p&gt;
+	&lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+<h2>L'élément <code>search</code></h2>
+<search>
+	<form action="search.php">
+		<label for="query">Trouver un article</label>
+		<input id="query" name="q" type="search">
+		<button type="submit">Aller!</button>
+	</form>
+</search>
+<pre><code>&lt;search&gt; &lt;form&gt;
+...
+&lt;/form&gt;&lt;/search&gt;</code></pre>
+
+<h2>L'élément <code>div</code></h2>
+<p> Plusieurs div </p>
+<div><div>
+	<div>
+		<h3>Ceci est un titre dans un élément div</h3>
+	</div>
+	<div>
+		<p>Ceci est du texte dans un élément div.</p>
+	</div>
+</div></div>
+
+<p> Div vide </p>
+<div></div>
+
+<pre><code>&lt;p&gt; Plusieurs div &lt;/p&gt;
+&lt;div&gt;&lt;div&gt;
+&lt;div&gt;
+	&lt;h3&gt; ... &lt;/h3&gt;
+&lt;/div&gt;
+&lt;div&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt; Div vide &lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;</code></pre>
