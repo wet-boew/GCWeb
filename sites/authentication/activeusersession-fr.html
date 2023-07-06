@@ -1,0 +1,42 @@
+---
+{
+	"altLangPage": "activeusersession-en.html",
+	"breadcrumb": {
+		"title": "Canada.ca", "link": "https://www.canada.ca/en.html"
+	},
+	"dateModified": "2023-03-28",
+	"description": "Exemple d'une session utilisateur active.",
+	"language": "fr",
+	"title": "Authentification - Session utilisateur active",
+	"auth": {
+		"type": "active"
+	},
+	"concerns": [
+		"À clarifier: Le context d'utilisation est ambigu (soulevé par DTO)",
+		"Alignement et consitance: Comment cela s’aligne-t-il avec la façon dont les principaux services d’authentification le font actuellement? (ex. MonDossier ARC, Service Canada MDSC) (soulevé par DTO)",
+		"Alignement et consitance: Cela s’aligne-t-il avec la direction que prend le TBS OCIO avec leur projet Sign in Canada? (soulevé par DTO)",
+		"Alignement et consitance: Cela a-t-il un impact sur d’autres modèles d’authentification? (soulevé par DTO)",
+		"Commentaire: Préoccupation concernant l’utilisation de l’icône d’alimentation sur le bouton de déconnexion - pas sûr que cela ait du sens pour l’action. (soulevé par DTO)"
+	],
+	"discussionUrl": "https://github.com/wet-boew/GCWeb/pull/2139"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+{% include alert-community-stable.html %}
+
+<h2>Code source attendu</h2>
+<pre>&lt;div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4"&gt;
+	&lt;section id="wb-so"&gt;
+		&lt;h2 class="wb-inv"&gt;Information de l'utilisateur actuel&lt;/h2&gt;
+		&lt;a class="btn btn-sm btn-default" href="#"&gt;&lt;span class="glyphicon glyphicon-user"&gt;&lt;/span&gt; (Nom d'utlisateur)&lt;/a&gt;
+		&lt;a class="btn btn-sm btn-primary" href="#"&gt;&lt;span class="glyphicon glyphicon-off"&gt;&lt;/span&gt; Se déconnecter&lt;/a&gt;
+	&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Où <em>(Nom d'utlisateur)</em> est remplacé par le nom d'utilisateur de la personne connecté.</p>
+
+<h2>Exemple de l'initialisation pour GCWeb Jekyll</h2>
+<pre><code>"auth": {
+		"type": "active"
+	}</code></pre>
