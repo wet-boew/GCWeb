@@ -183,6 +183,7 @@ module.exports = (grunt) ->
 		[
 			"clean:dist"
 			"sass:all"
+			"concat:supports"
 			"concat:plugins"
 			"copy:assets"
 			"copy:fonts"
@@ -507,6 +508,14 @@ module.exports = (grunt) ->
 					separator: ","
 				src: "sites/**/index.json-ld"
 				dest: "_data/sites.json"
+			supports:
+				options:
+					stripBanners: false
+				src: [
+					"<%= themeDist %>/css/theme.css"
+					"node_modules/wet-boew/src/polyfills/supports/*.css"
+				]
+				dest: "<%= themeDist %>/css/theme.css"
 
 			# Placeholder modal for multimélo task
 			mélimélo:
