@@ -11,8 +11,23 @@ layout: core
 		Page untitled
 	{%- endif -%}
 {%- endcapture -%}
+{%- capture page-section -%}
+	{%- if page.title_section -%}
+		{{ page.title_section }}
+	{%- elsif site.title_site_section[i18nText-lang] -%}
+		{{ site.title_site_section[i18nText-lang] }}
+	{%- endif -%}
+{%- endcapture -%}
 <main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+{%- if page-section -%}
+<hgroup id="wb-cont">
+	<p>{{ page-section }}</p>
+	<h1 property="name">{{ page-title }}</h1>
+</hgroup>
+{%- else -%}
 <h1 id="wb-cont" property="name">{{ page-title }}</h1>
+{%- endif -%}
+
 {{ content }}
 {% include page-details/footer.html %}
 </main>

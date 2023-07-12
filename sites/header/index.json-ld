@@ -7,16 +7,17 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Header",
+		"en": "Global header",
 		"fr": "Entête"
 	},
 	"description": {
 		"en": "Documentation on how to use the header.",
 		"fr": "Documentation sur l'utilisation de l'entête."
 	},
-	"modified": "2022-05-10",
+	"modified": "2023-06-27",
 	"componentName": "header",
 	"status": "stable",
+	"version": "4.0.0",
 	"pages": {
 		"docs": [
 			{
@@ -30,5 +31,443 @@
 				"path": "header-docs-fr.html"
 			}
 		]
-	}
+	},
+
+	"dependencies": [
+		"Authentication (Sign in/Sign out buttons)",
+		"Breadcrumb trail",
+		"Government of Canada signature (always required)",
+		"Language toggle (always required)",
+		"Site search box",
+		"Theme and topic menu"
+	],
+	"a11yGuidance": "no accessibility guidance",
+
+	"variations": [
+		{
+			"name": {
+				"en": "Standard pages",
+				"fr": "Pages régulière"
+			},
+			"status": "active",
+			"description": {
+				"en": "<strong>Standard pages</strong> are pages where people can navigate away without losing data, triggering errors or terminating their session.",
+				"fr": "Les <strong>pages régulières</strong> sont celles que les gens peuvent abandonner sans perdre de données, déclencher des erreurs ou mettre fin à leur session."
+			},
+			"guidance": {
+				"en": "English URL to DTO website",
+				"fr": "French URL to DTO website"
+			},
+			"iteration": "_:iteration_4",
+			"example": {
+				"en": [
+					{ "href": "http://localhost:4000/templates/content-en.html", "text": "Content page including Header v4.0" }
+				],
+				"fr": [
+
+				]
+			},
+			"implementation": [
+				"_:implement_upgrade_v2_to_v3",
+				"_:implement_1_upgrade",
+				"_:implement_1_new",
+				"_:implement_1_build"
+
+			],
+
+			"oldImplementation": [
+				"_:implement_2019_web_renewal"
+			],
+
+			"history": [
+				{ "en": "May 2022 - Updated the template to ease the switch with or without authentication section", "fr": "AAAA-MM-DD - Description 1" },
+				{ "en": "May 2022 - Added support for contextual sign-in", "fr": "AAAA-MM-DD - Description 1" },
+				{ "en": "January 2019 - Updated to implement GCWeb top menu component", "fr": "AAAA-MM-DD - Description 2" }
+			]
+		},
+		{
+			"name": {
+				"en": "Standard pages with contextual Sign in button",
+				"fr": "Pages régulière avec un bouton de connexion contextuel"
+			},
+			"status": "active",
+			"description": {
+				"en": "The Sign in button is an optional header element that directs people to government accounts that require authentication. It is a contextual and persistent call to action within a group of related pages.",
+				"fr": "Le bouton «&nbsp;Se connecter&nbsp;» est un élément facultatif de l'en-tête qui dirige les utilisateurs vers des comptes gouvernementaux nécessitant une authentification. Il s’agit d’un appel à l’action contextuel et persistant au sein d’un groupe de pages connexes."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/contextual-signin.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/connexion-contextuel.html"
+			},
+			"iteration": "_:iteration_4",
+			"example": {
+				"en": [
+					{ "href": "http://localhost:4000/sites/authentication/contextual-signin-en.html", "text": "Content page including Header v4.0 and Authentication section" }
+				],
+				"fr": [
+
+				]
+			},
+			"implementation": [
+				"_:implement_auth_upgrade_v3_to_v4",
+				"_:implement_auth_upgrade"
+			],
+
+			"history": [
+				{ "en": "October 2022 - Updated the columns specification for the authentication section for a better mobile rendering", "fr": "AAAA-MM-DD - Description 1" },
+				{ "en": "May 2022 - Added support for contextual sign-in", "fr": "AAAA-MM-DD - Description 1" }
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_1_upgrade",
+			"status": "deprecated",
+
+			"iteration": "_:iteration_2",
+			"name": {
+				"en": "Upgrade from v1 to v2",
+				"fr": "Mise à jour de la v1 à v2"
+			},
+			"sample": {
+				"@type": "code-compare",
+				"rev_title": "Version 2.0",
+				"rev_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t<ins>&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-12&quot;&gt;</ins>\n\t\t\t\t&lt;!-- Site Menu [version <ins>2.0</ins>] --&gt;\n\t\t\t<ins>&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;</ins>\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;",
+				"from_title": "Version 1.0",
+				"from_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Site Menu [Version <del>1.0</del>]\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			},
+			"introduction": {
+				"en": "This version requires the implementation of the <a href=\"../gcweb-menu/gcweb-menu-docs-en.html\">gcweb-menu version 2.0</a> where the <code>&lt;div class=\"container\"&gt;</code> has been relocated in the header so outside the \"gcweb-menu\" component.",
+				"fr": "text... or HTML"
+			}
+		},
+		{
+			"@id": "_:implement_upgrade_v2_to_v3",
+			"status": "current",
+
+			"iteration": "_:iteration_3",
+			"name": {
+				"en": "Upgrade from v2 to v3",
+				"fr": "Mise à jour de v2 à v3"
+			},
+			"sample": {
+				"@type": "code-compare",
+				"rev_title": "Version 3.0",
+				"rev_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-<ins>8</ins>&quot;&gt;\n\t\t\t\t&lt;!-- Site Menu [version 2.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;",
+
+				"from_title": "Version 2.0",
+				"from_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-<del>12</del>&quot;&gt;\n\t\t\t\t&lt;!-- Site Menu [version 2.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			},
+			"introduction": {
+				"en": "The only difference with version 2.0 is that the column will remain at 8 whether there is an authentication section or not.",
+				"fr": "text... or HTML"
+			},
+			"instruction": {
+				"en": [
+					"This version requires the implementation of the <a href=\"../gcweb-menu/gcweb-menu-docs-en.html\">gcweb-menu version 2.0</a> where the <code>&lt;div class=\"container\"&gt;</code> has been relocated in the header so outside the \"gcweb-menu\" component."
+				],
+				"fr": []
+			}
+
+		},
+		{
+			"@id": "_:implement_1_new",
+			"status": "current",
+
+			"iteration": "_:iteration_4",
+			"name": {
+				"en": "New",
+				"fr": "Nouveau"
+			},
+			"introduction": {
+				"en": "This version requires the implementation of the <a href=\"../gcweb-menu/gcweb-menu-docs-en.html\">gcweb-menu version 2.0</a> where the <code>&lt;div class=\"container\"&gt;</code> has been relocated in the header so outside the \"gcweb-menu\" component.",
+				"fr": "à traduire"
+			},
+			"sample": [ {
+				"@type": "source-code",
+				"description": "Full example",
+				"code": {
+					"@type": [ "@id", "rdf:HTML", "toImport" ], "note": "Indicate to data-ajax that it need to Encode the content prior to trigger fetch",
+					"@value": "samples/sample-1.html"
+				}
+			},
+
+			{
+				"@type": "source-code",
+				"description": "Header component with the sub-component placeholder.",
+				"code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.1] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-8&quot;&gt;\n\t\t\t\t&lt;!-- Site Menu [version 2.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			}
+			],
+			"instruction": {
+				"en": [
+					"May require some customization by your web content management system to control the behavior of the language toggle, search and breadcrumb component."
+				],
+				"fr": "text... or HTML"
+			}
+		},
+		{
+			"@id": "_:implement_1_build",
+			"status": "incomplete",
+
+			"iteration": "_:iteration_4",
+			"name": {
+				"en": "Build",
+				"fr": "Construire"
+			},
+			"sample": {
+				"include": "",
+				"config": {
+					"front-matter": "config and value"
+				},
+				"snapshoot": "URL of the image"
+			},
+			"instruction": {
+				"en": "text... or HTML",
+				"fr": "text... or HTML"
+			}
+		},
+		{
+			"@id": "_:implement_2019_web_renewal",
+			"status": "deprecated",
+
+			"iteration": "_:iteration_1",
+			"name": {
+				"en": "2019 web renewal",
+				"fr": "Nouveau"
+			},
+			"introduction": {
+				"en": "The instruction was provided with the GCWeb version 5 implementation instruction.",
+				"fr": "à traduire"
+			},
+			"sample": {
+				"@type": "source-code",
+				"description": "Header component with the new GCWeb top menu component",
+				"code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Site Menu [Version 1.0]\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			},
+			"example": {
+				"en": [
+					{ "href": "deprecated/header-v1.html", "text": "Header Version 1.0" },
+					{ "href": "../../templates/home/deprecated/home-v1.html", "text": "Home Header Version 1.0" }
+				],
+				"fr": [
+
+				]
+
+			}
+		},
+
+		{
+			"@id": "_:implement_auth_upgrade",
+			"status": "deprecated",
+
+			"iteration": "_:iteration_2",
+			"name": {
+				"en": "Upgrade from v1",
+				"fr": "Mise à jour de la v1"
+			},
+			"sample": {
+				"@type": "code-compare",
+				"rev_title": "Version 2.0 with authentification",
+				"rev_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t<ins>&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-8&quot;&gt;</ins>\n\t\t\t\t&lt;!-- Site Menu [version <ins>2.0</ins>] --&gt;\n\t\t\t<ins>&lt;/div&gt;\n\t\t\t&lt;div class=&quot;col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4&quot;&gt;\n\t\t\t\t&lt;!-- Optional Authentication Section [version 1.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;</ins>\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;",
+				"from_title": "Version 1.0",
+				"from_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Site Menu [Version <del>1.0</del>]\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			},
+			"introduction": {
+				"en": "This version requires the implementation of the <a href=\"../gcweb-menu/gcweb-menu-docs-en.html\">gcweb-menu version 2.0</a> where the <code>&lt;div class=\"container\"&gt;</code> has been relocated in the header so outside the \"gcweb-menu\" component.",
+				"fr": "text... or HTML"
+			}
+		},
+
+		{
+			"@id": "_:implement_auth_upgrade_v3_to_v4",
+			"status": "active",
+
+			"iteration": "_:iteration_4",
+			"name": {
+				"en": "Upgrade from v3 to v4",
+				"fr": "Mise à jour de v3 à v4"
+			},
+			"sample": {
+				"@type": "code-compare",
+				"rev_title": "Version 4.0 (with Auth)",
+				"rev_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.1] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-8&quot;&gt;\n\t\t\t\t&lt;!-- Site Menu [version 2.0] --&gt;\n\t\t&lt;/div&gt;\n\t\t\t&lt;div class=&quot;col-xs-<ins>6</ins> col-xs-offset-<ins>6</ins> col-md-offset-0 col-md-4&quot;&gt;\n\t\t\t\t&lt;!-- Optional Authentication Section [version 1.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;",
+
+				"from_title": "Version 3.0 (with Auth)",
+				"from_code": "&lt;header&gt;\n\t&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;!-- Language toggle [version 1.0] --&gt;\n\t\t\t&lt;!-- Branding [version 1.0] --&gt;\n\t\t\t&lt;!-- Search [version 1.0] --&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;hr&gt;\n\t&lt;div class=&quot;container&quot;&gt;\n\t\t&lt;div class=&quot;row&quot;&gt;\n\t\t\t&lt;div class=&quot;col-md-8&quot;&gt;\n\t\t\t\t&lt;!-- Site Menu [version 2.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t\t&lt;div class=&quot;col-xs-<del>5</del> col-xs-offset-<del>7</del> col-md-offset-0 col-md-4&quot;&gt;\n\t\t\t\t&lt;!-- Optional Authentication Section [version 1.0] --&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n\t&lt;!-- Breadcrumbs [version 1.0] --&gt;\n&lt;/header&gt;"
+			},
+			"introduction": {
+				"en": "The difference with version 3.0 is the value for <code>col-xs-5</code> and <code>col-xs-offset-7</code> have been adjusted to a \"6\" so the button text don't brake and stays on one line for every viewports from extra-extra-small to extra-large (xxs, xxs, sm, md, lg and xl).",
+				"fr": "text... or HTML"
+			},
+			"instruction": {
+				"en": [
+					"This version requires the implementation of the <a href=\"../gcweb-menu/gcweb-menu-docs-en.html\">gcweb-menu version 2.0</a> where the <code>&lt;div class=\"container\"&gt;</code> has been relocated in the header so outside the \"gcweb-menu\" component."
+				],
+				"fr": []
+			}
+
+		}
+
+	],
+
+	"changeset": [
+		{
+			"@id": "_:cs_default",
+			"name": {
+				"en": "Version 4",
+				"fr": "Version 4"
+			},
+			"status": "stable",
+			"baseOnIteration": "_:iteration_4",
+
+			"detectableBy": "Text on how to detect",
+
+			"layout": [
+				"Row - Skip link first row centered",
+				"Row, cell - Language toggle top right",
+				"Cell - Logo brand top left",
+				"Cell - Search top right bellow language toggle",
+				"Row - Horizontal line bellow the logo brand and search box",
+				"Row, cell - Site top menu left bellow the branding",
+				"Cell - Authentication beside the top menu on its right side",
+				"Row - Breadcrumb under the top menu"
+			],
+			"style": [
+				"May have some specific style, need to be researched and centralized",
+				"Bootstrap 3 grid CSS: container, row, col-md-8, col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4 col-xs-12"
+			],
+			"semantic": {
+				"@type": "source-code",
+				"description": "Include with logic in liquid that support all variations",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/header.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": "Not applicable",
+			"recognition": "The layout (disposition) of the component and the brand logo must be at top left.",
+			"guidance": "Out of scope, please see DTO related guidance on the site header component.",
+			"context": "Immediate children of the <body> element immediately after the 'skip link' component and before the <main> element",
+			"configuration":[
+				"Optional but highly recommended language toggle component",
+				"Optional site search component",
+				"Optional top menu component",
+				"Optional authentication component",
+				"Optional breadcrumbs component"
+			],
+			"static": "Not applicable, see each included component for more details",
+			"schema": "Not applicable, see each included component for more details",
+			"dependency": [
+				"Language toggle, minimum version 1.1",
+				"Branding, minimum version 1.0",
+				"Search, minimum version 1.0",
+				"Site menu, minimum version 2.0",
+				"Breadcrumb, minimum version 1.0",
+				"Authentication, minimum version 1.0"
+			],
+			"file": [
+				"../assets/sig-blk-en.svg",
+				"../assets/sig-blk-fr.svg"
+			]
+		}
+
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_1",
+			"name": {
+				"en": "v1",
+				"fr": "v1"
+			},
+			"date": "2019-01",
+			"detectableBy": "Use the GCWeb top menu",
+			"comment": "Implement the new Top Menu button",
+			"successor": "_:iteration_2",
+
+			"example": {
+				"en": [
+					{ "href": "deprecated/header-v1.html", "text": "Header Version 1.0" },
+					{ "href": "../../templates/home/deprecated/home-v1.html", "text": "Home Header Version 1.0" }
+				],
+				"fr": [
+
+				]
+			}
+		},
+		{
+			"@id": "_:iteration_2",
+			"name": {
+				"en": "v2",
+				"fr": "v2"
+			},
+			"date": "2022-05",
+			"detectableBy": "Contain an <hr> before the top menu version 2",
+			"breaking": {
+				"semantic": "Rewrite of the integration of GCWeb top menu"
+			},
+			"additions": {
+				"semantic": "Column configuration to support authentication beside the top menu"
+			},
+			"successor": "_:iteration_3",
+			"predecessor": "_:iteration_1",
+
+			"example": {
+				"en": [
+					{ "href": "deprecated/header-v2.html", "text": "Content page including Header Version 2.0" },
+					{ "href": "deprecated/header-auth-v2.html", "text": "Content page including Header Version 2.0 including the authentication section" },
+					{ "href": "../../templates/home/deprecated/home-v2.html", "text": "Home page including Version 2.0 and the authentication section" },
+					{ "href": "../../templates/home/deprecated/home-auth-v2.html", "text": "Home page including Version 2.0  and the authentication section" }
+				],
+				"fr": [
+
+				]
+			}
+		},
+		{
+			"@id": "_:iteration_3",
+			"name": {
+				"en": "v3",
+				"fr": "v3"
+			},
+			"date": "2022-05",
+			"detectableBy": "The site menu is in a col-md-8 instead of being in the col-md-12",
+			"breaking": {
+				"semantic": "Change of the CSS grid class for the top menu"
+			},
+			"successor": "_:iteration_4",
+			"predecessor": "_:iteration_2",
+
+			"example": {
+				"en": [
+					{ "href": "deprecated/header-v3.html", "text": "Content page including Header Version 3.0" },
+					{ "href": "deprecated/header-auth-v3.html", "text": "Content page including Header Version 3.0 and the authentication section" },
+					{ "href": "../../templates/home/deprecated/home-v3.html", "text": "Home page including Header Version 3.0" },
+					{ "href": "../../templates/home/deprecated/home-auth-v3.html", "text": "Home page including Header Version 3.0 and the authentication section" }
+				],
+				"fr": [
+
+				]
+			}
+		},
+		{
+			"@id": "_:iteration_4",
+			"name": {
+				"en": "v4",
+				"fr": "v4"
+			},
+			"date": "2022-10",
+			"detectableBy": "The column CSS class that contains the authentication has changed for: col-xs-6",
+			"breaking": {
+				"semantic": "Change of the CSS grid class on the auth section"
+			},
+			"additions": {
+				"api": "what has been added"
+			},
+			"fixes": {
+				"api": "what has been fixes"
+			},
+			"predecessor": "_:iteration_3"
+		}
+	]
 }
