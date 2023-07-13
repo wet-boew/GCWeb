@@ -174,11 +174,11 @@
 	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1</li>
 	<li>The double role on list item in the menu was added as suggested by the W3C validator because the <code>role=none</code> are not widely supported yet.</li>
 	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the whatwg validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
-	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
-	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton">WAI-ARIA Practices 1.1 - 3.15 Menu Button</a></li>
-	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">WAI-ARIA Practices 1.1 - 3.14 Menu or Menu bar</a></li>
-	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">WAI-ARIA Practices 1.1 - Editor Menubar Example</a></li>
-	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menu-button/menu-button-actions.html">WAI-ARIA Practices 1.1 - Action Menu button using <code>element.focus()</code></a></li>
+	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/">https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/</a></li>
+	<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/">ARIA Authoring Practices Guide - Menu Button Pattern</a></li>
+	<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">ARIA Authoring Practices Guide - Menu and Menubar Pattern</a></li>
+	<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/">ARIA Authoring Practices Guide - Editor Menubar Example</a></li>
+	<li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions/">ARIA Authoring Practices Guide - Actions Menu Button Example Using <code>element.focus()</code></a></li>
 </ul>
 
 <h2 id="evaluation">Evaluation and report</h2>
@@ -247,7 +247,7 @@
 
 <h3 id="menu-ariaexpanded">The use of <code>[aria-expanded]</code> in the menu</h3>
 
-<p>The menu was designed as per the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">WAI-ARIA Practice 1.1 for the Menu or Menu bar</a>. In the section <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#wai-aria-roles-states-and-properties-12">WAI-ARIA roles states and properties</a> the fifth bullet items say the element with the role <code>menuitem</code> has the <code>aria-expanded</code> state. The use of that state is illustrated by the WAI-ARIA Practice 1.1 <a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-2/menubar-2.html">menu bar example 2</a>.</p>
+<p>The menu was designed as per the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">ARIA Authoring Practices Guide for the Menu and Menubar Pattern</a>. In the section <a href="https://www.w3.org/WAI/ARIA/apg/patterns/listbox/#wai-ariaroles,states,andproperties">WAI-ARIA roles states and properties</a> the fifth bullet items say the element with the role <code>menuitem</code> has the <code>aria-expanded</code> state. The use of that state is illustrated by the ARIA Authoring Practices Guide <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-editor/">Editor Menubar Example</a>.</p>
 
 <p>It was noted that as per the description of the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-expanded"><code>aria-expanded</code> attribute in WAI-ARIA 1.1 spec</a> it don't allow to have the attribute <code>aria-expanded</code> set on element with the role <code>menuitem</code>.</p>
 

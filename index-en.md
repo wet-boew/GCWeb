@@ -19,7 +19,7 @@ css:
 		</div>
 		<div class="col-xs-12 col-md-auto pull-right">
 			<p><a href="https://github.com/wet-boew/GCWeb/archive/v13.4.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v13.4.0</strong></a><br />
-				<small>(<time>{{ page.dateModified | date: '%F' }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Release notes</a>)</small></p>
+				<small>(<time>{{ page.dateModified | date: '%F' }}</time> - <a href="https://github.com/wet-boew/GCWeb/releases/latest">Release notes</a>)</small></p>
 		</div>
 	</div>
 </div>
@@ -505,7 +505,7 @@ css:
 		<div class="col-md-8">
 			<section class="row d-flex">
 				<div class="col-xs-3 col-md-2 d-flex align-self-center">
-					<img src="https://raw.github.com/wet-boew/wet-boew-attachments/master/Promo/WET_Logo.png" class="full-width" alt="">
+					<img src="https://raw.githubusercontent.com/wet-boew/wet-boew-attachments/master/Promo/WET_Logo.png" class="full-width" alt="">
 				</div>
 				<div class="col-xs-9 col-md-10">
 					<h3 class="mrgn-tp-md" id="wet-boew-demos">WET features styled with Canada.ca theme</h3>
