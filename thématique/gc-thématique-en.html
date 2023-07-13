@@ -56,7 +56,7 @@ dateModified": 2021-06-22
 {% for feature in thematic_pages %}
 	{% assign thBasePath = feature.path | slice: 0, 10 %}
 	{% if thBasePath == "méli-mélo/" %}
-	<li><a href="../méli-mélo/{{  feature.componentName }}/détails-fr.html">{{ feature.title }}</a> - (Exp. {{ feature.expiry }})
+	<li><a href="../méli-mélo/{{  feature.componentName }}/détails-{{ page.lang }}.html">{{ feature.title }}</a> - (Exp. {{ feature.expiry }})
 
 		{% if feature.cssClass.size > 0 or feature.jsFunctions.size > 0 %}
 		<ul>
