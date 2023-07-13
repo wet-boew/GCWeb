@@ -140,11 +140,17 @@ css:
 					- Link to the documentations if any
 					-->
 					{% if list-pages.docs %}
-					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-					{% assign docs = list-pages.docs | where: "language", page.language %}
-					{% for doc in docs %}
-						<li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-					{% endfor %}
+						<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+						{% assign docs = list-pages.docs | where: "language", page.language %}
+						{% for doc in docs %}
+						<li><a href="
+						{%- if doc.path -%}
+							components/{{ component.componentName }}/{{ doc.path }}
+						{%- elsif doc.url -%}
+							{{ doc.url }}
+						{%- endif -%}
+						"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+						{% endfor %}
 					{% endif %}
 					<li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
 					</ul>
@@ -229,11 +235,17 @@ css:
 					- Link to the documentations if any
 					-->
 					{% if list-pages.docs %}
-					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-					{% assign docs = list-pages.docs | where: "language", page.language %}
-					{% for doc in docs %}
-						<li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-					{% endfor %}
+						<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+						{% assign docs = list-pages.docs | where: "language", page.language %}
+						{% for doc in docs %}
+						<li><a href="
+						{%- if doc.path -%}
+							templates/{{ template.componentName }}/{{ doc.path }}
+						{%- elsif doc.url -%}
+							{{ doc.url }}
+						{%- endif -%}
+						"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+						{% endfor %}
 					{% endif %}
 					</ul>
 					<!--
@@ -296,11 +308,11 @@ css:
 <div class="container">
 	<h2 id="sitesglobal">Fonctionnalités globales et de sites</h2>
 	<ul>
-	  <li><a href="#Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</a></li>
-	  <li><a href="#Composantes-communes">Composantes communes</a></li>
+	  <li><a href="#composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</a></li>
+	  <li><a href="#composantes-communes">Composantes communes</a></li>
 	</ul>
 
-	<h3 id="Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</h3>
+	<h3 id="composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</h3>
 	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
 	{% for item in site.data.sites %}
 		{% assign list-pages = item.pages %}
@@ -344,11 +356,17 @@ css:
 					- Link to the documentations if any
 					-->
 					{% if list-pages.docs %}
-					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-					{% assign docs = list-pages.docs | where: "language", page.language %}
-					{% for doc in docs %}
-						<li><a href="sites/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-					{% endfor %}
+						<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+						{% assign docs = list-pages.docs | where: "language", page.language %}
+						{% for doc in docs %}
+						<li><a href="
+						{%- if doc.path -%}
+							sites/{{ item.componentName }}/{{ doc.path }}
+						{%- elsif doc.url -%}
+							{{ doc.url }}
+						{%- endif -%}
+						"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+						{% endfor %}
 					{% endif %}
 					</ul>
 					<!--
@@ -432,11 +450,17 @@ css:
 					- Link to the documentations if any
 					-->
 					{% if list-pages.docs %}
-					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-					{% assign docs = list-pages.docs | where: "language", page.language %}
-					{% for doc in docs %}
-						<li><a href="common/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-					{% endfor %}
+						<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+						{% assign docs = list-pages.docs | where: "language", page.language %}
+						{% for doc in docs %}
+						<li><a href="
+						{%- if doc.path -%}
+							common/{{ item.componentName }}/{{ doc.path }}
+						{%- elsif doc.url -%}
+							{{ doc.url }}
+						{%- endif -%}
+						"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+						{% endfor %}
 					{% endif %}
 					</ul>
 					<!--
@@ -484,7 +508,7 @@ css:
 				</div>
 				<div class="col-xs-9 col-md-10">
 					<h3 class="mrgn-tp-md" id="wet-boew-demos">Fonctionnalités BOEW avec le thème de Canada.ca</h3>
-					<p><a href="/gcweb-compiled-demos/index.html#wet-boew">Voir les démos</a></p>
+					<p><a href="https://wet-boew.github.io/gcweb-compiled-demos/index.html#wet-boew">Voir les démos</a></p>
 				</div>
 			</section>
 		</div>
