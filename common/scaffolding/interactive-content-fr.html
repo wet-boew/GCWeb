@@ -1,0 +1,385 @@
+---
+{
+	"title": "Contenu intégré et interactif - Échafaudage",
+	"language": "fr",
+	"altLangPage": "interactive-Content-en.html",
+	"breadcrumbs": [
+		{ "title": "GCWeb accueil", "link": "https://wet-boew.github.io/GCWeb/index-fr.html" }
+	],
+	"dateModified": "2023-07-18"
+}
+---
+
+<h2>L'élément <code>image</code></h2>
+<picture></picture>
+<pre><code>&lt;picture&gt;&lt;/picture&gt;</code></pre>
+
+<h2>L'élément <code>source</code> et <code>img</code></h2>
+<picture>
+	<source srcset="img/input-image-sample.jpg">
+	<img src="img/input-image-sample.jpg">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset="img/input-image-sample.jpg"&gt;
+&lt;img src="img/input-image-sample.jpg"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h2>L'élément <code>iframe</code></h2>
+<iframe src="https://www.canada.ca/fr.html" title="Le site officiel du gouvernement du Canada" width="700px" height="500px"></iframe>
+<pre><code>&lt;iframe src="https://www.canada.ca/fr.html" title="Le site officiel du gouvernement du Canada" width="700px" height="500px"&gt;&lt;/iframe&gt;</code></pre>
+
+<h2>L'élément <code>embed</code></h2>
+<h3>Une image intégrée</h3>
+<embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200">
+<pre><code>&lt;embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200"&gt;</code></pre>
+
+<h3>Une page HTML intégrée</h3>
+<embed type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200">
+<pre><code>&lt;embed type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200"&gt;</code></pre>
+
+<h3>Une vidéo intégrée</h3>
+<embed type="video/webm" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300">
+<pre><code>&lt;embed type="video/webm" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"&gt;</code></pre>
+
+<h2>L'élément <code>object</code></h2>
+<h3>Une image intégrée</h3>
+<object data="img/input-image-sample.jpg" width="300" height="200"></object>
+<pre><code>&lt;object data="img/input-image-sample.jpg" width="300" height="200"&gt;&lt;/object&gt;</code></pre>
+
+<h3>Une page HTML intégrée</h3>
+<object data="https://www.canada.ca/fr.html" width="500" height="200"></object>
+<pre><code>&lt;object type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200"&gt;&lt;/object&gt;</code></pre>
+
+<h3>Une vidéo intégrée</h3>
+<object data="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"></object>
+<pre><code>&lt;object data="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"&gt;&lt;/object&gt;</code></pre>
+
+<h2>L'élément <code>vidéo</code></h2>
+<video controls>
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" type="video/webm">
+	Votre navigateur ne prend pas en charge la balise vidéo.
+</video>
+<pre>
+<code>&lt;video controls&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" type="video/webm"&gt;
+Votre navigateur ne prend pas en charge la balise vidéo.
+&lt;/video&gt;</code>
+</pre>
+
+<h2>L'élément <code>audio</code></h2>
+<audio controls>
+	<source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3"/>
+	<source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg"/>
+	Votre navigateur ne prend pas en charge la balise audio.
+</audio>
+<pre>
+<code>&lt;audio controls&gt;
+&lt;source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3"/&gt;
+&lt;source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg"/&gt;
+Votre navigateur ne prend pas en charge la balise audio.
+&lt;/audio&gt;</code>
+</pre>
+
+<h2>L'élément <code>track</code></h2>
+<video controls>
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm">
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4">
+	<track src="demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French">
+	Votre navigateur ne prend pas en charge la balise vidéo.
+</video>
+<pre>
+<code>&lt;video controls&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm"&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4"&gt;
+&lt;track src="demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French"&gt;
+Votre navigateur ne prend pas en charge la balise vidéo.
+&lt;/video&gt;</code>
+</pre>
+
+<h2>L'élément <code>map</code> et <code>area</code></h2>
+
+<h2>L'élément <code>details</code> et <code>summary</code></h2>
+
+<details>
+<summary>Résumé</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis metus ligula, aliquet vulputate ligula molestie nec. Aenean dapibus varius dapibus.</p>
+</details>
+<pre>
+<code>&lt;details&gt;
+&lt;summary&gt;Résumé&lt;/summary&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis metus ligula, aliquet vulputate ligula molestie nec. Aenean dapibus varius dapibus.&lt;/p&gt;
+&lt;/details&gt;</code>
+</pre>
+
+<h2>L'élément <code>dialogue</code></h2>
+
+<dialog open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dialog>
+
+<pre>
+<code>&lt;dialog open&gt;
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/dialog&gt;</code>
+</pre>
+
+<h2>L'élément <code>table</code></h2>
+
+<table></table>
+<pre>
+<code>&lt;table&gt;&lt;/table&gt;</code>
+</pre>
+
+<h3>2 lignes et 2 colonnes avec les éléments <code>tr</code> et <code>td</code></h3>
+
+<table>
+<tr>
+	<td>Lorem ipsum dolor sit amet</td>
+	<td>Proin pellentesque sodales cursus</td>
+</tr>
+<tr>
+	<td>Nunc dictum felis at dignissim dictum</td>
+	<td>Curabitur ut leo nisi</td>
+</tr>
+</table>
+<pre>
+<code>&lt;table&gt;
+&lt;tr&gt;
+	&lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
+	&lt;td&gt;Proin pellentesque sodales cursus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
+	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+
+<h3>L'élément <code>th</code> définit une cellule d'en-tête</h3>
+
+<table>
+<tr>
+	<th>Lorem ipsum dolor sit amet</th>
+	<th>Proin pellentesque sodales cursus</th>
+</tr>
+<tr>
+	<td>Nunc dictum felis at dignissim dictum</td>
+	<td>Curabitur ut leo nisi</td>
+</tr>
+</table>
+<pre>
+<code>&lt;table&gt;
+&lt;tr&gt;
+	&lt;th&gt;Lorem ipsum dolor sit amet&lt;/th&gt;
+	&lt;th&gt;Proin pellentesque sodales cursus&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
+	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+
+<h3>Regroupez le contenu avec les éléments <code>thead</code>, <code>tbody</code>, <code>tfoot</code></h3>
+
+<table>
+<thead>
+	<tr>
+		<th>Lorem ipsum dolor sit amet</th>
+		<th>Proin pellentesque sodales cursus</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Nunc dictum felis at dignissim dictum</td>
+		<td>Curabitur ut leo nisi</td>
+	</tr>
+</tbody>
+<tfoot>
+	<tr>
+		<td>Felis dictum nunc at dictum dignissim</td>
+		<td>Leo ut curabitur nisi</td>
+	</tr>
+</tfoot>
+</table>
+<pre>
+<code>&lt;table&gt;
+&lt;thead&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Lorem ipsum dolor sit amet&lt;/th&gt;
+		&lt;th&gt;Proin pellentesque sodales cursus&lt;/th&gt;
+	&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
+		&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Felis dictum nunc at dictum dignissim&lt;/td&gt;
+		&lt;td&gt;Leo ut curabitur nisi&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;</code>
+</pre>
+
+<h3>Formatez et stylisez des colonnes entières avec les éléments <code>colgroup</code> et <code>col</code></h3>
+
+<table>
+<colgroup>
+	<col span="1" style="background-color:red">
+</colgroup>
+<tr>
+	<td>Lorem ipsum dolor sit amet</td>
+	<td>Proin pellentesque sodales cursus</td>
+</tr>
+<tr>
+	<td>Nunc dictum felis at dignissim dictum</td>
+	<td>Curabitur ut leo nisi</td>
+</tr>
+</table>
+<pre>
+<code>&lt;table&gt;
+&lt;colgroup&gt;
+	&lt;col span="1" style="background-color:red"&gt;
+&lt;tr&gt;
+	&lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
+	&lt;td&gt;Proin pellentesque sodales cursus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
+	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</code>
+</pre>
+
+<h3>Dessinez des graphiques avec l'élément <code>canvas</code></h3>
+
+<canvas id="myCanvas">
+Votre navigateur ne prend pas en charge la balise canvas.
+</canvas>
+
+<script>
+	let canvas = document.getElementById("myCanvas");
+	let ctx = canvas.getContext("2d");
+	ctx.fillStyle = "#FF0000";
+	ctx.fillRect(0, 0, 80, 80);
+</script>
+
+<pre>
+<code>&lt;canvas id="myCanvas"&gt;
+Votre navigateur ne prend pas en charge la balise canvas.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+	let canvas = document.getElementById("myCanvas");
+	let ctx = canvas.getContext("2d");
+	ctx.fillStyle = "#FF0000";
+	ctx.fillRect(0, 0, 80, 80);
+&lt;/script&gt;
+</code>
+</pre>
+
+<h3>L'élément <code>template</code></h3>
+
+<p>Cliquez sur le bouton ci-dessous pour afficher le contenu masqué de l'élément de modèle.</p>
+
+<button onclick="showContent()">Afficher le contenu masqué</button>
+
+<div id="content"></div>
+
+<template>
+<h2>Image cachée</h2>
+<img src="img/input-image-sample.jpg" width="300" height="200">
+</template>
+
+<script>
+	function showContent() {
+	let temp = document.getElementsByTagName("template")[0];
+	let clone = temp.content.cloneNode(true);
+	let content = document.getElementById("content");
+	content.appendChild(clone);
+	}
+</script>
+
+<pre>
+<code>&lt;button onclick="showContent()"&gt;
+Afficher le contenu masqué
+&lt;/button&gt;
+
+&lt;template&gt;
+	&lt;h2&gt;Image cachée&lt;/h2&gt;
+	&lt;img src="img/input-image-sample.jpg" width="300" height="200"&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+	function showContent() {
+	let temp = document.getElementsByTagName("template")[0];
+	let clone = temp.content.cloneNode(true);
+	let content = document.getElementById("content");
+	content.appendChild(clone);
+	}
+&lt;/script&gt;
+</code>
+</pre>
+
+<h3>L'élément <code>slot</code></h3>
+
+<template id="slotTemplate">
+<h1><slot name="heading"></slot></h1>
+<dl>
+<dt><slot name="term-1"></slot></dt>
+<dd><slot name="description-1"></slot></dd>
+<dt><slot name="term-2"></slot></dt>
+<dd><slot name="description-2"></slot></dd>
+</dl>
+</template>
+
+<div class="slotDiv">
+<span slot="heading">Lorem ipsum</span>
+<span slot="term-1">Dolor sit amet</span>
+<span slot="description-1">Aliquam vel consectetur erat</span>
+<span slot="term-2">Morbi vitae odio orci</span>
+<span slot="description-2">Cras neque ligula</span>
+</div>
+
+<script>
+var dlTemplate = document.querySelector('#slotTemplate').content;
+var div = document.querySelector('.slotDiv');
+
+div.attachShadow({  mode: 'open' }).appendChild(
+dlTemplate.cloneNode(true));
+</script>
+
+<pre>
+<code>&lt;template&gt;
+	&lt;h1&gt;&lt;slot name="heading"&gt;&lt;/slot&gt;&lt;/h1&gt;
+	&lt;dl&gt;
+		&lt;dt&gt;&lt;slot name="term-1"&gt;&lt;/slot&gt;&lt;/dt&gt;
+		&lt;dd&gt;&lt;slot name="description-1"&gt;&lt;/slot&gt;&lt;/dd&gt;
+		&lt;dt&gt;&lt;slot name="term-2"&gt;&lt;/slot&gt;&lt;/dt&gt;
+		&lt;dd&gt;&lt;slot name="description-2"&gt;&lt;/slot&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/template&gt;
+
+&lt;div class="slotDiv"&gt;
+	&lt;span slot="heading"&gt;Lorem ipsum&lt;/span&gt;
+	&lt;span slot="term-1"&gt;Dolor sit amet&lt;/span&gt;
+	&lt;span slot="description-1"&gt;Aliquam vel consectetur erat&lt;/span&gt;
+	&lt;span slot="term-2"&gt;Morbi vitae odio orci&lt;/span&gt;
+	&lt;span slot="description-2"&gt;Cras neque ligula&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	var dlTemplate = document.querySelector('template').content;
+	var divs = document.querySelectorAll('.slotDiv');
+
+	divs.forEach(function(div){
+	div.attachShadow({  mode: 'open' }).appendChild(
+dlTemplate.cloneNode(true))
+});
+&lt;/script&gt;
+</code>
+</pre>
