@@ -22,6 +22,9 @@
 {%- elsif page.auth.type == "signedoff" -%}
 		<button class="btn btn-default" type="button">{{ i18nText-signOnRegister }}</button>
 		<button class="btn btn-primary" type="button">{{ i18nText-signIn }}</button>
+{%- elsif page.auth.type == "active" -%}
+		<p><a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-user"></span> {{ i18nText-signUsername }}</a>
+		<a class="btn btn-sm btn-primary" href="#"><span class="glyphicon glyphicon-off"></span> {{ i18nText-signOut }}</a></p>
 {% else %}
 		<button class="btn btn-default" type="button">{{ i18nText-signAccount }}</button>
 		<button class="btn btn-primary" type="button">{{ i18nText-signOut }}</button>

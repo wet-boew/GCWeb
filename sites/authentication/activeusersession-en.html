@@ -1,0 +1,42 @@
+---
+{
+	"altLangPage": "activeusersession-fr.html",
+	"breadcrumb": {
+		"title": "Canada.ca", "link": "https://www.canada.ca/en.html"
+	},
+	"dateModified": "2023-03-28",
+	"description": "Example of a session user with an active session.",
+	"language": "en",
+	"title": "Authentication - User active session",
+	"auth": {
+		"type": "active"
+	},
+	"concerns": [
+		"Need clarification: Context of use is ambiguous (raised by DTO)",
+		"Alignment/Consistency: How does it align with how the major authentication services currently do it? (e.g. CRA MyAccount, Service Canada MSCA) (raised by DTO)",
+		"Alignment/Consistency: Does this align with the direction that TBS OCIO is heading with their Sign in Canada project? (raised by DTO)",
+		"Alignment/Consistency: Does this impact other authentication patterns? (raised by DTO)",
+		"Comment: Concern about the use of the power icon on the sign out button - not sure this makes sense for the action (raised by DTO)"
+	],
+	"discussionUrl": "https://github.com/wet-boew/GCWeb/pull/2139"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+{% include alert-community-stable.html %}
+
+<h2>Expected output code</h2>
+<pre>&lt;div class="col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4"&gt;
+	&lt;section id="wb-so"&gt;
+		&lt;h2 class="wb-inv"&gt;Sign-on information&lt;/h2&gt;
+		&lt;a class="btn btn-sm btn-default" href="#"&gt;&lt;span class="glyphicon glyphicon-user"&gt;&lt;/span&gt; (User name)&lt;/a&gt;
+		&lt;a class="btn btn-sm btn-primary" href="#"&gt;&lt;span class="glyphicon glyphicon-off"&gt;&lt;/span&gt; Sign out&lt;/a&gt;
+	&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Where <em>(User name)</em> is replaced by the user name of the logged user.</p>
+
+<h2>GCWeb Jekyll - Front matter example</h2>
+<pre><code>"auth": {
+		"type": "active"
+	}</code></pre>
