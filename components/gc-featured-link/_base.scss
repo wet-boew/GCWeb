@@ -2,20 +2,27 @@
 
 .gc-featured-link {
 	background-color: $bg-gctheme;
+	color: #fff;
+	font-family: Lato, sans-serif;
+	opacity: .9;
+	padding-bottom: $space-md;
+	padding-top: $space-md;
 
-	&.provisional {
-		font-family: Lato, sans-serif;
-		opacity: .9;
-		padding-bottom: $space-md;
-		padding-top: $space-md;
+	p:first-of-type {
+		margin-bottom: $space-0;
+	}
 
-		p:first-of-type {
-			font-weight: $bold-weight;
-			margin-bottom: $space-0;
-		}
+	a {
+		color: #fff;
+		font-weight: $bold-weight;
+	}
 
-		p, a {
-			color: #fff;
+	html:not(.wb-disable) &[data-bg-color] {
+		background-color: transparent;
+		color: $text-color;
+
+		a {
+			color: $text-color;
 		}
 	}
 }
