@@ -27,7 +27,8 @@ css:
 	<li>2022-05 - updated to focus more on using as list items (with or without headers)</li>
 	<li>2022-09 - updated CSS to allow nested decision points</li>
 	<li>2022-11 - updated CSS to allow no border on always stacked items</li>
-	<li>2022-12 - Have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+	<li>2023-07 - updated CRA to allow no border on all resolutions when stacked</li>
+    <li>2023-10 - Have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
 </ul>
 
 <p>Todo and for future consideration</p>
@@ -41,6 +42,7 @@ css:
         <p>Most screen readers can read CSS text, but it's good to lead with or allude to the fact that the options are either mutually exclusive, or part of the entire concept.</p>
         <p>Some options are:</p>
         <ul>
+		  <li>Adding in a lead in statement to explain there are options that are mutually exclusive (or), or mututally connected (and)</li>	
 		<li>Creating the and/or using the list (<code>&lt;ul&gt;</code>) element</li>
 
     <li>Adding option X of X to all headers</li>
@@ -118,8 +120,9 @@ css:
   </pre>
   </details>
 
-<h3>No border on always stacked <span class="label label-info">New</span></h3>
-<p>This can be used when a border or design (e.g. zebra striping) has already defined the border of the content.</p>
+ <h3>No border on stacked <span class="label label-info">Updated</span></h3>
+  <p>This can be used when a bordered design (e.g. zebra striping, panel) has already defined the border of the content. The border will only disappear when the items are stacked.</p>
+  <p><strong>Note:</strong> The stacked left border should not be removed if there is sibling information contained within the existing bordered design that does not relate to the and/or design. There is a risk that it may be unclear when the decision point has started or ended. </p>
 <h4>Always stacked (mobile first, no side-by-side)</h4>
 <section class="panel panel-default">
     <header class="panel-heading">
@@ -143,7 +146,30 @@ css:
 </ul>
 	 </div>
 </section>
-
+ <h4>Stacks on small devices, tablets (768px to 992px) and below, no border when stacked</h4>
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <h5 class="panel-title">Heading</h5>
+    </header>
+    <div class="panel-body">
+      <ul class="cnjnctn-type-or  cnjnctn-md brdr-0">
+        <li class="cnjnctn-col">This is content for option A </li>
+        <li class="cnjnctn-col">This is content for option B</li>
+      </ul>
+    </div>
+  </section>
+  <h4>Stacks on medium devices, tablets (992px to 1200px) and below, no border when stacked</h4>
+  <section class="panel panel-default">
+    <header class="panel-heading">
+      <h5 class="panel-title">Heading</h5>
+    </header>
+    <div class="panel-body">
+      <ul class="cnjnctn-type-and  cnjnctn-lg brdr-0">
+        <li class="cnjnctn-col">This is content for part A </li>
+        <li class="cnjnctn-col">This is content for part B</li>
+      </ul>
+    </div>
+  </section>
    <details>
     <summary>
       View code
@@ -181,7 +207,30 @@ css:
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/section&gt;</code>
+&lt;/section&gt;
+//Stacks on small devices &quot;or&quot;, no border when stacked
+&lt;section class=&quot;panel panel-default&quot;&gt;
+	&lt;header class=&quot;panel-heading&quot;&gt;
+		&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
+	&lt;/header&gt;
+	&lt;div class=&quot;panel-body&quot;&gt;
+		&lt;ul class=&quot;cnjnctn-type-or  cnjnctn-md brdr-0&quot;&gt;
+			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for option A &lt;/li&gt;
+			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for option B&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+//Stacks on medium devices "and", no border when stacked
+&lt;section class=&quot;panel panel-default&quot;&gt;
+	&lt;header class=&quot;panel-heading&quot;&gt;
+		&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
+	&lt;/header&gt;
+	&lt;div class=&quot;panel-body&quot;&gt;
+		&lt;ul class=&quot;cnjnctn-type-and  cnjnctn-lg brdr-0&quot;&gt;
+			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for part A &lt;/li&gt;
+			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for part B&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code>
   </pre>
   </details>
 
