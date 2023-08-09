@@ -1,0 +1,1015 @@
+---
+{
+	"title":"Affichage",
+	"language":"fr",
+	"altLangPage":"display-en.html",
+	"description":"Classes d'utilitaires Bootstrap et WET présentant les options d'affichage des éléments tels que le flottant, la visibilité, l'effacement, l'opacité et la bascule, accompagnées d'exemples pratiques pour tester et observer différents mises en page de contenu",
+	"dateModified":"2023-08-01"
+}
+---
+
+<p>Cette page présente des fonctionnalités utilitaires d'affichage de Bootstrap, y compris certaines intégrations de wet-boew pour la bascule du contenu.</p>
+
+<h2>Sur cette page :</h2>
+
+<ul>
+	<li><a href="#flottant">Flottant</a></li>
+	<li><a href="#effacement">Effacement</a></li>
+	<li><a href="#contenu-basculant">Affichage/Masquage du contenu</a></li>
+	<li><a href="#visibilite">Visibilité</a></li>
+	<li><a href="#opacite">Opacité</a></li>
+	<li><a href="#wet-contenu-basculant">WET - Affichage/Masquage du contenu</a></li>
+	<li><a href="#nombre-colonnes">Nombre de colonnes (Col count)</a></li>
+	<li><a href="#controles-de-dimensionnement">Contrôles de dimensionnement</a></li>
+</ul>
+
+<h2 id="bootstrap">Bootstrap</h2>
+
+<h3 id="flottant">Flottant</h3>
+
+<h4>Exemple fonctionnel de <code>.clearfix</code>Bootstrap 3</h4>
+<div class="well">
+	<div class="row">
+		<div class="col-md-3 well" style="background-color: #ffffff; float: left;">Colonne 1</div>
+		<div class="col-md-3 well" style="background-color: #ffffff; float: left;">Colonne 2</div>
+		<div class="col-md-3 well" style="background-color: #ffffff; float: left;">Colonne 3</div>
+		<!-- Ajouter la classe clearfix pour effacer les éléments flottants -->
+		<div class="clearfix"></div>
+	</div>
+	<p class="well">Ceci est un contenu sous les colonnes flottantes. Sans la classe clearfix, ce contenu chevaucherait les colonnes flottantes. Mais clearfix assure une mise en page correcte en effaçant les flottants.</p>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-md-3 well" style="background-color: #ffffff; float: left;"&gt;Colonne 1&lt;/div&gt;
+	&lt;div class="col-md-3 well" style="background-color: #ffffff; float: left;"&gt;Colonne 2&lt;/div&gt;
+	&lt;div class="col-md-3 well" style="background-color: #ffffff; float: left;"&gt;Colonne 3&lt;/div&gt;
+	&lt;!-- Ajouter la classe clearfix pour effacer les éléments flottants --&gt;
+	&lt;div class="<strong>clearfix</strong>"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p class="well"&gt;Ceci est un contenu sous les colonnes flottantes. Sans la classe clearfix, ce contenu chevaucherait les colonnes flottantes. Mais clearfix assure une mise en page correcte en effaçant les flottants.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.center-block</code></h4>
+<div class="well">
+	<div class="center-block well" style="width: 200px; height: 200px; background-color: #ffffff;">
+		Cet élément est centré horizontalement dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>center-block</strong> well" style="width: 200px; height: 200px; background-color: #ffffff;"&gt;
+		Cet élément est centré horizontalement dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.pull-right</code></h4>
+<div class="well" style="height: 115px;">
+	<div class="pull-right well">
+		Cet élément est flottant à droite dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well" style="height: 115px;"&gt;
+	&lt;div class="<strong>pull-right</strong> well"&gt;
+		Cet élément est flottant à droite dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.pull-left</code></h4>
+<div class="well" style="height: 115px;">
+	<div class="pull-left well">
+		Cet élément est flottant à gauche dans son conteneur parent.
+	</div>
+</div>
+<div class="clearfix"></div>
+&lt;div class="clearfix"&gt; &lt;/div&gt;
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well" style="height: 115px;"&gt;
+	&lt;div class="<strong>pull-left</strong> well"&gt;
+		Cet élément est flottant à gauche dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;&lt;div class="clearfix"&gt; &lt;/div&gt;
+</code></pre>
+
+<h3 id="effacement">Effacement</h3>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.clr-lft-lg</code></h4>
+<div class="well">
+	<div class="clr-lft-lg well">
+		Cet élément efface les éléments flottants à gauche sur les grands écrans (lg) dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-lft-lg</strong> well"&gt;
+		Cet élément efface les éléments flottants à gauche sur les grands écrans (lg) dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.clr-lft-md</code></h4>
+<div class="well">
+	<div class="clr-lft-md well">
+		Cet élément efface les éléments flottants à gauche sur les écrans moyens (md) dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-lft-md</strong> well"&gt;
+		Cet élément efface les éléments flottants à gauche sur les écrans moyens (md) dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.clr-rght-lg</code></h4>
+<div class="well">
+	<div class="clr-rght-lg well">
+		Cet élément efface les éléments flottants à droite sur les grands écrans (lg) dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-rght-lg</strong> well"&gt;
+		Cet élément efface les éléments flottants à droite sur les grands écrans (lg) dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.clr-rght-md</code></h4>
+<div class="well">
+	<div class="clr-rght-md well">
+		Cet élément efface les éléments flottants à droite sur les écrans moyens (md) dans son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-rght-md</strong> well"&gt;
+		Cet élément efface les éléments flottants à droite sur les écrans moyens (md) dans son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="contenu-basculant">Contenu basculant</h3>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.hide</code></h4>
+<div class="well">
+	<div class="hide well">
+		Cet élément est masqué sur toutes les tailles d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hide</strong> well"&gt;
+		Cet élément est masqué sur toutes les tailles d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.show</code></h4>
+<div class="well">
+	<div class="show well">
+		Cet élément est visible sur toutes les tailles d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>show</strong> well"&gt;
+		Cet élément est visible sur toutes les tailles d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.invisible</code></h4>
+<div class="well">
+	<div class="invisible well">
+		Cet élément est invisible mais occupe toujours de l'espace dans la mise en page.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>invisible</strong> well"&gt;
+		Cet élément est invisible mais occupe toujours de l'espace dans la mise en page.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.text-hide</code></h4>
+<div class="well">
+	<div class="text-hide well">
+		Ce texte est masqué visuellement mais reste accessible aux lecteurs d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>text-hide</strong> well"&gt;
+		Ce texte est masqué visuellement mais reste accessible aux lecteurs d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe Bootstrap 3 <code>.hidden</code></h4>
+<div class="well">
+	<div class="hidden well">
+		Cet élément est masqué sur toutes les tailles d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden</strong> well"&gt;
+		Cet élément est masqué sur toutes les tailles d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.sr-only</code></h4>
+<div class="well">
+	<div class="sr-only well">
+		Cet élément est masqué visuellement mais accessible aux lecteurs d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>sr-only</strong> well"&gt;
+		Cet élément est masqué visuellement mais accessible aux lecteurs d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.sr-only-focusable</code></h4>
+<div class="well">
+	<div class="sr-only-focusable well">
+		Cet élément est masqué visuellement mais reste accessible aux lecteurs d'écran et peut être mis au focus par la navigation au clavier.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>sr-only-focusable</strong> well"&gt;
+		Cet élément est masqué visuellement mais reste accessible aux lecteurs d'écran et peut être mis au focus par la navigation au clavier.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="visibilite">Visibilité</h3>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-inline</code></h4>
+<div class="well">
+	<div class="visible-xs-inline well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-block</code></h4>
+<div class="well">
+	<div class="visible-xs-block well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-block</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-inline-block</code></h4>
+<div class="well">
+	<div class="visible-xs-inline-block well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline-block</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-inline</code></h4>
+<div class="well">
+	<div class="hidden-xs-inline well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+&lt;div class="<strong>hidden-xs-inline</strong> well"&gt;
+	Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne.
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-block</code></h4>
+<div class="well">
+	<div class="hidden-xs-block well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-block</strong> well"&gt;
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-inline-block</code></h4>
+<div class="well">
+	<div class="hidden-xs-inline-block well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline-block</strong> well"&gt;
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-inline</code></h4>
+<div class="well">
+	<div class="visible-xs-inline well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-block</code></h4>
+<div class="well">
+	<div class="visible-xs-block well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-block</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-xs-inline-block</code></h4>
+<div class="well">
+	<div class="visible-xs-inline-block well">
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline-block</strong> well"&gt;
+		Cet élément est visible sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-inline</code></h4>
+<div class="well">
+	<div class="hidden-xs-inline well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;
+
+div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline</strong> well"&gt;
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-block</code></h4>
+<div class="well">
+	<div class="hidden-xs-block well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-block</strong> well"&gt;
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-xs-inline-block</code></h4>
+<div class="well">
+	<div class="hidden-xs-inline-block well">
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline-block</strong> well"&gt;
+		Cet élément est masqué sur les petits écrans (xs) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-sm-inline</code></h4>
+<div class="well">
+	<div class="visible-sm-inline well">
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-inline</strong> well"&gt;
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-sm-block</code></h4>
+<div class="well">
+	<div class="visible-sm-block well">
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-block</strong> well"&gt;
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-sm-inline-block</code></h4>
+<div class="well">
+	<div class="visible-sm-inline-block well">
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-inline-block</strong> well"&gt;
+		Cet élément est visible sur les écrans petits (sm) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-sm-inline</code></h4>
+<div class="well">
+	<div class="hidden-sm-inline well">
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-inline</strong> well"&gt;
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-sm-block</code></h4>
+<div class="well">
+	<div class="hidden-sm-block well">
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-block</strong> well"&gt;
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-sm-inline-block</code></h4>
+<div class="well">
+	<div class="hidden-sm-inline-block well">
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-inline-block</strong> well"&gt;
+		Cet élément est masqué sur les écrans petits (sm) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-md-inline</code></h4>
+<div class="well">
+	<div class="visible-md-inline well">
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-inline</strong> well"&gt;
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-md-block</code></h4>
+<div class="well">
+	<div class="visible-md-block well">
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-block</strong> well"&gt;
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-md-inline-block</code></h4>
+<div class="well">
+	<div class="visible-md-inline-block well">
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-inline-block</strong> well"&gt;
+		Cet élément est visible sur les écrans moyens (md) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-md-inline</code></h4>
+<div class="well">
+	<div class="hidden-md-inline well">
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-inline</strong> well"&gt;
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-md-block</code></h4>
+<div class="well">
+	<div class="hidden-md-block well">
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-block</strong> well"&gt;
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-md-inline-block</code></h4>
+<div class="well">
+	<div class="hidden-md-inline-block well">
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-inline-block</strong> well"&gt;
+		Cet élément est masqué sur les écrans moyens (md) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-lg-inline</code></h4>
+<div class="well">
+	<div class="visible-lg-inline well">
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-inline</strong> well"&gt;
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-lg-block</code></h4>
+<div class="well">
+	<div class="visible-lg-block well">
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-block</strong> well"&gt;
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.visible-lg-inline-block</code></h4>
+<div class="well">
+	<div class="visible-lg-inline-block well">
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-inline-block</strong> well"&gt;
+		Cet élément est visible sur les grands écrans (lg) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-lg-inline</code></h4>
+<div class="well">
+	<div class="hidden-lg-inline well">
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en ligne.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-inline</strong> well"&gt;
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en ligne.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-lg-block</code></h4>
+<div class="well">
+	<div class="hidden-lg-block well">
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-block</strong> well"&gt;
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.hidden-lg-inline-block</code></h4>
+<div class="well">
+	<div class="hidden-lg-inline-block well">
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en ligne-bloc.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-inline-block</strong> well"&gt;
+		Cet élément est masqué sur les grands écrans (lg) et a une mise en page en ligne-bloc.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="opacite">Opacité</h3>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.opct-10</code></h4>
+<div class="well">
+	<div class="opct-10 well" style="opacity: 0.1;">
+		Cet élément a une opacité de 0.1 (10%).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-10</strong> well" style="opacity: 0.1;"&gt;
+		Cet élément a une opacité de 0.1 (10%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.opct-20</code></h4>
+<div class="well">
+	<div class="opct-20 well" style="opacity: 0.2;">
+		Cet élément a une opacité de 0.2 (20%).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-20</strong> well" style="opacity: 0.2;"&gt;
+		Cet élément a une opacité de 0.2 (20%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.opct-90</code></h4>
+<div class="well">
+	<div class="opct-90 well" style="opacity: 0.9;">
+		Cet élément a une opacité de 0.9 (90%).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-90</strong> well" style="opacity: 0.9;"&gt;
+		Cet élément a une opacité de 0.9 (90%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.opct-100</code></h4>
+<div class="well">
+	<div class="opct-100 well" style="opacity: 1;">
+		Cet élément a une opacité de 1 (100%).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-100</strong> well" style="opacity: 1;"&gt;
+		Cet élément a une opacité de 1 (100%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="wet-contenu-basculant">Contenu basculant WET</h3>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.nojs-show</code></h4>
+<div class="well">
+	<div class="nojs-show well">
+		Cet élément est initialement masqué, mais il sera affiché lorsque JavaScript est désactivé.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>nojs-show</strong> well"&gt;
+		Cet élément est initialement masqué, mais il sera affiché lorsque JavaScript est désactivé.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.nojs-hide</code></h4>
+<div class="well">
+	<div class="nojs-hide well">
+		Cet élément est initialement visible, mais il sera masqué lorsque JavaScript est désactivé.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>nojs-hide</strong> well"&gt;
+		Cet élément est initialement visible, mais il sera masqué lorsque JavaScript est désactivé.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.lbx-hide-gal</code></h4>
+<div class="well">
+	<div class="lbx-hide-gal well">
+		Cet élément est masqué dans le cadre d'une galerie lightbox.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>lbx-hide-gal</strong> well"&gt;
+		Cet élément est masqué dans le cadre d'une galerie lightbox.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.mfp-hide</code></h4>
+<div class="well">
+	<div class="mfp-hide well">
+		Cet élément est masqué dans le cadre d'une fenêtre modale Magnific Popup.
+	</div
+
+>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>mfp-hide</strong> well"&gt;
+		Cet élément est masqué dans le cadre d'une fenêtre modale Magnific Popup.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.wb-inv</code></h4>
+<div class="well">
+	<div class="wb-inv well">
+		Cet élément est invisible et masqué de tous les utilisateurs, y compris les lecteurs d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>wb-inv</strong> well"&gt;
+		Cet élément est invisible et masqué de tous les utilisateurs, y compris les lecteurs d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.wb-invisible</code></h4>
+<div class="well">
+	<div class="wb-invisible well">
+		Cet élément est invisible, mais accessible aux lecteurs d'écran.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>wb-invisible</strong> well"&gt;
+		Cet élément est invisible, mais accessible aux lecteurs d'écran.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.wb-show-onfocus</code></h4>
+<div class="well">
+	<input type="text" class="wb-show-onfocus well" placeholder="Mettez le focus sur cet élément pour révéler l'élément">
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;input type="text" class="<strong>wb-show-onfocus</strong> well" placeholder="Mettez le focus sur cet élément pour révéler l'élément"&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="nombre-colonnes">Nombre de colonnes</h3>
+
+<p>Il divise l'élément en plusieurs colonnes. C'est une manière de faire du positionnement qui n'est pas limitée aux éléments de liste, mais qui inclut également les div/sections.</p>
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xxs-2</code></h4>
+<div class="well">
+	<div class="colcount-xxs-2 well">
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-small (xxs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-2</strong> well"&gt;
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-small (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xxs-3</code></h4>
+<div class="well">
+	<div class="colcount-xxs-3 well">
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-small (xxs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-3</strong> well"&gt;
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-small (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xxs-4</code></h4>
+<div class="well">
+	<div class="colcount-xxs-4 well">
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-small (xxs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-4</strong> well"&gt;
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-small (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xs-2</code></h4>
+<div class="well">
+	<div class="colcount-xs-2 well">
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-small (xs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-2</strong> well"&gt;
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-small (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xs-3</code></h4>
+<div class="well">
+	<div class="colcount-xs-3 well">
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-small (xs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-3</strong> well"&gt;
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-small (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xs-4</code></h4>
+<div class="well">
+	<div class="colcount-xs-4 well">
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-small (xs).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-4</strong> well"&gt;
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-small (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-sm-2</code></h4>
+<div class="well">
+	<div class="colcount-sm-2 well">
+		Cet élément occupe 1 sur 2 colonnes sur les écrans small (sm).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-2</strong> well"&gt;
+		Cet élément occupe 1 sur 2 colonnes sur les écrans small (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-sm-3</code></h4>
+<div class="well">
+	<div class="colcount-sm-3 well">
+		Cet élément occupe 1 sur 3 colonnes sur les écrans small (sm).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-3</strong> well"&gt;
+		Cet élément occupe 1 sur 3 colonnes sur les écrans small (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-sm-4</code></h4>
+<div class="well">
+	<div class="colcount-sm-4 well">
+		Cet élément occupe 1 sur 4 colonnes sur les écrans small (sm).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-4</strong> well"&gt;
+		Cet élément occupe 1 sur 4 colonnes sur les écrans small (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-lg-2</code></h4>
+<div class="well">
+	<div class="colcount-lg-2 well">
+		Cet élément occupe 1 sur 2 colonnes sur les écrans large (lg).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-2</strong> well"&gt;
+		Cet élément occupe 1 sur 2 colonnes sur les écrans large (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-lg-3</code></h4>
+<div class="well">
+	<div class="colcount-lg-3 well">
+		Cet élément occupe 1 sur 3 colonnes sur les écrans large (lg).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-3</strong> well"&gt;
+		Cet élément occupe 1 sur 3 colonnes sur les écrans large (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-lg-4</code></h4>
+<div class="well">
+	<div class="colcount-lg-4 well">
+		Cet élément occupe 1 sur 4 colonnes sur les écrans large (lg).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-4</strong> well"&gt;
+		Cet élément occupe 1 sur 4 colonnes sur les écrans large (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xl-2</code></h4>
+<div class="well">
+	<div class="colcount-xl-2 well">
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-large (xl).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-2</strong> well"&gt;
+		Cet élément occupe 1 sur 2 colonnes sur les écrans extra-large (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xl-3</code></h4>
+<div class="well">
+	<div class="colcount-xl-3 well">
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-large (xl).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-3</strong> well"&gt;
+		Cet élément occupe 1 sur 3 colonnes sur les écrans extra-large (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.colcount-xl-4</code></h4>
+<div class="well">
+	<div class="colcount-xl-4 well">
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-large (xl).
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-4</strong> well"&gt;
+		Cet élément occupe 1 sur 4 colonnes sur les écrans extra-large (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="controles-de-dimensionnement">Contrôles de dimensionnement</h3>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.h-100</code></h4>
+<div class="well">
+	<div class="h-100">
+		Cet élément a une hauteur de 100 % de son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>h-100</strong>"&gt;
+		Cet élément a une hauteur de 100 % de son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.full-width</code></h4>
+<div class="well">
+	<div class="full-width">
+		Cet élément s'étend sur toute la largeur de son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>full-width</strong>"&gt;
+		Cet élément s'étend sur toute la largeur de son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Exemple de fonctionnement de la classe WET-BOEW <code>.max-content</code></h4>
+<div class="well" style="width: 890px;">
+	<div class="max-content well">
+		Cet élément ajuste sa largeur pour s'adapter à son contenu, mais pas plus large que son conteneur parent.
+	</div>
+</div>
+<h4>Exemple de code</h4>
+<pre><code>&lt;div class="well" style="width: 890px;"&gt;
+	&lt;div class="<strong>max-content</strong> well"&gt;
+		Cet élément ajuste sa largeur pour s'adapter à son contenu, mais pas plus large que son conteneur parent.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>

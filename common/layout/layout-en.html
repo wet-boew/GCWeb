@@ -1,0 +1,758 @@
+---
+{
+	"title": "Layout",
+	"language": "en",
+	"altLangPage": "layout-fr.html",
+	"description": "Bootstrap and WET classes showcasing layout options such as flexbox, CSS grid, grid baseline (containers) accompanied by practical examples to test and observe different page layouts.",
+	"dateModified": "2023-08-08"
+}
+---
+
+<h2>On this page:</h2>
+
+<ul>
+	<li><a href="#flexbox">Flexbox</a></li>
+	<li><a href="#css-grid">CSS-grid</a></li>
+	<li><a href="#grid baseline">Grid baseline (containers)</a></li>
+</ul>
+
+<h3 id="flexbox">Flexbox</h3>
+
+<h4>WET-BOEW <code>.d-flex</code> class working example</h4>
+<div class="well d-flex">
+	<div class="child">
+		This is a flex container with the <code>.d-flex</code> class. Its children are aligned in a row by default.
+	</div>
+	<div class="child">
+		You can add multiple children to the flex container to see them aligned horizontally.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>d-flex</strong>"&gt;
+	&lt;div class="child"&gt;
+		This is a flex container with the <code>.d-flex</code> class. Its children are aligned in a row by default.
+	&lt;/div&gt;
+	&lt;div class="child"&gt;
+		You can add multiple children to the flex container to see them aligned horizontally.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>WET-BOEW <code>.flex-column</code> class working example</h4>
+<div class="well d-flex flex-column">
+	<div class="child">
+		This is a flex container with the <code>.d-flex</code> and <code>.flex-column</code> classes.
+		Its children are aligned in a column direction. Each child takes the full width of the container.
+	</div>
+	<div class="child">
+		You can add multiple children to the flex container with <code>.flex-column</code> to see them aligned vertically.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>d-flex flex-column</strong>"&gt;
+	&lt;div class="child"&gt;
+		This is a flex container with the <code>.d-flex</code> and <code>.flex-column</code> classes.
+		Its children are aligned in a column direction. Each child takes the full width of the container.
+	&lt;/div&gt;
+	&lt;div class="child"&gt;
+		You can add multiple children to the flex container with <code>.flex-column</code> to see them aligned vertically.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>WET-BOEW <code>.align-items-center</code> class working example</h4>
+<div class="well d-flex align-items-center" style="height: 250px;">
+	<div class="child">
+		This is a flex container with the <code>.d-flex</code> and <code>.align-items-center</code> classes.
+		Its children are aligned vertically in the center.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>d-flex align-items-center</strong>" style="height: 250px;"&gt;
+	&lt;div class="child"&gt;
+		This is a flex container with the <code>.d-flex</code> and <code>.align-items-center</code> classes.
+		Its children are aligned vertically in the center.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>WET-BOEW <code>.align-self-center</code> class working example</h4>
+<div class="well d-flex" style="height: 250px;">
+	<div class="child align-self-center">
+		This is a flex container with the <code>.d-flex</code> class.
+		The first child (<code>.align-self-center</code>) is aligned vertically in the center within the flex container.
+	</div>
+	<div class="child">
+		The second child is not aligned and follows the default alignment.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>d-flex</strong>" style="height: 250px;"&gt;
+	&lt;div class="child <strong>align-self-center</strong>"&gt;
+		This is a flex container with the <code>.d-flex</code> class.
+		The first child (<code>.align-self-center</code>) is aligned vertically in the center within the flex container.
+	&lt;/div&gt;
+	&lt;div class="child"&gt;
+		The second child is not aligned and follows the default alignment.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>WET-BOEW <code>.align-self-end</code> class working example</h4>
+<div class="well d-flex" style="height: 250px;">
+	<div class="child align-self-end">
+		This is a flex container with the <code>.d-flex</code> class.
+		The first child (<code>.align-self-end</code>) is aligned vertically at the end within the flex container.
+	</div>
+	<div class="child">
+		The second child is not aligned and follows the default alignment.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>d-flex</strong>" style="height: 250px;"&gt;
+	&lt;div class="child <strong>align-self-end</strong>"&gt;
+		This is a flex container with the <code>.d-flex</code> class.
+		The first child (<code>.align-self-end</code>) is aligned vertically at the end within the flex container.
+	&lt;/div&gt;
+	&lt;div class="child"&gt;
+		The second child is not aligned and follows the default alignment.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>CSS Grid</h3>
+
+<h4>WET-BOEW <code>[class*=col-]</code> class working example</h4>
+<div class="well">
+	<div class="row">
+	<div class="col-6">
+		This element has the class <code>col-6</code>. It has a padding left and right of 0.
+	</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="<strong>col-6</strong>"&gt;
+		This element has the class <code>col-6</code>. It has a padding left and right of 0.
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap <code>.row</code> class working example</h4>
+<div class="well">
+	<div class="row">
+	<div class="col-md-6">
+		This element is inside a Bootstrap grid row with the class <code>.row</code>.
+		It contains and clear the floats of your columns.
+	</div>
+	<div class="col-md-6">
+		This is another column with the class <code>.col-md-6</code>.
+	</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>row</strong>"&gt;
+	&lt;div class="col-md-6"&gt;
+		This element is inside a Bootstrap grid row with the class <code>.row</code>.
+		It contains and clear the floats of your columns.
+	&lt;/div&gt;
+	&lt;div class="col-md-6"&gt;
+		This is another column with the class <code>.col-md-6</code>.
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Override <code>.brdr-tp .row</code> class working example</h4>
+<div class="well brdr-tp">
+	<div class="row">
+	<div class="col-md-4">Column 1</div>
+	<div class="col-md-4">Column 2</div>
+	<div class="col-md-4">Column 3</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>brdr-tp</strong>"&gt;
+	&lt;div class="<strong>row</strong>"&gt;
+	&lt;div class="col-md-4"&gt;Column 1&lt;/div&gt;
+	&lt;div class="col-md-4"&gt;Column 2&lt;/div&gt;
+	&lt;div class="col-md-4"&gt;Column 3&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Override <code>.pagedetails</code> class working example</h4>
+<div class="well pagedetails">
+	<div class="row">
+	<div class="col-sm-6">
+		<p>This is a row inside a div with the <code>.pagedetails</code> class.</p>
+		<p>The row contains two columns, each occupying 50% of the container width on small screens (sm).</p>
+		<p>The columns have padding on the left and right sides due to the <code>[class*=col-]</code> class.</p>
+	</div>
+	<div class="col-sm-6">
+		<p>This is the second column of the row.</p>
+		<p>The row class provides a negative margin on the left and right sides to counteract the padding applied to the columns.</p>
+	</div>
+	</div>
+	<details>
+	<summary>Page Details Summary</summary>
+	<p>This is a details element inside a div with the <code>.pagedetails</code> class.</p>
+	<p>It has padding of 2em at the top and bottom.</p>
+	<p>The <code>.row</code> class is used for backwards compatibility with GCWeb 4.0.26 and below.</p>
+	<p>The <code>details</code> element inside the <code>.row</code> class has margins applied.</p>
+	<p>The first child of the <code>.row</code> class has a top margin, affecting the "Report a Problem" link.</p>
+	</details>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well <strong>pagedetails</strong>"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;p&gt;This is a row inside a div with the <code>.pagedetails</code> class.&lt;/p&gt;
+		&lt;p&gt;The row contains two columns, each occupying 50% of the container width on small screens (sm).&lt;/p&gt;
+		&lt;p&gt;The columns have padding on the left and right sides due to the <code>[class*=col-]</code> class.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="col-sm-6"&gt;
+		&lt;p&gt;This is the second column of the row.&lt;/p&gt;
+		&lt;p&gt;The row class provides a negative margin on the left and right sides to counteract the padding applied to the columns.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;details&gt;
+	&lt;summary&gt;Page Details Summary&lt;/summary&gt;
+	&lt;p&gt;This is a details element inside a div with the <code>.pagedetails</code> class.&lt;/p&gt;
+	&lt;p&gt;It has padding of 2em at the top and bottom.&lt;/p&gt;
+	&lt;p&gt;The <code>.row</code> class is used for backwards compatibility with GCWeb 4.0.26 and below.&lt;/p&gt;
+	&lt;p&gt;The <code>details</code> element inside the <code>.row</code> class has margins applied.&lt;/p&gt;
+	&lt;p&gt;The first child of the <code>.row</code> class has a top margin, affecting the "Report a Problem" link.&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>GCWeb override - Site footer <code>.row</code></h4>
+<div class="well">
+<footer class="gcweb-override-site-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h5>About Us</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget est eu libero fringilla accumsan.</p>
+			</div>
+			<div class="col-md-4">
+				<h5>Contact Us</h5>
+				<p>Email: info@example.com<br>Phone: 123-456-7890</p>
+			</div>
+			<div class="col-md-4">
+				<h5>Follow Us</h5>
+				<ul class="list-inline">
+					<li class="list-inline-item"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a></li>
+					<li class="list-inline-item"><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+					<li class="list-inline-item"><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well" &gt;&lt;footer class="gcweb-override-site-footer"&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-md-4"&gt;
+				&lt;h5&gt;About Us&lt;/h5&gt;
+				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget est eu libero fringilla accumsan.&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div class="col-md-4"&gt;
+				&lt;h5&gt;Contact Us&lt;/h5&gt;
+				&lt;p&gt;Email: info@example.com&lt;br&gt;Phone: 123-456-7890&lt;/p&gt;
+			&lt;/div&gt;
+			&lt;div class="col-md-4"&gt;
+				&lt;h5&gt;Follow Us&lt;/h5&gt;
+				&lt;ul class="list-inline"&gt;
+					&lt;li class="list-inline-item"&gt;&lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li class="list-inline-item"&gt;&lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;li class="list-inline-item"&gt;&lt;a href="#" class="social-icon"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Override <code>.gcweb-menu .sm .row</code> class working example</h4>
+<div class="gcweb-menu">
+	<ul class="sm">
+		<li>
+			<a href="#">Menu Item 1</a>
+			<ul class="row">
+				<li><a href="#">Submenu Item 1</a></li>
+				<li><a href="#">Submenu Item 2</a></li>
+				<li><a href="#">Submenu Item 3</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Menu Item 2</a></li>
+		<li><a href="#">Menu Item 3</a></li>
+	</ul>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="gcweb-menu"&gt;
+	&lt;ul class="sm"&gt;
+	&lt;li&gt;
+		&lt;a href="#"&gt;Menu Item 1&lt;/a&gt;
+		&lt;ul class="row"&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Submenu Item 1&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Submenu Item 2&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Submenu Item 3&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Menu Item 2&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Menu Item 3&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h4>Bootstrap <code>.row-no-gutters</code> class working example</h4>
+<p><code>.row-no-gutters</code> class is applied to the row, which removes the gutters (spacing) between columns inside the row.</p>
+<div class="container">
+	<div class="row row-no-gutters">
+		<div class="col-4">
+			<div class="content-box">
+				Column 1
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 2
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 3
+			</div>
+		</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="container"&gt;
+	&lt;div class="row row-no-gutters"&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 1
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 2
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 3
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap <code>[class*=col-]</code> class working example with no gutters</h4>
+<p>In these examples, the Bootstrap classes `[class*=col-]` are used in various scenarios: with no gutters, with default gutters, within a form, and within a table. These classes allow to create responsive layouts with grid columns and customize the spacing between the columns.</p>
+
+<div class="container">
+	<div class="row row-no-gutters">
+		<div class="col-4">
+			<div class="content-box">
+				Column 1
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 2
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 3
+			</div>
+		</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="container"&gt;
+	&lt;div class="row row-no-gutters"&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 1
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 2
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 3
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap <code>[class*=col-]</code> class working example with default gutters</h4>
+<div class="container">
+	<div class="row">
+		<div class="col-4">
+			<div class="content-box">
+				Column 1
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 2
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="content-box">
+				Column 3
+			</div>
+		</div>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="container"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 1
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 2
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-4"&gt;
+		&lt;div class="content-box"&gt;
+	Column 3
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap <code>[class*=col-]</code> class working example within a form</h4>
+<div class="container">
+	<form>
+		<div class="row">
+			<div class="col-6">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" class="form-control">
+			</div>
+			<div class="col-6">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<label for="message">Message:</label>
+				<textarea id="message" name="message" class="form-control" rows="4"></textarea>
+			</div>
+		</div>
+	</form>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="container"&gt;
+	&lt;form&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-6"&gt;
+	&lt;label for="name"&gt;Name:&lt;/label&gt;
+	&lt;input type="text" id="name" name="name" class="form-control"&gt;
+		&lt;/div&gt;
+		&lt;div class="col-6"&gt;
+	&lt;label for="email"&gt;Email:&lt;/label&gt;
+	&lt;input type="email" id="email" name="email" class="form-control"&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="row"&gt;
+		&lt;div class="col-12"&gt;
+	&lt;label for="message"&gt;Message:&lt;/label&gt;
+	&lt;textarea id="message" name="message" class="
+
+form-control" rows="4"&gt;&lt;/textarea&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap <code>[class*=col-]</code> class working example within a table</h4>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="col-4">Name</th>
+				<th class="col-4">Age</th>
+				<th class="col-4">Occupation</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-4">John Doe</td>
+				<td class="col-4">30</td>
+				<td class="col-4">Engineer</td>
+			</tr>
+			<tr>
+				<td class="col-4">Jane Smith</td>
+				<td class="col-4">25</td>
+				<td class="col-4">Doctor</td>
+			</tr>
+			<tr>
+				<td class="col-4">Michael Johnson</td>
+				<td class="col-4">35</td>
+				<td class="col-4">Teacher</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="container"&gt;
+	&lt;table class="table"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+	&lt;th class="col-4"&gt;Name&lt;/th&gt;
+	&lt;th class="col-4"&gt;Age&lt;/th&gt;
+	&lt;th class="col-4"&gt;Occupation&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+	&lt;td class="col-4"&gt;John Doe&lt;/td&gt;
+	&lt;td class="col-4"&gt;30&lt;/td&gt;
+	&lt;td class="col-4"&gt;Engineer&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+	&lt;td class="col-4"&gt;Jane Smith&lt;/td&gt;
+	&lt;td class="col-4"&gt;25&lt;/td&gt;
+	&lt;td class="col-4"&gt;Doctor&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+	&lt;td class="col-4"&gt;Michael Johnson&lt;/td&gt;
+	&lt;td class="col-4"&gt;35&lt;/td&gt;
+	&lt;td class="col-4"&gt;Teacher&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>Bootstrap Grid Column with Auto Width Based on Content <code>col-xs-auto col-sm-auto col-md-auto col-lg-auto</code></h4>
+<p>The columns with the .col-xs-auto, .col-sm-auto, .col-md-auto, and .col-lg-auto classes will automatically adjust their width based on the content inside them. This ensures that the content is not truncated, and the columns will take up only the necessary space to accommodate the content.</p>
+<div class="well">
+	<div class="row">
+	<div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto">
+		<div class="content-box">
+	This is a column with auto width based on content.
+	It will adjust its width to fit the content inside.
+		</div>
+	</div>
+	<div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto">
+		<div class="content-box">
+	This is another column with auto width based on content.
+	The content inside will determine its width dynamically.
+		</div>
+	</div>
+	</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto"&gt;
+		&lt;div class="content-box"&gt;
+	This is a column with auto width based on content.
+	It will adjust its width to fit the content inside.
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-xs-auto col-sm-auto col-md-auto col-lg-auto"&gt;
+		&lt;div class="content-box"&gt;
+	This is another column with auto width based on content.
+	The content inside will determine its width dynamically.
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>WET-BOEW <code>col-me-push-3</code> class working example (with RTL direction)</h4>
+<div class="wb-outer-container" dir="rtl">
+	<div class="wb-inner-container">
+		<div class="col-md-6 col-md-push-3">
+			<div class="content-box">This is a column that occupies 6 units (50%) of the width in its normal position, but with <code>col-md-push-3</code> class, it is pushed 3 units to the right, and its effective position will be after the first 3 units.</div>
+		</div>
+	</div>
+</div>
+<div class="clearfix"></div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="wb-outer-container" dir="rtl"&gt;
+	&lt;div class="wb-inner-container"&gt;
+	&lt;div class="col-md-6 <strong>col-md-push-3</strong>"&gt;
+		&lt;div class="content-box"&gt;This is a column that occupies 6 units (50%) of the width in its normal position, but with &lt;code&gt;col-md-push-3&lt;/code&gt; class, it is pushed 3 units to the right, and its effective position will be after the first 3 units. &lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;&lt;div class="clearfix"&gt;&lt;/div&gt;
+</code></pre>
+
+<h4>WET-BOEW <code>[class*=col-] .well.header-rwd[class*=pstn-]</code> class working example</h4>
+<div class="well">
+	<div class="row">
+	<div class="col-md-6">
+		<div class="well header-rwd pstn-example">
+	The <code>header-rwd</code> class will inherit the width of the parent container
+	due to the CSS rule <code>[class*=col-] .well.header-rwd[class*=pstn-]</code>.
+		</div>
+	</div>
+	</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-md-6"&gt;
+		&lt;div class="well header-rwd pstn-example"&gt;
+	The &lt;code&gt;header-rwd&lt;/code&gt; class will inherit the width of the parent container
+	due to the CSS rule &lt;code&gt;[class*=col-] .well.header-rwd[class*=pstn-]&lt;/code&gt;.
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h4>GC Corporate <code>.gc-crprt</code> class working example</h4>
+This example demonstrates how the .gc-crprt class works with the Bootstrap .col-md-8 and .col-md-4 classes to create a responsive layout with columns.
+<div class="well row">
+<div class="gc-crprt">
+	<div class="col-md-8">
+		<div class="col-md-4">
+		<!-- Content inside the .col-md-4 -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	</div>
+	<div class="col-md-4">
+		<!-- Content inside the .col-md-4 -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	</div>
+	<!-- Additional .col-md-4 elements if needed -->
+	</div>
+</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well row"&gt;&lt;div class="gc-crprt"&gt;
+	&lt;div class="col-md-8"&gt;
+	&lt;div class="col-md-4"&gt;
+	<!-- Content inside the .col-md-4 -->
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class="col-md-4"&gt;
+		<!-- Content inside the .col-md-4 -->
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+	&lt;/div&gt;
+	<!-- Additional .col-md-4 elements if needed -->
+	&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h4>Header <code>.brand</code> class working example</h4>
+<div class="well" style="height: 200px;">
+	<header>
+		<div class="brand col-xs-5">
+		<div class="logo">
+			<!-- Logo content goes here -->
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+	</header>
+</div>
+
+<h4>Code Sample</h4>
+<pre><code>&lt;div  class="well" style="height: 200px;" &gt;&lt;header&gt;
+	&lt;div class="brand col-xs-5"&gt;
+	&lt;div class="logo"&gt;
+		&lt;!-- Logo content goes here --&gt;
+	&lt;/div&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/header&gt;&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Infostripe with .col- Classes</h4>
+<div class="well" style="height: 300px;">
+	<div class="infostripe col-md-8 col-sm-6 col-xs-12">
+		<!-- Content of the infostripe with .col-md-8, .col-sm-6, and .col-xs-12 classes -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus nibh, finibus ut sagittis lacinia, consectetur sit amet nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus et lectus at turpis tristique pretium. Aenean vel massa eu neque consequat dictum. Integer elit ante, egestas non eros non, consectetur posuere justo. Nam vel sollicitudin nisl, et imperdiet mauris. Quisque scelerisque tincidunt nibh, sed bibendum mauris laoreet vel. In hac habitasse platea dictumst.</p>
+	</div>
+</div>
+
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt; style="height: 300px;"&lt;div class="infostripe <strong>col-md-8 col-sm-6 col-xs-12</strong>"&gt;
+	<!-- Content of the infostripe with .col-md-8, .col-sm-6, and .col-xs-12 classes -->
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lectus nibh, finibus ut sagittis lacinia, consectetur sit amet nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus et lectus at turpis tristique pretium. Aenean vel massa eu neque consequat dictum. Integer elit ante, egestas non eros non, consectetur posuere justo. Nam vel sollicitudin nisl, et imperdiet mauris. Quisque scelerisque tincidunt nibh, sed bibendum mauris laoreet vel. In hac habitasse platea dictumst.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Authentication Section with <code>.col-</code> classes</h4>
+<p>It contains a row with a single column of `.col-md-8`. Inside the column, there is a `gcweb-menu` class that represents the authentication menu.
+</p>
+<div class="well" style="height: 200px;">
+	<div class="row">
+	<div class="col-md-8">
+		<div class="gcweb-menu">
+	<ul role="menu">
+		<!-- Menu items for authentication section -->
+		<li>[Menu 1]</li>
+		<li>[Menu 2]</li>
+		<li>[Menu 3]</li>
+		<!-- Authentication menu items here -->
+		<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+	</ul>
+		</div>
+	</div>
+	</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well" style="height: 200px;"&gt;
+	&lt;div class="row"&gt;
+	&lt;div class="col-md-8"&gt;
+		&lt;div class="gcweb-menu"&gt;
+	&lt;ul role="menu"&gt;
+		&lt;!-- Menu items for authentication section --&gt;
+		&lt;li&gt;[Menu 1]&lt;/li&gt;
+		&lt;li&gt;[Menu 2]&lt;/li&gt;
+		&lt;li&gt;[Menu 3]&lt;/li&gt;
+		&lt;!-- Authentication menu items here --&gt;
+		&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/li&gt;
+	&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Grid baseline (containers)</h3>
+
+<h4>GCWeb Grid Baseline</h4>
+<p>Please note that the `.container-fixed` mixin is used to apply the appropriate styling for the fixed-width container.</p>
+<div class="well">
+<div class="container">
+	<!-- Content of the container -->
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt;&lt;div class="container"&gt;
+	<!-- Content of the container -->
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Fluid Container</h4>
+<div class="well">
+<div class="container-fluid">
+	<!-- Content of the fluid container -->
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt;&lt;div class="container-fluid"&gt;
+	<!-- Content of the fluid container -->
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h4>GCWeb Fixed-width Container</h4>
+<div class="well">
+<div class="container-fixed">
+	<!-- Content of the fixed-width container -->
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+</div>
+<h4>Code Sample</h4>
+<pre><code>&lt;div class="well"&gt;&lt;div class="container-fixed"&gt;
+	<!-- Content of the fixed-width container -->
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</code></pre>
