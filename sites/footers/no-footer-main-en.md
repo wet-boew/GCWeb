@@ -1,8 +1,8 @@
 ---
 altLangPage: no-footer-main-fr.html
 breadcrumbs:
-  - title: GCWeb
-    link: https://wet-boew.github.io/GCWeb/index-en.html
+  - title: GCWeb home
+    link: index-en.html
   - title: Footer
     link: sites/footers/footers-en.html
 contextualFooter:
