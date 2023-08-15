@@ -1,27 +1,25 @@
 <section class="pagedetails{% if include.addContainer %} container{% endif %}">
 	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
 
-	{%- if page.noReportProblem -%}
-		{%- if page.share -%}
-			{% assign col-share = "col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" %}
-			{% assign col-modified = "col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3" %}
-		{%- else -%}
-			{% assign col-modified = "col-xs-12" %}
-		{%- endif -%}
-	{%- else -%}
+	{% assign col-modified = "col-xs-12" %}
+	{%- if page.noFeedback != true -%}
 		{% assign col-feedback = "col-sm-8 col-md-9 col-lg-9" %}
 		{%- if page.share -%}
 			{% assign col-share = "col-sm-4 col-md-3" %}
 		{%- endif -%}
-		{% assign col-modified = "col-xs-12" %}
+	{%- else -%}
+		{%- if page.share -%}
+			{% assign col-share = "col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" %}
+			{% assign col-modified = "col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3" %}
+		{%- endif -%}
 	{%- endif -%}
 
 	<div class="row">
-		{%- unless page.noReportProblem -%}
+		{%- if page.noFeedback != true -%}
 			<div class="{{ col-feedback }}">
 				{% include feedback/feedback.html %}
 			</div>
-		{%- endunless -%}
+		{%- endif -%}
 		{%- if page.share -%}
 			<div class="wb-share {{ col-share }}" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
 		{%- endif -%}

@@ -1,0 +1,16 @@
+/*
+ * Share/feedback-specific overrides (small view and over)
+ */
+
+/* Add a larger top margin on the share button (only if its plugin has initialized) if adjacent to the page feedback tool. */
+.pagedetails {
+	div {
+		&:has( #gc-pft ) {
+			+ {
+				.wb-share-inited {
+					margin-top: 29px;
+				}
+			}
+		}
+	}
+}
