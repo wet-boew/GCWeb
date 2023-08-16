@@ -12,22 +12,7 @@
 <p>To see a practical implementation of the GC site search bar in action, look no further than the site header. </p>
 
 <h2>Code</h2>
-<pre><code>
-	&lt;section class="col-xs-12 col-sm-5 col-md-4"&gt;
-		&lt;form action="#" method="post" name="cse-search-box" role="search" class="form-inline"&gt;
-			&lt;div class="form-group wb-srch-qry"&gt;
-				&lt;label for="wb-srch-q" class="wb-inv"&gt;Search Canada.ca&lt;/label&gt;
-				&lt;div class="input-group"&gt;
-					&lt;input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Search Canada.ca" style="display: inline-block; width: calc(100% - 42px);" /&gt;
-					&lt;div class="input-group-append" style="white-space: nowrap;"&gt;
-						&lt;button type="submit" class="btn btn-primary btn-square" style="margin-left: -1px;"&gt;
-							&lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt;
-							&lt;span class="wb-inv"&gt;Search&lt;/span&gt;
-						&lt;/button&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;datalist id="wb-srch-q-ac"&gt;&lt;/datalist&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;
-	&lt;/section&gt;
-</code></pre>
+{%- include variable-core.liquid -%}
+{% highlight text %}
+{% include_relative includes/sitesearch.html %}
+{% endhighlight %}
