@@ -4,18 +4,18 @@
 	"language": "en",
 	"altLangPage": "button-fr.html",
 	"description": "Buttons page including working examples to test how various button styles appear and function",
-	"dateModified": "2023-06-14"
+	"dateModified": "2023-08-24"
 }
 ---
 
 <h2>On this page:</h2>
 
 <ul>
-	<li><a href="#purpose">Purpose</a></li>
-	<li><a href="#basic">Basic use</a></li>
-	<li><a href="#enhanced">Enhanced use</a></li>
+	<li><a href="#buttons/links">Buttons vs links</a></li>
+	<li><a href="#basic">Basic use (Default)</a></li>
+	<!-- <li><a href="#enhanced">Enhanced use</a></li> -->
 	<li><a href="#colours/styles">Colours/Styles</a></li>
-	<li><a href="#calltoaction">Call to Action</a></li>
+	<li><a href="#calltoaction">Supertask (Call to Action)</a></li>
 	<li><a href="#sizing">Sizing</a></li>
 	<li><a href="#fullwidth">Full Width</a></li>
 	<li><a href="#activestate">Active State</a></li>
@@ -25,9 +25,10 @@
 	<li><a href="#buttontoolbar">Button Toolbar</a></li>
 	<li><a href="#inputgroups">Input Groups</a></li>
 	<li><a href="#datatoggle">Data-toggle Buttons</a></li>
+	<li><a href="#resource">Resource</a></li>
 </ul>
 
-<h2>Button vs links</h2>
+<h2 id="buttons/links">Buttons vs links</h2>
 <dl class="dl-horizontal">
 <dt>Button</dt>
 <dd>A button will perform an action on the current page without moving the focus or without navigating the user away</dd>
@@ -49,7 +50,7 @@
 <button class="btn btn-default" type="submit">Button</button>
 <input class="btn btn-default" type="button" value="Input" />
 <input class="btn btn-default" type="submit" value="Submit" />
-<a class="btn btn-default" href="#" role="button">Link</a>
+<a class="btn btn-default" href="#">Link</a>
 
 <h4>Code Sample</h4>
 <pre><code>
@@ -59,7 +60,7 @@
 	&lt;/button&gt;
 	&lt;input type="button" value="Input"/&gt;
 	&lt;input type="submit" value="Submit"/&gt;
-	&lt;a href="#" role="button"&gt;
+	&lt;a href="#"&gt;
 	Link
 	&lt;/a&gt;
 
@@ -69,16 +70,16 @@
 	&lt;/button&gt;
 	&lt;input class="<strong>btn btn-default</strong>" type="button" value="Input"/&gt;
 	&lt;input class="<strong>btn btn-default</strong>" type="submit" value="Submit"/&gt;
-	&lt;a class="<strong>btn btn-default</strong>" href="#" role="button"&gt;
+	&lt;a class="<strong>btn btn-default</strong>" href="#"&gt;
 	Link
 	&lt;/a&gt;
 </code></pre>
 
-<h2 id="enhanced">Enhanced use</h2>
+<!-- <h2 id="enhanced">Enhanced use</h2> -->
 
-<h3 id="colours/styles">Colours/Styles</h3>
+<h2 id="colours/styles">Colours/Styles</h2>
 <p>Colours <strong>signify</strong> various things such as a link to warning information (caution styled button). The text of that styled button will also contains word describing the state like "Warning notice".</p>
-<h4>Working example</h4>
+<h3>Working example</h3>
 <button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-success">Success</button>
@@ -131,8 +132,8 @@
 	&lt;/a&gt;
 	</code></pre>
 
-<h3 id="calltoaction">Supertask (Call to Action)</h3>
-<h4>Working example</h4>
+<h2 id="calltoaction">Supertask (Call to Action)</h2>
+<h3>Working example</h3>
 <button type="button" class="btn btn-call-to-action">Supertask (Call to Action)</button>
 
 <h4>Code sample</h4>
@@ -142,9 +143,9 @@
 </code></pre>
 
 
-<h3 id="sizing">Sizing</h3>
+<h2 id="sizing">Sizing</h2>
 <p>Use to increase or decrease the size of a button.</p>
-<h4>Working example</h4>
+<h3>Working example</h3>
 <button type="button" class="btn btn-default btn-xs">Extra small button</button>
 <button type="button" class="btn btn-default btn-sm">Small button</button>
 <button type="button" class="btn btn-default">Default button</button>
@@ -172,9 +173,9 @@
 	Large button
 	&lt;/button&gt;</code></pre>
 
-<h3 id="fullwidth">Full Width</h3>
+<h2 id="fullwidth">Full Width</h2>
 <p>Use to create block level buttons (those that span the full width of a parent).</p>
-<h4>Working example</h4>
+<h3>Working example</h3>
 <button type="button" class="btn btn-default btn-block">Block level button</button>
 
 <h4>Code sample</h4>
@@ -183,9 +184,9 @@
 &lt;button type="button" class="btn btn-default <strong>btn-block</strong>"&gt;Button&lt;/button&gt;
 </code></pre>
 
-<h3 id="activestate">Active state</h3>
+<h2 id="activestate">Active state</h2>
 <p>Use <code>.active</code> with <code>button</code> and <code>a</code> elements if you need to have a button look active at all times (usually for display or instructional purposes on fake buttons or links). When a user presses a button it appears in the active state (with an inset shadow, and darker background and border). For <code>button</code> and <code>a</code> elements, this is auto-styled in CSS via <code>:active</code>.</p>
-<h4>Working example</h4>
+<h3>Working example</h3>
 <button type="button" class="btn btn-default active">Button</button>
 <a href="#" class="btn btn-default active" role="button">Link</a>
 
@@ -200,9 +201,9 @@ Link
 &lt;/a&gt;
 </code></pre>
 
-<h3 id="disabledstate">Disabled state</h3>
+<h2 id="disabledstate">Disabled state</h2>
 <p>Use to disable buttons and links (not clickable), and give them a faded appearance.</p>
-<h4>Working example</h4>
+<h3>Working example</h3>
 <button type="button" class="btn btn-default disabled">Button</button>
 <a href="#" class="btn btn-default disabled" role="button">Link</a>
 
@@ -217,45 +218,45 @@ Link
 &lt;/a&gt;
 </code></pre>
 
-<h3 id="bghorizontal">Button groups (Horizontal)</h3>
+<h2 id="bghorizontal">Button groups (Horizontal)</h2>
 <p>Group a series of buttons together on a single line with the <code>btn-group</code> class.</p>
-<h4>Working Example</h4>
-<h5>Default:</h5>
+<h3>Working Example</h3>
+<h4>Default:</h4>
 <div class="btn-group">
 	<button type="button" class="btn btn-default">Left</button>
 	<button type="button" class="btn btn-default">Middle</button>
 	<button type="button" class="btn btn-default">Right</button>
 </div>
 
-<h5>Large:</h5>
+<h4>Large:</h4>
 <div class="btn-group btn-group-lg">
 	<button type="button" class="btn btn-default">Left</button>
 	<button type="button" class="btn btn-default">Middle</button>
 	<button type="button" class="btn btn-default">Right</button>
 </div>
 
-<h5>Small:</h5>
+<h4>Small:</h4>
 <div class="btn-group btn-group-sm">
 	<button type="button" class="btn btn-default">Left</button>
 	<button type="button" class="btn btn-default">Middle</button>
 	<button type="button" class="btn btn-default">Right</button>
 </div>
 
-<h5>Extra small:</h5>
+<h4>Extra small:</h4>
 <div class="btn-group btn-group-xs">
 	<button type="button" class="btn btn-default">Left</button>
 	<button type="button" class="btn btn-default">Middle</button>
 	<button type="button" class="btn btn-default">Right</button>
 </div>
 
-<h5>Justified (links):</h5>
+<h4>Justified (links):</h4>
 <div class="btn-group btn-group-justified">
 	<a class="btn btn-default" role="button">Left</a>
 	<a class="btn btn-default" role="button">Middle</a>
 	<a class="btn btn-default" role="button">Right</a>
 </div>
 
-<h5>Justified (buttons):</h5>
+<h4>Justified (buttons):</h4>
 <div class="btn-group btn-group-justified">
 	<div class="btn-group">
 		<button type="button" class="btn btn-default">Left</button>
@@ -301,9 +302,9 @@ Link
 &lt;/div&gt;
 </code></pre>
 
-<h3 id="bgvertical">Button groups (Vertical)</h3>
+<h2 id="bgvertical">Button groups (Vertical)</h2>
 <p>Make a set of buttons appear vertically stacked rather than horizontally with the <code>btn-group-vertical</code> class.</p>
-<h4>Working Example</h4>
+<h3>Working Example</h3>
 <div class="btn-group-vertical">
 	<button type="button" class="btn btn-default">Top</button>
 	<button type="button" class="btn btn-default">Middle</button>
@@ -324,9 +325,9 @@ Link
 	&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
-<h3 id="buttontoolbar">Button toolbar</h3>
+<h2 id="buttontoolbar">Button toolbar</h2>
 <p>Use to display multiple groups of buttons together on a single line with the <code>btn-toolbar</code> class. Note the use of this feature requires some additional requirements in order to comform to WCAG.</p>
-<h4>Working Example</h4>
+<h3>Working Example</h3>
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 <div class="btn-group" role="group" aria-label="First group">
 <button type="button" class="btn btn-default">1</button>
@@ -381,46 +382,48 @@ Link
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-<h3 id="inputgroups">Input Groups</h3>
+<h2 id="inputgroups">Input Groups</h2>
 <p>Easily extend form controls by adding buttons, or button groups on either side of textual inputs with the <code>input-group</code> and <code>input-group-btn</code> classes.</p>
-<h4>Working Example</h4>
-<div class="input-group mb-3">
-<div class="input-group-btn">
+<h3>Working Example</h3>
+<div class="input-group">
+<span class="input-group-btn">
 <button class="btn btn-default" type="button">Button</button>
-</div>
+</span>
 <input type="text" class="form-control">
 </div>
 
-<div class="input-group mb-3">
+<div class="input-group">
 <input type="text" class="form-control">
-<div class="input-group-btn">
+<span class="input-group-btn">
 <button class="btn btn-default" type="button">Button</button>
-</div>
+</span>
 </div>
 
 <h4>Code Sample</h4>
 <pre><code>// Input groups:
-&lt;div class="<strong>input-group</strong> mb-3"&gt;
-	&lt;div class="<strong>input-group-btn</strong>"&gt;
+&lt;div class="<strong>input-group</strong>"&gt;
+	&lt;span class="<strong>input-group-btn</strong>"&gt;
 		&lt;button class="btn btn-default" type="button"&gt;Button&lt;/button&gt;
-	&lt;/div&gt;
+	&lt;/span&gt;
 	&lt;input type="text" class="form-control"&gt;
 &lt;/div&gt;
 
-&lt;div class="<strong>input-group</strong> mb-3"&gt;
+&lt;div class="<strong>input-group</strong>"&gt;
 	&lt;input type="text" class="form-control"&gt;
-	&lt;div class="<strong>input-group-btn</strong>"&gt;
+	&lt;span class="<strong>input-group-btn</strong>"&gt;
 		&lt;button class="btn btn-default" type="button"&gt;Button&lt;/button&gt;
-	&lt;/div&gt;
+	&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
-<h3 id="datatoggle">Data-toggle buttons</h3>
+<h2 id="datatoggle">Data-toggle buttons</h2>
 
 <div class="alert alert-info">
 	<p>Currently, this feature is not functional as we do not implement Bootstrap's JavaScript.</p>
 </div>
 
-<p>Bootstrap’s <code>.button</code> styles can be applied to other elements, such as <code>label</code>s, to provide checkbox or radio style button toggling. Add <code>data-toggle="buttons"</code> to a <code>.btn-group</code> containing those modified buttons to enable their toggling behavior via JavaScript and add <code>.btn-group-toggle</code> to style the <code>input</code>s within your buttons.</p>
+<p>Bootstrap’s <code>.button</code> styles can be applied to other elements, such as <code>label</code>s, to provide checkbox or radio style button toggling. Add <code>data-toggle="buttons"</code> to a <code>.btn-group</code> containing those modified buttons to enable their toggling behavior via JavaScript and add <code>.btn-group-toggle</code> to style the <code>input</code>s within your buttons. More info can be found here: <a href="https://getbootstrap.com/docs/3.4/components/#dropdowns">Bootstrap components</a></p>
 
-<h2>Resource</h2>
+<p>We are currently working on adding similiar functionality in the future. More info can be found in <a href="https://github.com/wet-boew/wet-boew/pull/9532">this pull request on GitHub.</a></p>
+
+<h2 id="resource">Resource</h2>
 <p><a href="https://design.canada.ca/common-design-patterns/buttons.html">Design system guidance on buttons</a></p>
