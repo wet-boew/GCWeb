@@ -5,6 +5,7 @@ dateModified: 2023-08-29
 description: "Home page describing all the components of the Canada.ca theme, named GCWeb."
 layout: no-container
 language: en
+feedback: true
 css:
 - href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
   integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
