@@ -1,0 +1,43 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ secondary menu
++
++ Left navigation for a secondary menu after the main content
++
++ Note: it is not recommended to use a left nav, an alternative content architecture should be consider.
++
++ The following must be defined
++ * parentPage information
++ * items of the secondary menu
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+
+{%- unless page.parentPage or page.secondarymenu -%}
+<section class="alert alert-danger">
+<h3>Broken left navigation</h3>
+<p>The left navigation configuration for this page must be adjusted according to gcweb jekyll secondary-menu include.</p>
+</section>
+{%- else -%}
+<section class="list-group menu list-unstyled">
+	<h3><a href="{{ page.parentPage.link }}">{{ page.parentPage.title }}</a></h3>
+	<ul class="list-group menu list-unstyled">
+		{%- for menuitem in page.secondarymenu -%}
+			<li><a href="{{ menuitem.link }}" class="list-group-item">{{ menuitem.title }}</a>
+			{%- for submenuitem in menuitem.subnav -%}
+				{%- if forloop.first -%}
+					<ul class="list-group menu list-unstyled">
+				{%- endif -%}
+
+				<li><a href="{{ submenuitem.link }}" class="list-group-item">{{ submenuitem.title }}</a></li>
+
+				{%- if forloop.last -%}
+					</ul>
+				{%- endif -%}
+			{%- endfor -%}
+		</li>
+		{%- endfor -%}
+	</ul>
+</section>
+{%- endunless -%}
