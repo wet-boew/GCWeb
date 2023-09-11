@@ -1,82 +1,88 @@
 ---
-breadcrumbs: [
-	{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/accueil.html" }
-]
-dateModified: "2021-05-21"
-description: "Documentation et exemple pratique de en demande- fonctionnalité provisoire"
-language: "fr"
-altLangPage: "gc-most-requested-en.html"
-title: "En demande - fonctionnalité provisoire"
+title: Bloc d’introduction
+description: Documentation et exemple pratique de bloc d’introduction
+language: fr
+altLangPage: gc-intro-block-en.html
+dateModified: 2023-08-09
+layout: no-container
 ---
-{% include alert-provisional.html siteroot="../../" %}
+<div class="container">
+	<h1 property="name" id="wb-cont" dir="ltr">{{ page.title }}</h1>
 
-<span class="wb-prettify all-pre hide"></span>
+	<span class="wb-prettify all-pre hide"></span>
+	<p>La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil.</p>
 
-<dl class="horizontal">
-	<dt>Statut</dt>
-	<dd>Provisiore</dd>
-	<dt>Type</dt>
-	<dd>Conception de Canada.ca</dd>
-	<dt>Dernière revue</dt>
-	<dd>2021-05-21</dd>
-	<dt>Est conforme à</dt>
-	<dd>n/a</dd>
-	<dt>Directives</dt>
-	<dd><a href="https://conception.canada.ca/configurations-conception-communes/en-demande.html">En demande -  Système de conception de Canada.ca</a> (à mettre à jour)</dd>
-	<dt>Nom technique</dt>
-	<dd><code>gc-most-requested</code></dd>
-</dl>
+	<h2>Sur cette page</h2>
+	<ul>
+		<!-- <li><a href="#inc-components">Included components</a></li> -->
+		<li><a href="#before-start">Before you start</a></li>
+		<li><a href="#accessibility-guidance">Accessibility guidance</a></li>
+		<li><a href="#variations">Variations</a></li>
+		<li><a href="#eval-report">Evaluation and report</a></li>
+		<li><a href="#technical-docs">Technical documentation</a></li>
+	</ul>
 
-<h2>Objectif</h2>
-<p>Ceci ajoute une section en vedette qui comprend des tâches principales liées à la page sur laquelle elles se trouvent.</p>
+	<h2 id="before-start">Before you start</h2>
+	<p>La configuration de conception du bloc d’introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.</p>
 
-<h2>Exemple pratique</h2>
+	<ul>
+		<li><a href="">How to set up the institutional landing page</a></li>
+		<li><a href="">Introduction block pattern</a></li>
+	</ul>
 
-<h3>En demande (provisoire v1.0)</h3>
-<section class="well well-sm provisional gc-most-requested">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				<h2>En demande</h2>
-			</div>
-			<div class="col-md-10">
-				<ul class="colcount-md-2">
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-				</ul>
+	<h2 id="accessibility-guidance">Accessibility guidance</h2>
+	<p>List of accessibility guidances to be followed to ensure component is used in respect of the accessibility guideline and EN 301 549 standard (including WCAG 2.1 Level AA).</p>
+	<p>There is <span>no accessibility guidance</span> defined.</p>
+
+	<h2 id="variations">Variations</h2>
+	<p>La configuration de conception du bloc d’introduction consiste en ce qui suit&nbsp;:</p>
+	<ul>
+		<li>titre</li>
+		<li>description courte</li>
+	</ul>
+	<p>Elle peut également inclure ces éléments&nbsp;:</p>
+	<ul>
+		<li>image</li>
+		<li>bouton de super-tâche</li>
+	</ul>
+
+	<h3>Bloc d’introduction</h3>
+	<div class="bg-center bg-cover" data-bgimg-srcset="img/1x1.png 991w, img/ip-cover-image-1200x726.jpg 992w">
+		<div class="container">
+			<div class="row mrgn-bttm-md">
+				<div class="col-md-7">
+				<h1 property="name" id="wb-cont">[Nom de l’institution]</h1>
+					<p>Description courte du mandat de l’institution.</p>
+					<a class="btn btn-call-to-action" href="#">Bouton de super-tâche [facultatif]</a>
+				</div>
 			</div>
 		</div>
 	</div>
-</section>
 
-<h3>Code</h3>
-<pre><code>
-&lt;section class="well well-sm provisional gc-most-requested"&gt;
+	<div class="container">
+		<h3>Code</h3>
+		<pre><code>
+		&lt;div class="bg-center bg-cover" data-bgimg-srcset="img/1x1.png 991w, img/ip-cover-image-1200x726.jpg 992w"&gt;
 	&lt;div class="container"&gt;
-		&lt;div class="row"&gt;
-			&lt;div class="col-md-2"&gt;
-				&lt;h2&gt;En demande&lt;/h2&gt;
-			&lt;/div&gt;
-			&lt;div class="col-md-10"&gt;
-				&lt;ul class="colcount-md-2"&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
+		&lt;div class="row mrgn-bttm-md"&gt;
+			&lt;div class="col-md-7"&gt;
+				&lt;h1 property="name" id="wb-cont"&gt;[Nom de l’institution]&lt;/h1&gt;
+				&lt;p&gt;Description courte du mandat de l’institution&lt;/p&gt;
+				&lt;a class="btn btn-call-to-action" href="#"&gt;Bouton de super-tâche [facultatif]&lt;/a&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
+&lt;/div&gt;
+	</code></pre>
+</div>
 
-<h2>Évaluation et rapport</h2>
-<p>Il n'y a pas d'évaluation et de rapport disponibles pour ce composant.</p>
+<h2 id="eval-report">Evaluation and report</h2>
+<p>There is no accessibility report.</p>
+
+<p>There is no accessibility conformance report.</p>
+	<h2 id="technical-docs">Technical documentation</h2>
+	<dl class="dl-horizontal">
+		<dt>Status:</dt>
+		<dd data-status="">stable</dd>
+	</dl>
+</div>
