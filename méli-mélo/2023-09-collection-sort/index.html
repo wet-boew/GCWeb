@@ -1,115 +1,300 @@
-    /**
-     * @title WET-BOEW Collection sort plugin
-     * @overview Plugin contained to show an example of how to create your custom WET plugin
-     * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
-     * @author 
-     */
-    ( function( $, window, wb ) {
-    "use strict";
-    /*
-     * Variable and function definitions.
-     * These are global to the plugin - meaning that they will be initialized once per page,
-     * not once per instance of plugin on the page. So, this is a good place to define
-     * variables that are common to all instances of the plugin on a page.
-     */
-	let wait;
-    var componentName = "gc-collection-sort",
-    	selector = "." + componentName,
-    	initEvent = "wb-init" + selector,
-    	$document = wb.doc,
-    	defaults = {},
-    	/**
-    	 * @method init
-    	 * @param {jQuery Event} event Event that triggered the function call
-    	 */
-    	init = function( event ) {
-    		// Start initialization
-    		// returns DOM object = proceed with init
-    		// returns undefined = do not proceed with init (e.g., already initialized)
-    		var elm = wb.init( event, componentName, selector ),
-    			$elm,
-    			settings;
-    		if ( elm ) {
-    			$elm = $( elm );
-    			// ... Do the plugin initialisation
-									
-				
-    			// Get the plugin JSON configuration set on attribute data-gc-collection-sort
-    			settings = $.extend(
-    				true,
-    				{},
-    				defaults,
-    				window[ componentName ],
-    				wb.getData( $elm, componentName )
-    			);
-    			// Call my custom event
-    			$elm.trigger( "gc-collection-sort", settings );
-    			// Identify that initialization has completed
-    			wb.ready( $elm, componentName );
-    		}
-    	};
-    // Add your plugin event handler
-    $document.on( "gc-collection-sort", selector, function( event, data ) {
-    	var elm = event.currentTarget;
-    	//$elm = $( elm );
-		 
-		function SortCollection(){
+---
+{
+	"title": "Collection sort",
+	"language": "en",
+	"dateModified": "2023-09-07",
+	"script": [
+		"js/gc-collection-sort.js"
+	]
+}
+---
+<p>Sort a collection of elements based on CSS selectors.</p>
 
-			var sortContainers = elm.querySelectorAll(data.section);
-			
-			sortContainers.forEach(function(container){
-				
-				var sortItems = container.querySelectorAll(data.selector); 		
-			
-				data.sort.forEach( function(sort) {			
-					let sortArray = [];
-					let sortDestinationArray = [];
-					
-					sortItems.forEach( function (element) {
-						sortDestinationArray.push(element.parentElement);
-						
-						let sortObj = { 
-							"elm" : element,
-							"sortVal" : element.querySelector(sort.selector).innerHTML
-						};
-							
-						sortArray.push(sortObj);
-					});
-					
-					if(sort.type === "numeric"){
-						if(sort.order === "desc")
-							sortArray.sort((a,b) => b.sortVal - a.sortVal);
-						else
-							sortArray.sort((a,b) => a.sortVal - b.sortVal);
-					}else{
-						if(sort.order === "desc")
-							sortArray.sort((a,b) => b.sortVal.localeCompare(a.sortVal));
-						else
-							sortArray.sort((a,b) => a.sortVal.localeCompare(b.sortVal));	
-					}
-					
-					sortArray.forEach(function(element, index) {
-						//sortContainer.append(element.elm);
-						sortDestinationArray[index].append(element.elm);
-					});
-				
-				});
-			});
-		}
-		if(typeof data.section !== "undefined" && typeof data.selector !== "undefined" && typeof data.sort !== "undefined" && data.section !== null && data.selector !== null && data.sort !== null){
-			SortCollection();
-			
-			//$document.on( "gc-updatesort", selector, function( event, data )  {
-			$document.on( "wb-contentupdated", selector, function( event, data )  {
-				SortCollection();	
-			});
-		}
-		
-    } );
-	
-	
-    // Bind the init event of the plugin
-    $document.on( "timerpoke.wb " + initEvent, selector, init );
-    // Add the timer poke to initialize the plugin
-    wb.add( selector );
-    } )( jQuery, window, wb );
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2023-09-collection-sort" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+<h2>Classes used</h2>
+<ul class="colcount-sm-2 colcount-md-4">
+<li><code>gc-collection-sort</code></li>
+</ul>
+
+
+<h2>Collection sort settings</h2>
+
+<pre><code>
+"sort":[{"selector":".cssSelector", "type":"text", "order":"asc"}],
+"section":".sort-collection",
+"selector":".sort-item"
+</code></pre>
+
+<dl>
+<dt>sort</dt>
+<dd>
+<code>"sort":[{"selector":".cssSelector", "type":"text", "order":"asc"}]</code>
+<p>An array of objects defining the series of sorts to do.</p>
+	<dl>
+	<dt>selector</dt>
+	<dd>The value to base the sort on</dd>
+	<dt>type</dt>
+	<dd>"text" or "numeric" for sorting as text or numbers</dd>
+	<dt>order</dt>
+	<dd>"asc" ascending sort, or "desc" descending sort</dd>
+	</dl>
+</dd>
+<dt>section</dt>
+<dd>
+<code>"section":".sort-collection"</code>
+<p>Selector defining the collection of items to be sorted.</p>
+</dd>
+<dt>selector</dt>
+<dd>
+<code>"selector":".sort-item"</code>
+<p>Selector defining the items in the collection to be sorted.</p>
+</dd>
+</dl>
+
+<h2>Sort paragraphs by first sentence descending order</h2>
+
+<h3>Original paragraphs</h3>
+
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+
+<h3>Sorted paragraphs</h3>
+<div class="gc-collection-sort" data-gc-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"desc"}],
+		"selector":"p",
+		"section":".sort-items"
+}'>
+
+<div class="sort-items">
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+</div>
+
+</div>
+
+
+<h2>Sort paragraphs with numeric sort option</h2>
+
+<h3>Original paragraphs</h3>
+
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+
+<h3>Sorted paragraphs</h3>
+<div class="gc-collection-sort" data-gc-collection-sort='{
+		"sort":[{"selector":".date", "type":"numeric", "order":"asc"}],
+		"selector":"p",
+		"section":".sort-items"
+}'>
+
+<div class="sort-items">
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+</div>
+
+</div>
+
+
+
+<h2>Sort simple list</h2>
+
+<h3>Original list</h3>
+<ul>
+<li><span class="term">Orange</span></li>
+<li><span class="term">Apple</span></li>
+<li><span class="term">Pear</span></li>
+<li><span class="term">Strawberry</span></li>
+<li><span class="term">Peach</span></li>
+</ul>
+
+<h3>Sorted list</h3>
+<div class="gc-collection-sort" data-gc-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="term">Orange</span></li>
+<li><span class="term">Apple</span></li>
+<li><span class="term">Pear</span></li>
+<li><span class="term">Strawberry</span></li>
+<li><span class="term">Peach</span></li>
+</ul>
+
+</div>
+
+<h2>Sort multiple lists</h2>
+
+<h3>Original lists</h3>
+<div class="row">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+<h3>Sorted lists</h3>
+<div class="gc-collection-sort" data-gc-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<div class="row">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+</div>
+
+
+<h2>Sort items spread across multiple lists</h2>
+
+<h3>Original lists</h3>
+<div class="row sort-items">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+<h3>Sorted lists</h3>
+<div class="gc-collection-sort" data-gc-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":".sort-items"
+}'>
+
+<div class="row sort-items">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+</div>
