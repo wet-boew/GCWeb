@@ -1,0 +1,15 @@
+{%- if page.steps -%}
+<div class="gc-stp-stp">
+	<ul class="row toc">
+		{%- for step in page.steps -%}
+		<li class="col-md-4 col-sm-6">
+			{%- if step.isActive == true or step.isActive == "true" -%}
+			<a class="list-group-item active">{{ step.name }}</a>
+			{%- else -%}
+			<a class="list-group-item" href="{{ step.link }}">{{ step.name }}</a>
+			{%- endif -%}
+		</li>
+		{%- endfor -%}
+	</ul>
+</div>
+{%- endif -%}
