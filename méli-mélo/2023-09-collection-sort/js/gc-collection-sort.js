@@ -96,7 +96,7 @@
 				});
 			});
 		}
-		if(typeof data.section !== "undefined" && typeof data.selector !== "undefined" && typeof data.sort !== "undefined" && data.section !== null && data.selector !== null && data.sort !== null){
+		if( data.section && data.selector && data.sort ){
 			SortCollection();
 			
 			//$document.on( "gc-updatesort", selector, function( event, data )  {
