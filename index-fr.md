@@ -33,6 +33,7 @@ css:
 					<li><a href="#gabarits"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a></li>
 					<li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo et thématiques</a></li>
 					<li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Fonctionnalités globales et de sites</a></li>
+					<li><a href="#wetboew"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Wet-boew</a></li>
 					<li><a href="#autre"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Autre documentation</a></li>
 					<li><a href="#implementer-developper"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implémenter&nbsp;/ Développer</a></li>
 				</ul>
@@ -56,6 +57,8 @@ css:
 		</li>
 		<li class="mrgn-lft-md">
 			<a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-sm"></span>Global et de sites</a>
+		</li>
+			<a href="#wetboew" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Wet-boew</a>
 		</li>
 		<li class="mrgn-lft-md">
 			<a href="#autre" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-sm"></span>Autre</a>
@@ -475,6 +478,101 @@ css:
 		</li>
 	{% endfor %}
 	</ul>
+	 <!-- The new added section of wet-boew -->
+	<h2 id="wetboew" class="mrgn-bttm-lg">Wet-boew</h2>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
+	{% for wetboew in site.data[ "wet-boew" ] %}
+		{% assign list-pages = wetboew.pages %}
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ wetboew.title[ page.language ] }}
+				{% if wetboew.status == "stable" %}
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
+				{% elsif wetboew.status == "provisional" %}
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
+				{% elsif wetboew.status == "deprecated" %}
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
+				{% else %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
+				{% endif %}
+				</h3>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p>
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="wet-boew/
+								{%- if wetboew.componentName -%}
+									{{ wetboew.componentName }}/
+								{%- endif -%}
+							{{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
+					{% endif %}
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					<!--
+					Documentation in GCWeb repo
+					-->
+					  {% for doc in docs %}
+					      {% if doc.url %}
+						<li><a href="{{ doc.url }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+					      {% endif %}
+					   {% endfor %}
+					{% endif %}
+					    <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>All examples and info</summary>
+					<ul class="list-unstyled">
+					{% for pgGroup in list-pages %}
+						{% assign grpkey = pgGroup[0] %}
+						<li>{{ page_group[ grpkey ] | default: "Unknown group" }}
+							<ul>
+							{% assign examples = pgGroup[1] %}
+							{% for example in examples %}
+								{% if example.path %}
+								<li><a href="wet-boew/
+											{%- if wetboew.componentName -%}
+												{{ wetboew.componentName }}/
+											{%- endif -%}
+										{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+								{% elsif example.url %}
+									<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+								{% else %}
+									<li>{{ example.title }}</li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						</li>
+					{% endfor %}
+					</ul>
+					</details>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+	<hr />
 	<h2 id="autre">Autre documentation</h2>
 	<div class="row mrgn-tp-md">
 		<div class="col-md-8">
