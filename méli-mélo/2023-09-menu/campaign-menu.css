@@ -1,0 +1,150 @@
+/*** Mega Menu ***/
+/* add background and text color for menu */
+#wb-sm.campaign-menu {
+    background: #003c77;
+    color: #fff;
+}
+/* remove table cell and text shadow*/
+#wb-sm.campaign-menu .menu {
+    border-right: 0px !important;
+    display: block;
+    text-shadow: none;
+}
+
+ /* focus within mneu itme background */
+#wb-sm.campaign-menu .menu .active, 
+#wb-sm.campaign-menu .menu .wb-navcurr {
+    background: #ccc !important;
+    color: #333 !important;
+}
+
+/* adjust menu padding to align height with GCMenu button */
+#wb-sm.campaign-menu .menu > li a {
+    padding: 0.5em 1em;
+}
+
+/* change menu item on-hover background*/
+#wb-sm.campaign-menu .menu > li a:hover{
+    background: #ccc !important;
+    color: #333 !important;
+}
+
+/* change menu item on-focus background */
+#wb-sm.campaign-menu .menu > li a:focus{
+    background: #003c77 !important;
+    color: #fff !important; 
+}
+/* change menuitem text color when mouse move to submenu item*/
+#wb-sm.campaign-menu .menu > li.active > a{
+    background: #ccc!important;
+    color: #333!important; 
+}
+
+/* submenu default color */
+#wb-sm.campaign-menu .sm.open li a {
+    background: #ccc !important;
+    color: #333 !important; 
+}
+
+/* hover on submenu item*/
+#wb-sm.campaign-menu .sm.open li a:active, 
+#wb-sm.campaign-menu .sm.open li a:focus, 
+#wb-sm.campaign-menu .sm.open li a:hover {
+    background: #003c77 !important;
+    color: #fff !important;    
+}
+
+/* submenu bottom bar color */
+#wb-sm.campaign-menu .sm.open {
+    border-bottom: 5px solid #003c77 !important;
+}
+
+
+/* add right border for last child item on md screen */
+@media screen and (max-width: 1199px) {
+    #wb-sm.campaign-menu .menu > li:last-child {
+        border-right: 1px solid #999;
+    }
+}
+
+
+/*** GCWEB Menu ***/
+/* default color */
+.gcweb-menu.campaign-menu button[aria-haspopup=true] {
+    background-color: #003c77 !important;
+    border: 1px solid #003c77;
+    color: #fff;
+}
+
+/* Button opened with white background */
+.gcweb-menu.campaign-menu button[aria-haspopup=true][aria-expanded=true] {
+    background-color: #fff !important;
+    color: #000;
+}
+
+/* button closed */
+.gcweb-menu.campaign-menu button[aria-haspopup=true]:focus {
+    background-color: #003c77 !important;
+    border: 1px dotted #fff; /* For focus - Make sure the  */
+    color: #fff;
+}
+
+/* add border for menu item area to align the width */
+.gcweb-menu.campaign-menu button[aria-haspopup=true][aria-expanded=true] + [role=menu] {
+    border-right: #003c77 solid 1px !important;
+}
+
+/* menu item background and color */
+.gcweb-menu.campaign-menu [role=menu] {
+    background-color: #003c77 !important;
+    color: #fff;
+}
+/* remove boder lines */
+.gcweb-menu.campaign-menu [role=menuitem], 
+.gcweb-menu.campaign-menu [role=menuitem]:visited,
+.gcweb-menu.campaign-menu [role=menu] > li,
+.gcweb-menu.campaign-menu [role=menu] > li:first-child,
+.gcweb-menu.campaign-menu [role=menu] > li:last-child,
+.gcweb-menu.campaign-menu [role=menu] [role=menu] [role=menuitem], 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:first-child [role=menuitem] {
+    border: none;
+}
+
+/* submenu background and text color*/
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li [role=menuitem] {
+    background-color: #e1e1e1 !important;
+    color: #333;
+    padding-left: 65px;
+}
+
+/* submenu item paddings and margins */
+.gcweb-menu.campaign-menu [aria-expanded=true]:not(button) + [role=menu] li {
+    margin-left: 0px;
+}
+.gcweb-menu.campaign-menu [aria-expanded=true]:not(button) + [role=menu] li:first-child [role=menuitem], 
+.gcweb-menu.campaign-menu [aria-expanded=true]:not(button) + [role=menu] li:last-child [role=menuitem] {
+    padding-left: 65px;
+}
+
+/* submenu item on focus */
+.gcweb-menu.campaign-menu [role=menu] [role=menu] [role=menuitem]:focus, 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:first-child [role=menuitem]:focus, 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:last-child [role=menuitem]:focus {
+    background-color: #e1e1e1 !important;
+    color: #333 !important;
+}
+
+/* submenu item on hover */
+.gcweb-menu.campaign-menu [role=menu] [role=menu] [role=menuitem]:hover, 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:first-child [role=menuitem]:hover, 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:last-child [role=menuitem]:hover {
+    background: #003c77 !important;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* remove the underline of sub menu item */
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li [role=menuitem], 
+.gcweb-menu.campaign-menu [role=menu] [role=menu] li:first-child [role=menuitem] {
+    text-decoration: none;
+}
