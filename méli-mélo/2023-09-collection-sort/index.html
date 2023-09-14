@@ -2,9 +2,9 @@
 {
 	"title": "Collection sort",
 	"language": "en",
-	"dateModified": "2023-09-07",
+	"dateModified": "2023-09-14",
 	"script": [
-		"js/gc-collection-sort.js"
+		"js/collection-sort.js"
 	]
 }
 ---
@@ -31,7 +31,7 @@
 
 <h2>Classes used</h2>
 <ul class="colcount-sm-2 colcount-md-4">
-<li><code>gc-collection-sort</code></li>
+<li><code>collection-sort</code></li>
 </ul>
 
 
@@ -80,7 +80,7 @@
 <p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
 
 <h3>Sorted paragraphs</h3>
-<div class="gc-collection-sort" data-gc-collection-sort='{
+<div class="collection-sort" data-collection-sort='{
 		"sort":[{"selector":".term", "type":"text", "order":"desc"}],
 		"selector":"p",
 		"section":".sort-items"
@@ -108,7 +108,7 @@
 <p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
 
 <h3>Sorted paragraphs</h3>
-<div class="gc-collection-sort" data-gc-collection-sort='{
+<div class="collection-sort" data-collection-sort='{
 		"sort":[{"selector":".date", "type":"numeric", "order":"asc"}],
 		"selector":"p",
 		"section":".sort-items"
@@ -138,7 +138,7 @@
 </ul>
 
 <h3>Sorted list</h3>
-<div class="gc-collection-sort" data-gc-collection-sort='{
+<div class="collection-sort" data-collection-sort='{
 		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
 		"selector":"li",
 		"section":"ul"
@@ -153,6 +153,52 @@
 </ul>
 
 </div>
+
+<h2>Sort simple list with multiple sorts</h2>
+
+<h3>Original list</h3>
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+<h3>Sorted list - sort by term followed by count</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"},{"selector":".count", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+</div>
+
+<h3>Sorted list - sort by count followed by term</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".count", "type":"text", "order":"asc"},{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+</div>
+
 
 <h2>Sort multiple lists</h2>
 
@@ -188,7 +234,7 @@
 </div>
 
 <h3>Sorted lists</h3>
-<div class="gc-collection-sort" data-gc-collection-sort='{
+<div class="collection-sort" data-collection-sort='{
 		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
 		"selector":"li",
 		"section":"ul"
@@ -261,7 +307,7 @@
 </div>
 
 <h3>Sorted lists</h3>
-<div class="gc-collection-sort" data-gc-collection-sort='{
+<div class="collection-sort" data-collection-sort='{
 		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
 		"selector":"li",
 		"section":".sort-items"
