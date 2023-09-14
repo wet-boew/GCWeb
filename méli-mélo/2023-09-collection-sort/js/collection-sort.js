@@ -51,17 +51,17 @@ var componentName = "collection-sort",
 // Add your plugin event handler
 $document.on( "collection-sort", selector, function( event, data ) {
 	var elm = event.currentTarget;
-	
-	 
+
 	function SortCollection(){
 
-		let sortContainers = elm.querySelectorAll(data.section);
-		let sortArray = [];
-		let sortDestinationArray = [];
+		var sortContainers = elm.querySelectorAll(data.section);
 		
 		sortContainers.forEach(function(container){
 			
-			let sortItems = container.querySelectorAll(data.selector); 		
+			var sortItems = container.querySelectorAll(data.selector); 		
+			
+			let sortArray = [];
+			let sortDestinationArray = [];
 			
 			sortItems.forEach( function (element) {
 				sortDestinationArray.push(element.parentElement);
@@ -73,30 +73,30 @@ $document.on( "collection-sort", selector, function( event, data ) {
 					
 				sortArray.push(sortObj);
 			});
-		
-		});
-		
-		data.sort.forEach( function(sort) {
+
+			data.sort.forEach( function(sort) {
 				
-			sortArray.forEach( function (sortObj) {	
-				sortObj.sortVal = sortObj.elm.querySelector(sort.selector).innerHTML;			
+				sortArray.forEach( function (sortObj) {	
+					sortObj.sortVal = sortObj.elm.querySelector(sort.selector).innerHTML;			
+				});
+								
+				if(sort.type === "numeric"){
+					if(sort.order === "desc")
+						sortArray.sort((a,b) => b.sortVal - a.sortVal);
+					else
+						sortArray.sort((a,b) => a.sortVal - b.sortVal);
+				}else{
+					if(sort.order === "desc")
+						sortArray.sort((a,b) => b.sortVal.localeCompare(a.sortVal));
+					else
+						sortArray.sort((a,b) => a.sortVal.localeCompare(b.sortVal));	
+				}
 			});
-							
-			if(sort.type === "numeric"){
-				if(sort.order === "desc")
-					sortArray.sort((a,b) => b.sortVal - a.sortVal);
-				else
-					sortArray.sort((a,b) => a.sortVal - b.sortVal);
-			}else{
-				if(sort.order === "desc")
-					sortArray.sort((a,b) => b.sortVal.localeCompare(a.sortVal));
-				else
-					sortArray.sort((a,b) => a.sortVal.localeCompare(b.sortVal));	
-			}
-		});
+			
+			sortArray.forEach(function(element, index) {
+				sortDestinationArray[index].append(element.elm);
+			});
 		
-		sortArray.forEach(function(element, index) {
-			sortDestinationArray[index].append(element.elm);
 		});
 	}
 	if(data.section && data.selector && data.sort){
