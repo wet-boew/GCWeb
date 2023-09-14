@@ -2,7 +2,7 @@
 	 * @title WET-BOEW Distance plugin
 	 * @overview Plugin contained to show an example of how to create your custom WET plugin
 	 * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
-	 * @author 
+	 * @author donmcdill
 	 */
 	( function( $, window, wb ) {
 	"use strict";
