@@ -54,8 +54,6 @@
 		var elm = event.currentTarget,
 		$elm = $( elm );
 		
-		var previousLookups = new Array();
-		
 		// Function to get the distance in KM between each office begin
 		function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 			var R = 6371; // Radius of the earth in km
@@ -90,11 +88,9 @@
 		}
 		
 		//Set filter event distance handler
-		$elm.find(data.form).on( "submit", function(distEvent) {
-		//distEvent.preventDefault;
+		$elm.find(data.form).on( "submit", function(distEvent) {		
 		
 		var distForm = distEvent.currentTarget;
-		//var distForm = document.querySelector(".distance-calculator");
 
 		var address = distForm.querySelector(data.location).value;
 		var addressEnc = encodeURIComponent(address);
@@ -114,7 +110,6 @@
 			var longitude = json[0].geometry.coordinates[0];
 			var latitude = json[0].geometry.coordinates[1];
 			var global_nice_address = json[0].title;
-			//msgLocation = msgLocationDefault;
 			
 			
 			// Inserts the distance between the VAC offices and the location entered in each PO's variable array
@@ -151,9 +146,6 @@
 			}
 				
 			//store every lookup result in here incase the user searches the same thing
-			previousLookups.push({"query" : addressEnc, "nice" : global_nice_address, "lat" : latitude, "lon" : longitude});
-			
-			//$elm.trigger( "updatesort", [{"source":componentName}] );
 			
 			$elm.trigger( "wb-contentupdated", [{"source":componentName}] );
 			
