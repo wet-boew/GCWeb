@@ -1,0 +1,61 @@
+{%- if page.report == "true" %}
+<details class="brdr-0">
+	<summary class="btn btn-default text-center">{{ i18nText-feedback }}</summary>
+	<div class="well row">
+		<div class="gc-rprt-prblm">
+			<div class="gc-rprt-prblm-frm gc-rprt-prblm-tggl">
+				<form action="#">
+					<fieldset>
+						<legend><span class="field-name">Please select all that apply:</span></legend>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f1">
+								<input type="checkbox" name="problem1" value="Yes" id="gc-rprt-prblm-f1" />A link, button or video is not working
+							</label>
+							<input name="problem1" type="hidden" value="No" />
+						</div>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f2">
+								<input type="checkbox" name="problem2" value="Yes" id="gc-rprt-prblm-f2" />It has a spelling mistake
+							</label>
+							<input name="problem2" type="hidden" value="No" />
+						</div>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f3">
+								<input type="checkbox" name="problem3" value="Yes" id="gc-rprt-prblm-f3" />Information is missing
+							</label>
+							<input name="problem3" type="hidden" value="No" />
+						</div>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f4">
+								<input type="checkbox" name="problem4" value="Yes" id="gc-rprt-prblm-f4" />Information is outdated or wrong
+							</label>
+							<input name="problem4" type="hidden" value="No" />
+						</div>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f5">
+								<input type="checkbox" name="problem5" value="Yes" id="gc-rprt-prblm-f5" />I can't find what I'm looking for
+							</label>
+							<input name="problem5" type="hidden" value="No" />
+						</div>
+						<div class="checkbox">
+							<label for="gc-rprt-prblm-f6">
+								<input type="checkbox" name="problem6" value="Yes" id="gc-rprt-prblm-f6" />Other issue not in this list
+							</label>
+							<input name="problem6" type="hidden" value="No" />
+						</div>
+					</fieldset>
+					<button type="submit" class="btn btn-primary wb-toggle" data-toggle='{"stateOff": "hide", "stateOn": "show", "selector": ".gc-rprt-prblm-tggl"}'>Submit</button>
+				</form>
+			</div>
+			<div class="gc-rprt-prblm-thnk gc-rprt-prblm-tggl hide">
+				<h3>Thank you for your help!</h3>
+				<p>You will not receive a reply. For enquiries, please <a href="https://www.canada.ca/en/contact.html">contact us</a>.</p>
+			</div>
+		</div>
+	</div>
+</details>
+{%- else -%}
+<div class="col-sm-6 col-lg-4 mrgn-tp-sm">
+	<a href="{{{ i18nText-tmpl-feedback-link }}}" class="btn btn-default btn-block">{{ i18nText-feedback }}</a>
+</div>
+{%- endif -%}

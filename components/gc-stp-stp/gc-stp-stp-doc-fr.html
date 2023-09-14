@@ -1,0 +1,126 @@
+---
+title: Navigation étape par étape
+language: fr
+description: Navigation étape par étape
+dateModified: 2023-06-28
+altLangPage: gc-stp-stp-doc-en.html
+---
+
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Statut</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Conception de Canada.ca</dd>
+	<dt>Dernière revue</dt>
+	<dd>2023-09-05</dd>
+	<dt>Orientation</dt>
+	<dd><a href="https://conception.canada.ca/modeles-recommandes/pages-lancement-service.html">Navigation étape par étape (pages de lancement d'un service) - Configuration de conception de Canada.ca</a></dd>
+	<dt>Nom technique</dt>
+	<dd>
+		<ul>
+			<li><code>gc-stp-stp</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>But</h2>
+<p>Affiche les liens pour chacune des étapes de lancement d'un service et met en surbrillance l'étape sélectionnée.</p>
+
+<h2>Comment mettre en &oelig;uvre</h2>
+<ol>
+	<li>Créez un <code>&lt;div></code> avec la classe CSS <code>gc-stp-stp</code>.</li>
+	<li>Dans ce <code>&lt;div></code>, créez soit un <code>&lt;ul></code> soit un <code>&lt;ol></code> (la bonne balise dépendra de si vos pages ont un ordre logique ou non. À ce <code>&lt;ul></code> ou <code>&lt;ol></code> ajoutez les classes CSS <code>row</code> et <code >toc</code>.</li>
+	<li>Dans ce <code>&lt;ul></code> ou <code>&lt;ol></code>, ajoutez vos <code>&lt;li></code> et ajoutez à chacun d'eux les classes CSS suivantes&nbsp;: <code>col-md-4</code> et <code>col-sm-6</code>.</li>
+	<li>Dans ces <code>&lt;li></code>, créez un <code>&lt;a></code> avec la classe CSS <code>list-group-item</code>.</li>
+	<li>Au <code>&lt;a></code> de la page courante, ajoutez la classe CSS <code>active</code>.</li>
+</ol>
+<p>Remarque&nbsp;: ce composant doit être inséré directement après la signature.</p>
+
+<h2>Exemples pratiques</h2>
+<ul>
+	<li><a href="gc-stp-stp-fr.html">Exemple&nbsp;: Navigation étape par étape</a></li>
+</ul>
+
+<h2>Évaluation et rapport</h2>
+<p>Il n'y a pas d'évaluation et de rapport disponible pour ce composant.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Classe CSS</th>
+		<th>Gabarit</th>
+		<th>Rendu visuel</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 2.0</td>
+		<td>Version 1.0</td>
+		<td>s.o.</td>
+	</tr>
+</table>
+<h3>Classe CSS (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-stp-stp</code></dt>
+	<dd>Composant&nbsp;: Navigation étape par étape</dd>
+</dl>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0 (v8.0)</dt>
+		<dd>
+			<ul>
+				<li>Crée&nbsp;: <code>.gc-stp-stp</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+<h3>Gabarit (v2.0)</h3>
+{%- highlight html -%}
+<div class="gc-stp-stp">
+	<ol class="row toc">
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="index-fr.html">1. [Nom de la page de la section ou de l’étape]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page2-fr.html">2. [Nom de la page de la section ou de l’étape]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page3-fr.html">3. [Nom de la page de la section ou de l’étape]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page4-fr.html">4. [Nom de la page de la section ou de l’étape]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page5-fr.html">5. [Nom de la page de la section ou de l’étape]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item active" href="#">6. [Nom de la page de la section ou de l’étape]</a></li>
+	</ol>
+</div>
+{%- endhighlight -%}
+
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 2.0</dt>
+		<dd>
+			<ul>
+				<li>Suppression du <code>&lt;div class="row"></code> enveloppant la liste.</li>
+				<li>Ajout de la classe CSS <code>row</code> directement à la liste.</li>
+				<li>Suppression des classes CSS <code>lst-spcd</code> et <code>col-md-12</code> de la liste.</li>
+				<li>Suppressions des classes CSS <code>clr-lft-[breakpoint]</code>.</li>
+			</ul>
+		</dd>
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Gabarit initial</li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Rendu visuel (v1.0)</h3>
+<details>
+	<summary>Notes sur les versions</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Rendu visuel initial</li>
+			</ul>
+		</dd>
+	</dl>
+</details>
