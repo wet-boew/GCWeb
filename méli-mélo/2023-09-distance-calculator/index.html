@@ -4,7 +4,7 @@
 	"language": "en",
 	"dateModified": "2023-09-08",
 	"script": [
-		"js/gc-distance-calculator.js"
+		"js/distance-calculator.js"
 	]
 }
 ---
@@ -31,15 +31,15 @@
 
 <h2>Classes used</h2>
 <ul class="colcount-sm-2 colcount-md-4">
-<li><code>gc-distance-calculator</code></li>
+<li><code>distance-calculator</code></li>
 </ul>
 
 
 <h2>Distance calculator settings</h2>
 
 <pre><code>
-"form":".gc-distance-form",
-"location":".gc-distance-location",
+"form":".distance-form",
+"location":".distance-location",
 "selector":".distance-item",
 "section":".distance-items",
 "target":".distance",
@@ -51,12 +51,12 @@
 <dl>
 <dt>form</dt>
 <dd>
-<code>"form":".gc-distance-form"</code>
+<code>"form":".distance-form"</code>
 <p>Selector for form where location is submitted</p>
 </dd>
 <dt>location</dt>
 <dd>
-<code>"location":".gc-distance-location"</code>
+<code>"location":".distance-location"</code>
 <p>Selector for input where location is entered</p>
 </dd>
 <dt>selector</dt>
@@ -105,9 +105,9 @@
 
 
 
-<section id="filteredEventsList" class="wb-tagfilter provisional gc-distance-calculator" data-gc-distance-calculator='{
-		"form":".gc-distance-form",
-		"location":".gc-distance-location",
+<section id="filteredEventsList" class="wb-tagfilter provisional distance-calculator" data-distance-calculator='{
+		"form":".distance-form",
+		"location":".distance-location",
 		"selector":"li",
 		"section":".wb-tagfilter-items",
 		"target":".distance",
@@ -122,14 +122,14 @@
 <summary>
 <h3>Filter options</h3>
 </summary>
-<form class="gc-distance-form">
+<form class="distance-form">
 
 <div class="form-group">
 <label for="location" class="h5 mrgn-tp-0"><span class="field-name">Enter your city, province or territory below</span></label>
-<input id="location" type="text" class="form-control full-width gc-distance-location" />
+<input id="location" type="text" class="form-control full-width distance-location" />
 </div>
 <div class="form-group">
-<button type="submit" class="btn btn-primary gc-distance-action" aria-controls="event-list">Find locations</button>
+<button type="submit" class="btn btn-primary distance-action" aria-controls="event-list">Find locations</button>
 </div>
 </form>
 
@@ -205,7 +205,7 @@
 <div class="col-xs-12 col-sm-8 col-lg-9">
 <h3 class="mrgn-tp-0">Events</h3>
 <div aria-live="polite">
-<div class="distance-visible hidden"><p>Added distance from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p>Updated events with distance from <span class="distance-title"></span></p></div>
 </div>
 	
 <ul class="list-unstyled events-list wb-tagfilter-items">
@@ -220,7 +220,7 @@
 <h4>Bidding on Opportunities</h4>
 <p><span class="event-date">Wednesday August 10th, 2022</span> | <span class="event-time">2:00 PM to 3:30 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Vancouver</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -228,7 +228,7 @@
 <h4>Doing business with the Government of Canada (Webinar)</h4>
 <p><span class="event-date">Thursday August 11th, 2022</span> | <span class="event-time">12:00 PM to 2:00 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -242,7 +242,7 @@
 <h4>Bidding on opportunities (Webinar)</h4>
 <p><span class="event-date">Thursday August 18th, 2022</span> | <span class="event-time">12:00 PM to 2:00 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -256,7 +256,7 @@
 <h4>Workshop to register in the Supplier Registration Information (SRI) system and in the Indigenous ness Directory (IBD) for Indigenous-led businesses</h4>
 <p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">9:30 AM to 11:00 AM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -264,7 +264,7 @@
 <h4>Doing Business with the Government of Canada</h4>
 <p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">1:30 PM to 3:00 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Montreal</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"","latitude":"" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -272,7 +272,7 @@
 <h4>Doing Business with the Government of Canada</h4>
 <p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">2:00 PM to 3:30 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Vancouver</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -286,7 +286,7 @@
 <h4>Mythbusting Federal Government Procurement and Overview of Innovation for Defence, Excellence and rity (IDEaS) </h4>
 <p><span class="event-date">Tuesday August 30th, 2022</span> | <span class="event-time">10:00 AM to 11:00 AM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Toronto</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -294,7 +294,7 @@
 <h4>Register as supplier and find opportunities on BuyAndSell.gc.ca</h4>
 <p><span class="event-date">Tuesday August 30th, 2022</span> | <span class="event-time">1:30 PM to 3:00 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Montreal</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 
@@ -302,7 +302,7 @@
 <h4>Federal Procurement Virtual Drop-in Café</h4>
 <p><span class="event-date">Wednesday August 31th, 2022</span> | <span class="event-time">3:00 PM to 4:00 PM</span></p>
 <p><strong>Location:</strong> <span class="event-location">Toronto</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
-<div class="distance-visible hidden"><p><strong><span class="distance" data-gc-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
 <div class="distance-sort hidden"></div>
 </li>
 </ul>
