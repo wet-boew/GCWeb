@@ -144,8 +144,6 @@
 					elem.classList.remove(data.display.removeClass);
 				});
 			}
-				
-			//store every lookup result in here incase the user searches the same thing
 			
 			$elm.trigger( "wb-contentupdated", [{"source":componentName}] );
 			
