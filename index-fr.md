@@ -1,7 +1,7 @@
 ---
 title: GCWeb, le thème WET-BOEW de Canada.ca
 altLangPage: index-en.html
-dateModified: 2023-09-13
+dateModified: 2023-09-19
 description: "Page d'accueil décrivant l'ensemble des composants du thème de Canada.ca, nommé GCWeb."
 layout: no-container
 language: fr
