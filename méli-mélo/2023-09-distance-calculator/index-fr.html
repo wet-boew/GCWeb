@@ -1,0 +1,315 @@
+---
+{
+	"title": "Calculateur de distance",
+	"language": "fr",
+	"dateModified": "2023-09-14",
+	"script": [
+		"js/distance-calculator.js"
+	],
+	"altLangPage": "index.html"
+}
+---
+<p>Utiliser le <a href="https://ressources-naturelles.canada.ca/science-et-donnees/science-et-recherche/sciences-terre/geographie/information-topographique/service-web/service-de-geolocalisation/17305">service de géolocalisation Geogratis de Ressources naturelles Canada</a> pour fournir la distance entre un ensemble de coordonnées connu et une adresse fournie par l'utilisateur.</p>
+
+<h2>GCWeb plan de mise en œuvre</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2023-09-distance-calculator" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>À faire et pour considération future</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Parrainer: {{ implPlan.sponsor }}</p>
+
+<h2>Classes utilisées</h2>
+<ul class="colcount-sm-2 colcount-md-4">
+<li><code>distance-calculator</code></li>
+</ul>
+
+
+<h2>Paramètres du calculateur de distance</h2>
+
+<pre><code>
+"form":".distance-form",
+"location":".distance-location",
+"selector":".distance-item",
+"section":".distance-items",
+"target":".distance",
+"sort":".distance-sort",
+"display":{"selector":".distance-visible","removeClass":"hidden"},
+"name":".distance-title"
+</code></pre>
+
+<dl>
+<dt>form</dt>
+<dd>
+<code>"form":".distance-form"</code>
+<p>Sélecteur de formulaire dans lequel l'emplacement est soumis</p>
+</dd>
+<dt>location</dt>
+<dd>
+<code>"location":".distance-location"</code>
+<p>Sélecteur de saisie où l'emplacement est saisi</p>
+</dd>
+<dt>selector</dt>
+<dd>
+<code>"selector":".distance-item"</code>
+<p>Sélecteur identifiant les éléments de la collection à mettre à jour avec la distance.</p>
+</dd>
+<dt>section</dt>
+<dd>
+<code>"section":".distance-items"</code>
+<p>Sélecteur définissant la collection d'éléments</p>
+</dd>
+<dt>target</dt>
+<dd>
+<code>"target":".distance"</code>
+<p>Sélecteur pour identifier l'élément à mettre à jour avec la distance formatée</p>
+</dd>
+<dt>sort</dt>
+<dd>
+<code>"sort":".distance-sort"</code>
+<p>Sélecteur pour identifier l'élément à mettre à jour avec un numéro de distance non formaté</p>
+</dd>
+<dt>display</dt>
+<dd>
+<code>"display":{"selector":".distance-visible","removeClass":"hidden"}</code>
+<p>Objet avec des options pour afficher le contenu lorsque la distance est calculée.</p>
+	<dl>
+	<dt>selector</dt>
+	<dd>
+	<code>"selector":".distance-visible"</code>
+	<p>Sélecteur pour tous les éléments à révéler</p>
+	</dd>
+	<dt>removeClass</dt>
+	<dd>
+	<code>"removeClass":"hidden"</code>
+	<p>Classe à supprimer lorsque les résultats sont affichés</p>
+	</dd>
+	</dl>
+</dd>
+<dt>name</dt>
+<dd>
+<code>"name":".distance-title"</code>
+<p>Sélecteur pour identifier l'élément à mettre à jour avec le nom renvoyé pour l'emplacement fourni</p>
+</dd>
+</dl>
+
+
+
+<section id="filteredEventsList" class="wb-tagfilter provisional distance-calculator" data-distance-calculator='{
+		"form":".distance-form",
+		"location":".distance-location",
+		"selector":"li",
+		"section":".wb-tagfilter-items",
+		"target":".distance",
+		"sort":".distance-sort",
+		"display":{"selector":".distance-visible","removeClass":"hidden"},
+		"name":".distance-title"
+	}'>
+<h2>Ajouter une distance à la liste des événements</h2>
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-lg-3">
+<details open="">
+<summary>
+<h3>Options de filtre</h3>
+</summary>
+<form class="distance-form">
+
+<div class="form-group">
+<label for="location" class="h5 mrgn-tp-0"><span class="field-name">Entrez votre ville, province ou territoire ci-dessous</span></label>
+<input id="location" type="text" class="form-control full-width distance-location" />
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-primary distance-action">Trouver des emplacements</button>
+</div>
+</form>
+
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Langue</span></legend>
+<ul class="list-unstyled">
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="" checked="checked"> Toutes
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__french"> Français
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__english"> Anglais
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Emplacement</span></legend>
+<ul class="list-unstyled">
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__montreal"> Montréal
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__online"> En ligne
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__ottawa"> Ottawa
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__toronto"> Toronto
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__vancouver"> Vancouver
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<label for="dayList">Jour de la semaine</label>
+<select id="dayList" name="dayOTW" class="form-control full-width wb-tagfilter-ctrl">
+<option value="">Toutes</option>
+<option value="dayOTW_monday">Lundi</option>
+<option value="dayOTW_tuesday">Mardi</option>
+<option value="dayOTW_wednesday">Mercredi</option>
+<option value="dayOTW_thursday">Jeudi</option>
+<option value="dayOTW_friday">Vendredi</option>
+<option value="dayOTW_saturday">Samedi</option>
+<option value="dayOTW_sunday">Dimanche</option>
+</select>
+</div>
+</details>
+</div>
+<div class="col-xs-12 col-sm-8 col-lg-9">
+<h3 class="mrgn-tp-0">Événements</h3>
+<div aria-live="polite">
+<div class="distance-visible hidden"><p>Événements mis à jour avec distance de <span class="distance-title"></span></p></div>
+</div>
+
+<ul class="list-unstyled events-list wb-tagfilter-items">
+
+<li data-wb-tags="language__english language__french location__online dayOTW_friday">
+<h4>Demandez tout à PAC</h4>
+<p><span class="event-date">Vendredi 5 août 2022</span> | <span class="event-time">12h à 13h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">En ligne</span>, <strong>Langue</strong>: <span class="event-language">Anglais, Français</span></p>
+</li>
+
+<li data-wb-tags="language__english location__vancouver dayOTW_wednesday">
+<h4>Misez sur des opportunités</h4>
+<p><span class="event-date">Mercredi 10 août 2022</span> | <span class="event-time">14h à 15h30</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Vancouver</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__ottawa dayOTW_thursday">
+<h4>Faire affaire avec le gouvernement du Canada (Webinaire)</h4>
+<p><span class="event-date">Jeudi 11 août 2022</span> | <span class="event-time">12h à 14h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Ottawa</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Demandez tout à PAC</h4>
+<p><span class="event-date">Vendredi 12 août 2022</span> | <span class="event-time">12h à 13h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">En ligne</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+</li>
+
+<li data-wb-tags="language__english location__ottawa dayOTW_thursday">
+<h4>Misez sur des opportunités (Webinaire)</h4>
+<p><span class="event-date">Jeudi 18 août 2022</span> | <span class="event-time">12h à 14h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Ottawa</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Demandez tout à PAC</h4>
+<p><span class="event-date">Vendredi 19 août 2022</span> | <span class="event-time">12h à 13h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">En ligne</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+</li>
+
+<li data-wb-tags="language__french location__ottawa dayOTW_thursday">
+<h4>Workshop to register in the Supplier Registration Information (SRI) system and in the Indigenous ness Directory (IBD) for Indigenous-led businesses</h4>
+<p><span class="event-date">Jeudi 25 août 2022</span> | <span class="event-time">9h30 à 11h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Ottawa</span>, <strong>Langue</strong>: <span class="event-language">Français</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__french location__montreal dayOTW_thursday">
+<h4>Doing Business with the Government of Canada</h4>
+<p><span class="event-date">Jeudi 25 août 2022</span> | <span class="event-time">13h30 à 15h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Montréal</span>, <strong>Langue</strong>: <span class="event-language">Français</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__vancouver dayOTW_thursday">
+<h4>Faire affaire avec le gouvernement du Canada</h4>
+<p><span class="event-date">Jeudi 25 août 2022</span> | <span class="event-time">14h à 15h30</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Vancouver</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Demandez tout à PAC</h4>
+<p><span class="event-date">Vendredi 26 août 2022</span> | <span class="event-time">12h à 13h30</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">En ligne</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+</li>
+
+<li data-wb-tags="language__english location__toronto dayOTW_tuesday">
+<h4>Démystifier les marchés publics fédéraux et aperçu de l'innovation pour la défense, l'excellence et la rité (IDEaS) </h4>
+<p><span class="event-date">Mardi 30 août 2022</span> | <span class="event-time">10h à 11h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Toronto</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__french location__montreal dayOTW_tuesday">
+<h4>Inscrivez-vous en tant que fournisseur et trouvez des opportunités sur Achatsetventes.gc.ca</h4>
+<p><span class="event-date">Mardi 30 août 2022</span> | <span class="event-time">13h30 à 15h</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Montréal</span>, <strong>Langue</strong>: <span class="event-language">Français</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__toronto dayOTW_wednesday">
+<h4>Café virtuel sans rendez-vous sur l'approvisionnement fédéral</h4>
+<p><span class="event-date">Mercredi 31 août 2022</span> | <span class="event-time">15h à 4:00 PM</span></p>
+<p><strong>Emplacement:</strong> <span class="event-location">Toronto</span>, <strong>Langue</strong>: <span class="event-language">Anglais</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> km</strong> de <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+</ul>
+<div class="wb-tagfilter-noresult hidden">
+<p>Aucun item ne correspond à cette combinaison de filtres.</p>
+</div>
+</div>
+</div>
+</section>

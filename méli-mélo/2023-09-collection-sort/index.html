@@ -1,0 +1,346 @@
+---
+{
+	"title": "Collection sort",
+	"language": "en",
+	"dateModified": "2023-09-14",
+	"script": [
+		"js/collection-sort.js"
+	]
+}
+---
+<p>Sort a collection of elements based on CSS selectors.</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2023-09-collection-sort" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+<h2>Classes used</h2>
+<ul class="colcount-sm-2 colcount-md-4">
+<li><code>collection-sort</code></li>
+</ul>
+
+
+<h2>Collection sort settings</h2>
+
+<pre><code>
+"sort":[{"selector":".cssSelector", "type":"text", "order":"asc"}],
+"section":".sort-collection",
+"selector":".sort-item"
+</code></pre>
+
+<dl>
+<dt>sort</dt>
+<dd>
+<code>"sort":[{"selector":".cssSelector", "type":"text", "order":"asc"}]</code>
+<p>An array of objects defining the series of sorts to do.</p>
+	<dl>
+	<dt>selector</dt>
+	<dd>The value to base the sort on</dd>
+	<dt>type</dt>
+	<dd>"text" or "numeric" for sorting as text or numbers</dd>
+	<dt>order</dt>
+	<dd>"asc" ascending sort, or "desc" descending sort</dd>
+	</dl>
+</dd>
+<dt>section</dt>
+<dd>
+<code>"section":".sort-collection"</code>
+<p>Selector defining the collection of items to be sorted.</p>
+</dd>
+<dt>selector</dt>
+<dd>
+<code>"selector":".sort-item"</code>
+<p>Selector defining the items in the collection to be sorted.</p>
+</dd>
+</dl>
+
+<h2>Sort paragraphs by first sentence descending order</h2>
+
+<h3>Original paragraphs</h3>
+
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+
+<h3>Sorted paragraphs</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"desc"}],
+		"selector":"p",
+		"section":".sort-items"
+}'>
+
+<div class="sort-items">
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+</div>
+
+</div>
+
+
+<h2>Sort paragraphs with numeric sort option</h2>
+
+<h3>Original paragraphs</h3>
+
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+
+<h3>Sorted paragraphs</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".date", "type":"numeric", "order":"asc"}],
+		"selector":"p",
+		"section":".sort-items"
+}'>
+
+<div class="sort-items">
+<p><span class="term">Mauris massa massa, porta euismod pellentesque ac, placerat eget purus.</span> Mauris sit amet <strong>September 25, 2023</strong> <span class="hidden date">20230925</span> finibus ex. Ut fringilla sem ut faucibus aliquam. Morbi nec dolor mauris. Nam quis molestie odio.</p>
+
+<p><span class="term">Nulla sed risus et nunc ultrices luctus.</span> Donec rutrum congue nunc, convallis fringilla velit finibus vitae. Donec massa lectus, consectetur <strong>September 3, 2023</strong> <span class="hidden date">20230903</span>  nec consequat sit amet, rutrum at dui. Mauris eget nunc vel arcu pretium efficitur.</p> 
+
+<p><span class="term">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc vulputate dui nec est ullamcorper, in sodales augue lobortis. Duis fermentum nibh ac risus sagittis malesuada. Quisque feugiat varius tellus, ut mattis nunc <strong>September 12, 2023</strong> <span class="hidden date">20230912</span>.</p> 
+</div>
+
+</div>
+
+
+
+<h2>Sort simple list</h2>
+
+<h3>Original list</h3>
+<ul>
+<li><span class="term">Orange</span></li>
+<li><span class="term">Apple</span></li>
+<li><span class="term">Pear</span></li>
+<li><span class="term">Strawberry</span></li>
+<li><span class="term">Peach</span></li>
+</ul>
+
+<h3>Sorted list</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="term">Orange</span></li>
+<li><span class="term">Apple</span></li>
+<li><span class="term">Pear</span></li>
+<li><span class="term">Strawberry</span></li>
+<li><span class="term">Peach</span></li>
+</ul>
+
+</div>
+
+<h2>Sort simple list with multiple sorts</h2>
+
+<h3>Original list</h3>
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+<h3>Sorted list - sort by term followed by count</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"},{"selector":".count", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+</div>
+
+<h3>Sorted list - sort by count followed by term</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".count", "type":"text", "order":"asc"},{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<ul>
+<li><span class="count">4</span> <span class="term">Orange</span></li>
+<li><span class="count">4</span> <span class="term">Apple</span></li>
+<li><span class="count">1</span> <span class="term">Pear</span></li>
+<li><span class="count">2</span> <span class="term">Strawberry</span></li>
+<li><span class="count">3</span> <span class="term">Peach</span></li>
+</ul>
+
+</div>
+
+
+<h2>Sort multiple lists</h2>
+
+<h3>Original lists</h3>
+<div class="row">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+<h3>Sorted lists</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":"ul"
+}'>
+
+<div class="row">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+</div>
+
+
+<h2>Sort items spread across multiple lists</h2>
+
+<h3>Original lists</h3>
+<div class="row sort-items">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+<h3>Sorted lists</h3>
+<div class="collection-sort" data-collection-sort='{
+		"sort":[{"selector":".term", "type":"text", "order":"asc"}],
+		"selector":"li",
+		"section":".sort-items"
+}'>
+
+<div class="row sort-items">
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+	<div class="col-md-4">
+	<ul>
+	<li><span class="term">Orange</span></li>
+	<li><span class="term">Apple</span></li>
+	<li><span class="term">Pear</span></li>
+	<li><span class="term">Strawberry</span></li>
+	<li><span class="term">Peach</span></li>
+	</ul>
+	</div>
+</div>
+
+</div>
