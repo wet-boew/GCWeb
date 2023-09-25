@@ -151,10 +151,10 @@
 		"fr": "Fil d'Ariane"
 	},
 	"description": {
-		"en": "Documentation on how to use breadcrumbs.",
-		"fr": "Documentation sur l'utilisation du fil d'arianne."
+		"en": "Indicates the location of the current page in relation to its parent in the site structure to reinforce a visitor’s current location in the Canada.ca user navigation model.",
+		"fr": "L’objectif du fil d'Ariane est de renforcer l’emplacement actuel des visiteurs dans le modèle de navigation de l’utilisateur du site Canada.ca."
 	},
-	"modified": "2021-02-12",
+	"modified": "2023-09-06",
 	"componentName": "breadcrumbs",
 	"status": "stable",
 	"pages": {
@@ -245,8 +245,8 @@
 	"variations": [
 		{
 			"name": {
-				"en": "Page feedback tool (default)",
-				"fr": "Outil de rétroaction sur la page (par défaut)"
+				"en": "Page feedback tool (PFT) - default",
+				"fr": "Outil de rétroaction sur la page (ORP) - par défaut"
 			},
 			"status": "stable",
 			"description": {
@@ -266,7 +266,8 @@
 			],
 			"implementation": [
 				"_:implement_pft",
-				"_:implement_pft_gcweb"
+				"_:implement_pft_gcweb",
+				"_:implement_pft_upgrade_rap"
 			],
 			"history": [
 				{
@@ -298,7 +299,8 @@
 			],
 			"implementation": [
 				"_:implement_pft_contact",
-				"_:implement_pft_contact_gcweb"
+				"_:implement_pft_contact_gcweb",
+				"_:implement_pft_upgrade_rap"
 			],
 			"history": [
 				{
@@ -309,8 +311,8 @@
 		},
 		{
 			"name": {
-				"en": "Report a problem",
-				"fr": "Signaler un problème"
+				"en": "Report a problem (RAP)",
+				"fr": "Signaler un problème (SUP)"
 			},
 			"status": "stable",
 			"description": {
@@ -519,9 +521,11 @@
 			},
 			"notes": {
 				"en": [
+					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -599,6 +603,28 @@
 			}
 		},
 		{
+			"@id": "_:implement_pft_upgrade_rap",
+			"iteration": "_:iteration_pft_1",
+			"name": {
+				"en": "Upgrade from RAP",
+				"fr": "Mise à jour à partir de SUP"
+			},
+			"introduction": {
+				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new PFT.",
+				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers le nouvel ORP."
+			},
+			"instructions": {
+				"en": [
+					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 2.1</a>.",
+					"Follow the implementation instructions for the new PFT implementation."
+				],
+				"fr": [
+					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 2.1</a>.",
+					"Suivez les instructions d'implémentation pour la nouvelle implémentation du ORP."
+				]
+			}
+		},
+		{
 			"@id": "_:implement_pft_contact",
 			"iteration": "_:iteration_pft_1",
 			"name": {
@@ -621,9 +647,11 @@
 			},
 			"notes": {
 				"en": [
+					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
