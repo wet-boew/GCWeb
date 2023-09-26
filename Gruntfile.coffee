@@ -412,12 +412,16 @@ module.exports = (grunt) ->
 			a11yReportByTestRequirement = {};
 			acrReportByConformity = {}
 
-			reportConf = grunt.file.readJSON( "_data/reporting.json" )
+			reportConf = grunt.file.readJSON( this.data.reporting )
+			dataSites = grunt.file.readJSON( this.data.sites )
+			dataComponents = grunt.file.readJSON( this.data.components )
+			dataCommons = grunt.file.readJSON( this.data.common )
+			dataTemplates = grunt.file.readJSON( this.data.templates )
 
-			a11yReportByComponent = processComponentReporting( grunt, "sites", this.data.sites, a11yReportByTestRequirement, acrReportByConformity, reportConf )
-			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "components", this.data.components, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
-			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "common", this.data.common, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
-			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "templates", this.data.templates, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = processComponentReporting( grunt, "sites", dataSites, a11yReportByTestRequirement, acrReportByConformity, reportConf )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "components", dataComponents, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "common", dataCommons, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "templates", dataTemplates, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
 
 
 			#
@@ -523,10 +527,12 @@ module.exports = (grunt) ->
 
 		"a11y-report":
 			all:
-				sites: @file.readJSON "_data/sites.json"
-				components: @file.readJSON "_data/components.json"
-				templates: @file.readJSON "_data/templates.json"
-				common: @file.readJSON "_data/common.json"
+				# Read those genrated json file only at runtime of the task
+				sites: "_data/sites.json"
+				components: "_data/components.json"
+				templates: "_data/templates.json"
+				common: "_data/common.json"
+				reporting: "_data/reporting.json"
 
 		clean:
 			dist: [ "dist"]
