@@ -85,6 +85,7 @@ module.exports = (grunt) ->
 			"concat:components"
 			"concat:templates"
 			"concat:sites"
+			"concat:wet-boew"
 			"clean:wetboew_demos"
 			"copy:wetboew_demos"
 		]
@@ -559,11 +560,11 @@ module.exports = (grunt) ->
 					stripBanners: true
 					banner: "<%= banner %>"
 				src: [
-					"{sites,common,components,templates}/**/*.js"
-					"!{sites,common,components,templates}/**/test.js"
-					"!{sites,common,components,templates}/**/assets"
-					"!{sites,common,components,templates}/**/demo"
-					"!{sites,common,components,templates}/**/demos"
+					"{sites,common,components,templates,wet-boew}/**/*.js"
+					"!{sites,common,components,templates,wet-boew}/**/test.js"
+					"!{sites,common,components,templates,wet-boew}/**/assets"
+					"!{sites,common,components,templates,wet-boew}/**/demo"
+					"!{sites,common,components,templates,wet-boew}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
 			common:
@@ -587,6 +588,13 @@ module.exports = (grunt) ->
 					separator: ","
 				src: "templates/**/index.json-ld"
 				dest: "_data/templates.json"
+			"wet-boew":
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "wet-boew/**/index.json-ld"
+				dest: "_data/wet-boew.json"
 			sites:
 				options:
 					banner: "["
@@ -715,14 +723,14 @@ module.exports = (grunt) ->
 			layouts:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates,docs}/**/layouts/**.*"
+				src: "{sites,components,templates,docs,wet-boew}/**/layouts/**.*"
 				dest: "<%= jekyllDist %>/_layouts"
 			includes:
 				files: [
 					expand: true
 					src: [
-						"{sites,components,templates}/**/*-{includes,inc}/**.html"
-						"!{sites,components,templates}/**/includes/**.*"
+						"{sites,components,templates,wet-boew}/**/*-{includes,inc}/**.html"
+						"!{sites,components,templates,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
@@ -733,21 +741,21 @@ module.exports = (grunt) ->
 				,
 					expand: true
 					src: [
-						"{sites,components,templates}/**/includes/**.*"
+						"{sites,components,templates,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + src.substring( src.indexOf('/') ).replace( '/includes/', '/' )
 				,
 					expand: true
-					src: "{sites,components,templates}/*/include.html"
+					src: "{sites,components,templates,wet-boew}/*/include.html"
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + "/" + src.replace( '/include.html', '.html' )
 				]
 			samples:
 				expand: true
-				src: "{sites,common,components,templates}/**/samples/**.*"
+				src: "{sites,common,components,templates,wet-boew}/**/samples/**.*"
 				dest: "_includes"
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
@@ -770,15 +778,15 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 				src: [
-					"{sites,common,components,templates}/**/fonts/**.*"
+					"{sites,common,components,templates,wet-boew}/**/fonts/**.*"
 					"!**/*.scss"
 				]
 				dest: "<%= themeDist %>/fonts"
 			assets:
 				expand: true
 				src: [
-					"{sites,common,components,templates}/**/assets/**.*"
-					"{sites,common,components,templates}/**/assets/**/*.*"
+					"{sites,common,components,templates,wet-boew}/**/assets/**.*"
+					"{sites,common,components,templates,wet-boew}/**/assets/**/*.*"
 				]
 				dest: "<%= themeDist %>/assets"
 				rename: (dest, src) ->
@@ -793,7 +801,7 @@ module.exports = (grunt) ->
 			depsJS_custom:
 				expand: true
 				flatten: true
-				src: "{sites,common,components,templates}/deps/**.js"
+				src: "{sites,common,components,templates,wet-boew}/deps/**.js"
 				dest: "<%= themeDist %>/deps-js"
 			depsJS:
 				expand: true
@@ -1057,13 +1065,13 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"{sites,common,components,templates}/**/*.js"
+					"{sites,common,components,templates,wet-boew}/**/*.js"
 				]
 		jsonlint:
 			all:
 				src: [
-					"{sites,common,components,templates}/**/*.json",
-					"{sites,common,components,templates}/**/*.json-ld"
+					"{sites,common,components,templates,wet-boew}/**/*.json",
+					"{sites,common,components,templates,wet-boew}/**/*.json-ld"
 				]
 				options: {
 					indent: "\t"
@@ -1074,7 +1082,7 @@ module.exports = (grunt) ->
 			all:
 				expand: true
 				src: [
-						"{sites,common,components,templates}/**/*.scss"
+						"{sites,common,components,templates,wet-boew}/**/*.scss"
 						"!*-jekyll.scss"
 						"!node_modules"
 					]
@@ -1094,7 +1102,7 @@ module.exports = (grunt) ->
 						"Rakefile"
 
 						# Folders
-						"{sites,common,components,templates}/**"
+						"{sites,common,components,templates,wet-boew}/**"
 
 						#
 						# Exemptions...
@@ -1104,17 +1112,17 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,common,components,templates}/**/*.md"
+						"!{sites,common,components,templates,wet-boew}/**/*.md"
 						# "{sites,components,templates}/*/*.{md,html}"
 						# "{sites,components,templates}/*.{md, html}"
 						# "!{sites,components,templates}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,common,components,templates}/**/*.{jpg,png,ico}"
-						"!{sites,common,components,templates}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates,wet-boew}/**/*.{jpg,png,ico}"
+						"!{sites,common,components,templates,wet-boew}/*.{ico,jpg,png}"
 
 						# External fonts
-						"!{sites,common,components,templates}/**/*.{eot,svg,ttf,woff}"
+						"!{sites,common,components,templates,wet-boew}/**/*.{eot,svg,ttf,woff}"
 
 						# Docker environment file
 						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
