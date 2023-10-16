@@ -1,0 +1,41 @@
+---
+{
+	"layout": "application",
+	"title": "Page d'application",
+	"language": "fr",
+	"altLangPage": "default-application-en.html",
+	"dateModified": "2023-10-13"
+}
+---
+
+{% include alert-community-stable.html %}
+
+<h2>Options de configuration (spécifique à GCWeb Jekyll)</h2>
+<ul>
+	<li><code>"applicationName"</code> (obligatoire, <code>Object</code>): contient le nom de l'application pour toutes les langues.
+		<ul>
+			<li><code>"en"</code> (obligatoire): le nom de l'application en anglais.</li>
+			<li><code>"fr"</code> (obligatoire): le nom de l'application en français.</li>
+		</ul>
+	</li>
+	<li><code>"applicationURL"</code> (obligatoire, <code>Object</code>): contient l'URL de l'application pour toutes les langues.
+		<ul>
+			<li><code>"en"</code> (obligatoire): l'URL de l'application en anglais.</li>
+			<li><code>"fr"</code> (obligatoire): l'URL de l'application en français.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Code</h3>
+<pre class="wb-prettify prettyprint"><code>{
+	...
+	"applicationName": {
+		"en": "My application",
+		"fr": "Mon application"
+	}
+	"applicationURL": {
+		"en": "/",
+		"fr": "/"
+	}
+	...
+}</code></pre>
