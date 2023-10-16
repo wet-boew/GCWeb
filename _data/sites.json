@@ -151,10 +151,10 @@
 		"fr": "Fil d'Ariane"
 	},
 	"description": {
-		"en": "Documentation on how to use breadcrumbs.",
-		"fr": "Documentation sur l'utilisation du fil d'arianne."
+		"en": "Indicates the location of the current page in relation to its parent in the site structure to reinforce a visitor’s current location in the Canada.ca user navigation model.",
+		"fr": "L’objectif du fil d'Ariane est de renforcer l’emplacement actuel des visiteurs dans le modèle de navigation de l’utilisateur du site Canada.ca."
 	},
-	"modified": "2021-02-12",
+	"modified": "2023-09-06",
 	"componentName": "breadcrumbs",
 	"status": "stable",
 	"pages": {
@@ -245,8 +245,8 @@
 	"variations": [
 		{
 			"name": {
-				"en": "Page feedback tool (default)",
-				"fr": "Outil de rétroaction sur la page (par défaut)"
+				"en": "Page feedback tool (PFT) - default",
+				"fr": "Outil de rétroaction sur la page (ORP) - par défaut"
 			},
 			"status": "stable",
 			"description": {
@@ -254,8 +254,8 @@
 				"fr": "La variante de l'Outil de rétroaction sur la page remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
-				"en": "https://design.canada.ca/continuous-improvement/monitoring/feedback.html",
-				"fr": "https://conception.canada.ca/amelioration-continue/mesure/retroaction.html"
+				"en": "https://design.canada.ca/feedback/index.html",
+				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
 			"iteration": "_:iteration_pft_1",
 			"example": [
@@ -266,7 +266,9 @@
 			],
 			"implementation": [
 				"_:implement_pft",
-				"_:implement_pft_gcweb"
+				"_:implement_pft_gcweb",
+				"_:implement_pft_upgrade_rap",
+				"_:implement_pft_mws_author"
 			],
 			"history": [
 				{
@@ -286,8 +288,8 @@
 				"fr": "La variante de l'Outil de rétroaction sur la page avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
-				"en": "https://design.canada.ca/continuous-improvement/monitoring/feedback.html",
-				"fr": "https://conception.canada.ca/amelioration-continue/mesure/retroaction.html"
+				"en": "https://design.canada.ca/feedback/index.html",
+				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
 			"iteration": "_:iteration_pft_1",
 			"example": [
@@ -298,7 +300,9 @@
 			],
 			"implementation": [
 				"_:implement_pft_contact",
-				"_:implement_pft_contact_gcweb"
+				"_:implement_pft_contact_gcweb",
+				"_:implement_pft_upgrade_rap",
+				"_:implement_pft_mws_author"
 			],
 			"history": [
 				{
@@ -309,8 +313,8 @@
 		},
 		{
 			"name": {
-				"en": "Report a problem",
-				"fr": "Signaler un problème"
+				"en": "Report a problem (RAP)",
+				"fr": "Signaler un problème (SUP)"
 			},
 			"status": "stable",
 			"description": {
@@ -500,28 +504,34 @@
 			"@id": "_:implement_pft",
 			"iteration": "_:iteration_pft_1",
 			"name": {
-				"en": "Standard",
-				"fr": "Standard"
+				"en": "Standard (wet-boew)",
+				"fr": "Standard (wet-boew)"
 			},
 			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the component manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+				"en": "This implementation is meant for developers/publishers adding the component manually with using the latest GCWeb version along with at least the implementation of the page details version 2.x.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant une version récente de GCWeb avec l'implémentation de la version 2.x du détails de la page."
 			},
 			"instructions": {
 				"en": [
+					"Ensure the version of <a href=\"https://github.com/wet-boew/GCWeb/releases\">GCWeb</a> <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 or earlier</a> is implemented",
+					"Ensure the latest version of <a href=\"../page-details/page-details-docs-en.html\">page details</a> is implemented",
 					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"assets/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
+					"Vérifier qu'une version récente de GCWeb (<a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récent</a>) est implémenté",
+					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 2.1, ou plus récente, du détails de la page</a> est implémenté",
 					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"assets/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
 			"notes": {
 				"en": [
+					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -530,7 +540,7 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"&gt;&lt;/div&gt;"
+						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\"&gt;&lt;/div&gt;"
 					},
 					{
 						"@type": "source-code",
@@ -546,7 +556,7 @@
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant le thème de votre page]\" \ndata-feedback-theme=\"[Texte définissant la section où réside votre page]\"&gt;&lt;/div&gt;"
+						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\"&gt;&lt;/div&gt;"
 					},
 					{
 						"@type": "source-code",
@@ -599,31 +609,85 @@
 			}
 		},
 		{
-			"@id": "_:implement_pft_contact",
+			"@id": "_:implement_pft_upgrade_rap",
 			"iteration": "_:iteration_pft_1",
 			"name": {
-				"en": "Standard",
-				"fr": "Standard"
+				"en": "Upgrade from RAP",
+				"fr": "Mise à jour à partir de SUP"
 			},
 			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the component manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new PFT.",
+				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers le nouvel ORP."
 			},
 			"instructions": {
 				"en": [
+					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 2.1</a>.",
+					"Follow the implementation instructions for the new PFT implementation."
+				],
+				"fr": [
+					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 2.1</a>.",
+					"Suivez les instructions d'implémentation pour la nouvelle implémentation du ORP."
+				]
+			}
+		},
+		{
+			"@id": "_:implement_pft_mws_author",
+			"iteration": "_:iteration_pft_1",
+			"name": {
+				"en": "MWS users",
+				"fr": "Utilisateur SWG"
+			},
+			"introduction": {
+				"en": "For users that are authoring web page on Canada.ca Managed Web Services.",
+				"fr": "Pour les utilisateurs qui font de l'édition de page web sur Canada.ca via le Service web géré."
+			},
+			"instructions": {
+				"en": [
+					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before to adding the page feedback tool on your pages.",
+					"If you are configuring the section, please follow the <a href=\"https://design.canada.ca/feedback/index.html\">additional design system guidance</a>.",
+					"You can configure the page feedback tool via the page properties by specifying the optional configuration (contact info and section). The value for the theme configuration are automatically set by the MWS.",
+					"For additional guidance on how to implements, you can consult the guide on GCPedia along with the other documentation for the managed web service."
+				],
+				"fr": [
+					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter l'outil de rétroaction sur la page à vos pages.",
+					"Si vous configurez la section, veuillez suivre les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes supplémentaires du système de conception</a>.",
+					"Vous pouvez configurer l'outil de rétroaction sur la page via les propriétés de la page en spécifiant la configuration facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
+					"Pour des conseils supplémentaires sur la mise en œuvre, vous pouvez consulter le guide sur GCPedia avec les autres documents du service web géré."
+				]
+			}
+		},
+		{
+			"@id": "_:implement_pft_contact",
+			"iteration": "_:iteration_pft_1",
+			"name": {
+				"en": "Standard (wet-boew)",
+				"fr": "Standard (wet-boew)"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually with using the latest GCWeb version along with at least the implementation of the page details version 2.x.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant une version récente de GCWeb avec l'implémentation de la version 2.x du détails de la page."
+			},			
+			"instructions": {
+				"en": [
+					"Ensure the version of <a href=\"https://github.com/wet-boew/GCWeb/releases\">GCWeb</a> <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 or earlier</a> is implemented",
+					"Ensure the latest version of <a href=\"../page-details/page-details-docs-en.html\">page details</a> is implemented",
 					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"assets/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
+					"Vérifier qu'une version récente de GCWeb (<a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récent</a>) est implémenté",
+					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 2.1, ou plus récente, du détails de la page</a> est implémenté",
 					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"assets/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
 			"notes": {
 				"en": [
+					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -632,7 +696,7 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\" \ndata-feedback-link=\"[Contact link text]\" \ndata-feedback-url=\"[Contact link URL]\"&gt;&lt;/div&gt;"
+						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\" \ndata-feedback-link=\"[Contact link text]\" \ndata-feedback-url=\"[Contact link URL]\"&gt;&lt;/div&gt;"
 					},
 					{
 						"@type": "source-code",
@@ -648,7 +712,7 @@
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant le thème de votre page]\" \ndata-feedback-theme=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-link=\"[Texte du lien de contact]\" \ndata-feedback-url=\"[URL du lien de contact]\"&gt;&lt;/div&gt;"
+						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\" \ndata-feedback-link=\"[Texte du lien de contact]\" \ndata-feedback-url=\"[URL du lien de contact]\"&gt;&lt;/div&gt;"
 					},
 					{
 						"@type": "source-code",
