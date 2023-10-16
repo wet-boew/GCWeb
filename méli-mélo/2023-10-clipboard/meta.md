@@ -16,7 +16,7 @@ title:
 description:
   en: Create a button that when clicked copies the identified content to the clipboard.
 modified: 2023-09-07
-componentName: 2021-10-clipboard
+componentName: 2023-10-clipboard
 sponsor: CRA - Andrew de Peiza (@andrewdp) + Christopher Oakes (@christopher-o)
 
 pages:
