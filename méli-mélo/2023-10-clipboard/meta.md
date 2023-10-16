@@ -12,7 +12,7 @@ feature: méli-mélo
   modified: dct:modified
 
 title:
-  en: Copy to Clipbaord
+  en: Copy to Clipboard
 description:
   en: Create a button that when clicked copies the identified content to the clipboard.
 modified: 2023-09-07
