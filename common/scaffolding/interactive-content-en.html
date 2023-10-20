@@ -1,31 +1,53 @@
 ---
-title: Embedded and interactive content - Scaffolding
----
----
 {
-	"title": "Embedded and interactive content - Scaffolding",
-	"language": "en",
-	"altLangPage": "interactive-Content-en.html",
-	"breadcrumbs": [
-		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" }
-	],
-	"dateModified": "2023-07-18"
+"title": "Embedded and interactive content - Scaffolding",
+"language": "en",
+"altLangPage": "interactive-Content-fr.html",
+"breadcrumbs":
+[
+	{
+	"title": "GCWeb home",
+	"link": "https://wet-boew.github.io/GCWeb/index-en.html",
+	},
+],
+"dateModified": "2023-10-19",
 }
 ---
 
-<h2>The <code>picture</code> element</h2>
-<picture></picture>
-<pre><code>&lt;picture&gt;&lt;/picture&gt;</code></pre>
-
-<h2>The <code>source</code> and <code>img</code> element</h2>
+<h2>The <code>picture</code>, <code>source</code> and <code>img</code> element</h2>
+<h3>Valid image source</h3>
 <picture>
 	<source srcset="img/input-image-sample.jpg">
-	<img src="img/input-image-sample.jpg">
+	<img src="img/input-image-sample.jpg" alt="Example of a valid image source">
 </picture>
 <pre>
 <code>&lt;picture&gt;
 &lt;source srcset="img/input-image-sample.jpg"&gt;
-&lt;img src="img/input-image-sample.jpg"&gt;
+&lt;img src="img/input-image-sample.jpg" alt="Example of a valid image source"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h3>Empty image source</h3>
+<picture>
+	<source srcset="">
+	<img src="" alt="Example of an empty image source">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset=""&gt;
+&lt;img src="" alt="Example of an empty image source"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h3>Invalid image source</h3>
+<picture>
+	<source srcset="img/invalid-image.jpg">
+	<img src="img/invalid-image.jpg" alt="Example of an invalid image source">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset="img/invalid-image.jpg"&gt;
+&lt;img src="img/invalid-image.jpg" alt="Example of an invalid image source"&gt;
 &lt;/picture&gt;</code>
 </pre>
 
@@ -34,6 +56,10 @@ title: Embedded and interactive content - Scaffolding
 <pre><code>&lt;iframe src="https://www.canada.ca/en.html" title="The official website of the Government of Canada" width="700px" height="500px"&gt;&lt;/iframe&gt;</code></pre>
 
 <h2>The <code>embed</code> element</h2>
+<p>Keep in mind that most modern browsers have deprecated and removed support for browser plug-ins, so relying upon <embed> is generally not wise if you want your site to be operable on the average user's browser.
+
+Accessibility concerns: Use the title attribute on an embed element to label its content so that people navigating with assistive technology such as a screen reader can understand what it contains. The title's value should concisely describe the embedded content. Without a title, they may not be able to determine what its embedded content is. This context shift can be confusing and time-consuming, especially if the embed element contains interactive content like video or audio.</p>
+
 <h3>An embedded image</h3>
 <embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200">
 <pre><code>&lt;embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200"&gt;</code></pre>
@@ -103,6 +129,85 @@ Your browser does not support the video tag.
 
 <h2>The <code>map</code> and <code>area</code> elements</h2>
 
+<img src="img/planets.gif" width="145" height="126" alt="Planets"
+usemap="#planetmap">
+
+<map name="planetmap">
+<area shape="rect" coords="0,0,82,126" href="img/sun.gif" alt="Sun">
+<area shape="circle" coords="90,58,3" href="img/mercury.gif" alt="Mercury">
+<area shape="circle" coords="124,58,8" href="img/venus.gif" alt="Venus">
+</map>
+
+<pre>
+<code>&lt;img src="img/planets.gif" width="145" height="126" alt="Planets"
+usemap="#planetmap"&gt;
+
+&lt;map name="planetmap"&gt;
+&lt;area shape="rect" coords="0,0,82,126" href="img/sun.gif" alt="Sun"&gt;
+&lt;area shape="circle" coords="90,58,3" href="img/mercury.gif" alt="Mercury";
+&lt;area shape="circle" coords="124,58,8" href="img/venus.gif" alt="Venus";
+&lt;map name="planetmap"&gt;
+</code>
+</pre>
+
+<h2>The <code>MathML</code> element</h2>
+<h3>The quadratic formula</h3>
+<p>
+<math>
+<mi>x</mi>
+<mo>=</mo>
+<mfrac>
+	<mrow>
+	<mo form="prefix">−</mo> <mi>b</mi>
+	<mo>±</mo>
+	<msqrt>
+	<msup> <mi>b</mi> <mn>2</mn> </msup>
+	<mo>−</mo>
+	<mn>4</mn> <mo>⁢</mo> <mi>a</mi> <mo>⁢</mo> <mi>c</mi>
+	</msqrt>
+	</mrow>
+	<mrow>
+	<mn>2</mn> <mo>⁢</mo> <mi>a</mi>
+	</mrow>
+</mfrac>
+</math>
+</p>
+
+<pre>
+<code>&lt;p&gt;
+&lt;math&gt;
+&lt;mi&gt;x&lt;/mi&gt;
+&lt;mo&gt;=&lt;/mo&gt;
+&lt;mfrac&gt;
+&lt;mrow&gt;
+&lt;mo form="prefix"&gt;-&lt;/mo&gt; &lt;mi&gt;b&lt;/mi&gt;
+&lt;mo&gt;±&lt;/mo&gt;
+&lt;msqrt&gt;
+&lt;msup&gt; &lt;mi&gt;b&lt;/mi&gt; &lt;mn&gt;2&lt;/mn&gt; &lt;/msup&gt;
+&lt;mo&gt;-&lt;/mo&gt;
+&lt;mn&gt;4&lt;/mn&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;a&lt;/mi&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;c&lt;/mi&gt;
+&lt;/msqrt&gt;
+&lt;/mrow&gt;
+&lt;mrow&gt;
+&lt;mn&gt;2&lt;/mn&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;a&lt;/mi&gt;
+&lt;/mrow&gt;
+&lt;/mfrac&gt;
+&lt;/math&gt;
+&lt;/p&gt;</code>
+</pre>
+
+<h2>The <code>svg</code> element</h2>
+<svg width="100" height="100">
+<circle cx="50" cy="50" r="40" stroke="red" stroke-width="5" fill="blue" />
+</svg>
+
+<pre>
+<code>&lt;svg width="100" height="100"&gt;
+&lt;circle cx="50" r="40" stroke="red" stroke-width="5" fill="blue" /&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+
 <h2>The <code>details</code> and <code>summary</code> element</h2>
 
 <details>
@@ -125,139 +230,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 &lt;/dialog&gt;</code>
 </pre>
 
-<h2>The <code>table</code> element</h2>
-
-<table></table>
-<pre>
-<code>&lt;table&gt;&lt;/table&gt;</code>
-</pre>
-
-<h3>2 rows & 2 columns with the <code>tr</code> and <code>td</code> elements</h3>
-
-<table>
-<tr>
-	<td>Lorem ipsum dolor sit amet</td>
-	<td>Proin pellentesque sodales cursus</td>
-</tr>
-<tr>
-	<td>Nunc dictum felis at dignissim dictum</td>
-	<td>Curabitur ut leo nisi</td>
-</tr>
-</table>
-<pre>
-<code>&lt;table&gt;
-&lt;tr&gt;
-	&lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
-	&lt;td&gt;Proin pellentesque sodales cursus&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
-	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</code>
-</pre>
-
-<h3>The <code>th</code> element defines a header cell</h3>
-
-<table>
-<tr>
-	<th>Lorem ipsum dolor sit amet</th>
-	<th>Proin pellentesque sodales cursus</th>
-</tr>
-<tr>
-	<td>Nunc dictum felis at dignissim dictum</td>
-	<td>Curabitur ut leo nisi</td>
-</tr>
-</table>
-<pre>
-<code>&lt;table&gt;
-&lt;tr&gt;
-	&lt;th&gt;Lorem ipsum dolor sit amet&lt;/th&gt;
-	&lt;th&gt;Proin pellentesque sodales cursus&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
-	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</code>
-</pre>
-
-<h3>Group content together with the <code>thead</code>, <code>tbody</code>, <code>tfoot</code> elements</h3>
-
-<table>
-<thead>
-	<tr>
-		<th>Lorem ipsum dolor sit amet</th>
-		<th>Proin pellentesque sodales cursus</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td>Nunc dictum felis at dignissim dictum</td>
-		<td>Curabitur ut leo nisi</td>
-	</tr>
-</tbody>
-<tfoot>
-	<tr>
-		<td>Felis dictum nunc at dictum dignissim</td>
-		<td>Leo ut curabitur nisi</td>
-	</tr>
-</tfoot>
-</table>
-<pre>
-<code>&lt;table&gt;
-&lt;thead&gt;
-	&lt;tr&gt;
-		&lt;th&gt;Lorem ipsum dolor sit amet&lt;/th&gt;
-		&lt;th&gt;Proin pellentesque sodales cursus&lt;/th&gt;
-	&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-	&lt;tr&gt;
-		&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
-		&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;tfoot&gt;
-	&lt;tr&gt;
-		&lt;td&gt;Felis dictum nunc at dictum dignissim&lt;/td&gt;
-		&lt;td&gt;Leo ut curabitur nisi&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/tfoot&gt;
-&lt;/table&gt;</code>
-</pre>
-
-<h3>Format and style entire columns with the <code>colgroup</code> and <code>col</code> elements</h3>
-
-<table>
-<colgroup>
-	<col span="1" style="background-color:red">
-</colgroup>
-<tr>
-	<td>Lorem ipsum dolor sit amet</td>
-	<td>Proin pellentesque sodales cursus</td>
-</tr>
-<tr>
-	<td>Nunc dictum felis at dignissim dictum</td>
-	<td>Curabitur ut leo nisi</td>
-</tr>
-</table>
-<pre>
-<code>&lt;table&gt;
-&lt;colgroup&gt;
-	&lt;col span="1" style="background-color:red"&gt;
-&lt;tr&gt;
-	&lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
-	&lt;td&gt;Proin pellentesque sodales cursus&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td&gt;Nunc dictum felis at dignissim dictum&lt;/td&gt;
-	&lt;td&gt;Curabitur ut leo nisi&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</code>
-</pre>
-
-<h3>Draw graphics with the <code>canvas</code> element</h3>
+<h2>Draw graphics with the <code>canvas</code> element</h2>
 
 <canvas id="myCanvas">
 Your browser does not support the canvas tag.
@@ -284,7 +257,7 @@ Your browser does not support the canvas tag.
 </code>
 </pre>
 
-<h3>The <code>template</code> element</h3>
+<h2>The <code>template</code> element</h2>
 
 <p>Click the button below to display the hidden content from the template element.</p>
 
@@ -299,10 +272,10 @@ Your browser does not support the canvas tag.
 
 <script>
 	function showContent() {
-	let temp = document.getElementsByTagName("template")[0];
-	let clone = temp.content.cloneNode(true);
-	let content = document.getElementById("content");
-	content.appendChild(clone);
+		let temp = document.getElementsByTagName( "template" )[ 0 ];
+		let clone = temp.content.cloneNode( true );
+		let content = document.getElementById( "content" );
+		content.appendChild( clone );
 	}
 </script>
 
@@ -318,16 +291,19 @@ Show hidden content
 
 &lt;script&gt;
 	function showContent() {
-	let temp = document.getElementsByTagName("template")[0];
-	let clone = temp.content.cloneNode(true);
-	let content = document.getElementById("content");
-	content.appendChild(clone);
+		let temp = document.getElementsByTagName( "template" )[ 0 ];
+		let clone = temp.content.cloneNode( true );
+		let content = document.getElementById( "content" );
+		content.appendChild( clone );
 	}
 &lt;/script&gt;
 </code>
 </pre>
 
-<h3>The <code>slot</code> element</h3>
+<h2>The <code>slot</code> element</h2>
+<button onclick="fillTemplate()">
+Fill template
+</button>
 
 <template id="slotTemplate">
 <h1><slot name="heading"></slot></h1>
@@ -348,11 +324,12 @@ Show hidden content
 </div>
 
 <script>
-var dlTemplate = document.querySelector('#slotTemplate').content;
-var div = document.querySelector('.slotDiv');
-
-div.attachShadow({  mode: 'open' }).appendChild(
-dlTemplate.cloneNode(true));
+	function fillTemplate(){
+		var dlTemplate = document.querySelector('#slotTemplate').content;
+		var div = document.querySelector('.slotDiv');
+		div.attachShadow({  mode: 'open' }).appendChild(
+		dlTemplate.cloneNode(true));
+	}
 </script>
 
 <pre>
@@ -375,13 +352,14 @@ dlTemplate.cloneNode(true));
 &lt;/div&gt;
 
 &lt;script&gt;
-	var dlTemplate = document.querySelector('template').content;
-	var divs = document.querySelectorAll('.slotDiv');
-
-	divs.forEach(function(div){
-	div.attachShadow({  mode: 'open' }).appendChild(
-dlTemplate.cloneNode(true))
-});
+	function fillTemplate() {
+		var dlTemplate = document.querySelector('template').content;
+		var divs = document.querySelectorAll('.slotDiv');
+		divs.forEach(function(div){
+		div.attachShadow({  mode: 'open' }).appendChild(
+		dlTemplate.cloneNode(true))
+		});
+	}
 &lt;/script&gt;
 </code>
 </pre>
