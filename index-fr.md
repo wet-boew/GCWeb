@@ -32,6 +32,7 @@ css:
 				<ul class="list-unstyled colcount-md-3">
 					<li><a href="#composantes"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Composantes</a></li>
 					<li><a href="#gabarits"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a></li>
+					<li><a href="#modeles"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-md"></span>Configurations de conception</a></li>
 					<li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo et thématiques</a></li>
 					<li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Fonctionnalités globales et de sites</a></li>
 					<li><a href="#wetboew"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Wet-boew</a></li>
@@ -52,6 +53,9 @@ css:
 		</li>
 		<li class="mrgn-lft-md">
 			<a href="#gabarits" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-sm"></span>Gabarits</a>
+		</li>
+		<li class="mrgn-lft-md">
+			<a href="#modeles" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-sm"></span>Configurations de conception</a>
 		</li>
 		<li class="mrgn-lft-md">
 			<a href="#experimentation" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Méli-mélo et thématiques</a>
@@ -190,7 +194,7 @@ css:
 	</ul>
 	<hr />
 	<h2 id="gabarits" class="mrgn-bttm-lg pt-4">Gabarits</h2>
-	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md"data-wb-filter='{ "selector": ">li" }'>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
 	{% for template in site.data.templates %}
 		{% assign list-pages = template.pages %}
 		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
@@ -270,6 +274,95 @@ css:
 							</li>
 						{% endfor %}
 						</ul>
+					</details>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+	<hr />
+	<h2 id="modeles" class="mrgn-bttm-lg pt-4">Configurations de conception</h2>
+	<ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
+	{% for designPattern in site.data.design-patterns %}
+		{% assign list-pages = designPattern.pages %}
+		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
+			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ designPattern.title[ page.language ] }}
+				{% if designPattern.status == "stable" %}
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ designPattern.status ] }}</span>
+				{% elsif designPattern.status == "provisional" %}
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ designPattern.status ] }}</span>
+				{% elsif designPattern.status == "deprecated" %}
+				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ designPattern.status ] }}</span>
+				{% else %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Undefined</span>
+				{% endif %}
+				</h3>
+				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+					<p>{{ designPattern.description[ page.language ] | default: "[Short description of the design pattern]" }}</p>
+					<!--
+					Main working example
+					- First working example in the example list where the language match
+					-->
+					{% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+					<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+					{% if mainExamples %}
+					<li>
+					{% if mainExamples.path %}
+					<a href="design-patterns/
+								{%- if designPattern.componentName -%}
+									{{ designPattern.componentName }}/
+								{%- endif -%}
+							{{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+					{% elsif mainExamples.url %}
+						<a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+					{% else %}
+						<span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+					{% endif %}
+					{% endif %}
+					<!--
+					Documentation
+					- Link to the documentations if any
+					-->
+					{% if list-pages.docs %}
+					<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+					{% assign docs = list-pages.docs | where: "language", page.language %}
+					{% for doc in docs %}
+						<li><a href="design-patterns/{{ designPattern.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+					{% endfor %}
+					{% endif %}
+					<li><a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
+					</ul>
+					<!--
+					> All examples and info
+					* Example
+					* Documentation
+					* Spec
+					-->
+					<details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+					<ul class="list-unstyled">
+					{% for pgGroup in list-pages %}
+						{% assign grpkey = pgGroup[0] %}
+						<li>{{ page_group[ grpkey ] | default: "Unknown group" }}
+							<ul>
+							{% assign examples = pgGroup[1] %}
+							{% for example in examples %}
+								{% if example.path %}
+								<li><a href="design-patterns/
+											{%- if designPattern.componentName -%}
+												{{ designPattern.componentName }}/
+											{%- endif -%}
+										{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+								{% elsif example.url %}
+									<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+								{% else %}
+									<li>{{ example.title }}</li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						</li>
+					{% endfor %}
+					</ul>
 					</details>
 				</div>
 			</div>

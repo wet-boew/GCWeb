@@ -84,6 +84,7 @@ module.exports = (grunt) ->
 			"concat:common"
 			"concat:components"
 			"concat:templates"
+			"concat:designPatterns"
 			"concat:sites"
 			"concat:wet-boew"
 			"clean:wetboew_demos"
@@ -418,11 +419,13 @@ module.exports = (grunt) ->
 			dataComponents = grunt.file.readJSON( this.data.components )
 			dataCommons = grunt.file.readJSON( this.data.common )
 			dataTemplates = grunt.file.readJSON( this.data.templates )
+			dataDesignPatterns = grunt.file.readJSON( this.data.designPatterns )
 
 			a11yReportByComponent = processComponentReporting( grunt, "sites", dataSites, a11yReportByTestRequirement, acrReportByConformity, reportConf )
 			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "components", dataComponents, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
 			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "common", dataCommons, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
 			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "templates", dataTemplates, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "designPatterns", dataDesignPatterns, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
 
 
 			#
@@ -532,6 +535,7 @@ module.exports = (grunt) ->
 				sites: "_data/sites.json"
 				components: "_data/components.json"
 				templates: "_data/templates.json"
+				designPatterns: "_data/design-patterns.json"
 				common: "_data/common.json"
 				reporting: "_data/reporting.json"
 
@@ -560,11 +564,11 @@ module.exports = (grunt) ->
 					stripBanners: true
 					banner: "<%= banner %>"
 				src: [
-					"{sites,common,components,templates,wet-boew}/**/*.js"
-					"!{sites,common,components,templates,wet-boew}/**/test.js"
-					"!{sites,common,components,templates,wet-boew}/**/assets"
-					"!{sites,common,components,templates,wet-boew}/**/demo"
-					"!{sites,common,components,templates,wet-boew}/**/demos"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/test.js"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/assets"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demo"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
 			common:
@@ -588,6 +592,13 @@ module.exports = (grunt) ->
 					separator: ","
 				src: "templates/**/index.json-ld"
 				dest: "_data/templates.json"
+			designPatterns:
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "design-patterns/**/index.json-ld"
+				dest: "_data/design-patterns.json"
 			"wet-boew":
 				options:
 					banner: "["
@@ -723,14 +734,14 @@ module.exports = (grunt) ->
 			layouts:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates,docs,wet-boew}/**/layouts/**.*"
+				src: "{sites,components,templates,design-patterns,docs,wet-boew}/**/layouts/**.*"
 				dest: "<%= jekyllDist %>/_layouts"
 			includes:
 				files: [
 					expand: true
 					src: [
-						"{sites,components,templates,wet-boew}/**/*-{includes,inc}/**.html"
-						"!{sites,components,templates,wet-boew}/**/includes/**.*"
+						"{sites,components,templates,design-patterns,wet-boew}/**/*-{includes,inc}/**.html"
+						"!{sites,components,templates,design-patterns,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
@@ -741,21 +752,21 @@ module.exports = (grunt) ->
 				,
 					expand: true
 					src: [
-						"{sites,components,templates,wet-boew}/**/includes/**.*"
+						"{sites,components,templates,design-patterns,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + src.substring( src.indexOf('/') ).replace( '/includes/', '/' )
 				,
 					expand: true
-					src: "{sites,components,templates,wet-boew}/*/include.html"
+					src: "{sites,components,templates,design-patterns,wet-boew}/*/include.html"
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + "/" + src.replace( '/include.html', '.html' )
 				]
 			samples:
 				expand: true
-				src: "{sites,common,components,templates,wet-boew}/**/samples/**.*"
+				src: "{sites,common,components,templates,design-patterns,wet-boew}/**/samples/**.*"
 				dest: "_includes"
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
@@ -778,15 +789,15 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 				src: [
-					"{sites,common,components,templates,wet-boew}/**/fonts/**.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/fonts/**.*"
 					"!**/*.scss"
 				]
 				dest: "<%= themeDist %>/fonts"
 			assets:
 				expand: true
 				src: [
-					"{sites,common,components,templates,wet-boew}/**/assets/**.*"
-					"{sites,common,components,templates,wet-boew}/**/assets/**/*.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/assets/**.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/assets/**/*.*"
 				]
 				dest: "<%= themeDist %>/assets"
 				rename: (dest, src) ->
@@ -801,7 +812,7 @@ module.exports = (grunt) ->
 			depsJS_custom:
 				expand: true
 				flatten: true
-				src: "{sites,common,components,templates,wet-boew}/deps/**.js"
+				src: "{sites,common,components,templates,design-patterns,wet-boew}/deps/**.js"
 				dest: "<%= themeDist %>/deps-js"
 			depsJS:
 				expand: true
@@ -1065,13 +1076,13 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"{sites,common,components,templates,wet-boew}/**/*.js"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
 				]
 		jsonlint:
 			all:
 				src: [
-					"{sites,common,components,templates,wet-boew}/**/*.json",
-					"{sites,common,components,templates,wet-boew}/**/*.json-ld"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json",
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json-ld"
 				]
 				options: {
 					indent: "\t"
@@ -1082,7 +1093,7 @@ module.exports = (grunt) ->
 			all:
 				expand: true
 				src: [
-						"{sites,common,components,templates,wet-boew}/**/*.scss"
+						"{sites,common,components,templates,design-patterns,wet-boew}/**/*.scss"
 						"!*-jekyll.scss"
 						"!node_modules"
 					]
@@ -1102,7 +1113,7 @@ module.exports = (grunt) ->
 						"Rakefile"
 
 						# Folders
-						"{sites,common,components,templates,wet-boew}/**"
+						"{sites,common,components,templates,design-patterns,wet-boew}/**"
 
 						#
 						# Exemptions...
@@ -1112,17 +1123,17 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,common,components,templates,wet-boew}/**/*.md"
-						# "{sites,components,templates}/*/*.{md,html}"
-						# "{sites,components,templates}/*.{md, html}"
-						# "!{sites,components,templates}/*/**/*.{md,html}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.md"
+						# "{sites,components,templatesdesign-patterns}/*/*.{md,html}"
+						# "{sites,components,templatesdesign-patterns}/*.{md, html}"
+						# "!{sites,components,templatesdesign-patterns}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,common,components,templates,wet-boew}/**/*.{jpg,png,ico}"
-						"!{sites,common,components,templates,wet-boew}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{jpg,png,ico}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/*.{ico,jpg,png}"
 
 						# External fonts
-						"!{sites,common,components,templates,wet-boew}/**/*.{eot,svg,ttf,woff}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{eot,svg,ttf,woff}"
 
 						# Docker environment file
 						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
