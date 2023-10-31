@@ -3,7 +3,6 @@
 
 	{% assign col-modified = "col-xs-12" %}
 	{%- if page.feedback and page.feedback != "" -%}
-		{% assign col-feedback = "col-sm-8 col-md-9 col-lg-9" %}
 		{%- if page.share -%}
 			{% assign col-share = "col-sm-4 col-md-3" %}
 		{%- endif -%}
@@ -16,7 +15,7 @@
 
 	<div class="row">
 		{%- if page.feedback and page.feedback != "" -%}
-			<div class="{{ col-feedback }}">
+			<div class="col-sm-8 col-md-9 col-lg-9">
 				{% include feedback/feedback.html %}
 			</div>
 		{%- endif -%}

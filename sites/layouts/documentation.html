@@ -42,6 +42,34 @@ layout: default
 {%- endif -%}
 
 
+<div data-wb-json='{
+	"url": "#[api]",
+	"streamline": true,
+	"mapping": [
+		{
+			"template": "[data-type-container]",
+			"test": "fn:getValue",
+			"assess": "/componentType",
+			"expect": "container",
+			"mapping": null
+		}
+	]
+}'>
+	<template data-type-container>
+		<section class="alert alert-info">
+			{% if lng == "fr" %}
+			<h2 class="h3">À propos de ce composant</h2>
+			<p>Ce composant n'est qu'un conteneur pour d'autres composants. Par conséquent, les mises à jour des composants inclus n'affectent pas l'API de ce composant.</p>
+			{% else %}
+			<h2 class="h3">About this component</h2>
+			<p>This component is only a container for other components. Therefore, updates to included components do not affect this component's API.</p>
+			{% endif %}
+		</section>
+	</template>
+	<template></template>
+</div>
+
+
 <h2>{% if lng == "fr" %}Sur cette page{% else %}On this page{% endif %}</h2>
 <ul>
 	<li><a href="#inc-components">{% if lng == "fr" %}Composants inclus{% else %}Included components{% endif %}</a></li>
@@ -316,7 +344,7 @@ layout: default
 													"expect": true,
 													"mapping": [
 														{ "selector": "summary", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												},
 												{
@@ -326,7 +354,7 @@ layout: default
 													"expect": false,
 													"mapping": [
 														{ "selector": "figcaption", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												},
 												{
@@ -336,7 +364,7 @@ layout: default
 													"expect": "undefined",
 													"mapping": [
 														{ "selector": "figcaption", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												}
 											]
@@ -361,7 +389,7 @@ layout: default
 											"expect": true,
 											"mapping": [
 												{ "selector": "summary", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+												{ "selector": "code", "value": "/code", "encode": true }
 											]
 										},
 										{
@@ -371,7 +399,7 @@ layout: default
 											"expect": false,
 											"mapping": [
 												{ "selector": "figcaption", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+												{ "selector": "code", "value": "/code", "encode": true }
 											]
 										},
 										{
@@ -381,7 +409,7 @@ layout: default
 											"expect": "undefined",
 											"mapping": [
 												{ "selector": "figcaption", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+												{ "selector": "code", "value": "/code", "encode": true }
 											]
 										}
 									]
@@ -532,47 +560,6 @@ layout: default
 				<li>[[ history ]]</li>
 			</template>
 		</ul>
-
-		<template data-old-implementation>
-			<details>
-				<summary>Deprecated implementation</summary>
-
-				<template>
-					<section>
-						<h5>Name of the implementation</h5>
-						<p><span class="label label-default">Status: <span data-status>(active | deprecated | provisional)</span></span></p>
-						<dl class="dl-horizontal mrgn-bttm-0 mrgn-tp-md brdr-0">
-							<dt>Detectable by:</dt><dd data-detactable></dd>
-							<dt>For iteration:</dt><dd data-iteration></dd>
-						</dl>
-						<p data-introduction>Introduction</p>
-						<template data-example>
-							<p>Working examples:</p>
-							<ul>
-								<template>
-									<li><a href></a></li>
-								</template>
-							</ul>
-						</template>
-						<template data-notes>
-							<p>Instructions and notes:</p>
-							<ul>
-								<template>
-									<li>Instructions or note text</li>
-								</template>
-							</ul>
-						</template>
-
-						<template data-source-code>
-							<figure>
-								<figcaption>Intro to source code</figcaption>
-								<pre><code></code></pre>
-							</figure>
-						</template>
-					</section>
-				</template>
-			</details>
-		</template>
 	</template>
 </div>
 
@@ -614,15 +601,19 @@ layout: default
 	]
 }'>
 	<template data-no>
-		<p>There is no accessibility report</p>
-	</template>
-
-	<template data-comment>
-		<p></p>
+		{%- if lng == "fr" -%}
+		<p>Il n’existe pas d'évaluation de l'accessibilité.</p>
+		{%- else -%}
+		<p>There is no accessibility assessment.</p>
+		{%- endif -%}
 	</template>
 
 	<template data-yes>
+		{%- if lng == "fr" -%}
+		<p>Évaluation d'accessibilité&nbsp;:</p>
+		{%- else -%}
 		<p>Accessibility assessment:</p>
+		{%- endif -%}
 		<ul>
 			<template>
 				<li><a href hreflang lang></a></li>
@@ -673,10 +664,6 @@ layout: default
 		{%- else -%}
 		<p>There is no accessibility conformance report.</p>
 		{%- endif -%}
-	</template>
-
-	<template data-comment>
-		<p></p>
 	</template>
 
 	<template data-yes>
@@ -829,6 +816,87 @@ layout: default
 					"template": "[data-semantic-source-code]",
 					"test": "fn:guessType",
 					"value": "/semantic",
+					"expect": "source-code",
+					"mapping": [
+						{
+							"@type": "rdf:Alt",
+							"mapping": [
+								{
+									"template": "[data-source-code-collapsed]",
+									"test": "fn:getValue",
+									"assess": "/collapsed",
+									"expect": true,
+									"mapping": [
+										{ "selector": "summary", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								},
+								{
+									"template": "[data-source-code-expanded]",
+									"test": "fn:getValue",
+									"assess": "/collapsed",
+									"expect": false,
+									"mapping": [
+										{ "selector": "figcaption", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								},
+								{
+									"template": "[data-source-code-expanded]",
+									"test": "fn:guessType",
+									"assess": "/collapsed",
+									"expect": "undefined",
+									"mapping": [
+										{ "selector": "figcaption", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								}
+							]
+						}
+					]
+				}
+
+			]
+		},
+
+		{
+			"about": "/include",
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-include-none]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "undefined"
+				},
+				{
+					"template": "[data-include-description]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "xsd:string",
+					"mapping": [
+						{ "selector": "dd", "value": "/" }
+					]
+				},
+				{
+					"template": "[data-include-list]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "rdfs:Container",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value" }
+							]
+						}
+					]
+				},
+				{
+					"template": "[data-include-source-code]",
+					"test": "fn:guessType",
+					"value": "/include",
 					"expect": "source-code",
 					"mapping": [
 						{
@@ -1505,6 +1573,44 @@ layout: default
 			</template>
 			<template data-semantic-source-code>
 				<dt>Semantic:</dt>
+				<dd>
+					<template data-source-code-collapsed>
+						<details>
+							<summary>Intro to source code</summary>
+							<pre><code></code></pre>
+						</details>
+					</template>
+
+					<template data-source-code-expanded>
+						<figure>
+							<figcaption>Intro to source code</figcaption>
+							<pre><code></code></pre>
+						</figure>
+					</template>
+				</dd>
+			</template>
+
+			<!-- Include file -->
+			<template data-include-none>
+				<dt>include:</dt>
+				<dd>Not applicable or out of scope</dd>
+			</template>
+			<template data-include-description>
+				<dt>include:</dt>
+				<dd>[[ Description ]]</dd>
+			</template>
+			<template data-include-list>
+				<dt>include:</dt>
+				<dd>
+					<ul>
+						<template>
+							<li>[[ Description ]]</li>
+						</template>
+					</ul>
+				</dd>
+			</template>
+			<template data-include-source-code>
+				<dt>Include:</dt>
 				<dd>
 					<template data-source-code-collapsed>
 						<details>
