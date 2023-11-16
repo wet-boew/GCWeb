@@ -14,7 +14,7 @@
 		"en": "Documentation on how to use the page details section.",
 		"fr": "Documentation sur l'utilisation de la section des détails de la page."
 	},
-	"version": "2.1",
+	"version": "3.0",
 	"modified": "2022-04-11",
 	"componentName": "page-details",
 	"componentType": "container",
@@ -113,8 +113,7 @@
 			],
 			"implementation": [
 				"_:implement_pd",
-				"_:implement_pd_gcweb",
-				"_:implement_pd_2"
+				"_:implement_pd_gcweb"
 			],
 			"history": [
 				{
@@ -158,10 +157,10 @@
 			},
 			"notes": {
 				"en": [
-					"Although the component has been updated to version 2.1, the version 2.0 is still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
+					"Although the component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
 				],
 				"fr": [
-					"Bien que le composant ait été mis à jour vers la version 2.1, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
+					"Bien que le composant ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
 				]
 			},
 			"sample": {
@@ -288,10 +287,18 @@
 			},
 			"instructions": {
 				"en": [
-					"Although the Page details component has been updated to version 2.1, the version 2.0 is still supported. However, the page content and the <code>&lt;footer&gt;</code> have to be located inside an <code>&lt;article&gt;</code> tag."
+					"Although the Page details component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the <code>&lt;footer&gt;</code> have to be located inside an <code>&lt;article&gt;</code> tag."
 				],
 				"fr": [
-					"Bien que le composant Détails de la page ait été mis à jour vers la version 2.1, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer&gt;</code>. doivent être situés à l'intérieur d'une balise <code>&lt;article&gt;</code>."
+					"Bien que le composant Détails de la page ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer&gt;</code>. doivent être situés à l'intérieur d'une balise <code>&lt;article&gt;</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"<strong>This implementation of the Page details is deprecated as of 2023-11-08</strong>"
+				],
+				"fr": [
+					"<strong>Cette implémentation des Détails de la page est obsolète depuis le 2023-11-08</strong>"
 				]
 			},
 			"sample": {
@@ -470,7 +477,7 @@
 	"changesets": [
 		{
 			"@id": "_:cs_pd_3",
-			"name": "Page details - Compatible with PFT + Accessiblity fix",
+			"name": "Page details - Compatible with PFT + Accessiblity fix (version 3.0)",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "section.pagedetails",
@@ -483,7 +490,50 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section>\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
+			},
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/footer.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+			],
+			"guidance": "Not applicable",
+			"context": "Not applicable",
+			"configuration": [
+				"Input the date when the page was last modified inside the <time> tag in the format YYYY-MM-DD."
+			],
+			"static": [
+				"Section header: \"Page details\""
+			],
+			"schema": "Not applicable",
+			"dependency": "Not applicable",
+			"file": "Not applicable"
+		},
+		{
+			"@id": "_:cs_pd_2",
+			"name": "Page details - Compatible with PFT + Accessiblity fix",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_pd_2",
+			"detectableBy": "footer.pagedetails",
+			"layout": [
+				"Page feedback tool (if included) on the top left",
+				"Share this page button (if included) on the top right",
+				"Date modified on bottom left"
+			],
+			"style": "Not applicable",
+			"semantic": {
+				"@type": "source-code",
+				"description": "Source code",
+				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</footer>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -514,6 +564,7 @@
 			"@id": "_:cs_pd_1",
 			"name": "Page details - Version 1",
 			"status": "deprecated",
+			"schema:expires": "2024-12",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "div.pagedetails",
 			"layout": [
