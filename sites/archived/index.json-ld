@@ -17,6 +17,7 @@
 	"modified": "2022-05-03",
 	"componentName": "archived",
 	"status": "stable",
+	"version": "1.1",
 	"pages": {
 		"examples": [
 			{
@@ -29,6 +30,297 @@
 				"language": "fr",
 				"path": "archived-fr.html"
 			}
+		],
+		"docs": [
+			{
+				"title": "Archived - documentation",
+				"language": "en",
+				"path": "archived-docs-en.html"
+			},
+			{
+				"title": "Archivé - documentation",
+				"language": "fr",
+				"path": "archived-docs-fr.html"
+			}
 		]
-	}
+	},
+	"dependencies": "no dependency",
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Archived - default",
+				"fr": "Archivé - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The archived component indicates that a given page was archived and its content is provided for reference, research or recordkeeping purposes.",
+				"fr": "La composante archivé indique qu'une page donnée a été archivée et que son contenu est fourni aux fins de référence, de recherche ou de tenue de documents."
+			},
+			"iteration": "_:iteration_archvd_1",
+			"example": [
+				{
+					"en": { "href": "archived-en.html", "text": "Archived" },
+					"fr": { "href": "archived-fr.html", "text": "Archivé" }
+				}
+			],
+			"implementation": [
+				"_:implement_archvd"
+			],
+			"history": [
+				{
+					"en": "November 2023 - Initial implementation of the variation.",
+					"fr": "Novembre 2023 - Implémentation initiale de la variante."
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Archived with overlay",
+				"fr": "Archivé avec contenu superposé"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The archived with overlay component indicates that a given page was archived and its content is provided for reference, research or recordkeeping purposes. It contains an overlayed element that appears when the page is scrolled.",
+				"fr": "La composante archivé avec contenu superposé indique qu'une page donnée a été archivée et que son contenu est fourni aux fins de référence, de recherche ou de tenue de documents. Elle comporte un élément superposé au contenu qui s'affiche lorsque la page défile."
+			},
+			"iteration": "_:iteration_archvd_overlay_1",
+			"example": [
+				{
+					"en": { "href": "archived-overlay-en.html", "text": "Archived with overlay" },
+					"fr": { "href": "archived-overlay-fr.html", "text": "Archivé avec contenu superposé" }
+				}
+			],
+			"implementation": [
+				"_:implement_archvd_overlay",
+				"_:implement_archvd_overlay_gcweb"
+			],
+			"history": [
+				{
+					"en": "February 2014 - Initial implementation of the variation.",
+					"fr": "Février 2014 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_archvd_overlay",
+			"iteration": "_:iteration_archvd_overlay_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Insert the code snippet below at the beginning of your <code>&lt;body&gt;</code> element."
+				],
+				"fr": [
+					"Insérez l'extrait de code ci-dessous au début de votre élément <code>&lt;body&gt;</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"For more information on how the Overlay or Data Inview plugins, visit their respective documentation<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">Overlay documentation</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data-inview-en.html\">Data Inview documentation</a></li></ul>"
+				],
+				"fr": [
+					"Pour plus d'informations sur le fonctionnement des plugiciels Contenu superposé ou Data Inview, visitez leur documentation respective<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">Documentation de Contenu superposé</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data- inview-fr.html\">Documentation de Data Inview</a></li></ul>"
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-archv wb-inview modal-content show-none bar-demo\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2>We have archived this page and will not be updating it.</h2>\n\t\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>\n\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2>We have archived this page and will not be updating it.</h2>\n\t\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<section class=\"gc-archv wb-inview modal-content show-none bar-demo\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>\n\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_archvd_overlay_gcweb",
+			"iteration": "_:iteration_archvd_overlay_1",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"To show the \"Archived with overlay\", in the page's front-matter, set the property <code>archiveOverlay</code> to <code>true</code>."
+				],
+				"fr": [
+					"Pour afficher \"Archivé avec contenu superposé\", dans l'en-tête de la page, définissez la propriété <code>archiveOverlay</code> à <code>true</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"For more information on how the Overlay or Data Inview plugins, visit their respective documentation<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">Overlay documentation</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data-inview-en.html\">Data Inview documentation</a></li></ul>"
+				],
+				"fr": [
+					"Pour plus d'informations sur le fonctionnement des plugiciels Contenu superposé ou Data Inview, visitez leur documentation respective<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">Documentation de Contenu superposé</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data- inview-fr.html\">Documentation de Data Inview</a></li></ul>"
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "{\n\t...\n\t\"archiveOverlay\": true\n\t...\n}"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code:",
+						"code": "{\n\t...\n\t\"archiveOverlay\": true\n\t...\n}"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_archvd",
+			"iteration": "_:iteration_archvd_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Insert the code snippet below at the beginning of your <code>&lt;body&gt;</code> element."
+				],
+				"fr": [
+					"Insérez l'extrait de code ci-dessous au début de votre élément <code>&lt;body&gt;</code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t\t<h2>We have archived this page and will not be updating it.</h2>\n\t\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_archvd_1",
+			"name": "Archived - Iteration 1",
+			"date": "2023-11",
+			"detectableBy": ".gc-archv",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t<h2>We have archived this page and will not be updating it.</h2>\n\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_archvd_overlay_1",
+			"name": "Archived with overlay - Iteration 1",
+			"date": "2014-02",
+			"detectableBy": ".gc-archv.wb-inview",
+			"predecessor": "_:iteration_archvd_1",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-archv wb-inview modal-content show-none bar-demo\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t<h2>We have archived this page and will not be updating it.</h2>\n\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>\n\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t<h2>We have archived this page and will not be updating it.</h2>\n\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<section class=\"gc-archv wb-inview modal-content show-none bar-demo\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>\n\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_archvd",
+			"name": "Archived",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_archvd_1",
+			"detectableBy": ".gc-archv",
+			"layout": "Must be at the very top of the page",
+			"semantic": "section > .container > h2 + p",
+			"static": [
+				"We have archived this page and will not be updating it.",
+				"You can use it for research or reference.",
+				"Nous avons archivé cette page et elle ne sera plus mise à jour.",
+				"Vous pouvez la consulter à des fins de recherche ou à titre de référence."
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "../headers-includes/archive.html"
+				}
+			}
+		},
+		{
+			"@id": "_:cs_archvd_overlay",
+			"name": "Archived with overlay",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_archvd_overlay_1",
+			"detectableBy": ".gc-archv.wb-inview",
+			"layout": "Must be at the very top of the page",
+			"semantic": "(section > .container > h2 + p) + (section > .container > h2 + p)",
+			"static": [
+				"We have archived this page and will not be updating it.",
+				"You can use it for research or reference.",
+				"Nous avons archivé cette page et elle ne sera plus mise à jour.",
+				"Vous pouvez la consulter à des fins de recherche ou à titre de référence."
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "../headers-includes/archive.html"
+				}
+			},
+			"basic": "Overlay is not enabled."
+		}
+	]
 }

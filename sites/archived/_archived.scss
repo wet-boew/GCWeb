@@ -1,26 +1,27 @@
-
-#archived-bnr {
-	background-color: #fd0;
-
-	p {
-		margin: 0;
-		text-align: center;
+.gc-archv {
+	&.modal-content {
+		border: none;
+		border-radius: 0;
 	}
 
-	a {
-		color: #000;
-		display: block;
-		font-weight: 700;
-		padding: .75em 44px;
-		text-decoration: none;
+	background-color: #ffd700 !important;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	padding: 25px 0px;
 
-		&:hover,
-		&:focus {
-			text-decoration: underline;
+	h2 {
+		margin-top: 0;
+	}
+
+	.mfp-close.overlay-close {
+		color: #000;
+
+		&:focus, &:focus-visible {
+			outline: 5px auto rgb(0, 95, 204);
+			outline-offset: -2px;
 		}
 	}
+}
 
-	.overlay-close {
-		color: #000;
-	}
+.wb-disable .gc-arch.wb-overlay {
+	display: none;
 }

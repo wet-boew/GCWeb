@@ -11,7 +11,7 @@ layout: default
 
 <p>(<a href="{{ page.index_json }}" rel="alternate" type="application/json">{% if lng == "fr" %}Consultez cette documentation en format JSON{% else %}Consult this documentation in a data format noted in JSON{% endif %}</a>)</p>
 
-<div data-wb-jsonmanager='{
+<div class="wb-disable-allow" data-wb-jsonmanager='{
 	"url": "{{ page.index_json }}",
 	"name": "api",
 	"patches": [
@@ -35,14 +35,14 @@ layout: default
 	]
 }'></div>
 
-<p class="lead">Version <strong data-json-replace="#[api]/version">Unknown</strong></p>
+<p class="lead">Version <strong class="wb-disable-allow" data-json-replace="#[api]/version">Unknown</strong></p>
 
 {%- if page.short_rationale_ajax_url -%}
-	<div data-ajax-replace="{{ page.short_rationale_ajax_url }}"></div>
+	<div class="wb-disable-allow" data-ajax-replace="{{ page.short_rationale_ajax_url }}"></div>
 {%- endif -%}
 
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]",
 	"streamline": true,
 	"mapping": [
@@ -85,7 +85,7 @@ layout: default
 
 <h2 id="inc-components">{% if lng == "fr" %}Composants inclus{% else %}Included components{% endif %}</h2>
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]",
 	"streamline": "true",
 	"mapping": [
@@ -111,16 +111,14 @@ layout: default
 					"template": "[data-no]",
 					"test": "fn:isLiteral",
 					"value": "/dependencies",
-					"mapping": [
-						{ "selector": "span", "value": "/" }
-					]
+					"mapping": null
 				}
 			]
 		}
 	]
 }'>
 	<template data-no>
-		<p>There is <span>no</span> sub-dependencies</p>
+		<p>{% if lng == "fr" %}Ce composant n'a pas de dépendances{% else %}This component has no dependency{% endif %}</p>
 	</template>
 
 	<template data-yes>
@@ -135,7 +133,7 @@ layout: default
 
 {%- if page.before_start_ajax_url -%}
 	<h2 id="before-start">{% if lng == "fr" %}Avant de commencer{% else %}Before you start{% endif %}</h2>
-	<div data-ajax-replace="{{ page.before_start_ajax_url }}"></div>
+	<div class="wb-disable-allow" data-ajax-replace="{{ page.before_start_ajax_url }}"></div>
 {%- endif -%}
 
 
@@ -147,7 +145,7 @@ layout: default
 <p>List of accessibility guidances to be followed to ensure component is used in respect of the accessibility guideline and EN 301 549 standard (including WCAG 2.1 Level AA).</p>
 {%- endif -%}
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]",
 	"streamline": "true",
 	"mapping": [
@@ -210,7 +208,7 @@ layout: default
 <p>Here are some popular examples. This isn’t an exhaustive list of possible variations. Configure your page based on page type, user needs and design system guidance.</p>
 {%- endif -%}
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]/variations",
 	"mapping": [
 		{ "selector": "[data-name]", "value": "/name/{{lng}}" },
@@ -577,7 +575,7 @@ layout: default
 <h2 id="eval-report">{% if lng == "fr" %}Évaluation et rapport{% else %}Evaluation and report{% endif %}</h2>
 
 <!-- Accessibility assessment -->
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]",
 	"streamline": "true",
 	"mapping": [
@@ -635,7 +633,7 @@ layout: default
 
 
 <!-- Accessibility conformance reports -->
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]",
 	"streamline": "true",
 	"mapping": [
@@ -704,7 +702,7 @@ layout: default
 <p>Unless specified, the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/14.html">public versioning API dimensions</a> are strictly limited to what is described here. Anything that is omitted or not identified is out of scope.</p>
 {%- endif -%}
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]/changesets",
 	"mapping": [
 		{ "selector": "details > summary", "value": "/name" },
@@ -1929,7 +1927,7 @@ layout: default
 
 <h3>{% if lng == "fr" %}Itérations{% else %}Iterations{% endif %}</h3>
 
-<div data-wb-json='{
+<div class="wb-disable-allow" data-wb-json='{
 	"url": "#[api]/iteration",
 	"mapping": [
 		{ "selector": "summary", "value": "/name" },
