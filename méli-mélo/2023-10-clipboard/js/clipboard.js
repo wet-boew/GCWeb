@@ -314,7 +314,7 @@
         if ( "resetFocusOut" in data === true && data.resetFocusOut === true ) {
             focusReset = true;
         }
-        if ( elm.tagName !== "PRE" && ( "addBorder" in data === false || data.addBorder === true ) ) {
+        if ( elm.tagName !== "PRE" && ( "border" in data === false || data.border === true ) ) {
             if ( getDisplayType( elm ) === true ) {
                 $elm.addClass( copyAreaInlineClass );
             } else {
