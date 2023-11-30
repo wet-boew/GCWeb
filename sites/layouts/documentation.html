@@ -42,6 +42,34 @@ layout: default
 {%- endif -%}
 
 
+<div data-wb-json='{
+	"url": "#[api]",
+	"streamline": true,
+	"mapping": [
+		{
+			"template": "[data-type-container]",
+			"test": "fn:getValue",
+			"assess": "/componentType",
+			"expect": "container",
+			"mapping": null
+		}
+	]
+}'>
+	<template data-type-container>
+		<section class="alert alert-info">
+			{% if lng == "fr" %}
+			<h2 class="h3">À propos de ce composant</h2>
+			<p>Ce composant n'est qu'un conteneur pour d'autres composants. Par conséquent, les mises à jour des composants inclus n'affectent pas l'API de ce composant.</p>
+			{% else %}
+			<h2 class="h3">About this component</h2>
+			<p>This component is only a container for other components. Therefore, updates to included components do not affect this component's API.</p>
+			{% endif %}
+		</section>
+	</template>
+	<template></template>
+</div>
+
+
 <h2>{% if lng == "fr" %}Sur cette page{% else %}On this page{% endif %}</h2>
 <ul>
 	<li><a href="#inc-components">{% if lng == "fr" %}Composants inclus{% else %}Included components{% endif %}</a></li>
@@ -240,70 +268,122 @@ layout: default
 			]
 		},
 
-		{ "selector": "[data-implementation]", "value": "/implementation",
+		{
+			"template": "[data-implementation]",
+			"test": "fn:isArray",
+			"assess": "/implementation",
 			"mapping": [
-				{ "selector": "summary", "value": "/name/{{lng}}" },
-				{ "selector": "[data-status]", "value": "/status" },
-				{ "selector": "[data-introduction]", "value": "/introduction/{{lng}}", "isHTML": true },
-
 				{
-					"template": "[data-example]",
-					"test": "fn:isArray",
-					"assess": "/example/{{lng}}",
+					"selector": "[data-implementation-tabs]",
+					"value": "/implementation",
 					"mapping": [
+						{ "selector": "summary", "value": "/name/{{lng}}" },
+						{ "selector": "[data-status]", "value": "/status" },
+						{ "selector": "[data-introduction]", "value": "/introduction/{{lng}}", "isHTML": true },
+
 						{
-							"selector": "ul",
-							"value": "/example/{{lng}}",
+							"template": "[data-example]",
+							"test": "fn:isArray",
+							"assess": "/example/{{lng}}",
 							"mapping": [
-								{ "selector": "a", "value": "/href", "attr": "href" },
-								{ "selector": "a", "value": "/text" }
+								{
+									"selector": "ul",
+									"value": "/example/{{lng}}",
+									"mapping": [
+										{ "selector": "a", "value": "/href", "attr": "href" },
+										{ "selector": "a", "value": "/text" }
+									]
+								}
 							]
-						}
-					]
-				},
+						},
 
-				{
-					"template": "[data-instructions]",
-					"test": "fn:isArray",
-					"assess": "/instructions/{{lng}}",
-					"mapping": [
 						{
-							"selector": "ul",
-							"value": "/instructions/{{lng}}",
+							"template": "[data-instructions]",
+							"test": "fn:isArray",
+							"assess": "/instructions/{{lng}}",
 							"mapping": [
-								{ "selector": "li",	"value": "/", "isHTML": true }
+								{
+									"selector": "ul",
+									"value": "/instructions/{{lng}}",
+									"mapping": [
+										{ "selector": "li",	"value": "/", "isHTML": true }
+									]
+								}
 							]
-						}
-					]
-				},
+						},
 
-				{
-					"template": "[data-notes]",
-					"test": "fn:isArray",
-					"assess": "/notes/{{lng}}",
-					"mapping": [
 						{
-							"selector": "ul",
-							"value": "/notes/{{lng}}",
+							"template": "[data-notes]",
+							"test": "fn:isArray",
+							"assess": "/notes/{{lng}}",
 							"mapping": [
-								{ "selector": "li",	"value": "/", "isHTML": true }
+								{
+									"selector": "ul",
+									"value": "/notes/{{lng}}",
+									"mapping": [
+										{ "selector": "li",	"value": "/", "isHTML": true }
+									]
+								}
 							]
-						}
-					]
-				},
+						},
 
-				{
-					"@type": "rdf:Alt",
-					"mapping": [
 						{
-							"test": "fn:guessType",
-							"value": "/sample/{{lng}}",
-							"expect": "rdfs:Container",
+							"@type": "rdf:Alt",
 							"mapping": [
+								{
+									"test": "fn:guessType",
+									"value": "/sample/{{lng}}",
+									"expect": "rdfs:Container",
+									"mapping": [
+										{
+											"template": "[data-source-code]",
+											"test": "fn:guessType",
+											"value": "/",
+											"expect": "source-code",
+											"mapping": [
+												{
+													"@type": "rdf:Alt",
+													"mapping": [
+														{
+															"template": "[data-source-code-collapsed]",
+															"test": "fn:getValue",
+															"assess": "/collapsed",
+															"expect": true,
+															"mapping": [
+																{ "selector": "summary", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														},
+														{
+															"template": "[data-source-code-expanded]",
+															"test": "fn:getValue",
+															"assess": "/collapsed",
+															"expect": false,
+															"mapping": [
+																{ "selector": "figcaption", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														},
+														{
+															"template": "[data-source-code-expanded]",
+															"test": "fn:guessType",
+															"assess": "/collapsed",
+															"expect": "undefined",
+															"mapping": [
+																{ "selector": "figcaption", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
 								{
 									"template": "[data-source-code]",
 									"test": "fn:guessType",
-									"value": "/",
+									"value": "/sample",
 									"expect": "source-code",
 									"mapping": [
 										{
@@ -316,7 +396,7 @@ layout: default
 													"expect": true,
 													"mapping": [
 														{ "selector": "summary", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												},
 												{
@@ -326,7 +406,7 @@ layout: default
 													"expect": false,
 													"mapping": [
 														{ "selector": "figcaption", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												},
 												{
@@ -336,71 +416,28 @@ layout: default
 													"expect": "undefined",
 													"mapping": [
 														{ "selector": "figcaption", "value": "/description" },
-														{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
+														{ "selector": "code", "value": "/code", "encode": true }
 													]
 												}
 											]
 										}
 									]
-								}
-							]
-						},
-						{
-							"template": "[data-source-code]",
-							"test": "fn:guessType",
-							"value": "/sample",
-							"expect": "source-code",
-							"mapping": [
+								},
 								{
-									"@type": "rdf:Alt",
+									"template": "[data-code-compare]",
+									"test": "fn:guessType",
+									"value": "/sample",
+									"expect": "code-compare",
 									"mapping": [
-										{
-											"template": "[data-source-code-collapsed]",
-											"test": "fn:getValue",
-											"assess": "/collapsed",
-											"expect": true,
-											"mapping": [
-												{ "selector": "summary", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
-											]
-										},
-										{
-											"template": "[data-source-code-expanded]",
-											"test": "fn:getValue",
-											"assess": "/collapsed",
-											"expect": false,
-											"mapping": [
-												{ "selector": "figcaption", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
-											]
-										},
-										{
-											"template": "[data-source-code-expanded]",
-											"test": "fn:guessType",
-											"assess": "/collapsed",
-											"expect": "undefined",
-											"mapping": [
-												{ "selector": "figcaption", "value": "/description" },
-												{ "selector": "code", "value": "/code", "isHTML": true, "encode": true }
-											]
-										}
+										{ "selector": "figcaption[data-rev]", "value": "/rev_title" },
+										{ "selector": "code[data-rev]", "value": "/rev_code", "isHTML": true },
+										{ "selector": "figcaption[data-from]", "value": "/from_title" },
+										{ "selector": "code[data-from]", "value": "/from_code", "isHTML": true }
 									]
 								}
-							]
-						},
-						{
-							"template": "[data-code-compare]",
-							"test": "fn:guessType",
-							"value": "/sample",
-							"expect": "code-compare",
-							"mapping": [
-								{ "selector": "figcaption[data-rev]", "value": "/rev_title" },
-								{ "selector": "code[data-rev]", "value": "/rev_code", "isHTML": true },
-								{ "selector": "figcaption[data-from]", "value": "/from_title" },
-								{ "selector": "code[data-from]", "value": "/from_code", "isHTML": true }
+
 							]
 						}
-
 					]
 				}
 			]
@@ -453,78 +490,80 @@ layout: default
 			</ul>
 		</template>
 
-		<h4>{% if lng == "fr" %}Implémentation{% else %}Implementation{% endif %}</h4>
+		<template data-implementation>
+			<h4>{% if lng == "fr" %}Implémentation{% else %}Implementation{% endif %}</h4>
 
-		<div class="wb-tabs" data-implementation>
-			<template>
-				<div class="tabpanels">
-					<details>
-						<summary>Name of the implementation</summary>
-						<p data-introduction>Introduction</p>
+			<div class="wb-tabs" data-implementation-tabs>
+				<template>
+					<div class="tabpanels">
+						<details>
+							<summary>Name of the implementation</summary>
+							<p data-introduction>Introduction</p>
 
-						<template data-example>
-							<p>Working examples:</p>
-							<ul>
-								<template>
-									<li><a href></a></li>
-								</template>
-							</ul>
-						</template>
-
-						<template data-instructions>
-							<p>Instructions:</p>
-							<ul>
-								<template>
-									<li>Instruction</li>
-								</template>
-							</ul>
-						</template>
-
-						<template data-notes>
-							<p>Notes:</p>
-							<ul>
-								<template>
-									<li>Note</li>
-								</template>
-							</ul>
-						</template>
-
-						<template data-source-code>
-							<template data-source-code-collapsed>
-								<details class="mrgn-bttm-lg">
-									<summary>Intro to source code</summary>
-									<pre><code></code></pre>
-								</details>
+							<template data-example>
+								<p>Working examples:</p>
+								<ul>
+									<template>
+										<li><a href></a></li>
+									</template>
+								</ul>
 							</template>
 
-							<template data-source-code-expanded>
-								<figure class="mrgn-bttm-lg">
-									<figcaption>Intro to source code</figcaption>
-									<pre><code></code></pre>
-								</figure>
+							<template data-instructions>
+								<p>Instructions:</p>
+								<ul>
+									<template>
+										<li>Instruction</li>
+									</template>
+								</ul>
 							</template>
-						</template>
 
-						<template data-code-compare>
-							<div class="row">
-								<div class="col-md-6">
-									<figure>
-										<figcaption data-rev>Intro to source code</figcaption>
-										<pre><code data-rev></code></pre>
+							<template data-notes>
+								<p>Notes:</p>
+								<ul>
+									<template>
+										<li>Note</li>
+									</template>
+								</ul>
+							</template>
+
+							<template data-source-code>
+								<template data-source-code-collapsed>
+									<details class="mrgn-bttm-lg">
+										<summary>Intro to source code</summary>
+										<pre><code></code></pre>
+									</details>
+								</template>
+
+								<template data-source-code-expanded>
+									<figure class="mrgn-bttm-lg">
+										<figcaption>Intro to source code</figcaption>
+										<pre><code></code></pre>
 									</figure>
+								</template>
+							</template>
+
+							<template data-code-compare>
+								<div class="row">
+									<div class="col-md-6">
+										<figure>
+											<figcaption data-rev>Intro to source code</figcaption>
+											<pre><code data-rev></code></pre>
+										</figure>
+									</div>
+									<div class="col-md-6">
+										<figure>
+											<figcaption data-from>Intro to source code</figcaption>
+											<pre><code data-from></code></pre>
+										</figure>
+									</div>
 								</div>
-								<div class="col-md-6">
-									<figure>
-										<figcaption data-from>Intro to source code</figcaption>
-										<pre><code data-from></code></pre>
-									</figure>
-								</div>
-							</div>
-						</template>
-					</details>
-				</div>
-			</template>
-		</div>
+							</template>
+						</details>
+					</div>
+				</template>
+			</div>
+		</template>
 
 		<h4>{% if lng == "fr" %}Notes historiques{% else %}History notes{% endif %}</h4>
 		<ul data-history>
@@ -532,47 +571,6 @@ layout: default
 				<li>[[ history ]]</li>
 			</template>
 		</ul>
-
-		<template data-old-implementation>
-			<details>
-				<summary>Deprecated implementation</summary>
-
-				<template>
-					<section>
-						<h5>Name of the implementation</h5>
-						<p><span class="label label-default">Status: <span data-status>(active | deprecated | provisional)</span></span></p>
-						<dl class="dl-horizontal mrgn-bttm-0 mrgn-tp-md brdr-0">
-							<dt>Detectable by:</dt><dd data-detactable></dd>
-							<dt>For iteration:</dt><dd data-iteration></dd>
-						</dl>
-						<p data-introduction>Introduction</p>
-						<template data-example>
-							<p>Working examples:</p>
-							<ul>
-								<template>
-									<li><a href></a></li>
-								</template>
-							</ul>
-						</template>
-						<template data-notes>
-							<p>Instructions and notes:</p>
-							<ul>
-								<template>
-									<li>Instructions or note text</li>
-								</template>
-							</ul>
-						</template>
-
-						<template data-source-code>
-							<figure>
-								<figcaption>Intro to source code</figcaption>
-								<pre><code></code></pre>
-							</figure>
-						</template>
-					</section>
-				</template>
-			</details>
-		</template>
 	</template>
 </div>
 
@@ -614,15 +612,19 @@ layout: default
 	]
 }'>
 	<template data-no>
-		<p>There is no accessibility report</p>
-	</template>
-
-	<template data-comment>
-		<p></p>
+		{%- if lng == "fr" -%}
+		<p>Il n’existe pas d'évaluation de l'accessibilité.</p>
+		{%- else -%}
+		<p>There is no accessibility assessment.</p>
+		{%- endif -%}
 	</template>
 
 	<template data-yes>
+		{%- if lng == "fr" -%}
+		<p>Évaluation d'accessibilité&nbsp;:</p>
+		{%- else -%}
 		<p>Accessibility assessment:</p>
+		{%- endif -%}
 		<ul>
 			<template>
 				<li><a href hreflang lang></a></li>
@@ -673,10 +675,6 @@ layout: default
 		{%- else -%}
 		<p>There is no accessibility conformance report.</p>
 		{%- endif -%}
-	</template>
-
-	<template data-comment>
-		<p></p>
 	</template>
 
 	<template data-yes>
@@ -829,6 +827,87 @@ layout: default
 					"template": "[data-semantic-source-code]",
 					"test": "fn:guessType",
 					"value": "/semantic",
+					"expect": "source-code",
+					"mapping": [
+						{
+							"@type": "rdf:Alt",
+							"mapping": [
+								{
+									"template": "[data-source-code-collapsed]",
+									"test": "fn:getValue",
+									"assess": "/collapsed",
+									"expect": true,
+									"mapping": [
+										{ "selector": "summary", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								},
+								{
+									"template": "[data-source-code-expanded]",
+									"test": "fn:getValue",
+									"assess": "/collapsed",
+									"expect": false,
+									"mapping": [
+										{ "selector": "figcaption", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								},
+								{
+									"template": "[data-source-code-expanded]",
+									"test": "fn:guessType",
+									"assess": "/collapsed",
+									"expect": "undefined",
+									"mapping": [
+										{ "selector": "figcaption", "value": "/description" },
+										{ "selector": "code", "value": "/code", "encode": true }
+									]
+								}
+							]
+						}
+					]
+				}
+
+			]
+		},
+
+		{
+			"about": "/include",
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-include-none]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "undefined"
+				},
+				{
+					"template": "[data-include-description]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "xsd:string",
+					"mapping": [
+						{ "selector": "dd", "value": "/" }
+					]
+				},
+				{
+					"template": "[data-include-list]",
+					"test": "fn:guessType",
+					"value": "/include",
+					"expect": "rdfs:Container",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value" }
+							]
+						}
+					]
+				},
+				{
+					"template": "[data-include-source-code]",
+					"test": "fn:guessType",
+					"value": "/include",
 					"expect": "source-code",
 					"mapping": [
 						{
@@ -1522,6 +1601,44 @@ layout: default
 				</dd>
 			</template>
 
+			<!-- Include file -->
+			<template data-include-none>
+				<dt>include:</dt>
+				<dd>Not applicable or out of scope</dd>
+			</template>
+			<template data-include-description>
+				<dt>include:</dt>
+				<dd>[[ Description ]]</dd>
+			</template>
+			<template data-include-list>
+				<dt>include:</dt>
+				<dd>
+					<ul>
+						<template>
+							<li>[[ Description ]]</li>
+						</template>
+					</ul>
+				</dd>
+			</template>
+			<template data-include-source-code>
+				<dt>Include:</dt>
+				<dd>
+					<template data-source-code-collapsed>
+						<details>
+							<summary>Intro to source code</summary>
+							<pre><code></code></pre>
+						</details>
+					</template>
+
+					<template data-source-code-expanded>
+						<figure>
+							<figcaption>Intro to source code</figcaption>
+							<pre><code></code></pre>
+						</figure>
+					</template>
+				</dd>
+			</template>
+
 			<!-- Logic -->
 			<template data-logic-none>
 				<dt>Logic:</dt>
@@ -1840,7 +1957,6 @@ layout: default
 		{
 			"template": "[data-breaking]",
 			"test": "fn:isArray",
-			"expect": "rdfs:Resource",
 			"assess": "/breaking",
 			"mapping": [
 				{
@@ -1855,7 +1971,6 @@ layout: default
 		{
 			"template": "[data-additions]",
 			"test": "fn:isArray",
-			"expect": "rdfs:Resource",
 			"assess": "/additions",
 			"mapping": [
 				{
@@ -1870,7 +1985,6 @@ layout: default
 		{
 			"template": "[data-fixes]",
 			"test": "fn:isArray",
-			"expect": "rdfs:Resource",
 			"assess": "/fixes",
 			"mapping": [
 				{
