@@ -662,12 +662,12 @@ module.exports = (grunt) ->
 			#	src: "_includes/settings.liquid"
 			jekyllRunLocal:
 				options:
-					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}"""
+					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunDemo:
 				options:
-					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}"""
+					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/wet-boew-demos/""" + grunt.option('branch') + """/" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:

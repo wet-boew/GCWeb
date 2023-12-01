@@ -181,6 +181,167 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "Date modified",
+		"fr": "Date de modification"
+	},
+	"description": {
+		"en": "Indicates the date on which the current page was last modified.",
+		"fr": "Indique la date à laquelle la page courante a été modifiée pour la dernière fois."
+	},
+	"modified": "2023-11-02",
+	"componentName": "date-modified",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Date modified",
+				"language": "en",
+				"path": "date-modified-en.html"
+			},
+			{
+				"title": "Date de modification",
+				"language": "fr",
+				"path": "date-modified-fr.html"
+			}
+		]
+	},
+	"dependencies": [
+		"Page details"
+	],
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Date modified - default",
+				"fr": "Date de modification - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The date modified component indicates how recently the content of a web page has been updated.",
+				"fr": "La composante de date de modification indique la date de la dernière mise à jour d'une page Web."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/date-modified.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/date-modification.html"
+			},
+			"iteration": "_:iteration_dtmd_1",
+			"example": [
+				{
+					"en": { "href": "../../content-page/content-en.html", "text": "Content page (date modified at bottom of page)" },
+					"fr": { "href": "../../content-page/content-fr.html", "text": "Page de contenu (date de modification au bas de la page)" }
+				}
+			],
+			"implementation": [
+				"_:implement_dtmd"
+			],
+			"history": [
+				{
+					"en": "June 2014 - Initial implementation of the variation.",
+					"fr": "Juin 2014 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_dtmd",
+			"iteration": "_:iteration_dtmd_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Create a <code>&lt;dl id=\"wb-dtmd\"></code>.",
+					"Inside the above <code>&lt;dl></code>,<ol><li>create a <code>&lt;dt>Date modified:&lt;/dt></code>.</li><li>create a <code>&lt;dd>&lt;time property=\"dateModified\">[YYYY-MM-DD]&lt;time>&lt;/dd></code>, where [YYYY-MM-DD] is the date the current page was last updated. For example: 2023-11-03.</li></ol>"
+				],
+				"fr": [
+					"Créez un <code>&lt;dl id=\"wb-dtmd\"></code>.",
+					"À l'intérieur de ce <code>&lt;dl></code>,<ol><li>créez un <code>&lt;dt>Date de modification&nbsp;:&lt;/dt></code>.</li><li>créez un <code>&lt;dd>&lt;time property=\"dateModified\">[AAAA-MM-JJ]&lt;time>&lt;/dd></code>, où [AAAA-MM-JJ] est la date à laquelle la page courante a été modifiée pour la dernière fois. Par exemple: 2023-11-03.</li></ol>"
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<dl id=\"wb-dtmd\">\n\t<dt>Date modified:</dt>\n\t<dd><time property=\"dateModified\">YYYY-MM-DD</time></dd>\n</dl>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<dl id=\"wb-dtmd\">\n\t<dt>Date de modification&nbsp;:</dt>\n\t<dd><time property=\"dateModified\">YYYY-MM-DD</time></dd>\n</dl>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_dtmd_1",
+			"name": "Date modified - Iteration 1",
+			"date": "2014-06",
+			"detectableBy": "#wb-dtmd",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "&lt;dl id=\"wb-dtmd\">\n\t&lt;dt>Date modified:&lt;/dt>\n\t&lt;dd>&lt;time property=\"dateModified\">YYYY-MM-DD&lt;/time>&lt;/dd>\n&lt;/dl>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample with contact link",
+					"code": "&lt;dl id=\"wb-dtmd\">\n\t&lt;dt>Date de modification&nbsp;:&lt;/dt>\n\t&lt;dd>&lt;time property=\"dateModified\">YYYY-MM-DD&lt;/time>&lt;/dd>\n&lt;/dl>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_dtmd",
+			"name": "Date modified",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_dtmd_1",
+			"detectableBy": "#wb-dtmd",
+			"layout": "The <dd> is on the right of the <dt>.",
+			"semantic": "dl > dt + dd",
+			"static": [
+				"Date modified:",
+				"Date de modification :"
+			],
+			"schema": [
+				"Last modified date"
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/date-modified.html"
+				}
+			}
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 2.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Feedback area",
 		"fr": "Zone de rétroaction"
 	},
@@ -191,7 +352,7 @@
 	"modified": "2023-01-10",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "1.5",
+	"version": "2.0",
 	"pages": {
 		"docs": [
 			{
@@ -251,7 +412,7 @@
 			"status": "stable",
 			"description": {
 				"en": "The Page feedback tool variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"fr": "La variante de l'Outil de rétroaction sur la page remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
@@ -285,7 +446,7 @@
 			"status": "stable",
 			"description": {
 				"en": "The Page feedback tool with contact link variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"fr": "La variante de l'Outil de rétroaction sur la page avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
@@ -316,7 +477,7 @@
 				"en": "Report a problem (RAP)",
 				"fr": "Signaler un problème (SUP)"
 			},
-			"status": "stable",
+			"status": "deprecated",
 			"description": {
 				"en": "The Report a problem variation features an expand/collapse button with a list of checkboxes.",
 				"fr": "La variation Signaler un problème comporte un bouton développer/réduire avec une liste de cases à cocher."
@@ -332,12 +493,11 @@
 					"fr": { "href": "report-problem-fr.html", "text": "Signaler un problème" }
 				}
 			],
-			"implementation": [
-				"_:implement_rap",
-				"_:implement_rap_aa",
-				"_:implement_rap_gcweb"
-			],
 			"history": [
+				{
+					"en": "October 2023 - RAP status is now deprecated.",
+					"fr": "Octobre 2023 – SUP passe au statut obsolète."
+				},
 				{
 					"en": "August 2023 - Removed JSON Manager extraction for 'externalReferer' and 'subject'.",
 					"fr": "Août 2023 – Suppression de l’extraction via le Gestionnaire JSON pour « externalReferer » et « subject »."
@@ -398,7 +558,7 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div data-ajax-replace=\"ajax/report-problem-en.html\"&gt;\n\t&lt;div class=\"row row-no-gutters\"&gt;\n\t\t&lt;div class=\"col-sm-9 col-md-6 col-lg-5\"&gt;\n\t\t\t&lt;a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\"&gt;Report a problem on this page&lt;/a&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;"
+						"code": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
 					},
 					{
 						"@type": "source-code",
@@ -414,12 +574,12 @@
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div data-ajax-replace=\"ajax/report-problem-en.html\"&gt;\n\t&lt;div class=\"row row-no-gutters\"&gt;\n\t\t&lt;div class=\"col-sm-9 col-md-6 col-lg-5\"&gt;\n\t\t\t&lt;a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html&quot;&gt;Signaler un problème sur cette page&lt;/a&gt;\n\t\t&lt;/div&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;"
+						"code": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
 					},
 					{
 						"@type": "source-code",
 						"collapsed": true,
-						"description": "Contenu ajouté via Ajax :",
+						"description": "Contenu ajouté via Ajax",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "ajax/report-problem-fr.html"
@@ -452,14 +612,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div class=\"checkbox\"&gt;\n\t&lt;label for=\"problem2\"&gt;\n\t\t&lt;input name=\"problem2\" id=\"problem2\" type=\"checkbox\" value=\"Yes\" <ins>data-gc-analytics-rap=\"It has a spelling mistake-Il y a une erreur d&apos;orthographe ou de grammaire\"</ins>&gt;It has a spelling mistake\n\t&lt;/label&gt;\n\t&lt;input name=\"problem2\" type=\"hidden\" value=\"\"&gt;\n&lt;/div&gt;"
+						"code": "<div class=\"checkbox\">\n\t<label for=\"problem2\">\n\t\t<input name=\"problem2\" id=\"problem2\" type=\"checkbox\" value=\"Yes\" data-gc-analytics-rap=\"It has a spelling mistake-Il y a une erreur d'orthographe ou de grammaire\" It has a spelling mistake\n\t</label>\n\t<input name=\"problem2\" type=\"hidden\" value=\"\">\n</div>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div class=\"checkbox\"&gt;\n\t&lt;label for=\"problem2\"&gt;\n\t\t&lt;input name=\"problem2\" id=\"problem2\" type=\"checkbox\" value=\"Yes\" <ins>data-gc-analytics-rap=\"Il y a une erreur d&apos;orthographe ou de grammaire-It has a spelling mistake\"</ins>&gt;Il y a une erreur d'orthographe ou de grammaire\n\t&lt;/label&gt;\n\t&lt;input name=\"problem2\" type=\"hidden\" value=\"\"&gt;\n&lt;/div&gt;"
+						"code": "<div class=\"checkbox\">\n\t<label for=\"problem2\">\n\t\t<input name=\"problem2\" id=\"problem2\" type=\"checkbox\" value=\"Yes\" data-gc-analytics-rap=\"Il y a une erreur d'orthographe ou de grammaire-It has a spelling mistake\">Il y a une erreur d'orthographe ou de grammaire\n\t</label>\n\t<input name=\"problem2\" type=\"hidden\" value=\"\">\n</div>"
 					}
 				]
 			}
@@ -488,14 +648,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "\"feedback\": true, \n\"feedbackFallback\": true, \n\"feedbackPath\": \"ajax-report-problem-en.html\""
+						"code": "---\n{\n\t...\n\t\"feedback\": true, \n\t\"feedbackFallback\": true, \n\t\"feedbackPath\": \"ajax-report-problem-en.html\"\n\t...\n}\n---"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "\"feedback\": true, \n\"feedbackFallback\": true, \n\"feedbackPath\": \"ajax-report-problem-fr.html\""
+						"code": "---\n{\n\t...\n\t\"feedback\": true, \n\t\"feedbackFallback\": true, \n\t\"feedbackPath\": \"ajax-report-problem-fr.html\"\n\t...\n}\n---"
 					}
 				]
 			}
@@ -508,20 +668,20 @@
 				"fr": "Standard (wet-boew)"
 			},
 			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the component manually with using the latest GCWeb version along with at least the implementation of the page details version 2.x.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant une version récente de GCWeb avec l'implémentation de la version 2.x du détails de la page."
+				"en": "This implementation is meant for developers/publishers adding the component manually while using the latest version of GCWeb along with the implementation of the page details version 3.0 and above.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant la dernière version de GCWeb avec l'implémentation de la version 3.0 ou plus du détails de la page."
 			},
 			"instructions": {
 				"en": [
-					"Ensure the version of <a href=\"https://github.com/wet-boew/GCWeb/releases\">GCWeb</a> <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 or earlier</a> is implemented",
-					"Ensure the latest version of <a href=\"../page-details/page-details-docs-en.html\">page details</a> is implemented",
-					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"assets/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
+					"Ensure the version of <a href=\"https://github.com/wet-boew/GCWeb/releases\">GCWeb</a> <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 or earlier</a> is implemented.",
+					"Ensure the latest version of the <a href=\"../page-details/page-details-docs-en.html\">page details</a> is implemented.",
+					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
-					"Vérifier qu'une version récente de GCWeb (<a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récent</a>) est implémenté",
-					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 2.1, ou plus récente, du détails de la page</a> est implémenté",
-					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"assets/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
+					"Vérifier que la version <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récente</a> de GCWeb est implémentée.",
+					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0, ou plus récente, du détails de la page</a> est implémentée.",
+					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
@@ -540,7 +700,7 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\"&gt;&lt;/div&gt;"
+						"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\"></div>"
 					},
 					{
 						"@type": "source-code",
@@ -556,12 +716,12 @@
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\"&gt;&lt;/div&gt;"
+						"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\"></div>"
 					},
 					{
 						"@type": "source-code",
 						"collapsed": true,
-						"description": "Contenu ajouté via Ajax :",
+						"description": "Contenu ajouté via Ajax",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "assets/page-feedback-fr.html"
@@ -596,14 +756,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "\"feedback\": true,\n\"feedbackData\": {\n\t\"theme\": \"Theme\",\n\t\"section\": \"Section\"\n}"
+						"code": "---\n{\n\t...\n\t\"feedback\": true,\n\t\"feedbackData\": {\n\t\t\"theme\": \"Theme\",\n\t\t\"section\": \"Section\"\n\t}\n\t...\n}\n---"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "\"feedback\": true,\n\"feedbackData\": {\n\t\"theme\": \"Thème\",\n\t\"section\": \"Section\"\n}"
+						"code": "---\n{\n\t...\n\t\"feedback\": true,\n\t\"feedbackData\": {\n\t\t\"theme\": \"Thème\",\n\t\t\"section\": \"Section\"\n\t}\n\t...\n}\n---"
 					}
 				]
 			}
@@ -621,11 +781,11 @@
 			},
 			"instructions": {
 				"en": [
-					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 2.1</a>.",
+					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 3.0</a>.",
 					"Follow the implementation instructions for the new PFT implementation."
 				],
 				"fr": [
-					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 2.1</a>.",
+					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 3.0</a>.",
 					"Suivez les instructions d'implémentation pour la nouvelle implémentation du ORP."
 				]
 			}
@@ -638,21 +798,21 @@
 				"fr": "Utilisateur SWG"
 			},
 			"introduction": {
-				"en": "For users that are authoring web page on Canada.ca Managed Web Services.",
-				"fr": "Pour les utilisateurs qui font de l'édition de page web sur Canada.ca via le Service web géré."
+				"en": "For users that are authoring Web pages on Canada.ca Managed Web Services.",
+				"fr": "Pour les utilisateurs qui font de l'édition de pages Web sur Canada.ca via le Service Web géré."
 			},
 			"instructions": {
 				"en": [
-					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before to adding the page feedback tool on your pages.",
+					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before adding the Page feedback tool on your pages.",
 					"If you are configuring the section, please follow the <a href=\"https://design.canada.ca/feedback/index.html\">additional design system guidance</a>.",
-					"You can configure the page feedback tool via the page properties by specifying the optional configuration (contact info and section). The value for the theme configuration are automatically set by the MWS.",
-					"For additional guidance on how to implements, you can consult the guide on GCPedia along with the other documentation for the managed web service."
+					"You can configure the Page feedback tool via the page properties by adjusting the optional configurations (contact info and section). The value for the theme configuration is automatically set by MWS.",
+					"For additional guidance on how to implement the Page feedback tool, you can consult the guide on GCPedia along with the other documentation for MWS."
 				],
 				"fr": [
-					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter l'outil de rétroaction sur la page à vos pages.",
+					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter l'Outil de rétroaction sur la page à vos pages.",
 					"Si vous configurez la section, veuillez suivre les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes supplémentaires du système de conception</a>.",
-					"Vous pouvez configurer l'outil de rétroaction sur la page via les propriétés de la page en spécifiant la configuration facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
-					"Pour des conseils supplémentaires sur la mise en œuvre, vous pouvez consulter le guide sur GCPedia avec les autres documents du service web géré."
+					"Vous pouvez configurer l'Outil de rétroaction sur la page via les propriétés de la page en ajustant les configurations facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
+					"Pour des conseils supplémentaires sur la mise en œuvre de l'Outil de rétroaction sur la page, vous pouvez consulter le guide sur GCPedia avec les autres documents du SWG."
 				]
 			}
 		},
@@ -660,24 +820,24 @@
 			"@id": "_:implement_pft_contact",
 			"iteration": "_:iteration_pft_1",
 			"name": {
-				"en": "Standard (wet-boew)",
-				"fr": "Standard (wet-boew)"
+				"en": "Standard (WET-BOEW)",
+				"fr": "Standard (WET-BOEW)"
 			},
 			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the component manually with using the latest GCWeb version along with at least the implementation of the page details version 2.x.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant une version récente de GCWeb avec l'implémentation de la version 2.x du détails de la page."
-			},			
+				"en": "This implementation is meant for developers/publishers adding the component manually while using the latest version of GCWeb along with the implementation of the page details version 3.0 and above.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement en utilisant la dernière version de GCWeb avec l'implémentation de la version 3.0 ou plus du détails de la page."
+			},
 			"instructions": {
 				"en": [
 					"Ensure the version of <a href=\"https://github.com/wet-boew/GCWeb/releases\">GCWeb</a> <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 or earlier</a> is implemented",
 					"Ensure the latest version of <a href=\"../page-details/page-details-docs-en.html\">page details</a> is implemented",
-					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"assets/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
+					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
-					"Vérifier qu'une version récente de GCWeb (<a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récent</a>) est implémenté",
-					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 2.1, ou plus récente, du détails de la page</a> est implémenté",
-					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"assets/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
+					"Vérifier que la version <a href=\"https://github.com/wet-boew/GCWeb/releases\">v13.9.0 ou plus récente</a> de GCWeb est implémentée.",
+					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0, ou plus récente, du détails de la page</a> est implémentée.",
+					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
@@ -696,7 +856,7 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\" \ndata-feedback-link=\"[Contact link text]\" \ndata-feedback-url=\"[Contact link URL]\"&gt;&lt;/div&gt;"
+						"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\" \ndata-feedback-section=\"[Text defining the section where your page resides]\" \ndata-feedback-theme=\"[Text defining the theme of your page]\" \ndata-feedback-link=\"[Contact link text]\" \ndata-feedback-url=\"[Contact link URL]\"></div>"
 					},
 					{
 						"@type": "source-code",
@@ -712,12 +872,12 @@
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "&lt;div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\" \ndata-feedback-link=\"[Texte du lien de contact]\" \ndata-feedback-url=\"[URL du lien de contact]\"&gt;&lt;/div&gt;"
+						"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant la section où réside votre page]\" \ndata-feedback-theme=\"[Texte définissant le thème de votre page]\" \ndata-feedback-link=\"[Texte du lien de contact]\" \ndata-feedback-url=\"[URL du lien de contact]\"></div>"
 					},
 					{
 						"@type": "source-code",
 						"collapsed": true,
-						"description": "Contenu ajouté via Ajax :",
+						"description": "Contenu ajouté via Ajax",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "assets/page-feedback-fr.html"
@@ -754,14 +914,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "\"feedback\": true, \n\"feedbackContact\": {\n\t\"link\": \"Contact link\",\n\t\"url\": \"https://canada.ca/en\"\n}, \n\"feedbackData\": {\n\t\"theme\": \"Theme\",\n\t\"section\": \"Section\"\n}"
+						"code": "---\n{\n\t...\n\t\"feedback\": true, \n\t\"feedbackContact\": {\n\t\t\"link\": \"Contact link\",\n\t\t\"url\": \"https://canada.ca/en\"\n\t}, \n\t\"feedbackData\": {\n\t\t\"theme\": \"Theme\",\n\t\t\"section\": \"Section\"\n\t}\n\t...\n}\n---"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "\"feedback\": true, \n\"feedbackContact\": {\n\t\"link\": \"Lien de contact\",\n\t\"url\": \"https://canada.ca/fr\"\n}, \n\"feedbackData\": {\n\t\"theme\": \"Thème\",\n\t\"section\": \"Section\"\n}"
+						"code": "---\n{\n\t...\n\t\"feedback\": true, \n\t\"feedbackContact\": {\n\t\t\"link\": \"Lien de contact\",\n\t\t\"url\": \"https://canada.ca/fr\"\n\t}, \n\t\"feedbackData\": {\n\t\t\"theme\": \"Thème\",\n\t\t\"section\": \"Section\"\n\t}\n\t...\n}\n---"
 					}
 				]
 			}
@@ -769,242 +929,11 @@
 	],
 	"changesets": [
 		{
-			"@id": "_:cs_rap_inline",
-			"name": "Report a problem inline",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_rap_1",
-			"detectableBy": "The RAP web form is hardcoded in each page and the form inputs are server-side personalized/configured.",
-			"layout": [
-				"At the top-left column in the page details component",
-				"When expanded, a vertical form is shown in-place"
-			],
-			"style": [
-				"It is visually rendered as a default button",
-				"Only have an arrow when the online form is available directly on the page"
-			],
-			"semantic": {
-				"@type": "source-code",
-				"collapsed": true,
-				"description": "Include with logic in Handlebars that supports all variations of this changeset. The list of questions is in scope.",
-				"code": {
-					"@type": [ "@id", "rdf:HTML" ],
-					"@value": "deprecated/report-problem-inline-en.html"
-				}
-			},
-			"logic": "Not applicable",
-			"behaviour": [
-				"Non-Canada.ca implementation - Redirect to a web page with a form to collect the feedback",
-				"Canada.ca implementation - Show an inline form underneath the button, when requested by the user, to collect the feedback"
-			],
-			"guidance": [
-				"Canada.ca - Show the feedback form under the RAP button",
-				"Non Canada.ca - Redirect the user on a page to collect the feedback."
-			],
-			"context": "In the page details component, inside the main content of the page",
-			"configuration":[
-				"Form submission URL",
-				"Basic mode: URL of the feedback button"
-			],
-			"static": [
-				"Button text - RAP-title - 'Report a problem on this page' - 'Signaler un problème ou une erreur sur cette page'",
-				"Text in the <legend>",
-				"Question 1",
-				"Question 2",
-				"Question 3",
-				"Question 4",
-				"Question 5",
-				"Question 11",
-				"Question 12"
-			],
-			"schema": [
-				"Form submission URL"
-			],
-			"dependency": [
-				"Page details, version 1, incompatible with version 2 and up"
-			],
-			"file": "Not applicable"
-		},
-		{
-			"@id": "_:cs_rap_container",
-			"name": "Report a problem with AJAX",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_rap_5",
-			"detectableBy": "The RAP web form is inserted via ajax",
-			"layout": [
-				"At the top-left column in the page details component",
-				"When expanded, a vertical form is shown in-place"
-			],
-			"style": [
-				"It is visually rendered as a default button",
-				"Only have an arrow when the online form is available directly on the page"
-			],
-			"semantic": {
-				"@type": "source-code",
-				"description": "Container calling the RAP form via AJAX",
-				"code": {
-					"@type": [ "rdf:HTML" ],
-					"@value": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>\n"
-				}
-			},
-			"logic": "Not applicable",
-			"behaviour": [
-				"Non-Canada.ca implementation: redirect to a web page with a form to collect the feedback",
-				"Canada.ca implementation: show an inline form underneath the button when requested by the user, to collect the feedback",
-				"Basic mode Canada.ca implementation: show the fallback button"
-			],
-			"guidance": [
-				"Canada.ca: show the feedback form underneath the RAP button",
-				"Non Canada.ca: redirect the user on a page to collect the feedback."
-			],
-			"context": "In the page details component, inside the main content of the page",
-			"configuration":[
-				"URL of the file being AJAXed",
-				"URL of the RAP fallback link"
-			],
-			"static": [
-				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\""
-			],
-			"schema": [
-				"AjaxLink",
-				"StaticRapLink"
-			],
-			"dependency": [
-				"Page details, version 2, incompatible with version 1",
-				"RAP AJAX content as described by the changeset _:cs_rap_ajax",
-				"RAP AJAX content as described by the changeset _:cs_rap_ajax_2"
-			],
-			"file": "Not applicable"
-		},
-		{
-			"@id": "_:cs_rap_ajax",
-			"name": "Report a problem AJAX file",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_rap_2",
-			"dependOnChangeSet": "_:cs_rap_container",
-			"detectableBy": "HTML fragment that starts with a \"row row-no-gutters\", containing a form and a wrapper \"div.gc-rprt-prlm\"",
-			"layout": [
-				"Full width button",
-				"When expanded, a vertical form is shown"
-			],
-			"style": [
-				"The expandable Button is rendered as the default button preceded by an arrow",
-				"Gray background for the form area",
-				"Primary styled button for form submission"
-			],
-			"semantic": {
-				"@type": "source-code",
-				"description": "HTML fragment which is inserted into the RAP container",
-				"collapsed": true,
-				"code": {
-					"@type": [ "@id", "rdf:HTML" ],
-					"@value": "ajax/deprecated/report-problem-v1-en.html"
-				}
-			},
-			"logic": "Not applicable",
-			"behaviour": [
-				"Button that show/hide the RAP form",
-				"Success message showed on success or failure"
-			],
-			"guidance": [
-				"Canada.ca: show the feedback form underneath the RAP button"
-			],
-			"context": "To be used by RAP",
-			"configuration":[
-				"Form submission URL"
-			],
-			"static": [
-				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\"",
-				"Text in the <legend>",
-				"Problem 1",
-				"Problem 2",
-				"Problem 3",
-				"Problem 4",
-				"Problem 5",
-				"Problem 6",
-				"Problem 7",
-				"Problem 8",
-				"Problem 9",
-				"Problem 10",
-				"Problem 11",
-				"Problem 12",
-				"Submit button",
-				"Success message",
-				"Failure message"
-			],
-			"schema": [
-				"Form submission URL"
-			],
-			"dependency": [
-				"Page details, version 2, incompatible with version 1"
-			],
-			"file": "Not applicable, this HTML fragment content is intended to be integrated by a location that fits the content management system"
-		},
-		{
-			"@id": "_:cs_rap_ajax_2",
-			"name": "Report a problem AJAX file Data-JSON",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_rap_5",
-			"dependOnChangeSet": "_:cs_rap_container",
-			"detectableBy": "Hidden inputs genereted via Data-JSON and \"subject\" and \"externalReferer\" are static",
-			"layout": [
-				"Full width button",
-				"When expanded, a vertical form is shown"
-			],
-			"style": [
-				"The expandable Button is rendered as the default button preceded by an arrow",
-				"Gray background for the form area",
-				"Primary styled button for form submission"
-			],
-			"semantic": {
-				"@type": "source-code",
-				"description": "HTML fragment which is inserted into the RAP container",
-				"collapsed": true,
-				"code": {
-					"@type": [ "@id", "rdf:HTML" ],
-					"@value": "ajax/deprecated/report-problem-v1-en.html"
-				}
-			},
-			"logic": "Not applicable",
-			"behaviour": [
-				"Button that show/hide the RAP form",
-				"Success message showed on success or failure"
-			],
-			"guidance": [
-				"Canada.ca: show the feedback form underneath the RAP button"
-			],
-			"context": "To be used by RAP",
-			"configuration":[
-				"Form submission URL"
-			],
-			"static": [
-				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\"",
-				"Hidden inputs \"subject\" and \"externalReferer\"",
-				"Text in the <legend>",
-				"Problem 1",
-				"Problem 2",
-				"Problem 3",
-				"Problem 4",
-				"Problem 5",
-				"Problem 11",
-				"Problem 12",
-				"Submit button",
-				"Success message",
-				"Failure message"
-			],
-			"schema": [
-				"Form submission URL"
-			],
-			"dependency": [
-				"Page details, version 2, incompatible with version 1"
-			],
-			"file": "Not applicable, this HTML fragment content is intended to be integrated by a location that fits the content management system"
-		},
-		{
 			"@id": "_:cs_pft_container",
 			"name": "Page feedback tool with AJAX",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_pft_1",
-			"detectableBy": "<div class=\"wb-disable-allow\" data-ajax=\"assets/page-feedback-en.html\">",
+			"detectableBy": ".pagedetails .wb-disable-allow[data-ajax-replace*=feedback]",
 			"layout": [
 				"At the top-left column in the page details component",
 				"When user selects \"No\", a form with a textarea appears"
@@ -1013,7 +942,7 @@
 				"Light-gray box with question and two primary buttons",
 				"When user selects \"No\", a form with a textarea replaces the question and primary buttons"
 			],
-			"semantic": {
+			"include": {
 				"@type": "source-code",
 				"description": "Container calling the RAP form via AJAX",
 				"code": {
@@ -1068,7 +997,12 @@
 				"When user selects \"No\", a form with a textarea replaces the question and primary buttons",
 				"When user submits, a confirmation message is shown on postback"
 			],
-			"semantic": {
+			"semantic": [
+				"h3",
+				"form > input[type=hidden] + (fieldset > legend + button*3) + p*2 + (details > summary + p) + label + p*2 + textarea + button",
+				"p"
+			],
+			"include": {
 				"@type": "source-code",
 				"description": "HTML fragment which is inserted into the PFT container",
 				"collapsed": true,
@@ -1104,6 +1038,241 @@
 				"Page details, version 2, incompatible with version 1"
 			],
 			"file": "Not applicable, this HTML fragment content is intended to be integrated by a location that fits the content management system"
+		},
+		{
+			"@id": "_:cs_rap_ajax_2",
+			"name": "Report a problem AJAX file Data-JSON",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_rap_5",
+			"dependOnChangeSet": "_:cs_rap_container",
+			"detectableBy": "Hidden inputs genereted via Data-JSON and \"subject\" and \"externalReferer\" are static",
+			"layout": [
+				"Full width button",
+				"When expanded, a vertical form is shown"
+			],
+			"style": [
+				"The expandable Button is rendered as the default button preceded by an arrow",
+				"Gray background for the form area",
+				"Primary styled button for form submission"
+			],
+			"include": {
+				"@type": "source-code",
+				"description": "HTML fragment which is inserted into the RAP container",
+				"collapsed": true,
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "ajax/deprecated/report-problem-v1-en.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"Button that show/hide the RAP form",
+				"Success message showed on success or failure"
+			],
+			"guidance": [
+				"Canada.ca: show the feedback form underneath the RAP button"
+			],
+			"context": "To be used by RAP",
+			"configuration":[
+				"Form submission URL"
+			],
+			"static": [
+				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\"",
+				"Hidden inputs \"subject\" and \"externalReferer\"",
+				"Text in the <legend>",
+				"Problem 1",
+				"Problem 2",
+				"Problem 3",
+				"Problem 4",
+				"Problem 5",
+				"Problem 11",
+				"Problem 12",
+				"Submit button",
+				"Success message",
+				"Failure message"
+			],
+			"schema": [
+				"Form submission URL"
+			],
+			"dependency": [
+				"Page details, version 2, incompatible with version 1"
+			],
+			"file": "Not applicable, this HTML fragment content is intended to be integrated by a location that fits the content management system"
+		},
+		{
+			"@id": "_:cs_rap_container",
+			"name": "Report a problem with AJAX",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_rap_5",
+			"detectableBy": "The RAP web form is inserted via ajax",
+			"layout": [
+				"At the top-left column in the page details component",
+				"When expanded, a vertical form is shown in-place"
+			],
+			"style": [
+				"It is visually rendered as a default button",
+				"Only have an arrow when the online form is available directly on the page"
+			],
+			"include": {
+				"@type": "source-code",
+				"description": "Container calling the RAP form via AJAX",
+				"code": {
+					"@type": [ "rdf:HTML" ],
+					"@value": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>\n"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"Non-Canada.ca implementation: redirect to a web page with a form to collect the feedback",
+				"Canada.ca implementation: show an inline form underneath the button when requested by the user, to collect the feedback",
+				"Basic mode Canada.ca implementation: show the fallback button"
+			],
+			"guidance": [
+				"Canada.ca: show the feedback form underneath the RAP button",
+				"Non Canada.ca: redirect the user on a page to collect the feedback."
+			],
+			"context": "In the page details component, inside the main content of the page",
+			"configuration":[
+				"URL of the file being AJAXed",
+				"URL of the RAP fallback link"
+			],
+			"static": [
+				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\""
+			],
+			"schema": [
+				"AjaxLink",
+				"StaticRapLink"
+			],
+			"dependency": [
+				"Page details, version 2, incompatible with version 1",
+				"RAP AJAX content as described by the changeset _:cs_rap_ajax",
+				"RAP AJAX content as described by the changeset _:cs_rap_ajax_2"
+			],
+			"file": "Not applicable"
+		},
+		{
+			"@id": "_:cs_rap_ajax",
+			"name": "Report a problem AJAX file",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_rap_2",
+			"dependOnChangeSet": "_:cs_rap_container",
+			"detectableBy": "HTML fragment that starts with a \"row row-no-gutters\", containing a form and a wrapper \"div.gc-rprt-prlm\"",
+			"layout": [
+				"Full width button",
+				"When expanded, a vertical form is shown"
+			],
+			"style": [
+				"The expandable Button is rendered as the default button preceded by an arrow",
+				"Gray background for the form area",
+				"Primary styled button for form submission"
+			],
+			"include": {
+				"@type": "source-code",
+				"description": "HTML fragment which is inserted into the RAP container",
+				"collapsed": true,
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "ajax/deprecated/report-problem-v1-en.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"Button that show/hide the RAP form",
+				"Success message showed on success or failure"
+			],
+			"guidance": [
+				"Canada.ca: show the feedback form underneath the RAP button"
+			],
+			"context": "To be used by RAP",
+			"configuration":[
+				"Form submission URL"
+			],
+			"static": [
+				"Button text - RAP-title - \"Report a problem on this page\" - \"Signaler un problème ou une erreur sur cette page\"",
+				"Text in the <legend>",
+				"Problem 1",
+				"Problem 2",
+				"Problem 3",
+				"Problem 4",
+				"Problem 5",
+				"Problem 6",
+				"Problem 7",
+				"Problem 8",
+				"Problem 9",
+				"Problem 10",
+				"Problem 11",
+				"Problem 12",
+				"Submit button",
+				"Success message",
+				"Failure message"
+			],
+			"schema": [
+				"Form submission URL"
+			],
+			"dependency": [
+				"Page details, version 2, incompatible with version 1"
+			],
+			"file": "Not applicable, this HTML fragment content is intended to be integrated by a location that fits the content management system"
+		},
+		{
+			"@id": "_:cs_rap_inline",
+			"name": "Report a problem inline",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_rap_1",
+			"detectableBy": "The RAP web form is hardcoded in each page and the form inputs are server-side personalized/configured.",
+			"layout": [
+				"At the top-left column in the page details component",
+				"When expanded, a vertical form is shown in-place"
+			],
+			"style": [
+				"It is visually rendered as a default button",
+				"Only have an arrow when the online form is available directly on the page"
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Handlebars that supports all variations of this changeset. The list of questions is in scope.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "deprecated/report-problem-inline-en.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"Non-Canada.ca implementation - Redirect to a web page with a form to collect the feedback",
+				"Canada.ca implementation - Show an inline form underneath the button, when requested by the user, to collect the feedback"
+			],
+			"guidance": [
+				"Canada.ca - Show the feedback form under the RAP button",
+				"Non Canada.ca - Redirect the user on a page to collect the feedback."
+			],
+			"context": "In the page details component, inside the main content of the page",
+			"configuration":[
+				"Form submission URL",
+				"Basic mode: URL of the feedback button"
+			],
+			"static": [
+				"Button text - RAP-title - 'Report a problem on this page' - 'Signaler un problème ou une erreur sur cette page'",
+				"Text in the <legend>",
+				"Question 1",
+				"Question 2",
+				"Question 3",
+				"Question 4",
+				"Question 5",
+				"Question 11",
+				"Question 12"
+			],
+			"schema": [
+				"Form submission URL"
+			],
+			"dependency": [
+				"Page details, version 1, incompatible with version 2 and up"
+			],
+			"file": "Not applicable"
 		}
 	],
 	"iteration": [
@@ -1158,29 +1327,133 @@
 			]
 		},
 		{
-			"@id": "_:iteration_rap_1",
-			"@language": "en",
-			"name": "Report a problem - Iteration 1",
-			"date": "2021-03",
-			"detectableBy": ".gc-rprt-prblm",
-			"successor": "_:iteration_rap_2",
+			"@id": "_:iteration_rap_5",
+			"name": "Report a problem - Iteration 5",
+			"date": "2023-08",
+			"detectableBy": "externalReferer and subject are no longer generated via Data-JSON, but are now static.",
+			"breaking": [
+				"Semantic: removed JSON Manager extraction for 'externalReferer' and 'subject'."
+			],
+			"additions": [
+				"Semantic: added static hidden inputs for 'externalReferer' and 'subject'."
+			],
+			"predecessor": "_:iteration_rap_4",
 			"assets": [
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
+					"code": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Ajaxed-in content",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v1-en.html"
+						"@value": "ajax/report-problem-en.html"
 					}
 				},
 				{
 					"@type": "source-code",
 					"@language": "fr",
 					"description": "Exemple de code",
+					"code": "<div data-ajax-replace=\"ajax/report-problem-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Contenu ajouté via Ajax",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v1-fr.html"
+						"@value": "ajax/report-problem-fr.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_rap_4",
+			"name": "Report a problem - Iteration 4",
+			"date": "2023-03",
+			"detectableBy": "Hidden inputs are generated via Data-JSON",
+			"breaking": [
+				"Semantic: leveraging JSON Manager Extractor and Data JSON to generate hidden input fields."
+			],
+			"predecessor": "_:iteration_rap_3",
+			"successor": "_:iteration_rap_5",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v4-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Ajaxed-in content",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "ajax/deprecated/report-problem-v4-en.html"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v4-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Contenu ajouté via Ajax",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "ajax/deprecated/report-problem-v4-fr.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_rap_3",
+			"name": "Report a problem - Iteration 3",
+			"date": "2023-01",
+			"detectableBy": "Options 6 through 10 are not there.",
+			"breaking": [
+				"Semantic: removed login error sub-options.",
+				"Semantic: renamed login error option."
+			],
+			"predecessor": "_:iteration_rap_2",
+			"successor": "_:iteration_rap_4",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v3-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Ajaxed-in content",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "ajax/deprecated/report-problem-v3-en.html"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v3-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Contenu ajouté via Ajax",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "ajax/deprecated/report-problem-v3-fr.html"
 					}
 				}
 			]
@@ -1232,133 +1505,29 @@
 			]
 		},
 		{
-			"@id": "_:iteration_rap_3",
-			"name": "Report a problem - Iteration 3",
-			"date": "2023-01",
-			"detectableBy": "Options 6 through 10 are not there.",
-			"breaking": [
-				"Semantic: removed login error sub-options.",
-				"Semantic: renamed login error option."
-			],
-			"predecessor": "_:iteration_rap_2",
-			"successor": "_:iteration_rap_4",
+			"@id": "_:iteration_rap_1",
+			"@language": "en",
+			"name": "Report a problem - Iteration 1",
+			"date": "2021-03",
+			"detectableBy": ".gc-rprt-prblm",
+			"successor": "_:iteration_rap_2",
 			"assets": [
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v3-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Ajaxed-in content",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v3-en.html"
+						"@value": "ajax/deprecated/report-problem-v1-en.html"
 					}
 				},
 				{
 					"@type": "source-code",
 					"@language": "fr",
 					"description": "Exemple de code",
-					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v3-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "fr",
-					"description": "Contenu ajouté via Ajax",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v3-fr.html"
-					}
-				}
-			]
-		},
-		{
-			"@id": "_:iteration_rap_4",
-			"name": "Report a problem - Iteration 4",
-			"date": "2023-03",
-			"detectableBy": "Hidden inputs are generated via Data-JSON",
-			"breaking": [
-				"Semantic: leveraging JSON Manager Extractor and Data JSON to generate hidden input fields."
-			],
-			"predecessor": "_:iteration_rap_3",
-			"successor": "_:iteration_rap_5",
-			"assets": [
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Code sample",
-					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v4-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Ajaxed-in content",
-					"code": {
-						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v4-en.html"
-					}
-				},
-				{
-					"@type": "source-code",
-					"@language": "fr",
-					"description": "Exemple de code",
-					"code": "<div data-ajax-replace=\"ajax/deprecated/report-problem-v4-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "fr",
-					"description": "Contenu ajouté via Ajax",
-					"code": {
-						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/deprecated/report-problem-v4-fr.html"
-					}
-				}
-			]
-		},
-		{
-			"@id": "_:iteration_rap_5",
-			"name": "Report a problem - Iteration 5",
-			"date": "2023-08",
-			"detectableBy": "externalReferer and subject are no longer generated via Data-JSON, but are now static.",
-			"breaking": [
-				"Semantic: removed JSON Manager extraction for 'externalReferer' and 'subject'."
-			],
-			"additions": [
-				"Semantic: added static hidden inputs for 'externalReferer' and 'subject'."
-			],
-			"predecessor": "_:iteration_rap_4",
-			"assets": [
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Code sample",
-					"code": "<div data-ajax-replace=\"ajax/report-problem-en.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/en/report-problem.html\">Report a problem on this page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Ajaxed-in content",
-					"code": {
-						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/report-problem-en.html"
-					}
-				},
-				{
-					"@type": "source-code",
-					"@language": "fr",
-					"description": "Exemple de code",
-					"code": "<div data-ajax-replace=\"ajax/report-problem-fr.html\">\n\t<div class=\"row row-no-gutters\">\n\t\t<div class=\"col-sm-9 col-md-6 col-lg-5\">\n\t\t\t<a class=\"btn btn-default btn-block\" href=\"https://www.canada.ca/fr/signaler-probleme.html\">Signaler un problème sur cette page</a>\n\t\t</div>\n\t</div>\n</div>"
-				},
-				{
-					"@type": "source-code",
-					"@language": "fr",
-					"description": "Contenu ajouté via Ajax",
-					"code": {
-						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "ajax/report-problem-fr.html"
+						"@value": "ajax/deprecated/report-problem-v1-fr.html"
 					}
 				}
 			]
@@ -1529,7 +1698,7 @@
 		"en": "Documentation on how to use the GCWeb menu.",
 		"fr": "Documentation sur l'utilisation du menu GCWeb."
 	},
-	"modified": "2022-05-25",
+	"modified": "2023-10-25",
 	"componentName": "gcweb-menu",
 	"status": "stable",
 	"pages": {
@@ -1665,7 +1834,7 @@
 		"en": "Documentation on how to use the page details section.",
 		"fr": "Documentation sur l'utilisation de la section des détails de la page."
 	},
-	"version": "2.1",
+	"version": "3.0",
 	"modified": "2022-04-11",
 	"componentName": "page-details",
 	"componentType": "container",
@@ -1764,8 +1933,7 @@
 			],
 			"implementation": [
 				"_:implement_pd",
-				"_:implement_pd_gcweb",
-				"_:implement_pd_2"
+				"_:implement_pd_gcweb"
 			],
 			"history": [
 				{
@@ -1809,10 +1977,10 @@
 			},
 			"notes": {
 				"en": [
-					"Although the component has been updated to version 2.1, the version 2.0 is still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
+					"Although the component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
 				],
 				"fr": [
-					"Bien que le composant ait été mis à jour vers la version 2.1, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
+					"Bien que le composant ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
 				]
 			},
 			"sample": {
@@ -1939,10 +2107,18 @@
 			},
 			"instructions": {
 				"en": [
-					"Although the Page details component has been updated to version 2.1, the version 2.0 is still supported. However, the page content and the <code>&lt;footer&gt;</code> have to be located inside an <code>&lt;article&gt;</code> tag."
+					"Although the Page details component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the <code>&lt;footer&gt;</code> have to be located inside an <code>&lt;article&gt;</code> tag."
 				],
 				"fr": [
-					"Bien que le composant Détails de la page ait été mis à jour vers la version 2.1, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer&gt;</code>. doivent être situés à l'intérieur d'une balise <code>&lt;article&gt;</code>."
+					"Bien que le composant Détails de la page ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer&gt;</code>. doivent être situés à l'intérieur d'une balise <code>&lt;article&gt;</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"<strong>This implementation of the Page details is deprecated as of 2023-11-08</strong>"
+				],
+				"fr": [
+					"<strong>Cette implémentation des Détails de la page est obsolète depuis le 2023-11-08</strong>"
 				]
 			},
 			"sample": {
@@ -2121,7 +2297,7 @@
 	"changesets": [
 		{
 			"@id": "_:cs_pd_3",
-			"name": "Page details - Compatible with PFT + Accessiblity fix",
+			"name": "Page details - Compatible with PFT + Accessiblity fix (version 3.0)",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "section.pagedetails",
@@ -2134,12 +2310,55 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section>\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
 				"collapsed": true,
-				"description": "Include with logic in Handlebars.",
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/footer.html"
+				}
+			},
+			"logic": "Not applicable",
+			"behaviour": [
+				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+			],
+			"guidance": "Not applicable",
+			"context": "Not applicable",
+			"configuration": [
+				"Input the date when the page was last modified inside the <time> tag in the format YYYY-MM-DD."
+			],
+			"static": [
+				"Section header: \"Page details\""
+			],
+			"schema": "Not applicable",
+			"dependency": "Not applicable",
+			"file": "Not applicable"
+		},
+		{
+			"@id": "_:cs_pd_2",
+			"name": "Page details - Compatible with PFT + Accessiblity fix",
+			"status": "deprecated",
+			"schema:expires": "2024-12",
+			"baseOnIteration": "_:iteration_pd_2",
+			"detectableBy": "footer.pagedetails",
+			"layout": [
+				"Page feedback tool (if included) on the top left",
+				"Share this page button (if included) on the top right",
+				"Date modified on bottom left"
+			],
+			"style": "Not applicable",
+			"semantic": {
+				"@type": "source-code",
+				"description": "Source code",
+				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</footer>"
+			},
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
 				"code": {
 					"@type": [ "@id", "rdf:HTML" ],
 					"@value": "includes/footer.html"
@@ -2165,6 +2384,7 @@
 			"@id": "_:cs_pd_1",
 			"name": "Page details - Version 1",
 			"status": "deprecated",
+			"schema:expires": "2024-12",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "div.pagedetails",
 			"layout": [
