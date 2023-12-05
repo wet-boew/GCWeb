@@ -5,6 +5,9 @@ dateModified: 2023-11-21
 description: "Page d'accueil décrivant l'ensemble des composants du thème de Canada.ca, nommé GCWeb."
 layout: no-container
 language: fr
+breadcrumbs:
+- link: "https://conception.canada.ca/"
+  title: "Système de conception"
 overwriteBreadcrumbs: true
 feedback: true
 css:

@@ -6,6 +6,9 @@ description: "Home page describing all the components of the Canada.ca theme, na
 layout: no-container
 language: en
 overwriteBreadcrumbs: true
+breadcrumbs:
+- link: "https://design.canada.ca/"
+  title: "Design system"
 feedback: true
 css:
 - href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
