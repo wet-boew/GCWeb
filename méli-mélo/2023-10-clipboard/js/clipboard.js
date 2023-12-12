@@ -17,40 +17,40 @@
         initEvent = "wb-init" + selector,
         configData = componentName + "-config",
         $document = wb.doc,
-        contentShell = componentName + "-shell", 
-        btnClass = componentName + "-btn", 
-        copiedSectionStyle = "copied", 
+        contentShell = componentName + "-shell",
+        btnClass = componentName + "-btn",
+        copiedSectionStyle = "copied",
         copyAreaClass = "copyarea",
-        copyAreaClassComponent = copyAreaClass + " " + componentName + "-init", 
-        copyAreaInlineClass = copyAreaClass + "-inline", 
-        copyTextClass = componentName + "-text", 
-        inlineElmClass = " mrgn-lft-md", 
-        inlineBtnClass = "btn-xs wb-clipboard-btn-inline", 
-        defaultBtnClass = "btn", 
-        buttonStatus = false, 
+        copyAreaClassComponent = copyAreaClass + " " + componentName + "-init",
+        copyAreaInlineClass = copyAreaClass + "-inline",
+        copyTextClass = componentName + "-text",
+        inlineElmClass = " mrgn-lft-md",
+        inlineBtnClass = "btn-xs wb-clipboard-btn-inline",
+        defaultBtnClass = "btn",
+        buttonStatus = false,
         focusReset = true,
         defaults = {
             i18n:
             {
                 "en": {
                     clipStart: "Start of clipboard text",
-                    clipEnd: "End of clipboard text",  
-                    copiedStart: "Start of copied text", 
-                    copiedEnd: "End of copied text",  
-                    copyBtnTxt: "Copy", 
-                    copyCompleteBtnTxt: "Copied"  
+                    clipEnd: "End of clipboard text",
+                    copiedStart: "Start of copied text",
+                    copiedEnd: "End of copied text",
+                    copyBtnTxt: "Copy",
+                    copyCompleteBtnTxt: "Copied"
                 },
                 "fr": {
                     clipStart: "D&eacute;but du texte du presse-papiers",
-                    clipEnd: "Fin du texte du presse-papiers",  
-                    copiedStart: "D&eacute;but du texte copi&eacute;", 
-                    copiedEnd: "Fin du texte copi&eacute;",  
-                    copyBtnTxt: "Copier", 
-                    copyCompleteBtnTxt: "Copi&eacute;"  
+                    clipEnd: "Fin du texte du presse-papiers",
+                    copiedStart: "D&eacute;but du texte copi&eacute;",
+                    copiedEnd: "Fin du texte copi&eacute;",
+                    copyBtnTxt: "Copier",
+                    copyCompleteBtnTxt: "Copi&eacute;"
                 }
-            }, 
-            btnAlign: "none", 
-            copyBtnStyle: "mrgn-tp-sm btn-default " + btnClass, 
+            },
+            btnAlign: "none",
+            copyBtnStyle: "mrgn-tp-sm btn-default " + btnClass,
             copiedBtnStyle: "mrgn-tp-sm " + btnClass + " btn-success"
         },
         /**
@@ -63,26 +63,26 @@
             // returns undefined = do not proceed with init (e.g., already initialized)
             var elm = wb.init( event, componentName, selector ),
                 $elm, elmId,
-                settings, 
+                settings,
                 wbDataElm,
                 config;
-    
+
             if ( elm ) {
                 $elm = $( elm );
                 elmId = elm.id;
-    
+
                 // Set default i18n information
                 if ( defaults.i18n[ wb.lang ] ) {
                     defaults.i18n = defaults.i18n[ wb.lang ];
                 }
-    
+
                 // Extend this data with the contextual default
                 wbDataElm = wb.getData( $elm, componentName );
                 if ( wbDataElm && wbDataElm.i18n ) {
                     wbDataElm.i18n = $.extend( {}, defaults.i18n, wbDataElm.i18n );
                 }
                 config = $.extend( {}, defaults, wbDataElm );
-    
+
                 if ( config.defaultIfNone && !$.isArray( config.defaultIfNone ) ) {
                     config.defaultIfNone = [ config.defaultIfNone ];
                 }
@@ -94,10 +94,10 @@
                     window[ componentName ],
                     wb.getData( $elm, componentName )
                 );
-    
+
                 // Set the data to the component, if other event need to have access to it.
                 $elm.data( configData, config );
-    
+
                 $( "." + btnClass ).each( function() {
                     var btnData = wb.getData( $( this ), "wb-clipboard" );
                     if ( typeof( btnData.copyAreaId ) !== "undefined" && btnData.copyAreaId === elmId ) {
@@ -109,14 +109,14 @@
                         focusReset = true;
                     }
                 } );
-            
+
                 // ... Do the plugin initialisation
                 // Call my custom event
                 $elm.trigger( "wb-clipboard", settings );
                 // Identify that initialization has completed
                 wb.ready( $elm, componentName );
             }
-        }, 
+        },
         // Check if an element is displayed inline or not.
         getDisplayType = function( elm ) {
             var compStyle = elm.currentStyle || window.getComputedStyle( elm, "" );
@@ -124,15 +124,15 @@
                 return true;
             }
             return false;
-        }, 
-        // Initializes the copy button        
+        },
+        // Initializes the copy button
         initCopyBtn = function( btnElm, data ) {
             btnElm.copyBtn = btnElm.innerHTML;
             btnElm.copyBtnStyle = btnElm.getAttribute( "class" );
             if ( btnElm.parentNode.tagName === "SPAN" ) {
-                btnElm.copyBtnSize = inlineBtnClass; 
+                btnElm.copyBtnSize = inlineBtnClass;
             } else {
-                btnElm.copyBtnSize = defaultBtnClass; 
+                btnElm.copyBtnSize = defaultBtnClass;
             }
             if ( data.copiedBtnStyle ) {
                 btnElm.copyCompleteBtnStyle = data.copiedBtnStyle;
@@ -141,7 +141,7 @@
                 btnElm.copyCompleteBtn = data.copiedBtn;
             }
             $( btnElm ).trigger( "click vclick touchstart" );
-        }, 
+        },
         // This function checks if an element is a textarea or an input element of type text
         checkTextInputElm = function ( elm ) {
             const validInputType = ["text", "search", "url", "tel", "password"];
@@ -149,11 +149,11 @@
                 return true;
             }
             return false;
-        }, 
+        },
         // This function checks if the selected content matches all the content in the copy area
         checkContentChange = function( copyAreaElm ) {
             var copyAreaText,
-                selectionRange = window.getSelection(), 
+                selectionRange = window.getSelection(),
                 selectionStr = selectionRange.toString(),
                 copySegmentElm = document.getElementById( copyAreaElm.copySegmentId );
 
@@ -166,7 +166,7 @@
                 return true;
             }
             return false;
-        }, 
+        },
         // This function updates the class for all the copy areas
         updateCopyAreas = function( copyAreaElm ) {
             $( ".wb-clipboard" ).each( function() {
@@ -178,13 +178,13 @@
                     $( this ).removeClass( copiedSectionStyle );
                 }
             } );
-        }, 
+        },
         // This function updates the content of a tag
         updateTag = function( clipElm, clipTxt ) {
             if ( clipElm.innerHTML !== clipTxt ) {
                 clipElm.innerHTML = clipTxt;
             }
-        }, 
+        },
         // This function updates the hidden text surronding and identifying the copyable area
         updateClipText = function( copyAreaElm ) {
             $( "." + contentShell ).each( function() {
@@ -194,7 +194,7 @@
                     updateTag( this, this.clipTxt );
                 }
             } );
-        }, 
+        },
         // This function resets the copy button
         resetCopyBtn = function( elm, btnData, btnElm ) {
             if ( "resetBtn" in btnData === false || ( "resetBtn" in btnData === false && typeof( btnElm ) !== "undefined" && btnElm !== elm ) ) {
@@ -203,7 +203,7 @@
                 $( elm ).html( elm.copyBtn );
                 $( elm ).parent().attr( "aria-live", "off" );
             }
-        }, 
+        },
         // This function updates the copy button
         updateCopyBtns = function( copyAreaElm ) {
             // This function updates the copy button when copying is a success
@@ -231,20 +231,20 @@
                     resetCopyBtn( this, btnData );
                 }
             } );
-        }, 
+        },
         // This function updates all the copy buttons and areas
         updateAll = function( copyAreaElm ) {
             updateCopyAreas( copyAreaElm );
             updateClipText( copyAreaElm );
             updateCopyBtns( copyAreaElm );
-        }, 
+        },
         // This function updates a specific element's content
         updateElmCopy = function( copyAreaElm ) {
             if ( $( copyAreaElm ).hasClass( "wb-clipboard" ) === true && ( checkContentChange( copyAreaElm ) === true || buttonStatus === true ) ) {
                 updateAll( copyAreaElm );
                 buttonStatus = false;
             }
-        }, 
+        },
         // This function checks for clipboard write permission for the async clipboard API
         clipboardPermission = function () {
             return navigator.permissions.query( {name: "clipboard-write"} ).then( function( result ) {
@@ -253,7 +253,7 @@
                 }
                 return false;
             } );
-        }, 
+        },
         // This function selects the content of an area. If the element is an input or textarea, it selects the field contents. Otherwise, it selects the entire copy area.
         selectCopyArea = function( copySegmentElm ) {
             copySegmentElm.focus();
@@ -262,18 +262,18 @@
             } else {
                 window.getSelection().selectAllChildren( copySegmentElm );
             }
-        }, 
-        // This function copies the content of an HTML element to the clipboard using execCommand and falls back to the async clipboard API for copying if that is unsuccessful. 
+        },
+        // This function copies the content of an HTML element to the clipboard using execCommand and falls back to the async clipboard API for copying if that is unsuccessful.
         copyToClipboard = async function( copyAreaId ) {
-            var copyAreaElm = document.getElementById( copyAreaId ), 
+            var copyAreaElm = document.getElementById( copyAreaId ),
                 clipCopy = async function( copyAreaElm ) {
-                    var clipItem, htmlBlob, 
+                    var clipItem, htmlBlob,
                         copySegmentElm = document.getElementById( copyAreaElm.copySegmentId );
                     selectCopyArea( copySegmentElm );
                     buttonStatus = true;
                     if ( document.execCommand( "Copy" ) ) {
                         return true;
-                    } else if ( await clipboardPermission() === true ) { 
+                    } else if ( await clipboardPermission() === true ) {
                         htmlBlob = new Blob( [copySegmentElm.innerHTML], {type: "text/html"} );
                         try {
                             clipItem = new ClipboardItem( {[htmlBlob.type]: htmlBlob} );
@@ -291,22 +291,22 @@
             }
         };
 
-    // Initalizes and styles the copy area and copy button or reset button 
+    // Initalizes and styles the copy area and copy button or reset button
     $document.on( "wb-clipboard", selector, function( event, data ) {
-        var elm = event.currentTarget, 
-            $elm = $( elm ), 
-            i18n = $elm.data( configData ).i18n, 
-            clipStartId = wb.getId(), 
-            clipStartTxt = i18n.clipStart, 
-            copiedStartTxt = i18n.copiedStart, 
-            copySegmentId = wb.getId(), 
-            clipEndId = wb.getId(), 
-            clipEndTxt = i18n.clipEnd, 
-            copiedEndTxt = i18n.copiedEnd, 
-            containTag = "div", 
-            inlineElmCls = "", 
-            inlineBtn = "", 
-            copyBtnSize = defaultBtnClass, 
+        var elm = event.currentTarget,
+            $elm = $( elm ),
+            i18n = $elm.data( configData ).i18n,
+            clipStartId = wb.getId(),
+            clipStartTxt = i18n.clipStart,
+            copiedStartTxt = i18n.copiedStart,
+            copySegmentId = wb.getId(),
+            clipEndId = wb.getId(),
+            clipEndTxt = i18n.clipEnd,
+            copiedEndTxt = i18n.copiedEnd,
+            containTag = "div",
+            inlineElmCls = "",
+            inlineBtn = "",
+            copyBtnSize = defaultBtnClass,
             buttonId, copyBtn, btnStr, btnAlign;
         if ( !elm.hasAttribute( "id" ) ) {
             elm.id = wb.getId();
@@ -401,10 +401,10 @@
         }
     } );
     // Update the copy area and button on copy
-    $( "body" ).on( "copy", "*", function( event ) { 
+    $( "body" ).on( "copy", "*", function( event ) {
         updateElmCopy( event.currentTarget ); // , event.target
     } );
-    // On focus and change of a contenteditable tag trigger the change action 
+    // On focus and change of a contenteditable tag trigger the change action
     $document.on( "focus", selector + "[contenteditable]", function() {
         const $this = $( this );
         $this.data( "before", $this.html() );
@@ -420,7 +420,7 @@
         updateElmCopy( event.currentTarget ); //, event.target
     } );
     // On click perform a copy or reset action
-    $document.on( "click vclick touchstart", "." + btnClass, async function( event ) {
+    $document.on( "click", "." + btnClass, async function( event ) {
         var btnData = wb.getData( $( event.currentTarget ), "wb-clipboard" );
         if ( btnData.resetBtn ) {
             $( event.currentTarget ).trigger( "reset" + selector );
