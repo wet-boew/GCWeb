@@ -1,8 +1,6 @@
 ---
 altLangPage: only-footer-corporate-en.html
 breadcrumbs:
-  - title: GCWeb
-    link: https://wet-boew.github.io/GCWeb/index-fr.html
   - title: Pied de page
     link: sites/footers/footers-fr.html
 dateModified: 2023-01-16

@@ -1,0 +1,67 @@
+---
+{
+	"layout": "application",
+	"title": "Application page with informational banner",
+	"language": "en",
+	"altLangPage": "application-with-banner-fr.html",
+	"dateModified": "2023-10-13",
+	"infoBanner": {
+		"title": "Beta version",
+		"message": "We've made some changes to improve your experience with My Service Canada Account.",
+		"link": {
+			"text": "Learn more about the beta version",
+			"href": "https://www.canada.ca/en",
+			"external": true
+		},
+		"button": {
+			"text": "Try beta version",
+			"href": "https://www.canada.ca/en"
+		}
+	}
+}
+---
+
+{% include alert-community-stable.html %}
+
+<h2>Configuration options (GCWeb Jekyll specific)</h2>
+<ul>
+	<li><code>"infoBanner"</code> (optional, <code>Object</code>): contains the informational banner properties.
+		<ul>
+			<li><code>"title"</code> (mandatory): the banner's title.</li>
+			<li><code>"message"</code> (mandatory): the banner's message.</li>
+			<li><code>"link"</code> (optional, <code>Object</code>): contains the link properties.
+				<ul>
+					<li><code>"text"</code> (mandatory, <code>String</code>): the text of the link that is displayed.</li>
+					<li><code>"href"</code> (mandatory, <code>String</code>): the url of the link that is displayed.</li>
+					<li><code>"external"</code> (optional, <code>Boolean</code>): open the link in a new window.</li>
+				</ul>
+			</li>
+			<li><code>"button"</code>(optional, <code>Object</code>): contains the button properties.
+				<ul>
+					<li><code>"text"</code> (mandatory, <code>String</code>): the text of the button that is displayed.</li>
+					<li><code>"href"</code> (mandatory, <code>String</code>): the url of the button that is displayed.</li>
+					<li><code>"external"</code> (optional, <code>Boolean</code>): open the link in a window.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Code</h3>
+<pre class="wb-prettify prettyprint"><code>{
+	...
+	"infoBanner": {
+		"title": "Beta version",
+		"message": "We've made some changes to improve your experience with My Service Canada Account.",
+		"link": {
+			"text": "Learn more about the beta version",
+			"href": "https://www.canada.ca/en",
+			"external": true
+		},
+		"button": {
+			"text": "Try beta version",
+			"href": "https://www.canada.ca/en"
+		}
+	}
+	...
+}</code></pre>

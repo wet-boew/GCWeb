@@ -36,11 +36,10 @@ implementationPlan:
     what: Produce accessibility and usability report on its usage on Canada.ca
   - due: 2022-02
     what: Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.
-  - due: 2022-11
-    what: added possible alternative design (lead zero) as a more minimalist pattern. 
-
+  - due: 2023-12
+    what: review updated CSS and governance added to validate usability toward stable
 todos:
-  - Write governance and rationale for the use of both designs
+  - Review governance and rationale for the use of both designs
 
 output: false
 ---

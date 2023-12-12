@@ -4,7 +4,7 @@
 	"language": "fr",
 	"altLangPage": "gcweb-menu-docs-en.html",
 	"secondlevel": false,
-	"dateModified": "2022-05-26",
+	"dateModified": "2023-10-25",
 	"share": "true"
 }
 ---
@@ -16,7 +16,7 @@
 	<dt>Type</dt>
 	<dd>Fonctionnalité du site Canada.ca</dd>
 	<dt>Dernière révision</dt>
-	<dd>2022-05-26</dd>
+	<dd>2023-10-25</dd>
 </dl>
 
 <h2>Objectif</h2>
@@ -24,8 +24,8 @@
 
 <h2>Example pratique</h2>
 <ul>
-	<li><a href="../templates/content-fr.html">Page de contenu incluant le menu GCWeb version 2.0</a></li>
-	<li><a href="../templates/home/home-en.html">Page d'accueil incluant le menu GCWeb version 2.0.</a></li>
+	<li><a href="../../templates/content-page/content-fr.html">Page de contenu incluant le menu GCWeb version 3.0</a></li>
+	<li><a href="../../templates/home/home-en.html">Page d'accueil incluant le menu GCWeb version 3.0</a></li>
 </ul>
 
 <h2>Comment mettre en œuvre</h2>
@@ -34,7 +34,7 @@
 <h2>Évaluation et rapport</h2>
 <p>Il n'y a pas d'évaluation ni de rapport disponible pour ce composant.</p>
 
-<h2>API (version 2.0)</h2>
+<h2>API (version 3.0)</h2>
 <table class="table bordée de table">
 	<tr>
 		<th>Classe CSS</th>
@@ -44,7 +44,7 @@
 	</tr>
 	<tr>
 		<td>Version 1.0</td>
-		<td>Version 2.0</td>
+		<td>Version 3.0</td>
 		<td>Version 1.0</td>
 		<td>n.d.</td>
 	</tr>
@@ -53,46 +53,50 @@
 <h3>Classe CSS (v1.0)</h3>
 <p><code>gcweb-menu</code></p>
 
-<h2>Avant et après</h2>
+<h2>Historique</h2>
 
-<div class="row">
-	<div class="col-md-6">
-		<h2 id="v2">Version 2.0</h2>
+<h3 id="v3">Version 3.0</h3>
+<p>Identique à la version 2.0, mais le lien vers «&nbsp;Canada et le monde&nbsp;» a été mis à jour.</p>
+<p>En anglais, l'URL change&nbsp;:</p>
+<ul>
+	<li>de <code>https://international.gc.ca/world-monde/index.aspx?lang=eng</code></li>
+	<li>à <code>https://<strong>www.</strong>international.gc.ca/world-monde/index.aspx?lang=eng</code></li>
+</ul>
+<p>En français, l'URL change&nbsp;:</p>
+<ul>
+	<li>de <code>https://international.gc.ca/world-monde/index.aspx?lang=fra</code></li>
+	<li>à <code>https://<strong>www.</strong>international.gc.ca/world-monde/index.aspx?lang=fra</code></li>
+</ul>
 
-		<p>Liste des changements depuis la version 1.0 : Suppression du <code>&lt;div class="container"&gt;</code>.</p>
+<h3 id="v2">Version 2.0</h3>
+<p>Liste des changements depuis la version 1.0 : Suppression du <code>&lt;div class="container"&gt;</code>.</p>
+<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
+	&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
+	&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+	&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
+&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
+		...
+&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
+		...
+&#123;&#37;&#45; endif &#45;&#37;&#125;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
 
-		<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
-			&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
-			&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
-			&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
-		&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
-				...
-		&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
-				...
-		&#123;&#37;&#45; endif &#45;&#37;&#125;
-			&lt;/ul&gt;
-		&lt;/nav&gt;</code></pre>
-	</div>
-	<div class="col-md-6">
-		<h2>Version 1.0 (obsolète)</h2>
+<h3 id="v1">Version 1.0 (obsolète)</h3>
+<p>La version 1.0 du menu</a> est obsolète mais toujours supportée.</p>
+<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
+	<del>&lt;div class=&quot;container&quot;&gt;</del>
+		&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
+		&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
+&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
+			...
+&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
+			...
+&#123;&#37;&#45; endif &#45;&#37;&#125;
+		&lt;/ul&gt;
+	<del>&lt;/div&gt;</del>
+&lt;/nav&gt;</code></pre>
 
-		<p>La version 1.0 du menu</a> est obsolète mais toujours supportée.</p>
-
-		<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
-			<del>&lt;div class=&quot;container&quot;&gt;</del>
-				&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
-				&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
-				&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
-		&#123;&#37;&#45; if i18nText&#45;lang == &quot;fr&quot; &#45;&#37;&#125;
-					...
-		&#123;&#37;&#45; elsif i18nText&#45;lang == &quot;en&quot; &#45;&#37;&#125;
-					...
-		&#123;&#37;&#45; endif &#45;&#37;&#125;
-				&lt;/ul&gt;
-			<del>&lt;/div&gt;</del>
-		&lt;/nav&gt;</code></pre>
-
-		<h3>Exemple pratique</h3>
-		<p><a href="../header/deprecated/header-v1.html">Version 1.0 de l'entête et du menu GCWeb</a></p>
-	</div>
-</div>
+<h4>Exemple pratique</h4>
+<p><a href="../header/deprecated/header-v1.html">Version 1.0 de l'entête et du menu GCWeb</a></p>

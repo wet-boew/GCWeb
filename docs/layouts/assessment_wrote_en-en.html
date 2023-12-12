@@ -57,31 +57,72 @@ layout: default
 	<dt>Type</dt>
 	<dd>Accessibility assessment</dd>
 	<dt>Asserted by:</dt>
-	<dd><a data-wb-json='[
+	<dd>
+		<div data-wb-json='{
+			"url": "#[a11y]/earl:assertedBy",
+			"streamline": true,
+			"mapping": [
+				{
+					"template": "[data-main-assertor]",
+					"test": "fn:guessType",
+					"operand": "neq",
+					"assess": "/earl:mainAssertor",
+					"expect": "undefined",
+					"mapping": [
+						{
+							"selector": "[data-main]",
+							"value": "/earl:mainAssertor/foaf:homepage",
+							"type": "attr",
+							"attr": "href"
+						},
+						{
+							"selector": "[data-main]",
+							"value": "/earl:mainAssertor/foaf:name",
+							"type": "replace"
+						},
+						{
+							"selector": "[data-assertor]",
+							"value": "/foaf:homepage",
+							"type": "attr",
+							"attr": "href"
+						},
+						{
+							"selector": "[data-assertor]",
+							"value": "/foaf:name",
+							"type": "replace"
+						}
+					]
+				},
+				{
+					"template": "[data-assertor]",
+					"test": "fn:guessType",
+					"assess": "/earl:mainAssertor",
+					"expect": "undefined",
+					"mapping": [
+						{
+							"selector": "[data-assertor]",
+							"value": "/foaf:homepage",
+							"type": "attr",
+							"attr": "href"
+						},
+						{
+							"selector": "[data-assertor]",
+							"value": "/foaf:name",
+							"type": "replace"
+						}
+					]
+				}
 
-					{
-						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:homepage",
-						"type": "attr",
-						"attr": "href"
-					},
-					{
-						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:name",
-						"type": "replace"
-					}
-
-				]' href="#">Unknown</a> on behalf of <a data-wb-json='[
-
-					{
-						"url": "#[a11y]/earl:assertedBy/foaf:homepage",
-						"type": "attr",
-						"attr": "href"
-					},
-					{
-						"url": "#[a11y]/earl:assertedBy/foaf:name",
-						"type": "replace"
-					}
-
-				]' href="#" data-json-replace="#[a11y]/earl:assertedBy/foaf:name">Not Available</a></dd>
+			]
+		}'>
+			<template data-main-assertor>
+				<a data-main href="#">Unknown</a> on behalf of <a data-assertor href="#">Not Available</a>
+			</template>
+			<template data-assertor>
+				<a data-assertor href="#">Unknown</a>
+			</template>
+		</div>
+	</dd>
 	<dt>Date:</dt>
 	<dd data-json-replace="#[a11y]/dct:date">Not Available</dd>
 	<dt>Subject:</dt>
@@ -171,6 +212,111 @@ layout: default
 					{ "selector": "[data-result-relevancy]", "value": "/acr:relevancy" },
 					{ "selector": "[data-result-notes", "value": "/dct:description" }
 				]
+			},
+			{
+				"@type": "rdf:Alt",
+				"mapping": [
+					{
+						"test": "fn:isLiteral",
+						"assess": "/acr:asset",
+						"mapping": [
+							{
+								"@type": "rdf:Alt",
+								"mapping": [
+									{
+										"template": "[data-asset-literal]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:anyURI",
+										"mapping": [
+											{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+										]
+									},
+									{
+										"template": "[data-asset-code]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:string",
+										"mapping": [
+											{ "selector": "code", "value": "/acr:asset" }
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"template": "[data-asset-image]",
+						"test": "fn:guessType",
+						"assess": "/acr:asset",
+						"expect": "acr:AttachmentImage",
+						"mapping": [
+							{ "selector": "img", "value": "/acr:asset/acr:content/@value", "attr": "src" },
+							{ "selector": "a", "value": "/acr:asset/acr:content/@value", "attr": "href" },
+							{ "selector": "img", "value": "/acr:asset/dct:title", "attr": "alt" }
+
+						]
+					},
+					{
+						"template": "[data-asset-literal]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:anyURI",
+						"mapping": [
+							{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+						]
+					},
+					{
+						"template": "[data-asset-code]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:string",
+						"mapping": [
+							{ "selector": "code", "value": "/acr:asset" }
+						]
+					},
+					{
+						"about": "When the value is an array of items",
+						"template": "[data-asset-array]",
+						"test": "fn:isArray",
+						"value": "/acr:asset",
+						"mapping": [
+								{
+									"template": "[data-download-link]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:anyURI",
+									"append": true,
+									"mapping": [
+										{ "selector": "a", "value": "/@value", "attr": "href" }
+									]
+								},
+								{
+									"template": "[data-source-code]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:string",
+									"append": true,
+									"mapping": [
+										{ "selector": "code", "value": "/@value" }
+									]
+								},
+								{
+									"template": "[data-asset-image]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "acr:AttachmentImage",
+									"append": true,
+									"mapping": [
+										{ "selector": "img", "value": "/acr:content/@value", "attr": "src" },
+										{ "selector": "a", "value": "/acr:content/@value", "attr": "href" },
+										{ "selector": "img", "value": "/dct:title", "attr": "alt" }
+
+									]
+								}
+						]
+					}
+				]
 			}
 		]
 	}'>
@@ -190,6 +336,33 @@ layout: default
 					<li class="pull-right clr-rght-md clr-rght-lg">Relevance: <span data-relevancy>Not specified</span></li>
 				</ul>
 				<p data-notes></p>
+				<template data-asset-literal>
+					<p><a href download>Download attachment</a></p>
+				</template>
+				<template data-asset-code>
+					<pre><code></code></pre>
+				</template>
+				<template data-asset-image data-proofer-ignore>
+					<p>Image (<a href download>Download</a>):</p>
+					<img class="img-responsive" src="" alt lang="en">
+				</template>
+				<template data-asset-array>
+					<p>Attachments:</p>
+					<ul>
+						<template data-download-link>
+							<li><a href download>Download attachment</a></li>
+						</template>
+						<template data-source-code>
+							<li><pre><code></code></pre></li>
+						</template>
+						<template data-asset-image data-proofer-ignore>
+							<li>
+								<p>Image (<a href download>Download</a>):</p>
+								<img class="img-responsive" src="" alt lang="en">
+							</li>
+						</template>
+					</ul>
+				</template>
 				<dl data-specific-results>
 					<template>
 						<dt data-result-label></dt>
