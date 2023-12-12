@@ -1,0 +1,224 @@
+---
+{
+	"title": "Correspondance d'URL - Sélectionner un champ de saisie",
+	"language": "fr",
+	"category": "Plugiciels",
+	"description": "Sélectionnez des champs de saisie par défaut selon la correspondance des paramètres de l'URL.",
+	"tag": "urlmapping",
+	"parentdir": "urlmapping",
+	"altLangPage": "selectinput-en.html",
+	"dateModified": "2023-10-24"
+}
+---
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="urlmapping-doc-fr.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=UrlMapping+select+input">Questions ou commentaires?</a></li>
+</ul>
+
+<p>Sélectionnez des champs de saisie par défaut selon la correspondance des paramètres de l'URL.</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<ul>
+	<li><a href="?">Vide <code>?</code></a></li>
+	<li><a href="?f=b">Bananes <code>?f=b"</code></a></li>
+	<li><a href="?f=g">Raisins <code>?f=r"</code></a></li>
+</ul>
+
+<section>
+	<h2>Exemple avec <code>source</code></h2>
+	<div data-wb-urlmapping='{
+		"f=b": {
+			"action": "selectInput",
+			"source": "#fruitsOptions",
+			"value": "Bananes"
+		}
+	}'></div>
+
+	<form id="fruitsOptions">
+		<label for="fruitsSelect">Sélectionnez un fruit (<code>&lt;select></code>)</label>
+		<select name="fruitsSelect" id="fruitsSelect" class="form-control mrgn-bttm-lg">
+			<option value="all">Tous</option>
+			<option value="Bananes">Bananes</option>
+			<option value="Oranges">Oranges</option>
+			<option value="Pommes">Pommes</option>
+		</select>
+
+		<fieldset class="gc-chckbxrdio form-inline mrgn-bttm-lg">
+			<legend>Choisissez un fruit (<code>&lt;input type="checkbox"></code>)</legend>
+			<div class="checkbox label-inline">
+				<input type="checkbox" name="fruitsCheckboxes" id="BananesCheckbox" value="Bananes"><label for="BananesCheckbox">Bananes</label>
+			</div>
+			<div class="checkbox label-inline">
+				<input type="checkbox" name="fruitsCheckboxes" id="OrangesCheckbox" value="Oranges"><label for="OrangesCheckbox">Oranges</label>
+			</div>
+			<div class="checkbox label-inline">
+				<input type="checkbox" name="fruitsCheckboxes" id="PommesCheckbox" value="Pommes"><label for="PommesCheckbox">Pommes</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="gc-chckbxrdio form-inline">
+			<legend>Choisissez un fruit (<code>&lt;input type="radio"></code>)</legend>
+			<div class="radio label-inline">
+				<input type="radio" name="fruitsRadios" id="BananesRadio" value="Bananes"><label for="BananesRadio">Bananes</label>
+			</div>
+			<div class="radio label-inline">
+				<input type="radio" name="fruitsRadios" id="OrangesRadio" value="Oranges"><label for="OrangesRadio">Oranges</label>
+			</div>
+			<div class="radio label-inline">
+				<input type="radio" name="fruitsRadios" id="PommesRadio" value="Pommes"><label for="PommesRadio">Pommes</label>
+			</div>
+		</fieldset>
+	</form>
+
+	<details class="mrgn-tp-lg">
+		<summary>Source code</summary>
+		<pre><code>&lt;div data-wb-urlmapping='{
+	"f=b": {
+		"action": "selectInput",
+		"source": "#fruitsOptions",
+		"value": "Bananes"
+	}
+}'>&lt;/div>
+
+&lt;form id="fruitsOptions">
+	&lt;label for="fruitsSelect">Sélectionner un fruit (&lt;code>&lt;select>&lt;/code>)&lt;/label>
+	&lt;select name="fruitsSelect" id="fruitsSelect" class="form-control mrgn-bttm-lg">
+		&lt;option value="all">Tous&lt;/option>
+		&lt;option value="Bananes">Bananes&lt;/option>
+		&lt;option value="Oranges">Oranges&lt;/option>
+		&lt;option value="Pommes">Pommes&lt;/option>
+	&lt;/select>
+
+	&lt;fieldset class="gc-chckbxrdio form-inline mrgn-bttm-lg">
+		&lt;legend>Choisissez un fruit (&lt;code>&lt;input type="checkbox">&lt;/code>)&lt;/legend>
+		&lt;div class="checkbox label-inline">
+			&lt;input type="checkbox" name="fruitsCheckboxes" id="BananesCheckbox" value="Bananes">&lt;label for="BananesCheckbox">Bananes&lt;/label>
+		&lt;/div>
+		&lt;div class="checkbox label-inline">
+			&lt;input type="checkbox" name="fruitsCheckboxes" id="OrangesCheckbox" value="Oranges">&lt;label for="OrangesCheckbox">Oranges&lt;/label>
+		&lt;/div>
+		&lt;div class="checkbox label-inline">
+			&lt;input type="checkbox" name="fruitsCheckboxes" id="PommesCheckbox" value="Pommes">&lt;label for="PommesCheckbox">Pommes&lt;/label>
+		&lt;/div>
+	&lt;/fieldset>
+
+	&lt;fieldset class="gc-chckbxrdio form-inline">
+		&lt;legend>Choisissez un fruit (&lt;code>&lt;input type="radio">&lt;/code>)&lt;/legend>
+		&lt;div class="radio label-inline">
+			&lt;input type="radio" name="fruitsRadios" id="BananesRadio" value="Bananes">&lt;label for="BananesRadio">Bananes&lt;/label>
+		&lt;/div>
+		&lt;div class="radio label-inline">
+			&lt;input type="radio" name="fruitsRadios" id="OrangesRadio" value="Oranges">&lt;label for="OrangesRadio">Oranges&lt;/label>
+		&lt;/div>
+		&lt;div class="radio label-inline">
+			&lt;input type="radio" name="fruitsRadios" id="PommesRadio" value="Pommes">&lt;label for="PommesRadio">Pommes&lt;/label>
+		&lt;/div>
+	&lt;/fieldset>
+&lt;/form></code></pre>
+	</details>
+</section>
+
+<section>
+	<h2>Exemple sans <code>source</code></h2>
+	<label for="fruitsSelect2">Sélectionnez un fruit (<code>&lt;select></code>)</label>
+	<select id="fruitsSelect2" class="form-control" data-wb-urlmapping='{
+		"f=g": {
+			"action": "selectInput",
+			"value": "Raisins"
+		}
+	}'>
+		<option value="Tous">Tous</option>
+		<option value="Oranges">Oranges</option>
+		<option value="Pommes">Pommes</option>
+		<option value="Raisins">Raisins</option>
+	</select>
+
+	<fieldset class="gc-chckbxrdio form-inline mrgn-tp-lg" data-wb-urlmapping='{
+		"f=g": {
+			"action": "selectInput",
+			"value": "Raisins"
+		}
+	}'>
+		<legend>Choisissez un fruit (<code>&lt;input type="checkbox"></code>)</legend>
+		<div class="checkbox label-inline">
+			<input type="checkbox" name="fruitsCheckboxes2" id="BananesCheckbox2" value="Bananes"><label for="BananesCheckbox2">Bananes</label>
+		</div>
+		<div class="checkbox label-inline">
+			<input type="checkbox" name="fruitsCheckboxes2" id="OrangesCheckbox2" value="Oranges"><label for="OrangesCheckbox2">Oranges</label>
+		</div>
+		<div class="checkbox label-inline">
+			<input type="checkbox" name="fruitsCheckboxes2" id="RaisinsCheckbox2" value="Raisins"><label for="RaisinsCheckbox2">Raisins</label>
+		</div>
+	</fieldset>
+
+	<fieldset class="gc-chckbxrdio form-inline mrgn-tp-lg" data-wb-urlmapping='{
+		"f=g": {
+			"action": "selectInput",
+			"value": "Raisins"
+		}
+	}'>
+		<legend>Choisissez un fruit (<code>&lt;input type="radio"></code>)</legend>
+		<div class="radio label-inline">
+			<input type="radio" name="fruitsRadios2" id="BananesRadio2" value="Bananes"><label for="BananesRadio2">Bananes</label>
+		</div>
+		<div class="radio label-inline">
+			<input type="radio" name="fruitsRadios2" id="OrangesRadio2" value="Oranges"><label for="OrangesRadio2">Oranges</label>
+		</div>
+		<div class="radio label-inline">
+			<input type="radio" name="fruitsRadios2" id="RaisinsRadio2" value="Raisins"><label for="RaisinsRadio2">Raisins</label>
+		</div>
+	</fieldset>
+
+	<details class="mrgn-tp-lg">
+		<summary>Source code</summary>
+		<pre><code>&lt;label for="fruitsSelect2">Sélectionnez un fruit (&lt;code>&lt;select>&lt;/code>)&lt;/label>
+&lt;select id="fruitsSelect2" class="form-control" data-wb-urlmapping='{
+	"f=g": {
+		"action": "selectInput",
+		"value": "Raisins"
+	}
+}'>
+	&lt;option value="Tous">Tous&lt;/option>
+	&lt;option value="Oranges">Oranges&lt;/option>
+	&lt;option value="Pommes">Pommes&lt;/option>
+	&lt;option value="Raisins">Raisins&lt;/option>
+&lt;/select>
+
+&lt;fieldset class="gc-chckbxrdio form-inline mrgn-bttm-lg" data-wb-urlmapping='{
+	"f=g": {
+		"action": "selectInput",
+		"value": "Raisins"
+	}
+}'>
+	&lt;legend>Choisissez un fruit (&lt;code>&lt;input type="checkbox">&lt;/code>)&lt;/legend>
+	&lt;div class="checkbox label-inline">
+		&lt;input type="checkbox" name="fruitsCheckboxes2" id="BananesCheckbox2" value="Bananes">&lt;label for="BananesCheckbox2">Bananes&lt;/label>
+	&lt;/div>
+	&lt;div class="checkbox label-inline">
+		&lt;input type="checkbox" name="fruitsCheckboxes2" id="OrangesCheckbox2" value="Oranges">&lt;label for="OrangesCheckbox2">Oranges&lt;/label>
+	&lt;/div>
+	&lt;div class="checkbox label-inline">
+		&lt;input type="checkbox" name="fruitsCheckboxes2" id="RaisinsCheckbox2" value="Raisins">&lt;label for="RaisinsCheckbox2">Raisins&lt;/label>
+	&lt;/div>
+&lt;/fieldset>
+
+&lt;fieldset class="gc-chckbxrdio form-inline" data-wb-urlmapping='{
+	"f=g": {
+		"action": "selectInput",
+		"value": "Raisins"
+	}
+}'>
+	&lt;legend>Choisissez un fruit (&lt;code>&lt;input type="radio">&lt;/code>)&lt;/legend>
+	&lt;div class="radio label-inline">
+		&lt;input type="radio" name="fruitsRadios2" id="BananesRadio2" value="Bananes">&lt;label for="BananesRadio2">Bananes&lt;/label>
+	&lt;/div>
+	&lt;div class="radio label-inline">
+		&lt;input type="radio" name="fruitsRadios2" id="OrangesRadio2" value="Oranges">&lt;label for="OrangesRadio2">Oranges&lt;/label>
+	&lt;/div>
+	&lt;div class="radio label-inline">
+		&lt;input type="radio" name="fruitsRadios2" id="RaisinsRadio2" value="Raisins">&lt;label for="RaisinsRadio2">Raisins&lt;/label>
+	&lt;/div>
+&lt;/fieldset></code></pre>
+	</details>
+</section>
