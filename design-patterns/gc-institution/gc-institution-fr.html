@@ -1,82 +1,90 @@
 ---
-breadcrumbs: [
-	{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/accueil.html" }
-]
-dateModified: "2021-05-21"
-description: "Documentation et exemple pratique de en demande- fonctionnalité provisoire"
-language: "fr"
-altLangPage: "gc-most-requested-en.html"
-title: "En demande - fonctionnalité provisoire"
+title: À propos de l’institution
+description: Documentation and working example for the about the institution pattern
+language: fr
+altLangPage: gc-institution-en.html
+dateModified: 2023-08-09
+layout: no-container
 ---
-{% include alert-provisional.html siteroot="../../" %}
+<div class="container">
+	<h1 property="name" id="wb-cont" dir="ltr">{{ page.title }}</h1>
 
-<span class="wb-prettify all-pre hide"></span>
+	<span class="wb-prettify all-pre hide"></span>
+	<p>La configuration de conception « À propos de l’institution » consiste en une section sur une page d’accueil institutionnelle qui fournit des liens vers des renseignements organisationnels et sur l’élaboration de programmes et de politiques.</p>
 
-<dl class="horizontal">
-	<dt>Statut</dt>
-	<dd>Provisiore</dd>
-	<dt>Type</dt>
-	<dd>Conception de Canada.ca</dd>
-	<dt>Dernière revue</dt>
-	<dd>2021-05-21</dd>
-	<dt>Est conforme à</dt>
-	<dd>n/a</dd>
-	<dt>Directives</dt>
-	<dd><a href="https://conception.canada.ca/configurations-conception-communes/en-demande.html">En demande -  Système de conception de Canada.ca</a> (à mettre à jour)</dd>
-	<dt>Nom technique</dt>
-	<dd><code>gc-most-requested</code></dd>
-</dl>
+	<h2>Sur cette page</h2>
+	<ul>
+		<!-- <li><a href="#inc-components">Included components</a></li> -->
+		<li><a href="#before-start">Before you start</a></li>
+		<li><a href="#accessibility-guidance">Accessibility guidance</a></li>
+		<li><a href="#variations">Variations</a></li>
+		<li><a href="#eval-report">Évaluation et rapport</a></li>
+		<li><a href="#technical-docs">Technical documentation</a></li>
+	</ul>
 
-<h2>Objectif</h2>
-<p>Ceci ajoute une section en vedette qui comprend des tâches principales liées à la page sur laquelle elles se trouvent.</p>
+	<h2 id="before-start">Before you start</h2>
+	<p>« À propos de l’institution » est un modèle obligatoire sur une page d’accueil institutionnelle. Il doit inclure des liens vers le mandat et la transparence.</p>
 
-<h2>Exemple pratique</h2>
+	<ul>
+		<li><a href="https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html">How to set up the institutional landing page</a></li>
+	</ul>
 
-<h3>En demande (provisoire v1.0)</h3>
-<section class="well well-sm provisional gc-most-requested">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				<h2>En demande</h2>
-			</div>
-			<div class="col-md-10">
-				<ul class="colcount-md-2">
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-					<li><a href="#">[Tâches principale]</a></li>
-				</ul>
-			</div>
+	<h2 id="accessibility-guidance">Accessibility guidance</h2>
+
+	<p>List of accessibility guidances to be followed to ensure component is used in respect of the accessibility guideline and EN 301 549 standard (including WCAG 2.1 Level AA).</p>
+
+	<p>There is <span>no accessibility guidance</span> defined.</p>
+
+	<h2 id="variations">Variations</h2>
+
+	<p>The following coded example is the default layout. It must include mandate and transparency links.</p>
+
+	<h3>About the institution pattern</h3>
+	<section class="row">
+		<div class="col-md-8 bold-content">
+			<h2 class="h3 mrgn-tp-md">À propos de [Institution]</h2>
+			<ul class="list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2">
+				<li><a href="#">Mandat</a></li>
+				<li><a href="#">Structure organisationnelle</a></li>
+				<li><a href="#">Transparence</a></li>
+				<li><a href="#">Accessibilité</a></li>
+				<li><a href="#">Possibilités d’emploi</a></li>
+				<li><a href="#">Rapports</a></li>
+				<li><a href="#">Conformité</a></li>
+				<li><a href="#">Notifications d’application de la loi</a></li>
+				<li><a href="#">[Lien institutionnel]</a></li>
+				<li>En savoir plus&nbsp;: <a href="#">À propos de [institution]</a></li>
+			</ul>
 		</div>
-	</div>
-</section>
+	</section>
 
-<h3>Code</h3>
-<pre><code>
-&lt;section class="well well-sm provisional gc-most-requested"&gt;
-	&lt;div class="container"&gt;
-		&lt;div class="row"&gt;
-			&lt;div class="col-md-2"&gt;
-				&lt;h2&gt;En demande&lt;/h2&gt;
-			&lt;/div&gt;
-			&lt;div class="col-md-10"&gt;
-				&lt;ul class="colcount-md-2"&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href="#"&gt;[Tâches principale]&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
+		<h3>Code</h3>
+		<pre><code>
+		&lt;section class="col-md-8 bold-content"&gt;
+			&lt;h2 class="h3 mrgn-tp-md"&gt;À propos de [Institution&lt;/h2&gt;
+			&lt;ul class="list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Mandat&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Structure organisationnelle&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Transparence&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Accessibilité&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Possibilités d’emploi&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Rapports&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Conformité&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Notifications d’application de la loi&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;[Lien institutionnel]&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;En savoir plus&nbsp;: &lt;a href="#"&gt;À propos de [institution]&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/section&gt;
+	</code></pre>
 
-<h2>Évaluation et rapport</h2>
-<p>Il n'y a pas d'évaluation et de rapport disponibles pour ce composant.</p>
+	<h2 id="eval-report">Évaluation et rapport</h2>
+	<p>There is no accessibility report.</p>
+
+	<p>There is no accessibility conformance report.</p>
+
+	<h2 id="technical-docs">Technical documentation</h2>
+	<dl class="dl-horizontal">
+		<dt>Status:</dt>
+		<dd data-status="">stable</dd>
+	</dl>
+</div>
