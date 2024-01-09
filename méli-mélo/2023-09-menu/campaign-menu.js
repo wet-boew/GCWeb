@@ -33,6 +33,7 @@
                 // At this point, the GCWeb menu is already initialized
                 $elm = $(elm);
 
+                
                 // Add IDs for GC menu. This must be synchronized with the ids for the mega menu below.
                 var gcSubmenus = $elm.find("ul ul");
                 for (var i = 1; i < gcSubmenus.length + 1; i++) {
@@ -58,94 +59,98 @@
                     return;
                 }
 
-                // Megamenu does not exist, let's build it for md and lg using the content in the GCWeb
-                // Retrieve the top level list items from GCWeb men
-                var gcwebMenuListItems = $elm.find("> ul > li");
-
-                // Start building mega menu
-                var megamenuHTML = "";
-                var listItemCounter = 0;
-                var subMenuCounter = 0;
-                $.each(gcwebMenuListItems, function (key, element) {
-                    // console.log(key + ": " + element);
-                    listItemCounter++;
-
-                    // Get top level list item's anchor
-                    var listItemAnchor = element.querySelector("a");
-                    listItemAnchor.setAttribute('class', 'item');
-                    //console.log("anchor: ",  listItemAnchor);
-
-                    // Get top level list item's children
-                    var listItemchildren = element.querySelectorAll("li");
-                    //console.log("children: ",  listItemchildren);
-                    //console.log("children length: " + gcwebMenuListItems.length);                  
-
-                    // Build top level list items, with and without submenus                    
-                    if (listItemchildren.length > 0) {
-                        // Use counter to generate dynamic href bookmarks and ids for submenus
-                        subMenuCounter++;
-
-                        // Build list item with a submenu
-                        let subMenuId = "menu-" + subMenuCounter;
-
-                        var submegamenuHTML = "";
-                        // TODO: Verify all the attributes
-                        megamenuHTML += `
-                        <li><a href="#${subMenuId}" class="item" tabindex="0" aria-posinset="${listItemCounter}" aria-setsize="${gcwebMenuListItems.length}" role="menuitem" aria-haspopup="true">${listItemAnchor.textContent}</a>`;
-
-                        $.each(listItemchildren, function (key, element) {
-                            //console.log(key + ": " + element);
-                            var subListItemAnchor = element.querySelector("a");
-                            var href = subListItemAnchor.getAttribute('href');
-
-                            // TODO: Add missing attributes present in the 
-                            submegamenuHTML += `<li><a href="${href}">${subListItemAnchor.textContent}</a></li>`;
-                        });
-
-                        megamenuHTML += `<ul class="sm list-unstyled" id="${subMenuId}" role="menu">${submegamenuHTML}</ul></li>`;
-                    } else {
-                        // Build list item without a submenu
-                        let href = listItemAnchor.getAttribute('href');
-                        megamenuHTML += `<li><a href="${href}">${listItemAnchor.textContent}</a></li>`;
-                    }
-                });
-
-                // Get GCWeb h2
-                var gcwebMenuH2 = document.querySelector(selector + " > h2");
-
-                // Wrap menu HTML with the megamenu wrapper
-                // NOTE: Removed role="navigation" (redundant) and typeof="SiteNavigationElement" (not required)
-                megamenuHTML = `
-                <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg">
-                    <div class="pnl-strt nvbar">
-                        <h2>${gcwebMenuH2.textContent}</h2>
-                        <ul role="menubar" class="list-inline menu">
-                            ${megamenuHTML}
-                        </ul>
-                    </div>
-                </nav>`;
-                //console.log(megamenuHTML);                          
-
-                // Apply appropriate visible CSS classes to the GCWeb menu
-                $elm.addClass("visible-sm visible-xs");
-
-                // Add the megamenu
-                $elm.after(megamenuHTML);
-
-                // Start the megamenu plugin
-                // Workaround - Add the div required to build the hamburger menu, but hide it, since all we're trying to do is fully initialize the megamenu
-                $(".wb-menu").attr('data-trgt', 'mb-pnl');
-                $(".wb-menu").after('<div id="mb-pnl" hidden></div>');
-                $(".wb-menu").after('<div id="wb-glb-mn" hidden><h2> </h2></div>');
-
-                // Initialize it
-                $(".wb-menu").trigger("wb-init.wb-menu");
-
-                $("#mb-pnl").remove();
-                $("#wb-glb-mn").remove();
-                $(".wb-menu").removeAttr('data-trgt');
-
                 wb.ready($elm, componentName);
+                
+                $( document ).on( "wb-ready.wb", function( event ) {
+
+                    // Megamenu does not exist, let's build it for md and lg using the content in the GCWeb
+                    // Retrieve the top level list items from GCWeb men
+                    var gcwebMenuListItems = $elm.find("> ul > li");
+
+                    // Start building mega menu
+                    var megamenuHTML = "";
+                    var listItemCounter = 0;
+                    var subMenuCounter = 0;
+                    $.each(gcwebMenuListItems, function (key, element) {
+                        // console.log(key + ": " + element);
+                        listItemCounter++;
+
+                        // Get top level list item's anchor
+                        var listItemAnchor = element.querySelector("a");
+                        listItemAnchor.setAttribute('class', 'item');
+                        //console.log("anchor: ",  listItemAnchor);
+
+                        // Get top level list item's children
+                        var listItemchildren = element.querySelectorAll("li");
+                        //console.log("children: ",  listItemchildren);
+                        //console.log("children length: " + gcwebMenuListItems.length);                  
+
+                        // Build top level list items, with and without submenus                    
+                        if (listItemchildren.length > 0) {
+                            // Use counter to generate dynamic href bookmarks and ids for submenus
+                            subMenuCounter++;
+
+                            // Build list item with a submenu
+                            let subMenuId = "menu-" + subMenuCounter;
+
+                            var submegamenuHTML = "";
+                            // TODO: Verify all the attributes
+                            megamenuHTML += `
+                            <li><a href="#${subMenuId}" class="item" tabindex="0" aria-posinset="${listItemCounter}" aria-setsize="${gcwebMenuListItems.length}" role="menuitem" aria-haspopup="true">${listItemAnchor.textContent}</a>`;
+
+                            $.each(listItemchildren, function (key, element) {
+                                //console.log(key + ": " + element);
+                                var subListItemAnchor = element.querySelector("a");
+                                var href = subListItemAnchor.getAttribute('href');
+
+                                // TODO: Add missing attributes present in the 
+                                submegamenuHTML += `<li><a href="${href}">${subListItemAnchor.textContent}</a></li>`;
+                            });
+
+                            megamenuHTML += `<ul class="sm list-unstyled" id="${subMenuId}" role="menu">${submegamenuHTML}</ul></li>`;
+                        } else {
+                            // Build list item without a submenu
+                            let href = listItemAnchor.getAttribute('href');
+                            megamenuHTML += `<li><a href="${href}">${listItemAnchor.textContent}</a></li>`;
+                        }
+                    });
+
+                    // Get GCWeb h2
+                    var gcwebMenuH2 = document.querySelector(selector + " > h2");
+
+                    // Wrap menu HTML with the megamenu wrapper
+                    // NOTE: Removed role="navigation" (redundant) and typeof="SiteNavigationElement" (not required)
+                    megamenuHTML = `
+                    <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg">
+                        <div class="pnl-strt nvbar">
+                            <h2>${gcwebMenuH2.textContent}</h2>
+                            <ul role="menubar" class="list-inline menu">
+                                ${megamenuHTML}
+                            </ul>
+                        </div>
+                    </nav>`;
+                    //console.log(megamenuHTML);                          
+
+                    // Apply appropriate visible CSS classes to the GCWeb menu
+                    $elm.addClass("visible-sm visible-xs");
+
+                    // Add the megamenu
+                    $elm.after(megamenuHTML);
+
+                    // Start the megamenu plugin
+                    // Workaround - Add the div required to build the hamburger menu, but hide it, since all we're trying to do is fully initialize the megamenu
+                    $(".wb-menu").attr('data-trgt', 'mb-pnl');
+                    $(".wb-menu").after('<div id="mb-pnl" hidden></div>');
+                    $(".wb-menu").after('<div id="wb-glb-mn" hidden><h2> </h2></div>');
+
+                    // Initialize it
+                    $(".wb-menu").trigger("wb-init.wb-menu");
+
+                    $("#mb-pnl").remove();
+                    $("#wb-glb-mn").remove();
+                    $(".wb-menu").removeAttr('data-trgt');
+
+                });                
             }
         },
 
@@ -234,6 +239,8 @@
 
     $document.on(wb.resizeEvents, openMenu);
 
+    $document.on(wb.resizeEvents, openMenu);
+    
     // Bind the init event of the plugin
     $document.on("timerpoke.wb " + initEvent, selector, init);
 
