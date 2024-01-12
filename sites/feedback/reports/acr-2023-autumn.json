@@ -1,0 +1,733 @@
+{
+  "@context": "https://wet-boew.github.io/vocab/context/2023/conformance-report-en.json-ld",
+
+  "@type": "acr:ConformanceReport",
+  "dct:references": [
+    "https://wet-boew.github.io/GCWeb/sites/feedback/reports/acr-2023-autumn-en.html",
+    "https://wet-boew.github.io/GCWeb/sites/feedback/reports/acr-2023-autumn-fr.html"
+  ],
+
+  "earl:subject": {
+    "@id": "_:subject",
+    "dct:references": "https://wet-boew.github.io/GCWeb/sites/feedback/page-feedback-en.html",
+    "dct:references_list-note": "TODO: remove the suffix _list once the bug in the data-json is fixed",
+    "dct:references_list": [
+      "https://wet-boew.github.io/GCWeb/sites/feedback/page-feedback-en.html?wbdisable=false",
+      "https://wet-boew.github.io/GCWeb/sites/feedback/page-feedback-en.html?wbdisable=true",
+      "https://wet-boew.github.io/GCWeb/sites/feedback/page-feedback-contact-en.html?wbdisable=false",
+      "https://wet-boew.github.io/GCWeb/sites/feedback/page-feedback-contact-en.html?wbdisable=true"
+    ],
+    "@type": [
+      "earl:TestSubject",
+      "schema:WebPage"
+    ],
+    "dct:description": "About the page feedback and its container section which is presented before the site footer and after the page content. It does include and is limited to the placement of the date modified component and the share this page component regarding how they are harmonizing with the page feedback tool. It excludes the date modified component and the share this page component by themselves (ex. their inner HTML).",
+    "earl:pointer": {
+      "@type": "oa:CssSelector",
+      "@value": ".pagedetails"
+    }
+  },
+
+  "earl:assertedBy": {
+    "@id": "_:acrAssertor",
+    "foaf:name": "Service Canada - Principal Publisher",
+    "foaf:homepage": "https://github.com/ServiceCanada",
+    "@type": ["earl:Assertor", "foaf:Organization"],
+    "earl:mainAssertor": {
+      "foaf:name": "Pierre Dubois (Github: @duboisp)",
+      "foaf:homepage": "https://github.com/duboisp",
+      "@type": ["earl:Assertor", "foaf:Person"]
+    }
+  },
+
+  "dct:created": "2023-12-14",
+  "dct:description": "Accessibility conformance report against WCAG 2.1 Level AA for the Page Feedback Tool.",
+
+  "acr:standard": "https://www.w3.org/TR/WCAG21",
+  "acr:conformanceOption": "act:standard/profiles/wcag#levelAA",
+  "acr:conformance": "acr:satisfied",
+  "acr:aggregatedScore": "100%",
+
+  "assessments": {
+    "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json": {
+      "dct:title": "Accessibility assessment #1 - Page feedback tool",
+      "dct:references": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-2-en.html",
+      "dct:language": "en",
+      "dct:date": "2023-10-30",
+      "@type": "acr:AssessmentReport"
+    }
+  },
+
+  "acr:audit": [
+    {
+      "earl:assertedBy": {
+        "foaf:name": "Pierre Dubois (Github: @duboisp)",
+        "foaf:homepage": "https://github.com/duboisp",
+        "@type": ["earl:Assertor", "foaf:Person"]
+      },
+      "@type": ["acr:AuditReport", "earl:Assertion"],
+      "earl:mode": "earl:manual",
+      "acr:accuracy": "acr:falseNegative",
+      "acr:accuracy_technical_note": "Rethink this property set on AudiReport to reflect more the global view (type) of the assessment vs the view of the auditNote. Like 'pre-assessment', 'partial evaluation', 'complete', 'themed', 're-assessment'",
+      "dct:description": "Confirm the score of 100%. There are no work items, and the numbering for WCAG 2.2 has changed since then, but I did not modify them. I removed the techniques identified per SC according to our new guidance for that property.",
+      "dct:issued": "2023-12-14",
+      "acr:assessment": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+      "acr:auditNote": [
+        {
+            "@type": "acr:AuditReportNote",
+            "acr:accuracy": "acr:falseNegative",
+            "dct:date": "2023-12-14",
+            "dct:title": "Standard mode - Accessible name of 'No' button",
+            "dct:description": "I confirm its accessible name does match the text that is presented visually. That justification is not strong enough to make it fail the Success Criterion.",
+            "acr:severity": "acr:notRelevant",
+            "acr:relevancy": "wbv:acr#notRelevant",
+            "earl:test": "WCAG21:label-in-name",
+            "earl:outcome":"earl:passed",
+            "earl:subject": "_subject"
+        },
+        {
+            "@type": "acr:AuditReportNote",
+            "acr:accuracy": "acr:falseNegative",
+            "dct:date": "2023-12-14",
+            "dct:title": "Basic mode - Accessible name of 'No' button",
+            "dct:description": "I confirm its accessible name does match the text that is presented visually. The button's technical value used for form submission is disconnected and out of scope for the accessible name computation. That justification is not strong enough to make it fail the Success Criterion.",
+            "acr:severity": "acr:notRelevant",
+            "acr:relevancy": "wbv:acr#notRelevant",
+            "earl:test": "WCAG21:label-in-name",
+            "earl:outcome":"earl:passed",
+            "earl:subject": "_subject"
+        },
+        {
+            "@type": "acr:AuditReportNote",
+            "acr:accuracy": "acr:falseNegative",
+            "dct:date": "2023-12-14",
+            "dct:title": "Status messages about the character limit of the text field",
+            "dct:description": "The component is not displaying a status message about the number of characters left, so this Success Criterion is not applicable. Although, we can note that the official attribute 'maxlength' of the text area element is used to report that content length limitation, which is done in conformance with the HTML5 specification, which is described as 'Maximum length of value', which is conforming to info and relationship Success Criterion 1.3.1. We can assume that limitation is calculable and predictable by the browser and/or the assistive technology. There is a risk where that HTML feature could be not fully reported to the user by some assistive technology. Further testing would be required and that is going to fall under improving the compatibility for specific assistive technologies",
+            "acr:severity": "acr:notRelevant",
+            "acr:relevancy": "wbv:acr#notRelevant",
+            "earl:test": "WCAG21:status-messages",
+            "earl:outcome":"earl:passed",
+            "earl:subject": "_subject"
+        }
+      ]
+    }
+  ],
+
+  "wf:task": [
+    {
+      "@type": "wf:Task",
+      "dct:title": "Compatibility research on how AT are supporting the maxlength attribute",
+      "wf:goalDescription": "Document various AT and browser compatibility tests regarding how they are clearing announcing the input content limitation set through the attribute 'maxlength' for a textaria element. Goal is to propose, if issues are found, a solution that could improve the user experience to ensure they are advised when they have reached or close to reach that max length limit.",
+      "wf:successCriteria": "A published report with a research summary, any relevant details and related finding.",
+      "dct:created": "2023-12-15",
+      "acr:requirement": "WCAG21:status-messages",
+      "earl:test": [ "WCAG21:status-messages" ],
+      "acr:severity": "acr:notRelevant",
+      "acr:relevancy": "wbv:acr#comments"
+    }
+  ],
+
+  "dct:source": "act:standard/sets/wcag2x/wcag21_all_levelAA.json",
+  "acr:conformity": [
+    {
+      "acr:requirement": "WCAG21:non-text-content",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:audio-only-and-video-only-prerecorded",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:captions-prerecorded",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:audio-description-or-media-alternative-prerecorded",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:captions-live",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:audio-description-prerecorded",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:info-and-relationships",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:meaningful-sequence",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:sensory-characteristics",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:orientation",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:identify-input-purpose",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:use-of-color",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:audio-control",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:contrast-minimum",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:resize-text",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:image-of-text",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:reflow",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:non-text-contrast",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:text-spacing",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:content-on-hover-or-focus",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:keyboard",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:no-keyboard-trap",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:character-key-shortcuts",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:timing-adjustable",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:pause-stop-hide",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:three-flashes-or-below-threshold",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:bypass-blocks",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:page-titled",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:focus-order",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:link-purpose-in-context",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:multiple-ways",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:headings-and-labels",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:focus-visible",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:pointer-gestures",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:pointer-cancellation",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:label-in-name",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "See the audit note, after review this SC are satisfied.",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:motion-actuation",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:language-of-page",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:language-of-parts",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:on-focus",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:on-input",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:consistent-navigation",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:consistent-identification",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:error-identification",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:labels-or-instructions",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:error-suggestion",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:error-prevention-legal-financial-data)",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:parsing",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:name-role-value",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    },
+    {
+      "acr:requirement": "WCAG21:status-messages",
+      "acr:conformance": "acr:satisfied",
+      "acr:assessment": [
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+      ],
+      "earl:subject": "_:subject",
+      "dct:description": "See the audit note, after review this SC are satisfied.",
+      "dct:modified": "2023-12-15",
+      "earl:mode": "earl:manual",
+      "@type": [ "acr:ConformanceRequirement" ]
+    }
+  ]
+}
