@@ -11,28 +11,16 @@ layout: no-container
         <p>Example of a new menu that uses megamenu for md and lg, and GCWeb menu for sm and xs.</p>
     </div>
 	<div class="container">
-		<nav class="gcweb-menu campaign-menu" typeof="SiteNavigationElement">
+		<nav class="gcweb-menu campaign-menu" typeof="SiteNavigationElement" data-megamenu-ajax="ajax/wet-mega-menu.html">
 			<h2 class="wb-inv">Winterlude Site Menu</h2>
 			<button type="button" aria-haspopup="true" aria-expanded="false"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
-			<ul role="menu" aria-orientation="vertical">
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="./index.html">Home</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="./calendar.html">Calendar</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="sub-menu-1" aria-expanded="false" href="#">What's happening</a>
-					<ul id="sub-menu-1" role="menu" aria-orientation="vertical">
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Venues</a></li>
-					</ul>
-				</li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sculptures</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" aria-haspopup="true" aria-controls="sub-menu-2" aria-expanded="false" href="#">About</a>
-					<ul id="sub-menu-2" role="menu" aria-orientation="vertical">
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="./about.html">About Winterlude</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Over the years</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Media</a></li>
-					</ul>
-				</li>
+			<ul role="menu" aria-orientation="vertical" data-ajax-replace="ajax/gcweb-menu.html">
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="index.html">Home</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="calendar.html">Calendar</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="about.html">About</a></li>
 			</ul>
 		</nav>
-	</div>
+    </div>
     <div class="container mrgn-tp-xl">
         <h2>Test content</h2>
         <p>Lorem</p>
