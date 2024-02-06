@@ -1,19 +1,5 @@
 <section class="gc-followus">
-	<h2>
-		{%- if include.isInline -%}
-			{%- if page.language == "fr" -%}
-				Suivez-nous
-			{%- else -%}
-				Follow us
-			{%- endif -%}
-		{%- else -%}
-			{%- if page.language == "fr" -%}
-				Dans les médias sociaux
-			{%- else -%}
-				On social media
-			{%- endif -%}
-		{%- endif -%}
-	</h2>
+	<h2>{%- if page.language == "fr" -%}Dans les médias sociaux{%- else -%}On social media{%- endif -%}</h2>
 	<ul{% if include.isInline %} class="list-inline"{% endif %}>
 		<li>
 			<a href="#facebook" class="facebook wb-lbx">
@@ -27,9 +13,9 @@
 		<li>
 			<a href="#" rel="external" class="twitter">
 				{%- if page.language == "fr" -%}
-					<span class="wb-inv">Twitter&nbsp;: </span>@CompteTwitter
+					<span class="wb-inv">X&nbsp;: </span>@CompteX
 				{%- else -%}
-					<span class="wb-inv">Twitter: </span>@TwitterAccount
+					<span class="wb-inv">X: </span>@XAccount
 				{%- endif -%}
 			</a>
 		</li>
