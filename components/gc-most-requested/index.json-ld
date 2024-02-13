@@ -7,28 +7,157 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Most requested - Documentation and working example",
-		"fr": "En demande - Documentation et example pratique"
+		"en": "Most requested",
+		"fr": "En demande"
 	},
 	"description": {
 		"en": "Features top tasks related to the page it is on.",
 		"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
 	},
-	"modified": "2024-01-29",
+	"modified": "2024-02-14",
 	"componentName": "gc-most-requested",
 	"status": "stable",
+	"version": "1.0",
 	"pages": {
+		"docs": [
+			{
+				"title": "Most requested - Documentation",
+				"language": "en",
+				"path": "gc-most-requested-doc-en.html"
+			},
+			{
+				"title": "En demande - Documentation",
+				"language": "fr",
+				"path": "gc-most-requested-doc-fr.html"
+			}
+		],
 		"examples": [
 			{
-				"title": "Most requested - Documentation and working example",
+				"title": "Most requested",
 				"language": "en",
 				"path": "gc-most-requested-en.html"
 			},
-		{
+			{
 				"title": "En demande",
 				"language": "fr",
-				"path": "gc-most-requested-fr.html - Documentation et example pratique"
+				"path": "gc-most-requested-fr.html"
 			}
 		]
-	}
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Most requested - default",
+				"fr": "En demande - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Features top tasks related to the page it is on.",
+				"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
+			},
+			"iteration": "_:iteration_mostrequested_1",
+			"example": [
+				{
+					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
+					"fr": { "href": "gc-most-requested-fr.html", "text": "En demande" }
+				}
+			],
+			"implementation": [
+				"_:implement_mostrequested"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Initial implementation of the variation.",
+					"fr": "Février 2024 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_mostrequested",
+			"iteration": "_:iteration_mostrequested_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"notes": {
+				"en": [
+					"The <code>&lt;div class=\"container\"></code> is only necessary when the component is not already inside another <code>&lt;div class=\"container\"></code>."
+				],
+				"fr": [
+					"Le <code>&lt;div class=\"container\"></code> n'est nécessaire que lorsque le composant n'est pas déjà dans un autre <code>&lt;div class=\"container\"></code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>Most requested</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>En demande</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_mostrequested_1",
+			"name": "Most requested - Iteration 1",
+			"date": "2024-02",
+			"detectableBy": ".gc-most-requested",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>Most requested</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_mostrequested",
+			"name": "Most requested",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_mostrequested_1",
+			"detectableBy": ".gc-most-requested",
+			"layout": "On smaller screens, the title is on the top and links are stacked. On medium and large screens, the title is on the left and links are distributed over two columns.",
+			"semantic": "h2 + (ul > li > a)",
+			"static": [
+				"Most requested",
+				"En demande"
+			],
+			"schema": [
+				"Task links",
+				"Task names"
+			]
+		}
+	]
 }
