@@ -83,7 +83,7 @@
 				"en": "Follow us",
 				"fr": "Suivez-nous"
 			},
-			"status": "deprecated",
+			"status": "demoted",
 			"description": {
 				"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
 				"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
@@ -153,7 +153,7 @@
 		},
 		{
 			"@id": "_:implement_follow",
-			"iteration": "_:iteration_follow_1",
+			"iteration": "_:iteration_follow_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -219,6 +219,27 @@
 			"detectableBy": ".gc-followus"
 		},
 		{
+			"@id": "_:iteration_follow_2",
+			"name": "Follow us - Iteration 2",
+			"date": "2024-02",
+			"detectableBy": ".followus",
+			"additions": [
+				"New Base64 image for X logo (formerly known as Twitter).",
+				"Added logic to dynamically replace \"Twitter\" with \"X\" in hidden text."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/follow.html"
+					}
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_follow_1",
 			"name": "Follow us - Iteration 1",
 			"date": "2017-04",
@@ -278,7 +299,7 @@
 		{
 			"@id": "_:cs_follow",
 			"name": "Follow us",
-			"status": "deprecated",
+			"status": "demoted",
 			"deprecatedOn": "2024-02-02",
 			"baseOnIteration": "_:iteration_follow_1",
 			"detectableBy": ".followus",
