@@ -6,7 +6,7 @@
 	"breadcrumbs": [
 		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" }
 	],
-	"dateModified": "2023-07-06"
+	"dateModified": "2024-02-22"
 }
 ---
 <div class="wb-prettify all-pre hide"></div>
@@ -15,13 +15,19 @@
 	<p>The purpose of this page is to test all native content grouping related elements, 
 		if they are aligned with our design and are compliant to our accessibility guideline when used as is without any special customization. 
 		The following include all content grouping elements in the HTML5 specification and a few examples was inspired by the 
-		<a href="https://html.spec.whatwg.org/multipage/forms.html#forms">WHATWG section 4.4</a> as February 2024. 
+		<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#text-level-semantics">WHATWG section 4.4</a> as February 2024. 
 		This page may not contain all the possible grouping content element combination.</p>
 	</div>
 
 	<h2>The <code>a</code> element</h2>
-	<p><a href="/">Home</a></p>
-		<p><a>Anchor with no href</a></p>
+	<ul>
+	  <li><a>Anchor</a> without <code>href</code></li>
+	  <li><a href="#">Anchor with an empty URL fragment</a></li>
+	  <li id="local-anchor"><a href="#local-anchor>Anchor with a non-empty URL fragment</a></li>
+	  <li><a href="https://wet-boew.github.io/GCWeb/">Anchor with <code>https://<code> URL scheme</a></li>
+	  <li><a href="https://wet-boew.github.io/GCWeb/index-en.html" hreflang="en">Anchor with an English <code>hreflang</code> configuration</a></li>
+	  <li><a href="https://wet-boew.github.io/GCWeb/index-fr.html" hreflang="fr">Anchor with an French <code>hreflang</code> configuration</a></li>
+	</ul>
 	<pre><code>&lt;a href="/">Home&lt;/a></code></pre>
 
 	<h2>The <code>em</code> element</h2>
@@ -118,7 +124,7 @@
 	</code></pre>
 
 	<h2>The <code>u</code> element</h2>
-	<p>The mixture of apple juice and <u class="spelling">eldeflower</u> juice is very pleasant.</p>
+	<p>The mixture of apple juice and <u>eldeflower</u> juice is very pleasant.</p>
 	<pre><code>
 	The mixture of apple juice and &lt;u class="spelling">eldeflower&lt;/u> juice is very pleasant.
 	</code></pre>
