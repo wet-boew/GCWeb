@@ -328,13 +328,111 @@
 	&lt;label	for="inlineRadio3"&gt;&gt;3 (disabled)&lt;/label&gt;
 &lt;/div&gt;</code></pre></div>
 
-<div class = "form-horizontal" role = "form">
-	<div class = "form-group has-success">
-		<label class = "col-sm-2 control-label" for = "inputSuccess">
-		Input with success
-		</label>
-		<div class = "col-sm-10">
-			<input type = "text" class = "form-control" id = "inputSuccess">
-		</div>
+<h3 id="validation-states">Validation states</h3>
+
+<p>Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add
+<code class="prettyprint prettyprinted" aria-invalid="true">.has-warning</code>,
+<code class="prettyprint prettyprinted" aria-invalid="true">.has-error</code>, or 
+<code class="prettyprint prettyprinted" aria-invalid="false">.has-success</code> to the parent element.
+Any <code class="prettyprint prettyprinted">.control-label</code>,
+<code class="prettyprint prettyprinted">.form-control</code>, and
+<code class="prettyprint prettyprinted">.help-block</code>
+within that element will receive the validation styles.</p>
+
+<form>
+  <div class="form-group has-success">
+	<label class="control-label" for="inputSuccess1">Input with success</label>
+	<input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+	<span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+  </div>
+  <div class="form-group has-warning">
+	<label class="control-label" for="inputWarning1">Input with warning</label>
+	<input type="text" class="form-control" id="inputWarning1">
+  </div>
+  <div class="form-group has-error">
+	<label class="control-label" for="inputError1">Input with error</label>
+	<input type="text" class="form-control" id="inputError1">
+  </div>
+  <div class="has-success">
+	<div class="checkbox">
+	  <label>
+		<input type="checkbox" id="checkboxSuccess" value="option1">
+		Checkbox with success
+	  </label>
 	</div>
-</div>
+  </div>
+  <div class="has-warning">
+	<div class="checkbox">
+	  <label>
+		<input type="checkbox" id="checkboxWarning" value="option1">
+		Checkbox with warning
+	  </label>
+	</div>
+  </div>
+  <div class="has-error">
+	<div class="checkbox">
+	  <label>
+		<input type="checkbox" id="checkboxError" value="option1">
+		Checkbox with error
+	  </label>
+	</div>
+  </div>
+</form>
+
+<figure class="highlight">
+	<pre><code class="language-html" data-lang="html">
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-success"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span>
+		<span class="s">"inputSuccess1"</span><span class="nt">&gt;</span>Input with success<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span>
+		<span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputSuccess1"</span>
+		<span class="na">aria-describedby=</span><span class="s">"helpBlock2"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"helpBlock2"</span> <span class="na">class=</span>
+		<span class="s">"help-block"</span><span class="nt">&gt;</span>A block of help text that breaks onto a new line and may extend beyond one line.<span class="nt">&lt;/span&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-warning"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span>
+		<span class="s">"inputWarning1"</span><span class="nt">&gt;</span>Input with warning<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span>
+		<span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputWarning1"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-error"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span>
+		<span class="s">"inputError1"</span><span class="nt">&gt;</span>Input with error<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span>
+		<span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputError1"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"has-success"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span>
+		<span class="s">"checkboxSuccess"</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>
+		Checkbox with success
+		<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"has-warning"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span>
+		<span class="s">"checkboxWarning"</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>
+		Checkbox with warning
+		<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"has-error"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;label&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span>
+		<span class="na">id=</span><span class="s">"checkboxError"</span> <span class="na">value=</span><span class="s">"option1"</span>
+		<span class="nt">&gt;</span>
+		Checkbox with error
+		<span class="nt">&lt;/label&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+		<span class="nt">&lt;/div&gt;</span>
+	</code></pre>
+</figure>
+
+
+
+
