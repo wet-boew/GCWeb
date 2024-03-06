@@ -1,0 +1,104 @@
+---
+{
+	"noFooterMain": true,
+	"noFooterCorporate": true,
+	"nositesearch": true,
+	"breadcrumbs": false,
+	"nositesearch": true
+}
+---
+
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture applicationName -%}
+	{%- if page.applicationName -%}
+		{{ page.applicationName }}
+	{%- elsif site.global.applicationName[i18nText-lang] -%}
+		{{ site.global.applicationName[i18nText-lang] }}
+	{%- else -%}
+		null
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture applicationURL -%}
+	{%- if page.applicationURL -%}
+		{{ page.applicationURL }}
+	{%- elsif site.global.applicationURL[i18nText-lang] -%}
+		{{ site.global.applicationURL[i18nText-lang] }}
+	{%- else -%}
+		null
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+
+<head>
+	<meta charset="utf-8">
+	{% include license.html %}
+	<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	{% include metadata.html %}
+	{% include resources-inc/head.html %}
+</head>
+
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+	{% include skiplinks/skiplinks.html %}
+
+	{%- if page.infoBanner -%}
+	<section class="info-banner">
+		<div class="container">
+			<h2>{{ page.infoBanner.title }}</h2>
+			<p>{{ page.infoBanner.message }}</p>
+			<div class="info-banner-actions">
+				{%- if page.infoBanner.link -%}
+					<a href="{{ page.infoBanner.link.href }}">{{ page.infoBanner.link.text }}{% if page.infoBanner.link.external %}<span class="glyphicon glyphicon-share mrgn-lft-md"></span>{% endif %}</a>
+				{%- endif -%}
+				{%- if page.infoBanner.button -%}
+					<a class="btn btn-primary" href="{{ page.infoBanner.button.href }}">{{ page.infoBanner.button.text }}{% if page.infoBanner.button.external %}<span class="glyphicon glyphicon-share mrgn-lft-md"></span>{% endif %}</a>
+				{%- endif -%}
+			</div>
+		</div>
+	</section>
+	{%- endif -%}
+
+	{% include header/header.html %}
+
+	{%- if applicationName != "null" and applicationURL != "null" -%}
+	<section class="application-bar">
+		<div class="container">
+			<h2><a href="{{ applicationURL }}">{{ applicationName }}</a></h2>
+		</div>
+	</section>
+	{%- else -%}
+	<!-- Only for GCWeb Jekyll -->
+	<div class="container">
+		<section class="alert alert-danger">
+			{%- if page.language == "en" -%}
+			<h2 class="h3">Missing configuration</h2>
+			<p>Make sure the properties <code>applicationName</code> and <code>applicationURL</code> are defined either in <code>_config.yml</code> or in the page's front-matter.</p>
+			{% else %}
+			<h2 class="h3">Configuration manquante</h2>
+			<p>Assurez-vous que les propriétés <code>applicationName</code> et <code>applicationURL</code> sont définies soit dans <code>_config.yml</code>, soit dans l'en-tête de la page.</p>
+			{% endif %}
+		</section>
+	</div>
+	{%- endif -%}
+
+	<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+		<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+		{{ content }}
+		{% include page-details/footer.html %}
+	</main>
+
+	{% include footers/footer.html %}
+	{% include resources-inc/footer.html %}
+</body>
+
+</html>

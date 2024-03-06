@@ -5,11 +5,12 @@
 				{% include language/languagetoggle.html %}
 			{% endif %}
 			{% include headers-includes/brand.html %}
-			{% unless page.nositesearch %}
+			{% unless page.nositesearch or layout.nositesearch %}
 				{% include headers-includes/sitesearch.html %}
 			{% endunless %}
 		</div>
 	</div>
+	{% unless page.layout == "application" %}
 	<hr>
 	<div class="container">
 		<div class="row">
@@ -29,5 +30,6 @@
 			{%- endif -%}
 		</div>
 	</div>
+	{% endunless %}
 	{% include breadcrumbs/breadcrumbs.html %}
 </header>

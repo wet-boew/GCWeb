@@ -84,7 +84,9 @@ module.exports = (grunt) ->
 			"concat:common"
 			"concat:components"
 			"concat:templates"
+			"concat:designPatterns"
 			"concat:sites"
+			"concat:wet-boew"
 			"clean:wetboew_demos"
 			"copy:wetboew_demos"
 		]
@@ -404,6 +406,85 @@ module.exports = (grunt) ->
 	)
 
 	@registerMultiTask(
+		"a11y-report"
+		"Try to dynamically compile a11y reporting",
+		() ->
+
+			a11yReportByComponent = [];
+			a11yReportByTestRequirement = {};
+			acrReportByConformity = {}
+
+			reportConf = grunt.file.readJSON( this.data.reporting )
+			dataSites = grunt.file.readJSON( this.data.sites )
+			dataComponents = grunt.file.readJSON( this.data.components )
+			dataCommons = grunt.file.readJSON( this.data.common )
+			dataTemplates = grunt.file.readJSON( this.data.templates )
+			dataDesignPatterns = grunt.file.readJSON( this.data.designPatterns )
+
+			a11yReportByComponent = processComponentReporting( grunt, "sites", dataSites, a11yReportByTestRequirement, acrReportByConformity, reportConf )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "components", dataComponents, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "common", dataCommons, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "templates", dataTemplates, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+			a11yReportByComponent = a11yReportByComponent.concat( processComponentReporting( grunt, "designPatterns", dataDesignPatterns, a11yReportByTestRequirement, acrReportByConformity, reportConf ) )
+
+
+			#
+			# Reformat the Test Requirement view for parsing with Jekyll
+			#
+			tRequirementReformated = {}
+			tRequirementReformated.allComponents = []
+			tRequirementReformated.list = []
+
+			for tReqId, tReqDet of a11yReportByTestRequirement
+				tReqItem = tReqDet
+				tReqItem.id = tReqId
+				componentsList = tReqDet.components
+				tReqItem.components = []
+
+				for compId, compDet of componentsList
+					comp = {}
+					comp.name = compId
+					comp.a11y = compDet
+
+					if tRequirementReformated.allComponents.indexOf( compId ) == -1
+						tRequirementReformated.allComponents.push( compId )
+
+					tReqItem.components.push( comp )
+
+				tRequirementReformated.list.push( tReqItem )
+
+			#
+			# Reformat the Conformity view for parsing with Jekyll
+			#
+			conformityReformated = {}
+			conformityReformated.allComponents = []
+			conformityReformated.list = []
+
+			for conformId, conformDet of acrReportByConformity
+				conformItem = conformDet
+				conformItem.id = conformId
+				componentsList = conformDet.components
+				conformItem.components = []
+
+				for compId, compDet of componentsList
+					comp = {}
+					comp.name = compId
+					comp.acr = compDet
+
+					if conformityReformated.allComponents.indexOf( compId ) == -1
+						conformityReformated.allComponents.push( compId )
+
+					conformItem.components.push( comp )
+
+				conformityReformated.list.push( conformItem )
+
+			grunt.file.write( "_data/a11yComponents.json", JSON.stringify( a11yReportByComponent ) )
+			grunt.file.write( "_data/a11yTestRequirement.json", JSON.stringify( tRequirementReformated ) )
+			grunt.file.write( "_data/acrConformity.json", JSON.stringify( conformityReformated ) )
+
+	)
+
+	@registerMultiTask(
 		"check-wet-version"
 		"Ensure WET-BOEW's version is the same in package as in node_modules",
 		(src) ->
@@ -448,6 +529,16 @@ module.exports = (grunt) ->
 		"check-wet-version":
 			src: ["<%= pkgWET._from %>", "<%= pkg.dependencies['wet-boew'] %>"]
 
+		"a11y-report":
+			all:
+				# Read those genrated json file only at runtime of the task
+				sites: "_data/sites.json"
+				components: "_data/components.json"
+				templates: "_data/templates.json"
+				designPatterns: "_data/design-patterns.json"
+				common: "_data/common.json"
+				reporting: "_data/reporting.json"
+
 		clean:
 			dist: [ "dist"]
 			depsJS: ["<%= themeDist %>/deps-js"]
@@ -473,11 +564,11 @@ module.exports = (grunt) ->
 					stripBanners: true
 					banner: "<%= banner %>"
 				src: [
-					"{sites,common,components,templates}/**/*.js"
-					"!{sites,common,components,templates}/**/test.js"
-					"!{sites,common,components,templates}/**/assets"
-					"!{sites,common,components,templates}/**/demo"
-					"!{sites,common,components,templates}/**/demos"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/test.js"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/assets"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demo"
+					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demos"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
 			common:
@@ -501,6 +592,20 @@ module.exports = (grunt) ->
 					separator: ","
 				src: "templates/**/index.json-ld"
 				dest: "_data/templates.json"
+			designPatterns:
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "design-patterns/**/index.json-ld"
+				dest: "_data/design-patterns.json"
+			"wet-boew":
+				options:
+					banner: "["
+					footer: "]\n"
+					separator: ","
+				src: "wet-boew/**/index.json-ld"
+				dest: "_data/wet-boew.json"
 			sites:
 				options:
 					banner: "["
@@ -557,12 +662,12 @@ module.exports = (grunt) ->
 			#	src: "_includes/settings.liquid"
 			jekyllRunLocal:
 				options:
-					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}"""
+					banner: """{%- assign setting-resourcesBasePathTheme = "/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunDemo:
 				options:
-					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}"""
+					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/wet-boew-demos/""" + grunt.option('branch') + """/" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:
@@ -629,14 +734,14 @@ module.exports = (grunt) ->
 			layouts:
 				expand: true
 				flatten: true
-				src: "{sites,components,templates,docs}/**/layouts/**.*"
+				src: "{sites,components,templates,design-patterns,docs,wet-boew}/**/layouts/**.*"
 				dest: "<%= jekyllDist %>/_layouts"
 			includes:
 				files: [
 					expand: true
 					src: [
-						"{sites,components,templates}/**/*-{includes,inc}/**.html"
-						"!{sites,components,templates}/**/includes/**.*"
+						"{sites,components,templates,design-patterns,wet-boew}/**/*-{includes,inc}/**.html"
+						"!{sites,components,templates,design-patterns,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
@@ -647,21 +752,21 @@ module.exports = (grunt) ->
 				,
 					expand: true
 					src: [
-						"{sites,components,templates}/**/includes/**.*"
+						"{sites,components,templates,design-patterns,wet-boew}/**/includes/**.*"
 					]
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + src.substring( src.indexOf('/') ).replace( '/includes/', '/' )
 				,
 					expand: true
-					src: "{sites,components,templates}/*/include.html"
+					src: "{sites,components,templates,design-patterns,wet-boew}/*/include.html"
 					dest: "<%= jekyllDist %>/_includes"
 					rename: (dest, src) ->
 						dest + "/" + src.replace( '/include.html', '.html' )
 				]
 			samples:
 				expand: true
-				src: "{sites,common,components,templates}/**/samples/**.*"
+				src: "{sites,common,components,templates,design-patterns,wet-boew}/**/samples/**.*"
 				dest: "_includes"
 				rename: (dest, src) ->
 					dest + "/" + src.replace( 'samples/', '' )
@@ -684,15 +789,15 @@ module.exports = (grunt) ->
 				expand: true
 				flatten: true
 				src: [
-					"{sites,common,components,templates}/**/fonts/**.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/fonts/**.*"
 					"!**/*.scss"
 				]
 				dest: "<%= themeDist %>/fonts"
 			assets:
 				expand: true
 				src: [
-					"{sites,common,components,templates}/**/assets/**.*"
-					"{sites,common,components,templates}/**/assets/**/*.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/assets/**.*"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/assets/**/*.*"
 				]
 				dest: "<%= themeDist %>/assets"
 				rename: (dest, src) ->
@@ -707,7 +812,7 @@ module.exports = (grunt) ->
 			depsJS_custom:
 				expand: true
 				flatten: true
-				src: "{sites,common,components,templates}/deps/**.js"
+				src: "{sites,common,components,templates,design-patterns,wet-boew}/deps/**.js"
 				dest: "<%= themeDist %>/deps-js"
 			depsJS:
 				expand: true
@@ -971,13 +1076,13 @@ module.exports = (grunt) ->
 				quiet: true
 			all:
 				src: [
-					"{sites,common,components,templates}/**/*.js"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
 				]
 		jsonlint:
 			all:
 				src: [
-					"{sites,common,components,templates}/**/*.json",
-					"{sites,common,components,templates}/**/*.json-ld"
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json",
+					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json-ld"
 				]
 				options: {
 					indent: "\t"
@@ -988,7 +1093,7 @@ module.exports = (grunt) ->
 			all:
 				expand: true
 				src: [
-						"{sites,common,components,templates}/**/*.scss"
+						"{sites,common,components,templates,design-patterns,wet-boew}/**/*.scss"
 						"!*-jekyll.scss"
 						"!node_modules"
 					]
@@ -1008,7 +1113,7 @@ module.exports = (grunt) ->
 						"Rakefile"
 
 						# Folders
-						"{sites,common,components,templates}/**"
+						"{sites,common,components,templates,design-patterns,wet-boew}/**"
 
 						#
 						# Exemptions...
@@ -1018,17 +1123,17 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,common,components,templates}/**/*.md"
-						# "{sites,components,templates}/*/*.{md,html}"
-						# "{sites,components,templates}/*.{md, html}"
-						# "!{sites,components,templates}/*/**/*.{md,html}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.md"
+						# "{sites,components,templatesdesign-patterns}/*/*.{md,html}"
+						# "{sites,components,templatesdesign-patterns}/*.{md, html}"
+						# "!{sites,components,templatesdesign-patterns}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,common,components,templates}/**/*.{jpg,png,ico}"
-						"!{sites,common,components,templates}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{jpg,png,ico}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/*.{ico,jpg,png}"
 
 						# External fonts
-						"!{sites,common,components,templates}/**/*.{eot,svg,ttf,woff}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{eot,svg,ttf,woff}"
 
 						# Docker environment file
 						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
@@ -1079,3 +1184,264 @@ clone = (obj) ->
 		newInstance[key] = clone obj[key]
 
 	return newInstance
+
+getA11yReportSummary = ( fname, componentName, reportData, wcag21AAList, refTestRequirements ) ->
+
+	a11yReport = {}
+	a11yReport.allStates = [ ]
+	a11yReport.date = reportData[ "dct:date" ];
+
+	allPassed = true
+	applicableTestRequirement = Object.assign( [], wcag21AAList );
+
+	reportData[ "earl:result" ].forEach ( result ) ->
+
+		outcome = result[ "earl:outcome" ]
+		testId = result[ "earl:test" ]
+		isApplicable = false
+
+		# Log all outcomes this report contains
+		if a11yReport.allStates.indexOf( outcome ) == -1
+			a11yReport.allStates.push( outcome )
+
+		# Check if the test requirement has passed
+		if outcome != "earl:passed" && outcome != "earl:inapplicable"
+			allPassed = false;
+
+		# Remove this test requirement for the list of all applicable test requirement
+		tReqIdx = applicableTestRequirement.indexOf( testId )
+		if tReqIdx != -1
+			applicableTestRequirement.splice( tReqIdx, 1 )
+			isApplicable = true
+
+
+		#
+		# Reporting from a Test Requirement perspective
+		#
+
+		# Create the test requirement placeholder if required or retreive it
+		refTestRequirements[ testId ] = { } if !refTestRequirements[ testId ]
+		tRequirementDetail = refTestRequirements[ testId ]
+
+		# Set the test requirement information if not initialized
+		if !tRequirementDetail[ "earl:test" ]
+			tRequirementDetail[ "earl:test" ] = testId
+			tRequirementDetail.nbPassed = 0
+			tRequirementDetail.nbFailed = 0
+			tRequirementDetail.nbCantTell = 0
+			tRequirementDetail.nbInapplicable = 0
+			tRequirementDetail.nbUntested = 0
+
+		# Count the total number of outcome
+		if outcome == "earl:passed"
+			tRequirementDetail.nbPassed = tRequirementDetail.nbPassed + 1
+		else if outcome == "earl:failed"
+			tRequirementDetail.nbFailed = tRequirementDetail.nbFailed + 1
+		else if outcome == "earl:cantTell"
+			tRequirementDetail.nbCantTell = tRequirementDetail.nbCantTell + 1
+		else if outcome == "earl:inapplicable"
+			tRequirementDetail.nbInapplicable = tRequirementDetail.nbInapplicable + 1
+		else if outcome == "earl:untested"
+			tRequirementDetail.nbUntested = tRequirementDetail.nbUntested + 1
+
+		# Create the association between the test and the component
+		tRequirementDetail.components = {} if !tRequirementDetail.components
+		tRequirementDetail.components[ componentName ] = [] if !tRequirementDetail.components[ componentName ]
+
+		# Add the component test requirement information
+		tRequirementDetail.components[ componentName ].push( {
+			"outcome": outcome,
+			"isApplicable": isApplicable,
+			"date": result[ "dct:modified" ] || a11yReport.date,
+			"link": fname
+		})
+
+	#
+	# Reporting from a component perspective
+	#
+
+	# Indication if it is partial, like we did succeed to empty the list of all applicable test requirement
+	if applicableTestRequirement.length
+		a11yReport.isPartial = true
+	else
+		a11yReport.isPartial = false
+
+	a11yReport.testRequirementNotCovered = applicableTestRequirement
+
+	if allPassed
+		a11yReport.state = "Pass"
+	else if a11yReport.allStates.length > 1
+		a11yReport.state = "Mixed"
+	else
+		a11yReport.state = a11yReport.allStates[ 0 ];
+
+	a11yReport.link = fname
+
+	return a11yReport
+
+getAcrSummary = ( fname, componentName, reportData, wcag21AAList, refConformityRequirements ) ->
+
+	acrReport = {}
+	acrReport.allStates = [ ]
+	acrReport.date = reportData[ "dct:issued" ] || reportData[ "dct:modified" ] || reportData[ "dct:created" ] || reportData[ "dct:date" ];
+
+	satisfactionAll = true
+	satisfactionNot = false
+	satisfactionFurtherTest = false
+	applicableConformityRequirement = Object.assign( [], wcag21AAList );
+
+	reportData[ "acr:conformity" ].forEach ( result ) ->
+
+		conformance = result[ "acr:conformance" ]
+		reqId = result[ "acr:requirement" ]
+		isApplicable = false
+
+		# Check if the all requirement are satisfied
+		if conformance != "acr:satisfied"
+			satisfactionAll = false;
+		if conformance == "acr:notSatisfied"
+			satisfactionNot = true;
+		if conformance == "acr:furtherTestNeeded"
+			satisfactionFurtherTest = true;
+
+		# Remove this conformity for the list of all applicable conformance
+		tConformIdx = applicableConformityRequirement.indexOf( reqId )
+		if tConformIdx != -1
+			applicableConformityRequirement.splice( tConformIdx, 1 )
+			isApplicable = true
+
+
+		#
+		# Reporting from a conformity perspective
+		#
+
+		# Create the test requirement placeholder if required or retreive it
+		refConformityRequirements[ reqId ] = { } if !refConformityRequirements[ reqId ]
+		tConformityDetail = refConformityRequirements[ reqId ]
+
+		# Set the test requirement information
+		tConformityDetail[ "acr:requirement" ] = reqId
+
+		# Create the association between the test and the component
+		tConformityDetail.components = {} if !tConformityDetail.components
+		tConformityDetail.components[ componentName ] = [] if !tConformityDetail.components[ componentName ]
+
+		# Add the component test requirement information
+		tConformityDetail.components[ componentName ].push( {
+			"conformance": conformance,
+			"isApplicable": isApplicable,
+			"date": result[ "dct:modified" ] || acrReport.date,
+			"link": fname
+		})
+
+	#
+	# Reporting from a component perspective
+	#
+
+	# Indication if it is partial, like we did succeed to empty the list of all applicable test requirement
+	if applicableConformityRequirement.length
+		acrReport.isPartial = true
+	else
+		acrReport.isPartial = false
+
+	acrReport.conformityNotCovered = applicableConformityRequirement
+
+
+	# Validate the ACR conformity summary reported
+	stateCalculated = "Undefined"
+	if satisfactionAll
+		acrReport.conformity = "Satisfied"
+		stateCalculated = "acr:satisfied"
+	else if satisfactionNot && satisfactionFurtherTest
+		acrReport.conformity = "Further test needed and not satisfied"
+		stateCalculated = "acr:furtherTestNeeded"
+	else if satisfactionNot
+		acrReport.conformity = "Not satisfied"
+		stateCalculated = "acr:notSatisfied"
+	else if satisfactionFurtherTest
+		acrReport.conformity = "Further test needed"
+		stateCalculated = "acr:furtherTestNeeded"
+	else
+		acrReport.conformity = "Error, undefined";
+
+	if stateCalculated != reportData[ "acr:conformance" ]
+		acrReport.conformity = "Mismatch conformity - " + acrReport.conformity
+
+	acrReport.link = fname
+
+	# Determine the state of the ACR (In progress (Draft), Issued, Outdated, Archived )
+
+	dModified = reportData[ "dct:modified" ]
+	dCreated = reportData[ "dct:created" ]
+	dIssued = reportData[ "dct:issued" ];
+	dExpires = reportData[ "schema:expires" ]
+	isReplaced = reportData[ "dct:isReplacedBy" ]
+	hasVersion = reportData[ "dct:hasVersion" ]
+
+	validIssued = dIssued && dCreated && dModified
+
+	if validIssued && dExpires && ( isReplaced || hasVersion )
+		acrReport.state = "Archived"
+		acrReport.issuedOn = dIssued
+		acrReport.expiredOn = dExpires
+	else if validIssued && ( isReplaced || hasVersion )
+		acrReport.state = "Missing expiry date"
+		acrReport.issuedOn = dIssued
+	else if validIssued && dExpires
+		acrReport.state = "Outdated"
+		acrReport.issuedOn = dIssued
+		acrReport.expiredOn = dExpires
+	else if validIssued && !acrReport.isPartial
+		acrReport.state = "Issued"
+		acrReport.issuedOn = dIssued
+	else if validIssued && acrReport.isPartial
+		acrReport.state = "Issued on partial"
+		acrReport.issuedOn = dIssued
+	else if !validIssued && ( dExpires || isReplaced || hasVersion )
+		acrReport.state = "Cancelled"
+	else if dCreated && dModified
+		acrReport.state = "In progress"
+	else
+		acrReport.state = "Empty and incomplete"
+
+	acrReport.createdOn = dCreated
+	acrReport.modifiedOn = dModified
+
+	return acrReport
+
+processComponentReporting = ( grunt, componentType, components, a11yReportByTestRequirement, acrReportByConformity, reportConf ) ->
+
+	ret = [];
+
+	for feat in components
+		console.log( "component... " + feat.title.en )
+		componentState = {}
+
+		componentState.name = feat.title.en
+		componentState.a11y = []
+		componentState.acr = []
+
+		isMainACR = feat.acr || false
+
+		filesFound = grunt.file.expand( componentType + "/" + feat.componentName + "/**/*.json" )
+
+		filesFound.forEach ( f ) ->
+			# Load the JSON file
+			jfile = grunt.file.readJSON( f )
+
+			isAllyReport = true if ( jfile[ "@type" ] == "acr:AssessmentReport" || Array.isArray( jfile[ "@type" ] ) && jfile[ "@type" ].indexOf( "acr:AssessmentReport" ) != -1 )
+
+			isAcrReport = true if ( jfile[ "@type" ] == "acr:ConformanceReport" || Array.isArray( jfile[ "@type" ] ) && jfile[ "@type" ].indexOf( "acr:ConformanceReport" ) != -1 )
+
+			if isAllyReport
+				a11yReport = getA11yReportSummary( f, feat.componentName, jfile, reportConf.wcag21AAList, a11yReportByTestRequirement )
+				componentState.a11y.push( a11yReport )
+
+			if isAcrReport
+				acrReport = getAcrSummary( f, feat.componentName, jfile, reportConf.wcag21AAList, acrReportByConformity )
+				componentState.acr.push( acrReport )
+
+
+		ret.push( componentState )
+
+	return ret

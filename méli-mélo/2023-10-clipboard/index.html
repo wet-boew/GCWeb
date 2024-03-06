@@ -1,0 +1,383 @@
+---
+title: Copy to clipboard
+dateModified: 2023-09-07
+description: "Create a button and copies the indicated content to the clipboard"
+lang: en
+css:
+- css/clipboard.css
+script:
+- js/clipboard.js
+---
+
+
+<p>Create a button and copies the indicated content to the clipboard</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-10-clipboard" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+
+    <section>
+        <h2>Purpose</h2>
+        <p>This feature provides an interface to copy content to the clipboard.</p>
+        </section>
+    <section>
+        <h2>How to use</h2>
+        <ol>
+        <li>Apply <code>class="wb-clipboard"</code> to an element on the page to load the component.</li>
+        </ol>
+        </section>
+<!-- Copy to Clipboard Example 1 -->
+<h2 id="examples">How to implement</h2>
+<h3>Default</h3>
+<div class="wb-clipboard"><p>Lorem <a href="https://wet-boew.github.io/wet-boew-styleguide/index-en.html">ipsum dolor sit</a> amet, consectetur adipiscing elit. Vivamus luctus sem eros, consectetur posuere velit blandit vitae. Suspendisse quam nibh, suscipit vel turpis non, <strong>dignissim pellentesque</strong> ligula. Pellentesque et aliquam enim, vel convallis justo.</p>
+    <p>Nam feugiat:</p>
+    <ul>
+        <li>eros eget tempor lacinia, </li>
+        <li>sapien purus imperdiet nibh, </li>
+        <li>nec rhoncus justo tellus euismod ex. </li>
+    </ul>
+    <p><pre><code>&lt;span class=&quot;test&quot;&gt;test this&lt;/span&gt;</code></pre></p>
+    <div class="row hidden">
+        <div class="col-sm-2">
+            <img src="../../images/playbutton.png" alt="" class="img-responsive">
+        </div>
+    </div>
+</div>
+<pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot;&gt;
+    &lt;p&gt;Lorem &lt;a href=&quot;https://wet-boew.github.io/wet-boew-styleguide/index-en.html&quot;&gt;ipsum dolor sit&lt;/a&gt; amet, consectetur adipiscing elit. Vivamus luctus sem eros, consectetur posuere velit blandit vitae. Suspendisse quam nibh, suscipit vel turpis non, dignissim pellentesque ligula. Pellentesque et aliquam enim, vel convallis justo.&lt;/p&gt;
+    &lt;p&gt;Nam feugiat:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;eros eget tempor lacinia, &lt;/li&gt;
+        &lt;li&gt;sapien purus imperdiet nibh, &lt;/li&gt;
+        &lt;li&gt;nec rhoncus justo tellus euismod ex. &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;test&quot;&gt;test this&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+    &lt;div class=&quot;row hidden&quot;&gt;
+        &lt;div class=&quot;col-sm-2&quot;&gt;
+            &lt;img src=&quot;../../images/playbutton.png&quot; alt=&quot;&quot; class=&quot;img-responsive&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<!-- Copy to Clipboard Example 2 -->
+<h3>Textarea (default)</h3>
+<form id="form1" class="form-horizontal" role="form" method="get" action="#">
+    <fieldset class="legend-brdr-bttm">
+        <div class="form-group">
+            <label for="Textarea1" class="col-sm-1 control-label">Textarea</label>
+            <div class="col-sm-12">
+                <textarea id="Textarea1" class="form-control full-width wb-clipboard" rows="3" cols="132">In sed velit accumsan nisi pellentesque rhoncus et nec est. Sed ultricies, lectus id pulvinar sagittis, magna turpis imperdiet lectus, vel condimentum lacus lectus eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ac semper mi. Nulla id quam nec nisi sagittis maximus sed at sapien. Donec nec felis eget tellus tincidunt luctus ac vitae orci. Nullam sit amet nisl dictum, tincidunt magna sit amet, lacinia sapien.</textarea>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<pre class="prettyprint"><code>&lt;form id=&quot;form1&quot; class=&quot;form-horizontal&quot; role=&quot;form&quot; method=&quot;get&quot; action=&quot;#&quot;&gt;
+    &lt;fieldset class=&quot;legend-brdr-bttm&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label for=&quot;Textarea1&quot; class=&quot;col-sm-1 control-label&quot;&gt;Textarea&lt;/label&gt;
+            &lt;div class=&quot;col-sm-12&quot;&gt;
+                &lt;textarea id=&quot;Textarea1&quot; class=&quot;form-control full-width wb-clipboard&quot; rows=&quot;3&quot; cols=&quot;132&quot;&gt;In sed velit accumsan nisi pellentesque rhoncus et nec est. Sed ultricies, lectus id pulvinar sagittis, magna turpis imperdiet lectus, vel condimentum lacus lectus eu felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ac semper mi. Nulla id quam nec nisi sagittis maximus sed at sapien. Donec nec felis eget tellus tincidunt luctus ac vitae orci. Nullam sit amet nisl dictum, tincidunt magna sit amet, lacinia sapien.&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+<!-- Copy to Clipboard Example 3 -->
+<h3>Input (default)</h3>
+<form id="form2" class="form-horizontal" role="form" method="get" action="#">
+    <fieldset class="legend-brdr-bttm">
+        <div class="form-group">
+            <label for="textinput1" class="col-sm-2">text input</label>
+            <div class="col-sm-12">
+                <input id="textinput1" class="form-control wb-clipboard full-width" type="text"
+                    value="Vestibulum posuere neque at odio porta, varius aliquam turpis volutpat. Quisque sapien purus, vehicula sit amet tristique nec, ornare in purus.">
+            </div>
+        </div>
+    </fieldset>
+</form>
+<pre class="prettyprint"><code>&lt;form id=&quot;form2&quot; class=&quot;form-horizontal&quot; role=&quot;form&quot; method=&quot;get&quot; action=&quot;#&quot;&gt;
+    &lt;fieldset class=&quot;legend-brdr-bttm&quot;&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label for=&quot;textinput1&quot; class=&quot;col-sm-2&quot;&gt;text input&lt;/label&gt;
+            &lt;div class=&quot;col-sm-12&quot;&gt;
+                &lt;input id=&quot;textinput1&quot; class=&quot;form-control wb-clipboard full-width&quot; type=&quot;text&quot;
+                    value=&quot;Vestibulum posuere neque at odio porta, varius aliquam turpis volutpat. Quisque sapien purus, vehicula sit amet tristique nec, ornare in purus.&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+<!-- Copy to Clipboard Example 4 -->
+<h3>Formatting</h3>
+<p>Copy area with the border removed, and the copy area font style and button style changed.</p>
+<div class="wb-clipboard"  data-wb-clipboard="{&quot;noTextStyle&quot;: true, &quot;border&quot;: false, &quot;copyBtnStyle&quot;: &quot;btn btn-primary wb-clipboard-btn&quot;, &quot;copiedBtnStyle&quot;: &quot;btn btn-info wb-clipboard-btn&quot;}"><p>In maximus orci quis ex maximus, sed rhoncus arcu ullamcorper. Mauris tincidunt sodales magna vitae luctus. Cras cursus dapibus arcu sed commodo. In enim diam, molestie in mattis nec, hendrerit et sapien. Curabitur nec lorem dapibus, egestas diam vitae, sollicitudin erat.</p></div>
+<br>
+<pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;noTextStyle&quot;: true, &quot;border&quot;: false, &quot;copyBtnStyle&quot;: &quot;btn btn-primary wb-clipboard-btn&quot;, &quot;copiedBtnStyle&quot;: &quot;btn btn-info wb-clipboard-btn&quot;}&apos;&gt;
+    &lt;p&gt;In maximus orci quis ex maximus, sed rhoncus arcu ullamcorper. Mauris tincidunt sodales magna vitae luctus. Cras cursus dapibus arcu sed commodo. In enim diam, molestie in mattis nec, hendrerit et sapien. Curabitur nec lorem dapibus, egestas diam vitae, sollicitudin erat.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<!-- Copy to Clipboard Example 5 -->
+<h3>Custom copy area start/end text</h3>
+<p>Change the hidden text surrounding the copyable area. Allows different values for before and after the content is copied.</p>
+<div class="wb-clipboard"  data-wb-clipboard="{&quot;clipStartText&quot;: &quot;clipped content starts here&quot;, &quot;clipEndText&quot;: &quot;clipped content ends here&quot;, &quot;copiedStartText&quot;: &quot;copied content starts here&quot;, &quot;copiedEndText&quot;: &quot;copied content ends here&quot;}"><p>Quisque rhoncus tortor nibh, non cursus purus vulputate a. Ut ac nisi enim. Donec eu libero dui. Aenean in augue velit. Vestibulum at tellus fermentum lacus viverra mollis. Vestibulum ut fringilla lacus. Nullam cursus, elit quis vehicula maximus, tortor sem bibendum sem, ac rutrum est libero et nisl.</p></div>
+<br>
+<pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;clipStartText&quot;: &quot;clipped content starts here&quot;, &quot;clipEndText&quot;: &quot;clipped content ends here&quot;, &quot;copiedStartText&quot;: &quot;copied content starts here&quot;, &quot;copiedEndText&quot;: &quot;copied content ends here&quot;}&apos;&gt;
+    &lt;p&gt;Quisque rhoncus tortor nibh, non cursus purus vulputate a. Ut ac nisi enim. Donec eu libero dui. Aenean in augue velit. Vestibulum at tellus fermentum lacus viverra mollis. Vestibulum ut fringilla lacus. Nullam cursus, elit quis vehicula maximus, tortor sem bibendum sem, ac rutrum est libero et nisl.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<!-- Copy to Clipboard Example 6 -->
+<h3 id="noButton">Deactivate clipboard button</h3>
+<div class="wb-clipboard" data-wb-clipboard="{&quot;noButton&quot;: true}">
+    <p>Sed fermentum ante ipsum, nec pulvinar dui maximus at. Sed euismod nisl urna, in pretium elit ornare vel. Nunc pharetra commodo enim, et molestie nulla volutpat eu. Duis pulvinar vulputate tortor, quis venenatis libero pharetra nec. Nulla convallis eu turpis quis dignissim. In fermentum porta fringilla. Nulla vel ante a erat efficitur placerat. Curabitur gravida finibus erat a rutrum.</p>
+</div>
+<pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;noButton&quot;: true}&apos;&gt;
+    &lt;p&gt;Sed fermentum ante ipsum, nec pulvinar dui maximus at. Sed euismod nisl urna, in pretium elit ornare vel. Nunc pharetra commodo enim, et molestie nulla volutpat eu. Duis pulvinar vulputate tortor, quis venenatis libero pharetra nec. Nulla convallis eu turpis quis dignissim. In fermentum porta fringilla. Nulla vel ante a erat efficitur placerat. Curabitur gravida finibus erat a rutrum.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<!-- Copy to Clipboard Example 7 -->
+<h3>Custom button</h3>
+<div id="copy-area-1" class="wb-clipboard" data-wb-clipboard="{&quot;noButton&quot;: true}">
+    <p>Suspendisse potenti. Praesent purus metus, consectetur ultrices vestibulum pellentesque, dictum vel lectus. Praesent a eros massa. Cras quis mauris ultricies, rhoncus nisi ac, dictum dui. Integer interdum nunc vitae orci vestibulum, eget congue ligula pulvinar. Curabitur neque nisl, maximus in tempor ut, bibendum nec ante.</p>
+</div>
+<button class="btn btn-default wb-clipboard-btn" data-wb-clipboard="{&quot;copyAreaId&quot;: &quot;copy-area-1&quot;}"><span class="fa fa-files-o fa-lg mrgn-rght-sm"></span>Copy to clipboard</button>
+<br>
+<pre class="prettyprint"><code>&lt;div id=&quot;copy-area-1&quot; class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;noButton&quot;: true}&apos;&gt;
+    &lt;p&gt;Suspendisse potenti. Praesent purus metus, consectetur ultrices vestibulum pellentesque, dictum vel lectus. Praesent a eros massa. Cras quis mauris ultricies, rhoncus nisi ac, dictum dui. Integer interdum nunc vitae orci vestibulum, eget congue ligula pulvinar. Curabitur neque nisl, maximus in tempor ut, bibendum nec ante.&lt;/p&gt;
+&lt;/div&gt;
+&lt;button class=&quot;btn btn-default wb-clipboard-btn&quot; data-wb-clipboard=&apos;{&quot;copyAreaId&quot;: &quot;copy-area-1&quot;}&apos;&gt;&lt;span class=&quot;fa fa-files-o fa-lg mrgn-rght-sm&quot;&gt;&lt;/span&gt;Copy to clipboard&lt;/button&gt;</code></pre>
+<!-- Copy to Clipboard Example 8 -->
+<h3>custom button text</h3>
+<div class="wb-clipboard" contenteditable="true" data-wb-clipboard="{&quot;btnAlign&quot;: &quot;right&quot;, &quot;copyBtn&quot;: &quot;Custom button text&quot;, &quot;copiedBtn&quot;: &quot;Custom copied text&quot;}">
+    <p>Suspendisse a purus in tellus placerat facilisis. Nulla interdum consectetur metus, eu varius sapien luctus sit amet. In eleifend cursus ante at iaculis. Nullam mauris justo, sollicitudin in sem at, varius ornare lacus. Praesent bibendum, turpis id mattis vehicula, turpis enim feugiat elit, eu interdum nibh arcu in ipsum.</p>
+</div>
+<br>
+<pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; contenteditable=&quot;true&quot; data-wb-clipboard=&apos;{&quot;btnAlign&quot;: &quot;left&quot;, &quot;copyBtn&quot;: &quot;Custom button text&quot;, &quot;copiedBtn&quot;: &quot;Custom copied text&quot;}&apos;&gt;
+        &lt;p&gt;Suspendisse a purus in tellus placerat facilisis. Nulla interdum consectetur metus, eu varius sapien luctus sit amet. In eleifend cursus ante at iaculis. Nullam mauris justo, sollicitudin in sem at, varius ornare lacus. Praesent bibendum, turpis id mattis vehicula, turpis enim feugiat elit, eu interdum nibh arcu in ipsum.&lt;/p&gt;
+    &lt;/div&gt;</code></pre>
+
+<!-- Copy to Clipboard Example 9 -->
+<h3>reset button</h3>
+<p>Create a button that can reset the state of all the copy areas on the page. resetFocusOut can be toggled so that clicking anywhere on the page will also reset all the copy areas on the page.</p>
+    <button class="btn btn-default wb-clipboard-btn" data-wb-clipboard="{&quot;resetBtn&quot;: true, &quot;resetFocusOut&quot;: true}">Reset all copy to clipboard buttons (data)</button>
+    <br>
+    <pre class="prettyprint"><code>&lt;button class=&quot;btn btn-default wb-clipboard-btn&quot; data-wb-clipboard=&apos;{&quot;resetBtn&quot;: true, &quot;resetFocusOut&quot;: true}&apos;&gt;Reset all copy to clipboard buttons (data)&lt;/button&gt;</code></pre>
+    <br>
+<!-- Copy to Clipboard Example 10 -->
+<button id="testResetBtn" class="btn btn-default">Reset all copy to clipboard buttons (trigger)</button>
+    <script>
+    $("#testResetBtn").click(function() {
+      $(this).trigger( "reset.wb-clipboard" );
+    });
+    </script>
+    <br>
+    <pre class="prettyprint"><code>&lt;button id=&quot;testResetBtn&quot; class=&quot;btn btn-default&quot;&gt;Reset all copy to clipboard buttons (trigger)&lt;/button&gt;
+&lt;script&gt;
+    $(&quot;#testResetBtn&quot;).click(function() {
+        $(this).trigger(&quot;reset.wb-clipboard&quot;);
+    });
+&lt;/script&gt;</code></pre>
+<!-- Copy to Clipboard Example 11 -->
+<h3>copy on a pre tag</h3>
+<pre class="prettyprint wb-clipboard"><code>&lt;div class=&quot;wb-clipboard&quot;&gt;
+    &lt;p&gt;Lorem &lt;a href=&quot;https://wet-boew.github.io/wet-boew-styleguide/index-en.html&quot;&gt;ipsum dolor sit&lt;/a&gt; amet, consectetur adipiscing elit. Vivamus luctus sem eros, consectetur posuere velit blandit vitae. Suspendisse quam nibh, suscipit vel turpis non, dignissim pellentesque ligula. Pellentesque et aliquam enim, vel convallis justo.&lt;/p&gt;
+    &lt;p&gt;Nam feugiat:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;eros eget tempor lacinia, &lt;/li&gt;
+        &lt;li&gt;sapien purus imperdiet nibh, &lt;/li&gt;
+        &lt;li&gt;nec rhoncus justo tellus euismod ex. &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;test&quot;&gt;test this&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+    &lt;div class=&quot;row hidden&quot;&gt;
+        &lt;div class=&quot;col-sm-2&quot;&gt;
+            &lt;img src=&quot;../../images/playbutton.png&quot; alt=&quot;&quot; class=&quot;img-responsive&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre class="prettyprint"><code>&lt;pre class="prettyprint wb-clipboard"&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;wb-clipboard&amp;quot;&amp;gt;
+    &amp;lt;p&amp;gt;Lorem &amp;lt;a href=&amp;quot;https://wet-boew.github.io/wet-boew-styleguide/index-en.html&amp;quot;&amp;gt;ipsum dolor sit&amp;lt;/a&amp;gt; amet, consectetur adipiscing elit. Vivamus luctus sem eros, consectetur posuere velit blandit vitae. Suspendisse quam nibh, suscipit vel turpis non, dignissim pellentesque ligula. Pellentesque et aliquam enim, vel convallis justo.&amp;lt;/p&amp;gt;
+    &amp;lt;p&amp;gt;Nam feugiat:&amp;lt;/p&amp;gt;
+    &amp;lt;ul&amp;gt;
+        &amp;lt;li&amp;gt;eros eget tempor lacinia, &amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;sapien purus imperdiet nibh, &amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;nec rhoncus justo tellus euismod ex. &amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;span class=&amp;quot;test&amp;quot;&amp;gt;test this&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;div class=&amp;quot;row hidden&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;col-sm-2&amp;quot;&amp;gt;
+            &amp;lt;img src=&amp;quot;../../images/playbutton.png&amp;quot; alt=&amp;quot;&amp;quot; class=&amp;quot;img-responsive&amp;quot;&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+<!-- Copy to Clipboard Example 12 -->
+<h3>Inline clipboard</h3>
+<p>The quick brown fox <span class="wb-clipboard">jumped over</span> the lazy dog</p>
+<pre class="prettyprint"><code>&lt;p&gt;The quick brown fox &lt;span class="wb-clipboard"&gt;jumped over&lt;/span&gt; the lazy dog&lt;/p&gt;</code></pre>
+    <section>
+        <h2>Configuration options</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Description</th>
+                    <th>How to configure</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>noButton</code></td>
+                    <td>Determines whether a button is generated for the copy area</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;noButton&quot;: true}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>true (default):</dt>
+                        <dd>A button will be generated for the copy area.</dd>
+                        <dt>false:</dt>
+                        <dd>A button will not be generated for the copy area.</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>btnAlign</code></td>
+                    <td>Determines the text-align for the created button</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;btnAlign&quot;: &quot;right&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>none (default):</dt>
+                        <dd>The generated button will be align.</dd>
+                        <dt>left:</dt>
+                        <dd>The generated button will be aligned to the left.</dd>
+                        <dt>right:</dt>
+                        <dd>The generated button will be aligned to the right.</dd>
+                        <dt>center:</dt>
+                        <dd>The generated button will be center aligned.</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>border</code></td>
+                    <td>Creates a border around the copy area</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;border&quot;: false}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>true (default):</dt>
+                        <dd>A border will be created around the copy area.</dd>
+                        <dt>false:</dt>
+                        <dd>No border will be created around the copy area.</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>clipStartText</code></td>
+                    <td>Hidden text before the copy area</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;clipStartText&quot;: &quot;Start of clipboard text&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"Start of clipboard text" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>clipEndText</code></td>
+                    <td>Hidden text after the copy area</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;clipEndText&quot;: &quot;End of clipboard text&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"End of clipboard text" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copyStartText</code></td>
+                    <td>Hidden text before the copy area after a copy action has occured</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copyStartText&quot;: &quot;Start of copied text&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"Start of copied text" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copyEndText</code></td>
+                    <td>Hidden text after the copy area after a copy action has occured</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copyEndText&quot;: &quot;End of copied text&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"End of copied text" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copyBtnStyle</code></td>
+                    <td>CSS Classes of the copy button</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copyBtnStyle&quot;: &quot;mrgn-tp-sm btn btn-default&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"mrgn-tp-sm btn btn-default" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copyBtn</code></td>
+                    <td>Text of the copy button</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copyBtn&quot;: &quot;Copy to clipboard&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"Copy to clipboard" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copiedBtnStyle</code></td>
+                    <td>CSS Classes of the button on completion of copying</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copiedBtnStyle&quot;: &quot;mrgn-tp-sm btn btn-success&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"mrgn-tp-sm btn btn-success" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>copiedBtn</code></td>
+                    <td>Text of the button on completion of copying</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;copiedBtn&quot;: &quot;Copied&quot;}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>"Copied" (default):</dt>
+                        <dd>String</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>resetBtn</code></td>
+                    <td>If added on a button then that button will reset the visual changes to all copy to clipboard buttons</td>
+                    <td><pre class="prettyprint"><code>&lt;button class=&quot;btn btn-default wb-clipboard-btn&quot; data-wb-clipboard=&apos;{&quot;resetBtn&quot;: true}&apos;&gt;Reset all copy to clipboard buttons&lt;/button&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>none/false (default):</dt>
+                        <dd>No action performed.</dd>
+                        <dt>true (default):</dt>
+                        <dd>Reset the visuals of all copy to buttons</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>resetFocusOut</code></td>
+                    <td>Reset the visual changes to clipboard button when button no longer in focus</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;resetFocusOut&quot;: true}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>none/false (default):</dt>
+                        <dd>Button is reset only when another clipboard button is actioned</dd>
+                        <dt>true:</dt>
+                        <dd>Reset the visuals of copy to button</dd>
+                        </dl></td>
+                </tr>
+                <tr>
+                    <td><code>selectAllContent</code></td>
+                    <td>Sets so that if the copy area is given focus all the content in the copy area will be selected</td>
+                    <td><pre class="prettyprint"><code>&lt;div class=&quot;wb-clipboard&quot; data-wb-clipboard=&apos;{&quot;selectAllContent&quot;: true}&apos;&gt;&lt;/div&gt;</code></pre></td>
+                    <td><dl>
+                        <dt>none (default):</dt>
+                        <dd>Copy area content is not seleted unless &quot;noButton: true&quot; was used</dd>
+                        <dt>false:</dt>
+                        <dd>Copy area content is not seleted</dd>
+                        <dt>true:</dt>
+                        <dd>All copy area content is selected on gaining focus</dd>
+                        </dl></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>

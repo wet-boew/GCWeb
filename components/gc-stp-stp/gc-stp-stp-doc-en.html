@@ -1,0 +1,128 @@
+---
+title: Step by Step navigation
+language: en
+description: Step by Step navigation
+dateModified: 2023-06-28
+altLangPage: gc-stp-stp-doc-fr.html
+---
+
+<span class="wb-prettify all-pre hide"></span>
+
+<dl class="horizontal">
+	<dt>Status</dt>
+	<dd>Stable</dd>
+	<dt>Type</dt>
+	<dd>Canada.ca design pattern</dd>
+	<dt>Last review</dt>
+	<dd>2023-09-05</dd>
+	<dt>Guidance</dt>
+	<dd><a href="https://design.canada.ca/recommended-templates/service-initiation-pages.html">Step by step navigation (service initiation pages): Canada.ca design system</a></dd>
+	<dt>Technical name</dt>
+	<dd>
+		<ul>
+			<li><code>gc-stp-stp</code></li>
+		</ul>
+	</dd>
+</dl>
+
+<h2>Purpose</h2>
+<p>Shows links to each step in initiating the service and highlights the currently selected step.</p>
+
+<h2>Working example</h2>
+<ul>
+	<li><a href="gc-stp-stp-en.html">Example: Step by step navigation</a></li>
+</ul>
+
+<h2>How to implement</h2>
+<ol>
+	<li>Create a <code>&lt;div></code> with the CSS class <code>gc-stp-stp</code>.</li>
+	<li>Within this <code>&lt;div></code>, create either a <code>&lt;ul></code> or <code>&lt;ol></code> (the correct tag will depend on whether or not your pages have a logical order. To this <code>&lt;ul></code> or <code>&lt;ol></code> add the CSS classes <code>row</code> and <code>toc</code>.</li>
+	<li>Within this <code>&lt;ul></code> or <code>&lt;ol></code>, add your <code>&lt;li></code> and add the following CSS classes: <code>col-md-4</code> and <code>col-sm-6</code> to every <code>&lt;li></code>.</li>
+	<li>Within those <code>&lt;li></code>, create a <code>&lt;a></code> with the CSS class <code>list-group-item</code>.</li>
+	<li>To the current page's <code>&lt;a></code> add the CSS class <code>active</code>.</li>
+</ol>
+<p>Note: this component should be inserted directly after the byline.</p>
+
+<h2>Evaluation and report</h2>
+<p>There is no evaluation and report available for this component.</p>
+
+<h2>API (Version 1.0)</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>CSS Class</th>
+		<th>Template</th>
+		<th>Visual rendering</th>
+		<th>Schema</th>
+	</tr>
+	<tr>
+		<td>Version 1.0</td>
+		<td>Version 2.0</td>
+		<td>Version 1.0</td>
+		<td>n.a.</td>
+	</tr>
+</table>
+
+<h3>CSS Class (v1.0)</h3>
+<dl class="dl-horizontal">
+	<dt><code>gc-stp-stp</code></dt>
+	<dd>Component: Step by Step navigation</dd>
+</dl>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Created: <code>.gc-stp-stp</code></li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Template (v2.0)</h3>
+{%- highlight html -%}
+<div class="gc-stp-stp">
+	<ol class="row toc">
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="index-en.html">1. [Step / section page name]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page2-en.html">2. [Step / section page name]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page3-en.html">3. [Step / section page name]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page4-en.html">4. [Step / section page name]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item" href="page5-en.html">5. [Step / section page name]</a></li>
+		<li class="col-md-4 col-sm-6"><a class="list-group-item active" href="#">6. [Step / section page name]</a></li>
+	</ol>
+</div>
+{%- endhighlight -%}
+
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 2.0</dt>
+		<dd>
+			<ul>
+				<li>Removed <code>&lt;div class="row"></code> wrapping the list.</li>
+				<li>Applied the CSS class <code>row</code> directly to the list.</li>
+				<li>Removed the CSS classes <code>lst-spcd</code> and <code>col-md-12</code> from the list.</li>
+				<li>Removed <code>clr-lft-[breakpoint]</code> CSS classes.</li>
+			</ul>
+		</dd>
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Initial template</li>
+			</ul>
+		</dd>
+	</dl>
+</details>
+
+<h3>Visual rendering (v1.0)</h3>
+<details>
+	<summary>Version notes</summary>
+	<dl class="dl-horizontal">
+		<dt>Version 1.0</dt>
+		<dd>
+			<ul>
+				<li>Original rendering</li>
+			</ul>
+		</dd>
+	</dl>
+</details>

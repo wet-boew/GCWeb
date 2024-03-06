@@ -7,14 +7,187 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "Bold content",
+		"fr": "Contenu en gras"
+	},
+	"description": {
+		"en": "This component applies font weight bold to every text element inside it and generates normal font weight when the element <code>&lt;strong&gt;</code> is applied.",
+		"fr": "Ce composant applique une épaisseur de police en gras à chaque élément de texte qu'il contient et génère une épaisseur de police normale lorsque l'élément <code>&lt;strong&gt;</code> est appliqué."
+	},
+	"modified": "2024-02-05",
+	"componentName": "bold-content",
+	"status": "stable",
+	"version": "1.1",
+	"pages": {
+		"examples": [
+			{
+				"title": "Bold content - working example",
+				"language": "en",
+				"path": "bold-content-en.html"
+			},
+			{
+				"title": "Contenu en gras - example pratique",
+				"language": "fr",
+				"path": "bold-content-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Bold content",
+				"language": "en",
+				"path": "bold-content-doc-en.html"
+			},
+			{
+				"title": "Contenu en gras",
+				"language": "fr",
+				"path": "bold-content-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Bold content - default",
+				"fr": "Contenu en gras - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This component applies font weight bold to every text element inside it and generates normal font weight when the element <code>strong</code> is applied.",
+				"fr": "Cette composante applique un poid de police de caractère gras à chaque élément de texte à l'intérieur et génère un poid de police de caractère normal lorsque l'élément <code>strong</code> est appliqué."
+			},
+			"iteration": "_:iteration_bold_1",
+			"example": [
+				{
+					"en": { "href": "bold-content-en.html", "text": "Bold content" },
+					"fr": { "href": "bold-content-fr.html", "text": "Contenu en gras" }
+				}
+			],
+			"implementation": [
+				"_:implement_bold"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Added support for the \".bold-content\" class to eventually deprecate the use of \".well-bold\".",
+					"fr": "Février 2024 - Ajout du support de la classe \".bold-content\" pour éventuellement déprécier l'usage de \".well-bold\"."
+				},
+				{
+					"en": "June 2021 - Initial implementation of the component.",
+					"fr": "Juin 2021 - Implémentation initiale de la composante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_bold",
+			"iteration": "_:iteration_bold_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Add the CSS class <code>bold-content</code> to the element wrapping the content you want to have bolded."
+				],
+				"fr": [
+					"Ajoutez la classe CSS <code>bold-content</code> à l'élément enveloppant le contenu que vous souhaitez mettre en gras."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<div class=\"bold-content\">\n\t<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla quaerat aliquid, nobis consectetur amet et!</p>\n\t<p>Cum placeat soluta quibusdam id. Temporibus, delectus eos optio distinctio itaque architecto aperiam deserunt repudiandae!</p>\n\t<p>Facilis obcaecati quae reprehenderit harum. Quaerat id optio, qui tempora aliquid numquam deserunt consequuntur enim!</p>\n\t<p>Facere ad, dicta nobis exercitationem incidunt animi quam porro laborum possimus aperiam beatae nemo! Officiis?</p>\n\t<p>Magnam, deserunt inventore aliquid illum nihil dolore praesentium, ab mollitia, doloribus odit vitae recusandae tempore!</p>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<div class=\"bold-content\">\n\t<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla quaerat aliquid, nobis consectetur amet et!</p>\n\t<p>Cum placeat soluta quibusdam id. Temporibus, delectus eos optio distinctio itaque architecto aperiam deserunt repudiandae!</p>\n\t<p>Facilis obcaecati quae reprehenderit harum. Quaerat id optio, qui tempora aliquid numquam deserunt consequuntur enim!</p>\n\t<p>Facere ad, dicta nobis exercitationem incidunt animi quam porro laborum possimus aperiam beatae nemo! Officiis?</p>\n\t<p>Magnam, deserunt inventore aliquid illum nihil dolore praesentium, ab mollitia, doloribus odit vitae recusandae tempore!</p>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_bold_2",
+			"name": "Bold content - Iteration 2",
+			"date": "2024-02",
+			"detectableBy": ".bold-content",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"bold-content\">\n\t<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla quaerat aliquid, nobis consectetur amet et!</p>\n\t<p>Cum placeat soluta quibusdam id. Temporibus, delectus eos optio distinctio itaque architecto aperiam deserunt repudiandae!</p>\n\t<p>Facilis obcaecati quae reprehenderit harum. Quaerat id optio, qui tempora aliquid numquam deserunt consequuntur enim!</p>\n\t<p>Facere ad, dicta nobis exercitationem incidunt animi quam porro laborum possimus aperiam beatae nemo! Officiis?</p>\n\t<p>Magnam, deserunt inventore aliquid illum nihil dolore praesentium, ab mollitia, doloribus odit vitae recusandae tempore!</p>\n</div>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_bold_1",
+			"name": "Well bold - Iteration 1",
+			"date": "2021-06",
+			"detectableBy": ".well.well-bold",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"well well-bold\">\n\t<ul>\n\t\t<li>Finibus Bonorum</li>\n\t\t<li>Vestibulum tincidunt</li>\n\t\t<li>Tempor viverra metus</li>\n\t\t<li>Sed non faucibus nisl</li>\n\t\t<li>Suspendisse</li>\n\t\t<li><strong>Sed ut</strong>: perspiciatis</li>\n\t</ul>\n</div>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_bold_2",
+			"name": "Bold content",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_bold_2",
+			"detectableBy": ".bold-content",
+			"layout": "Not applicable",
+			"style": "Content is bolded inside the element when adding the CSS class \".bold-content\"",
+			"semantic": "Not applicable"
+		},
+		{
+			"@id": "_:cs_bold_1",
+			"name": "Well bold",
+			"status": "deprecated",
+			"deprecatedOn": "2024-02-05",
+			"baseOnIteration": "_:iteration_bold_1",
+			"detectableBy": ".well.well-bold",
+			"layout": "Not applicable",
+			"style": "Content is bolded inside a \".well\" when adding the CSS class \".well-bold\"",
+			"semantic": "Not applicable",
+			"notes": "The style .well.well-bold was moved to the deprecated méli-mélo."
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Checkboxes and radio buttons",
 		"fr": "Cases à cocher et boutons radio"
 	},
 	"description": {
-		"en": "Checkboxes and radio buttons designed based on user experience testing",
-		"fr": "Cases à cocher et boutons radio conçu d'après des recherches d'expérience utilisateur"
+		"en": "Display check boxes and radio buttons that are bigger than natively provided by browsers and in-line with the Canada.ca design system.",
+		"fr": "Affiche des cases à cocher et boutons radio plus grand que ce qui est nativement offert par les navigateurs et qui est conforme avec les configurations de conception de Canada.ca."
 	},
-	"modified": "2021-05-07",
+	"modified": "2023-09-06",
 	"componentName": "gc-chckbxrdio",
 	"status": "stable",
 	"pages": {
@@ -121,6 +294,28 @@
 				"language": "fr",
 				"path": "gc-featured-link-fr.html"
 			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility pre-assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Pré-évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			},
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-2-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-2-fr.html"
+			}
 		]
 	}
 }
@@ -137,10 +332,10 @@
 		"fr": "Promotions contextuelles"
 	},
 	"description": {
-		"en": "Context-specific features",
-		"fr": "Promotions contextuelles"
+		"en": "In-page components used to promote government activities, initiatives, programs and services.",
+		"fr": "Des composantes d’intérieur de page servant à promouvoir des activités, des initiatives, des programmes et des services pangouvernementaux."
 	},
-	"modified": "2022-10-21",
+	"modified": "2023-09-05",
 	"componentName": "gc-features",
 	"status": "stable",
 	"pages": {
@@ -167,42 +362,346 @@
 				"language": "fr",
 				"path": "gc-features-fr.html"
 			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1 - Context-specific features",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Assessment d'accessibilité #1 - Promotions contextuelles",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
 		]
 	}
 }
 ,{
 	"@context": {
-		"@version": 1.1,
+		"@version": 2.0,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Feeds plugin GC override",
-		"fr": "Application de styles GC au plugiciel de fils de syndication"
+		"en": "Social media channels",
+		"fr": "Bloc des réseaux de médias sociaux"
 	},
 	"description": {
-		"en": "Overrides the WET ATOM feeds to apply GC design pattern.",
-		"fr": "Remplace les Fils de syndication pour appliquer le modèle de conception GC."
+		"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+		"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
 	},
-	"modified": "2021-06-02",
-	"componentName": "gc-feeds",
-	"status": "provisional",
+	"modified": "2024-02-05",
+	"componentName": "gc-follow-us",
+	"status": "stable",
+	"version": "2.0",
 	"pages": {
 		"docs": [
 			{
-				"title": "Feeds GC overrides - Documentation and working example.",
+				"title": "Social media channels - Documentation",
 				"language": "en",
-				"path": "gc-feeds-en.html"
+				"path": "gc-follow-us-doc-en.html"
 			},
 			{
-				"title": "Fils de syndication remplacement GC - Documentation et exemple pratique",
+				"title": "Bloc des réseaux de médias sociaux - Documentation",
 				"language": "fr",
-				"path": "gc-feeds-fr.html"
+				"path": "gc-follow-us-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Social media channels",
+				"language": "en",
+				"path": "gc-follow-us-en.html"
+			},
+			{
+				"title": "Bloc des réseaux de médias sociaux",
+				"language": "fr",
+				"path": "gc-follow-us-fr.html"
 			}
 		]
-	}
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"dependencies": "no dependency",
+	"variations": [
+		{
+			"name": {
+				"en": "GC Follow us - default",
+				"fr": "GC Suivez-nous - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+				"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/social-media-channels.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/bloc-medias-sociaux.html"
+			},
+			"iteration": "_:iteration_gc_follow_1",
+			"example": [
+				{
+					"en": { "href": "gc-follow-us-en.html", "text": "GC Follow us" },
+					"fr": { "href": "gc-follow-us-fr.html", "text": "GC Suivez-nous" }
+				}
+			],
+			"implementation": [
+				"_:implement_gc_follow"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Initial implementation of the variation.",
+					"fr": "Février 2024 - Implémentation initiale de la variante."
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Follow us",
+				"fr": "Suivez-nous"
+			},
+			"status": "deprecated",
+			"description": {
+				"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+				"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/social-media-channels.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/bloc-medias-sociaux.html"
+			},
+			"iteration": "_:iteration_follow_1",
+			"example": [
+				{
+					"en": { "href": "deprecated/follow-us-en.html", "text": "Follow us" },
+					"fr": { "href": "deprecated/follow-us-fr.html", "text": "Suivez-nous" }
+				}
+			],
+			"implementation": [
+				"_:implement_follow"
+			],
+			"history": [
+				{
+					"en": "April 2017 - Initial implementation of the variation.",
+					"fr": "Avril 2017 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gc_follow",
+			"iteration": "_:iteration_gc_follow_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the below code sample.",
+					"To display the icons horizontally, add the CSS class \"<code>list-inline</code>\" to the <code>&lt;ul></code>.",
+					"If there is more than one account from a single platform, make them available via an <a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">overlay (popup)</a>."
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous.",
+					"Pour afficher les icônes horizontalement, ajoutez la classe CSS \"<code>list-inline</code>\" au <code>&lt;ul></code>.",
+					"S’il y a plus d’un compte pour une même plateforme, énumérez-les dans un <a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-fr.html\">contenu superposé (popup)</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Default layout code sample:",
+						"code": "<section class=\"gc-followus\">\n\t<h2>On social media</h2>\n\t<ul>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"facebook\"><span class=\"wb-inv\">Facebook: </span>FacebookPageName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"twitter\"><span class=\"wb-inv\">Twitter: </span>@TwitterAccount</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"youtube\"><span class=\"wb-inv\">Youtube: </span>YouTubeName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"instagram\"><span class=\"wb-inv\">Instagram: </span>InstagramName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"linkedin\"><span class=\"wb-inv\">LinkedIn: </span>LinkedInName</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code pour disposition par défaut :",
+						"code": "<section class=\"gc-followus\">\n\t<h2>Dans les médias sociaux</h2>\n\t<ul>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"facebook\"><span class=\"wb-inv\">Facebook: </span>NomPageFacebook</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"twitter\"><span class=\"wb-inv\">Twitter: </span>@CompteTwitter</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"youtube\"><span class=\"wb-inv\">Youtube: </span>NomYouTube</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"instagram\"><span class=\"wb-inv\">Instagram: </span>NomInstagram</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"linkedin\"><span class=\"wb-inv\">LinkedIn: </span>NomLinkedIn</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_follow",
+			"iteration": "_:iteration_follow_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the below code sample."
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"followus\">\n\t<h2>Follow:</h2>\n\t<ul>\n\t\t<li><a href=\"#facebook\" class=\"facebook wb-lbx\"><span class=\"wb-inv\">Facebook</span></a></li>\n\t\t<li><a href=\"#\" class=\"twitter\" rel=\"external\"><span class=\"wb-inv\">Twitter</span></a></li>\n\t\t<li><a href=\"#youtube\" class=\"youtube wb-lbx\"><span class=\"wb-inv\">YouTube</span></a></li>\n\t\t<li><a href=\"#\" class=\"flickr\" rel=\"external\"><span class=\"wb-inv\">Flickr</span></a></li>\n\t\t<li><a href=\"#\" class=\"pinterest\" rel=\"external\"><span class=\"wb-inv\">Pinterest</span></a></li>\n\t\t<li><a href=\"#\" class=\"linkedin\" rel=\"external\"><span class=\"wb-inv\">LinkedIn</span></a></li>\n\t\t<li><a href=\"#\" class=\"instagram\" rel=\"external\"><span class=\"wb-inv\">Instagram</span></a></li>\n\t\t<li><a href=\"#\" class=\"rss\" rel=\"external\"><span class=\"wb-inv\">RSS Feed</span></a></li>\n\t\t<li><a href=\"#\" class=\"email\" rel=\"external\"><span class=\"wb-inv\">Email subscription</span></a></li>\n\t\t<li><a href=\"#\" class=\"periscope\" rel=\"external\"><span class=\"wb-inv\">Periscope</span></a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"followus\">\n\t<h2>Suivez :</h2>\n\t<ul>\n\t\t<li><a href=\"#facebook\" class=\"facebook wb-lbx\"><span class=\"wb-inv\">Facebook</span></a></li>\n\t\t<li><a href=\"#\" class=\"twitter\" rel=\"external\"><span class=\"wb-inv\">Twitter</span></a></li>\n\t\t<li><a href=\"#youtube\" class=\"youtube wb-lbx\"><span class=\"wb-inv\">YouTube</span></a></li>\n\t\t<li><a href=\"#\" class=\"flickr\" rel=\"external\"><span class=\"wb-inv\">Flickr</span></a></li>\n\t\t<li><a href=\"#\" class=\"pinterest\" rel=\"external\"><span class=\"wb-inv\">Pinterest</span></a></li>\n\t\t<li><a href=\"#\" class=\"linkedin\" rel=\"external\"><span class=\"wb-inv\">LinkedIn</span></a></li>\n\t\t<li><a href=\"#\" class=\"instagram\" rel=\"external\"><span class=\"wb-inv\">Instagram</span></a></li>\n\t\t<li><a href=\"#\" class=\"rss\" rel=\"external\"><span class=\"wb-inv\">Fil RSS</span></a></li>\n\t\t<li><a href=\"#\" class=\"email\" rel=\"external\"><span class=\"wb-inv\">Abonnement par courriel</span></a></li>\n\t\t<li><a href=\"#\" class=\"periscope\" rel=\"external\"><span class=\"wb-inv\">Periscope</span></a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gc_follow_2",
+			"name": "GC Follow us - Iteration 2",
+			"date": "2024-02",
+			"detectableBy": ".gc-followus",
+			"additions": [
+				"New SVG image for X logo (formerly known as Twitter)."
+			],
+			"fixes": [
+				"Demoted: SVG image for Twitter to be deprecated."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/gc-follow-us.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_gc_follow_1",
+			"name": "GC Follow us - Iteration 1",
+			"date": "2021-08",
+			"detectableBy": ".gc-followus"
+		},
+		{
+			"@id": "_:iteration_follow_1",
+			"name": "Follow us - Iteration 1",
+			"date": "2017-04",
+			"detectableBy": ".followus",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/follow.html"
+					}
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_gc_follow",
+			"name": "GC Follow us",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_gc_follow_1",
+			"detectableBy": ".gc-followus",
+			"layout": [
+				"Default: the social media accounts are stacked vertically with each account having the logo on the left and name on the right.",
+				"Inline: the social media accounts are listed horizontally with only the logo visible."
+			],
+			"semantic": "section.gc-followus > h2 + (ul > li > a)",
+			"static": [
+				"Dans les médias sociaux",
+				"On social media"
+			],
+			"schema": [
+				"FacebookAccountName",
+				"FacebookAccountURL",
+				"TwitterAccountName",
+				"TwitterAccountURL",
+				"YoutubeAccountName",
+				"YoutubeAccountURL",
+				"InstagramAccountName",
+				"InstagramAccountURL",
+				"LinkedInAccountName",
+				"LinkedInAccountURL"
+			],
+			"configuration": "isInline: if yes, add class \"list-inline\" to <ul> element.",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/gc-follow-us.html"
+				}
+			}
+		},
+		{
+			"@id": "_:cs_follow",
+			"name": "Follow us",
+			"status": "deprecated",
+			"deprecatedOn": "2024-02-02",
+			"baseOnIteration": "_:iteration_follow_1",
+			"detectableBy": ".followus",
+			"layout": [
+				"The social media accounts are listed horizontally. The logo visible. The account name is invisible."
+			],
+			"semantic": "section.followus > h2 + (ul > li > a)",
+			"static": [
+				"Suivez :",
+				"Follow:"
+			],
+			"schema": [
+				"FacebookAccountName",
+				"FacebookAccountURL",
+				"TwitterAccountName",
+				"TwitterAccountURL",
+				"YoutubeAccountName",
+				"YoutubeAccountURL",
+				"InstagramAccountName",
+				"InstagramAccountURL",
+				"LinkedInAccountName",
+				"LinkedInAccountURL",
+				"FlickrAccountName",
+				"FlickrAccountURL",
+				"PinterestAccountName",
+				"PinterestAccountURL",
+				"RSSAccountName",
+				"RSSAccountURL",
+				"EmailAccountName",
+				"EmailAccountURL",
+				"PeriscopeAccountName",
+				"PeriscopeAccountURL"
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/follow.html"
+				}
+			}
+		}
+	]
 }
 ,{
 	"@context": {
@@ -251,10 +750,10 @@
 		"fr": "Services et information"
 	},
 	"description": {
-		"en": "Services and information",
-		"fr": "Services et information"
+		"en": "Used to present sets of links with accompanying descriptions.",
+		"fr": "Utilisé pour présenter des ensembles de liens accompagnés de descriptions."
 	},
-	"modified": "2021-07-02",
+	"modified": "2023-09-06",
 	"componentName": "gc-servinfo",
 	"status": "stable",
 	"pages": {
@@ -293,14 +792,72 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Subway map menu",
-		"fr": "Menu par carte de métro"
+		"en": "Step by Step navigation",
+		"fr": "Navigation étape par étape"
 	},
 	"description": {
+		"en": "Step by Step navigation designed based on user experience testing",
+		"fr": "Navigation étape par étape conçu d'après des recherches d'expérience utilisateur"
+	},
+	"modified": "2023-06-28",
+	"componentName": "gc-stp-stp",
+	"status": "stable",
+	"pages": {
+		"docs": [
+			{
+				"title": "Step by Step navigation",
+				"language": "en",
+				"path": "gc-stp-stp-doc-en.html"
+			},
+			{
+				"title": "Navigation étape par étape",
+				"language": "fr",
+				"path": "gc-stp-stp-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Step by Step navigation",
+				"language": "en",
+				"path": "gc-stp-stp-en.html"
+			},
+			{
+				"title": "Navigation étape par étape",
+				"language": "fr",
+				"path": "gc-stp-stp-fr.html"
+			}
+		],
+		"spec": [
+			{
+				"title": "Navigation étape par étape : Système de conception de Canada.ca",
+				"language": "fr",
+				"url": "https://conception.canada.ca/modeles-recommandes/pages-lancement-service.html"
+			},
+			{
+				"title": "Step by Step navigation: Canada.ca design system",
+				"language": "en",
+				"url": "https://design.canada.ca/recommended-templates/service-initiation-pages.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "GC Subway map menu",
 		"fr": "GC menu par carte de métro"
 	},
-	"modified": "2020-12-07",
+	"description": {
+		"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
+		"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
+	},
+	"modified": "2023-09-26",
 	"componentName": "gc-subway",
 	"status": "provisional",
 	"todos": [
@@ -406,10 +963,10 @@
 		"fr": "Tableaux GC"
 	},
 	"description": {
-		"en": "Simple responsive gc tables",
-		"fr": "Tableau simple responsive pour le GC"
+		"en": "A simple CSS solution to turn tables into responsive cards for smaller windows.",
+		"fr": "Une solution CSS simple pour transformer les tables en cartes réactives pour des fenêtres plus petites."
 	},
-	"modified": "2020-10-16",
+	"modified": "2023-09-05",
 	"componentName": "gc-table",
 	"status": "provisional",
 	"todos": [
@@ -477,10 +1034,10 @@
 		"fr": "Entête well responsive"
 	},
 	"description": {
-		"en": "Context-specific features",
-		"fr": "Liste - Style additionel"
+		"en": "Support use case for promotional page header or panel section header the width of the well header is readjusted based on the view port.",
+		"fr": "Cas d'utilisation de prise en charge pour l'en-tête de page promotionnelle ou l'en-tête de section de panneau, la largeur de l'entête well responsive est réajustée en fonction de l'écran."
 	},
-	"modified": "2019-05-09",
+	"modified": "2023-09-06",
 	"componentName": "header-rwd",
 	"status": "stable",
 	"pages": {
@@ -732,62 +1289,6 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Data JSON",
-		"fr": "Data JSON"
-	},
-	"description": {
-		"en": "Insert content extracted from a JSON file.",
-		"fr": "Insertion de contenu extrait d'un fichier JSON"
-	},
-	"modified": "2022-08-25",
-	"componentName": "wb-data-json",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Data JSON",
-				"language": "en",
-				"url": "https://wet-boew.github.io/wet-boew/demos/wb-data-json/data-json-en.html"
-			},
-			{
-				"title": "Data JSON",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/wet-boew/demos/wb-data-json/data-json-fr.html"
-			},
-			{
-				"title": "Template HTML 5",
-				"language": "en",
-				"url": "https://wet-boew.github.io/gcweb-compiled-demos/wetboew-demos/wb-data-json/template-en.html"
-			},
-			{
-				"title": "Gabarit HTML 5",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/gcweb-compiled-demos/wetboew-demos/wb-data-json/template-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Data JSON",
-				"language": "en",
-				"url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-en.html"
-			},
-			{
-				"title": "Data JSON",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-en.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
 		"en": "Do action",
 		"fr": "Exécuter des actions"
 	},
@@ -930,62 +1431,6 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "JSON Manager",
-		"fr": "Gestionnaire JSON"
-	},
-	"description": {
-		"en": "Manage dataset and apply JSON Patch",
-		"fr": "Gérer des jeux de données et applique des correctifs JSON."
-	},
-	"modified": "2022-08-25",
-	"componentName": "wb-jsonmanager",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "JSON Manager",
-				"language": "en",
-				"url": "https://wet-boew.github.io/wet-boew/demos/wb-jsonmanager/jsonmanager-en.html"
-			},
-			{
-				"title": "Gestionnaire JSON",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/wet-boew/demos/wb-jsonmanager/jsonmanager-fr.html"
-			},
-			{
-				"title": "with Do Action patches",
-				"language": "en",
-				"path": "jsonmanager-doaction-en.html"
-			},
-			{
-				"title": "avec l'exécuteur d'action de patches",
-				"language": "fr",
-				"path": "jsonmanager-doaction-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "JSON Manager",
-				"language": "en",
-				"url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-en.html"
-			},
-			{
-				"title": "Gestionnaire JSON",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
 		"en": "Datalist dynamic suggestion",
 		"fr": "Suggestion interative avec un datalist"
 	},
@@ -1063,6 +1508,16 @@
 				"path": "patches-fr.html"
 			},
 			{
+				"title": "Select input",
+				"language": "en",
+				"path": "selectinput-en.html"
+			},
+			{
+				"title": "Sélectionner un champ de saisie",
+				"language": "fr",
+				"path": "selectinput-fr.html"
+			},
+			{
 				"title": "Geomap",
 				"language": "en",
 				"path": "geomap-en.html"
@@ -1118,52 +1573,6 @@
 				"language": "fr",
 				"path": "wb5-click-postback-fr.html"
 			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Well bold",
-		"fr": "Boîte grise en gras"
-	},
-	"description": {
-		"en": "This apply font weight bold to evey text element inside a well component and generates normal font weight when the element <code>strong</code> is applied.",
-		"fr": "Ceci applique la propriété gras comme poid de police de caractère à chacun des éléments d'un composant well et applique un poid de police de caractère normal lorsque l'élément <code>strong</code> est appliqué."
-	},
-	"modified": "2022-04-28",
-	"componentName": "well-bold",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Well bold - working example",
-				"language": "en",
-				"path": "well-bold-en.html"
-			},
-			{
-				"title": "Boîte grise en gras - example pratique",
-				"language": "fr",
-				"path": "well-bold-fr.html"
-			}
-		],
-		"docs": [
-		{
-			"title": "Well bold",
-			"language": "en",
-			"path": "well-bold-doc-en.html"
-		},
-		{
-			"title": "Boîte grise en gras",
-			"language": "fr",
-			"path": "well-bold-doc-fr.html"
-		}
 		]
 	}
 }

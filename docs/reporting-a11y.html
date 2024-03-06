@@ -1,0 +1,249 @@
+---
+title: Reporting working file
+modified: 2023-08-28
+---
+
+<p>This page is a work in progress which goes along with the grunt task <code>grunt a11y-report</code></p>
+
+<h2 id="sites">All components</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Technical name</th>
+      <!-- <th>Latest <abbr title="Accessibility Conformance Report">ACR</abbr></th> -->
+      <th>Assessment (All)</th>
+      <th>ACR (All)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for component in site.data.a11yComponents %}
+      <tr>
+        <th>{{ component.name }}</th>
+        <!-- <td>None</td> -->
+        <td>
+          <ul>
+            {% for assessment in component.a11y %}
+              <li>
+                <a href="../{{ assessment.link }}">
+                  {{ assessment.date }} - {{ assessment.state }}
+                  {% if assessment.isPartial %}
+                    ( Partial )
+                  {% endif %}
+                </a>
+              </li>
+            {% else %}
+              <li>None</li>
+            {% endfor %}
+          </ul>
+        </td>
+         <td>
+          <ul>
+            {% for acr in component.acr %}
+              <li>
+                <a href="../{{ acr.link }}">
+		  {% if acr.expiredOn %}
+		    {{ acr.expiredOn }}
+		  {% elsif acr.issuedOn %}
+		    {{ acr.issuedOn }}
+		  {% elsif acr.modifiedOn %}
+		    {{ acr.modifiedOn }}
+		  {% elsif acr.createdOn %}
+		    {{ acr.createdOn }}
+		  {% else %}
+		    No date
+		  {% endif %}
+                   -
+		  {% if acr.isPartial %}
+                    <strong>Partial</strong>:
+                  {% endif %}
+		  {{ acr.state }}
+                </a>
+              </li>
+            {% else %}
+              <li>None</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+<section class="wb-tagfilter provisional">
+<h2 id="testReq">Accessibility conformance summary by conformity</h2>
+
+<!-- There is an issue with the tagFilter plugin, my intend with this plugin is probably not supported
+<fieldset hidden>
+<legend><span class="field-name">Filter by conformance</span></legend>
+<ul class="list-unstyled">
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="conformance" class="wb-tagfilter-ctrl" value="acr:satisfied"> Satisfied
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="conformance" class="wb-tagfilter-ctrl" value="acr:furtherTestNeeded"> Further test needed
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="conformance" class="wb-tagfilter-ctrl" value="acr:notSatisfied"> Not satisfied
+		</label>
+	</li>
+</ul>
+</fieldset>
+-->
+
+<details>
+	<summary>Filtering by components option</summary>
+<ul class="list-unstyled">
+{% for component in site.data.acrConformity.allComponents %}
+  <li class="checkbox">
+    <label>
+				<input type="checkbox" name="component" class="wb-tagfilter-ctrl" value="{{ component }}">{{ component }}
+		</label>
+  </li>
+{% endfor %}
+</ul>
+</details>
+
+<dl class="dl-horizontal dt-max_deactivate_ wb-tagfilter-items">
+  {% for conformity in site.data.acrConformity.list %}
+    <dt>{{ conformity.id }}</dt>
+    {% for component in conformity.components %}
+      <dd data-wb-tags="{{ component.name }}">
+        <section>
+          <h3 class="h5">{{ component.name }}</h3>
+          <ul>
+            {% for acr in component.acr %}
+              <!-- <li data-wb-tags="{{ acr.conformance }}"> -->
+              <li><a href="../{{ acr.link }}">{{ acr.date }} - {{ acr.conformance }}</a></li>
+            {% else %}
+              <li>None</li>
+            {% endfor %}
+          </ul>
+        </section>
+      </dd>
+    {% endfor %}
+  {% endfor %}
+</dl>
+
+
+  </section>
+
+<section class="wb-tagfilter provisional">
+<h2 id="testReq">Assessment test requirement summary</h2>
+
+<!-- Tag filter for each Component
+
+{
+  allComponents: [ "" ],
+  list = [
+    {
+      id: "Test Requirement ID",
+      component: [
+        {
+          name: "Component Name"
+          a11y: [
+            { date: "date", link: "link", outcome: "outcome" }
+          ]
+        }
+      ]
+    }
+  ]
+
+-->
+
+
+<!-- There is an issue with the tagFilter plugin, my intend with this plugin is probably not supported
+<div class="checkbox">
+	<label>
+		<input type="checkbox" name="applicable" class="wb-tagfilter-ctrl" value="isApplicable"> Only the applicable ones for WCAG 2.1 Level AA
+	</label>
+</div>
+-->
+
+<!-- There is an issue with the tagFilter plugin, my intend with this plugin is probably not supported
+<fieldset>
+<legend><span class="field-name">Filter by outcome</span></legend>
+<ul class="list-unstyled">
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="outcome" class="wb-tagfilter-ctrl" value="earl:passed"> Pass
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="outcome" class="wb-tagfilter-ctrl" value="earl:failed"> Fail
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="outcome" class="wb-tagfilter-ctrl" value="earl:cantTell"> Undetermined
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="outcome" class="wb-tagfilter-ctrl" value="earl:inapplicable"> Not applicable
+		</label>
+	</li>
+	<li class="checkbox">
+		<label>
+			<input type="checkbox" name="outcome" class="wb-tagfilter-ctrl" value="earl:untested"> Not tested
+		</label>
+	</li>
+</ul>
+</fieldset>
+-->
+
+<details>
+	<summary>Filtering by components option</summary>
+<ul class="list-unstyled">
+{% for component in site.data.a11yTestRequirement.allComponents %}
+  <li class="checkbox">
+    <label>
+				<input type="checkbox" name="component" class="wb-tagfilter-ctrl" value="{{ component }}">{{ component }}
+		</label>
+  </li>
+{% endfor %}
+</ul>
+</details>
+
+<dl class="dl-horizontal dt-max_deactivate_ wb-tagfilter-items">
+  {% for testRequirement in site.data.a11yTestRequirement.list %}
+    <dt>{{ testRequirement.id }}</dt>
+    {% for component in testRequirement.components %}
+      <dd data-wb-tags="{{ component.name }}">
+        <section>
+          <h3 class="h5">{{ component.name }}</h3>
+          <ul>
+            {% for assessment in component.a11y %}
+	      <!-- <li data-wb-tags="{{ assessment.outcome }} {{% if assessment.isApplicable -%}}isApplicable{{%- endif -%}}"> -->
+              <li><a href="../{{ assessment.link }}">{{ assessment.date }} - {{ assessment.outcome }}</a></li>
+            {% else %}
+              <li>None</li>
+            {% endfor %}
+          </ul>
+        </section>
+      </dd>
+    {% endfor %}
+    <dd>
+	<details>
+	  <summary>Totals</summary>
+    <ul>
+      <li>Passed: {{ testRequirement.nbPassed }}</li>
+      <li>Failed: {{ testRequirement.nbFailed }}</li>
+      <li>Can't tell: {{ testRequirement.nbCantTell }}</li>
+      <li>Not applicable: {{ testRequirement.nbInapplicable }}</li>
+      <li>Not tested: {{ testRequirement.nbUntested }}</li>
+    </ul>
+	</details>
+    </dd>
+  {% endfor %}
+</dl>
+
+</section>

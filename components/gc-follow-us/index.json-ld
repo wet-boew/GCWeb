@@ -1,0 +1,326 @@
+{
+	"@context": {
+		"@version": 2.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Social media channels",
+		"fr": "Bloc des réseaux de médias sociaux"
+	},
+	"description": {
+		"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+		"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
+	},
+	"modified": "2024-02-05",
+	"componentName": "gc-follow-us",
+	"status": "stable",
+	"version": "2.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Social media channels - Documentation",
+				"language": "en",
+				"path": "gc-follow-us-doc-en.html"
+			},
+			{
+				"title": "Bloc des réseaux de médias sociaux - Documentation",
+				"language": "fr",
+				"path": "gc-follow-us-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Social media channels",
+				"language": "en",
+				"path": "gc-follow-us-en.html"
+			},
+			{
+				"title": "Bloc des réseaux de médias sociaux",
+				"language": "fr",
+				"path": "gc-follow-us-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"dependencies": "no dependency",
+	"variations": [
+		{
+			"name": {
+				"en": "GC Follow us - default",
+				"fr": "GC Suivez-nous - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+				"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/social-media-channels.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/bloc-medias-sociaux.html"
+			},
+			"iteration": "_:iteration_gc_follow_1",
+			"example": [
+				{
+					"en": { "href": "gc-follow-us-en.html", "text": "GC Follow us" },
+					"fr": { "href": "gc-follow-us-fr.html", "text": "GC Suivez-nous" }
+				}
+			],
+			"implementation": [
+				"_:implement_gc_follow"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Initial implementation of the variation.",
+					"fr": "Février 2024 - Implémentation initiale de la variante."
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Follow us",
+				"fr": "Suivez-nous"
+			},
+			"status": "deprecated",
+			"description": {
+				"en": "The social media channels pattern provides links to official Government of Canada (GC) social media accounts.",
+				"fr": "La configuration de conception des chaînes de médias sociaux fournit des liens vers les comptes de médias sociaux officiels du gouvernement du Canada (GC)."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/social-media-channels.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/bloc-medias-sociaux.html"
+			},
+			"iteration": "_:iteration_follow_1",
+			"example": [
+				{
+					"en": { "href": "deprecated/follow-us-en.html", "text": "Follow us" },
+					"fr": { "href": "deprecated/follow-us-fr.html", "text": "Suivez-nous" }
+				}
+			],
+			"implementation": [
+				"_:implement_follow"
+			],
+			"history": [
+				{
+					"en": "April 2017 - Initial implementation of the variation.",
+					"fr": "Avril 2017 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gc_follow",
+			"iteration": "_:iteration_gc_follow_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the below code sample.",
+					"To display the icons horizontally, add the CSS class \"<code>list-inline</code>\" to the <code>&lt;ul></code>.",
+					"If there is more than one account from a single platform, make them available via an <a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">overlay (popup)</a>."
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous.",
+					"Pour afficher les icônes horizontalement, ajoutez la classe CSS \"<code>list-inline</code>\" au <code>&lt;ul></code>.",
+					"S’il y a plus d’un compte pour une même plateforme, énumérez-les dans un <a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-fr.html\">contenu superposé (popup)</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Default layout code sample:",
+						"code": "<section class=\"gc-followus\">\n\t<h2>On social media</h2>\n\t<ul>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"facebook\"><span class=\"wb-inv\">Facebook: </span>FacebookPageName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"twitter\"><span class=\"wb-inv\">Twitter: </span>@TwitterAccount</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"youtube\"><span class=\"wb-inv\">Youtube: </span>YouTubeName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"instagram\"><span class=\"wb-inv\">Instagram: </span>InstagramName</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"linkedin\"><span class=\"wb-inv\">LinkedIn: </span>LinkedInName</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code pour disposition par défaut :",
+						"code": "<section class=\"gc-followus\">\n\t<h2>Dans les médias sociaux</h2>\n\t<ul>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"facebook\"><span class=\"wb-inv\">Facebook: </span>NomPageFacebook</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"twitter\"><span class=\"wb-inv\">Twitter: </span>@CompteTwitter</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"youtube\"><span class=\"wb-inv\">Youtube: </span>NomYouTube</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"instagram\"><span class=\"wb-inv\">Instagram: </span>NomInstagram</a></li>\n\t\t<li><a href=\"#\" rel=\"external\" class=\"linkedin\"><span class=\"wb-inv\">LinkedIn: </span>NomLinkedIn</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_follow",
+			"iteration": "_:iteration_follow_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the below code sample."
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"followus\">\n\t<h2>Follow:</h2>\n\t<ul>\n\t\t<li><a href=\"#facebook\" class=\"facebook wb-lbx\"><span class=\"wb-inv\">Facebook</span></a></li>\n\t\t<li><a href=\"#\" class=\"twitter\" rel=\"external\"><span class=\"wb-inv\">Twitter</span></a></li>\n\t\t<li><a href=\"#youtube\" class=\"youtube wb-lbx\"><span class=\"wb-inv\">YouTube</span></a></li>\n\t\t<li><a href=\"#\" class=\"flickr\" rel=\"external\"><span class=\"wb-inv\">Flickr</span></a></li>\n\t\t<li><a href=\"#\" class=\"pinterest\" rel=\"external\"><span class=\"wb-inv\">Pinterest</span></a></li>\n\t\t<li><a href=\"#\" class=\"linkedin\" rel=\"external\"><span class=\"wb-inv\">LinkedIn</span></a></li>\n\t\t<li><a href=\"#\" class=\"instagram\" rel=\"external\"><span class=\"wb-inv\">Instagram</span></a></li>\n\t\t<li><a href=\"#\" class=\"rss\" rel=\"external\"><span class=\"wb-inv\">RSS Feed</span></a></li>\n\t\t<li><a href=\"#\" class=\"email\" rel=\"external\"><span class=\"wb-inv\">Email subscription</span></a></li>\n\t\t<li><a href=\"#\" class=\"periscope\" rel=\"external\"><span class=\"wb-inv\">Periscope</span></a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"followus\">\n\t<h2>Suivez :</h2>\n\t<ul>\n\t\t<li><a href=\"#facebook\" class=\"facebook wb-lbx\"><span class=\"wb-inv\">Facebook</span></a></li>\n\t\t<li><a href=\"#\" class=\"twitter\" rel=\"external\"><span class=\"wb-inv\">Twitter</span></a></li>\n\t\t<li><a href=\"#youtube\" class=\"youtube wb-lbx\"><span class=\"wb-inv\">YouTube</span></a></li>\n\t\t<li><a href=\"#\" class=\"flickr\" rel=\"external\"><span class=\"wb-inv\">Flickr</span></a></li>\n\t\t<li><a href=\"#\" class=\"pinterest\" rel=\"external\"><span class=\"wb-inv\">Pinterest</span></a></li>\n\t\t<li><a href=\"#\" class=\"linkedin\" rel=\"external\"><span class=\"wb-inv\">LinkedIn</span></a></li>\n\t\t<li><a href=\"#\" class=\"instagram\" rel=\"external\"><span class=\"wb-inv\">Instagram</span></a></li>\n\t\t<li><a href=\"#\" class=\"rss\" rel=\"external\"><span class=\"wb-inv\">Fil RSS</span></a></li>\n\t\t<li><a href=\"#\" class=\"email\" rel=\"external\"><span class=\"wb-inv\">Abonnement par courriel</span></a></li>\n\t\t<li><a href=\"#\" class=\"periscope\" rel=\"external\"><span class=\"wb-inv\">Periscope</span></a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gc_follow_2",
+			"name": "GC Follow us - Iteration 2",
+			"date": "2024-02",
+			"detectableBy": ".gc-followus",
+			"additions": [
+				"New SVG image for X logo (formerly known as Twitter)."
+			],
+			"fixes": [
+				"Demoted: SVG image for Twitter to be deprecated."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/gc-follow-us.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_gc_follow_1",
+			"name": "GC Follow us - Iteration 1",
+			"date": "2021-08",
+			"detectableBy": ".gc-followus"
+		},
+		{
+			"@id": "_:iteration_follow_1",
+			"name": "Follow us - Iteration 1",
+			"date": "2017-04",
+			"detectableBy": ".followus",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/follow.html"
+					}
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_gc_follow",
+			"name": "GC Follow us",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_gc_follow_1",
+			"detectableBy": ".gc-followus",
+			"layout": [
+				"Default: the social media accounts are stacked vertically with each account having the logo on the left and name on the right.",
+				"Inline: the social media accounts are listed horizontally with only the logo visible."
+			],
+			"semantic": "section.gc-followus > h2 + (ul > li > a)",
+			"static": [
+				"Dans les médias sociaux",
+				"On social media"
+			],
+			"schema": [
+				"FacebookAccountName",
+				"FacebookAccountURL",
+				"TwitterAccountName",
+				"TwitterAccountURL",
+				"YoutubeAccountName",
+				"YoutubeAccountURL",
+				"InstagramAccountName",
+				"InstagramAccountURL",
+				"LinkedInAccountName",
+				"LinkedInAccountURL"
+			],
+			"configuration": "isInline: if yes, add class \"list-inline\" to <ul> element.",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/gc-follow-us.html"
+				}
+			}
+		},
+		{
+			"@id": "_:cs_follow",
+			"name": "Follow us",
+			"status": "deprecated",
+			"deprecatedOn": "2024-02-02",
+			"baseOnIteration": "_:iteration_follow_1",
+			"detectableBy": ".followus",
+			"layout": [
+				"The social media accounts are listed horizontally. The logo visible. The account name is invisible."
+			],
+			"semantic": "section.followus > h2 + (ul > li > a)",
+			"static": [
+				"Suivez :",
+				"Follow:"
+			],
+			"schema": [
+				"FacebookAccountName",
+				"FacebookAccountURL",
+				"TwitterAccountName",
+				"TwitterAccountURL",
+				"YoutubeAccountName",
+				"YoutubeAccountURL",
+				"InstagramAccountName",
+				"InstagramAccountURL",
+				"LinkedInAccountName",
+				"LinkedInAccountURL",
+				"FlickrAccountName",
+				"FlickrAccountURL",
+				"PinterestAccountName",
+				"PinterestAccountURL",
+				"RSSAccountName",
+				"RSSAccountURL",
+				"EmailAccountName",
+				"EmailAccountURL",
+				"PeriscopeAccountName",
+				"PeriscopeAccountURL"
+			],
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/follow.html"
+				}
+			}
+		}
+	]
+}

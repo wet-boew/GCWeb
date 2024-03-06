@@ -1,0 +1,426 @@
+---
+{
+	"title": "Boutons",
+	"language": "fr",
+	"altLangPage": "button-en.html",
+	"description": "Page des boutons comprenant des exemples de travail pour tester l'apparence et le fonctionnement de divers styles de boutons.",
+	"dateModified": "2023-09-01"
+}
+---
+
+<h2>Sur cette page:</h2>
+
+<ul>
+	<li><a href="#buttons/links">Boutons contre liens</a></li>
+	<li><a href="#basic">Utilisation de base</a></li>
+	<li><a href="#colours/styles">Couleurs/Styles</a></li>
+	<li><a href="#calltoaction">Appel à l'action</a></li>
+	<li><a href="#sizing">Taille</a></li>
+	<li><a href="#fullwidth">Largeur maximale</a></li>
+	<li><a href="#activestate">État d'activation</a></li>
+	<li><a href="#disabledstate">État de désactivation</a></li>
+	<li><a href="#bghorizontal">Groupes de Bouton (Horizontale)</a></li>
+	<li><a href="#bgvertical">Groupes de Bouton (Verticale)</a></li>
+	<li><a href="#buttontoolbar">Barres à outils</a></li>
+	<li><a href="#inputgroups">Groupes d'entrée</a></li>
+	<li><a href="#datatoggle">Boutons bascule de données</a></li>
+	<li><a href="#resource">Ressource</a></li>
+</ul>
+
+<h2 id="buttons/links">Boutons contre liens</h2>
+<dl class="dl-horizontal">
+<dt>Bouton</dt>
+<dd>Un bouton effectuera une action sur la page actuelle sans déplacer le focus ou sans éloigner l'utilisateur</dd>
+<dt>Lien</dt>
+<dd>Un lien enverra l'utilisateur à un emplacement, dans la même page via un lien d'ancrage (`#`) ou vers une autre page sans envoyer de données.</dd>
+</dl>
+<p>N'utilisez pas le bouton de rôle sur une ancre, utilisez plutôt un élément de bouton.</p>
+
+<h2 id="basic">Utilisation de base (Par défaut)</h2>
+
+<h3>Exemple de travail</h3>
+<h4>Échafaudage (par défaut):</h4>
+<button type="submit">Bouton</button>
+<input type="button" value="Entrer" />
+<input type="submit" value="Soumettre" />
+<a href="#" >Lien</a>
+
+<h4>Avec le style par défaut:</h4>
+<button class="btn btn-default" type="submit">Bouton</button>
+<input class="btn btn-default" type="button" value="Entrer" />
+<input class="btn btn-default" type="submit" value="Soumettre" />
+<a class="btn btn-default" href="#">Lien</a>
+
+<h4>Code</h4>
+<pre><code>
+	// Bouton par défaut:
+	&lt;button type="submit"&gt;
+	Bouton
+	&lt;/button&gt;
+	&lt;input type="button" value="Entrer"/&gt;
+	&lt;input type="submit" value="Soumettre"/&gt;
+	&lt;a href="#"&gt;
+	Link
+	&lt;/a&gt;
+
+	// Bouton stylisé:
+	&lt;button class="<strong>btn btn-default</strong>" type="submit"&gt;
+	Bouton
+	&lt;/button&gt;
+	&lt;input class="<strong>btn btn-default</strong>" type="button" value="Entrer"/&gt;
+	&lt;input class="<strong>btn btn-default</strong>" type="submit" value="Soumettre"/&gt;
+	&lt;a class="<strong>btn btn-default</strong>" href="#"&gt;
+	Lien
+	&lt;/a&gt;
+</code></pre>
+
+<h2 id="colours/styles">Couleurs/Styles</h2>
+<p>Les couleurs <strong>signifient</strong> diverses choses telles qu'un lien vers des informations d'avertissement (bouton de style attention). Le texte de ce bouton stylisé contiendra également un mot décrivant l'état comme "Avis d'avertissement".</p>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-default">Par défaut</button>
+<button type="button" class="btn btn-primary">Primaire</button>
+<button type="button" class="btn btn-success">Succès</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Avertissement</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-link">Lien</button>
+<a href="#" class="btn btn-default">Ancre <code>&lt;a></code> sous forme de bouton</a>
+
+<h4>Code sample</h4>
+<pre><code>
+	// Défaut:
+	&lt;button type="button" class="btn <strong>btn-default</strong>"&gt;
+	Défaut
+	&lt;/button&gt;
+
+	// Primaire:
+	&lt;button type="button" class="btn <strong>btn-primary</strong>"&gt;
+	Primaire
+	&lt;/button&gt;
+
+	// Succès:
+	&lt;button type="button" class="btn <strong>btn-success</strong>"&gt;
+	Succès
+	&lt;/button&gt;
+
+	// Info:
+	&lt;button type="button" class="btn <strong>btn-info</strong>"&gt;
+	Info
+	&lt;/button&gt;
+
+	// Avertissement:
+	&lt;button type="button" class="btn <strong>btn-warning</strong>"&gt;
+	Avertissement
+	&lt;/button&gt;
+
+	// Danger:
+	&lt;button type="button" class="btn <strong>btn-danger</strong>"&gt;
+	Danger
+	&lt;/button&gt;
+
+	// Lien:
+	&lt;button type="button" class="btn <strong>btn-link</strong>"&gt;
+	Lien
+	&lt;/button&gt;
+
+	//Lien sous forme de bouton
+	&lt;a class="<strong>btn btn-default</strong>" href="#"&gt;
+	Lien sous forme de bouton
+	&lt;/a&gt;
+	</code></pre>
+
+<h2 id="calltoaction">Supertâche (Appel à l'action)</h2>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-call-to-action">Supertâche (Appel à l'action)</button>
+
+<h4>Code</h4>
+<pre><code>
+// Bouton Supertâche (Appel à l'action):
+&lt;button type="button" class="btn btn-call-to-action"&gt;Supertâche (Appel à l'action)&lt;/button&gt;
+</code></pre>
+
+
+<h2 id="sizing">Taille</h2>
+<p>Utilisez pour augmenter ou diminuer la taille d'un bouton.</p>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-default btn-xs">Très petit bouton </button>
+<button type="button" class="btn btn-default btn-sm">Petit bouton </button>
+<button type="button" class="btn btn-default">Bouton par défaut</button>
+<button type="button" class="btn btn-default btn-lg">Gros bouton</button>
+
+<h4>Code</h4>
+<pre><code>
+	// Très petit bouton:
+	&lt;button type="button" class="btn btn-default <strong>btn-xs</strong>"&gt;
+	Très petit bouton
+	&lt;/button&gt;
+
+	// Petit bouton:
+	&lt;button type="button" class="btn btn-default <strong>btn-sm</strong>"&gt;
+	Petit bouton
+	&lt;/button&gt;
+
+	// Bouton par défaut:
+	&lt;button type="button" class="btn btn-default"&gt;
+	Bouton par défaut
+	&lt;/button&gt;
+
+	// Gros bouton:
+	&lt;button type="button" class="btn btn-default <strong>btn-lg</strong>"&gt;
+	Gros bouton
+	&lt;/button&gt;</code></pre>
+
+<h2 id="fullwidth">Largeur maximale</h2>
+<p>Utilisez pour créer des boutons de blocage de niveau (ceux qui s'étend sur toute la largeur d'un contenant apparenté).</p>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-default btn-block">Bouton de blocage de niveau</button>
+
+<h4>Code</h4>
+<pre><code>
+// Bouton de blocage de niveau:
+&lt;button type="button" class="btn btn-default <strong>btn-block</strong>"&gt;Button&lt;/button&gt;
+</code></pre>
+
+<h2 id="activestate">État d'activation</h2>
+<p>Utilisez <code>.active</code> avec les éléments <code>button</code> et <code>a</code> si vous avez besoin qu'un bouton semble actif en tout temps (habituellement aux fins d'affichage et d'enseignement sur des boutons ou liens factices). Lorsqu'un utilisateur appuie sur un bouton, il semble être actif (avec une ombre interne, ainsi qu'un arrière-plan et une bordure plus foncés). Pour les éléments <code>button</code> et <code>a</code>, ils sont stylisés automatiquement dans CSS au moyen de  <code>:active</code>.</p>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-default active">Bouton</button>
+<a href="#" class="btn btn-default active" role="button">Lien</a>
+
+<h4>Code</h4>
+<pre><code>
+// Bouton actif:
+&lt;button type="button" class="btn btn-default <strong>active</strong>"&gt;Bouton&lt;/button&gt;
+
+// Lien actif:
+&lt;a class="btn btn-default <strong>active</strong>" href="#" role="button"&gt;
+Lien
+&lt;/a&gt;
+</code></pre>
+
+<h2 id="disabledstate">État de désactivation</h2>
+<p>Utilisez pour désactiver des boutons et des liens (non cliquable) et donne une apparence décolorée.</p>
+<h3>Exemple de travail</h3>
+<button type="button" class="btn btn-default disabled">Bouton</button>
+<a href="#" class="btn btn-default disabled" role="button">Lien</a>
+
+<h4>Code</h4>
+<pre><code>
+// Bouton désactivé:
+&lt;button type="button" class="btn btn-default <strong>disabled</strong>"&gt;Bouton&lt;/button&gt;
+
+// Lien désactivé:
+&lt;a class="btn btn-default <strong>disabled</strong>" href="#" role="button"&gt;
+Lien
+&lt;/a&gt;
+</code></pre>
+
+<h2 id="bghorizontal">Groupes de Bouton (Horizontale)</h2>
+<p>Regroupez une série de boutons sur une seule ligne avec la classe <code>btn-group</code>.</p>
+<h3>Exemple de travail</h3>
+<h4>Par défaut:</h4>
+<div class="btn-group">
+	<button type="button" class="btn btn-default">Gauche</button>
+	<button type="button" class="btn btn-default">Centré</button>
+	<button type="button" class="btn btn-default">Droite</button>
+</div>
+
+<h4>Gros:</h4>
+<div class="btn-group btn-group-lg">
+	<button type="button" class="btn btn-default">Gauche</button>
+	<button type="button" class="btn btn-default">Centré</button>
+	<button type="button" class="btn btn-default">Droite</button>
+</div>
+
+<h4>Petit:</h4>
+<div class="btn-group btn-group-sm">
+	<button type="button" class="btn btn-default">Gauche</button>
+	<button type="button" class="btn btn-default">Centré</button>
+	<button type="button" class="btn btn-default">Droite</button>
+</div>
+
+<h4>Très petit:</h4>
+<div class="btn-group btn-group-xs">
+	<button type="button" class="btn btn-default">Gauche</button>
+	<button type="button" class="btn btn-default">Centré</button>
+	<button type="button" class="btn btn-default">Droite</button>
+</div>
+
+<h4>Justifié (lien):</h4>
+<div class="btn-group btn-group-justified">
+	<a class="btn btn-default" role="button">Gauche</a>
+	<a class="btn btn-default" role="button">Centré</a>
+	<a class="btn btn-default" role="button">Droite</a>
+</div>
+
+<h4>Justifié (boutons):</h4>
+<div class="btn-group btn-group-justified">
+	<div class="btn-group">
+		<button type="button" class="btn btn-default">Gauche</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-default">Centré</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-default">Droite</button>
+	</div>
+</div>
+
+<h4>Code</h4>
+<pre><code>// Par défaut:
+&lt;div class="<strong>btn-group</strong>"&gt;
+	&lt;button type="button" class="btn btn-default"&gt;...&lt;/button&gt;
+&lt;/div&gt;
+
+// Gros:
+&lt;div class="btn-group <strong>btn-group-lg</strong>"&gt;...
+&lt;/div&gt;
+
+// Petit:
+&lt;div class="btn-group <strong>btn-group-sm</strong>"&gt;...
+&lt;/div&gt;
+
+// Très petit:
+&lt;div class="btn-group <strong>btn-group-xs</strong>"&gt;...
+&lt;/div&gt;
+
+// Justifié (lien):
+&lt;div class="btn-group <strong>btn-group-justified</strong>"&gt;
+&lt;a class="btn btn-default" href="#" role="button"&gt;...
+&lt;/a&gt;
+&lt;/div&gt;
+
+// Justifié (boutons):
+&lt;div class="btn-group <strong>btn-group-justified</strong>"&gt;
+&lt;div class="<strong>btn-group</strong>"&gt;
+	&lt;button type="button" class=" <strong>btn btn-default</strong>"&gt;...
+	&lt;/button&gt;
+&lt;/div&gt;...
+&lt;/div&gt;
+</code></pre>
+
+<h2 id="bgvertical">Groupes de Bouton (Verticale)</h2>
+<p>Faites apparaître un ensemble de boutons empilés verticalement plutôt qu'horizontalement avec la classe <code>btn-group-vertical</code>.</p>
+<h3>Exemple de travail</h3>
+<div class="btn-group-vertical">
+	<button type="button" class="btn btn-default">Haut</button>
+	<button type="button" class="btn btn-default">Milieu</button>
+	<button type="button" class="btn btn-default">Bas</button>
+</div>
+
+<h4>Code</h4>
+<pre><code>// Groupes de Bouton (Verticale):
+&lt;div class="<strong>btn-group-vertical</strong>"&gt;
+	&lt;button type="button" class="btn btn-default"&gt;
+	Haut
+	&lt;/button&gt;
+	&lt;button type="button" class="btn btn-default"&gt;
+	Milieu
+	&lt;/button&gt;
+	&lt;button type="button" class="btn btn-default"&gt;
+	Bas
+	&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="buttontoolbar">Barres à outils</h2>
+<p>Utilisez pour afficher plusieurs groupes de boutons ensemble sur une seule ligne. Notez que l'utilisation de cette fonctionnalité nécessite certaines exigences supplémentaires afin de se conformer aux WCAG.</p>
+<h3>Example de Travail</h3>
+<div class="btn-toolbar" role="toolbar" aria-label="Barres à outils avec groupes de boutons">
+<div class="btn-group" role="group" aria-label="Premier groupe">
+<button type="button" class="btn btn-default">1</button>
+<button type="button" class="btn btn-default">2</button>
+<button type="button" class="btn btn-default">3</button>
+<button type="button" class="btn btn-default">4</button>
+</div>
+<div class="btn-group" role="group" aria-label="Deuxieme groupe">
+<button type="button" class="btn btn-default">5</button>
+<button type="button" class="btn btn-default">6</button>
+<button type="button" class="btn btn-default">7</button>
+</div>
+<div class="btn-group" role="group" aria-label="Troisieme groupe">
+<button type="button" class="btn btn-default">8</button>
+</div>
+</div>
+
+<h4>Code sample</h4>
+<pre><code>// Barres à outils:
+&lt;div class="<strong>btn-toolbar</strong>" role="toolbar" aria-label="Barres à outils avec groupes de boutons"&gt;
+	&lt;div class="btn-group" role="group" aria-label="Premier groupe"&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		1
+		&lt;/button&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		2
+		&lt;/button&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		3
+		&lt;/button&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		4
+		&lt;/button&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group" role="group" aria-label="Deuxieme groupe"&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		5
+		&lt;/button&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		6
+		&lt;/button&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		7
+		&lt;/button&gt;
+	&lt;/div&gt;
+
+	&lt;div class="btn-group" role="group" aria-label="Deuxieme groupe"&gt;
+		&lt;button type="button" class="btn btn-default"&gt;
+		8
+		&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="inputgroups">Groupes d'entrée</h2>
+<p>Étendez facilement les contrôles de formulaire en ajoutant des boutons ou des groupes de boutons de chaque côté des entrées textuelles avec les classes <code>input-group</code> et <code>input-group-btn</code>.</p>
+<h3>Exemple de travail</h3>
+<div class="input-group mb-3">
+<div class="input-group-btn">
+<button class="btn btn-default" type="button">Bouton</button>
+</div>
+<input type="text" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+<input type="text" class="form-control">
+<div class="input-group-btn">
+<button class="btn btn-default" type="button">Bouton</button>
+</div>
+</div>
+
+<h4>Code</h4>
+<pre><code>// Groupes d'entrée:
+&lt;div class="<strong>input-group</strong> mb-3"&gt;
+	&lt;div class="<strong>input-group-btn</strong>"&gt;
+		&lt;button class="btn btn-default" type="button"&gt;Button&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;input type="text" class="form-control"&gt;
+&lt;/div&gt;
+
+&lt;div class="<strong>input-group</strong> mb-3"&gt;
+	&lt;input type="text" class="form-control"&gt;
+	&lt;div class="<strong>input-group-btn</strong>"&gt;
+		&lt;button class="btn btn-default" type="button"&gt;Bouton&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="datatoggle">Boutons de basculement de données</h2>
+
+<div class="alert alert-info">
+	<p>Actuellement, cette fonctionnalité n'est pas fonctionnelle car nous n'implémentons pas le JavaScript de Bootstrap.</p>
+</div>
+
+<p>Les styles <code>.button</code> de Bootstrap peuvent être appliqués à d'autres éléments, tels que les <code>label</code>, pour fournir un basculement de case à cocher ou de bouton radio. Ajoutez <code>data-toggle="buttons"</code> à un <code>.btn-group</code> contenant ces boutons modifiés pour activer leur comportement de basculement via JavaScript et ajoutez <code>.btn-group-toggle </code> pour styliser les <code>input</code> dans vos boutons. Plus d’informations peuvent être trouvées ici : <a href="https://getbootstrap.com/docs/3.4/components/#dropdowns">Composants d'amorçage</a></p>
+
+<p>Nous travaillons actuellement à l'ajout de fonctionnalités similaires à l'avenir. Plus d'informations peuvent être trouvées dans <a href="https://github.com/wet-boew/wet-boew/pull/9532">cette pull request sur GitHub.</a></p>
+
+<h2 id="resource">Ressource</h2>
+<p><a href="https://design.canada.ca/common-design-patterns/buttons.html">Guidage du système de conception sur les boutons</a></p>

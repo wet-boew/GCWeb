@@ -1,0 +1,315 @@
+---
+{
+	"title": "Distance calculator",
+	"language": "en",
+	"dateModified": "2023-09-14",
+	"script": [
+		"js/distance-calculator.js"
+	],
+	"altLangPage": "index-fr.html"
+}
+---
+<p>Using the <a href="https://natural-resources.canada.ca/science-and-data/science-and-research/earth-sciences/geography/topographic-information/web-services/geolocation-service/17304">Natural Resources Canada Geogratis Geolocation service</a> to provide the distance between a known set of coordinates and an address provided by the user.</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2023-09-distance-calculator" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+<h2>Classes used</h2>
+<ul class="colcount-sm-2 colcount-md-4">
+<li><code>distance-calculator</code></li>
+</ul>
+
+
+<h2>Distance calculator settings</h2>
+
+<pre><code>
+"form":".distance-form",
+"location":".distance-location",
+"selector":".distance-item",
+"section":".distance-items",
+"target":".distance",
+"sort":".distance-sort",
+"display":{"selector":".distance-visible","removeClass":"hidden"},
+"name":".distance-title"
+</code></pre>
+
+<dl>
+<dt>form</dt>
+<dd>
+<code>"form":".distance-form"</code>
+<p>Selector for form where location is submitted</p>
+</dd>
+<dt>location</dt>
+<dd>
+<code>"location":".distance-location"</code>
+<p>Selector for input where location is entered</p>
+</dd>
+<dt>selector</dt>
+<dd>
+<code>"selector":".distance-item"</code>
+<p>Selector identifying the items in the collection to be updated with distance.</p>
+</dd>
+<dt>section</dt>
+<dd>
+<code>"section":".distance-items"</code>
+<p>Selector defining the collection of items</p>
+</dd>
+<dt>target</dt>
+<dd>
+<code>"target":".distance"</code>
+<p>Selector to identify element to update with formatted distance</p>
+</dd>
+<dt>sort</dt>
+<dd>
+<code>"sort":".distance-sort"</code>
+<p>Selector to identify element to update with unformatted distance number</p>
+</dd>
+<dt>display</dt>
+<dd>
+<code>"display":{"selector":".distance-visible","removeClass":"hidden"}</code>
+<p>Object with options to display content when distance is calculated.</p>
+	<dl>
+	<dt>selector</dt>
+	<dd>
+	<code>"selector":".distance-visible"</code>
+	<p>Selector for all elements to be revealed</p>
+	</dd>
+	<dt>removeClass</dt>
+	<dd>
+	<code>"removeClass":"hidden"</code>
+	<p>Class to be removed when results are displayed</p>
+	</dd>
+	</dl>
+</dd>
+<dt>name</dt>
+<dd>
+<code>"name":".distance-title"</code>
+<p>Selector to identify element to update with returned name for provided location</p>
+</dd>
+</dl>
+
+
+
+<section id="filteredEventsList" class="wb-tagfilter provisional distance-calculator" data-distance-calculator='{
+		"form":".distance-form",
+		"location":".distance-location",
+		"selector":"li",
+		"section":".wb-tagfilter-items",
+		"target":".distance",
+		"sort":".distance-sort",
+		"display":{"selector":".distance-visible","removeClass":"hidden"},
+		"name":".distance-title"
+	}'>
+<h2>Adding distance to event list</h2>
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-lg-3">
+<details open="">
+<summary>
+<h3>Filter options</h3>
+</summary>
+<form class="distance-form">
+
+<div class="form-group">
+<label for="location" class="h5 mrgn-tp-0"><span class="field-name">Enter your city, province or territory below</span></label>
+<input id="location" type="text" class="form-control full-width distance-location" />
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-primary distance-action">Find locations</button>
+</div>
+</form>
+
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Language</span></legend>
+<ul class="list-unstyled">
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="" checked="checked"> All
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__french"> French
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__english"> English
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Event location</span></legend>
+<ul class="list-unstyled">
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__montreal"> Montreal
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__online"> Online
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__ottawa"> Ottawa
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__toronto"> Toronto
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__vancouver"> Vancouver
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<label for="dayList">Day of the week</label>
+<select id="dayList" name="dayOTW" class="form-control full-width wb-tagfilter-ctrl">
+<option value="">All</option>
+<option value="dayOTW_monday">Monday</option>
+<option value="dayOTW_tuesday">Tuesday</option>
+<option value="dayOTW_wednesday">Wednedsday</option>
+<option value="dayOTW_thursday">Thursday</option>
+<option value="dayOTW_friday">Friday</option>
+<option value="dayOTW_saturday">Saturday</option>
+<option value="dayOTW_sunday">Sunday</option>
+</select>
+</div>
+</details>
+</div>
+<div class="col-xs-12 col-sm-8 col-lg-9">
+<h3 class="mrgn-tp-0">Events</h3>
+<div aria-live="polite">
+<div class="distance-visible hidden"><p>Updated events with distance from <span class="distance-title"></span></p></div>
+</div>
+
+<ul class="list-unstyled events-list wb-tagfilter-items">
+
+<li data-wb-tags="language__english language__french location__online dayOTW_friday">
+<h4>Ask PAC Anything!</h4>
+<p><span class="event-date">Friday August 5th, 2022</span> | <span class="event-time">12:00 PM to 1:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Online</span>, <strong>Language</strong>: <span class="event-language">English, French</span></p>
+</li>
+
+<li data-wb-tags="language__english location__vancouver dayOTW_wednesday">
+<h4>Bidding on Opportunities</h4>
+<p><span class="event-date">Wednesday August 10th, 2022</span> | <span class="event-time">2:00 PM to 3:30 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Vancouver</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__ottawa dayOTW_thursday">
+<h4>Doing business with the Government of Canada (Webinar)</h4>
+<p><span class="event-date">Thursday August 11th, 2022</span> | <span class="event-time">12:00 PM to 2:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Ask PAC Anything!</h4>
+<p><span class="event-date">Friday August 12th, 2022</span> | <span class="event-time">12:00 PM to 1:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Online</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+</li>
+
+<li data-wb-tags="language__english location__ottawa dayOTW_thursday">
+<h4>Bidding on opportunities (Webinar)</h4>
+<p><span class="event-date">Thursday August 18th, 2022</span> | <span class="event-time">12:00 PM to 2:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Ask PAC Anything!</h4>
+<p><span class="event-date">Friday August 19th, 2022</span> | <span class="event-time">12:00 PM to 1:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Online</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+</li>
+
+<li data-wb-tags="language__french location__ottawa dayOTW_thursday">
+<h4>Workshop to register in the Supplier Registration Information (SRI) system and in the Indigenous ness Directory (IBD) for Indigenous-led businesses</h4>
+<p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">9:30 AM to 11:00 AM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Ottawa</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-75.58429","latitude":"45.33339" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__french location__montreal dayOTW_thursday">
+<h4>Doing Business with the Government of Canada</h4>
+<p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">1:30 PM to 3:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Montreal</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__vancouver dayOTW_thursday">
+<h4>Doing Business with the Government of Canada</h4>
+<p><span class="event-date">Thursday August 25th, 2022</span> | <span class="event-time">2:00 PM to 3:30 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Vancouver</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-123.113889","latitude":"49.261111" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__online dayOTW_friday">
+<h4>Ask PAC Anything!</h4>
+<p><span class="event-date">Friday August 26th, 2022</span> | <span class="event-time">12:00 PM to 1:30 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Online</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+</li>
+
+<li data-wb-tags="language__english location__toronto dayOTW_tuesday">
+<h4>Mythbusting Federal Government Procurement and Overview of Innovation for Defence, Excellence and rity (IDEaS) </h4>
+<p><span class="event-date">Tuesday August 30th, 2022</span> | <span class="event-time">10:00 AM to 11:00 AM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Toronto</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__french location__montreal dayOTW_tuesday">
+<h4>Register as supplier and find opportunities on BuyAndSell.gc.ca</h4>
+<p><span class="event-date">Tuesday August 30th, 2022</span> | <span class="event-time">1:30 PM to 3:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Montreal</span>, <strong>Language</strong>: <span class="event-language">French</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-73.554077","latitude":"45.508822" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+
+<li data-wb-tags="language__english location__toronto dayOTW_wednesday">
+<h4>Federal Procurement Virtual Drop-in Café</h4>
+<p><span class="event-date">Wednesday August 31th, 2022</span> | <span class="event-time">3:00 PM to 4:00 PM</span></p>
+<p><strong>Location:</strong> <span class="event-location">Toronto</span>, <strong>Language</strong>: <span class="event-language">English</span></p>
+<div class="distance-visible hidden"><p><strong><span class="distance" data-distance-coordinates='{ "longtitude":"-79.3733","latitude":"43.7417" }'></span> Km</strong> from <span class="distance-title"></span></p></div>
+<div class="distance-sort hidden"></div>
+</li>
+</ul>
+<div class="wb-tagfilter-noresult hidden">
+<p>No item match this combination of filters.</p>
+</div>
+</div>
+</div>
+</section>

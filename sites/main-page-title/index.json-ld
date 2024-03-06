@@ -1,0 +1,170 @@
+{
+	"@context": {
+		"@version": 2.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Main title of the page",
+		"fr": "Titre principal"
+	},
+	"description": {
+		"en": "Documentation on how to use the Main title of the page component.",
+		"fr": "Documentation sur l'utilisation du composant Titre principal."
+	},
+	"modified": "2024-01-29",
+	"componentName": "main-page-title",
+	"status": "stable",
+	"version": "1.1.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Main page title documentation",
+				"language": "en",
+				"path": "main-page-title-en.html"
+			},
+			{
+				"title": "Documentation du titre principal",
+				"language": "fr",
+				"path": "main-page-title-fr.html"
+			}
+		]
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "This component respects all WCAG 2.1 guidelines.",
+	"variations": [
+		{
+			"name": {
+				"en": "Main page title - default",
+				"fr": "Titre principal - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "When the H1 is the main title of a page, it includes a red bar as part of the Canada.ca brand.",
+				"fr": "Lorsque le H1 est le titre principal d'une page, il inclut une barre rouge faisant partie de la marque Canada.ca."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/styles/typography.html",
+				"fr": "https://conception.canada.ca/styles/typographie.html"
+			},
+			"iteration": "_:iteration_mpt_2",
+			"example": [
+				{
+					"en": { "href": "../../content-page/content-en.html", "text": "Content page (main page title)" },
+					"fr": { "href": "../../content-page/content-fr.html", "text": "Page de contenu (titre principal)" }
+				}
+			],
+			"implementation": [
+				"_:implement_mpt"
+			],
+			"history": [
+				{
+					"en": "2024-01 - Visual update",
+					"fr": "2024-01 - Mise à jour visuelle"
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_mpt",
+			"iteration": "_:iteration_mpt_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "The purpose of the main page title component is to provide a default style for the first H1 in the main element with a short bold red rule for use in Canada.ca websites. It is used to indicate the main heading of a page.",
+				"fr": "Le but du composant du titre principal de la page est de fournir un style par défaut pour le premier H1 de l'élément main avec une ligne rouge épaisse et courte pour utilisation sur les sites web de Canada.ca. Il est utilisé pour indiquer le titre principal d'une page"
+			},
+			"notes": {
+				"en": [
+					"The CSS class <code>\"gc-thickline\"</code> has been rendered obsolete as its styling has been applied globally."
+				],
+				"fr": [
+					"La classe CSS <code>\"gc-thickline\"</code> est devenue obsolète car son style a été appliqué globalement."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "HTML sample",
+						"code":	"<h1 id=\"wb-cont\">Main page title</h1>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple HTML",
+						"code":	"<h1 id=\"wb-cont\">Titre principal</h1>"
+					}
+				]
+			}
+		}
+	],
+	"changeset": [
+		{
+			"@id": "_:cs_mpt",
+			"name": {
+				"en": "Default h1",
+				"fr": "H1 par default"
+			},
+			"baseOnIteration": "_:iteration_mpt_2",
+			"detectableBy": "Visual inspection can be used to detect the size of the line. The width of the line should be 71px (3.55em) long and the thickness should be 3.6px (0.18em), with the color #af3c43.",
+			"layout": "The line is positioned below the text.",
+			"semantic": {
+				"@type": "h1",
+				"description": "Level 1 heading",
+				"code": {
+					"@type": [
+						"@id",
+						"rdf:HTML"
+					],
+					"@value": "includes/main-page-title.html"
+				}
+			},
+			"static": "none",
+			"schema": "dct:title",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/main-page-title.html"
+				}
+			},
+			"style": "The line has a width of 3.55em (71px) and a thickness of 0.18em (3.6px) with the color #af3c43. Optionally, include a byline, tagline, or subtitle.",
+			"logic": "none",
+			"behaviour": "none",
+			"perceptible": "The thin hairline has been replaced with a shorter and thicker line.",
+			"guidance": "https://design.canada.ca/styles/typography.html",
+			"context": "First semantic element inside the main",
+			"configuration": "none",
+			"dependency": "none",
+			"file": "none"
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_mpt_1",
+			"name": "Visual update 2019",
+			"date": "2019-06",
+			"detectableBy": "Visual inspection can be used to detect the size of the line. The width of the line should be the width of the main container long and the thickness should be 1px, with the color #af3c43.",
+			"successor": "_:iteration_mpt_2"
+		},
+		{
+			"@id": "_:iteration_mpt_2",
+			"name": "Visual update 2024",
+			"date": "2024-01",
+			"detectableBy": "Visual inspection can be used to detect the size of the line. The width of the line should be 71px (3.55em) long and the thickness should be 3.6px (0.18em), with the color #af3c43.",
+			"breaking": {
+				"style": "Width of the line should 70px and the thickness .18em #af3c43. Followed by optional byline, tagline or subtitle"
+			},
+			"predecessor": "_:iteration_mpt_1"
+		}
+	]
+}

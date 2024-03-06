@@ -2,8 +2,7 @@
 	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
 
 	{% assign col-modified = "col-xs-12" %}
-	{%- if page.noFeedback != true -%}
-		{% assign col-feedback = "col-sm-8 col-md-9 col-lg-9" %}
+	{%- if page.feedback and page.feedback != "" -%}
 		{%- if page.share -%}
 			{% assign col-share = "col-sm-4 col-md-3" %}
 		{%- endif -%}
@@ -15,8 +14,8 @@
 	{%- endif -%}
 
 	<div class="row">
-		{%- if page.noFeedback != true -%}
-			<div class="{{ col-feedback }}">
+		{%- if page.feedback and page.feedback != "" -%}
+			<div class="col-sm-8 col-md-9 col-lg-9">
 				{% include feedback/feedback.html %}
 			</div>
 		{%- endif -%}
@@ -25,10 +24,7 @@
 		{%- endif -%}
 
 		<div class="{{ col-modified }}">
-			<dl id="wb-dtmd">
-				<dt>{{ i18nText-dateModified }}</dt>
-				<dd><time property="dateModified">{{ page.dateModified }}</time></dd>
-			</dl>
+			{%- include date-modified/date-modified.html -%}
 		</div>
 	</div>
 </section>
