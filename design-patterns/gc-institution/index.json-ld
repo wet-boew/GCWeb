@@ -16,8 +16,6 @@
 	},
 	"modified": "2024-01-11",
 	"componentName": "gc-institution",
-	"status": "stable",
-	"version": "1.0",
 	"pages": {
 		"docs": [
 			{
@@ -52,7 +50,6 @@
 				"en": "About the institution - default",
 				"fr": "À propos de l'institution - par défaut"
 			},
-			"status": "stable",
 			"description": {
 				"en": "Section on an institutional landing page that provides links to corporate, program and policy information",
 				"fr": "Section d’une page d’accueil institutionnelle offrant des liens vers des renseignements relatifs à un organisme, à un programme ou à une politique en particulier."
@@ -61,7 +58,6 @@
 				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
 			},
-			"iteration": "_:iteration_institution_1",
 			"example": [
 				{
 					"en": { "href": "gc-institution-en.html", "text": "About the institution" },
@@ -82,7 +78,6 @@
 	"implementation": [
 		{
 			"@id": "_:implement_institution",
-			"iteration": "_:iteration_institution_1",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -104,54 +99,17 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"row\">\n\t<div class=\"col-md-8 bold-content\">\n\t\t<h2 class=\"h3 mrgn-tp-md\">About the [Institution]</h2>\n\t\t<ul class=\"list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t\t<li><a href=\"#\">Mandate</a></li>\n\t\t\t<li><a href=\"#\">Organizational structure</a></li>\n\t\t\t<li><a href=\"#\">Transparency</a></li>\n\t\t\t<li><a href=\"#\">Accessibility</a></li>\n\t\t\t<li><a href=\"#\">Job opportunities</a></li>\n\t\t\t<li><a href=\"#\">Reports</a></li>\n\t\t\t<li><a href=\"#\">Compliance</a></li>\n\t\t\t<li><a href=\"#\">Enforcement notifications</a></li>\n\t\t\t<li><a href=\"#\">[Institutional link]</a></li>\n\t\t\t<li>More: <a href=\"#\">About the [Institution]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+						"code": "<section>\n\t<h2>About [Institution]</h2>\n\t<ul class=\"list-unstyled bold-content mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t<li><a href=\"#\">Mandate</a></li>\n\t\t<li><a href=\"#\">Organizational structure</a></li>\n\t\t<li><a href=\"#\">Transparency</a></li>\n\t\t<li><a href=\"#\">Accessibility</a></li>\n\t\t<li><a href=\"#\">Job opportunities</a></li>\n\t\t<li><a href=\"#\">Reports</a></li>\n\t\t<li><a href=\"#\">Compliance</a></li>\n\t\t<li><a href=\"#\">Enforcement notifications</a></li>\n\t\t<li><a href=\"#\">[Institutional link]</a></li>\n\t\t<li>More: <a href=\"#\">About [Institution]</a></li>\n\t</ul>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<section class=\"row\">\n\t<div class=\"col-md-8 bold-content\">\n\t\t<h2 class=\"h3 mrgn-tp-md\">À propos de [Institution]</h2>\n\t\t<ul class=\"list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t\t<li><a href=\"#\">Mandat</a></li>\n\t\t\t<li><a href=\"#\">Structure organisationnelle</a></li>\n\t\t\t<li><a href=\"#\">Transparence</a></li>\n\t\t\t<li><a href=\"#\">Accessibilité</a></li>\n\t\t\t<li><a href=\"#\">Possibilités d’emploi</a></li>\n\t\t\t<li><a href=\"#\">Rapports</a></li>\n\t\t\t<li><a href=\"#\">Conformité</a></li>\n\t\t\t<li><a href=\"#\">Notifications d’application de la loi</a></li>\n\t\t\t<li><a href=\"#\">[Lien institutionnel]</a></li>\n\t\t\t<li>En savoir plus&nbsp;: <a href=\"#\">À propos de [institution]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+						"code": "<section>\n\t<h2>À propos de [Institution]</h2>\n\t<ul class=\"list-unstyled bold-content mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t<li><a href=\"#\">Mandat</a></li>\n\t\t<li><a href=\"#\">Structure organisationnelle</a></li>\n\t\t<li><a href=\"#\">Transparence</a></li>\n\t\t<li><a href=\"#\">Accessibilité</a></li>\n\t\t<li><a href=\"#\">Possibilités d’emploi</a></li>\n\t\t<li><a href=\"#\">Rapports</a></li>\n\t\t<li><a href=\"#\">Conformité</a></li>\n\t\t<li><a href=\"#\">Notifications d’application de la loi</a></li>\n\t\t<li><a href=\"#\">[Lien institutionnel]</a></li>\n\t\t<li>En savoir plus&nbsp;: <a href=\"#\">À propos de [institution]</a></li>\n\t</ul>\n</section>"
 					}
 				]
 			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_institution_1",
-			"name": "About the institution - Iteration 1",
-			"date": "2024-03",
-			"detectableBy": ".bold-content .list-unstyled.mrgn-tp-lg.lst-spcd-2.colcount-md-2",
-			"assets": [
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Code sample",
-					"code": "<section class=\"row\">\n\t<div class=\"col-md-8 bold-content\">\n\t\t<h2 class=\"h3 mrgn-tp-md\">About the [Institution]</h2>\n\t\t<ul class=\"list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t\t<li><a href=\"#\">Mandate</a></li>\n\t\t\t<li><a href=\"#\">Organizational structure</a></li>\n\t\t\t<li><a href=\"#\">Transparency</a></li>\n\t\t\t<li><a href=\"#\">Accessibility</a></li>\n\t\t\t<li><a href=\"#\">Job opportunities</a></li>\n\t\t\t<li><a href=\"#\">Reports</a></li>\n\t\t\t<li><a href=\"#\">Compliance</a></li>\n\t\t\t<li><a href=\"#\">Enforcement notifications</a></li>\n\t\t\t<li><a href=\"#\">[Institutional link]</a></li>\n\t\t\t<li>More: <a href=\"#\">About the [Institution]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
-				}
-			]
-		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_institution",
-			"name": "About the institution",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_institution_1",
-			"detectableBy": ".bold-content .list-unstyled.mrgn-tp-lg.lst-spcd-2.colcount-md-2",
-			"layout": "On medium screens and larger, the links are laid out in two columns.",
-			"semantic": "h2.h3 + ul.colcount-md-2 > li > a",
-			"static": [
-				"About",
-				"À propos de",
-				"More:",
-				"En savoir plus :"
-			],
-			"schema": [
-				"Links text",
-				"Links url"
-			]
 		}
 	]
 }
