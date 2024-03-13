@@ -41,6 +41,16 @@
 				"title": "En demande",
 				"language": "fr",
 				"path": "gc-most-requested-fr.html"
+			},
+			{
+				"title": "Most requested - bad implementation",
+				"language": "en",
+				"path": "gc-most-requested-bad-en.html"
+			},
+			{
+				"title": "En demande - mauvaise implémentation",
+				"language": "fr",
+				"path": "gc-most-requested-bad-fr.html"
 			}
 		]
 	},
@@ -66,6 +76,10 @@
 				{
 					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
 					"fr": { "href": "gc-most-requested-fr.html", "text": "En demande" }
+				},
+				{
+					"en": { "href": "gc-most-requested-bad-en.html", "text": "Most requested - bad implementation" },
+					"fr": { "href": "gc-most-requested-bad-fr.html", "text": "En demande - mauvaise implémentation" }
 				}
 			],
 			"implementation": [
@@ -93,18 +107,20 @@
 			},
 			"instructions": {
 				"en": [
-					"Refer to the code sample below."
+					"Refer to the code sample below.",
+					"The component cannot be located inside another element with the class <code>container</code>."
 				],
 				"fr": [
-					"Référez-vous au code qui suit."
+					"Référez-vous au code qui suit.",
+					"La composante ne peut pas être située à l'intérieur d'un autre élément avec la classe <code>container</code>."
 				]
 			},
 			"notes": {
 				"en": [
-					"The <code>&lt;div class=\"container\"></code> is only necessary when the component is not already inside another <code>&lt;div class=\"container\"></code>."
+					"The Most requested component on the home page is out of scope of this component."
 				],
 				"fr": [
-					"Le <code>&lt;div class=\"container\"></code> n'est nécessaire que lorsque le composant n'est pas déjà dans un autre <code>&lt;div class=\"container\"></code>."
+					"La composante En demande sur la page d'accueil est exclue de cette composante."
 				]
 			},
 			"sample": {
@@ -112,14 +128,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>Most requested</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code&nbsp;:",
-						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>En demande</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Tâche principale]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 6]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 					}
 				]
 			}
@@ -136,7 +152,7 @@
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-2\">\n\t\t\t\t<h2>Most requested</h2>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-10\">\n\t\t\t\t<ul class=\"colcount-md-2\">\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t\t<li><a href=\"#\">[Top task hyperlink]</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 				}
 			]
 		}
@@ -148,7 +164,8 @@
 			"status": "stable",
 			"baseOnIteration": "_:iteration_mostrequested_1",
 			"detectableBy": ".gc-most-requested",
-			"layout": "On smaller screens, the title is on the top and links are stacked. On medium and large screens, the title is on the left and links are distributed over two columns.",
+			"layout": "On smaller screens, the title is on the top and links are stacked. On medium and larger, the title is on the left and links are distributed over two columns from left to right and top to bottom.",
+			"style": "The component has a light gray background.",
 			"semantic": "h2 + (ul > li > a)",
 			"static": [
 				"Most requested",
