@@ -720,7 +720,7 @@
 		"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution sur la page d'accueil de l'institution."
 	},
 	"modified": "2024-03-11",
-	"componentName": "gc-ministers",
+	"componentName": "gc-minister",
 	"status": "stable",
 	"version": "1.0",
 	"pages": {
@@ -728,24 +728,24 @@
 			{
 				"title": "Minister or institutional head",
 				"language": "en",
-				"path": "gc-ministers-en.html"
+				"path": "gc-minister-en.html"
 			},
 			{
 				"title": "Ministre ou chef d’institution",
 				"language": "fr",
-				"path": "gc-ministers-fr.html"
+				"path": "gc-minister-fr.html"
 			}
 		],
 		"docs": [
 			{
 				"title": "Minister or institutional head",
 				"language": "en",
-				"path": "gc-ministers-doc-en.html"
+				"path": "gc-minister-doc-en.html"
 			},
 			{
 				"title": "Ministre ou chef d’institution",
 				"language": "fr",
-				"path": "gc-ministers-doc-fr.html"
+				"path": "gc-minister-doc-fr.html"
 			}
 		]
 	},
@@ -766,15 +766,15 @@
 				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
 			},
-			"iteration": "_:iteration_ministers_1",
+			"iteration": "_:iteration_minister_1",
 			"example": [
 				{
-					"en": { "href": "gc-ministers-en.html", "text": "Minister or institutional head" },
-					"fr": { "href": "gc-ministers-fr.html", "text": "Ministre ou chef d’institution" }
+					"en": { "href": "gc-minister-en.html", "text": "Minister or institutional head" },
+					"fr": { "href": "gc-minister-fr.html", "text": "Ministre ou chef d’institution" }
 				}
 			],
 			"implementation": [
-				"_:implement_ministers"
+				"_:implement_minister"
 			],
 			"history": [
 				{
@@ -786,8 +786,8 @@
 	],
 	"implementation": [
 		{
-			"@id": "_:implement_ministers",
-			"iteration": "_:iteration_ministers_1",
+			"@id": "_:implement_minister",
+			"iteration": "_:iteration_minister_1",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -819,14 +819,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"ministers\">\n\t<h2>Minister(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister 1 name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister 1 name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter [optional]</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book [optional]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister 2]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister 2]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter [optional]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-minister\">\n\t<h2>Minister(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<section class=\"ministers\">\n\t<h2>Ministre(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat [facultatif]</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Dossier d'information [facultatif]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat [facultatif]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 					}
 				]
 			}
@@ -834,30 +834,30 @@
 	],
 	"iteration": [
 		{
-			"@id": "_:iteration_ministers_1",
-			"name": "Ministers - Iteration 1",
+			"@id": "_:iteration_minister_1",
+			"name": "Minister - Iteration 1",
 			"date": "2024-03",
-			"detectableBy": "section.ministers",
+			"detectableBy": ".gc-minister",
 			"assets": [
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<section class=\"ministers\">\n\t<h2>Minister(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister 1 name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister 1 name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter [optional]</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book [optional]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister 2 name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister 2 name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter [optional]</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					"code": "<section class=\"gc-minister\">\n\t<h2>Minister(s)</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"pull-right col-md-7 col-xs-12\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5 col-xs-12\">\n\t\t\t\t\t<img src=\"./img/minister-200x250.jpg\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7 col-xs-12\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 				}
 			]
 		}
 	],
 	"changesets": [
 		{
-			"@id": "_:cs_ministers",
+			"@id": "_:cs_minister",
 			"name": "Minister or institutional head",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_ministers_1",
-			"detectableBy": "section.ministers",
+			"baseOnIteration": "_:iteration_minister_1",
+			"detectableBy": ".gc-minister",
 			"layout": "Each minister takes up half the container. The image (if available) is on the left",
 			"semantic": "section ((h3 a) + img + p + (ul > li))",
-			"style": "The image has a think grey border (like a thumbnail).",
+			"style": "The image has a thin grey border.",
 			"context": "To be used in the institutional landing page template.",
 			"schema": [
 				"Minister name",
