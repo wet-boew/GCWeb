@@ -7,30 +7,6 @@
   "earl:subject": {
     "@id": "_:subject",
     "dct:references": "https://example.com/web/page/url.html",
-    "dct:hasPart": [
-      {
-        "@id": "_:non-text-content_itm1",
-        "dct:isPartOf": "_:subject",
-        "@type": [
-          "earl:TestSubject",
-          "schema:WebPageElement"
-        ],
-        "dct:description": "Textual identification of the web page element that is being evaluated, like: 'Figure 2, a bar chart'. Provide a pointer when applicable (earl:pointer)",
-        "earl:pointer": {
-          "@type": "oa:CssSelector",
-          "@value": "img"
-        }
-      },
-      {
-        "@id": "_:video_abc",
-        "dct:isPartOf": "_:subject",
-        "@type": [
-          "earl:TestSubject",
-          "schema:WebPageElement"
-        ],
-        "dct:description": "Textual identification of the web page element that is being evaluated, like: 'Video ABC (earl:pointer)"
-      }
-    ],
     "@type": [
       "earl:TestSubject",
       "schema:WebPage"
@@ -38,7 +14,7 @@
     "dct:description": "Describe what is being assessed, like the full page or a component inside that page. Provide a pointer when applicable (earl:pointer)",
     "earl:pointer": {
       "@type": "oa:CssSelector",
-      "@value": "title, meta, #wb-bc, main"
+      "@value": ".pagedetails"
     }
   },
   "earl:assertedBy": {
@@ -59,10 +35,6 @@
   },
   "dct:date": null,
   "dct:description": "Analyzing and exploring the subject and produce a pre-evaluation of all WCAG 2.1 SC at level AA.",
-  "acr:involvesExpertise": [
-    "wbv:acr/topics#aria",
-    "Javascript"
-  ],
   "dct:source": "act:rulesets/wcag2x/wcag21_all_levelAA.json",
   "acr:standard": "https://www.w3.org/TR/WCAG21",
   "acr:conformanceOption": "act:standard/profiles/wcag#levelAA",
@@ -147,7 +119,7 @@
     {
       "earl:test": "WCAG21:meaningful-sequence",
       "earl:subject": "_:subject",
-      "earl:outcome": "earl:inapplicable",
+      "earl:outcome": "earl:untested",
       "dct:description": "",
       "earl:mode": "earl:unknownMode",
       "@type": [
@@ -345,7 +317,7 @@
     {
       "earl:test": "WCAG21:three-flashes-or-below-threshold",
       "earl:subject": "_:subject",
-      "earl:outcome": "earl:inapplicable",
+      "earl:outcome": "earl:untested",
       "dct:description": "",
       "earl:mode": "earl:unknownMode",
       "@type": [
@@ -477,7 +449,7 @@
     {
       "earl:test": "WCAG21:language-of-page",
       "earl:subject": "_:subject",
-      "earl:outcome": "earl:inapplicable",
+      "earl:outcome": "earl:untested",
       "dct:description": "",
       "earl:mode": "earl:unknownMode",
       "@type": [
