@@ -89,6 +89,10 @@
 				{
 					"en": "February 2024 - Initial implementation of the variation.",
 					"fr": "Février 2024 - Implémentation initiale de la variante."
+				},
+				{
+					"en": "June 2021 - Provisional implementation of the variation.",
+					"fr": "Juin 2021 - Implémentation provisionnelle de la variante."
 				}
 			]
 		}
@@ -128,14 +132,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code&nbsp;:",
-						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 6]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 					}
 				]
 			}
@@ -146,15 +150,23 @@
 			"@id": "_:iteration_mostrequested_1",
 			"name": "Most requested - Iteration 1",
 			"date": "2024-02",
-			"detectableBy": ".gc-most-requested",
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_0",
 			"assets": [
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 7]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
 				}
 			]
+		},
+		{
+			"@id": "_:iteration_mostrequested_0",
+			"name": "Most requested - Provisional",
+			"date": "2021-06",
+			"detectableBy": ".provisional.gc-most-requested",
+			"successor": "_:iteration_mostrequested_1"
 		}
 	],
 	"changesets": [
@@ -171,9 +183,10 @@
 				"Most requested",
 				"En demande"
 			],
+			"context": "The component must not be located inside an element with the class \"container\"",
 			"schema": [
-				"Task links",
-				"Task names"
+				"arrays of 'MostRequestedLink'",
+				"'MostRequestedLink' object: [ \"task links\", \"task names\" ]"
 			]
 		}
 	]
