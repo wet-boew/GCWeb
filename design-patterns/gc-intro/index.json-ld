@@ -16,8 +16,6 @@
 	},
 	"modified": "2023-08-16",
 	"componentName": "gc-intro",
-	"status": "stable",
-	"version": "1.0",
 	"pages": {
 		"docs": [
 			{
@@ -54,7 +52,9 @@
 			}
 		]
 	},
-	"dependencies": "No dependency.",
+	"dependencies": [
+		"bgimg"
+	],
 	"a11yGuidance": "No accessibility guidance.",
 	"variations": [
 		{
@@ -62,7 +62,6 @@
 				"en": "Introduction block - default",
 				"fr": "Bloc d'introduction - par défaut"
 			},
-			"status": "stable",
 			"description": {
 				"en": "The introduction block pattern introduces the content of a landing page.",
 				"fr": "La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil."
@@ -93,7 +92,6 @@
 				"en": "Introduction block with image",
 				"fr": "Bloc d'introduction avec image"
 			},
-			"status": "stable",
 			"description": {
 				"en": "The introduction block pattern introduces the content of a landing page. This variation can contain an image and a super task button.",
 				"fr": "La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil. Cette variation peur contenir une image."
@@ -102,7 +100,6 @@
 				"en": "https://design.canada.ca/common-design-patterns/intro-block.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/block-introduction.html"
 			},
-			"iteration": "_:iteration_intro_image_1",
 			"example": [
 				{
 					"en": { "href": "gc-intro-image-en.html", "text": "Introduction block with image" },
@@ -135,12 +132,12 @@
 			"instructions": {
 				"en": [
 					"The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages.",
-					"The introduction block with image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>supertask button (optional)</li></ul>",
+					"According to the Canada.ca design system guidance, the introduction block with image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>supertask button (optional)</li></ul>",
 					"Refer to the code sample below."
 				],
 				"fr": [
 					"La configuration de conception du bloc d’introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.",
-					"Le bloc d'introduction avec image contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
+					"Selon les directives du système de conception Canada.ca, le bloc d'introduction avec image contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
 					"Référez-vous au code qui suit."
 				]
 			},
@@ -149,14 +146,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<h1 property=\"name\" id=\"wb-cont\" dir=\"ltr\">Introduction block</h1>\n<p>The introduction block pattern introduces the content of a landing page.</p>\n<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>"
+						"code": "<h1 property=\"name\" id=\"wb-cont\">Introduction block</h1>\n<p>The introduction block pattern introduces the content of a landing page.</p>\n<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<h1 property=\"name\" id=\"wb-cont\" dir=\"ltr\">Bloc d'introduction</h1>\n<p>La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil.</p>\n<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>"
+						"code": "<h1 property=\"name\" id=\"wb-cont\">Bloc d'introduction</h1>\n<p>La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil.</p>\n<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>"
 					}
 				]
 			}
@@ -175,13 +172,31 @@
 			"instructions": {
 				"en": [
 					"The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages.",
-					"The introduction block with image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>image (mandatory)</li><li>supertask button (optional)</li></ul>",
+					"According to the Canada.ca design system guidance, the introduction block with image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>image (mandatory)</li><li>supertask button (optional)</li></ul>",
 					"Refer to the code sample below."
 				],
 				"fr": [
 					"La configuration de conception du bloc d’introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.",
-					"Le bloc d'introduction avec image contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li>image (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
+					"Selon les directives du système de conception Canada.ca, le bloc d'introduction avec image contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li>image (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
 					"Référez-vous au code qui suit."
+				]
+			},
+			"techConsiderations": {
+				"en": [
+					"It is the responsibility of the author to make sure the whole text has a minimum contrast ratio of 4:1 with the background image on every breakpoint and with a zoom of up to 400%.",
+					"The background image size recommended is 1200px by 726px. For more information on the background image, please consult the official guidelines."
+				],
+				"fr": [
+					"Il est de la responsabilité de l'auteur de s'assurer que l'ensemble du texte présente un rapport de contraste minimum de 4:1 avec l'image d'arrière-plan sur chaque point d'arrêt et avec un zoom allant jusqu'à 400&nbsp;%.",
+					"La taille de l’image d’arrière-plan recommandée est de 1200px par 726px. Pour plus d'information sur l'image d'arrière-plan, veuillez consulter les directives officielles."
+				]
+			},
+			"notes": {
+				"en": [
+					"The introduction block pattern with image must be located outside of the default page container (or any element with the class <code>.container</code>)."
+				],
+				"fr": [
+					"La configuration de conception du bloc d’introduction avec image doit être située en dehors du conteneur de page par défaut (ou de tout élément avec la classe <code>.container</code>)."
 				]
 			},
 			"sample": {
@@ -189,80 +204,17 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"img/1x1.png 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row mrgn-bttm-md\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"img/1x1.png 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row mrgn-bttm-md\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Nom de l’institution]</h1>\n\t\t\t\t<p>Description courte du mandat de d’institution.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Nom de l’institution]</h1>\n\t\t\t\t<p>Description courte du mandat de d’institution.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
 					}
 				]
 			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_intro_1",
-			"name": "Introduction block - Iteration 1",
-			"date": "2024-03",
-			"detectableBy": "h1#wb-cont+p",
-			"assets": [
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Code sample",
-					"code": "<h1 property=\"name\" id=\"wb-cont\" dir=\"ltr\">Introduction block</h1>\n<p>The introduction block pattern introduces the content of a landing page.</p>\n<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>"
-				}
-			]
-		},
-		{
-			"@id": "_:iteration_intro_image_1",
-			"name": "Introduction block with image - Iteration 1",
-			"date": "2024-03",
-			"detectableBy": ".bg-cover h1#wb-cont + p",
-			"assets": [
-				{
-					"@type": "source-code",
-					"@language": "en",
-					"description": "Code sample",
-					"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"img/1x1.png 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row mrgn-bttm-md\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button [optional]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
-				}
-			]
-		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_intro",
-			"name": "Introduction block",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_intro_1",
-			"detectableBy": "h1#wb-cont + p",
-			"semantic": "h1 + p",
-			"schema": [
-				"Page title",
-				"Page description",
-				"Page supertask (optional)"
-			],
-			"context": "The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages."
-		},
-		{
-			"@id": "_:cs_intro_image",
-			"name": "Introduction block with image",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_intro_image_1",
-			"detectableBy": ".bg-cover h1#wb-cont + p",
-			"semantic": "h1 + p",
-			"layout": "Title, short description, and supertask button on the left. Image in the background.",
-			"schema": [
-				"Page title",
-				"Page description",
-				"Image URL",
-				"Page supertask (optional)"
-			],
-			"context": "The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages.",
-			"accessibility": "It is the responsibility of the author to make sure the whole text has a minimum contrast ratio of 4:1 on every breakpoint and with a zoom of up to 400% on desktop."
 		}
 	]
 }
