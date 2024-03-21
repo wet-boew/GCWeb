@@ -1,84 +1,61 @@
 ---
-title: Featured link
-description: Documentation and working example for the featured link - provisional feature
-language: en
-altLangPage: gc-featured-link-fr.html
-dateModified: 2021-07-07
-layout: no-container
+{
+	"title": Featured link,
+	"description": Working examples for the Featured link component,
+	"language": en,
+	"altLangPage": gc-featured-link-fr.html,
+	"dateModified": 2024-03-08,
+	"breadcrumbs": [
+		{ "title": "Featured link - Documentation", "link": "components/gc-featured-link/gc-featured-link-doc-en.html" }
+	],
+	"layout": no-container
+}
 ---
+<span class="wb-prettify all-pre hide"></span>
+
 <div class="container">
-	<h1>{{ page.title }}</h1>
+	<h1 id="wb-cont" property="name">{{ page.title }}</h1>
+	<p>Below are working examples for the "Featured link" component.</p>
 
-	{% include alert-provisional.html %}
+	<section class="alert alert-info mrgn-tp-lg">
+		<h2 class="h3">Headings structure</h2>
+		<p>The logic semantic structure of headings have not been followed to accommodate the following working examples.</p>
+	</section>
 
-	<span class="wb-prettify all-pre hide"></span>
+	<h2>On this page</h2>
+	<ul>
+		<li><a href="#defaultExample">Default example</a></li>
+		<li><a href="#customBackgroundExample">Customized background color examples</a></li>
+		<li><a href="#linkBelowExample">Example with featured link description below the link</a></li>
+	</ul>
 
-	<dl class="horizontal">
-		<dt>Status</dt>
-		<dd>Provisional</dd>
-		<dt>Type</dt>
-		<dd>Canada.ca design pattern</dd>
-		<dt>Last review</dt>
-		<dd>2021-07-07</dd>
-		<dt>Conforming to</dt>
-		<dd>Content and IA Specification - Version 2.1.2</dd>
-		<dt>Guidance</dt>
-		<dd>n/a</dd>
-		<dt>Technical name</dt>
-		<dd><code>gc-featured-link</code></dd>
-	</dl>
-
-	<h2>Purpose</h2>
-	<p>This adds a featured link to a page that your institution needs to feature prominently. It should be used to bring attention to warnings or notices.</p>
-
-	<h2>Working examples</h2>
-
-	<h3>Featured link (provisional v1.0)</h3>
-	<p>The logic semantic structure of headings have not been followed to accommodate the following working example. You can go directly to the <a href="#codeSample1">source code</a>.</p>
+	<h2 id="defaultExample">Default example</h2>
 </div>
 
-<section class="provisional gc-featured-link">
+<section class="gc-featured-link">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">Featured</h2>
-				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
-				<p>Long description [Optional]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Spotlight on</h2>
+		<p><a class="stretched-link" href="#">[Promotion title]</a></p>
 	</div>
 </section>
 
 <div class="container">
-	<h4 id="codeSample1">Code</h4>
-	<pre><code>&lt;section class="provisional gc-featured-link"&gt;
+	<h3 id="codeSample1">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link"&gt;
 	&lt;div class="container"&gt;
-		&lt;div class="row"&gt;
-			&lt;div class="col-xs-12"&gt;
-				&lt;h2 class="wb-inv"&gt;Featured&lt;/h2&gt;
-				&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
-				&lt;p&gt;Long description [optional]&lt;/p&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+		&lt;h2 class="wb-inv"&gt;Spotlight on&lt;/h2&gt;
+		&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/section&gt;</code></pre>
 
-	<h3>Customized background color</h3>
-	<p>To customize the background color, add the attribute <code>data-bg-color</code>. The value should be the hexadecimal code of the desired color.</p>
-	<p>The plugin will automatically apply the correct color to the text: <code>#FFFFFF</code> for dark colors, <code>#333333</code> for light colors, <code>#000000</code> for colors in-between.</p>
-	<p>The logic semantic structure of headings have not been followed to accommodate each working examples. You can go directly to the <a href="#codeSample2">source code</a>.</p>
+	<h2 id="customBackgroundExample">Customized background color examples</h2>
 	<p class="mrgn-tp-lg">Dark background example:</p>
 </div>
 
-<section class="provisional gc-featured-link" data-bg-color="#005B61">
+<section class="gc-featured-link" data-bg-color="#005B61">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">Featured</h2>
-				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
-				<p>Long description [Optional]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Spotlight on</h2>
+		<p><a class="stretched-link" href="#">[Promotion title]</a></p>
 	</div>
 </section>
 
@@ -86,15 +63,10 @@ layout: no-container
 	<p class="mrgn-tp-lg">Light color example:</p>
 </div>
 
-<section class="provisional gc-featured-link" data-bg-color="#99dade">
+<section class="gc-featured-link" data-bg-color="#99dade">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">Featured</h2>
-				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
-				<p>Long description [Optional]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Spotlight on</h2>
+		<p><a class="stretched-link" href="#">[Promotion title]</a></p>
 	</div>
 </section>
 
@@ -102,99 +74,54 @@ layout: no-container
 	<p class="mrgn-tp-lg">Medium color example:</p>
 </div>
 
-<section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
+<section class="gc-featured-link" data-bg-color="#8F8F8F">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">Featured</h2>
-				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
-				<p>Long description [Optional]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Spotlight on</h2>
+		<p><a class="stretched-link" href="#">[Promotion title]</a></p>
 	</div>
 </section>
 
 <div class="container">
-	<h4 id="codeSample2">Code</h4>
-	<pre><code>&lt;section class="provisional gc-featured-link" data-bg-color="#005B61">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">Featured&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
-					&lt;p>Long description [Optional]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section>
+	<h3 id="codeSample2">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link" data-bg-color="#005B61">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Spotlight on&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section>
 
-	&lt;section class="provisional gc-featured-link" data-bg-color="#99dade">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">Featured&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
-					&lt;p>Long description [Optional]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section>
+&lt;section class="gc-featured-link" data-bg-color="#99dade">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Spotlight on&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section>
 
-	&lt;section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">Featured&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
-					&lt;p>Long description [Optional]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section></code></pre>
+&lt;section class="gc-featured-link" data-bg-color="#8F8F8F">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Spotlight on&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section></code></pre>
 
-	<h3>Previous design patterns</h3>
-	<details>
-		<summary>Previous pattern (Home page)</summary>
-		<p>Pattern using helpers:</p>
-		<div class="bg-gctheme opct-90">
-			<div class="container">
-				<div class="row">
-					<div class="mrgn-tp-md mrgn-bttm-md col-xs-12">
-						<p class="pull-left text-white mrgn-bttm-0">Featured:&nbsp;</p>
-						<p class="pull-left mrgn-bttm-0"><a class="stretched-link text-white" href="#">[Promotion title]</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<pre><code>&lt;div class="bg-gctheme opct-90"&gt;
-			&lt;div class="container"&gt;
-				&lt;div class="row"&gt;
-					&lt;div class="mrgn-tp-md mrgn-bttm-md col-xs-12"&gt;
-						&lt;p class="pull-left text-white mrgn-bttm-0"&gt;Featured:&nbsp;&lt;/p&gt;
-						&lt;p class="pull-left mrgn-bttm-0"&gt;&lt;a class="stretched-link text-white" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		</code></pre>
-	</details>
-
-	<div lang="en">
-	<h2>Evaluation and report</h2>
-	<ul>
-		<li>Accessibility pre-assessment #1
-			<ul>
-				<li><a href="./reports/a11y-1-en.html" hreflang="en"><span class="wb-inv">Pre-assessment report #1</span> English report</a></li>
-				<li><a href="./reports/a11y-1-fr.html" hreflang="fr"><span class="wb-inv">Pre-assessment report #1</span> French report</a></li>
-			</ul>
-		</li>
-		<li>Accessibility assessment #1
-			<ul>
-				<li><a href="./reports/a11y-2-en.html" hreflang="en"><span class="wb-inv">Assessment report #1</span> English report</a></li>
-				<li><a href="./reports/a11y-2-fr.html" hreflang="fr"><span class="wb-inv">Assessment report #1</span> French report</a></li>
-			</ul>
-		</li>
-	</ul>
+	<h2 id="linkBelowExample">Example with featured link description below the link</h2>
 </div>
+
+<section class="gc-featured-link">
+	<div class="container">
+		<h2 class="wb-inv">Spotlight on</h2>
+		<p><a class="stretched-link" href="#">[Promotion title]</a></p>
+		<p>Long description [optional]</p>
+	</div>
+</section>
+
+<div class="container">
+	<h3 id="codeSample3">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Spotlight on&lt;/h2&gt;
+		&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
+		&lt;p&gt;Long description [Optional]&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
 </div>

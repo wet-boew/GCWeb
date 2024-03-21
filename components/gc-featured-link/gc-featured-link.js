@@ -9,7 +9,7 @@
 
 var $document = wb.doc,
 	componentName = "gc-featured-link",
-	selector = ".provisional." + componentName,
+	selector = "." + componentName,
 	initEvent = "wb-init " + selector,
 	white = "#FFFFFF",
 	black = "#000000",
