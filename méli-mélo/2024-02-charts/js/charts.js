@@ -32,8 +32,9 @@ var componentName = "chart",
 				tableObserver,
 				elmChartType, supportedChartTypes, defaults,
 				chartType, chartOpts, chartData,
-				chartCntnr, canvasElm, detailsElm,
-				i18n, i18nText;
+				chartCntnr, canvasElm, tableContainer,
+				i18n, i18nText,
+				detailsOpen = "";
 
 			// Define default options
 			defaults = {
@@ -61,17 +62,23 @@ var componentName = "chart",
 				};
 			}
 
+			// Check if <details> element should be open or closed
+			if ( elm.dataset.chartDetailsOpen ) {
+				detailsOpen = "open";
+			}
+
 			// Creating UI template
 			chartCntnr = document.createElement( "figure" );
 			chartCntnr.innerHTML = `<figcaption class="h3">` + elm.caption.innerHTML + `</figcaption>
-				<canvas aria-label="` + elm.caption.innerHTML + i18nText.tableFollowing + `" role="img"></canvas>
-				<details class="mrgn-tp-md">
+				<div><canvas aria-label="` + elm.caption.innerHTML + i18nText.tableFollowing + `" role="img"></canvas></div>
+				<details class="mrgn-tp-md"`+ detailsOpen +`>
 					<summary>` + elm.caption.innerHTML + i18nText.tableMention + `</summary>
+					<div class="table-responsive"></div>
 				</details>`;
 			elm.parentNode.insertBefore( chartCntnr, elm );
 			canvasElm = chartCntnr.querySelector( "canvas" );
-			detailsElm = chartCntnr.querySelector( "details" );
-			detailsElm.appendChild( elm );
+			tableContainer = chartCntnr.querySelector( ".table-responsive" );
+			tableContainer.appendChild( elm );
 
 			// Set Chart options
 			chartType = elm.dataset.chart;
