@@ -1,0 +1,153 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Institutional landing page",
+		"fr": "Page d'accueil institutionnelle"
+	},
+	"description": {
+		"en": "Institutional landing page template documentation and working example.",
+		"fr": "Documentation et exemple pratique de la page d'accueil institutionnelle"
+	},
+	"modified": "2024-03-26",
+	"componentName": "institutional-landing",
+	"status": "stable",
+	"version": "2.0.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Institutional landing page",
+				"language": "en",
+				"path": "institutional-landing-doc-en.html"
+			},
+			{
+				"title": "Page d'accueil institutionnelle",
+				"language": "fr",
+				"path": "institutional-landing-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Institutional landing page",
+				"language": "en",
+				"path": "institutional-landing-en.html"
+			},
+			{
+				"title": "Page d'accueil institutionnelle",
+				"language": "fr",
+				"path": "institutional-landing-fr.html"
+			}
+		]
+	},
+	"dependencies": [
+		"Intro block",
+		"Featured link",
+		"Most requested",
+		"Services and information",
+		"Social media channels",
+		"Minister or institutional head"
+	],
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Institutional landing page",
+				"fr": "Pages d'accueil institutionnelle"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
+				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+			},
+			"iteration": "_:iteration_ilp_2",
+			"example": [
+				{
+					"en": { "href": "institutional-landing-en.html", "text": "Institutional landing page" },
+					"fr": { "href": "institutional-landing-fr.html", "text": "Pages d'accueil institutionnelle" }
+				}
+			],
+			"implementation": [
+				"_:implement_ilp"
+			],
+			"history": [
+				{
+					"en": "March 2024 - Stabilization of the page template.",
+					"fr": "Mars 2024 - Stabilisation du gabarit de page."
+				},
+				{
+					"en": "June 2021 - Provisional implementation of the page template.",
+					"fr": "Juin 2021 - Implémentation provisoire du gabarit de page."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_ilp",
+			"iteration": "_:iteration_ilp_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example for a code sample.",
+					"Refer to the official guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Reportez-vous à l'exemple pratique pour un exemple de code.",
+					"Référez-vous aux directives officielles pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_ilp_2",
+			"name": "Institutional landing page - Iteration 2",
+			"date": "2024-03",
+			"breaking": [
+				"Stabilization of the page template."
+			],
+			"detectableBy": ".page-type-ilp"
+		},
+		{
+			"@id": "_:iteration_ilp_1",
+			"name": "Institutional landing page - Iteration 1",
+			"date": "2021-06",
+			"detectableBy": "Social media channels at top right. Latest news directly under intro block."
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_ilp_2",
+			"name": "Institutional landing page",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_ilp_2",
+			"detectableBy": ".page-type-ilp",
+			"layout": [
+				"Intro block",
+				"Featured link - version 1",
+				"Most requested - version 1",
+				"Services and information - version 3",
+				"[Contact us static title with links distributed over 3 columns in well-sm]",
+				"About the institution [.col-md-8] + Social media channels - version 1 [.col-md-4]",
+				"Minister - version 1",
+				"News feed - version 1.1 [.col-md-4] + Context-specific features two-tiles right-aligned - version 5 [.col-md-8]"
+			]
+		}
+	]
+}
