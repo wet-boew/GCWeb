@@ -619,7 +619,7 @@ var componentName = "wb-fieldflow",
 			} else {
 
 				// We have a group of sub-items, the cur_itm are a group
-				selectOut += "<optgroup label='" + cur_itm.label + "'>";
+				selectOut += "<optgroup label='" + wb.escapeAttribute( stripHtml( cur_itm.label ) ) + "'>";
 				j_len = cur_itm.group.length;
 				for ( j = 0; j !== j_len; j += 1 ) {
 					selectOut += buildSelectOption( cur_itm.group[ j ] );
