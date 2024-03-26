@@ -10,7 +10,7 @@
 	"link": "https://wet-boew.github.io/GCWeb/index-fr.html",
 	},
 ],
-	"dateModified": "2023-10-19"
+	"dateModified": "2024-03-26"
 }
 ---
 
@@ -49,6 +49,31 @@
 &lt;source srcset="img/invalid-image.jpg"&gt;
 &lt;img src="img/invalid-image.jpg" alt="Exemple de source d'image non valide"&gt;
 &lt;/picture&gt;</code>
+</pre>
+
+<h3>L'élément <code>image</code></h3>
+<h3>Source d'image valide</h3>
+<img src="img/input-image-sample.jpg" alt="Example of a valid image source">
+<pre>
+<code>
+&lt;img src="img/input-image-sample.jpg" alt="Example of a valid image source"&gt;
+</code>
+</pre>
+
+<h3>Source d'image vide</h3>
+<img src="" alt="Example of an empty image source">
+<pre>
+<code>
+&lt;img src="" alt="Example of an empty image source"&gt;
+</code>
+</pre>
+
+<h3>Source d'image invalide</h3>
+<img src="img/invalid-image.jpg" alt="Example of an invalid image source">
+<pre>
+<code>
+&lt;img src="img/invalid-image.jpg" alt="Example of an invalid image source"&gt;
+</code>
 </pre>
 
 <h2>L'élément <code>iframe</code></h2>
@@ -115,14 +140,14 @@ Votre navigateur ne prend pas en charge la balise audio.
 <video controls>
 	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm">
 	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4">
-	<track src="demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French">
+	<track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French">
 	Votre navigateur ne prend pas en charge la balise vidéo.
 </video>
 <pre>
 <code>&lt;video controls&gt;
 &lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm"&gt;
 &lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4"&gt;
-&lt;track src="demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French"&gt;
+&lt;track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French"&gt;
 Votre navigateur ne prend pas en charge la balise vidéo.
 &lt;/video&gt;</code>
 </pre>
@@ -171,6 +196,9 @@ usemap="#planetmap"&gt;
 </mfrac>
 </math>
 </p>
+
+<h4>Rendu attendu</h4>
+<img src="img/mathml.png" alt="Voir la section précédente 'La formule quadratique' pour le contenu de l'image">
 
 <pre>
 <code>&lt;p&gt;
@@ -262,12 +290,12 @@ Votre navigateur ne prend pas en charge la balise canvas.
 
 <p>Cliquez sur le bouton ci-dessous pour afficher le contenu masqué de l'élément de modèle.</p>
 
-<button onclick="showContent()">Afficher le contenu masqué</button>
+<button onclick="showContent()">Ajouter du contenu masqué</button>
 
 <div id="content"></div>
 
 <template>
-<h2>Image cachée</h2>
+<h3>Image cachée</h3>
 <img src="img/input-image-sample.jpg" width="300" height="200">
 </template>
 
@@ -307,7 +335,7 @@ Remplir le modèle
 </button>
 
 <template id="slotTemplate">
-<h1><slot name="heading"></slot></h1>
+<h3><slot name="heading"></slot></h3>
 <dl>
 	<dt><slot name="term-1"></slot></dt>
 	<dd><slot name="description-1"></slot></dd>

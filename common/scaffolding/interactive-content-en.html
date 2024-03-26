@@ -10,7 +10,7 @@
 	"link": "https://wet-boew.github.io/GCWeb/index-en.html",
 	},
 ],
-"dateModified": "2023-10-19",
+"dateModified": "2024-03-26",
 }
 ---
 
@@ -49,6 +49,31 @@
 &lt;source srcset="img/invalid-image.jpg"&gt;
 &lt;img src="img/invalid-image.jpg" alt="Example of an invalid image source"&gt;
 &lt;/picture&gt;</code>
+</pre>
+
+<h3>The <code>image</code> element</h3>
+<h3>Valid image source</h3>
+<img src="img/input-image-sample.jpg" alt="Example of a valid image source">
+<pre>
+<code>
+&lt;img src="img/input-image-sample.jpg" alt="Example of a valid image source"&gt;
+</code>
+</pre>
+
+<h3>Empty image source</h3>
+<img src="" alt="Example of an empty image source">
+<pre>
+<code>
+&lt;img src="" alt="Example of an empty image source"&gt;
+</code>
+</pre>
+
+<h3>Invalid image source</h3>
+<img src="img/invalid-image.jpg" alt="Example of an invalid image source">
+<pre>
+<code>
+&lt;img src="img/invalid-image.jpg" alt="Example of an invalid image source"&gt;
+</code>
 </pre>
 
 <h2>The <code>iframe</code> element</h2>
@@ -115,14 +140,14 @@ Your browser does not support the audio tag.
 <video controls>
 	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-en.webm" type="video/webm">
 	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-en.mp4" type="video/mp4">
-	<track src="demo/video2-captions-en.xml" kind="captions" data-type="application/ttml+xml" srclang="en" label="English">
+	<track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-en.xml" kind="captions" data-type="application/ttml+xml" srclang="en" label="English">
 	Your browser does not support the video tag.
 </video>
 <pre>
 <code>&lt;video controls&gt;
 &lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-en.webm" type="video/webm"&gt;
 &lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-en.mp4" type="video/mp4"&gt;
-&lt;track src="demo/video2-captions-en.xml" kind="captions" data-type="application/ttml+xml" srclang="en" label="English"&gt;
+&lt;track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-en.xml" kind="captions" data-type="application/ttml+xml" srclang="en" label="English"&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;</code>
 </pre>
@@ -158,11 +183,11 @@ usemap="#planetmap"&gt;
 <mo>=</mo>
 <mfrac>
 	<mrow>
-	<mo form="prefix">−</mo> <mi>b</mi>
+	<mo form="prefix">-</mo> <mi>b</mi>
 	<mo>±</mo>
 	<msqrt>
 	<msup> <mi>b</mi> <mn>2</mn> </msup>
-	<mo>−</mo>
+	<mo>-</mo>
 	<mn>4</mn> <mo>⁢</mo> <mi>a</mi> <mo>⁢</mo> <mi>c</mi>
 	</msqrt>
 	</mrow>
@@ -172,6 +197,9 @@ usemap="#planetmap"&gt;
 </mfrac>
 </math>
 </p>
+
+<h4>Expected rendering</h4>
+<img src="img/mathml.png" alt="See the previous section 'The quadratic formula' for the image content">
 
 <pre>
 <code>&lt;p&gt;
@@ -261,12 +289,12 @@ Your browser does not support the canvas tag.
 
 <p>Click the button below to display the hidden content from the template element.</p>
 
-<button onclick="showContent()">Show hidden content</button>
+<button onclick="showContent()">Append hidden content</button>
 
 <div id="content"></div>
 
 <template>
-<h2>Hidden Image</h2>
+<h3>Hidden image</h3>
 <img src="img/input-image-sample.jpg" width="300" height="200">
 </template>
 
@@ -306,7 +334,7 @@ Fill template
 </button>
 
 <template id="slotTemplate">
-<h1><slot name="heading"></slot></h1>
+<h3><slot name="heading"></slot></h3>
 <dl>
 <dt><slot name="term-1"></slot></dt>
 <dd><slot name="description-1"></slot></dd>
