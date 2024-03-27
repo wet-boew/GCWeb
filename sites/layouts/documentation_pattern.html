@@ -1,0 +1,652 @@
+---
+layout: default
+---
+{%- include variable-core.liquid -%}
+{%- assign lng = page.language -%}
+{%- if page.description -%}
+	<p property="description">{{ page.description }}</p>
+{%- endif -%}
+
+{{ content }}
+
+<p>(<a href="{{ page.index_json }}" rel="alternate" type="application/json">{% if lng == "fr" %}Consultez cette documentation en format JSON{% else %}Consult this documentation in a data format noted in JSON{% endif %}</a>)</p>
+
+<div class="wb-disable-allow" data-wb-jsonmanager='{
+	"url": "{{ page.index_json }}",
+	"name": "api",
+	"patches": [
+		{
+			"op": "patches", "path": "/variations", "patches": [
+				{ "op": "wb-swap", "path": "/implementation", "ref": "/implementation" },
+				{ "op": "wb-swap", "path": "/oldImplementation", "ref": "/implementation" }
+			]
+		}
+	]
+}'></div>
+
+{%- if page.short_rationale_ajax_url -%}
+	<div class="wb-disable-allow" data-ajax-replace="{{ page.short_rationale_ajax_url }}"></div>
+{%- endif -%}
+
+
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]",
+	"streamline": true,
+	"mapping": [
+		{
+			"template": "[data-type-container]",
+			"test": "fn:getValue",
+			"assess": "/componentType",
+			"expect": "container",
+			"mapping": null
+		}
+	]
+}'>
+	<template data-type-container>
+		<section class="alert alert-info">
+			{% if lng == "fr" %}
+			<h2 class="h3">À propos de ce composant</h2>
+			<p>Ce composant n'est qu'un conteneur pour d'autres composants. Par conséquent, les mises à jour des composants inclus n'affectent pas l'API de ce composant.</p>
+			{% else %}
+			<h2 class="h3">About this component</h2>
+			<p>This component is only a container for other components. Therefore, updates to included components do not affect this component's API.</p>
+			{% endif %}
+		</section>
+	</template>
+	<template></template>
+</div>
+
+
+<h2>{% if lng == "fr" %}Sur cette page{% else %}On this page{% endif %}</h2>
+<ul>
+	<li><a href="#inc-components">{% if lng == "fr" %}Composants inclus{% else %}Included components{% endif %}</a></li>
+	{%- if page.before_start_ajax_url -%}
+		<li><a href="#before-start">{% if lng == "fr" %}Avant de commencer{% else %}Before you start{% endif %}</a></li>
+	{%- endif -%}
+	<li><a href="#accessibility-guidance">{% if lng == "fr" %}Conseils en matière d'accessibilité{% else %}Accessibility guidance{% endif %}</a></li>
+	<li><a href="#variations">{% if lng == "fr" %}Variantes{% else %}Variations{% endif %}</a></li>
+	<li><a href="#eval-report">{% if lng == "fr" %}Évaluation et rapport{% else %}Evaluation and report{% endif %}</a></li>
+	<li><a href="#technical-docs">{% if lng == "fr" %}Documentation technique{% else %}Technical documentation{% endif %}</a></li>
+</ul>
+
+
+<h2 id="inc-components">{% if lng == "fr" %}Composants inclus{% else %}Included components{% endif %}</h2>
+
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]",
+	"streamline": "true",
+	"mapping": [
+		{
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-yes]",
+					"test": "fn:isArray",
+					"value": "/dependencies",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value" }
+							]
+						}
+					]
+
+				},
+				{
+					"template": "[data-no]",
+					"test": "fn:isLiteral",
+					"value": "/dependencies",
+					"mapping": null
+				}
+			]
+		}
+	]
+}'>
+	<template data-no>
+		<p>{% if lng == "fr" %}Ce composant n'a pas de dépendances{% else %}This component has no dependency{% endif %}</p>
+	</template>
+
+	<template data-yes>
+		<ul>
+			<template>
+				<li></li>
+			</template>
+		</ul>
+	</template>
+</div>
+
+
+{%- if page.before_start_ajax_url -%}
+	<h2 id="before-start">{% if lng == "fr" %}Avant de commencer{% else %}Before you start{% endif %}</h2>
+	<div class="wb-disable-allow" data-ajax-replace="{{ page.before_start_ajax_url }}"></div>
+{%- endif -%}
+
+
+<h2 id="accessibility-guidance">{% if lng == "fr" %}Conseils en matière d'accessibilité{% else %}Accessibility guidance{% endif %}</h2>
+
+{%- if lng == "fr" -%}
+<p>Liste des directives d'accessibilité à suivre pour garantir que le composant est utilisé dans le respect de la directive d'accessibilité et de la norme EN 301 549 (y compris WCAG 2.1 niveau AA).</p>
+{%- else -%}
+<p>List of accessibility guidances to be followed to ensure component is used in respect of the accessibility guideline and EN 301 549 standard (including WCAG 2.1 Level AA).</p>
+{%- endif -%}
+
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]",
+	"streamline": "true",
+	"mapping": [
+		{
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-yes]",
+					"test": "fn:isArray",
+					"value": "/a11yGuidance",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value" }
+							]
+						}
+					]
+
+				},
+				{
+					"template": "[data-no]",
+					"test": "fn:isLiteral",
+					"value": "/a11yGuidance",
+					"mapping": null
+				}
+			]
+		}
+	]
+}'>
+	<template data-no>
+		<p>{% if lng == "fr" %}Il n’y a pas de directives d’accessibilité définies{% else %}There is no accessibility guidance defined{% endif %}</p>
+	</template>
+
+	<template data-yes>
+		<ul>
+			<template>
+				<li></li>
+			</template>
+		</ul>
+	</template>
+</div>
+
+<!--
+<p>Data ajax</p>
+<div>
+	<pre><code data-wb-ajax='{
+		"url": "samples/sample-1.html",
+		"type": "replace",
+		"encode": true
+	}'></code></pre>
+</div>-->
+
+<h2 id="variations">{% if lng == "fr" %}Variantes{% else %}Variations{% endif %}</h2>
+
+{%- if lng == "fr" -%}
+<p>Voici quelques exemples populaires. Il ne s’agit pas d’une liste exhaustive des variantes possibles. Configurez votre page en fonction du type de page, des besoins des utilisateurs et des conseils du système de conception.</p>
+{%- else -%}
+<p>Here are some popular examples. This isn’t an exhaustive list of possible variations. Configure your page based on page type, user needs and design system guidance.</p>
+{%- endif -%}
+
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]/variations",
+	"mapping": [
+		{ "selector": "[data-name]", "value": "/name/{{lng}}" },
+		{ "selector": "[data-description]", "value": "/description/{{lng}}", "isHTML": true  },
+		{ "selector": "[data-guidance]", "value": "/guidance/{{lng}}", "attr": "href" },
+
+		{
+			"template": "[data-variation-example]",
+			"test": "fn:isArray",
+			"assess": "/example",
+			"mapping": [
+				{
+					"selector": "ul",
+					"value": "/example",
+					"mapping": [
+						{ "selector": "a", "value": "/{{lng}}/href", "attr": "href" },
+						{ "selector": "a", "value": "/{{lng}}/text" }
+					]
+				}
+			]
+		},
+
+		{
+			"template": "[data-implementation]",
+			"test": "fn:isArray",
+			"assess": "/implementation",
+			"mapping": [
+				{
+					"selector": "[data-implementation-tabs]",
+					"value": "/implementation",
+					"mapping": [
+						{ "selector": "summary", "value": "/name/{{lng}}" },
+						{ "selector": "[data-status]", "value": "/status" },
+						{ "selector": "[data-introduction]", "value": "/introduction/{{lng}}", "isHTML": true },
+
+						{
+							"template": "[data-example]",
+							"test": "fn:isArray",
+							"assess": "/example/{{lng}}",
+							"mapping": [
+								{
+									"selector": "ul",
+									"value": "/example/{{lng}}",
+									"mapping": [
+										{ "selector": "a", "value": "/href", "attr": "href" },
+										{ "selector": "a", "value": "/text" }
+									]
+								}
+							]
+						},
+
+						{
+							"template": "[data-instructions]",
+							"test": "fn:isArray",
+							"assess": "/instructions/{{lng}}",
+							"mapping": [
+								{
+									"selector": "ul",
+									"value": "/instructions/{{lng}}",
+									"mapping": [
+										{ "selector": "li",	"value": "/", "isHTML": true }
+									]
+								}
+							]
+						},
+
+						{
+							"template": "[data-notes]",
+							"test": "fn:isArray",
+							"assess": "/notes/{{lng}}",
+							"mapping": [
+								{
+									"selector": "ul",
+									"value": "/notes/{{lng}}",
+									"mapping": [
+										{ "selector": "li",	"value": "/", "isHTML": true }
+									]
+								}
+							]
+						},
+
+						{
+							"template": "[data-tech-considerations]",
+							"test": "fn:isArray",
+							"assess": "/techConsiderations/{{lng}}",
+							"mapping": [
+								{
+									"selector": "ul",
+									"value": "/techConsiderations/{{lng}}",
+									"mapping": [
+										{ "selector": "li",	"value": "/", "isHTML": true }
+									]
+								}
+							]
+						},
+
+						{
+							"@type": "rdf:Alt",
+							"mapping": [
+								{
+									"test": "fn:guessType",
+									"value": "/sample/{{lng}}",
+									"expect": "rdfs:Container",
+									"mapping": [
+										{
+											"template": "[data-source-code]",
+											"test": "fn:guessType",
+											"value": "/",
+											"expect": "source-code",
+											"mapping": [
+												{
+													"@type": "rdf:Alt",
+													"mapping": [
+														{
+															"template": "[data-source-code-collapsed]",
+															"test": "fn:getValue",
+															"assess": "/collapsed",
+															"expect": true,
+															"mapping": [
+																{ "selector": "summary", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														},
+														{
+															"template": "[data-source-code-expanded]",
+															"test": "fn:getValue",
+															"assess": "/collapsed",
+															"expect": false,
+															"mapping": [
+																{ "selector": "figcaption", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														},
+														{
+															"template": "[data-source-code-expanded]",
+															"test": "fn:guessType",
+															"assess": "/collapsed",
+															"expect": "undefined",
+															"mapping": [
+																{ "selector": "figcaption", "value": "/description" },
+																{ "selector": "code", "value": "/code", "encode": true }
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"template": "[data-source-code]",
+									"test": "fn:guessType",
+									"value": "/sample",
+									"expect": "source-code",
+									"mapping": [
+										{
+											"@type": "rdf:Alt",
+											"mapping": [
+												{
+													"template": "[data-source-code-collapsed]",
+													"test": "fn:getValue",
+													"assess": "/collapsed",
+													"expect": true,
+													"mapping": [
+														{ "selector": "summary", "value": "/description" },
+														{ "selector": "code", "value": "/code", "encode": true }
+													]
+												},
+												{
+													"template": "[data-source-code-expanded]",
+													"test": "fn:getValue",
+													"assess": "/collapsed",
+													"expect": false,
+													"mapping": [
+														{ "selector": "figcaption", "value": "/description" },
+														{ "selector": "code", "value": "/code", "encode": true }
+													]
+												},
+												{
+													"template": "[data-source-code-expanded]",
+													"test": "fn:guessType",
+													"assess": "/collapsed",
+													"expect": "undefined",
+													"mapping": [
+														{ "selector": "figcaption", "value": "/description" },
+														{ "selector": "code", "value": "/code", "encode": true }
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"template": "[data-code-compare]",
+									"test": "fn:guessType",
+									"value": "/sample",
+									"expect": "code-compare",
+									"mapping": [
+										{ "selector": "figcaption[data-rev]", "value": "/rev_title" },
+										{ "selector": "code[data-rev]", "value": "/rev_code", "isHTML": true },
+										{ "selector": "figcaption[data-from]", "value": "/from_title" },
+										{ "selector": "code[data-from]", "value": "/from_code", "isHTML": true }
+									]
+								}
+
+							]
+						}
+					]
+				}
+			]
+		},
+
+		{ "selector": "[data-history]", "value": "/history",
+			"mapping": [
+				{ "selector": "li", "value": "/{{lng}}" }
+			]
+		}
+
+	],
+	"trigger": true
+}'>
+
+	<template>
+		<h3><span data-name>[[ Name of the variation ]]</span></h3>
+
+		<p data-description>[[ Short description ]]</p>
+		{%- if lng == "fr" -%}
+		<p>Consultez les <a data-guidance href>guides de conception concernant cette variante</a>.</p>
+		{%- else -%}
+		<p>Consult the <a data-guidance href>design guidance about this variation</a>.</p>
+		{%- endif -%}
+
+		<!--
+		<p>TODO: Screen capture</p>
+		<p>TODO: Working example link</p>
+		-->
+		<template data-variation-example>
+			<h4>{% if lng == "fr" %}Exemple(s) pratique(s){% else %}Working example(s){% endif %}</h4>
+			<ul>
+				<template>
+					<li><a href></a></li>
+				</template>
+			</ul>
+		</template>
+
+		<template data-implementation>
+			<h4>{% if lng == "fr" %}Implémentation{% else %}Implementation{% endif %}</h4>
+
+			<div class="wb-tabs" data-implementation-tabs>
+				<template>
+					<div class="tabpanels">
+						<details>
+							<summary>Name of the implementation</summary>
+							<p data-introduction>Introduction</p>
+
+							<template data-example>
+								<p>{% if lng == "fr" %}Exemples pratiques&nbsp;:{% else %}Working examples:{% endif %}</p>
+								<ul>
+									<template>
+										<li><a href></a></li>
+									</template>
+								</ul>
+							</template>
+
+							<template data-instructions>
+								<p>Instructions:</p>
+								<ul>
+									<template>
+										<li>Instruction</li>
+									</template>
+								</ul>
+							</template>
+
+							<template data-tech-considerations>
+								<p>{% if lng == "fr" %}Considération techniques&nbsp;:{% else %}Technical considerations:{% endif %}</p>
+								<ul>
+									<template>
+										<li>Note</li>
+									</template>
+								</ul>
+							</template>
+
+							<template data-notes>
+								<p>Notes:</p>
+								<ul>
+									<template>
+										<li>Note</li>
+									</template>
+								</ul>
+							</template>
+
+							<template data-source-code>
+								<template data-source-code-collapsed>
+									<details class="mrgn-bttm-lg">
+										<summary>Intro to source code</summary>
+										<pre><code></code></pre>
+									</details>
+								</template>
+
+								<template data-source-code-expanded>
+									<figure class="mrgn-bttm-lg">
+										<figcaption>Intro to source code</figcaption>
+										<pre><code></code></pre>
+									</figure>
+								</template>
+							</template>
+
+							<template data-code-compare>
+								<div class="row">
+									<div class="col-md-6">
+										<figure>
+											<figcaption data-rev>Intro to source code</figcaption>
+											<pre><code data-rev></code></pre>
+										</figure>
+									</div>
+									<div class="col-md-6">
+										<figure>
+											<figcaption data-from>Intro to source code</figcaption>
+											<pre><code data-from></code></pre>
+										</figure>
+									</div>
+								</div>
+							</template>
+						</details>
+					</div>
+				</template>
+			</div>
+		</template>
+
+		<h4>{% if lng == "fr" %}Notes historiques{% else %}History notes{% endif %}</h4>
+		<ul data-history>
+			<template>
+				<li>[[ history ]]</li>
+			</template>
+		</ul>
+	</template>
+</div>
+
+<h2 id="eval-report">{% if lng == "fr" %}Évaluation et rapport{% else %}Evaluation and report{% endif %}</h2>
+
+<!-- Accessibility assessment -->
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]",
+	"streamline": "true",
+	"mapping": [
+		{
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-yes]",
+					"test": "fn:isArray",
+					"value": "/pages/assessment",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "a", "value": "/path", "attr": "href" },
+								{ "selector": "a", "value": "/language", "attr": "hreflang" },
+								{ "selector": "a", "value": "/language", "attr": "lang" },
+								{ "selector": "a", "value": "/title" }
+							]
+						}
+					]
+				},
+				{
+					"template": "[data-no]",
+					"test": "fn:guessType",
+					"value": "/pages/assessment",
+					"expect": "undefined"
+				}
+			]
+		}
+	]
+}'>
+	<template data-no>
+		{%- if lng == "fr" -%}
+		<p>Il n’existe pas d'évaluation de l'accessibilité.</p>
+		{%- else -%}
+		<p>There is no accessibility assessment.</p>
+		{%- endif -%}
+	</template>
+
+	<template data-yes>
+		{%- if lng == "fr" -%}
+		<p>Évaluation d'accessibilité&nbsp;:</p>
+		{%- else -%}
+		<p>Accessibility assessment:</p>
+		{%- endif -%}
+		<ul>
+			<template>
+				<li><a href hreflang lang></a></li>
+			</template>
+		</ul>
+	</template>
+</div>
+
+
+<!-- Accessibility conformance reports -->
+<div class="wb-disable-allow" data-wb-json='{
+	"url": "#[api]",
+	"streamline": "true",
+	"mapping": [
+		{
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-yes]",
+					"test": "fn:isArray",
+					"value": "/pages/acr",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "a", "value": "/path", "attr": "href" },
+								{ "selector": "a", "value": "/language", "attr": "hreflang" },
+								{ "selector": "a", "value": "/language", "attr": "lang" },
+								{ "selector": "a", "value": "/title" }
+							]
+						}
+					]
+				},
+				{
+					"template": "[data-no]",
+					"test": "fn:guessType",
+					"value": "/pages/acr",
+					"expect": "undefined"
+				}
+			]
+		}
+	]
+}'>
+	<template data-no>
+		{%- if lng == "fr" -%}
+		<p>Il n’existe pas de rapport de conformité en matière d’accessibilité.</p>
+		{%- else -%}
+		<p>There is no accessibility conformance report.</p>
+		{%- endif -%}
+	</template>
+
+	<template data-yes>
+		{%- if lng == "fr" -%}
+		<p>Rapport de conformité en matière d'accessibilité&nbsp;:</p>
+		{%- else -%}
+		<p>Accessibility conformance report:</p>
+		{%- endif -%}
+		<ul>
+			<template>
+				<li><a href hreflang lang></a></li>
+			</template>
+		</ul>
+	</template>
+</div>
