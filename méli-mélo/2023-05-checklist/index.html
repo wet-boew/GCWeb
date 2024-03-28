@@ -1,0 +1,121 @@
+---
+title: Checklist
+dateModified: 2023-04-12
+description: "Allows users to get feedback when completing a checklist"
+lang: en
+---
+<p>Allows users to get feedback when completing a checklist</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2023-05-checklist" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+		 <h2>Classes used</h2>
+		 <ul class="colcount-sm-2 colcount-md-4">
+			<li><code>wb-checklist</code></li>
+		 </ul>
+   <h2>Use of the checklist feature</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Default design</h3>
+      <span class="wb-prettify all-pre"></span>
+      <div class="provisional gc-checklist">
+		<fieldset class="gc-chckbxrdio">
+		  <legend>
+		  <h3>Review this checklist:</h3>
+		  </legend>
+		  <ul class="list-unstyled lst-spcd-2">
+			<li class="checkbox">
+			  <input type="checkbox" id="cond1" required>
+			  <label for="cond1">Determine if you need a Labour Market Impact Assessment (LMIA)</label>
+			</li>
+			<li class="checkbox">
+			  <input type="checkbox" id="cond2" required>
+			  <label for="cond2">Determine if your application cannot be processed due to specific condition or circumstances</label>
+			</li>
+			<li class="checkbox">
+			  <input type="checkbox" id="cond3" required>
+			  <label for="cond3">Make sure you know about the program requirements for agricultural positions, for example: </label>
+			</li>
+			<li class="checkbox">
+			  <input type="checkbox" id="cond4" required>
+			  <label for="cond4">Gather documents that support your business legitimacy and LMIA application. Examples:</label>
+			</li>
+			<li class="checkbox">
+			  <input type="checkbox" id="cond5" required>
+			  <label for="cond5">View the LMIA Online Portal resources page for helpful hints</label>
+			</li>
+		  </ul>
+		</fieldset>
+		<div class="output nojs-hide" aria-live="polite">
+			<div class="alert alert-success success-message hidden">
+			<h3>You're ready!</h3>
+			<p>You’ve reviewed the checklist and you're ready to start your application.</p>
+			</div>
+
+			<div class="alert alert-warning failure-message">
+			<h3>Don’t forget</h3>
+			<p>Review the checklist before starting your application.</p>
+			</div>
+		</div>
+		</div>
+      <details>
+        <summary>View code</summary>
+        <pre><code>&lt;div class="provisional gc-checklist"&gt;
+		&lt;fieldset class="gc-chckbxrdio"&gt;
+		  &lt;legend&gt;
+		  &lt;h3&gt;Review this checklist:&lt;/h3&gt;
+		  &lt;/legend&gt;
+		  &lt;ul class="list-unstyled lst-spcd-2"&gt;
+			&lt;li class="checkbox"&gt;
+			  &lt;input type="checkbox" id="cond1" required&gt;
+			  &lt;label for="cond1"&gt;Determine if you need a Labour Market Impact Assessment (LMIA)&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+			  &lt;input type="checkbox" id="cond2" required&gt;
+			  &lt;label for="cond2"&gt;Determine if your application cannot be processed due to specific condition or circumstances&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+			  &lt;input type="checkbox" id="cond3" required&gt;
+			  &lt;label for="cond3"&gt;Make sure you know about the program requirements for agricultural positions, for example: &lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+			  &lt;input type="checkbox" id="cond4" required&gt;
+			  &lt;label for="cond4"&gt;Gather documents that support your business legitimacy and LMIA application. Examples:&lt;/label&gt;
+			&lt;/li&gt;
+			&lt;li class="checkbox"&gt;
+			  &lt;input type="checkbox" id="cond5" required&gt;
+			  &lt;label for="cond5"&gt;View the LMIA Online Portal resources page for helpful hints&lt;/label&gt;
+			&lt;/li&gt;
+		  &lt;/ul&gt;
+		&lt;/fieldset&gt;
+		&lt;div class="output nojs-hide" aria-live="polite"&gt;
+			&lt;div class="alert alert-success success-message hidden"&gt;
+			&lt;h3&gt;You're ready!&lt;/h3&gt;
+			&lt;p&gt;You’ve reviewed the checklist and you're ready to start your application.&lt;/p&gt;
+			&lt;/div&gt;
+
+			&lt;div class="alert alert-warning failure-message"&gt;
+			&lt;h3&gt;Don’t forget&lt;/h3&gt;
+			&lt;p&gt;Review the checklist before starting your application.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;</code></pre>
+      </details>
+    </div>
+</div>
