@@ -38,7 +38,7 @@
 /* Double space list items
 	Might worth to publish it upstream here instead: https://github.com/wet-boew/wet-boew/blob/master/src/base/lists/_base.scss#L30
  */
-
+div.lst-spcd-2>ul,
 .lst-spcd-2 {
 	> {
 		li {
@@ -77,3 +77,65 @@ ul.list-col-xs-1 > li { flex-basis: 100% }
 ul.list-col-xs-2 > li { flex-basis: 50% }
 ul.list-col-xs-3 > li { flex-basis: 33.33% }
 ul.list-col-xs-4 > li { flex-basis: 25% }
+
+
+div.lst-lwr-alph>ol,
+.lst-lwr-alph {
+	list-style-type: lower-alpha;
+}
+
+div.lst-upr-alph>ol,
+.lst-upr-alph {
+	list-style-type: upper-alpha;
+}
+
+div.lst-lwr-rmn>ol,
+.lst-lwr-rmn {
+	list-style-type: lower-roman;
+}
+
+div.lst-upr-rmn>ol,
+.lst-upr-rmn {
+	list-style-type: upper-roman;
+}
+
+div.lst-num>ol,
+.lst-num {
+	list-style-type: decimal;
+}
+
+div.lst-none>ul,
+.lst-none {
+	list-style-type: none;
+}
+
+div.lst-spcd, ul.lst-spcd {
+	> ul,
+	> ol {
+	  li {
+		margin-bottom: 10px;
+	  }
+	}
+
+	ul,
+	ol {
+	  margin-top: 10px;
+	}
+}
+div.list-unstyled>ul, .list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+
+div.list-inline>ul, .list-inline {
+	padding-left: 0;
+	list-style: none;
+	margin-left: -5px;
+
+	> li {
+	  display: inline-block;
+	  padding-right: 5px;
+	  padding-left: 5px;
+	}
+  }
+
