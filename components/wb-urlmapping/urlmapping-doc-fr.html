@@ -34,6 +34,7 @@
 		<li><a href="tblfilter-en.html">URL manager - Table filtering</a></li>
 		<li><a href="patches-en.html">URL manager - Patching JSON</a></li>
 		<li><a href="geomap-en.html">URL manager - Geomap filtering</a></li>
+		<li><a href="selectinput-en.html">URL manager - Select input</a></li>
 	</ul>
 	<p>French:</p>
 	<ul>
@@ -41,6 +42,7 @@
 		<li><a href="tblfilter-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Filtrer un tableau</a></li>
 		<li><a href="patches-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Appliquer des correctifs JSON</a></li>
 		<li><a href="geomap-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Filtrage d'une géomap</a></li>
+		<li><a href="selectinput-fr.html" hreflang="fr" lang="fr">Correspondance d'URL - Sélectionner un champ de saisie</a></li>
 	</ul>
 </section>
 <section>
@@ -271,6 +273,7 @@
 				<li>addClass</li>
 				<li>removeClass</li>
 				<li>mapfilter</li>
+				<li>selectinput</li>
 			</ul>
 		</td>
 		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "<em>[Name of the action]</em>" } }</code></td>
@@ -401,7 +404,7 @@
 	</tr>
 	<tr>
 		<td>source</td>
-		<td><p>jQuery selector that refer to an existing element on the page. This configuration option can be omited for a table filtering if the url-mapping is set directly on the table element.</p>
+		<td><p>jQuery selector that refer to an existing element on the page. This configuration option can be omited for a table filtering if the url-mapping is set directly on the table element. This configuration option can also be omited for a selectinput.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>tblfilter</li>
@@ -409,6 +412,7 @@
 				<li>addClass</li>
 				<li>removeClass</li>
 				<li>mapfilter</li>
+				<li>selectinput</li>
 			</ul>
 		</td>
 		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "tblfilter", "source": "#jQuerySelector" } }'</code></td>
@@ -435,10 +439,13 @@
 	</tr>
 	<tr>
 		<td>value</td>
-		<td><p>Required for table filtering, this specify on what value the filter should be applied. The <code>{qval}</code> placeholder can be used in the value, but it must match the regular expression set by <code>match</code> config, otherwise it will be replaced by an empty string.</p>
+		<td>
+			<p>Required for table filtering, this specify on what value the filter should be applied. The <code>{qval}</code> placeholder can be used in the value, but it must match the regular expression set by <code>match</code> config, otherwise it will be replaced by an empty string.</p>
+			<p>Required for <code>selectinput</code>. Every input where their <code>value</code> attribute matches this property will be selected.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>tblfilter</li>
+				<li>selectinput</li>
 			</ul>
 		</td>
 		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "tblfilter", "value": "a value to be filtered about" } }'</code></td>

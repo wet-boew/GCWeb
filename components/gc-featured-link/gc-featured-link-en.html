@@ -9,7 +9,7 @@ layout: no-container
 <div class="container">
 	<h1>{{ page.title }}</h1>
 
-	{% include alert-provisional.html siteroot="../../" %}
+	{% include alert-provisional.html %}
 
 	<span class="wb-prettify all-pre hide"></span>
 
@@ -34,7 +34,7 @@ layout: no-container
 	<h2>Working examples</h2>
 
 	<h3>Featured link (provisional v1.0)</h3>
-	<p>The logic semantic structure of headings have not been followed to accommodate each working examples.</p>
+	<p>The logic semantic structure of headings have not been followed to accommodate the following working example. You can go directly to the <a href="#codeSample1">source code</a>.</p>
 </div>
 
 <section class="provisional gc-featured-link">
@@ -50,19 +50,107 @@ layout: no-container
 </section>
 
 <div class="container">
-	<h3>Code</h3>
+	<h4 id="codeSample1">Code</h4>
 	<pre><code>&lt;section class="provisional gc-featured-link"&gt;
-		&lt;div class="container"&gt;
-			&lt;div class="row"&gt;
-				&lt;div class="col-xs-12"&gt;
-					&lt;h2 class="wb-inv"&gt;Featured&lt;/h2&gt;
-					&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
-					&lt;p&gt;Long description [optional]&lt;/p&gt;
-				&lt;/div&gt;
+	&lt;div class="container"&gt;
+		&lt;div class="row"&gt;
+			&lt;div class="col-xs-12"&gt;
+				&lt;h2 class="wb-inv"&gt;Featured&lt;/h2&gt;
+				&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Promotion title]&lt;/a&gt;&lt;/p&gt;
+				&lt;p&gt;Long description [optional]&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-	&lt;/section&gt;
-	</code></pre>
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+	<h3>Customized background color</h3>
+	<p>To customize the background color, add the attribute <code>data-bg-color</code>. The value should be the hexadecimal code of the desired color.</p>
+	<p>The plugin will automatically apply the correct color to the text: <code>#FFFFFF</code> for dark colors, <code>#333333</code> for light colors, <code>#000000</code> for colors in-between.</p>
+	<p>The logic semantic structure of headings have not been followed to accommodate each working examples. You can go directly to the <a href="#codeSample2">source code</a>.</p>
+	<p class="mrgn-tp-lg">Dark background example:</p>
+</div>
+
+<section class="provisional gc-featured-link" data-bg-color="#005B61">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="wb-inv">Featured</h2>
+				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
+				<p>Long description [Optional]</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container">
+	<p class="mrgn-tp-lg">Light color example:</p>
+</div>
+
+<section class="provisional gc-featured-link" data-bg-color="#99dade">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="wb-inv">Featured</h2>
+				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
+				<p>Long description [Optional]</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container">
+	<p class="mrgn-tp-lg">Medium color example:</p>
+</div>
+
+<section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="wb-inv">Featured</h2>
+				<p><a class="stretched-link" href="#">[Promotion title]</a></p>
+				<p>Long description [Optional]</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container">
+	<h4 id="codeSample2">Code</h4>
+	<pre><code>&lt;section class="provisional gc-featured-link" data-bg-color="#005B61">
+		&lt;div class="container">
+			&lt;div class="row">
+				&lt;div class="col-xs-12">
+					&lt;h2 class="wb-inv">Featured&lt;/h2>
+					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+					&lt;p>Long description [Optional]&lt;/p>
+				&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	&lt;/section>
+
+	&lt;section class="provisional gc-featured-link" data-bg-color="#99dade">
+		&lt;div class="container">
+			&lt;div class="row">
+				&lt;div class="col-xs-12">
+					&lt;h2 class="wb-inv">Featured&lt;/h2>
+					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+					&lt;p>Long description [Optional]&lt;/p>
+				&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	&lt;/section>
+
+	&lt;section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
+		&lt;div class="container">
+			&lt;div class="row">
+				&lt;div class="col-xs-12">
+					&lt;h2 class="wb-inv">Featured&lt;/h2>
+					&lt;p>&lt;a class="stretched-link" href="#">[Promotion title]&lt;/a>&lt;/p>
+					&lt;p>Long description [Optional]&lt;/p>
+				&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	&lt;/section></code></pre>
 
 	<h3>Previous design patterns</h3>
 	<details>
@@ -92,6 +180,21 @@ layout: no-container
 		</code></pre>
 	</details>
 
+	<div lang="en">
 	<h2>Evaluation and report</h2>
-	<p>There is no evaluation and report available for this component.</p>
+	<ul>
+		<li>Accessibility pre-assessment #1
+			<ul>
+				<li><a href="./reports/a11y-1-en.html" hreflang="en"><span class="wb-inv">Pre-assessment report #1</span> English report</a></li>
+				<li><a href="./reports/a11y-1-fr.html" hreflang="fr"><span class="wb-inv">Pre-assessment report #1</span> French report</a></li>
+			</ul>
+		</li>
+		<li>Accessibility assessment #1
+			<ul>
+				<li><a href="./reports/a11y-2-en.html" hreflang="en"><span class="wb-inv">Assessment report #1</span> English report</a></li>
+				<li><a href="./reports/a11y-2-fr.html" hreflang="fr"><span class="wb-inv">Assessment report #1</span> French report</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
 </div>

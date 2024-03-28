@@ -1,0 +1,116 @@
+---
+title: Charts - Dynamic working examples
+dateModified: 2024-02-23
+description: "Create a visual representation of tabular data."
+lang: en
+breadcrumbs: [
+	{ title: "Charts", link: "méli-mélo/2024-02-charts/index.html" }
+]
+script:
+- js/chart.min.js
+- js/charts.js
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<h2>Dynamic line chart</h2>
+<p>This example demonstrates when data in the table is updated.</p>
+
+<button id="interest5" type="button" class="mrgn-rght-md btn btn-lg btn-default" aria-controls="accountHoldingsTable">5% interest</button>
+<button id="interest6" type="button" class="btn btn-lg btn-default" aria-controls="accountHoldingsTable">6% interest</button>
+<table id="accountHoldingsTable" class="text-right table table-striped mrgn-tp-lg" data-chart="line" data-chart-options='{
+	"elements": {
+		"point": {
+			"radius": 0
+		}
+	}
+}'>
+	<caption>Account holdings by type over 5 years with $4000 yearly contribution</caption>
+	<thead>
+		<tr>
+			<th class="text-left">Years</th>
+			<th class="text-right" data-chart-set-options='{
+				"borderColor": "#28667a",
+				"backgroundColor": "#28667a",
+				"fill": true
+			}'>Amounts contributed or transferred</th>
+			<th class="text-right" data-chart-set-ignore="true">Investment income</th>
+			<th class="text-right" data-chart-set-options='{
+				"borderColor": "#e58a65",
+				"backgroundColor": "#e58a65",
+				"fill": true
+			}'>Total account holdings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>1</th>
+			<td>$4,000</td>
+			<td>$240</td>
+			<td>$4,240</td>
+		</tr>
+		<tr>
+			<th>2</th>
+			<td>$8,000</td>
+			<td>$734</td>
+			<td>$8,734</td>
+		</tr>
+		<tr>
+			<th>3</th>
+			<td>$12,000</td>
+			<td>$1,498</td>
+			<td>$13,498</td>
+		</tr>
+		<tr>
+			<th>4</th>
+			<td>$16,000</td>
+			<td>$2,548</td>
+			<td>$18,548</td>
+		</tr>
+		<tr>
+			<th>5</th>
+			<td>$20,000</td>
+			<td>$3,901</td>
+			<td>$23,901</td>
+		</tr>
+	</tbody>
+</table>
+<script type="text/javascript">
+	document.querySelector("#interest5").addEventListener("click", function(e) {
+		let accHoldingsTblBody = document.querySelector("#accountHoldingsTable tbody"),
+			contributions = ["$4,000", "$8,000", "$12,000", "$16,000", "$20,000"],
+			investment = ["$200", "$610", "$1,240", "$2,102", "$3,207"],
+			total = ["$4,200", "$8,610", "$13,240", "$18,102", "$23,207.12"],
+			tempHTML = "";
+
+		for(let i = 0; i < 5; i++) {
+			tempHTML += "<tr>";
+			tempHTML += "<th>" + (i + 1) + "</th>";
+			tempHTML += "<td>" + contributions[i] + "</td>";
+			tempHTML += "<td>" + investment[i] + "</td>";
+			tempHTML += "<td>" + total[i] + "</td>";
+			tempHTML += "</tr>";
+		}
+
+		accHoldingsTblBody.innerHTML = tempHTML;
+	});
+
+	document.querySelector("#interest6").addEventListener("click", function(e) {
+		let accHoldingsTblBody = document.querySelector("#accountHoldingsTable tbody"),
+			contributions = [4000, 8000, 12000, 16000, 20000],
+			investment = [240, 734, 1498, 2548, 3901],
+			total = [4240, 8734, 13498, 18548, 23901],
+			tempHTML = "";
+
+		for(let i = 0; i < 5; i++) {
+			tempHTML += "<tr>";
+			tempHTML += "<th>" + (i + 1) + "</th>";
+			tempHTML += "<td>" + contributions[i] + "</td>";
+			tempHTML += "<td>$" + investment[i] + "</td>";
+			tempHTML += "<td>$" + total[i] + "</td>";
+			tempHTML += "</tr>";
+		}
+
+		accHoldingsTblBody.innerHTML = tempHTML;
+	});
+</script>

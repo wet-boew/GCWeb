@@ -1,0 +1,67 @@
+---
+{
+	"title": "Récupération de ressource via Ajax",
+	"language": "fr",
+	"altLangPage": "ajax-fetch-en.html",
+	"dateModified": "2023-08-25"
+}
+---
+<div class="wb-prettify all-pre"></div>
+<h2>Succès de récupération d'une ressource ajax</h2>
+<div data-ajax-replace="ajax/data-ajax-extra-fr.html">
+	<section>
+		<h3>Texte à être remplacé</h3>
+		<p>Ce texte sera remplacé.</p>
+	</section>
+</div>
+
+<h2>Échec de récupération d'une ressource ajax</h2>
+<div data-ajax-replace="failedUrl">
+	<section>
+		<h3>Texte à être remplacé</h3>
+		<p>Ce texte ne sera <strong>pas</strong> remplacé.</p>
+	</section>
+</div>
+
+<h2>Code</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p><a href="https://www.w3.org/TR/act-rules-aspects/#input-aspects-code">Code source</a></p>
+		<pre><code>&lt;h2&gt;Succès de récupération d'une ressource ajax&lt;/h2&gt;
+			&lt;div data-ajax-replace="ajax/data-ajax-extra-fr.html"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Texte à être remplacé&lt;/h3&gt;
+					&lt;p&gt;Ce texte sera remplacé.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+
+			&lt;h2&gt;Failed Ajax Fetch&lt;/h2&gt;
+			&lt;div data-ajax-replace="urlEnEchec"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Texte à être remplacé&lt;/h3&gt;
+					&lt;p&gt;Ce texte ne sera &lt;strong&gt;pas&lt;/strong&gt; remplacé.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		</code></pre>
+	</div>
+
+	<div class="col-md-6">
+		<p><a href="https://www.w3.org/TR/act-rules-aspects/#input-aspects-dom">Arbre de contenu</a></p>
+		<pre><code>&lt;h2&gt;Succès de récupération d'une ressource ajax&lt;/h2&gt;
+			&lt;div data-ajax-replace="ajax/data-ajax-extra-fr.html"&gt;
+				&lt;section class="ajaxed-in"&gt;
+					&lt;h3&gt;J'ai été affiché via Ajax&lt;/h3&gt;
+					&lt;p&gt;J'ai été affiché via Ajax. J'ai été affiché via Ajax. J'ai été affiché via Ajax. J'ai été affiché via Ajax. J'ai été affiché via Ajax.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+
+			&lt;h2&gt;Échec de récupération d'une ressource ajax&lt;/h2&gt;
+			&lt;div data-ajax-replace="urlEnEchec"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Texte à être remplacé&lt;/h3&gt;
+					&lt;p&gt;Ce texte ne sera &lt;strong&gt;pas&lt;/strong&gt; remplacé.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		</code></pre>
+	</div>
+</div>

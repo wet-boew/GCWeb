@@ -1,0 +1,351 @@
+---
+title: Charts - Static working examples
+dateModified: 2024-02-23
+description: "Create a visual representation of tabular data."
+lang: en
+breadcrumbs: [
+	{ title: "Charts", link: "méli-mélo/2024-02-charts/index.html" }
+]
+script:
+- js/chart.min.js
+- js/charts.js
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<h2>Line chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code>, <code>data-chart-set-options</code>, <code>data-chart-set-ignore</code> and <code>data-chart-value</code>.</p>
+<table class="text-right table table-striped" data-chart="line" data-chart-options='{
+	"elements": {
+		"point": {
+			"radius": 0
+		}
+	}
+}'>
+	<caption>Account holdings by type (line chart)</caption>
+	<thead>
+		<tr>
+			<th class="text-left">Years</th>
+			<th class="text-right" data-chart-set-options='{
+				"borderColor": "#28667a",
+				"backgroundColor": "#28667a",
+				"fill": true
+			}'>Amounts contributed or transferred</th>
+			<th class="text-right" data-chart-set-ignore="true">Investment income</th>
+			<th class="text-right" data-chart-set-options='{
+				"borderColor": "#e58a65",
+				"backgroundColor": "#e58a65",
+				"fill": true
+			}'>Total account holdings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th data-chart-value="Year 1">1</th>
+			<td>$4,000</td>
+			<td>$240</td>
+			<td>$4,240</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 2">2</th>
+			<td>$8,000</td>
+			<td>$734</td>
+			<td>$8,734</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 3">3</th>
+			<td>$12,000</td>
+			<td>$1,498</td>
+			<td>$13,498</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 4">4</th>
+			<td>$16,000</td>
+			<td>$2,548</td>
+			<td>$18,548</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 5">5</th>
+			<td>$20,000</td>
+			<td>$3,901</td>
+			<td>$23,901</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Bar chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code>, <code>data-chart-set-options</code>, <code>data-chart-set-ignore</code> and <code>data-chart-value</code>.</p>
+<table class="text-right table table-striped" data-chart="bar" data-chart-options='{
+	"scales": {
+		"x": {
+		  "stacked": true
+		},
+		"y": {
+		  "stacked": false
+		}
+	}
+}'>
+	<caption>Account holdings by type (bar chart)</caption>
+	<thead>
+		<tr>
+			<th class="text-left">Years</th>
+			<th class="text-right" data-chart-set-options='{
+				"backgroundColor": [
+					"#28667a"
+				]
+			}'>Amounts contributed or transferred</th>
+			<th class="text-right" data-chart-set-ignore="true">Investment income</th>
+			<th class="text-right" data-chart-set-options='{
+				"backgroundColor": [
+					"#e58a65"
+				]
+			}'>Total account holdings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th data-chart-value="Year 1">1</th>
+			<td data-chart-value="4000">$4,000</td>
+			<td data-chart-value="240">$240</td>
+			<td data-chart-value="4240">$4,240</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 2">2</th>
+			<td data-chart-value="8000">$8,000</td>
+			<td data-chart-value="734">$734</td>
+			<td data-chart-value="8734">$8,734</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 3">3</th>
+			<td data-chart-value="12000">$12,000</td>
+			<td data-chart-value="1498">$1,498</td>
+			<td data-chart-value="13498">$13,498</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 4">4</th>
+			<td data-chart-value="16000">$16,000</td>
+			<td data-chart-value="2548">$2,548</td>
+			<td data-chart-value="18548">$18,548</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 5">5</th>
+			<td data-chart-value="20000">$20,000</td>
+			<td data-chart-value="3901">$3,901</td>
+			<td data-chart-value="23901">$23,901</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Doughnut chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code> and <code>data-chart-set-options</code>.</p>
+<table class="table" data-chart="doughnut" data-chart-options='{
+	"plugins": {
+		"legend": {
+			"position": "left"
+		}
+	}
+}'>
+	<caption>Canadian population by province/territory (doughnut chart)</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th data-chart-set-options='{
+				"backgroundColor": ["#FF0000","#00FF00","#0000FF","#FFFF00","#00FFFF","#FF00FF","#FFA500","#800080","#A52A2A","#FFC0CB","#008080","#808000","#708090"]
+			}'>Population</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><th>Newfoundland and Labrador</th><td>540 418</td></tr>
+		<tr><th>Prince Edward Island</th><td>175 853</td></tr>
+		<tr><th>Nova Scotia</th><td>1 066 416</td></tr>
+		<tr><th>New Brunswick</th><td>842 725</td></tr>
+		<tr><th>Quebec</th><td>8 948 540</td></tr>
+		<tr><th>Ontario</th><td>15 801 768</td></tr>
+		<tr><th>Manitoba</th><td>1 465 440</td></tr>
+		<tr><th>Saskatchewan</th><td>1 218 976</td></tr>
+		<tr><th>Alberta</th><td>4 756 408</td></tr>
+		<tr><th>British Columbia</th><td>5 581 127</td></tr>
+		<tr><th>Yukon</th><td>45 148</td></tr>
+		<tr><th>Northwest Territories</th><td>44 760</td></tr>
+		<tr><th>Nunavut</th><td>40 817</td></tr>
+	</tbody>
+</table>
+
+<h2>Pie chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code> and <code>data-chart-set-options</code>.</p>
+<table class="table" data-chart="pie" data-chart-options='{
+	"plugins": {
+		"legend": {
+			"position": "left"
+		}
+	}
+}'>
+	<caption>Canadian population by province/territory (pie chart)</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th data-chart-set-options='{
+				"backgroundColor": ["#FF0000","#00FF00","#0000FF","#FFFF00","#00FFFF","#FF00FF","#FFA500","#800080","#A52A2A","#FFC0CB","#008080","#808000","#708090"]
+			}'>Population</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><th>Newfoundland and Labrador</th><td>540 418</td></tr>
+		<tr><th>Prince Edward Island</th><td>175 853</td></tr>
+		<tr><th>Nova Scotia</th><td>1 066 416</td></tr>
+		<tr><th>New Brunswick</th><td>842 725</td></tr>
+		<tr><th>Quebec</th><td>8 948 540</td></tr>
+		<tr><th>Ontario</th><td>15 801 768</td></tr>
+		<tr><th>Manitoba</th><td>1 465 440</td></tr>
+		<tr><th>Saskatchewan</th><td>1 218 976</td></tr>
+		<tr><th>Alberta</th><td>4 756 408</td></tr>
+		<tr><th>British Columbia</th><td>5 581 127</td></tr>
+		<tr><th>Yukon</th><td>45 148</td></tr>
+		<tr><th>Northwest Territories</th><td>44 760</td></tr>
+		<tr><th>Nunavut</th><td>40 817</td></tr>
+	</tbody>
+</table>
+
+<h2>Polar area chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code> and <code>data-chart-set-options</code>.</p>
+<table class="table" data-chart="polarArea" data-chart-options='{
+	"plugins": {
+		"legend": {
+			"position": "left"
+		}
+	}
+}'>
+	<caption>Canadian population by province/territory (polar area chart)</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th data-chart-set-options='{
+				"backgroundColor": ["#FF0000","#00FF00","#0000FF","#FFFF00","#00FFFF","#FF00FF","#FFA500","#800080","#A52A2A","#FFC0CB","#008080","#808000","#708090"]
+			}'>Population</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><th>Newfoundland and Labrador</th><td>540 418</td></tr>
+		<tr><th>Prince Edward Island</th><td>175 853</td></tr>
+		<tr><th>Nova Scotia</th><td>1 066 416</td></tr>
+		<tr><th>New Brunswick</th><td>842 725</td></tr>
+		<tr><th>Quebec</th><td>8 948 540</td></tr>
+		<tr><th>Ontario</th><td>15 801 768</td></tr>
+		<tr><th>Manitoba</th><td>1 465 440</td></tr>
+		<tr><th>Saskatchewan</th><td>1 218 976</td></tr>
+		<tr><th>Alberta</th><td>4 756 408</td></tr>
+		<tr><th>British Columbia</th><td>5 581 127</td></tr>
+		<tr><th>Yukon</th><td>45 148</td></tr>
+		<tr><th>Northwest Territories</th><td>44 760</td></tr>
+		<tr><th>Nunavut</th><td>40 817</td></tr>
+	</tbody>
+</table>
+
+<h2>Radar chart</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-options</code>, <code>data-chart-data</code> and <code>data-chart-set-options</code>.</p>
+<table class="table" data-chart="radar" data-chart-options='{
+	"plugins": {
+		"legend": {
+			"position": "left"
+		}
+	}
+}' data-chart-data='{
+	"labels": [
+		"Front-end development",
+		"Back-end development",
+		"Design",
+		"Databases",
+		"HR Management",
+		"Infrastructure"
+	],
+	"datasets": [{
+		"label": "Employee 1",
+		"data": [10, 9, 3, 8, 4, 8],
+		"fill": false
+	},
+	{
+		"label": "Employee 2",
+		"data": [9, 8, 7, 8, 9, 6],
+		"fill": false
+	},
+	{
+		"label": "Employee 3",
+		"data": [4, 2, 5, 6, 4, 1],
+		"fill": false
+	},
+	{
+		"label": "Employee 4",
+		"data": [7, 4, 7, 2, 6, 9],
+		"fill": false
+	}]
+}'>
+	<caption>Skills by employee</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th colspan="2">Employee group 1</th>
+			<th colspan="2">Employee group 2</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>Employee 1</th>
+			<th>Employee 2</th>
+			<th>Employee 3</th>
+			<th>Employee 4</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><th>Front-end development</th><td>10</td><td>9</td><td>4</td><td>7</td></tr>
+		<tr><th>Back-end development</th><td>9</td><td>8</td><td>2</td><td>4</td></tr>
+		<tr><th>Design</th><td>3</td><td>7</td><td>5</td><td>7</td></tr>
+		<tr><th>Databases</th><td>8</td><td>8</td><td>6</td><td>2</td></tr>
+		<tr><th>HR Management</th><td>4</td><td>9</td><td>4</td><td>6</td></tr>
+		<tr><th>Infrastructure</th><td>8</td><td>6</td><td>1</td><td>9</td></tr>
+	</tbody>
+</table>
+
+<h2>Line chart with table visible</h2>
+<p>This example demonstrates the use of the following configuration options: <code>data-chart-details-open</code>.</p>
+<table class="text-right table table-striped" data-chart="line" data-chart-details-open="true">
+	<caption>Account holdings by type (line chart)</caption>
+	<thead>
+		<tr>
+			<th class="text-left">Years</th>
+			<th class="text-right">Amounts contributed or transferred</th>
+			<th class="text-right" data-chart-set-ignore="true">Investment income</th>
+			<th class="text-right">Total account holdings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th data-chart-value="Year 1">1</th>
+			<td>$4,000</td>
+			<td>$240</td>
+			<td>$4,240</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 2">2</th>
+			<td>$8,000</td>
+			<td>$734</td>
+			<td>$8,734</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 3">3</th>
+			<td>$12,000</td>
+			<td>$1,498</td>
+			<td>$13,498</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 4">4</th>
+			<td>$16,000</td>
+			<td>$2,548</td>
+			<td>$18,548</td>
+		</tr>
+		<tr>
+			<th data-chart-value="Year 5">5</th>
+			<td>$20,000</td>
+			<td>$3,901</td>
+			<td>$23,901</td>
+		</tr>
+	</tbody>
+</table>

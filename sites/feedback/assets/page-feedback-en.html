@@ -1,0 +1,84 @@
+<div id="gc-pft" class="row wb-disable-allow" data-wb-jsonmanager='{
+	"name": "gc-pft",
+	"extractor": [
+		{ "selector": "title", "path": "pageData/pageTitle" },
+		{ "selector": "html", "attr": "lang", "path": "pageData/language" },
+		{ "interface": "locationHref", "path": "pageData/submissionPage" },
+		{ "selector": "#wb-lng ul li:first-child a[lang]", "attr": "href", "path": "pageData/oppositelang" },
+		{ "selector": "[data-feedback-theme]", "attr": "data-feedback-theme", "path": "pageData/themeopt" },
+		{ "selector": "[data-feedback-section]", "attr": "data-feedback-section", "path": "pageData/sectionopt" },
+		{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "pageData/institutionopt" },
+		{ "selector": "[data-feedback-link]", "attr": "data-feedback-link", "path": "contact/link" },
+		{ "selector": "[data-feedback-url]", "attr": "data-feedback-url", "path": "contact/url" }
+	]
+}'>
+	<div class="col-sm-10 col-md-9 col-lg-8">
+		<section class="well mrgn-bttm-0">
+			<h3 class="wb-inv">Give feedback about this page</h3>
+			<form action="https://feedback-retroaction.canada.ca/api/QueueProblemForm" method="post" class="wb-postback wb-disable-allow" data-wb-postback='{"success":".gc-pft-thnk"}'>
+				<div class="wb-disable-allow" data-wb-json='{
+					"url": "#[gc-pft]/pageData",
+					"mapping": [
+						{ "selector": "input", "attr": "name", "value": "/@id" },
+						{ "selector": "input", "attr": "value", "value": "/@value" }
+					]
+				}'>
+					<template>
+						<input type="hidden" name="" value="" />
+					</template>
+				</div>
+				<fieldset class="gc-pft-btns chkbxrdio-grp row row-no-gutters d-sm-flex flex-sm-wrap align-items-sm-center">
+					<legend class="col-xs-12 col-sm-7 nojs-col-sm-12 col-md-9 col-lg-8 text-center text-sm-left nojs-text-left mrgn-tp-sm pr-sm-3"><span class="field-name">Did you find what you were looking for?</span></legend>
+					<div class="col-xs-12 nojs-show">
+						<button name="helpful" value="Yes-Oui" class="btn btn-primary" aria-describedby="gc-pft-why">Yes</button>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-3 col-lg-4 text-center text-sm-right nojs-hide">
+						<button name="helpful" value="Yes-Oui" class="btn btn-primary">Yes</button>
+						<button class="btn btn-primary mrgn-lft-sm" data-wb-doaction='[
+							{"action":"removeClass","source":".gc-pft-no","class":"nojs-show"},
+							{"action":"addClass","source":".gc-pft-btns","class":"hide"}
+						]'>No</button>
+					</div>
+				</fieldset>
+				<div class="gc-pft-no nojs-show">
+					<p id="gc-pft-why" class="nojs-show mrgn-tp-lg mrgn-bttm-md">If not, tell us why below:</p>
+					<p class="nojs-hide wb-inv" aria-live="polite">Tell us why below:</p>
+					<div class="wb-disable-allow"  data-wb-json='{
+						"url": "#[gc-pft]/contact",
+						"streamline": "true",
+						"mapping": [
+							{
+								"template": "[data-contact-template]",
+								"test": "fn:isLiteral",
+								"assess": "/url",
+								"mapping": [
+									{ "selector": "a", "type": "attr", "attr": "href", "value": "/url"  },
+									{ "selector": "a", "value": "/link"  }
+								]
+							}
+						]
+					}'>
+						<template data-contact-template>
+							<details>
+								<summary>Need urgent help with a problem? Contact us</summary>
+								<p class="mrgn-bttm-0 mrgn-tp-md fnt-nrml">
+									<a href="#"></a>
+								</p>
+							</details>
+						</template>
+					</div>
+					<div class="form-group">
+						<label id="gc-pft-prblm-label" for="gc-pft-prblm" class="mrgn-bttm-0"><span class="field-name">Please provide more details</span></label>
+						<p id="gc-pft-prblm-note" class="mrgn-bttm-sm"><small>You will not receive a reply. Don't include personal information (telephone, email, SIN, financial, medical, or work details).</small></p>
+						<p id="gc-pft-prblm-instruction" class="fnt-nrml small">Maximum 300 characters</p>
+						<textarea id="gc-pft-prblm" aria-describedby="gc-pft-prblm-note gc-pft-prblm-instruction" name="details" class="form-control full-width" maxlength="300"></textarea>
+					</div>
+					<button name="helpful" value="No-Non" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+			<div class="gc-pft-thnk hide">
+				<p class="mrgn-tp-sm mrgn-bttm-0" role="status"><span class="glyphicon glyphicon-ok text-success mrgn-rght-sm" aria-hidden="true"></span> Thank you for your feedback.</p>
+			</div>
+		</section>
+	</div>
+</div>

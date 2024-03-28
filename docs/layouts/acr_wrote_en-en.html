@@ -109,19 +109,28 @@ layout: default
 	<dd>
 		<ul class="list-unstyled">
 			<li><strong>About</strong>:
-				<span><a data-wb-json='[
 
-					{
-						"url": "#[a11y]/earl:subject/dct:references",
-						"type": "attr",
-						"attr": "href"
-					},
-					{
-						"url": "#[a11y]/earl:subject/dct:references",
-						"type": "replace"
-					}
+				<div data-wb-json='{
+					"url": "#[a11y]/earl:subject",
+					"streamline": true,
+					"mapping": [
+						{
+							"template": "[data-one-ref]",
+							"test": "fn:isLiteral",
+							"value": "/dct:references",
+							"mapping": [
+								{ "selector": "a", "value": "/" },
+								{ "selector": "a", "value": "/", "attr": "href" }
+							]
+						}
 
-				]' href="#">Not Defined</a></span>
+					]
+
+				}'>
+					<template data-one-ref>
+						<p><a href></a></p>
+					</template>
+				</div>
 			</li>
 			<li><strong>Applicability</strong>:
 				<span data-json-replace="#[a11y]/earl:subject/dct:description">Not defined</span>
@@ -293,7 +302,7 @@ layout: default
 			"mapping": [
 				{ "selector": "[data-requirement-label]", "value": "/acr:requirement" },
 				{ "selector": "[data-conformance]", "value": "/acr:conformance" },
-				{ "selector": "[data-notes]", "value": "/notes" },
+				{ "selector": "[data-notes]", "value": "/dct:description" },
 				{ "selector": "[data-mode]", "value": "/earl:mode" },
 				{
 					"selector": "[data-assessment]",

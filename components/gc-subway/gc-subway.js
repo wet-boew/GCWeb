@@ -44,11 +44,11 @@ var $document = wb.doc,
 				}
 			} else {
 				$navH1 = $( "h1", $elm );
+				$navH1.get( 0 ).id = $navH1.get( 0 ).id || wb.getId();
 
 				// Add skip link to sections list
 				if ( $navH1 ) {
-					$navH1.id = $navH1.id || wb.getId(); // Ensure the element has an ID
-					wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + $navH1.text(), { href: "#" + $navH1.id } );
+					wb.addSkipLink( wb.i18n( "skip-prefix" ) + " " + $navH1.text(), { href: "#" + $navH1.get( 0 ).id } );
 				}
 
 				// Wrap all content until it hits either: ".pagedetails", or "".gc-subway-support"

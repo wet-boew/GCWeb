@@ -44,7 +44,7 @@
 
 <footer id="wb-info">
 	<h2 class="wb-inv">{{ i18nText-footerSite }}</h2>
-{% unless page.noFooterContextual %}
+{% unless page.noFooterContextual or layout.noFooterContextual %}
 {%- if contextualFooterTitle != "" and site.global.contextualFooter.links[i18nText-lang] or page.contextualFooter.links -%}
 	<div class="gc-contextual">
 		<div class="container">
@@ -72,7 +72,7 @@
 	</div>
 {%- endif -%}
 {% endunless %}
-{% unless page.noFooterMain %}
+{% unless page.noFooterMain or layout.noFooterMain %}
 	<div class="gc-main-footer">
 		<div class="container">
 			<nav>
@@ -139,7 +139,7 @@
 			<nav>
 				<h3 class="wb-inv">{{ i18nText-gocCorporate }}</h3>
 				<ul>
-					{% unless page.noFooterCorporate %}
+					{% unless page.noFooterCorporate or layout.noFooterCorporate %}
 					{%- if i18nText-lang == "fr" -%}
 					<li><a href="https://www.canada.ca/fr/sociaux.html">Médias sociaux</a></li>
 					<li><a href="https://www.canada.ca/fr/mobile.html">Applications mobiles</a></li>

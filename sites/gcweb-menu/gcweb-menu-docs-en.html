@@ -4,7 +4,7 @@
 	"language": "en",
 	"altLangPage": "gcweb-menu-docs-fr.html",
 	"secondlevel": false,
-	"dateModified": "2022-05-26",
+	"dateModified": "2023-10-25",
 	"share": "true"
 }
 ---
@@ -16,7 +16,7 @@
 	<dt>Type</dt>
 	<dd>Canada.ca site functionality</dd>
 	<dt>Last review</dt>
-	<dd>2022-05-26</dd>
+	<dd>2023-10-25</dd>
 </dl>
 
 <h2>Purpose</h2>
@@ -24,8 +24,8 @@
 
 <h2>Working example</h2>
 <ul>
-	<li><a href="../templates/content-en.html">Content page including GCWeb Menu v2.0</a></li>
-	<li><a href="../templates/home/home-en.html">Home page  including GCWeb Menu v2.0</a></li>
+	<li><a href="../../templates/content-page/content-en.html">Content page including GCWeb Menu v3.0</a></li>
+	<li><a href="../../templates/home/home-en.html">Home page  including GCWeb Menu v3.0</a></li>
 </ul>
 
 <h2>How to implement</h2>
@@ -35,7 +35,7 @@
 <h2>Evaluation and report</h2>
 <p>There is no evaluation and report available for this component.</p>
 
-<h2>API (Version 2.0)</h2>
+<h2 id="v3">API (Version 3.0)</h2>
 <table class="table table-bordered">
 	<tr>
 		<th>CSS Class</th>
@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<td>Version 1.0</td>
-		<td>Version 2.0</td>
+		<td>Version 3.0</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -54,15 +54,25 @@
 <h3>CSS Class (v1.0)</h3>
 <p><code>gcweb-menu</code></p>
 
-<h2>Before and After</h2>
+<h2>History</h2>
 
-<div class="row">
-	<div class="col-md-6">
-		<h2 id="v2">Version 2.0</h2>
+<h3>Version 3.0</h3>
+<p>Same as version 2.0, but the link for "Canada and the world" was updated.</p>
+<p>In English, the URL changes:</p>
+<ul>
+	<li>from <code>https://international.gc.ca/world-monde/index.aspx?lang=eng</code></li>
+	<li>to <code>https://<strong>www.</strong>international.gc.ca/world-monde/index.aspx?lang=eng</code></li>
+</ul>
+<p>In French, the URL changes:</p>
+<ul>
+	<li>from <code>https://international.gc.ca/world-monde/index.aspx?lang=fra</code></li>
+	<li>to <code>https://<strong>www.</strong>international.gc.ca/world-monde/index.aspx?lang=fra</code></li>
+</ul>
 
-		<p>List of change since version 1.0: Removal of the <code>&lt;div class="container"&gt;</code>.</p>
+<h3 id="v2">Version 2.0</h3>
+<p>List of change since version 1.0: Removal of the <code>&lt;div class="container"&gt;</code>.</p>
 
-		<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
+<pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
 	&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
 	&lt;button type=&quot;button&quot; aria&#45;haspopup=&quot;true&quot; aria&#45;expanded=&quot;false&quot;&gt;&#123;&#123; i18nText&#45;menuBtn &#125;&#125; &lt;span class=&quot;expicon glyphicon glyphicon&#45;chevron&#45;down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
 	&lt;ul role=&quot;menu&quot; aria&#45;orientation=&quot;vertical&quot; data&#45;ajax&#45;replace=&quot;&#123;&#123; i18nText&#45;menuAjax &#125;&#125;&quot;&gt;
@@ -73,12 +83,9 @@
 &#123;&#37;&#45; endif &#45;&#37;&#125;
 	&lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
-	</div>
-	<div class="col-md-6">
-<h2>Version 1.0 (deprecated)</h2>
 
+<h3 id="v1">Version 1.0 (deprecated)</h3>
 <p>The GCWeb menu version 1.0 is deprecated but still supported.</p>
-
 <pre><code>&lt;nav class=&quot;gcweb&#45;menu&quot; typeof=&quot;SiteNavigationElement&quot;&gt;
 	<del>&lt;div class=&quot;container&quot;&gt;</del>
 		&lt;h2 class=&quot;wb&#45;inv&quot;&gt;&#123;&#123; i18nText&#45;menu &#125;&#125;&lt;/h2&gt;
@@ -93,7 +100,5 @@
 	<del>&lt;/div&gt;</del>
 &lt;/nav&gt;</code></pre>
 
-	<h3>Working example</h3>
-	<p><a href="../header/deprecated/header-v1.html">Header and GCWeb Menu Version 1.0</a></p>
-	</div>
-</div>
+<h4>Working example</h4>
+<p><a href="../header/deprecated/header-v1.html">Header and GCWeb Menu Version 1.0</a></p>

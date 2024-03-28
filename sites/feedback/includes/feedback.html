@@ -2,21 +2,37 @@
 	{%- if page.feedbackPath -%}
 		{{ page.feedbackPath }}
 	{%- elsif site.global.feedbackPath and site.global.feedbackPath.first -%}
-		{{ site.global.feedbackPath[ i18nText-lang ] | relative_url }}
+		{{ site.global.feedbackPath[ i18nText-lang ] }}
+	{%- endif -%}
+{%- endcapture -%}
+{%- capture feedbackFallback -%}
+	{%- if page.feedbackFallback -%}
+		{{ page.feedbackFallback }}
+	{%- elsif site.global.feedbackFallback -%}
+		{{ site.global.feedbackFallback }}
 	{%- endif -%}
 {%- endcapture -%}
 
-
-<div {% if feedbackPath and feedbackPath != "" -%}
+<div {% if feedbackPath and feedbackPath != "" %}
 		data-ajax-replace="{{feedbackPath}}"
-	{%- endif -%}>
-	<div class="row row-no-gutters">
-		{%- if i18nText-lang == "en" -%}
-			<div class="col-sm-9 col-md-6 col-lg-5">
-		{%- else -%}
-			<div class="col-sm-11 col-md-7 col-lg-6">
-		{%- endif -%}
-			<a class="btn btn-default btn-block" href="{{ i18nText-feedbackLink }}">{{ i18nText-feedback }}</a>
+		{% unless feedbackFallback and feedbackFallback != "" %}
+			class="wb-disable-allow"
+		{%- endunless -%}
+	{%- endif -%}
+	{% if page.feedbackContact %} data-feedback-link="{{page.feedbackContact.link}}" data-feedback-url="{{page.feedbackContact.url}}" {% endif %}
+	{% if page.feedbackData.section %} data-feedback-section="{{page.feedbackData.section}}" {% endif %}
+	{% if page.feedbackData.theme %} data-feedback-theme="{{page.feedbackData.theme}}" {% endif %}>
+	{%- if feedbackFallback and feedbackFallback != "" -%}
+		<div class="row row-no-gutters">
+			{%- if i18nText-lang == "en" -%}
+				<div class="col-sm-9 col-md-6 col-lg-5">
+			{%- else -%}
+				<div class="col-sm-11 col-md-7 col-lg-6">
+			{%- endif -%}
+				<a class="btn btn-default btn-block" href="{{ i18nText-feedbackLink }}">{{ i18nText-feedback }}</a>
+			</div>
 		</div>
-	</div>
+	{%- else -%}
+		<!-- Will always be replaced by data-ajax -->
+	{%- endif -%}
 </div>

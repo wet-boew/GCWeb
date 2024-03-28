@@ -1,0 +1,67 @@
+---
+{
+	"title": "Ajax Fetch",
+	"language": "en",
+	"altLangPage": "ajax-fetch-fr.html",
+	"dateModified": "2023-08-25"
+}
+---
+<div class="wb-prettify all-pre"></div>
+<h2>Successful Ajax Fetch</h2>
+<div data-ajax-replace="ajax/data-ajax-extra-en.html">
+	<section>
+		<h3>Text to be replaced</h3>
+		<p>This text will be replaced.</p>
+	</section>
+</div>
+
+<h2>Failed Ajax Fetch</h2>
+<div data-ajax-replace="failedUrl">
+	<section>
+		<h3>Text to be replaced</h3>
+		<p>This text will <strong>not</strong> be replaced.</p>
+	</section>
+</div>
+
+<h2>Code</h2>
+<div class="row">
+	<div class="col-md-6">
+		<p><a href="https://www.w3.org/TR/act-rules-aspects/#input-aspects-code">Source code</a></p>
+		<pre><code>&lt;h2&gt;Successful Ajax Fetch&lt;/h2&gt;
+			&lt;div data-ajax-replace="ajax/data-ajax-extra-en.html"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Text to be replaced&lt;/h3&gt;
+					&lt;p&gt;This text will be replaced.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+
+			&lt;h2&gt;Failed Ajax Fetch&lt;/h2&gt;
+			&lt;div data-ajax-replace="failedUrl"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Text to be replaced&lt;/h3&gt;
+					&lt;p&gt;This text will &lt;strong&gt;not&lt;/strong&gt; be replaced.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		</code></pre>
+	</div>
+
+	<div class="col-md-6">
+		<p><a href="https://www.w3.org/TR/act-rules-aspects/#input-aspects-dom">DOM Tree</a></p>
+		<pre><code>&lt;h2&gt;Successful Ajax Fetch&lt;/h2&gt;
+			&lt;div data-ajax-replace="ajax/data-ajax-extra-en.html"&gt;
+				&lt;section class="ajaxed-in"&gt;
+					&lt;h3&gt;I was ajaxed in&lt;/h3&gt;
+					&lt;p&gt;I was ajaxed in. I was ajaxed in. I was ajaxed in. I was ajaxed in. I was ajaxed in. I was ajaxed in. I was ajaxed in.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+
+			&lt;h2&gt;Failed Ajax Fetch&lt;/h2&gt;
+			&lt;div data-ajax-replace="failedUrl"&gt;
+				&lt;section&gt;
+					&lt;h3&gt;Text to be replaced&lt;/h3&gt;
+					&lt;p&gt;This text will &lt;strong&gt;not&lt;/strong&gt; be replaced.&lt;/p&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		</code></pre>
+	</div>
+</div>

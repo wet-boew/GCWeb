@@ -1,0 +1,206 @@
+---
+{
+	"title": "Sémantique au niveau du texte",
+	"language": "fr",
+	"altLangPage": "text-level-semantics.html",
+	"breadcrumbs": [
+		{ "title": "GCWeb acceuil", "link": "https://wet-boew.github.io/GCWeb/index-en.html" }
+	],
+	"dateModified": "2024-02-27"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+<div lang="fr">
+	<div class="alert alert-warning">
+	<p>The purpose of this page is to test all native content grouping related elements,
+		if they are aligned with our design and are compliant to our accessibility guideline when used as is without any special customization.
+		The following include all content grouping elements in the HTML5 specification and a few examples was inspired by the
+		<a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#text-level-semantics">WHATWG section 4.4</a> as February 2024.
+		This page may not contain all the possible grouping content element combination.</p>
+	</div>
+
+	<h2>The <code>a</code> element</h2>
+	<ul>
+		<li><a>Anchor</a> without <code>href</code></li>
+		<li><a href="#">Anchor with an empty URL fragment</a></li>
+		<li id="local-anchor"><a href="#local-anchor">Anchor with a non-empty URL fragment</a></li>
+		<li><a href="https://wet-boew.github.io/GCWeb/">Anchor with <code>https://</code> URL scheme</a></li>
+		<li><a href="https://wet-boew.github.io/GCWeb/index-en.html" hreflang="en">Anchor with an English <code>hreflang</code> configuration</a></li>
+		<li><a href="https://wet-boew.github.io/GCWeb/index-fr.html" hreflang="fr">Anchor with an French <code>hreflang</code> configuration</a></li>
+	</ul>
+	<pre><code>&lt;a href="/">Home&lt;/a></code></pre>
+
+	<h2>The <code>em</code> element</h2>
+	<p>Cats <em>are</em> cute animals.</p>
+	<pre><code>
+	Cats &lt;em>are&lt;/em> cute animals.
+	</code></pre>
+
+	<h2>The <code>strong</code> element</h2>
+	<p>Chapter 1: <strong>The Praxis</strong></p>
+	<pre><code>
+	Chapter 1: &lt;strong>The Praxis&lt;/strong>
+	</code></pre>
+
+	<h2>The <code>small</code> element</h2>
+	<p>Example Corp today announced record profits for the
+	second quarter <small>(Full Disclosure: Foo News is a subsidiary of
+	Example Corp)</small>, leading to speculation about a third quarter
+	merger with Demo Group</p>
+	<pre><code>
+	Example Corp today announced record profits for the
+	second quarter &lt;small>(Full Disclosure: Foo News is a subsidiary of
+	Example Corp)&lt;/small>, leading to speculation about a third quarter
+	merger with Demo Group.
+	</code></pre>
+
+	<h2>The <code>s</code> element</h2>
+	<p>Price: <s>£4.50</s> £2.00!</p>
+	<pre><code>
+	Price: &lt;s>£4.50&lt;/s> £2.00!
+	</code></pre>
+
+	<h2>The <code>cite</code> element</h2>
+	<p>My favorite book is <cite>The Reality Dysfunction</cite> by
+	Peter F. Hamilton.</p>
+	<pre><code>
+	My favorite book is &lt;cite>The Reality Dysfunction&lt;/cite> by
+	Peter F. Hamilton.
+	</code></pre>
+
+	<h2>The <code>q</code> element</h2>
+	<p>The man said <q>Things that are impossible just take
+	longer</q>. I disagreed with him.</p>
+	<pre><code>
+	The man said &lt;q>Things that are impossible just take
+	longer&lt;/q>. I disagreed with him.
+	</code></pre>
+
+	<h2>The <code>dfn</code> element</h2>
+	<p>The term <dfn>organic food</dfn> refers to food produced without synthetic chemicals.</p>
+	<pre><code>
+	The term &lt;dfn>organic food&lt;/dfn> refers to food produced without synthetic chemicals.
+	</code></pre>
+
+	<h2>The <code>ruby</code>, <code>rt</code>, <code>rp</code> elements</h2>
+	<p><ruby> OJ <rp>(<rt>Orange Juice<rp>)</ruby></p>
+	<pre><code>
+	&lt;ruby> OJ &lt;rp>(&lt;rt>Orange Juice&lt;rp>)&lt;/ruby>
+	</code></pre>
+
+	<h2>The <code>data</code> element</h2>
+	<p>Available starting today! <data value="UPC:022014640201">North Coast Organic Apple Cider</data></p>
+	<pre><code>
+	Available starting today! &lt;data value="UPC:022014640201">North Coast Organic Apple Cider&lt;/data>
+	</code></pre>
+
+
+	<h2>The <code>time</code> element</h2>
+	<p><time>2011-11</time></p>
+	<pre>Date time<code>
+	&lt;time>2011-11&lt;/time>
+	</code></pre>
+
+	<h2>The <code>code</code> element</h2>
+	<p>The <code>code</code> element represents a fragment of computer
+	code</p>
+	<pre><code>
+	The &lt;code>code&lt;/code> element represents a fragment of computer
+	code.
+	</code></pre>
+
+	<h2>The <code>abbr</code> element</h2>
+	<p>The <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr>
+	started working on HTML5 in 2004.</p>
+	<pre><code>
+	The &lt;abbr title="Web Hypertext Application Technology Working Group">WHATWG&lt;/abbr>
+	started working on HTML5 in 2004.
+	</code></pre>
+
+	<h2>The <code>var</code> element</h2>
+	<p>If there are <var>n</var> fruit in the bowl, at least <var>n</var>÷2 will be ripe.</p>
+	<pre><code>
+	If there are &lt;var>n&lt;/var> fruit in the bowl, at least &lt;var>n&lt;/var>÷2 will be ripe.
+	</code></pre>
+
+	<h2>The <code>samp</code> element</h2>
+	<p>The computer said <samp>Unknown error -3</samp>.</p>
+	<pre><code>
+	The computer said &lt;samp>Unknown error -3&lt;/samp>.
+	</code></pre>
+
+	<h2>The <code>kdb</code> element</h2>
+		<p>Hit <kbd>F1</kbd> to continue.</p>
+		<pre><code>
+		Hit &lt;kbd>F1&lt;/kbd> to continue.
+		</code></pre>
+
+	<h2>The <code>sub</code> element</h2>
+		<p>Water is H<sub>2</sub>O.</p>
+		<pre><code>
+		Water is H&lt;sub>2&lt;/sub>O.
+		</code></pre>
+
+	<h2>The <code>sup</code> element</h2>
+		<p>The Hydrogen in heavy water is usually <sup>2</sup>H.</p>
+		<pre><code>
+		The Hydrogen in heavy water is usually &lt;sup>2&lt;/sup>H.
+		</code></pre>
+
+	<h2>The <code>i</code> element</h2>
+	<p>Lemonade consists primarily of <i>Citrus limon</i>.</p>
+	<pre><code>
+	Lemonade consists primarily of &lt;i>Citrus limon&lt;/i>.
+	</code></pre>
+
+	<h2>The <code>b</code> element</h2>
+	<p>Take a <b>lemon</b> and squeeze it with a <b>juicer</b>.</p>
+	<pre><code>
+	Take a &lt;b>lemon&lt;/b> and squeeze it with a &lt;b>juicer&lt;/b>.
+	</code></pre>
+
+	<h2>The <code>u</code> element</h2>
+	<p>The mixture of apple juice and <u>elderflower</u> juice is very pleasant.</p>
+	<pre><code>
+	The mixture of apple juice and &lt;u class="spelling">elderflower&lt;/u> juice is very pleasant.
+	</code></pre>
+
+	<h2>The <code>mark</code> element</h2>
+	<p>Elderflower cordial, with one <mark>part</mark> cordial to ten <mark>part</mark>s water,
+	stands <mark>apart</mark> from the rest.
+	</p>
+	<pre><code>
+	Elderflower cordial, with one &lt;mark>part&lt;/mark> cordial to ten &lt;mark>part&lt;/mark>s water,
+		stands &lt;mark>apart&lt;/mark> from the rest.
+	</code></pre>
+
+	<h2>The <code>bdi</code> element</h2>
+	<p>The recommended restaurant is <bdi lang="">My Juice Café (At The Beach)</bdi></p>
+	<pre><code>
+	The recommended restaurant is &lt;bdi lang="">My Juice Café (At The Beach)&lt;/bdi>
+	</code></pre>
+
+	<h2>The <code>bdo</code> element</h2>
+	<p>The proposal is to write English, but in reverse order. "Juice" would become "<bdo dir=rtl>Juice</bdo>"></p>
+	<pre><code>
+	The proposal is to write English, but in reverse order. "Juice" would become "&lt;bdo dir=rtl>Juice&lt;/bdo>"
+	</code></pre>
+
+	<h2>The <code>span</code> element</h2>
+	<p>In French we call it <span lang="fr">sirop de sureau</span>.</p>
+	<pre><code>
+	In French we call it &lt;span lang="fr">sirop de sureau&lt;/span>.
+	</code></pre>
+
+	<h2>The <code>br</code> element</h2>
+	<p>Simply Orange Juice Company<br>Apopka, FL 32703<br>U.S.A.</p>
+	<pre><code>
+	Simply Orange Juice Company&lt;br>Apopka, FL 32703&lt;br>U.S.A.
+	</code></pre>
+
+	<h2>The <code>wbr</code> element</h2>
+	<p>www.simply<wbr>orange<wbr>juice.com</p>
+	<pre><code>
+	www.simply&lt;wbr>orange&lt;wbr>juice.com
+	</code></pre>
+</div>
