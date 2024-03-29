@@ -1,0 +1,61 @@
+---
+{
+	"altLangPage": "maincontainer-article-en.html",
+	"dateModified": "2023-07-04",
+	"description": "Documentation sur l'utilisation du conteneur principal avec un article.",
+	"language": "fr",
+	"title": "Conteneur Principal avec article",
+	"layout": "core"
+}
+---
+
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+		{%- if page.titleH1 -%}
+			{{ page.titleH1 }}
+		%- {elsif page.title -%}
+			{{ page.title }}
+		{%- else -%}
+			Page untitled
+		{%- endif -%}
+{%- endcapture -%}
+
+<div class="wb-prettify all-pre hide"></div>
+
+<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+	<article>
+		<!-- heading -->
+		<h1>Article</h1>
+
+		<!-- contenu de la page -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ex arcu, faucibus a nisi a, consectetur
+			tincidunt elit. In varius elementum nunc, nec sollicitudin lorem malesuada at. Duis commodo quis enim ac
+			consectetur. Morbi facilisis tincidunt est, quis auctor lectus commodo eu. In pulvinar mi ligula, eu
+			interdum sem lacinia nec. Phasellus tempus mi id massa laoreet, a pellentesque dui venenatis. Maecenas
+			dignissim, lorem pretium facilisis tincidunt, dui massa iaculis turpis, quis convallis justo justo sit amet
+			quam. Donec consectetur eleifend fringilla. Cras eu rhoncus dui. Nam sit amet libero commodo quam sagittis
+			commodo eu eget nisl. Vestibulum vitae consequat velit. Ut blandit metus id justo efficitur, id maximus quam
+			euismod. Pellentesque eros libero, hendrerit non viverra at, euismod eu nunc. Fusce sit amet tincidunt
+			lacus. Proin dictum arcu at leo aliquam placerat. Donec volutpat ornare condimentum.</p>
+
+		<!-- Section des détails de la page [Doit être configuré comme un élément <footer> dans cette situation] -->
+
+
+		<h2>Code</h2>
+		<pre><code>
+		&lt;main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement"&gt;
+			&lt;article&gt;
+			&lt;!-- heading --&gt;
+			&lt;h1&gt;Article&lt;/h1&gt;
+
+			&lt;!-- contenu de la page --&gt;
+
+			&lt;!-- Section des détails de la page [Doit être configuré comme un élément &lt;footer&gt; dans cette situation] --&gt;
+
+			&lt;/article&gt;
+		&lt;/main&gt;
+		</code></pre>
+
+	</article>
+
+</main>
