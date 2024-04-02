@@ -1,0 +1,148 @@
+---
+title: Steps Quiz
+dateModified: 2024-04-01
+description: "Quiz pattern functionaltiy for the Steps Form component."
+lang: en
+css:
+- stepsquiz.css
+script:
+- js/steps-questionnaire.js
+---
+<p>Quiz pattern functionaltiy for the Steps Form component.</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-05-steps" | first %}
+
+<ul>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
+</ul>
+
+<p>Sponsor: {{ implPlan.sponsor }}</p>
+
+<section>
+	<h2>Example</h2>
+	<p><progress id="updateTest" value="0" max="100">0%</progress></p>
+	<div class="wb-frmvld provisional wb-steps">
+		<form action="#" method="get" id="quiz">
+			<fieldset id="role" class="gc-chckbxrdio">
+				<legend>What is you role?</legend>
+				<p>My Relationship to the Deceased is:</p>
+				<ul class="list-unstyled lst-spcd-2">
+					<li class="radio">
+						<input type="radio" name="role" id="nok-1">
+						<label for="nok-1">Next of Kin</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="role" id="friend-1">
+						<label for="friend-1">A Friend</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="role" id="rep-1">
+						<label for="rep-1">Legal Rep</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="role" id="exec-1">
+						<label for="exec-1">Executor</label>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset id="age"  class="gc-chckbxrdio  hidden">
+				<legend>Age of the deceased?</legend>
+				<p>Confirm how old was the deceased person at the time of death.</p>
+				<ul class="list-unstyled lst-spcd-2">
+					<li class="radio">
+						<input type="radio" name="age" id="017-1">
+						<label for="017-1">0-17</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="age" id="1859-1">
+						<label for="1859-1">18-59</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="age" id="60-1">
+						<label for="60-1">60+</label>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset id="location"  class="gc-chckbxrdio  hidden">
+				<legend>Location of the Deceased?</legend>
+				<p>Specify if the death occur in Canada or outside Canada.</p>
+				<ul class="list-unstyled lst-spcd-2">
+					<li class="radio">
+						<input type="radio" name="location" id="incanada-1">
+						<label for="incanada-1">Inside Canada</label>
+					</li>
+					<li class="radio">
+						<input type="radio" name="location" id="outcanada-1">
+						<label for="outcanada-1">Outside Canada</label>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset id="location"  class="gc-chckbxrdio  hidden">
+				<legend>????</legend>
+				<p>Select all that apply to you.</p>
+				<ul class="list-unstyled lst-spcd-2">
+					<li class="checkbox">
+						<input type="checkbox" id="tfw-1">
+						<label for="tfw-1">Temporary Foreign Worker</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="rc-1">
+						<label for="rc-1">Resident of Canada</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="goc-1">
+						<label for="goc-1">Public Service (Employees of the GoC)</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="caf-1">
+						<label for="caf-1">Canadian Armed Forces</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="rcmp1">
+						<label for="rcmp1">RCMP</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="student1">
+						<label for="student1">Student</label>
+					</li>
+					<li class="checkbox">
+						<input type="checkbox" id="fn1">
+						<label for="fn1">First Nations/Meti/Inuit</label>
+					</li>
+				</ul>
+			</fieldset>
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+		</form>
+	</div>
+
+	<details class="mrgn-tp-md mrgn-bttm-md">
+		<summary>View code</summary>
+		<ol>
+			<li>Create a <code>&lt;div&gt;</code> element with class <code>wb-steps</code> (you can also add class <code>wb-frmvld</code> for validation).
+				<pre><code>&lt;div class=&quot;wb-frmvld wb-steps&quot;&gt;&lt;/div&gt;</code></pre>
+			</li>
+			<li>Within previous the <code>&lt;div&gt;</code> element add a <code>&lt;form&gt;</code> element.
+				<pre><code>&lt;form action="#" method="get" id="steps-example"&gt;&lt;/form&gt;</code></pre>
+			</li>
+			<li>Within previous the <code>&lt;form&gt;</code> element add your <code>&lt;fieldset&gt;</code> element which will need an <code>&lt;legend&gt;</code> and <code>&lt;div&gt;</code>.
+				<small>These will become your steps</small>
+				<pre><code>&lt;fieldset&gt;<br/>&lt;legend&gt;Client Information&lt;/legend&gt;<br/>&lt;div&gt;(Any content in the div will be hidden.)&lt;/div&gt;<br/>&lt;/fieldset&gt;</code></pre>
+			</li>
+		</ol>
+	</details>
+
+	<noscript>
+		<p>Steps form cannot be used without JavaScript. Instead the form will convert back to an normal form and will rely on browser/server validation (not part of WET).</p>
+	</noscript>
+</section>
