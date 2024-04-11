@@ -18,8 +18,15 @@ L'autre étape serait de faire re-vive le méli-mélo gelé dans une nouvelle co
 	- 2021-04-gcaem - [0e2b0f1](https://github.com/wet-boew/GCWeb/tree/0e2b0f1c3bb81c198533c478bf1704ae89589ce8)
 * 2022-06-banff
 	- 2021-05-steps [as GCWeb v11.3.1](https://github.com/wet-boew/GCWeb/tree/v11.3.1/m%C3%A9li-m%C3%A9lo/2021-05-steps)
-  - 2021-05-conjunction - [as GCWeb v11.3.1](https://github.com/wet-boew/GCWeb/tree/v11.3.1/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
+	- 2021-05-conjunction - [as GCWeb v11.3.1](https://github.com/wet-boew/GCWeb/tree/v11.3.1/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
 
+* 2023-10-mount-revelstoke
+	- 2022-09-svgimagemap [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2022-09-svgimagemap)
+	- 2021-05-conjunction [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
+	- 2021-05-steps [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2021-05-steps)
+	- 2023-09-menu [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-menu)
+	- 2023-09-distance-calculator [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-distance-calculator)
+	- 2023-09-collection-sort [as GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-collection-sort)
 
 ## Template pour la liste de compilation gelé
 
