@@ -13,14 +13,12 @@ ul[class*=cnjnctn-type-] {
     position: relative;
 }
 [class*=cnjnctn-type-]>[class*=cnjnctn-col]:not(:first-child):after {
-    background-image: linear-gradient(to bottom, #6f6f6f, #6f6f6f);
-    background-size: 3px;
+    border-left: 3px solid #6f6f6f;
     content: ' ';
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    width: 3px;
 }
 [class*=cnjnctn-type-]>[class*=cnjnctn-col] {
     width: 100%;
@@ -114,7 +112,13 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
     padding-right: 0;
 }
 [class*=cnjnctn-type-].cnjnctn-xs>[class*=cnjnctn-col]:not(:first-child):after {
-    background-image: linear-gradient(to bottom, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.35em, #6f6f6f 2.35em);
+    border-image: linear-gradient(to bottom,#6f6f6f 0.3em,#6f6f6f 0.3em,transparent 0.3em,transparent 2.35em,#6f6f6f 2.35em,#6f6f6f 2.35em) 1 100%;
+    border-left: 3px solid #6f6f6f;
+}
+@media (prefers-contrast: more) {
+    [class*=cnjnctn-type-].cnjnctn-xs>[class*=cnjnctn-col]:not(:first-child):after {
+		border-image: linear-gradient(to bottom,#ffffff 0.3em,#ffffff 0.3em,transparent 0.3em,transparent 2.35em,#ffffff 2.35em,#ffffff 2.35em) 1 100%;
+	}
 }
 [class*=cnjnctn-type-].cnjnctn-xs>[class*=cnjnctn-col]:not(:first-child) {
     margin-left: 1.4em;
@@ -142,7 +146,7 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
     border-width: 3px 0px 3px 0px;
 }
 [class*=cnjnctn-type-].brdr-0>[class*=cnjnctn-col]:after {
-    background-image: none;
+     border-left: none;
 }
 
 @media all and (min-width: 768px) {
@@ -173,8 +177,14 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
     margin-top: 0;
 }
 [class*=cnjnctn-type-].cnjnctn-sm>[class*=cnjnctn-col]:not(:first-child):after {
-    background-image: linear-gradient(to bottom, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.35em, #6f6f6f 2.35em);
+    border-image: linear-gradient(to bottom,#6f6f6f 0.3em,#6f6f6f 0.3em,transparent 0.3em,transparent 2.35em,#6f6f6f 2.35em,#6f6f6f 2.35em) 1 100%;
+    border-left: 3px solid #6f6f6f;
 }
+@media (prefers-contrast: more) {
+    [class*=cnjnctn-type-].cnjnctn-sm>[class*=cnjnctn-col]:not(:first-child):after {
+		border-image: linear-gradient(to bottom,#ffffff 0.3em,#ffffff 0.3em,transparent 0.3em,transparent 2.35em,#ffffff 2.35em,#ffffff 2.35em) 1 100%;
+	}
+} 	
 .cnjnctn-type-and.cnjnctn-sm>[class*=cnjnctn-col]:not(:first-child):before {
     border-width: 3px 0px 3px 0px;
 }
@@ -212,8 +222,14 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
     margin-top: 0;
 }
 [class*=cnjnctn-type-].cnjnctn-md>[class*=cnjnctn-col]:not(:first-child):after {
-    background-image: linear-gradient(to bottom, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.35em, #6f6f6f 2.35em);
+	border-image: linear-gradient(to bottom,#6f6f6f 0.3em,#6f6f6f 0.3em,transparent 0.3em,transparent 2.35em,#6f6f6f 2.35em,#6f6f6f 2.35em) 1 100%;
+    border-left: 3px solid #6f6f6f;
 }
+@media (prefers-contrast: more) {
+    [class*=cnjnctn-type-].cnjnctn-md>[class*=cnjnctn-col]:not(:first-child):after {
+		border-image: linear-gradient(to bottom,#ffffff 0.3em,#ffffff 0.3em,transparent 0.3em,transparent 2.35em,#ffffff 2.35em,#ffffff 2.35em) 1 100%;
+	}
+}	
 .cnjnctn-type-and.cnjnctn-md>[class*=cnjnctn-col]:not(:first-child):before {
     border-width: 3px 0px 3px 0px;
 }
@@ -251,8 +267,14 @@ html:lang(fr) .cnjnctn-type-or>[class*=cnjnctn-col]:not(:first-child):before {
     margin-top: 0;
 }
 [class*=cnjnctn-type-].cnjnctn-lg>[class*=cnjnctn-col]:not(:first-child):after {
-    background-image: linear-gradient(to bottom, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.35em, #6f6f6f 2.35em);
+	border-image: linear-gradient(to bottom,#6f6f6f 0.3em,#6f6f6f 0.3em,transparent 0.3em,transparent 2.35em,#6f6f6f 2.35em,#6f6f6f 2.35em) 1 100%;
+    border-left: 3px solid #6f6f6f;
 }
+@media (prefers-contrast: more) {
+    [class*=cnjnctn-type-].cnjnctn-lg>[class*=cnjnctn-col]:not(:first-child):after {
+		border-image: linear-gradient(to bottom,#ffffff 0.3em,#ffffff 0.3em,transparent 0.3em,transparent 2.35em,#ffffff 2.35em,#ffffff 2.35em) 1 100%;
+	}
+}	
 .cnjnctn-type-and.cnjnctn-lg>[class*=cnjnctn-col]:not(:first-child):before {
     border-width: 3px 0px 3px 0px;
 }
