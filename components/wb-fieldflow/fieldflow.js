@@ -619,7 +619,7 @@ var componentName = "wb-fieldflow",
 			} else {
 
 				// We have a group of sub-items, the cur_itm are a group
-				selectOut += "<optgroup label='" + cur_itm.label + "'>";
+				selectOut += "<optgroup label='" + wb.escapeAttribute( stripHtml( cur_itm.label ) ) + "'>";
 				j_len = cur_itm.group.length;
 				for ( j = 0; j !== j_len; j += 1 ) {
 					selectOut += buildSelectOption( cur_itm.group[ j ] );
@@ -762,7 +762,7 @@ var componentName = "wb-fieldflow",
 		var arrItems = $items.get(),
 			i, i_len = arrItems.length, itmCached,
 			itmLabel, itmValue, grpItem,
-			j, j_len, childNodes, firstNode, childNode, $childNode, childNodeID,
+			j, j_len, childNodes, firstNode, firstElmNode, childNode, $childNode, childNodeID,
 			parsedItms = [],
 			actions;
 
@@ -774,6 +774,7 @@ var componentName = "wb-fieldflow",
 			itmLabel = "";
 
 			firstNode = itmCached.firstChild;
+			firstElmNode = itmCached.firstElementChild;
 			childNodes = itmCached.childNodes;
 			j_len = childNodes.length;
 
@@ -783,10 +784,10 @@ var componentName = "wb-fieldflow",
 
 			actions = [];
 
-			// Is firstNode an anchor?
-			if ( firstNode.nodeName === "A" ) {
-				itmValue = firstNode.getAttribute( "href" );
-				itmLabel = $( firstNode ).html();
+			// Is firstElmNode an anchor?
+			if ( firstElmNode && firstElmNode.nodeName === "A" ) {
+				itmValue = firstElmNode.getAttribute( "href" );
+				itmLabel = $( firstElmNode ).html().trim();
 				j_len = 1; // Force following elements to be ignored
 
 				actions.push( {
@@ -834,7 +835,7 @@ var componentName = "wb-fieldflow",
 				// Remove nested structure in grouping (ul) and nesting (.wb-fieldflow-sub) scenarios
 				$itmCachedClean.children( "ul, .wb-fieldflow-sub" ).remove();
 
-				itmLabel = $itmCachedClean.html();
+				itmLabel = $itmCachedClean.html().trim();
 			}
 
 			// Set an id on the element
