@@ -7,28 +7,187 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Most requested - Documentation and working example",
-		"fr": "En demande - Documentation et example pratique"
+		"en": "Most requested",
+		"fr": "En demande"
 	},
 	"description": {
 		"en": "Features top tasks related to the page it is on.",
 		"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
 	},
-	"modified": "2021-05-20",
+	"modified": "2024-02-14",
 	"componentName": "gc-most-requested",
-	"status": "provisional",
+	"status": "stable",
+	"version": "1.0",
 	"pages": {
+		"docs": [
+			{
+				"title": "Most requested - Documentation",
+				"language": "en",
+				"path": "gc-most-requested-doc-en.html"
+			},
+			{
+				"title": "En demande - Documentation",
+				"language": "fr",
+				"path": "gc-most-requested-doc-fr.html"
+			}
+		],
 		"examples": [
 			{
-				"title": "Most requested - Documentation and working example",
+				"title": "Most requested",
 				"language": "en",
 				"path": "gc-most-requested-en.html"
 			},
-		{
+			{
 				"title": "En demande",
 				"language": "fr",
-				"path": "gc-most-requested-fr.html - Documentation et example pratique"
+				"path": "gc-most-requested-fr.html"
+			},
+			{
+				"title": "Most requested - bad implementation",
+				"language": "en",
+				"path": "gc-most-requested-bad-en.html"
+			},
+			{
+				"title": "En demande - mauvaise implémentation",
+				"language": "fr",
+				"path": "gc-most-requested-bad-fr.html"
 			}
 		]
-	}
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Most requested - default",
+				"fr": "En demande - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Features top tasks related to the page it is on.",
+				"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
+			},
+			"iteration": "_:iteration_mostrequested_1",
+			"example": [
+				{
+					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
+					"fr": { "href": "gc-most-requested-fr.html", "text": "En demande" }
+				},
+				{
+					"en": { "href": "gc-most-requested-bad-en.html", "text": "Most requested - bad implementation" },
+					"fr": { "href": "gc-most-requested-bad-fr.html", "text": "En demande - mauvaise implémentation" }
+				}
+			],
+			"implementation": [
+				"_:implement_mostrequested"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Initial implementation of the variation.",
+					"fr": "Février 2024 - Implémentation initiale de la variante."
+				},
+				{
+					"en": "June 2021 - Provisional implementation of the variation.",
+					"fr": "Juin 2021 - Implémentation provisionnelle de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_mostrequested",
+			"iteration": "_:iteration_mostrequested_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below.",
+					"The component cannot be located inside another element with the class <code>container</code>."
+				],
+				"fr": [
+					"Référez-vous au code qui suit.",
+					"La composante ne peut pas être située à l'intérieur d'un autre élément avec la classe <code>container</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"The Most requested component on the home page is out of scope of this component."
+				],
+				"fr": [
+					"La composante En demande sur la page d'accueil est exclue de cette composante."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Tâche principale 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_mostrequested_1",
+			"name": "Most requested - Iteration 1",
+			"date": "2024-02",
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_0",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_mostrequested_0",
+			"name": "Most requested - Provisional",
+			"date": "2021-06",
+			"detectableBy": ".provisional.gc-most-requested",
+			"successor": "_:iteration_mostrequested_1"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_mostrequested",
+			"name": "Most requested",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_mostrequested_1",
+			"detectableBy": ".gc-most-requested",
+			"layout": "On smaller screens, the title is on the top and links are stacked. On medium and larger, the title is on the left and links are distributed over two columns from left to right and top to bottom.",
+			"style": "The component has a light gray background.",
+			"semantic": "h2 + (ul > li > a)",
+			"static": [
+				"Most requested",
+				"En demande"
+			],
+			"context": "The component must not be located inside an element with the class \"container\"",
+			"schema": [
+				"arrays of 'MostRequestedLink'",
+				"'MostRequestedLink' object: [ \"task links\", \"task names\" ]"
+			]
+		}
+	]
 }
