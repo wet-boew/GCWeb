@@ -7,25 +7,38 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Featured link - Documentation and working example",
-		"fr": "Lien en vedette - Documentation et example pratique"
+		"en": "Featured link",
+		"fr": "Lien en vedette"
 	},
 	"description": {
 		"en": "This adds a featured link to a page that your institution needs to feature prominently.",
 		"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
 	},
-	"modified": "2021-05-20",
+	"modified": "2024-02-21",
 	"componentName": "gc-featured-link",
-	"status": "provisional",
+	"status": "stable",
+	"version": "1.0.0",
 	"pages": {
+		"docs": [
+			{
+				"title": "Featured link",
+				"language": "en",
+				"path": "gc-featured-link-doc-en.html"
+			},
+			{
+				"title": "Lien en vedette",
+				"language": "fr",
+				"path": "gc-featured-link-doc-fr.html"
+			}
+		],
 		"examples": [
 			{
-				"title": "Featured link - Documentation and working example",
+				"title": "Featured link",
 				"language": "en",
 				"path": "gc-featured-link-en.html"
 			},
-		{
-				"title": "Lien en vedette - Documentation et example pratique",
+			{
+				"title": "Lien en vedette",
 				"language": "fr",
 				"path": "gc-featured-link-fr.html"
 			}
@@ -52,5 +65,233 @@
 				"path": "reports/a11y-2-fr.html"
 			}
 		]
-	}
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Featured link - default",
+				"fr": "Lien en vedette - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This adds a featured link to a page that your institution needs to feature prominently.",
+				"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
+			},
+			"iteration": "_:iteration_featuredLink_3",
+			"example": [
+				{
+					"en": { "href": "gc-featured-link-en.html", "text": "Featured link" },
+					"fr": { "href": "gc-featured-link-fr.html", "text": "Lien en vedette" }
+				}
+			],
+			"implementation": [
+				"_:implement_featuredLink",
+				"_:implement_migrationProvisional"
+			],
+			"history": [
+				{
+					"en": "March 2024 - Stabilizing component.",
+					"fr": "Mars 2024 - Stabilisation de la composante."
+				},
+				{
+					"en": "August 2023 - Adding possibility to customize the background color.",
+					"fr": "Août 2023 - Ajout de la possibilité de personnaliser la couleur de fond."
+				},
+				{
+					"en": "June 2021 - Initial provisional implementation to gather user experience data.",
+					"fr": "Juin 2021 - Implémentation provisoire initiale pour recueillir des données sur l'expérience utilisateur."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_featuredLink",
+			"iteration": "_:iteration_featuredLink_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample.",
+					"You can optionally add a description under the featured link.",
+					"To customize the background color, add the attribute <code>data-bg-color</code> to the <code>&lt;section></code> element. The value should be the hexadecimal code of the desired color, for example: <code>#005B61</code>."
+				],
+				"fr": [
+					"Référez-vous au code qui suit.",
+					"Vous pouvez facultativement ajouter une description sous le lien en vedette.",
+					"Pour personnaliser la couleur d'arrière-plan, ajoutez l'attribut <code>data-bg-color</code> à l'élément <code>&lt;section></code>. La valeur doit être le code hexadécimal de la couleur souhaitée, par exemple&nbsp;: <code>#005B61</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"When customizing the background color, the component will automatically apply the correct color to the text: <code>#FFFFFF</code> for dark colors, <code>#333333</code> for light colors, <code>#000000</code> for colors in-between."
+				],
+				"fr": [
+					"Lorsque la couleur de fond est personnalisée, la composante appliquera automatiquement la bonne couleur au texte : <code>#FFFFFF</code> pour les couleurs sombres, <code>#333333</code> pour les couleurs claires, <code>#000000</code> pour les couleurs intermédiaires."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-featured-link\" data-bg-color\"#005B61\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Spotlight on</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"gc-featured-link\" data-bg-color\"#005B61\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Pleins feux sur</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Titre de la promotion]</a></p>\n\t</div>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_migrationProvisional",
+			"iteration": "_:iteration_featuredLink_3",
+			"name": {
+				"en": "Migration from provisional to stable v1.0.0",
+				"fr": "Migration de provisoire à stable v1.0.0"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers attempting to update the component from its provisional state to its stable state version 1.0.0.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs tentant de mettre à jour la composante à partir de l'état provoire vers l'état stable version 1.0.0."
+			},
+			"instructions": {
+				"en": [
+					"Remove the CSS class \"provisional\".",
+					"Remove the starting and end tags for both <code>&lt;div class=\"row\">&lt;/div></code> and <code>&lt;div class=\"col-xs-12\">&lt;/div></code>.",
+					"Update the <code>&lt;h2 class=\"wb-inv\"></code> title to \"Spotlight on\"."
+				],
+				"fr": [
+					"Supprimer la classe CSS \"provisoire\".",
+					"Supprimez les balises de début et de fin pour <code>&lt;div class=\"row\">&lt;/div></code> et <code>&lt;div class=\"col-xs-12\" >&lt;/div></code>.",
+					"Mettez à jour le titre <code>&lt;h2 class=\"wb-inv\"></code> à \"Pleins feux sur\"."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code before:",
+						"code": "<section class=\"provisional gc-featured-link\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12\">\n\t\t\t\t<h2 class=\"wb-inv\">Featured</h2>\n\t\t\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Code after:",
+						"code": "<section class=\"gc-featured-link\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Spotlight on</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Code avant :",
+						"code": "<section class=\"provisional gc-featured-link\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12\">\n\t\t\t\t<h2 class=\"wb-inv\">En vedette</h2>\n\t\t\t\t<p><a class=\"stretched-link\" href=\"#\">[Titre de la promotion]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Code après :",
+						"code": "<section class=\"gc-featured-link\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Pleins feux sur</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Titre de la promotion]</a></p>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_featuredLink_3",
+			"name": "Featured link - Iteration 3",
+			"date": "2024-03",
+			"detectableBy": ".gc-featured-link:not(.provisional)",
+			"breaking": [
+				"Removed unnecessary grid",
+				"Changed hidden heading"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-featured-link\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Spotlight on</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_featuredLink_2",
+			"name": "Featured link - Iteration 2",
+			"date": "2023-08",
+			"detectableBy": ".provisional.gc-featured-link[data-bg-color]",
+			"additions": [
+				"Adding possibility to customize the background color."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"provisional gc-featured-link\" data-bg-color\"#005B61\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12\">\n\t\t\t\t<h2 class=\"wb-inv\">Featured</h2>\n\t\t\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_featuredLink_1",
+			"name": "Featured link - Iteration 1",
+			"date": "2021-06",
+			"detectableBy": ".provisional.gc-featured-link",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"provisional gc-featured-link\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12\">\n\t\t\t\t<h2 class=\"wb-inv\">Featured</h2>\n\t\t\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_featuredLinkHelpers_1",
+			"name": "Featured link with helpers - Iteration 1",
+			"date": "unknown",
+			"detectableBy": ".bg-gctheme.opct-90 a.stretched-link",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"bg-gctheme opct-90\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"mrgn-tp-md mrgn-bttm-md col-xs-12\">\n\t\t\t\t<p class=\"pull-left text-white mrgn-bttm-0\">Featured: </p>\n\t\t\t\t<p class=\"pull-left mrgn-bttm-0\"><a class=\"stretched-link text-white\" href=\"#\">[Promotion title]</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_featuredLink",
+			"name": "Featured link",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_featuredLink_1",
+			"detectableBy": ".gc-featured-link",
+			"layout": "Component spans across viewport width, link spans across container width.",
+			"semantic": "section>h2+a",
+			"style": "By default, the background color of the component is blue with white text.",
+			"static": [
+				"Featured",
+				"En vedette"
+			],
+			"schema": [
+				"Link title (type: STRING)",
+				"Link URL (type: STRING)",
+				"Link description (type: STRING)",
+				"Background color (type: STRING) - optional"
+			],
+			"configuration": "data-bg-color: customize the background color"
+		}
+	]
 }
