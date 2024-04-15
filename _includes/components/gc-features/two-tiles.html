@@ -1,0 +1,31 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ List of features - Two tiles
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+
+<section class="gc-features">
+	{%- if page.language == "fr" -%}
+	<h2>En vedette</h2>
+	{%- else -%}
+	<h2>Features</h2>
+	{%- endif -%}
+	<div class="row wb-eqht-grd">
+		{% for i in (1..2) %}
+		<div class="col-sm-6 hght-inhrt">
+			<div class="well well-sm eqht-trgt hght-inhrt">
+				<img src="https://via.placeholder.com/360x203/000000/FFFFFF.png" alt="">
+				{%- if page.language == "fr" -%}
+				<h3><a href="#" class="stretched-link">[Lien vers l’élément en vedette]</a></h3>
+				<p>Brève description de l’élément en vedette. Brève description de l’élément en vedette.</p>
+				{%- else -%}
+				<h3><a href="#" class="stretched-link">[Feature hyperlink text]</a></h3>
+				<p>Brief description of the feature being promoted. Brief description of the feature being promoted.</p>
+				{%- endif -%}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>

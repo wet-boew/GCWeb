@@ -475,7 +475,7 @@
 		"en": "Institutional landing page template documentation and working example.",
 		"fr": "Documentation et exemple pratique de la page d'accueil institutionnelle"
 	},
-	"modified": "2024-03-26",
+	"modified": "2024-04-16",
 	"componentName": "institutional-landing",
 	"status": "stable",
 	"version": "2.0.0",
@@ -502,6 +502,32 @@
 				"title": "Page d'accueil institutionnelle",
 				"language": "fr",
 				"path": "institutional-landing-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "GCWU theme - English institution landing template",
+				"language": "en",
+				"url": "https://wet-boew.github.io/GCWeb/templates/institutional-landing/demoted/institution-landing-en.html",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Thème FEGC - Français - Gabarit d'atterrissage de profil institutionnel",
+				"language": "fr",
+				"url": "https://wet-boew.github.io/GCWeb/templates/institutional-landing/demoted/institution-landing-fr.html",
+				"path": "reports/a11y-1-fr.html"
+			},
+			{
+				"title": "Canada.ca theme - A reference implementation of the Canada.ca Content and Information Architecture Specification, the Canada.ca Content Style Guide and the Canada.ca Design System",
+				"language": "en",
+				"url": "https://wet-boew.github.io/GCWeb/templates/institutional-landing/institutional-landing-en.html",
+				"path": "reports/a11y-2-en.html"
+			},
+			{
+				"title": "Thème Canada.ca - Une implémentation de référence de la spécification de contenu et d'architecture de l'information de Canada.ca, du guide de style de contenu de Canada.ca et du système de conception de Canada.ca",
+				"language": "fr",
+				"url": "https://wet-boew.github.io/GCWeb/templates/institutional-landing/institutional-landing-fr.html",
+				"path": "reports/a11y-2-fr.html"
 			}
 		]
 	},
@@ -565,12 +591,22 @@
 			},
 			"instructions": {
 				"en": [
+					"Add the CSS class <code>.page-type-ilp</code> to the page's <code>&lt;body></code> element.",
 					"Refer to the working example for a code sample.",
-					"Refer to the official guidance for more information on how to implement this page template."
+					"Refer to the working example and guidance for more information on how to implement this page template."
 				],
 				"fr": [
+					"Ajoutez la classe CSS <code>.page-type-ilp</code> sur l'élément <code>&lt;body></code> de la page.",
 					"Reportez-vous à l'exemple pratique pour un exemple de code.",
-					"Référez-vous aux directives officielles pour plus d'informations sur l'implémentation ce modèle de page."
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			},
+			"notes": {
+				"en": [
+					"Not adding the required CSS class (<code>.page-type-ilp</code>) will result in the styles specific to this template not being applied. We did implement a temporary workaround as a transition to this new template. The workaround is going to be removed at the same time as the demoted/deprecated ILP version 1."
+				],
+				"fr": [
+					"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-ilp</code>), les styles spécifiques à ce gabarit ne seront pas appliqués. Nous avons mis en œuvre une solution de contournement temporaire en guise de transition vers ce nouveau modèle. La solution de contournement sera supprimée en même temps que la version 1 de la PAI rétrogradée/obsolète."
 				]
 			}
 		}
@@ -608,6 +644,9 @@
 				"About the institution [.col-md-8] + Social media channels - version 1 [.col-md-4]",
 				"Minister - version 1",
 				"News feed - version 1.1 [.col-md-4] + Context-specific features two-tiles right-aligned - version 5 [.col-md-8]"
+			],
+			"test": [
+				"<a href=\"institutional-landing-bad.html\">Implementation of ILP without template class</a>"
 			]
 		}
 	]
@@ -685,32 +724,6 @@
 				"title": "Thème FEGC - Français - Gabarit de profil institutionnel",
 				"language": "fr",
 				"url": "https://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html"
-			}
-		],
-		"reports": [
-			{
-				"title": "GCWU theme - English institution landing template",
-				"language": "en",
-				"url": "https://wet-boew.github.io/GCWeb/templates/institutional/institution-landing-en.html",
-				"path": "reports/a11y-1-en.html"
-			},
-			{
-				"title": "Thème FEGC - Français - Gabarit d'atterrissage de profil institutionnel",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/GCWeb/templates/institutional/institution-landing-fr.html",
-				"path": "reports/a11y-1-fr.html"
-			},
-			{
-				"title": "Canada.ca theme - A reference implementation of the Canada.ca Content and Information Architecture Specification, the Canada.ca Content Style Guide and the Canada.ca Design System",
-				"language": "en",
-				"url": "https://servicecanada.github.io/wet-boew-demos/ilp-template/templates/institutional/institutional-landing-en.html",
-				"path": "reports/a11y-2-en.html"
-			},
-			{
-				"title": "Thème Canada.ca - Une implémentation de référence de la spécification de contenu et d'architecture de l'information de Canada.ca, du guide de style de contenu de Canada.ca et du système de conception de Canada.ca",
-				"language": "fr",
-				"url": "https://servicecanada.github.io/wet-boew-demos/ilp-template/templates/institutional/institutional-landing-fr.html",
-				"path": "reports/a11y-2-fr.html"
 			}
 		]
 	}
