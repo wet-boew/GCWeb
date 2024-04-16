@@ -1493,6 +1493,45 @@ layout: default
 				}
 
 			]
+		},
+
+		{
+			"about": "/test",
+			"dd14": "Testing files",
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-test-none]",
+					"test": "fn:guessType",
+					"value": "/test",
+					"expect": "undefined"
+				},
+				{
+					"template": "[data-test-description]",
+					"test": "fn:guessType",
+					"value": "/test",
+					"expect": "xsd:string",
+					"mapping": [
+						{ "selector": "dd", "value": "/" }
+					]
+				},
+				{
+					"template": "[data-test-list]",
+					"test": "fn:guessType",
+					"value": "/test",
+					"expect": "rdfs:Container",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value", "isHTML": true }
+							]
+						}
+					]
+				}
+
+			]
 		}
 
 
@@ -1908,6 +1947,26 @@ layout: default
 			</template>
 			<template data-file-list>
 				<dt>Packaged <span class="nowrap">essential</span> file:</dt>
+				<dd>
+					<ul>
+						<template>
+							<li>[[ Description ]]</li>
+						</template>
+					</ul>
+				</dd>
+			</template>
+
+			<!-- Testing files -->
+			<template data-test-none>
+				<dt>Testing files:</dt>
+				<dd>Not applicable or out of scope</dd>
+			</template>
+			<template data-test-description>
+				<dt>Testing files:</dt>
+				<dd>[[ Description ]]</dd>
+			</template>
+			<template data-test-list>
+				<dt>Testing files:</dt>
 				<dd>
 					<ul>
 						<template>
