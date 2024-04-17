@@ -1,0 +1,74 @@
+---
+title: Empathy theme
+dateModified: 2024-04-17
+description: Empathy CSS styles
+lang: en
+css:
+- style.css
+layout: without-h1
+---
+<h1 property="name" id="wb-cont" dir="ltr" class="empathy">{{ page.title }}</h1>
+{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-empathy" | first %}
+<p>Sponsor: {{ metadata.sponsor }}</p>
+<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+<p>Progressive enhancement note:</p>
+<ul>
+    {% for peNote in metadata.peNote %}
+    <li>{{ peNote }}</li>
+    {% endfor %}
+</ul>
+
+<h2>CSS classes</h2>
+<dl class="dl-horizontal">
+    <dt><code>.btn-empathy</code></dt>
+    <dd>Along with <code>.btn-primary</code> or <code>.btn-default</code>, set a purple colour thematic to buttons.</dd>
+    <dt><code>.panel-empathy</code></dt>
+    <dd>Set border colour for panel to purple</dd>
+    <dt><code>hr.brdr-empathy</code></dt>
+    <dd>Set border colour for &lt;hr&gt; to purple</dd>
+</dl>
+
+<h2>Examples</h2>
+<h3>Purple &lt;button&gt; .btn example</h3>
+<button class="btn btn-primary btn-empathy" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-primary btn-empathy" type="button"&gt;Button&lt;/button&gt;</code></pre>
+
+<h3>Light purple &lt;button&gt; .btn example</h3>
+<button class="btn btn-default btn-empathy" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-default btn-empathy" type="button"&gt;Button&lt;/button&gt;</code></pre>
+
+<h3>&lt;hr&gt; example</h3>
+<hr class="brdr-empathy">
+<h4>Code</h4>
+<pre><code>&lt;hr class="brdr-empathy"&gt;</code></pre>
+<h4>Standard &lt;hr&gt; for visual comparison reference</h4>
+<hr>
+
+<h3>Panel border example</h3>
+<div class="panel panel-default panel-empathy">
+    <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+</div>
+<h4>Code</h4>
+<pre><code>&lt;div class="panel panel-default panel-empathy"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h4>Standard default panel border for visual comparison reference</h4>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+</div>
+
+<h2>Progress (HTML)</h2>
+<progress class="pgs-empathy" max="100" value="70">70%</progress>
+
+<h2>Progress (Bootstrap)</h2>
+<div class="progress">
+  <div class="progress-bar bg-empathy" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
