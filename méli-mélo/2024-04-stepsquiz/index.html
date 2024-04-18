@@ -3,13 +3,12 @@ title: Steps Quiz
 dateModified: 2024-04-01
 description: "Addition of a Quiz pattern to the existing Steps Form component."
 lang: en
-pageclass: cnt-wdth-lmtd
 css:
 - stepsquiz.css
 script:
 - js/stepsquiz.js
 ---
-<p>Quiz pattern for the Steps Form component.</p>
+<p>Addition of a quiz pattern for the Steps Form component.</p>
 
 <h2>GCWeb implementation plan</h2>
 
@@ -38,224 +37,87 @@ script:
 <section>
 	<h2>How to use</h2>
 	<ol>
-		<li>Add the <code>quiz</code> class to <code>&lt;div&gt;</code> element containing the <code>wb-steps</code> class of the Steps Form component.</li>
+		<li>Add the <code>quiz</code> CSS class to <code>&lt;div&gt;</code> element containing the <code>wb-steps</code> CSS class of the Steps Form component.</li>
 	</ol>
 </section>
 
-<!--<h2 id="examples">How to implement</h2>
-<h3>Default</h3>
+<section>
+	<h2>Working Examples</h2>
+	<ul>
+		<li><a href="#default-1">Steps Quiz - Default (full width)</a></li>
+		<li><a href="stepsquiz-limited.html">Steps Quiz - Content Limited Width Panel</a></li>
+	</ul>
+</section>
+
 <section>
 	<div class="wb-frmvld provisional wb-steps quiz">
-		<h2>Example</h2>
-		<form action="#" method="get" id="quiz-example">
+		<h2 id="default-1">Example - Default (full width)</h2>
+		<form action="#" id="quiz-example">
 			<fieldset>
-				<legend>1. What is you role?</legend>
+				<legend>1. Which is your favorite fruit?</legend>
 				<div>
-					<p>My Relationship to the deceased is:</p>
+					<p>My favorite fruit is:</p>
 					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
 						<li class="radio">
-							<input type="radio" name="role" id="nok-1">
-							<label for="nok-1">Next of Kin</label>
+							<input type="radio" name="fruit" id="apple-1" value="apple">
+							<label for="apple-1">Apple</label>
 						</li>
 						<li class="radio">
-							<input type="radio" name="role" id="friend-1">
-							<label for="friend-1">A Friend</label>
+							<input type="radio" name="fruit" id="orange-1" value="orange">
+							<label for="orange-1">Orange</label>
 						</li>
 						<li class="radio">
-							<input type="radio" name="role" id="rep-1">
-							<label for="rep-1">Legal Rep</label>
+							<input type="radio" name="fruit" id="banana-1" value="banana">
+							<label for="banana-1">Banana</label>
 						</li>
 						<li class="radio">
-							<input type="radio" name="role" id="exec-1">
-							<label for="exec-1">Executor</label>
+							<input type="radio" name="fruit" id="kiwi-1" value="Kiwi">
+							<label for="kiwi-1">Kiwi</label>
 						</li>
 					</ul>
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>2. Age of the deceased?</legend>
+				<legend>2. Which is your favorite pet?</legend>
 				<div>
-					<p>Confirm how old was the deceased person at the time of death:</p>
+					<p>My favorite pet is:</p>
 					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
 						<li class="radio">
-							<input type="radio" name="age" id="017-1">
-							<label for="017-1">0-17</label>
+							<input type="radio" name="animal" id="dog-1" value="dog">
+							<label for="dog-1">Dog</label>
 						</li>
 						<li class="radio">
-							<input type="radio" name="age" id="1859-1">
-							<label for="1859-1">18-59</label>
+							<input type="radio" name="animal" id="cat-1" value="cat">
+							<label for="cat-1">Cat</label>
 						</li>
 						<li class="radio">
-							<input type="radio" name="age" id="60-1">
-							<label for="60-1">60+</label>
+							<input type="radio" name="animal" id="bird-1" value="bird">
+							<label for="bird-1">Bird</label>
 						</li>
 					</ul>
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend>3. Location of the deceased?</legend>
+				<legend>3. Condiments</legend>
 				<div>
-					<p>Specify if the death occur inside Canada or outside Canada:</p>
+					<p>Choose your condiments:</p>
 					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="radio">
-							<input type="radio" name="location" id="incanada-1">
-							<label for="incanada-1">Inside Canada</label>
+						<li class="checkbox">
+							<input type="checkbox" id="ketchup-1" value="ketchup" name="condiments">
+							<label for="ketchup-1">Ketchup</label>
 						</li>
-						<li class="radio">
-							<input type="radio" name="location" id="outcanada-1">
-							<label for="outcanada-1">Outside Canada</label>
+						<li class="checkbox">
+							<input type="checkbox" id="relish-1"  value="relish" name="condiments">
+							<label for="relish-1">Relish</label>
+						</li>
+						<li class="checkbox">
+							<input type="checkbox" id="mustard-1"  value="mustard" name="condiments">
+							<label for="mustard-1">Mustard</label>
 						</li>
 					</ul>
 				</div>
 			</fieldset>
-			<fieldset>
-				<legend>4. Miscellaneous</legend>
-				<div>
-					<p>Select all that apply to the deceased:</p>
-					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="checkbox">
-							<input type="checkbox" id="tfw1">
-							<label for="tfw1">Temporary Foreign Worker</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="rc1">
-							<label for="rc1">Resident of Canada</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="goc1">
-							<label for="goc1">Public Service (Employees of the GoC)</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="caf1">
-							<label for="caf1">Canadian Armed Forces</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="rcmp1">
-							<label for="rcmp1">RCMP</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="student1">
-							<label for="student1">Student</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="fn1">
-							<label for="fn1">First Nations/Meti/Inuit</label>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
-		</form>
-	</div>
-</section>-->
-
-<h3>Content limited width panel</h3>
-<ul>
-	<li>Apply <code>panel</code> and <code>panel-default</code> classes to the first <code>&lt;section&gt;</code> element.</li>
-	<li>Add the <code>panel-body</code> class to the <code>&lt;div&gt;</code> element containing the <code>wb-steps</code> class.</li>
-</ul>
-
-<section class="panel panel-default">
-	<div class="wb-frmvld provisional wb-steps quiz panel-body">
-		<h2>Example</h2>
-		<form action="#" method="get" id="quiz2-example2">
-			<fieldset>
-				<legend>1. What is you role?</legend>
-				<div>
-					<p>My Relationship to the deceased is:</p>
-					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="radio">
-							<input type="radio" name="role" id="nok-2">
-							<label for="nok-2">Next of Kin</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="role" id="friend-2">
-							<label for="friend-2">A Friend</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="role" id="rep-2">
-							<label for="rep-2">Legal Rep</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="role" id="exec-2">
-							<label for="exec-2">Executor</label>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>2. Age of the deceased?</legend>
-				<div>
-					<p>Confirm how old was the deceased person at the time of death:</p>
-					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="radio">
-							<input type="radio" name="age" id="017-2">
-							<label for="017-2">0-17</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="age" id="1859-2">
-							<label for="1859-2">18-59</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="age" id="60-2">
-							<label for="60-2">60+</label>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>3. Location of the deceased?</legend>
-				<div>
-					<p>Specify if the death occur inside Canada or outside Canada:</p>
-					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="radio">
-							<input type="radio" name="location" id="incanada-2">
-							<label for="incanada-2">Inside Canada</label>
-						</li>
-						<li class="radio">
-							<input type="radio" name="location" id="outcanada-2">
-							<label for="outcanada-2">Outside Canada</label>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>4. Miscellaneous</legend>
-				<div>
-					<p>Select all that apply to the deceased:</p>
-					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-						<li class="checkbox">
-							<input type="checkbox" id="tfw-2">
-							<label for="tfw-2">Temporary Foreign Worker</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="rc-2">
-							<label for="rc-2">Resident of Canada</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="goc-2">
-							<label for="goc-2">Public Service (Employees of the GoC)</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="caf-2">
-							<label for="caf-2">Canadian Armed Forces</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="rcmp-2">
-							<label for="rcmp-2">RCMP</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="student-2">
-							<label for="student-2">Student</label>
-						</li>
-						<li class="checkbox">
-							<input type="checkbox" id="fn-2">
-							<label for="fn-2">First Nations/Meti/Inuit</label>
-						</li>
-					</ul>
-				</div>
-			</fieldset>
-			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+			<input type="submit" class="btn btn-primary" />
 		</form>
 	</div>
 </section>

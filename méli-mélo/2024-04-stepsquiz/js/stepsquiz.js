@@ -8,12 +8,11 @@
 "use strict";
 
 //Detect the enhancement of the quiz
-var instances = document.querySelectorAll( ".wb-steps.quiz" );
-console.log("Variable instances");
-console.log(instances);
+var quizSelector = ".provisional.wb-steps.quiz",
+	instances = document.querySelectorAll( quizSelector );
 
 //How many quiz instances in the page
-instances.forEach ( (instance) => {
+instances.forEach ( ( instance ) => {
 	let $instance = $( instance );
 
 	// Calculate number of questions
@@ -21,24 +20,42 @@ instances.forEach ( (instance) => {
 
 	// Addition to UI (Ex: progress bar)
 	$( "form", $instance ).prepend( "<p class='progressText' role='status'></p>" );
-	$( "form", $instance ).prepend( "<progress class='progressBar' max='" + numQuestion + "'></progress>" );
-
+	$( "form", $instance ).prepend( "<p><progress class='progressBar' max='" + numQuestion + "'></progress></p>" );
 
 });
 
 var hideOtherSteps = function( e ) {
 	// Get wb-steps component
-	let steps = $( e.currentTarget ).parentsUntil( ".quiz" ).parent( ).get( 0 );
+	let steps,
+	currentElement = e.currentTarget;
+
+	if ( currentElement.classList.contains( "quiz" ) && currentElement.classList.contains( "wb-steps" ) ) {
+		steps = currentElement;
+
+	} else {
+		steps = $( currentElement ).parentsUntil( quizSelector ).parent().get( 0 );
+	}
+
+
+	// Check if the instance is not found
+	if ( !steps || steps instanceof HTMLDocument ) {
+		return;
+	}
 
 	// Find the steps form context and validate it is a quiz
 	let currentTabId = $( "legend.wb-steps-active:first-child", steps ).parents().prevAll( ".steps-wrapper" ).length + 1;
 	
-	// Set number of questions
-	let numQuestion = $( "fieldset", steps ).length;
+	// Get progress bar
+	let $progressBar = $( ".progressBar", steps );
+
+	// Get number of questions
+	let numQuestion = $progressBar.attr( "max" );
+
+	// Set the progress label
 	$( "p.progressText", steps ).text( currentTabId + " of  " + numQuestion );
 
-	//Update progress bar
-  	$( ".progressBar", steps ).val( currentTabId );
+	// Update progress bar
+  	$progressBar.val( currentTabId );
 
   	// Hide other steps that are not active
 	$( ".steps-wrapper", steps ).removeClass( "hidden" );
@@ -46,9 +63,9 @@ var hideOtherSteps = function( e ) {
 
 };
 
-$( document ).on( "click", ".wb-steps.quiz .steps-wrapper div.buttons > :button", hideOtherSteps );
+$( document ).on( "click", quizSelector + " .steps-wrapper div.buttons > :button", hideOtherSteps );
 
 //Init
-$( ".wb-steps.quiz" ).on( "wb-ready.wb-steps", hideOtherSteps );
+$( quizSelector ).on( "wb-ready.wb-steps", hideOtherSteps );
 
 } )( jQuery, document );
