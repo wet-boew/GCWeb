@@ -9,7 +9,7 @@ contextualFooter:
     text: Contextual link 2
   - url: http://canada.ca/en
     text: Contextual link 3
-dateModified: 2023-01-16
+dateModified: 2023-12-04
 includes:
   footer: edge
 language: en
@@ -29,7 +29,12 @@ Consult the Canada.ca Design System for guidance on which footer elements or cus
 
 ## Latest changes
 
-### Version 6.0
+### Version 7.0
+
+The following changes have been made since **version 4.0**:
+* Version 7.0 : Added "www." to the "Canada and the world" URL.
+* Version 6.0 : Changed the "Veterans and military" URL.
+* Version 5.0 : Changed “All Contacts” to “All contacts”.
 
 The following changes have been made since **version 2.0**:
 * Added a contextual band above the main band.
@@ -46,11 +51,6 @@ The following changes have been made since **version 2.0**:
 * Removed "Top of page" anchor.
 * Complete rework of the footer's headings for accessibility.
 * GCWeb Jekyll specific: Footer skip link should always remain.
-* Changed the "Veterans and military" URL.
-
-The following changes have been made since **version 4.0**:
-* Changed “All Contacts” to “All contacts”.
-* Changed the "Veterans and military" URL.
 
 ## Reference implementation
 
