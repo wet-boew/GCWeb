@@ -1,0 +1,94 @@
+---
+title: Empathy theme
+dateModified: 2024-04-30
+description: Empathy CSS styles
+lang: en
+pageclass: cnt-wdth-lmtd
+css:
+- style.css
+- https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2025-04-nahanni.css
+script:
+- https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2025-04-nahanni.js
+layout: without-h1
+---
+<h1 property="name" id="wb-cont" class="empathy">{{ page.title }}</h1>
+<p>The colors offered by this theme aim to evoke a sense of empathy for the user during certain life events, such as grieving the loss of a loved one.</p>
+{% assign metadata = site.pages | where: "output", "false" | where: "componentName", "th-empathy" | first %}
+<p>Sponsor: {{ metadata.sponsor }}</p>
+<p>Accessibility statement: {{ metadata.a11yStatement }}</p>
+<p>Progressive enhancement note:</p>
+<ul>
+    {% for peNote in metadata.peNote %}
+    <li>{{ peNote }}</li>
+    {% endfor %}
+</ul>
+
+<h2>CSS classes</h2>
+<dl>
+    <dt><code>.empathy</code></dt>
+    <dd>When applied to the <code>&lt;h1&gt;</code> element it set a purple underline to the title element of the page.</dd>
+    <dd>When applied to the Steps Quiz along with the <code>wb-steps</code> and <code>quiz</code> it set the thematic colors to the navigation buttons, the progress bar and to the <code>&lt;legend&gt;</code> text.</dd>
+    <dt><code>.btn-empathy</code></dt>
+    <dd>Along with <code>.btn-primary</code> or <code>.btn-default</code>, set a purple colour thematic to buttons.</dd>
+</dl>
+
+<h2>Examples</h2>
+<h3>Purple Underline to the <code>&lt;h1&gt;</code> </h3>
+<p>The example has been applied to the <code>&lt;h1&gt;</code> element of this page.</p>
+<h4>Code</h4>
+<pre><code>&lt;h1 property="name" id="wb-cont" class="empathy"&gt;&lt;-- Page title --&gt;&lt;/h1&gt;</code></pre>
+
+<h3>Purple Button</h3>
+<button class="btn btn-primary btn-empathy" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-primary btn-empathy" type="button"&gt;Button&lt;/button&gt;</code></pre>
+
+<h3>Light Purple Button</h3>
+<button class="btn btn-default btn-empathy" type="button">Button</button>
+<h4>Code</h4>
+<pre><code>&lt;button class="btn btn-default btn-empathy" type="button"&gt;Button&lt;/button&gt;</code></pre>
+
+<h3>Steps Progress</h3>
+<div class="panel panel-default stepsquiz">
+    <div class="wb-frmvld provisional wb-steps quiz empathy panel-body">
+        <form action="#" id="progress-example">
+            <fieldset>
+                <legend>Which is your favorite fruit?</legend>
+                <div>
+                    <p>My favorite fruit is:</p>
+                    <ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+                        <li class="radio">
+                            <input type="radio" name="fruit" id="apple-1" value="apple">
+                            <label for="apple-1">Apple</label>
+                        </li>
+                        <li class="radio">
+                            <input type="radio" name="fruit" id="orange-1" value="orange">
+                            <label for="orange-1">Orange</label>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Condiments</legend>
+                <div>
+                    <p>Choose your condiments:</p>
+                    <ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+                        <li class="checkbox">
+                            <input type="checkbox" id="ketchup-1" value="ketchup" name="condiments">
+                            <label for="ketchup-1">Ketchup</label>
+                        </li>
+                        <li class="checkbox">
+                            <input type="checkbox" id="relish-1"  value="relish" name="condiments">
+                            <label for="relish-1">Relish</label>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+            <input type="submit" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+<h4>Code</h4>
+<pre><code>&lt;div class="wb-frmvld provisional wb-steps quiz empathy panel-body"&gt;
+    &lt;!-- Steps Quiz Form --&gt;
+&lt;/div&gt;</code></pre>
