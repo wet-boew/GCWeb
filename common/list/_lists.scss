@@ -1,0 +1,177 @@
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ * @title: Lists
+ *
+ */
+
+/*
+ * List responsive style
+ *
+ * It has variant defined for some specific views
+ * - views/_screen-lg-min
+ * - views/_screen-xs-max
+ */
+.list-responsive {
+
+	> li {
+		float: left;
+		padding-right: 5px;
+		width: 50%;
+
+		&:nth-child(2n+2) {
+			clear:right;
+		}
+	}
+
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/* Display lists in columns using Flexbox
+ *	Add this class to a ul or ol to distribute its items in columns horizontally. Handles up to 4 columns.
+ *	It has variants defined for some specific views:
+ *	- _screen-sm-min
+ *	- _screen-md-min
+ *	- _screen-lg-min
+*/
+ul[class*=list-col] {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+	padding-right: 0;
+
+	> li {
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+}
+
+/*
+ * this code is fully compatible with the equivalent CSS
+ * in the wet-boew code here: https://github.com/wet-boew/wet-boew/blob/master/src/base/lists/_base.scss
+*/
+ul.list-col-xs-1 > li { flex-basis: 100% }
+ul.list-col-xs-2 > li { flex-basis: 50% }
+ul.list-col-xs-3 > li { flex-basis: 33.33% }
+ul.list-col-xs-4 > li { flex-basis: 25% }
+
+
+div.lst-lwr-alph>ol,
+.lst-lwr-alph {
+	list-style-type: lower-alpha;
+}
+
+div.lst-upr-alph>ol,
+.lst-upr-alph {
+	list-style-type: upper-alpha;
+}
+
+div.lst-lwr-rmn>ol,
+.lst-lwr-rmn {
+	list-style-type: lower-roman;
+}
+
+div.lst-upr-rmn>ol,
+.lst-upr-rmn {
+	list-style-type: upper-roman;
+}
+
+.lst-num {
+	list-style-type: decimal;
+}
+
+div.lst-none>ul,
+.lst-none {
+	list-style-type: none;
+}
+
+
+div.lst-spcd>ul,
+div.lst-spcd>ol,
+ol.lst-spcd,
+ul.lst-spcd {
+	> {
+		li {
+			margin-bottom: 10px;
+		}
+	}
+
+	ul,
+	ol {
+		margin-top: 10px;
+	}
+}
+
+/* Double space list items
+ * Might worth to publish it upstream here instead: https://github.com/wet-boew/wet-boew/blob/master/src/base/lists/_base.scss#L30
+ */
+div.lst-spcd-2>ul,
+div.lst-spcd-2>ol,
+ul.lst-spcd-2,
+ol.lst-spcd-2
+{
+	> {
+		li {
+			margin-bottom: 20px;
+		}
+	}
+
+	ul,
+	ol {
+		margin-top: 20px;
+	}
+}
+
+
+/*
+ * The CSS for list-unstyled and list-inline classes is adapted from
+ * https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css
+ * to address the specific scenario where these styles are applied to a parent div.
+ * This adaptation accommodates edge cases where the styles need to be inherited by the parent element.
+ *
+ * Additional style for list also defined here: https://github.com/twbs/bootstrap-sass/blob/v3.4.3/assets/stylesheets/bootstrap/_type.scss#L146
+ */
+
+div.list-unstyled > ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+div.list-inline > ul {
+	list-style: none;
+	margin-left: -5px;
+	padding-left: 0;
+
+	> li {
+		display: inline-block;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+/*
+ * GCWeb/AEM: Custom CSS for list styling via parent <div>.
+ * Accommodates unique AEM scenario for consistent styling.
+ */
+
+div.list-advanced.disc>ul, ul.disc {
+	list-style-type:disc;
+}
+
+div.list-advanced.circle>ul, ul.circle {
+	list-style-type:circle;
+}
+
+div.list-advanced.square>ul, ul.square {
+	list-style-type:square;
+}

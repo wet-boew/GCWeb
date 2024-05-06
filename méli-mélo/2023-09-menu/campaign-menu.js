@@ -71,10 +71,16 @@
 
                 var megamenuAjaxReplace = $elm[0].getAttribute('data-megamenu-ajax');
 
+				var megamenuColorClass = "";
+                
+                if ($elm[0].hasAttribute('data-megamenu-bg-color')) {
+                    megamenuColorClass = $elm[0].getAttribute('data-megamenu-bg-color');
+                }
+
                 // Wrap menu HTML with the megamenu wrapper
                 // NOTE: Removed role="navigation" (redundant) and typeof="SiteNavigationElement" (not required)
                 megamenuHTML = `
-                <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
+                <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg ${megamenuColorClass}" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
                     <div class="pnl-strt nvbar">
                         <h2>${gcwebMenuH2.textContent}</h2>
                         <ul role="menubar" class="list-inline menu">
