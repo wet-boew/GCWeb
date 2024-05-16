@@ -1,0 +1,49 @@
+{
+  "@context": "https://wet-boew.github.io/vocab/context/2023/assessment-report-en.json-ld",
+  "@type": [
+    "earl:Assertion",
+    "acr:AssessmentReport"
+  ],
+  "dct:date": "2024-05-01",
+  "earl:subject": {
+    "@id": "_:subject",
+    "dct:references": [
+      "https://wet-boew.github.io/wet-boew/demos/tagfilter/tagfilter-en.html"
+    ],
+    "@type": [
+      "earl:TestSubject",
+      "schema:WebPage"
+    ],
+    "dct:description": "",
+    "oa:hasState": [],
+    "earl:pointer": {
+      "@type": "oa:CssSelector",
+      "@value": ""
+    }
+  },
+  "earl:assertedBy": {
+    "@type": [
+      "earl:Assertor",
+      "foaf:Person"
+    ],
+    "foaf:name": "Christopher Oakes",
+    "foaf:homepage": "https://github.com/Christopher-O"
+  },
+  "dct:description": "This assessment is generated following a review by CRA's team of the Tagfilter component.",
+  "earl:result": [
+    {
+      "earl:test": "WCAG21:status-messages",
+      "earl:subject": "_:subject",
+      "earl:result": [],
+      "acr:asset": [],
+      "earl:mode": "earl:manual",
+      "acr:severity": "acr:moderate",
+      "acr:relevancy": "acr:usability",
+      "dct:description": "Upon selecting a filter, the AT announces the complete list of elements that are now available. This means that it can happen that the AT will announce a list of hundreds of items, which is not ideal. A status message might be a better option like \"Items have been updated\".",
+      "earl:outcome": "earl:cantTell",
+      "selected": ""
+    }
+  ],
+  "acr:standard": "https://www.w3.org/TR/WCAG21",
+  "acr:conformanceOption": "act:standard/profiles/wcag#levelAA"
+}
