@@ -1,0 +1,537 @@
+---
+{
+	"title": "Style de liste personnalisé à l'aide de l'élément div parent",
+	"language": "fr",
+	"altLangPage": "lists-mws-en.html",
+	"dateModified": "2024-04-04",
+	"description": "Pour répondre aux exigences des produits de service Web gérés, concernant les listes, les classes CSS doivent être appliquées à l'élément parent."
+}
+---
+<div class="wb-prettify all-pre"></div>
+<p>Pour répondre aux exigences des produits de service Web gérés, concernant les listes, les classes CSS doivent être appliquées à l'élément parent.</p>
+
+<div class="row">
+	<h2>Listes non stylisées</h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<div class="list-unstyled">
+			<ul>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2
+					<ul>
+						<li>Élément de liste 2a</li>
+						<li>Élément de liste 2b</li>
+					</ul>
+				</li>
+				<li>Élément de liste 3</li>
+			</ul>
+		</div>
+		<p>Liste imbriquée non stylisée :</p>
+		<ul>
+			<li>Élément de liste 1
+				<div class="lst-none">
+					<ul>
+						<li>Élément de liste 2a</li>
+						<li>Élément de liste 2b</li>
+					</ul>
+				</div>
+			</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+<pre><code>// Liste non stylisée :
+&lt;div <strong>class=&quot;list-unstyled&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+// Liste imbriquée non stylisée :
+&lt;ul&gt;
+	&lt;li&gt;Élément de liste 1
+		&lt;div <strong>class=&quot;lst-none&quot;</strong>&gt;
+			&lt;ul&gt;
+				&lt;li&gt;Élément de liste 1a&lt;/li&gt;
+				&lt;li&gt;Élément de liste 1b&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="list-unstyled">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2
+				<ul class="lst-none">
+					<li>Élément de liste 2a</li>
+					<li>Élément de liste 2b</li>
+				</ul>
+			</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<p>Liste imbriquée non stylisée :</p>
+		<ul>
+			<li>Élément de liste 1
+				<ul class="lst-none">
+					<li>Élément de liste 2a</li>
+					<li>Élément de liste 2b</li>
+				</ul>
+			</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+<pre><code>// Liste non stylisée :
+&lt;ul <strong>class=&quot;list-unstyled&quot;</strong>&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+// Liste imbriquée non stylisée :
+&lt;ul&gt;
+	&lt;li&gt;Élément de liste 1
+		&lt;ul <strong>class=&quot;lst-none&quot;</strong>&gt;
+			&lt;li&gt;Élément de liste 1a&lt;/li&gt;
+			&lt;li&gt;Élément de liste 1b&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+	</div>
+</div>
+<div class="row">
+	<h2>Listes alphabétiques − Lettre minuscule</h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<ol>
+			<li>Élément de liste 1</li>
+			<li>
+				Élément de liste 2
+				<div class="lst-lwr-alph">
+					<ol>
+						<li>Élément de liste 2a</li>
+						<li>Élément de liste 2b</li>
+					</ol>
+				</div>
+			</li>
+			<li>Élément de liste 3</li>
+		</ol>
+		<h4>Code</h4>
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;...
+		&lt;div <strong>class=&quot;lst-lwr-alph&quot;</strong>&gt;
+			&lt;ol&gt;
+				&lt;li&gt;...&lt;/li&gt;
+			&lt;/ol&gt;
+		&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ol>
+			<li>Élément de liste 1</li>
+			<li>
+				Élément de liste 2
+				<ol class="lst-lwr-alph">
+					<li>Élément de liste 2a</li>
+					<li>Élément de liste 2b</li>
+				</ol>
+			</li>
+			<li>Élément de liste 3</li>
+		</ol>
+		<h4>Code</h4>
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;...
+		&lt;ol <strong>class=&quot;lst-lwr-alph&quot;</strong>&gt;
+			&lt;li&gt;...&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+	</div>
+</div>
+<div class="row">
+	<h2>Listes alphabétiques − Lettre majuscule</h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<div class="lst-upr-alph">
+			<ol>
+				<li>Élément de liste 1</li>
+				<li>
+					Élément de liste 2
+					<ol>
+						<li>Élément de liste 2a</li>
+						<li>Élément de liste 2b</li>
+					</ol>
+				</li>
+				<li>Élément de liste 3</li>
+			</ol>
+		</div>
+		<h4>Code</h4>
+<pre><code>&lt;div <strong>class=&quot;lst-upr-alph&quot;</strong>&gt;
+	&lt;ol&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;
+			&lt;ol&gt;
+				&lt;li&gt;...&lt;/li&gt;
+			&lt;/ol&gt;
+		&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ol class="lst-upr-alph">
+			<li>Élément de liste 1</li>
+			<li>
+				Élément de liste 2
+				<ol>
+					<li>Élément de liste 2a</li>
+					<li>Élément de liste 2b</li>
+				</ol>
+			</li>
+			<li>Élément de liste 3</li>
+		</ol>
+		<h4>Code</h4>
+<pre><code>&lt;ol <strong>class=&quot;lst-upr-alph&quot;</strong>&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;
+		&lt;ol&gt;
+			&lt;li&gt;...&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+	</div>
+</div>
+<div class="row">
+	<h2>Liste en ligne</h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<div class="list-inline">
+			<ul>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2</li>
+				<li>Élément de liste 3</li>
+			</ul>
+		</div>
+		<h4>Code</h4>
+<pre><code>&lt;div <strong>class=&quot;list-inline&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="list-inline">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+<pre><code>&lt;ul <strong>class=&quot;list-inline&quot;</strong>&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+</div>
+<div class="row">
+	<h2>Liste avec espacement - espaces ajoutés</h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<div class="lst-spcd">
+			<ul>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2</li>
+				<li>Élément de liste 3</li>
+			</ul>
+		</div>
+		<div class="lst-spcd">
+			<ol>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2</li>
+				<li>Élément de liste 3</li>
+			</ol>
+		</div>
+		<h4>Code</h4>
+<pre><code>// Liste avec espacement :
+&lt;div <strong>class=&quot;lst-spcd&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Élément de liste 1&lt;/li&gt;
+		&lt;li&gt;Élément de liste 2&lt;/li&gt;
+		&lt;li&gt;Élément de liste 3&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div <strong>class=&quot;lst-spcd&quot;</strong>&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Élément de liste 1&lt;/li&gt;
+		&lt;li&gt;Élément de liste 2&lt;/li&gt;
+		&lt;li&gt;Élément de liste 3&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="lst-spcd">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<ol class="lst-spcd">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ol>
+		<h4>Code</h4>
+<pre><code>// Liste avec espacement :
+&lt;ul <strong>class=&quot;lst-spcd&quot;</strong>&gt;
+	&lt;li&gt;Élément de liste 1&lt;/li&gt;
+	&lt;li&gt;Élément de liste 2&lt;/li&gt;
+	&lt;li&gt;Élément de liste 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol <strong>class=&quot;lst-spcd&quot;</strong>&gt;
+	&lt;li&gt;Élément de liste 1&lt;/li&gt;
+	&lt;li&gt;Élément de liste 2&lt;/li&gt;
+	&lt;li&gt;Élément de liste 3&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+	</div>
+</div>
+<div class="row">
+	<h2>Liste doublement espacée <code>.lst-spcd-2</code></h2>
+	<div class="col-md-6">
+		<h3>Balisage personnalisé</h3>
+		<div class="lst-spcd-2">
+			<ul>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+			</ul>
+		</div>
+		<div class="lst-spcd-2">
+			<ol>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+				<li>Élément</li>
+			</ol>
+		</div>
+		<h4>Code</h4>
+<pre><code>&lt;div <strong>class=&quot;lst-spcd-2&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div <strong>class=&quot;lst-spcd-2&quot;</strong>&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+		&lt;li&gt;Élément&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Balisage par défaut - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="lst-spcd-2">
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+		</ul>
+		<ol class="lst-spcd-2">
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+			<li>Élément</li>
+		</ol>
+		<h4>Code</h4>
+<pre><code>&lt;ul <strong>class=&quot;lst-spcd-2&quot;</strong>&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol <strong>class=&quot;lst-spcd-2&quot;</strong>&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+	&lt;li&gt;Élément&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+	</div>
+</div>
+
+<div class="row">
+	<h2>Style de puce personnalisé pour liste non ordonnée</h2>
+	<div class="col-md-6">
+		<h3>Disque stylé par son conteneur parent</h3>
+		<ul class="lst-none">
+			<li>Niveau 1 - Élément de liste 1
+				<div class="list-advanced disc">
+					<ul>
+						<li>
+							Niveau 2 - Élément de liste 1
+							<ul>
+								<li>Niveau 3 - Élément de liste 1</li>
+								<li>Niveau 3 - Élément de liste 2</li>
+								<li>Niveau 3 - Élément de liste 3</li>
+							</ul>
+						</li>
+						<li>Niveau 2 - Élément de liste 2</li>
+						<li>Niveau 2 - Élément de liste 3</li>
+					</ul>
+				</div>
+			</li>
+			<li>Niveau 1 - Élément de liste 2</li>
+			<li>Niveau 1 - Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+		<pre><code>&lt;ul class=&quot;lst-none&quot;&gt;
+	&lt;li&gt;...
+		&lt;div <strong>class=&quot;list-advanced disc&quot;</strong>&gt;
+			&lt;ul&gt;
+				&lt;li&gt;...
+					&lt;ul&gt;
+						&lt;li&gt;...&lt;/li&gt;
+						&lt;li&gt;...&lt;/li&gt;
+						&lt;li&gt;...&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;...&lt;/li&gt;
+				&lt;li&gt;...&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+
+	<div class="col-md-6">
+		<h3>Disque - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="lst-none">
+			<li>
+				Niveau 1 - Élément de liste 1
+				<ul class="disc">
+					<li>
+						Niveau 2 - Élément de liste 1
+						<ul>
+							<li>Niveau 3 - Élément de liste 1</li>
+							<li>Niveau 3 - Élément de liste 2</li>
+							<li>Niveau 3 - Élément de liste 3</li>
+						</ul>
+					</li>
+					<li>Niveau 2 - Élément de liste 2</li>
+					<li>Niveau 2 - Élément de liste 3</li>
+				</ul>
+			</li>
+			<li>Niveau 1 - Élément de liste 2</li>
+			<li>Niveau 1 - Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+		<pre><code>&lt;ul class=&quot;lst-none&quot;&gt;
+	&lt;li&gt;...
+		&lt;ul <strong>class=&quot;disc&quot;</strong>&gt;
+			&lt;li&gt;...
+				&lt;ul&gt;
+					&lt;li&gt;...&lt;/li&gt;
+					&lt;li&gt;...&lt;/li&gt;
+					&lt;li&gt;...&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;...&lt;/li&gt;
+			&lt;li&gt;...&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Style de cercle par son conteneur parent</h3>
+		<div class="list-advanced circle">
+			<ul>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2</li>
+				<li>Élément de liste 3</li>
+			</ul>
+		</div>
+		<h4>Code</h4>
+<pre><code>&lt;div <strong>class=&quot;list-advanced circle&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Cercle - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="circle">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+<pre><code>&lt;ul <strong>class=&quot;circle&quot;</strong>&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Style de carré par son conteneur parent</h3>
+		<div class="list-advanced square">
+			<ul>
+				<li>Élément de liste 1</li>
+				<li>Élément de liste 2</li>
+				<li>Élément de liste 3</li>
+			</ul>
+		</div>
+		<h4>Code</h4>
+<pre><code>&lt;div <strong>class=&quot;list-advanced square&quot;</strong>&gt;
+	&lt;ul&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;div&gt;</code></pre>
+	</div>
+	<div class="col-md-6">
+		<h3>Carré - <span class="label label-success mrgn-lft-sm">Recommandé</span></h3>
+		<ul class="square">
+			<li>Élément de liste 1</li>
+			<li>Élément de liste 2</li>
+			<li>Élément de liste 3</li>
+		</ul>
+		<h4>Code</h4>
+<pre><code>&lt;ul <strong>class=&quot;square&quot;</strong>&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+</div>
