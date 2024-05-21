@@ -318,6 +318,19 @@ layout: default
 						},
 
 						{
+							"template": "[data-ajax-source-code]",
+							"test": "fn:isLiteral",
+							"assess": "/ajaxSourceCode/{{lng}}",
+							"mapping": [
+								{
+									"selector": "code",
+									"value": "/ajaxSourceCode/{{lng}}",
+									"attr": "data-ajax-append"
+								}
+							]
+						},
+
+						{
 							"template": "[data-notes]",
 							"test": "fn:isArray",
 							"assess": "/notes/{{lng}}",
@@ -524,6 +537,10 @@ layout: default
 										<li>Instruction</li>
 									</template>
 								</ul>
+							</template>
+
+							<template data-ajax-source-code>
+								<pre><code data-wb-ajax='{ "encode": true }'></code></pre>
 							</template>
 
 							<template data-notes>
