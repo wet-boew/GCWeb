@@ -1,0 +1,242 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Services and information",
+		"fr": "Services et information"
+	},
+	"description": {
+		"en": "Used to present sets of links with accompanying descriptions.",
+		"fr": "Utilisé pour présenter des ensembles de liens accompagnés de descriptions."
+	},
+	"modified": "2023-09-06",
+	"componentName": "gc-srvinfo",
+	"status": "stable",
+	"version": "3.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "Services and information",
+				"language": "en",
+				"path": "gc-srvinfo-en.html"
+			},
+			{
+				"title": "Services et renseignements",
+				"language": "fr",
+				"path": "gc-srvinfo-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1 - services and information",
+				"language": "en",
+				"path": "reports/ally-1-en.html"
+			},
+			{
+				"title": "Assessment d'accessibilité #1 - Services et information",
+				"language": "fr",
+				"path": "reports/ally-1-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Services and information",
+				"language": "en",
+				"path": "gc-srvinfo-doc-en.html"
+			},
+			{
+				"title": "Services et renseignements",
+				"language": "fr",
+				"path": "gc-srvinfo-doc-fr.html"
+			}
+		]
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Services and information - default",
+				"fr": "Services et renseignements - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Used to present sets of links with accompanying descriptions over 3 columns on large screens.",
+				"fr": "Utilisé pour présenter des ensembles de liens accompagnés de descriptions sur 3 colonnes sur les grands écrans."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/services-information.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/services-renseignements.html"
+			},
+			"iteration": "_:iteration_srvinfo_3",
+			"example": [
+				{
+					"en": { "href": "gc-srvinfo-en.html", "text": "Services and information" },
+					"fr": { "href": "gc-srvinfo-fr.html", "text": "Services et renseignements" }
+				}
+			],
+			"implementation": [
+				"_:implement_srvinfo"
+			],
+			"history": [
+				{
+					"en": "February 2024 - Added .gc-srvinfo CSS class.",
+					"fr": "Février 2024 - Ajout de la classe CSS .gc-srvinfo."
+				},
+				{
+					"en": "September 2017 - Removed CSS class .gcdrmt and removed details/summary when more than 10 services and information.",
+					"fr": "Septembre 2017 - Suppression de la classe CSS .gcdrmt et suppression des détails/résumé lorsqu'il y a plus de 10 services et informations."
+				},
+				{
+					"en": "August 2016 - Separated column layout from section delimiter.",
+					"fr": "Août 2016 - Disposition des colonnes séparées du délimiteur de section."
+				},
+				{
+					"en": "April 2016 - Added .gcdrmt CSS class. Limit to 10 visible services and information with details/summary to show more.",
+					"fr": "Avril 2016 - Ajout de la classe CSS .gcdrmt. Limite de 10 services et renseignements visibles avec \"details/summary\" pour en afficher plus."
+				},
+				{
+					"en": "August 2014 - Initial implementation of the variation.",
+					"fr": "Août 2014 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_srvinfo",
+			"iteration": "_:iteration_srvinfo_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"notes": {
+				"en": [
+					"For code samples of the different layouts possible (ordered list, vertical, etc.), refer to the working examples."
+				],
+				"fr": [
+					"Pour des extraits de code des différentes mises en page possibles (liste ordonnée, verticale, etc.), reportez-vous aux exemples pratiques."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Code sample for 3 columns layout",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Code sample for 2 columns layout",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Exemple de code pour la disposition sur 3 colonnes",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services et renseignements</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Exemple de code pour la disposition sur 2 colonnes",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services et renseignements</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<h3><a href=\"#\">[Texte de l'hyperlien du sous-thème]</a></h3>\n\t\t\t<p>Résumé des informations ou des tâches pouvant être accomplies sur la page du sous-thème. Supprimez la prose ou les messages promotionnels. Utilisez des verbes d'action.</p>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_srvinfo_5",
+			"name": "Services and information - Iteration 5",
+			"date": "2018-09",
+			"detectableBy": ".gc-srvinfo",
+			"predecessor": "_:iteration_srvinfo_4",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_srvinfo_4",
+			"name": "Services and information - Iteration 4",
+			"date": "2017-12",
+			"detectableBy": ".wb-eqht.row>[class*=col-]>section>(h3.h5>a)+p",
+			"predecessor": "_:iteration_srvinfo_3",
+			"successor": "_:iteration_srvinfo_5",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section>\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<section>\n\t\t\t\t<h3 class=\"h5\"><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t\t<p>[Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.]</p>\n\t\t\t</section>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<section>\n\t\t\t\t<h3 class=\"h5\"><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t\t<p>[Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.]</p>\n\t\t\t</section>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<section>\n\t\t\t\t<h3 class=\"h5\"><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t\t<p>[Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.]</p>\n\t\t\t</section>\n\t\t</div>\n\t\t<div class=\"col-md-6\">\n\t\t\t<section>\n\t\t\t\t<h3 class=\"h5\"><a href=\"#\">[Subtopic hyperlink text]</a></h3>\n\t\t\t\t<p>[Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.]</p>\n\t\t\t</section>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_srvinfo_3",
+			"name": "Services and information - Iteration 3",
+			"date": "2016-08",
+			"detectableBy": "section.gc-drmt:not([class*=col-])",
+			"predecessor": "_:iteration_srvinfo_2",
+			"successor": "_:iteration_srvinfo_4"
+		},
+		{
+			"@id": "_:iteration_srvinfo_2",
+			"name": "Services and information - Iteration 2",
+			"date": "2016-04",
+			"detectableBy": "section.gc-drmt[class*=col-]",
+			"predecessor": "_:iteration_srvinfo_1",
+			"successor": "_:iteration_srvinfo_3"
+		},
+		{
+			"@id": "_:iteration_srvinfo_1",
+			"name": "Services and information - Iteration 1",
+			"date": "2014-08",
+			"detectableBy": "section.col-md-6>(h3.h5>a)+p",
+			"successor": "_:iteration_srvinfo_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_srvinfo",
+			"name": "Services and information",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_srvinfo_5",
+			"detectableBy": ".gc-srvinfo",
+			"layout": "The (h3>a)+p pattern is either inside a grid layout of two or three columns, in an ordered list, or directly one after the other vertically.",
+			"semantic": "h2 + (h2 > a) + p",
+			"schema": [
+				"service and information title",
+				"array of objects containing the following properties: { \"service link\", \"service name\", \"service description\" }"
+			],
+			"style": "Each column within the same row must have the same height"
+		}
+	]
+}
