@@ -1,0 +1,1022 @@
+---
+{
+	"title": "Display",
+	"language": "en",
+	"altLangPage": "display-fr.html",
+	"description": "Bootstrap and WET utility classes showcasing elements display options such as float, visibility, clearing, opacity, and toggling, accompanied by practical examples to test and observe different content layouts",
+	"dateModified": "2023-08-01"
+}
+---
+
+<p>This page showcases Bootstrap display utility features including some integration from wet-boew like toggling content.</p>
+
+<nav>
+<h2>On this page:</h2>
+
+<ul>
+	<li><a href="#float">Float</a></li>
+	<li><a href="#clear">Clear</a></li>
+	<li><a href="#toggling-content">Toggling content</a></li>
+	<li><a href="#visibility">Visibility</a></li>
+	<li><a href="#opacity">Opacity</a></li>
+	<li><a href="#wet-toggling-content">WET - Toggling content</a></li>
+	<li><a href="#col-count">Col count</a></li>
+	<li><a href="#sizing-controls">Sizing controls</a></li>
+</ul>
+</nav>
+
+
+<h2>Float</h2>
+<h3>Clear fix <code>clearfix</code></h3>
+
+<div class="well">
+  <div class="pull-left bg-info">( Row 1, Column 1 )</div>
+  <div class="pull-left bg-info">( Row 1, Column 2 )</div>
+  <div class="pull-left bg-info">( Row 1, Column 3 )</div>
+  <!-- Add clearfix class to clear floated elements -->
+  <div class="clearfix"></div>
+  <div class="pull-left bg-info">Row 2, Column 1</div>
+  <div class="pull-left bg-info">Row 2, Column 2</div>
+  <div class="pull-left bg-info">Row 2, Column 3</div>
+  <div class="pull-left bg-info">Row 2, Column 4</div>
+</div>
+
+<h4>Code sample</h4>
+<pre><code>&lt; class="well"&gt;
+  &lt;div class="pull-left bg-info"&gt;( Row 1, Column 1 )&lt;/div&gt;
+  &lt;div class="pull-left bg-info"&gt;( Row 1, Column 2 )&lt;/div&gt;
+  &lt;div class="pull-left bg-info"&gt;( Row 1, Column 3 )&lt;/div&gt;
+  &lt;!-- Add clearfix class to clear floated elements --&gt;
+  &lt;div class="clearfix"></div>
+  &lt;div class="pull-left bg-info"&gt;Row 2, Column 1&lt;/div&gt;
+  &lt;div class="pull-left bg-info"&gt;Row 2, Column 2&lt;/div&gt;
+  &lt;div class="pull-left bg-info"&gt;Row 2, Column 3&lt;/div&gt;
+  &lt;div class="pull-left bg-info"&gt;Row 2, Column 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.center-block</code> class working example</h3>
+<div class="well">
+	<div class="center-block well bg-darker text-white">
+		This element is centered horizontally within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>center-block</strong> well bg-darker text-white"&gt;
+		This element is centered horizontally within its parent container.
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.pull-right</code> class working example</h3>
+<div class="well">
+	<div class="pull-right well">
+		This element is floated to the right within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>pull-right</strong> well"&gt;
+		This element is floated to the right within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.pull-left</code> class working example</h3>
+<div class="well">
+	<div class="pull-left well">
+		This element is floated to the left within its parent container.
+	</div>
+</div>
+
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>pull-left</strong> well"&gt;
+		This element is floated to the left within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;&lt;div class="clearfix"&gt; &lt;/div&gt;
+</code></pre>
+
+<h2 id="clear">Clear</h2>
+
+<h3><code>.clr-lft-lg</code> class working example</h3>
+<div class="well">
+	<div class="clr-lft-lg well">
+		This element clears the floated elements to the left on large screens (lg) within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-lft-lg</strong> well"&gt;
+		This element clears the floated elements to the left on large screens (lg) within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>.clr-lft-md</code> class working example</h3>
+<div class="well">
+	<div class="clr-lft-md well">
+		This element clears the floated elements to the left on medium screens (md) within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-lft-md</strong> well"&gt;
+		This element clears the floated elements to the left on medium screens (md) within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>.clr-rght-lg</code> class working example</h3>
+<div class="well">
+	<div class="clr-rght-lg well">
+		This element clears the floated elements to the right on large screens (lg) within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-rght-lg</strong> well"&gt;
+		This element clears the floated elements to the right on large screens (lg) within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>.clr-rght-md</code> class working example</h3>
+<div class="well">
+	<div class="clr-rght-md well">
+		This element clears the floated elements to the right on medium screens (md) within its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>clr-rght-md</strong> well"&gt;
+		This element clears the floated elements to the right on medium screens (md) within its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="toggling-content">Toggling content</h2>
+
+<h3><code>.hide</code> class working example</h3>
+<div class="well">
+	<div class="hide well">
+		This element is hidden on all screen sizes.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hide</strong> well"&gt;
+		This element is hidden on all screen sizes.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.show</code> class working example</h3>
+<div class="well">
+	<div class="show well">
+		This element is visible on all screen sizes.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>show</strong> well"&gt;
+		This element is visible on all screen sizes.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.invisible</code> class working example</h3>
+<div class="well">
+	<div class="invisible well">
+		This element is invisible but still takes up space in the layout.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>invisible</strong> well"&gt;
+		This element is invisible but still takes up space in the layout.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.text-hide</code> class working example</h3>
+<div class="well">
+	<div class="text-hide well">
+		This text is hidden visually but remains accessible to screen readers.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>text-hide</strong> well"&gt;
+		This text is hidden visually but remains accessible to screen readers.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden</code> class working example</h3>
+<div class="well">
+	<div class="hidden well">
+		This element is hidden on all screen sizes.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden</strong> well"&gt;
+		This element is hidden on all screen sizes.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.sr-only</code> class working example</h3>
+<div class="well">
+	<div class="sr-only well">
+		This element is hidden visually but accessible to screen readers.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>sr-only</strong> well"&gt;
+		This element is hidden visually but accessible to screen readers.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.sr-only-focusable</code> class working example</h3>
+<div class="well">
+	<div class="sr-only-focusable well">
+		<a href="#">This element is visually hidden but remains accessible to screen readers, and it can be focused by keyboard navigation.</a>
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>sr-only-focusable</strong> well"&gt;
+		This element is visually hidden but remains accessible to screen readers, and it can be focused by keyboard navigation.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="visibility">Visibility</h2>
+
+<h3><code>.visible-xs-inline</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-inline well">
+		This element is visible on extra small screens (xs) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-xs-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-block well">
+		This element is visible on extra small screens (xs) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-block</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-xs-inline-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-inline-block well">
+		This element is visible on extra small screens (xs) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline-block</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-inline</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-inline well">
+		This element is hidden on extra small screens (xs) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-block</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-block well">
+		This element is hidden on extra small screens (xs) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-block</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-inline-block</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-inline-block well">
+		This element is hidden on extra small screens (xs) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline-block</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-xs-inline</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-inline well">
+		This element is visible on extra small screens (xs) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-xs-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-block well">
+		This element is visible on extra small screens (xs) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-block</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-xs-inline-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-xs-inline-block well">
+		This element is visible on extra small screens (xs) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-xs-inline-block</strong> well"&gt;
+		This element is visible on extra small screens (xs) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-inline</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-inline well">
+		This element is hidden on extra small screens (xs) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-block</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-block well">
+		This element is hidden on extra small screens (xs) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-block</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-xs-inline-block</code> class working example</h3>
+<div class="well">
+	<div class="hidden-xs-inline-block well">
+		This element is hidden on extra small screens (xs) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-xs-inline-block</strong> well"&gt;
+		This element is hidden on extra small screens (xs) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-sm-inline</code> class working example</h3>
+<div class="well">
+	<div class="visible-sm-inline well">
+		This element is visible on small screens (sm) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-inline</strong> well"&gt;
+		This element is visible on small screens (sm) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-sm-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-sm-block well">
+		This element is visible on small screens (sm) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-block</strong> well"&gt;
+		This element is visible on small screens (sm) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-sm-inline-block</code> class working example</h3>
+<div class="well">
+	<div class="visible-sm-inline-block well">
+		This element is visible on small screens (sm) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-sm-inline-block</strong> well"&gt;
+		This element is visible on small screens (sm) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-sm-inline</code> class working example</h3>
+<div class="well">
+	<div class="hidden-sm-inline well">
+		This element is hidden on small screens (sm) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-inline</strong> well"&gt;
+		This element is hidden on small screens (sm) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-sm-block </code>class working example</h3><div class="well">
+	<div class="hidden-sm-block well">
+		This element is hidden on small screens (sm) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-block</strong> well"&gt;
+		This element is hidden on small screens (sm) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-sm-inline-block </code>class working example</h3><div class="well">
+	<div class="hidden-sm-inline-block well">
+		This element is hidden on small screens (sm) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-sm-inline-block</strong> well"&gt;
+		This element is hidden on small screens (sm) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-md-inline </code>class working example</h3><div class="well">
+	<div class="visible-md-inline well">
+		This element is visible on medium screens (md) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-inline</strong> well"&gt;
+		This element is visible on medium screens (md) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-md-block </code>class working example</h3><div class="well">
+	<div class="visible-md-block well">
+		This element is visible on medium screens (md) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-block</strong> well"&gt;
+		This element is visible on medium screens (md) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-md-inline-block </code>class working example</h3><div class="well">
+	<div class="visible-md-inline-block well">
+		This element is visible on medium screens (md) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-md-inline-block</strong> well"&gt;
+		This element is visible on medium screens (md) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h3><code>.hidden-md-inline </code>class working example</h3><div class="well">
+	<div class="hidden-md-inline well">
+		This element is hidden on medium screens (md) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-inline</strong> well"&gt;
+		This element is hidden on medium screens (md) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-md-block </code>class working example</h3><div class="well">
+	<div class="hidden-md-block well">
+		This element is hidden on medium screens (md) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-block</strong> well"&gt;
+		This element is hidden on medium screens (md) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-md-inline-block </code>class working example</h3><div class="well">
+	<div class="hidden-md-inline-block well">
+		This element is hidden on medium screens (md) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-md-inline-block</strong> well"&gt;
+		This element is hidden on medium screens (md) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-lg-inline </code>class working example</h3><div class="well">
+	<div class="visible-lg-inline well">
+		This element is visible on large screens (lg) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-inline</strong> well"&gt;
+		This element is visible on large screens (lg) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-lg-block </code>class working example</h3><div class="well">
+	<div class="visible-lg-block well">
+		This element is visible on large screens (lg) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-block</strong> well"&gt;
+		This element is visible on large screens (lg) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.visible-lg-inline-block </code>class working example</h3><div class="well">
+	<div class="visible-lg-inline-block well">
+		This element is visible on large screens (lg) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>visible-lg-inline-block</strong> well"&gt;
+		This element is visible on large screens (lg) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-lg-inline </code>class working example</h3><div class="well">
+	<div class="hidden-lg-inline well">
+		This element is hidden on large screens (lg) and has an inline display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-inline</strong> well"&gt;
+		This element is hidden on large screens (lg) and has an inline display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-lg-block </code>class working example</h3><div class="well">
+	<div class="hidden-lg-block well">
+		This element is hidden on large screens (lg) and has a block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-block</strong> well"&gt;
+		This element is hidden on large screens (lg) and has a block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.hidden-lg-inline-block </code>class working example</h3><div class="well">
+	<div class="hidden-lg-inline-block well">
+		This element is hidden on large screens (lg) and has an inline-block display.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>hidden-lg-inline-block</strong> well"&gt;
+		This element is hidden on large screens (lg) and has an inline-block display.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="opacity">Opacity</h2>
+
+<h3><code>.opct-10 </code>class working example</h3><div class="well">
+	<div class="opct-10 well">
+		This element has an opacity of 0.1 (10%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-10</strong> well"&gt;
+		This element has an opacity of 0.1 (10%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-20 </code>class working example</h3><div class="well">
+	<div class="opct-20 well">
+		This element has an opacity of 0.2 (20%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-20</strong> well"&gt;
+		This element has an opacity of 0.2 (20%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-30 </code>class working example</h3><div class="well">
+	<div class="opct-30 well">
+		This element has an opacity of 0.3 (30%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-30</strong> well"&gt;
+		This element has an opacity of 0.3 (30%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-40 </code>class working example</h3><div class="well">
+	<div class="opct-40 well">
+		This element has an opacity of 0.4 (40%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-40</strong> well"&gt;
+		This element has an opacity of 0.4 (40%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-50 </code>class working example</h3><div class="well">
+	<div class="opct-50 well">
+		This element has an opacity of 0.5 (50%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-50</strong> well"&gt;
+		This element has an opacity of 0.5 (50%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-60 </code>class working example</h3><div class="well">
+	<div class="opct-60 well">
+		This element has an opacity of 0.6 (60%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-60</strong> well"&gt;
+		This element has an opacity of 0.6 (60%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-70 </code>class working example</h3><div class="well">
+	<div class="opct-30 well">
+		This element has an opacity of 0.7 (70%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-70</strong> well"&gt;
+		This element has an opacity of 0.7 (70%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-80 </code>class working example</h3><div class="well">
+	<div class="opct-80 well">
+		This element has an opacity of 0.8 (80%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-80</strong> well"&gt;
+		This element has an opacity of 0.8 (80%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-90 </code>class working example</h3><div class="well">
+	<div class="opct-90 well">
+		This element has an opacity of 0.9 (90%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-90</strong> well"&gt;
+		This element has an opacity of 0.9 (90%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.opct-100 </code>class working example</h3><div class="well">
+	<div class="opct-100 well">
+		This element has an opacity of 1 (100%).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>opct-100</strong> well"&gt;
+		This element has an opacity of 1 (100%).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="wet-toggling-content">WET - Toggling content</h2>
+
+<h3><code>.nojs-show </code>class working example</h3><div class="well">
+	<div class="nojs-show well">
+		This element is initially hidden, but it will be shown when JavaScript is disabled.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>nojs-show</strong> well"&gt;
+		This element is initially hidden, but it will be shown when JavaScript is disabled.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.nojs-hide </code>class working example</h3><div class="well">
+	<div class="nojs-hide well">
+		This element is initially visible, but it will be hidden when JavaScript is disabled.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>nojs-hide</strong> well"&gt;
+		This element is initially visible, but it will be hidden when JavaScript is disabled.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h3><code>.wb-inv </code>class working example</h3><div class="well">
+	<div class="wb-inv well">
+		This element is invisible and hidden from all users, including screen readers.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>wb-inv</strong> well"&gt;
+		This element is invisible and hidden from all users, including screen readers.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.wb-invisible </code>class working example</h3><div class="well">
+	<div class="wb-invisible well">
+		This element is invisible but accessible by screen readers.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>wb-invisible</strong> well"&gt;
+		This element is invisible but accessible by screen readers.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.wb-show-onfocus </code>class working example</h3><div class="well">
+	<input type="text" class="wb-show-onfocus well" placeholder="Focus on this input to reveal the element">
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;input type="text" class="<strong>wb-show-onfocus</strong> well" placeholder="Focus on this input to reveal the element"&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="col-count">Col count</h2>
+
+<p>It split the element into multiple columns. Its a way to do positioning which are not limited to list items but include div/sections too</p>
+<h3><code>.colcount-xxs-2 </code>class working example</h3><div class="well">
+	<div class="colcount-xxs-2 well">
+		This element occupies 1 out of 2 columns on extra-small screens (xxs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-2</strong> well"&gt;
+		This element occupies 1 out of 2 columns on extra-small screens (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xxs-3 </code>class working example</h3><div class="well">
+	<div class="colcount-xxs-3 well">
+		This element occupies 1 out of 3 columns on extra-small screens (xxs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-3</strong> well"&gt;
+		This element occupies 1 out of 3 columns on extra-small screens (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xxs-4 </code>class working example</h3><div class="well">
+	<div class="colcount-xxs-4 well">
+		This element occupies 1 out of 4 columns on extra-small screens (xxs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xxs-4</strong> well"&gt;
+		This element occupies 1 out of 4 columns on extra-small screens (xxs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xs-2 </code>class working example</h3><div class="well">
+	<div class="colcount-xs-2 well">
+		This element occupies 1 out of 2 columns on extra-small screens (xs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-2</strong> well"&gt;
+		This element occupies 1 out of 2 columns on extra-small screens (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xs-3 </code>class working example</h3><div class="well">
+	<div class="colcount-xs-3 well">
+		This element occupies 1 out of 3 columns on extra-small screens (xs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-3</strong> well"&gt;
+		This element occupies 1 out of 3 columns on extra-small screens (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xs-4 </code>class working example</h3><div class="well">
+	<div class="colcount-xs-4 well">
+		This element occupies 1 out of 4 columns on extra-small screens (xs).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xs-4</strong> well"&gt;
+		This element occupies 1 out of 4 columns on extra-small screens (xs).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-sm-2 </code>class working example</h3><div class="well">
+	<div class="colcount-sm-2 well">
+		This element occupies 1 out of 2 columns on small screens (sm).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-2</strong> well"&gt;
+		This element occupies 1 out of 2 columns on small screens (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-sm-3 </code>class working example</h3><div class="well">
+	<div class="colcount-sm-3 well">
+		This element occupies 1 out of 3 columns on small screens (sm).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-3</strong> well"&gt;
+		This element occupies 1 out of 3 columns on small screens (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-sm-4 </code>class working example</h3><div class="well">
+	<div class="colcount-sm-4 well">
+		This element occupies 1 out of 4 columns on small screens (sm).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-sm-4</strong> well"&gt;
+		This element occupies 1 out of 4 columns on small screens (sm).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-lg-2 </code>class working example</h3><div class="well">
+	<div class="colcount-lg-2 well">
+		This element occupies 1 out of 2 columns on large screens (lg).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-2</strong> well"&gt;
+		This element occupies 1 out of 2 columns on large screens (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-lg-3 </code>class working example</h3><div class="well">
+	<div class="colcount-lg-3 well">
+		This element occupies 1 out of 3 columns on large screens (lg).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-3</strong> well"&gt;
+		This element occupies 1 out of 3 columns on large screens (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-lg-4 </code>class working example</h3><div class="well">
+	<div class="colcount-lg-4 well">
+		This element occupies 1 out of 4 columns on large screens (lg).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-lg-4</strong> well"&gt;
+		This element occupies 1 out of 4 columns on large screens (lg).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xl-2 </code>class working example</h3><div class="well">
+	<div class="colcount-xl-2 well">
+		This element occupies 1 out of 2 columns on extra-large screens (xl).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-2</strong> well"&gt;
+		This element occupies 1 out of 2 columns on extra-large screens (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xl-3 </code>class working example</h3><div class="well">
+	<div class="colcount-xl-3 well">
+		This element occupies 1 out of 3 columns on extra-large screens (xl).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-3</strong> well"&gt;
+		This element occupies 1 out of 3 columns on extra-large screens (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.colcount-xl-4 </code>class working example</h3><div class="well">
+	<div class="colcount-xl-4 well">
+		This element occupies 1 out of 4 columns on extra-large screens (xl).
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>colcount-xl-4</strong> well"&gt;
+		This element occupies 1 out of 4 columns on extra-large screens (xl).
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="sizing-controls">Sizing controls</h2>
+
+<h3><code>.h-100 </code>class working example</h3>
+<div class="well">
+	<div class="h-100">
+		This element has a height of 100% of its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>h-100</strong>"&gt;
+		This element has a height of 100% of its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.full-width </code>class working example</h3><div class="well">
+	<div class="full-width">
+		This element spans the full width of its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>full-width</strong>"&gt;
+		This element spans the full width of its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3><code>.max-content </code>class working example</h3><div class="well">
+	<div class="max-content well">
+		This element adjusts its width to fit its content, but not wider than its parent container.
+	</div>
+</div>
+<h4>Code sample</h4>
+<pre><code>&lt;div class="well"&gt;
+	&lt;div class="<strong>max-content</strong> well"&gt;
+		This element adjusts its width to fit its content, but not wider than its parent container.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
