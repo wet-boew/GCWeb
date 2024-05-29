@@ -1,0 +1,174 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Contributors",
+		"fr": "Collaborateurs"
+	},
+	"description": {
+		"en": "Links to institutions or organizations that support the content on the page.",
+		"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
+	},
+	"modified": "2024-05-28",
+	"componentName": "gc-contributors",
+	"status": "stable",
+	"version": "1.0.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "gc-contributors-doc-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "gc-contributors-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "gc-contributors-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "gc-contributors-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Contributors - default",
+				"fr": "Collaborateurs - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Links to institutions or organizations that support the content on the page.",
+				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
+			},
+			"iteration": "_:iteration_contributors_2",
+			"example": [
+				{
+					"en": { "href": "gc-contributors-en.html", "text": "Contributors" },
+					"fr": { "href": "gc-contributors-fr.html", "text": "Collaborateurs" }
+				}
+			],
+			"implementation": [
+				"_:implement_contributors"
+			],
+			"history": [
+				{
+					"en": "May 2024 - Stabilizing component.",
+					"fr": "Mai 2024 - Stabilisation du composant."
+				},
+				{
+					"en": "January 2021 - Initial provisional implementation to gather user experience data.",
+					"fr": "Janvier 2021 - Implémentation provisoire initiale pour recueillir des données sur l'expérience utilisateur."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_contributors",
+			"iteration": "_:iteration_contributors_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>De&nbsp;:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Département ou agence]</a></li>\n\t\t<li><a href=\"#\">[Département ou agence]</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_contributors_2",
+			"name": "Contributors - Iteration 2",
+			"date": "2024-05",
+			"detectableBy": ".gc-contributors:not(.provisional)",
+			"additions": [
+				"Stabilized component"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_1"
+		},
+		{
+			"@id": "_:iteration_contributors_1",
+			"name": "Contributors - Iteration 1",
+			"date": "2021-01",
+			"detectableBy": ".provisional.gc-contributors",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"provisional gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t\t<li><a href=\"#\">[Department or agency]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"successor": "_:iteration_contributors_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_2",
+			"detectableBy": ".gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h2+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		}
+	]
+}
