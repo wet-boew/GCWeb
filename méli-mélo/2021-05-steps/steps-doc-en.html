@@ -1,0 +1,128 @@
+---
+title: List steps - documentation
+dateModified: 2024-05-30
+description: "Style ordered list and divs with steps number in circles."
+lang: en
+css:
+- steps.css
+---
+<section>
+    <h2>Purpose</h2>
+    <p>To bring better prominence of content that is in an ordered list. To have a design that better reflects the size and weight of headers.</p>
+  </section>
+  <section>
+    <h2>Usage</h2>
+    <div class="row wb-eqht mrgn-tp-lg mrgn-bttm-xl">
+      <div class="col-md-6">
+        <h3 class="mrgn-tp-0 text-success h4">Use when <span class="glyphicon glyphicon-ok-circle"></span></h3>
+        <ul>
+          <li>The steps and content are a primary focus of the page</li>
+          <li>Default design (circle with number inside):
+            <ul>
+              <li>Used for navigation, such as a topic page, or a subway step page where the headers are links to sub topic or sub step pages</li>
+              <li>Recommend to use action verbs</li>
+              <li>Should always have headers</li>
+            </ul>
+          </li>
+          <li>Lead zero design (right border with steps 1 to 9 lead by a zero):
+            <ul>
+              <li>Used for regular content, such as a step by step instructions</li>
+              <li>Using headers is optional</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 brdr-lft">
+        <h3 class="mrgn-tp-0 text-danger h4">Do not use when <span class="glyphicon glyphicon-remove-circle"></span></h3>
+        <ul>
+          <li>The content does not meet the criteria of being in an ordered list
+            <ul>
+              <li>Refer to: <a href="https://design.canada.ca/style-guide/#wp5-2-2">Canada.ca style guide on numbered lists</a></li>
+            </ul>
+          </li>
+          <li>The list is not a primary part of the page</li>
+          <li>The list items only contain a small amount of content, use a normal ordered list</li>
+        </ul>
+      </div>
+    </div>
+    <div class="well">
+      <h3 class="mrgn-tp-0 text-warning h4">Be careful when <span class="glyphicon glyphicon-exclamation-sign"></span></h3>
+      <p>Mismatching the wrong design with the wrong type of content.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Working examples</h2>
+    <ul>
+      <li><a href="2021-05-steps.html">English example</a></li>
+      <li><a href="2021-05-steps-fr.html">French example</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>How to implimement</h2>
+    <h3>Default design for step-by-step navigation to web pages</h3>
+    <p>On top level list item:</p>
+    <pre><code>&lt;ol class=&quot;lst-stps&quot;&gt;</code></pre>
+  </section>
+  <section>
+    <h2>Configuration options</h2>
+    <h3>Lead zero design for in page step-by-step content</h3>
+    <p>On top level list item:</p>
+    <pre><code>&lt;ol class=&quot;lst-stps ld-zr&quot;&gt;</code></pre>
+    <h3>Sub (nested) lists</h3>
+    <p>On sub  lists:</p>
+    <pre><code>...
+     &lt;li&gt;
+         &lt;ol class=&quot;lst-stps-sub&quot;&gt;
+             ...
+         &lt;/ol&gt;
+    &lt;/li&gt;
+...</code></pre>
+    <p>The sub list inherits the design of the parent list (default or lead zero). </p>
+    <p>They appear as a lower alpha item (e.g. 2a, 2b, 2c, etc.).</p>
+    <h3>Striped list steps</h3>
+    <p>This design should be used sparingly to avoid the risk of certain list items looking "highlighted".</p>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Striped design (default):</p>
+        <pre><code>&lt;ol class=&quot;lst-stps stps-strpd&quot;&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <p>Striped design (lead zero):</p>
+        <pre><code>&lt;ol class=&quot;lst-stps ld-zr stps-strpd&quot;&gt;</code></pre>
+      </div>
+    </div>
+    <h4>Striped sub (nested) lists</h4>
+    <p>Sub lists by default will not inherit the striped design without using the <code>stps-strpd</code> class on their own element.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Striped sub list design (default):</p>
+        <pre><code>&lt;ol class=&quot;lst-stps stps-strpd&quot;&gt;
+	...
+    &lt;li&gt;
+        &lt;ol class=&quot;lst-stps-sub stps-strpd&quot;&gt;
+            ...
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    ...
+&lt;/ol&gt;</code>
+</pre>
+      </div>
+      <div class="col-md-6">
+        <p>Striped sub list design (lead zero):</p>
+        <pre><code>&lt;ol class=&quot;lst-stps ld-zr stps-strpd&quot;&gt;
+	...
+    &lt;li&gt;
+        &lt;ol class=&quot;lst-stps-sub stps-strpd&quot;&gt;
+            ...
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    ...
+&lt;/ol&gt;</code>
+</pre>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Source code</h2>
+    <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2021-05-steps">Source code for the list steps plugin on GitHub</a></p>
+  </section>
