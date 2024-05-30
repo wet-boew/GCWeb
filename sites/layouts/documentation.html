@@ -95,13 +95,14 @@ layout: default
 				{
 					"template": "[data-yes]",
 					"test": "fn:isArray",
-					"value": "/dependencies",
+					"value": "/dependencies/{{lng}}",
 					"mapping": [
 						{
 							"template": "template",
-							"value": "/",
+							"assess": "/dependencies/{{lng}}",
 							"mapping": [
-								{ "selector": "li", "value": "/@value" }
+								{ "selector": "a", "value": "/title" },
+								{ "selector": "a", "value": "/url", "attr": "href" }
 							]
 						}
 					]
@@ -112,19 +113,26 @@ layout: default
 					"test": "fn:isLiteral",
 					"value": "/dependencies",
 					"mapping": null
+				},
+				{
+					"template": "[data-no]",
+					"test": "fn:guessType",
+					"expect": "undefined",
+					"value": "/dependencies",
+					"mapping": null
 				}
 			]
 		}
 	]
 }'>
 	<template data-no>
-		<p>{% if lng == "fr" %}Ce composant n'a pas de dépendances{% else %}This component has no dependency{% endif %}</p>
+		<p>{% if lng == "fr" %}Ce composant n'a pas de dépendances{% else %}This component has no dependency{% endif %}.</p>
 	</template>
 
 	<template data-yes>
 		<ul>
 			<template>
-				<li></li>
+				<li><a href="#">Component</a></li>
 			</template>
 		</ul>
 	</template>
@@ -246,6 +254,13 @@ layout: default
 					"assess": "/status",
 					"expect": "deprecated",
 					"mapping": null
+				},
+				{
+					"template": "[data-status-demoted]",
+					"test": "fn:getValue",
+					"assess": "/status",
+					"expect": "demoted",
+					"mapping": null
 				}
 			]
 		},
@@ -306,6 +321,19 @@ layout: default
 									"mapping": [
 										{ "selector": "li",	"value": "/", "isHTML": true }
 									]
+								}
+							]
+						},
+
+						{
+							"template": "[data-ajax-source-code]",
+							"test": "fn:isLiteral",
+							"assess": "/ajaxSourceCode/{{lng}}",
+							"mapping": [
+								{
+									"selector": "code",
+									"value": "/ajaxSourceCode/{{lng}}",
+									"attr": "data-ajax-append"
 								}
 							]
 						},
@@ -455,16 +483,19 @@ layout: default
 		<h3>
 			<span data-name>[[ Name of the variation ]]</span>
 			<template data-status-stable>
-				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">Status: </span>Stable</span>
+				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">{%- if lng == "fr" -%}Statut{%- else -%}Status{%- endif -%}: </span>Stable</span>
 			</template>
 			<template data-status-tobereviewed>
-				<span class="label label-info mrgn-lft-sm"><span class="wb-inv">Status: </span>To be reviewed</span>
+				<span class="label label-info mrgn-lft-sm"><span class="wb-inv">{%- if lng == "fr" -%}Statut{%- else -%}Status{%- endif -%}: </span>{%- if lng == "fr" -%}A vérifier{%- else -%}To be reviewed{%- endif -%}</span>
 			</template>
 			<template data-status-provisional>
-				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">Status: </span>Provisional</span>
+				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">{%- if lng == "fr" -%}Statut{%- else -%}Status{%- endif -%}: </span>{%- if lng == "fr" -%}Provisoire{%- else -%}Provisional{%- endif -%}</span>
 			</template>
 			<template data-status-deprecated>
-				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">Status: </span>Deprecated</span>
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">{%- if lng == "fr" -%}Statut{%- else -%}Status{%- endif -%}: </span>{%- if lng == "fr" -%}Obsolète{%- else -%}Deprecated{%- endif -%}</span>
+			</template>
+			<template data-status-demoted>
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">{%- if lng == "fr" -%}Statut{%- else -%}Status{%- endif -%}: </span>{%- if lng == "fr" -%}Rétrogradé{%- else -%}Demoted{%- endif -%}</span>
 			</template>
 		</h3>
 
@@ -514,6 +545,10 @@ layout: default
 										<li>Instruction</li>
 									</template>
 								</ul>
+							</template>
+
+							<template data-ajax-source-code>
+								<pre><code data-wb-ajax='{ "encode": true }'></code></pre>
 							</template>
 
 							<template data-notes>
