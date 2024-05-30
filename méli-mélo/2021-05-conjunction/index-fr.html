@@ -1,114 +1,957 @@
 ---
-title: And/Or decision points (Conjunctions) - Français
-dateModified: 2021-05-27
-description: "Conjunctions for stacked or side by side decision points, and/or (Français)"
+title: Conjonction (et/ou)
+dateModified: 2024-05-30
+description: "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
 lang: fr
 css:
 - and-or.css
 ---
-<nav>
-	<h2 class="h5">Table des matières</h2>
-	<ul>
-		<li><a href="index.html" hreflang="en" lang="en">And/Or decision points (Conjunctions)</a></li>
-		<li><span lang="en">And/Or decision points (Conjunctions)</span> - Français</li>
-		<li><a href="edge-cases.html" hreflang="en" lang="en">Edge cases of And/Or decision points (Conjunctions)</a></li>
-	</ul>
-</nav>
+<ul class="list-inline">
+    <li><a class="btn btn-primary" href="conjunction-doc-fr.html">Documentation</a></li>
+    <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Conjonction">Questions ou commentaires?</a></li>
+  </ul>
+  <section>
+    <h2>Sur cette page</h2>
+    <ul>
+      <li><a href="#base">Configurations de base</a></li>
+      <li><a href="#adaptatives">Conceptions adaptatives</a></li>
+      <li><a href="#personnal">Personnalisation</a></li>
+      <li><a href="#flex">Conceptions flexibles</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 id="base">Configurations de base</h2>
+    <p>Le design peut être configuré en utilisant une liste ou un simple élément de bloc.</p>
+    <h3>Avec en-têtes</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+        <p>Phrase d'introduction :</p>
+        <ul class="cnjnctn-type-or">
+          <li class="cnjnctn-col">
+            <h5>En-tête A<span class="wb-inv">: Option 1 sur 2</span></h5>
+            <p>Ceci est le contenu pour l'en-tête A</p>
+          </li>
+          <li class="cnjnctn-col">
+            <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+            <p>Ceci est le contenu pour l'en-tête B</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+        <p>Phrase d'introduction :</p>
+        <ul class="cnjnctn-type-and">
+          <li class="cnjnctn-col">
+            <h5>En-tête A</h5>
+            <p>Voici le contenu pour la partie A</p>
+          </li>
+          <li class="cnjnctn-col">
+            <h5>En-tête B</h5>
+            <p>Voici le contenu pour la partie B</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Design &laquo;&nbsp;ou&nbsp;&raquo; avec élément de liste
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour l'option A&lt;/p&gt;
+    &lt;/li&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour l'option B&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
 
-<p>le rôle principal: ARC - Christopher Oakes (@christopher-o)</p>
- <h2>Configurations de base</h2>
+//Design &laquo;&nbsp;et&nbsp;&raquo; avec élément de liste
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+	&lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête A&lt;/h5&gt;
+        &lt;p&gt;Ceci est le contenu pour la partie A&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête B&ltl/h5&gt;
+        &lt;p&gt;Ceci est le contenu pour la partie B&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
 
-        <h3>Jamais empilé côte à côte </h3>
-        <div class="cnjnctn-type-or cnjnctn-xs">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes A<span class="wb-inv">: Option 1 sur 2</span></h4>
-            <p>Ceci est contenu pour la tête A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes B<span class="wb-inv">: Option 2 sur 2</span></h4>
-            <p>Ceci est contenu pour la tête B</p>
-          </div>
-  </div>
-        <div class="cnjnctn-type-and cnjnctn-xs">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes A</h4>
-            <p>Ceci est contenu pour la tête A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes B</h4>
-            <p>Ceci est contenu pour la tête B</p>
-          </div>
-  </div>
-        <h3>Empilé toujours (mobile d'abord pas côte à côte)</h3>
-        <div class="cnjnctn-type-or">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes A<span class="wb-inv">: Option 1 sur 2</span></h4>
-            <p>Ceci est contenu pour la tête A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes B<span class="wb-inv">: Option 2 sur 2</span></h4>
-            <p>Ceci est contenu pour la tête B</p>
-          </div>
-  </div>
-        <div class="cnjnctn-type-and">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes A</h4>
-            <p>Ceci est contenu pour la tête A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">En-têtes B</h4>
-            <p>Ceci est contenu pour la tête B</p>
-          </div>
-  </div>
-        <details>
-    <summary>
-            <p>Code</p>
-          </summary>
-    <pre><code>//jamais empilé "ou"
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;En-têtes A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 osur 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;En-têtes B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 sur 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête B&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//jamais empilé  "et"
-&lt;div class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;En-têtes A&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;En-têtes B&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête B&lt;/p&gt;
-	&lt;/div&gt;
+//Design &laquo;&nbsp;ou&nbsp;&raquo; avec élément de bloc (par exemple, &lt;div&gt;)
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour l'option A&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour l'option B&lt;/p&gt;
+    &lt;/section&gt;
 &lt;/div&gt;
 
-//Empilé toujours "ou"
-&lt;div class="cnjnctn-type-or"&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;En-têtes A&lt;span class="wb-inv"&gt;: Option 1 sur 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;En-têtes B&lt;span class="wb-inv"&gt;: Option 2 sur 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête B&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//Empilé toujours  "et"
-&lt;div class="cnjnctn-type-and"&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;En-têtes A&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;En-têtes B&lt;/h4&gt;
-		&lt;p&gt;Ceci est contenu pour la tête B&lt;/p&gt;
-	&lt;/div&gt;
+//Design &laquo;&nbsp;et&nbsp;&raquo; avec élément de bloc
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête A&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour la partie A&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête B&lt;/h5&gt;
+        &lt;p&gt;Voici le contenu pour la partie B&lt;/p&gt;
+    &lt;/section&gt;
 &lt;/div&gt;</code>
   </pre>
-  </details>
+    </details>
+    <h3>Sans en-têtes</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+        <p>Phrase d'introduction :</p>
+        <ul class="cnjnctn-type-or">
+          <li class="cnjnctn-col">Voici le contenu pour l'option A</li>
+          <li class="cnjnctn-col">Voici le contenu pour l'option B</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+        <p>Phrase d'introduction :</p>
+        <ul class="cnjnctn-type-and">
+          <li class="cnjnctn-col">Voici le contenu pour la partie A</li>
+          <li class="cnjnctn-col">Voici le contenu pour la partie B</li>
+        </ul>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Design &laquo;&nbsp;ou&nbsp;&raquo; avec élément de liste
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        Voici le contenu pour l'option A
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        Voici le contenu pour l'option B
+    &lt;/li&gt;
+&lt;/ul&gt;
 
+//Design &laquo;&nbsp;et&nbsp;&raquo; avec élément de liste
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        Voici le contenu pour la partie A
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        Voici le contenu pour la partie A
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+//Design &laquo;&nbsp;ou&nbsp;&raquo; avec élément de bloc (par exemple, &lt;div&gt;)
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;Voici le contenu pour l'option A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;Voici le contenu pour l'option B&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+//Design &laquo;&nbsp;et&nbsp;&raquo; avec élément de bloc
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;Voici le contenu pour la partie A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;Voici le contenu pour la partie B&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+  </pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="adaptatives">Conceptions adaptatives</h2>
+    <p>Pour les exemples qui suivent, le code utilisera un élément de bloc pour simplifier. Cependant, ils peuvent également être codés en utilisant un élément de liste (tant que le contenu respecte toujours toutes les directives sur l'utilisation des listes).</p>
+    <p>L'utilisation de ces classes supplémentaires crée une conception côte à côte au-dessus d'une certaine résolution en pixels (suit les points de rupture réactifs de BOEW 4).</p>
+    <p>Le modèle par défaut (comme indiqué ci-dessus) est empilé sur toutes les résolutions et n'est jamais côte à côte.</p>
+    <p>Utilisez votre navigateur pour redimensionner la vue de la page et voir comment la conception réagit dans différentes résolutions.</p>
+    <h3>Toujours côte à côte</h3>
+    <p>Cette conception ne s'empile pas, quelle que soit la résolution.</p>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-or cnjnctn-xs">
+      <section class="cnjnctn-col">
+        <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>En-tête B<span class="wb-inv"> : Option 2 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </section>
+    </div>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-and cnjnctn-xs">
+      <section class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </section>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception &laquo;&nbsp;Ou&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/div&gt;
+//Conception &laquo;&nbsp;Et&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltl/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Côte à côte &#x2265; 768px</h3>
+    <p>Cette conception s'empile sur 767px et en dessous.</p>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-or cnjnctn-sm">
+      <section class="cnjnctn-col">
+        <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>En-tête B<span class="wb-inv"> : Option 2 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </section>
+    </div>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-and cnjnctn-sm">
+      <section class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </section>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception &laquo;&nbsp;Ou&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-sm&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//Conception &laquo;&nbsp;Et&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-sm&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltl/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Côte à côte &#x2265; 992px</h3>
+    <p>Cette conception s'empile sur 991px et en dessous.</p>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-or cnjnctn-md">
+      <div class="cnjnctn-col">
+        <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>En-tête B<span class="wb-inv"> : Option 2 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </div>
+    </div>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-and cnjnctn-md">
+      <div class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception &laquo;&nbsp;Ou&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//Conception &laquo;&nbsp;Et&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltl/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Côte à côte &#x2265; 1200px</h3>
+    <p>Cette conception s'empile sur 1199px et en dessous.</p>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-or cnjnctn-lg">
+      <div class="cnjnctn-col">
+        <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>En-tête B<span class="wb-inv"> : Option 2 sur 2</span></h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </div>
+    </div>
+    <h4 class="mrgn-tp-sm">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+    <p>Phrase d'introduction :</p>
+    <div class="cnjnctn-type-and cnjnctn-lg">
+      <div class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>Ceci est le contenu pour l'en-tête A</p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>Ceci est le contenu pour l'en-tête B</p>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception &laquo;&nbsp;Ou&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//Conception &laquo;&nbsp;Et&nbsp;&raquo;
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltl/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="personnal">Personnalisation</h2>
+    <p>Pour les exemples qui suivent, les exemples utiliseront un élément de bloc et principalement la conception &laquo;&nbsp;ou&nbsp;&raquo; pour plus de simplicité. Cependant, ils peuvent également être codés en utilisant un élément de liste et en utilisant la conception &laquo;&nbsp;et&nbsp;&raquo;.</p>
+    <h3>Largeurs de colonne personnalisées</h3>
+    <section>
+      <h4>Colonne réglée à 90 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-90">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 90 % de la largeur par défaut <code>cnjnctn-col-90</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 80 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-80">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 80 % de la largeur par défaut <code>cnjnctn-col-80</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 75 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-75">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 75 % de la largeur par défaut <code>cnjnctn-col-75</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 70 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-70">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 70 % de la largeur par défaut <code>cnjnctn-col-70</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 60 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-60">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 60 % de la largeur par défaut <code>cnjnctn-col-60</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 50 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-50">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 50 % de la largeur par défaut <code>cnjnctn-col-50</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 40 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-40">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 40 % de la largeur par défaut <code>cnjnctn-col-40</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 30 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-30">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 30 % de la largeur par défaut <code>cnjnctn-col-30</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 25 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-25">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 25 % de la largeur par défaut <code>cnjnctn-col-25</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Colonne réglée à 20 % de la largeur d'origine (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-20">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A (à 20 % de la largeur par défaut <code>cnjnctn-col-20</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//90 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-90&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//80 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-80&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//75 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-75&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//70 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-70&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//60 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-60&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//50 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-50&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//40 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-40&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//30 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-30&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//25 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-25&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//20 % de la largeur par défaut
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col-20&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </details>
+    <h3>Pas de bord gauche lorsqu'il est empilé</h3>
+    <h4>Configuration de base</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h5>
+          </header>
+          <div class="panel-body">
+            <p>Phrase d'introduction :</p>
+            <div class="cnjnctn-type-or brdr-0">
+              <div class="cnjnctn-col">Voici le contenu pour l'option A </div>
+              <div class="cnjnctn-col">Voici le contenu pour l'option B</div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h5>
+          </header>
+          <div class="panel-body">
+            <p>Phrase d'introduction :</p>
+            <div class="cnjnctn-type-and brdr-0">
+              <div class="cnjnctn-col">Voici le contenu pour la partie A </div>
+              <div class="cnjnctn-col">Voici le contenu pour l'option B</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Basic "or" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option B
+	&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;
+
+//Basic "and" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour la partie A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option B
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;</code>
+  </pre>
+    </details>
+    <h4>Côte à côte &#x2265; 992px</h4>
+    <p>Utilisez votre navigateur pour redimensionner la vue de la page et constater qu'il n'y a pas de bord gauche lorsqu'il est empilé.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h5>
+          </header>
+          <div class="panel-body">
+            <p>Phrase d'introduction :</p>
+            <ul class="cnjnctn-type-or cnjnctn-md brdr-0">
+              <li class="cnjnctn-col">Voici le contenu pour l'option A </li>
+              <li class="cnjnctn-col">Voici le contenu pour l'option B</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h5>
+          </header>
+          <div class="panel-body">
+            <p>Phrase d'introduction :</p>
+            <ul class="cnjnctn-type-and cnjnctn-md brdr-0">
+              <li class="cnjnctn-col">Voici le contenu pour la partie A </li>
+              <li class="cnjnctn-col">Voici le contenu pour l'option B</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Design &laquo;&nbsp;ou&nbsp;&raquo; côte à côte au-dessus de 991px
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option B
+	&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;
+
+//Design &laquo;&nbsp;et&nbsp;&raquo; côte à côte au-dessus de 991px
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-md brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour la partie A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		Voici le contenu pour l'option B
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;</code>
+  </pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="flex">Conceptions flexibles</h2>
+    <h3>Colonnes multiples</h3>
+    <p>Si vous avez besoin de plus de quatre options (colonnes), envisagez la conception par défaut toujours empilée.</p>
+    <section>
+      <h4>Trois colonnes (l'exemple s'empile sur les petits appareils)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-md">
+        <div class="cnjnctn-col">
+          <h5>En-tête A<span class="wb-inv">: Option 1 sur 3</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 3</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête C<span class="wb-inv">: Option 3 sur 3</span></h5>
+          <p>Ceci est le contenu pour l'en-tête C</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Quatre colonnes (l'exemple s'empile sur les appareils de taille moyenne)</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col">
+          <h5>En-tête A<span class="wb-inv">: Option 1 sur 4</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv">: Option 2 sur 4</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête C<span class="wb-inv">: Option 3 sur 4</span></h5>
+          <p>Ceci est le contenu pour l'en-tête C</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête D<span class="wb-inv">: Option 4 sur 4</span></h5>
+          <p>Ceci est le contenu pour l'en-tête D</p>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Three columns (example stacks on small devices)
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête C&lt;span class=&quot;wb-inv&quot;&gt; : Option 3 sur 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête C&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//Four columns (example stacks on medium devices)
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête C&lt;span class=&quot;wb-inv&quot;&gt; : Option 3 sur 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête C&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;En-tête D&lt;span class=&quot;wb-inv&quot;&gt; : Option 4 sur 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;Ceci est le contenu pour l'en-tête D&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Conjonctions imbriquées</h3>
+    <p>Pour les cas où l'un des points de décision peut avoir son propre ensemble de points de décision.</p>
+    <section>
+      <h4>Un point de décision &laquo;&nbsp;ou&nbsp;&raquo; qui s'empile sur les petits appareils, imbriqué avec un point de décision &laquo;&nbsp;et&nbsp;&raquo; toujours empilé</h4>
+      <p>Phrase d'introduction :</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-80">
+          <h5>En-tête A<span class="wb-inv"> : Option 1 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête A</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>En-tête B<span class="wb-inv"> : Option 2 sur 2</span></h5>
+          <p>Ceci est le contenu pour l'en-tête B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+          <p>Phrase d'introduction :</p>
+          <div class="cnjnctn-type-and">
+            <div class="cnjnctn-col">
+              <h6>En-tête B.1</h6>
+              <p>Ceci est le contenu pour l'en-tête B.1</p>
+            </div>
+            <div class="cnjnctn-col">
+              <h6>En-tête B.2</h6>
+              <p>Ceci est le contenu pour l'en-tête B.2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>Visualiser le code</summary>
+      <pre><code>//Exemple de point de décision imbriqué
+&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col-80&quot;&gt;
+        &lt;h5&gt;En-tête A&lt;span class=&quot;wb-inv&quot;&gt; : Option 1 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Ceci est le contenu pour l'en-tête A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;En-tête B&ltlspan class=&quot;wb-inv&quot;&gt; : Option 2 sur 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;Ceci est le contenu pour l'en-tête B&lt;/p&gt;
+        &lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+        &lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+        &lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+            &lt;div class=&quot;cnjnctn-col&quot;&gt;
+                &lt;h6&gt;En-tête B.1&lt;/h6&gt;
+                &lt;p&gt;Ceci est le contenu pour l'en-tête B.1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;cnjnctn-col&quot;&gt;
+                &lt;h6&gt;En-tête B.2&lt;/h6&gt;
+                &lt;p&gt;Ceci est le contenu pour l'en-tête B.2&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </details>
+  </section>
