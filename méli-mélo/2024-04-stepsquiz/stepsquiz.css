@@ -1,0 +1,34 @@
+/* Remove default bottom border for each questions of the Steps Form  */
+.provisional.wb-steps.quiz .steps-wrapper {
+	border-bottom: none;
+}
+
+.provisional.wb-steps.quiz .wb-tggle-fildst > legend:before {
+	content: "";
+	counter-increment: none;
+}
+
+/* Customisation for the progress bar and text */
+.provisional.wb-steps.quiz progress.progressBar{
+	/*-webkit-appearance: progress-bar;*/
+	width: 100%;
+}
+
+.provisional.wb-steps.quiz .progressText {
+	text-align: center;
+}
+
+/* Align with default text size since forms are temporary excluded */
+.provisional.wb-steps.quiz p {
+	font-size: 20px;
+}
+
+.cnt-wdth-lmtd main .panel.stepsquiz:has( .provisional.wb-steps.quiz ) {
+	max-width: 65ch;
+}
+
+.provisional.wb-steps.quiz .steps-wrapper .buttons .btn {
+	display: inline-block;
+	width: 48%;
+	margin: 10px 1%;
+}
