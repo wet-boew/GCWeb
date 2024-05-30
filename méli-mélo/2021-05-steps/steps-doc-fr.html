@@ -1,0 +1,128 @@
+---
+title: Liste des étapes - Documentation
+dateModified: 2024-05-30
+description: "Stylisez la liste ordonnée et les divs avec le numéro d’étapes en cercles."
+lang: fr
+css:
+- steps.css
+---
+ <section>
+    <h2>Objectif</h2>
+    <p>Pour donner une meilleure importance au contenu qui se trouve dans une liste ordonnée. Avoir une conception qui reflète mieux la taille et le poids des en-têtes.</p>
+  </section>
+  <section>
+    <h2>Usage</h2>
+    <div class="row wb-eqht mrgn-tp-lg mrgn-bttm-xl">
+      <div class="col-md-6">
+        <h3 class="mrgn-tp-0 text-success h4">Utilisez lorsque <span class="glyphicon glyphicon-ok-circle"></span></h3>
+        <ul>
+          <li>Les étapes et le contenu sont au centre de l'attention de la page</li>
+          <li>Conception par défaut (cercle avec numéro à l'intérieur) :
+            <ul>
+              <li>Utilisé pour la navigation, comme une page de sujet, ou une page d'étape de métro où les en-têtes sont des liens vers des sous-sujets ou des sous-étapes</li>
+              <li>Recommandé d'utiliser des verbes d'action</li>
+              <li>Doit toujours avoir des en-têtes</li>
+            </ul>
+          </li>
+          <li>Conception avec zéro en tête (bordure droite avec les étapes 1 à 9 précédées d'un zéro) :
+            <ul>
+              <li>Utilisé pour le contenu régulier, comme des instructions étape par étape</li>
+              <li>L'utilisation d'en-têtes est facultative</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 brdr-lft">
+        <h3 class="mrgn-tp-0 text-danger h4">Ne pas utiliser lorsque <span class="glyphicon glyphicon-remove-circle"></span></h3>
+        <ul>
+          <li>Le contenu ne répond pas aux critères d'être dans une liste ordonnée
+            <ul>
+              <li>Référez-vous à : <a href="https://conception.canada.ca/guide-redaction/#wp5-2-2">Guide de rédaction du contenu du site Canada.ca sur les listes numérotées</a></li>
+            </ul>
+          </li>
+          <li>La liste n'est pas une partie principale de la page</li>
+          <li>Les éléments de liste ne contiennent qu'une petite quantité de contenu, utilisez une liste ordonnée normale</li>
+        </ul>
+      </div>
+    </div>
+    <div class="well">
+      <h3 class="mrgn-tp-0 text-warning h4">Soyez prudent lorsque <span class="glyphicon glyphicon-exclamation-sign"></span></h3>
+      <p>Correspondre le mauvais modèle avec le mauvais type de contenu.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Exemples pratiques</h2>
+    <ul>
+      <li><a href="2021-05-steps.html">Exemple anglais</a></li>
+      <li><a href="2021-05-steps-fr.html">Exemple français</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Comment mettre en œuvre</h2>
+    <h3>Conception par défaut pour la navigation étape par étape vers les pages web</h3>
+    <p>Dans l'élément de liste de niveau supérieur :</p>
+    <pre><code>&lt;ol class=&quot;lst-stps&quot;&gt;</code></pre>
+  </section>
+  <section>
+    <h2>Options de configuration</h2>
+    <h3>Conception avec zéro en tête pour le contenu étape par étape sur la page</h3>
+    <p>Dans l'élément de liste de niveau supérieur :</p>
+    <pre><code>&lt;ol class=&quot;lst-stps ld-zr&quot;&gt;</code></pre>
+    <h3>Sous-listes (imbriquées)</h3>
+    <p>Dans les sous-listes :</p>
+    <pre><code>...
+     &lt;li&gt;
+         &lt;ol class=&quot;lst-stps-sub&quot;&gt;
+             ...
+         &lt;/ol&gt;
+    &lt;/li&gt;
+...</code></pre>
+    <p>La sous-liste hérite de la conception de la liste parente (par défaut ou avec zéro en tête).</p>
+    <p>Elles apparaissent comme un élément alpha inférieur (par exemple, 2a, 2b, 2c, etc.).</p>
+    <h3>Étapes de liste rayées</h3>
+    <p>Cette conception doit être utilisée avec parcimonie pour éviter le risque que certains éléments de la liste paraissent &laquo;&nbsp;surlignés&nbsp;&raquo;.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Conception rayée (par défaut) :</p>
+        <pre><code>&lt;ol class=&quot;lst-stps stps-strpd&quot;&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <p>Conception rayée (avec zéro en tête) :</p>
+        <pre><code>&lt;ol class=&quot;lst-stps ld-zr stps-strpd&quot;&gt;</code></pre>
+      </div>
+    </div>
+    <h4>Sous-listes rayées</h4>
+    <p>Par défaut, les sous-listes n'hériteront pas de la conception rayée sans utiliser la classe <code>stps-strpd</code> sur leur propre élément.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <p>Conception de sous-liste rayée (par défaut) :</p>
+        <pre><code>&lt;ol class=&quot;lst-stps stps-strpd&quot;&gt;
+	...
+    &lt;li&gt;
+        &lt;ol class=&quot;lst-stps-sub stps-strpd&quot;&gt;
+            ...
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    ...
+&lt;/ol&gt;</code>
+</pre>
+      </div>
+      <div class="col-md-6">
+        <p>Conception de sous-liste rayée (avec zéro en tête) :</p>
+        <pre><code>&lt;ol class=&quot;lst-stps ld-zr stps-strpd&quot;&gt;
+	...
+    &lt;li&gt;
+        &lt;ol class=&quot;lst-stps-sub stps-strpd&quot;&gt;
+            ...
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    ...
+&lt;/ol&gt;</code>
+</pre>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Code source</h2>
+    <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2021-05-steps">Code source du plugin d'étapes de liste sur GitHub</a> </p>
+  </section>
