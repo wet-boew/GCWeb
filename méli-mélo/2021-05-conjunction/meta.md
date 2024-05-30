@@ -10,10 +10,10 @@ feature: méli-mélo
   modified: dct:modified
 
 title:
-  en: And/Or decision points (Conjunctions)
-  fr: And/Or decision points (Conjunctions) - Français
+  en: Conjunctions (and/or)
+  fr: Conjonction (et/ou)
 description: Conjunctions for stacked or side by side decision points, and/or
-modified: 2021-05-27
+modified: 2024-05-30
 componentName: 2021-05-conjunction
 sponsor: CRA - Christopher Oakes (@christopher-o)
 
