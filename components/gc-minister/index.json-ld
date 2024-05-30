@@ -1,0 +1,216 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Minister or institutional head",
+		"fr": "Ministre ou chef d’institution"
+	},
+	"description": {
+		"en": "This component is for the minister or institutional head pattern on the institutional landing page.",
+		"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution sur la page d'accueil de l'institution."
+	},
+	"modified": "2024-03-11",
+	"componentName": "gc-minister",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "Minister or institutional head",
+				"language": "en",
+				"path": "gc-minister-en.html"
+			},
+			{
+				"title": "Ministre ou chef d’institution",
+				"language": "fr",
+				"path": "gc-minister-fr.html"
+			},
+			{
+				"title": "Minister or institutional head - two ministers example",
+				"language": "en",
+				"path": "gc-minister-two-ministers-en.html"
+			},
+			{
+				"title": "Ministre ou chef d'institution - exemple avec deux ministres",
+				"language": "fr",
+				"path": "gc-minister-two-ministers-fr.html"
+			},
+			{
+				"title": "Minister or institutional head - special cases example",
+				"language": "en",
+				"path": "gc-minister-special-cases-en.html"
+			},
+			{
+				"title": "Ministre ou chef d'institution - cas particuliers",
+				"language": "fr",
+				"path": "gc-minister-special-cases-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Minister or institutional head",
+				"language": "en",
+				"path": "gc-minister-doc-en.html"
+			},
+			{
+				"title": "Ministre ou chef d’institution",
+				"language": "fr",
+				"path": "gc-minister-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Minister or institutional head - default",
+				"fr": "Ministre ou chef d’institution - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This component is for the minister or institutional head pattern on the institutional landing page.",
+				"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution sur la page d'accueil de l'institution."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+			},
+			"iteration": "_:iteration_minister_1",
+			"example": [
+				{
+					"en": { "href": "gc-minister-en.html", "text": "Minister or institutional head" },
+					"fr": { "href": "gc-minister-fr.html", "text": "Ministre ou chef d’institution" }
+				},
+				{
+					"en": { "href": "gc-minister-two-ministers-en.html", "text": "Minister or institutional head - two ministers example" },
+					"fr": { "href": "gc-minister-two-ministers-fr.html", "text": "Ministre ou chef d'institution - exemple avec plusieurs ministres" }
+				},
+				{
+					"en": { "href": "gc-minister-special-cases-en.html", "text": "Minister or institutional head - special cases example" },
+					"fr": { "href": "gc-minister-special-cases-fr.html", "text": "Ministre ou chef d'institution - cas particuliers" }
+				}
+			],
+			"implementation": [
+				"_:implement_minister"
+			],
+			"history": [
+				{
+					"en": "March 2024 - Initial implementation of the variation.",
+					"fr": "Mars 2024 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_minister",
+			"iteration": "_:iteration_minister_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"The following coded example is the default layout. When you are implementing your instance, you can omit any of the following:<ul><li>image</li><li>mandate letter link</li><li>briefing book link</li></ul>",
+					"The <code>&lt;div class=\"col-md-6\"></code> can be repeated as many times as there are ministers or institutional heads.",
+					"Refer to the official guidance for the appropriate section heading."
+				],
+				"fr": [
+					"L'exemple codé suivant est la présentation par défaut. Lorsque vous mettez en œuvre votre instance, vous pouvez omettre les éléments suivants&nbsp;:<ul><li>Image</li><li>Lettre de mandat</li><li>Dossier d’information</li></ul>",
+					"Le <code>&lt;div class=\"col-md-6\"></code> peut être répété autant de fois qu'il y a de ministres ou de chefs d'institution.",
+					"Reportez-vous aux directives officielles pour connaître le titre de section approprié."
+				]
+			},
+			"notes": {
+				"en": [
+					"The recommended image size is 200px by 250px."
+				],
+				"fr": [
+					"La taille d'image recommandée est de 200px par 250px."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample with image:",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Code sample without image:",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code avec image :",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[url de l'image]\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de code sans image :",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_minister_1",
+			"name": "Minister - Iteration 1",
+			"date": "2024-03",
+			"detectableBy": ".gc-minister",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample with image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Code sample without image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_minister",
+			"name": "Minister or institutional head",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_minister_1",
+			"detectableBy": ".gc-minister",
+			"layout": "Each minister takes up half the container. The image (if available) is on the left",
+			"semantic": "section ((h3 a) + img + p + (ul > li))",
+			"style": "The image has a thin grey border.",
+			"context": "To be used in the institutional landing page template.",
+			"schema": [
+				"Section title (type: STRING) - for example: Minister, President, Parliamentary secretary, Associate minister, Ombudsman, Management",
+				"Ministers (type: ARRAY)",
+				"Ministers > Name (type: STRING)",
+				"Ministers > Title (type: STRING)",
+				"Ministers > Page URL (type: STRING)",
+				"Ministers > Image URL (type: STRING)",
+				"Ministers > Mandate letter text (type: STRING)",
+				"Ministers > Mandate letter URL (type: STRING)",
+				"Ministers > Briefing book text (type: STRING)",
+				"Ministers > Briefing book URL (type: STRING)"
+			],
+			"mediaConsiderations": "Recommended image size: 200x250px."
+		}
+	]
+}

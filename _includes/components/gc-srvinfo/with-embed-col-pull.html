@@ -1,0 +1,42 @@
+{%- comment -%}
+
+++++++++++++++++++++++++++++++++++
++ GC service and information (gc-srvinfo)
++
++ Configuration à 2 colonne avec floating left
++
++ @param: title // Title of the service or information
+++++++++++++++++++++++++++++++++++
+
+{%- endcomment -%}
+
+<section class="gc-srvinfo col-md-8 pull-left">
+	<h2>
+{%- if include.title -%}
+		{{ include.title }}
+{%- elsif page.language == "fr" -%}
+		Services et renseignements
+{%- elsif page.language == "en" -%}
+		Services and information
+{%- endif -%}
+	</h2>
+	<div class="wb-eqht row">
+
+{%- for  i in (1..8) -%}
+
+	{%- if page.language == "en" -%}
+		<div class="col-md-6">
+			<h3><a href="#">[Subtopic hyperlink text]</a></h3>
+			<p>Summary of the information or tasks that can be accomplished on the sub-topic page. Remove prose or promotional messaging. Use action verbs.</p>
+		</div>
+	{%- else -%}
+		<div class="col-md-6">
+			<h3><a href="#">[Lien à un sous-sujet]</a></h3>
+			<p>Résumé des renseignements disponibles ou des tâches pouvant être accomplies sur la page. Supprimez les longs libellés et les messages promotionnels. Utilisez une formulation basée sur l'action.</p>
+		</div>
+	{%- endif -%}
+
+{%- endfor -%}
+
+	</div>
+</section>

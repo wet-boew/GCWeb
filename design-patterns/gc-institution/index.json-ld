@@ -1,0 +1,114 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "About the institution pattern",
+		"fr": "À propos de l’institution"
+	},
+	"description": {
+		"en": "Section on an institutional landing page that provides links to corporate, program and policy information",
+		"fr": "Section d’une page d’accueil institutionnelle offrant des liens vers des renseignements relatifs à un organisme, à un programme ou à une politique en particulier."
+	},
+	"modified": "2024-01-11",
+	"componentName": "gc-institution",
+	"pages": {
+		"docs": [
+			{
+				"title": "About the institution",
+				"language": "en",
+				"path": "gc-institution-doc-en.html"
+			},
+			{
+				"title": "À propos de l'institution",
+				"language": "fr",
+				"path": "gc-institution-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "About the institution",
+				"language": "en",
+				"path": "gc-institution-en.html"
+			},
+			{
+				"title": "À propos de l'institution",
+				"language": "fr",
+				"path": "gc-institution-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "About the institution - default",
+				"fr": "À propos de l'institution - par défaut"
+			},
+			"description": {
+				"en": "Section on an institutional landing page that provides links to corporate, program and policy information",
+				"fr": "Section d’une page d’accueil institutionnelle offrant des liens vers des renseignements relatifs à un organisme, à un programme ou à une politique en particulier."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+			},
+			"example": [
+				{
+					"en": { "href": "gc-institution-en.html", "text": "About the institution" },
+					"fr": { "href": "gc-institution-fr.html", "text": "À propos de l'institution" }
+				}
+			],
+			"implementation": [
+				"_:implement_institution"
+			],
+			"history": [
+				{
+					"en": "March 2024 - Initial implementation of the variation.",
+					"fr": "Mars 2024 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_institution",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section>\n\t<h2>About [Institution]</h2>\n\t<ul class=\"list-unstyled bold-content mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t<li><a href=\"#\">Mandate</a></li>\n\t\t<li><a href=\"#\">Organizational structure</a></li>\n\t\t<li><a href=\"#\">Transparency</a></li>\n\t\t<li><a href=\"#\">Accessibility</a></li>\n\t\t<li><a href=\"#\">Job opportunities</a></li>\n\t\t<li><a href=\"#\">Reports</a></li>\n\t\t<li><a href=\"#\">Compliance</a></li>\n\t\t<li><a href=\"#\">Enforcement notifications</a></li>\n\t\t<li><a href=\"#\">[Institutional link]</a></li>\n\t\t<li>More: <a href=\"#\">About [Institution]</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section>\n\t<h2>À propos de [Institution]</h2>\n\t<ul class=\"list-unstyled bold-content mrgn-tp-lg lst-spcd-2 colcount-md-2\">\n\t\t<li><a href=\"#\">Mandat</a></li>\n\t\t<li><a href=\"#\">Structure organisationnelle</a></li>\n\t\t<li><a href=\"#\">Transparence</a></li>\n\t\t<li><a href=\"#\">Accessibilité</a></li>\n\t\t<li><a href=\"#\">Possibilités d’emploi</a></li>\n\t\t<li><a href=\"#\">Rapports</a></li>\n\t\t<li><a href=\"#\">Conformité</a></li>\n\t\t<li><a href=\"#\">Notifications d’application de la loi</a></li>\n\t\t<li><a href=\"#\">[Lien institutionnel]</a></li>\n\t\t<li>En savoir plus&nbsp;: <a href=\"#\">À propos de [institution]</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		}
+	]
+}

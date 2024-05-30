@@ -1,84 +1,61 @@
 ---
-title: Lien en vedette
-description: Documentation et exemple pratique de lien en vedette - fonctionnalité provisoire
-language: fr
-altLangPage: gc-featured-link-en.html
-dateModified: 2021-07-07
-layout: no-container
+{
+	"title": Lien en vedette,
+	"description": Exemples pratiques de la composante Lien en vedette,
+	"language": fr,
+	"altLangPage": gc-featured-link-en.html,
+	"dateModified": 2024-03-08,
+	"breadcrumbs": [
+		{ "title": "Lien en vedette - Documentation", "link": "components/gc-featured-link/gc-featured-link-doc-fr.html" }
+	],
+	"layout": no-container
+}
 ---
+<span class="wb-prettify all-pre hide"></span>
+
 <div class="container">
-	<h1>{{ page.title }}</h1>
+	<h1 id="wb-cont" property="name">{{ page.title }}</h1>
+	<p>Vous trouverez ci-dessous des exemples pratiques pour la composante « Lien en vedette ».</p>
 
-	{% include alert-provisional.html %}
+	<section class="alert alert-info mrgn-tp-lg">
+		<h2 class="h3">Structure des en-têtes</h2>
+		<p>La structure sémantique logique des en-têtes n'a pas été suivie afin de s'adapter aux exemples pratiques suivants.</p>
+	</section>
 
-	<span class="wb-prettify all-pre hide"></span>
+	<h2>Sur cette page</h2>
+	<ul>
+		<li><a href="#exempleParDefaut">Exemple par défaut</a></li>
+		<li><a href="#arrierePlanPersonnalise">Exemple avec couleur d'arrière-plan personnalisée</a></li>
+		<li><a href="#descriptionSousLien">Exemple de lien en vedette avec description sous le lien</a></li>
+	</ul>
 
-	<dl class="horizontal">
-		<dt>Statut</dt>
-		<dd>Provisoire</dd>
-		<dt>Type</dt>
-		<dd>Conception de Canada.ca</dd>
-		<dt>Dernière revue</dt>
-		<dd>2021-07-07</dd>
-		<dt>Est conforme à</dt>
-		<dd>Spécifications du contenu et de l'architecture de l'information 2.1.2</dd>
-		<dt>Directives</dt>
-		<dd>n/a</dd>
-		<dt>Nom technique</dt>
-		<dd><code>gc-featured-link</code></dd>
-	</dl>
-
-	<h2>Objectif</h2>
-	<p>Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence. Il doit être utilisé pour attirer l'attention sur les avertissements ou les avis.</p>
-
-	<h2>Exemples pratiques</h2>
-
-	<h3>Lien en vedette (Provisiore v1.0)</h3>
-	<p>La structure sémantique logique des en-têtes n'a pas été suivie afin de s'adapter à l'exemple pratique suivant. Vous pouvez aller directement au <a href="#codeSample1">code source</a>.</p>
+	<h2 id="exempleParDefaut">Exemple par défaut</h2>
 </div>
 
-<section class="provisional gc-featured-link">
+<section class="gc-featured-link">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">En vedette</h2>
-				<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
-				<p>Description longue [Facultatif]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Pleins feux sur</h2>
+		<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
 	</div>
 </section>
 
 <div class="container">
-	<h4 id="codeSample1">Code</h4>
-	<pre><code>&lt;section class="provisional gc-featured-link">
+	<h3 id="codeSample1">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link">
 	&lt;div class="container">
-		&lt;div class="row">
-			&lt;div class="col-xs-12">
-				&lt;h2 class="wb-inv">En vedette&lt;/h2>
-				&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
-				&lt;p>Description longue [Facultatif]&lt;/p>
-			&lt;/div>
-		&lt;/div>
+		&lt;h2 class="wb-inv">Pleins feux sur&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
 	&lt;/div>
 &lt;/section></code></pre>
 
-		<h3>Couleur d'arrière-plan personnalisée</h3>
-		<p>Pour personnaliser la couleur d'arrière-pla, ajoutez l'attribut <code>data-bg-color</code>. La valeur doit être le code hexadécimal de la couleur souhaitée.</p>
-		<p>Le plugiciel appliquera automatiquement la bonne couleur au texte&nbsp;: <code>#FFFFFF</code> pour les couleurs sombres, <code>#333333</code> pour les couleurs claires, <code>#000000</code> pour les couleurs intermédiaires.</p>
-		<p>La structure sémantique logique des en-têtes n'a pas été suivie afin de s'adapter à chaque exemples pratiques. Vous pouvez aller directement au <a href="#codeSample2">code source</a>.</p>
-		<p class="mrgn-tp-lg">Exemple avec couleur sombre&nbsp;:</p>
-	</div>
+	<h2 id="arrierePlanPersonnalise">Exemple avec couleur d'arrière-plan personnalisée</h2>
+	<p class="mrgn-tp-lg">Exemple avec couleur sombre&nbsp;:</p>
+</div>
 
-<section class="provisional gc-featured-link" data-bg-color="#005B61">
+<section class="gc-featured-link" data-bg-color="#005B61">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">En vedette</h2>
-				<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
-				<p>Description longue [Facultatif]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Pleins feux sur</h2>
+		<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
 	</div>
 </section>
 
@@ -86,15 +63,10 @@ layout: no-container
 	<p class="mrgn-tp-lg">Exemple avec couleur claire&nbsp;:</p>
 </div>
 
-<section class="provisional gc-featured-link" data-bg-color="#99dade">
+<section class="gc-featured-link" data-bg-color="#99dade">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">En vedette</h2>
-				<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
-				<p>Description longue [Facultatif]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Pleins feux sur</h2>
+		<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
 	</div>
 </section>
 
@@ -102,99 +74,54 @@ layout: no-container
 	<p class="mrgn-tp-lg">Exemple avec couleur intermédiaire&nbsp;:</p>
 </div>
 
-<section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
+<section class="gc-featured-link" data-bg-color="#8F8F8F">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="wb-inv">En vedette</h2>
-				<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
-				<p>Description longue [Facultatif]</p>
-			</div>
-		</div>
+		<h2 class="wb-inv">Pleins feux sur</h2>
+		<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
 	</div>
 </section>
 
 <div class="container">
-	<h4 id="codeSample2">Code</h4>
-	<pre><code>&lt;section class="provisional gc-featured-link" data-bg-color="#005B61">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">En vedette&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
-					&lt;p>Description longue [Facultatif]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section>
+	<h3 id="codeSample2">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link" data-bg-color="#005B61">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Pleins feux sur&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section>
 
-	&lt;section class="provisional gc-featured-link" data-bg-color="#99dade">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">En vedette&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
-					&lt;p>Description longue [Facultatif]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section>
+&lt;section class="gc-featured-link" data-bg-color="#99dade">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Pleins feux sur&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section>
 
-	&lt;section class="provisional gc-featured-link" data-bg-color="#8F8F8F">
-		&lt;div class="container">
-			&lt;div class="row">
-				&lt;div class="col-xs-12">
-					&lt;h2 class="wb-inv">En vedette&lt;/h2>
-					&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
-					&lt;p>Description longue [Facultatif]&lt;/p>
-				&lt;/div>
-			&lt;/div>
-		&lt;/div>
-	&lt;/section></code></pre>
+&lt;section class="gc-featured-link" data-bg-color="#8F8F8F">
+	&lt;div class="container">
+		&lt;h2 class="wb-inv">Pleins feux sur&lt;/h2>
+		&lt;p>&lt;a class="stretched-link" href="#">[Titre de la promotion]&lt;/a>&lt;/p>
+	&lt;/div>
+&lt;/section></code></pre>
 
-	<h3>Modèles de conception précédents</h3>
-	<details>
-		<summary>Modèle précédent (Page d'accueil)</summary>
-		<p>Modèle utilisant les "helpers":</p>
-		<div class="bg-gctheme opct-90">
-			<div class="container">
-				<div class="row">
-					<div class="mrgn-tp-md mrgn-bttm-md col-xs-12">
-						<p class="pull-left text-white mrgn-bttm-0">En vedette&nbsp;:&nbsp;</p>
-						<p class="pull-left mrgn-bttm-0"><a class="stretched-link text-white" href="#">[Titre de la promotion]</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<pre><code>&lt;div class="bg-gctheme opct-90"&gt;
-			&lt;div class="container"&gt;
-				&lt;div class="row"&gt;
-					&lt;div class="mrgn-tp-md mrgn-bttm-md col-xs-12"&gt;
-						&lt;p class="pull-left text-white mrgn-bttm-0"&gt;En vedette&nbsp;:&nbsp;&lt;/p&gt;
-						&lt;p class="pull-left mrgn-bttm-0"&gt;&lt;a class="stretched-link text-white" href="#"&gt;[Titre de la promotion]&lt;/a&gt;&lt;/p&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		</code></pre>
-	</details>
-
-	<div lang="en">
-	<h2>Evaluation and report</h2>
-	<ul>
-		<li>Accessibility pre-assessment #1
-			<ul>
-				<li><a href="./reports/a11y-1-en.html" hreflang="en"><span class="wb-inv">Pre-assessment report #1</span> English report</a></li>
-				<li><a href="./reports/a11y-1-fr.html" hreflang="fr"><span class="wb-inv">Pre-assessment report #1</span> French report</a></li>
-			</ul>
-		</li>
-		<li>Accessibility assessment #1
-			<ul>
-				<li><a href="./reports/a11y-2-en.html" hreflang="en"><span class="wb-inv">Assessment report #1</span> English report</a></li>
-				<li><a href="./reports/a11y-2-fr.html" hreflang="fr"><span class="wb-inv">Assessment report #1</span> French report</a></li>
-			</ul>
-		</li>
-	</ul>
+	<h2 id="descriptionSousLien">Exemple de lien en vedette avec description sous le lien</h2>
 </div>
+
+<section class="gc-featured-link">
+	<div class="container">
+		<h2 class="wb-inv">Pleins feux sur</h2>
+		<p><a class="stretched-link" href="#">[Titre de la promotion]</a></p>
+		<p>Description longue [facultatif]</p>
+	</div>
+</section>
+
+<div class="container">
+	<h3 id="codeSample3">Code</h3>
+	<pre><code>&lt;section class="gc-featured-link"&gt;
+	&lt;div class="container"&gt;
+		&lt;h2 class="wb-inv"&gt;Pleins feux sur&lt;/h2&gt;
+		&lt;p&gt;&lt;a class="stretched-link" href="#"&gt;[Titre de la promotion]&lt;/a&gt;&lt;/p&gt;
+		&lt;p&gt;Description longue [facultatif]&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
 </div>

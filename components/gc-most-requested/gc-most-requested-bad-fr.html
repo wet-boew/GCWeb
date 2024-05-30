@@ -1,0 +1,50 @@
+---
+{
+	"altLangPage": "gc-most-requested-bad-en.html",
+	"dateModified": "2024-02-14",
+	"description": "Exemple de mauvaise implémentation pour la composante En demande",
+	"language": "fr",
+	"title": "En demande",
+	"breadcrumbs": [
+		{ "title": "En demande - Documentation", "link": "components/gc-most-requested/gc-most-requested-doc-fr.html" }
+	],
+	"pageclass": "wb-prettify all-pre"
+}
+---
+
+<p class="mrgn-bttm-lg">Vous trouverez ci-dessous un exemple de mauvaise implémentation pour la composante En demande. Dans cet exemple, la composante est située à l'intérieur d'un autre élément avec la classe <code>container</code>, ce qui n'est pas autorisé.</p>
+
+<section class="gc-most-requested">
+	<div class="container">
+		<h2>En demande</h2>
+		<ul>
+			<li><a href="#">[Tâche principale 1]</a></li>
+			<li><a href="#">[Tâche principale 2]</a></li>
+			<li><a href="#">[Tâche principale 3]</a></li>
+			<li><a href="#">[Tâche principale 4]</a></li>
+			<li><a href="#">[Tâche principale 5]</a></li>
+			<li><a href="#">[Tâche principale 6]</a></li>
+		</ul>
+	</div>
+</section>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;main class="container">
+	...
+	&lt;section class="gc-most-requested">
+		&lt;div class="container">
+			&lt;h2>En demande&lt;/h2>
+			&lt;ul>
+				&lt;li>&lt;a href="#">[Tâche principale 1]&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">[Tâche principale 2]&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">[Tâche principale 3]&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">[Tâche principale 4]&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">[Tâche principale 5]&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">[Tâche principale 6]&lt;/a>&lt;/li>
+			&lt;/ul>
+		&lt;/div>
+	&lt;/section>
+	...
+&lt;/main></code></pre>
+</details>

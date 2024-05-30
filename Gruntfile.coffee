@@ -53,6 +53,17 @@ module.exports = (grunt) ->
 	)
 
 	@registerTask(
+		"build"
+		"Build a local working copy without dependencies check"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runLocal"
+			"core-dist-DEBUG"
+			"site-contents"
+		]
+	)
+
+	@registerTask(
 		"demo"
 		"Build a demo ready version of the site"
 		[

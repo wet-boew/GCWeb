@@ -1,21 +1,36 @@
-/* Provisional most requested component */
+/*
+	Most requested component
+*/
 
-.provisional.gc-most-requested {
-	border: none;
+// Make sure the component is not inside a container
+main:not(.container) .gc-most-requested,
+div:not(.container) .gc-most-requested {
+	background-color: #f5f5f5;
+	margin-bottom: 20px;
+	padding: 24px 0 12px;
 
 	h2 {
 		font-size: $font-size-h4;
-		margin-top: $space-md;
+		margin-top: 0;
 	}
-	ul {
-		margin-bottom: $space-md;
-		margin-top: $space-md;
 
+	ul {
 		li {
 			font-family: "Lato", sans-serif;
-			font-size: $small-size;
+			font-size: 19px;
 			font-weight: $bold-weight;
-			line-height: 1.5em;
+			line-height: 1.8em;
 		}
+	}
+}
+
+// To be removed when ILP version 1 is deprecated
+.provisional.gc-most-requested {
+	h2 {
+		white-space: nowrap;
+	}
+
+	ul {
+		display: block !important;
 	}
 }

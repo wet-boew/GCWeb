@@ -9,7 +9,7 @@ contextualFooter:
     text: Lien contextuel 2
   - url: http://canada.ca/fr
     text: Lien contextuel 3
-dateModified: 2023-01-16
+dateModified: 2023-12-04
 includes:
   footer: edge
 language:	fr
@@ -29,7 +29,12 @@ Consultez le système de conception de Canada.ca pour savoir quels éléments de
 
 ## Changements récents
 
-### Version 6.0
+### Version 7.0
+
+Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
+* Version 7.0: Ajouté "www." à l'URL du lien "<span lang="en">Canada and the world</span>".
+* Version 6.0: Changé l'URL du lien "Vétérans et militaires".
+* Version 5.0: Changement de "<span lang="en">All Contacts</span>" à "<span lang="en">All contacts</span>" dans la version anglaise.
 
 Les modifications suivantes ont été apportées depuis la **version 2.0**&nbsp;:
 * Ajout d'une bande contextuelle au-dessus de la bande principale.
@@ -45,10 +50,7 @@ Les modifications suivantes ont été apportées depuis la **version 2.0**&nbsp;
 * Les liens « Avis » et « Confidentialité » doivent désormais rester visibles à tout moment, même lorsque `noFooterCorporate` est défini à « true ».
 * Suppression de l'ancre « Haut de page ».
 * Refonte complète des titres du pied de page pour l'accessibilité.
-
-Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
-* Changement de "<span lang="en">All Contacts</span>" à "<span lang="en">All contacts</span>" dans la version anglaise.
-* Changé l'URL du lien "Vétérans et militaires".
+* Spécifique à GCWeb Jekyll : le lien de saut de page vers le pied de page devrait toujours être présent.
 
 ## Implémentation de référence
 
