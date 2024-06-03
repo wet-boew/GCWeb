@@ -1,0 +1,30 @@
+<section class="pagedetails{% if include.addContainer %} container{% endif %}">
+	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
+
+	{% assign col-modified = "col-xs-12" %}
+	{%- if page.feedback and page.feedback != "" -%}
+		{%- if page.share -%}
+			{% assign col-share = "col-sm-4 col-md-3" %}
+		{%- endif -%}
+	{%- else -%}
+		{%- if page.share -%}
+			{% assign col-share = "col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" %}
+			{% assign col-modified = "col-sm-6 col-md-5 col-lg-4 col-sm-pull-4 col-md-pull-3" %}
+		{%- endif -%}
+	{%- endif -%}
+
+	<div class="row">
+		{%- if page.feedback and page.feedback != "" -%}
+			<div class="col-sm-8 col-md-9 col-lg-9">
+				{% include feedback/feedback.html %}
+			</div>
+		{%- endif -%}
+		{%- if page.share -%}
+			<div class="wb-share {{ col-share }}" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+		{%- endif -%}
+
+		<div class="{{ col-modified }}">
+			{%- include date-modified/date-modified.html -%}
+		</div>
+	</div>
+</section>
