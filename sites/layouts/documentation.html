@@ -2126,6 +2126,44 @@ layout: default
 					]
 				}
 			]
+		},
+		{
+			"about": "/notes",
+			"dd14": "Notes",
+			"@type": "rdf:Alt",
+			"mapping": [
+				{
+					"template": "[data-notes-none]",
+					"test": "fn:guessType",
+					"value": "/notes",
+					"expect": "undefined"
+				},
+				{
+					"template": "[data-notes-description]",
+					"test": "fn:guessType",
+					"value": "/notes",
+					"expect": "xsd:string",
+					"mapping": [
+						{ "selector": "dd", "value": "/", "isHTML": true }
+					]
+				},
+				{
+					"template": "[data-notes-list]",
+					"test": "fn:guessType",
+					"value": "/notes",
+					"expect": "rdfs:Container",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/@value", "isHTML": true }
+							]
+						}
+					]
+				}
+
+			]
 		}
 	]
 }'>
@@ -2201,6 +2239,26 @@ layout: default
 					<ul data-example>
 						<template>
 							<li><a href></a></li>
+						</template>
+					</ul>
+				</dd>
+			</template>
+
+			<!-- Notes -->
+			<template data-notes-none>
+				<dt>Notes:</dt>
+				<dd>Not applicable or out of scope</dd>
+			</template>
+			<template data-notes-description>
+				<dt>Notes:</dt>
+				<dd>[[ Description ]]</dd>
+			</template>
+			<template data-notes-list>
+				<dt>Notes:</dt>
+				<dd>
+					<ul>
+						<template>
+							<li>[[ Description ]]</li>
 						</template>
 					</ul>
 				</dd>
