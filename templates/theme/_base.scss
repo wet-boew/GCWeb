@@ -1,0 +1,90 @@
+/*
+  WET-BOEW
+  @title: Theme template
+  @desc:  Styles specific to the Theme template for GCWeb
+*/
+
+.page-type-theme {
+	#wb-bc {
+		li:first-child a {
+			border-left: solid #26374a 5px;
+			padding-left: 8px;
+		}
+
+		.breadcrumb {
+			margin-bottom: 15px;
+		}
+	}
+
+	#gridContainer {
+		> nav {
+			#menuBtn {
+				border-radius: 0;
+				display: block;
+				margin-bottom: 1em;
+				margin-left: -15px;
+				text-align: left;
+				width: calc(100% + 30px);
+
+				.glyphicon-chevron-down {
+					margin-left: 10px;
+				}
+
+				&.expanded .glyphicon-chevron-down {
+					transform: rotate(180deg) translateY(2px);
+				}
+
+				// Les items du menu sont affichés par défaut en mode basic HTML, donc il n'est pas nécessaire d'afficher le bouton menu car il ne sera pas fonctionnel
+				.wb-disable & {
+					display: none;
+				}
+			}
+
+			li {
+				a {
+					color: $link-color;
+					display: block;
+					font-size: 16px;
+					line-height: 1.65em;
+					padding: 10px 14px;
+					text-decoration: none;
+
+					&:hover {
+						background-color: #f5f5f5;
+						color: $button-blue;
+						text-decoration: underline;
+					}
+				}
+
+				&.active {
+					a, a:hover {
+						background-color: #26374a;
+						color: #fff;
+					}
+
+					a:focus {
+						outline: 5px auto #fff;
+						outline-offset: -5px;
+					}
+				}
+			}
+
+			& + section {
+				h1#wb-cont {
+					border: none;
+					font-size: 1.2em;
+					line-height: 1.1;
+					margin: 10px 0 11.5px;
+				}
+
+				.gc-most-requested {
+					h2 {
+						float: none;
+						font-size: 1em;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1278,6 +1278,209 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "Theme",
+		"fr": "Thème"
+	},
+	"description": {
+		"en": "Theme page template",
+		"fr": "Gabarit de page thème"
+	},
+	"modified": "2020-02-12",
+	"componentName": "theme",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "[Theme]",
+				"language": "en",
+				"path": "theme-en.html"
+			},
+			{
+				"title": "[Thème]",
+				"language": "fr",
+				"path": "theme-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Theme page",
+				"language": "en",
+				"path": "theme-doc-en.html"
+			},
+			{
+				"title": "Page de thème",
+				"language": "fr",
+				"path": "theme-doc-fr.html"
+			}
+		]
+	},
+	"dependencies": {
+		"en": [
+			{ "title": "Most requested", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html", "component": "gc-most-requested" },
+			{ "title": "Services and information", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html", "component": "gc-srvinfo" }
+		],
+		"fr": [
+			{ "title": "En demande", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html", "component": "gc-most-requested" },
+			{ "title": "Services et renseignements", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html", "component": "gc-srvinfo" }
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Theme page",
+				"fr": "Page de thème"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
+				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+			},
+			"guidance": {
+				"en": "TBD",
+				"fr": "TBD"
+			},
+			"iteration": "_:iteration_theme_1",
+			"example": [
+				{
+					"en": { "href": "theme-en.html", "text": "Theme page" },
+					"fr": { "href": "theme-fr.html", "text": "Pages de thème" }
+				}
+			],
+			"implementation": [
+				"_:implement_theme",
+				"_:implement_theme_aem"
+			],
+			"history": [
+				{
+					"en": "July 2024 - Introduction of the new theme template.",
+					"fr": "Juillet 2024 - Introduction du nouveau gabarit de page thème."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_theme",
+			"iteration": "_:iteration_theme_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the template manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Add the CSS class <code>.page-type-theme</code> to the page's <code>&lt;body></code> element.",
+					"The CSS class <code>.active</code> must be added to the current page's <code>&lt;li></code>.",
+					"Refer to the working example for a code sample.",
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Ajoutez la classe CSS <code>.page-type-theme</code> sur l'élément <code>&lt;body></code> de la page.",
+					"La classe CSS <code>.active</code> doit être ajoutée au <code>&lt;li></code> de la page courante.",
+					"Reportez-vous à l'exemple pratique pour un exemple de code.",
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			},
+			"notes": {
+				"en": [
+					"Not adding the required CSS class (<code>.page-type-theme</code>) will result in the styles specific to this template not being applied."
+				],
+				"fr": [
+					"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-theme</code>), les styles spécifiques à ce gabarit ne seront pas appliqués."
+				]
+			}
+		},
+		{
+			"@id": "_:implement_theme_aem",
+			"iteration": "_:iteration_theme_1",
+			"name": {
+				"en": "AEM users",
+				"fr": "Utilisateurs AEM"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+			},
+			"instructions": {
+				"en": [
+					"TBD"
+				],
+				"fr": [
+					"TBD"
+				]
+			},
+			"notes": {
+				"en": [
+					"For a more detailed implementation guide, a document has been created on the <a href='https://www.gcpedia.gc.ca/wiki/AEM_GC-specific_Documentation_6.5'>AEM learning material on GCPedia</a>, which includes screenshots and detailed step by step instructions."
+				],
+				"fr": [
+					"Pour un guide de mise en œuvre plus détaillé, un document a été créé dans la section du <a href='https://www.gcpedia.gc.ca/wiki/Documentation_d%27AEM_sp%C3%A9cifique_au_GC_6.5'>matériel d'apprentissage d'AEM sur GCPedia</a>, qui comprend des captures d'écran et des instructions détaillées étape par étape."
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "theme-en.html main > *:not(.pagedetails)",
+				"fr": "theme-fr.html main > *:not(.pagedetails)"
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_theme_1",
+			"name": "Theme page - Iteration 1",
+			"date": "2024-07",
+			"breaking": [
+				"Introduction of the page template."
+			],
+			"detectableBy": ".page-type-theme",
+			"notes": [
+				"The H1 is exempt from the default styling (bottom red line). Confirmed by DTO on July 17th, 2024.",
+				"The breadcrumbs has specific styling <strong>only</strong> for Theme pages. Confirmed by DTO on July 8th, 2024."
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_theme",
+			"name": "Theme page",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_theme_1",
+			"detectableBy": ".page-type-theme",
+			"layout": [
+				"On larger screens, navigation on the left and page content on the right.",
+				"In the page content section, from top to bottom: page title, most requested, services and information."
+			],
+			"style": [
+				"The breadcrumbs first element has a left dark blue border.",
+				"The left navigation's active page has a dark-blue background and white text.",
+				"A vertical blue bar separates the left navigation from the content on the right.",
+				"On larger screens, the most requested component's heading is above the list rather than to the left."
+			],
+			"semantic": "h2 + (ul > li)",
+			"behaviour": "On smaller screens, the navigation is hidden by default and is replaced by a \"Menu\" button which can be clicked to toggle the visibility of the navigation.",
+			"basic": "On smaller screens the navigation is always visible and the button to toggle the navigation is hidden.",
+			"context": "This template is only meant for Theme pages.",
+			"static": [
+				"Menu",
+				"Toggle Menu",
+				"Basculer le menu"
+			]
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Topic",
 		"fr": "Sujet"
 	},

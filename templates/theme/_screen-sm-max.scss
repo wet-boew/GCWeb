@@ -1,0 +1,44 @@
+/*
+  WET-BOEW
+  @title: theme component
+  @desc:  Styles specific to the theme component for GCWeb
+*/
+
+.page-type-theme {
+	#gridContainer {
+		> nav {
+			#menuBtn.expanded + ul {
+				display: block;
+			}
+
+			ul {
+				display: none;
+
+				.wb-disable & {
+					display: block;
+				}
+
+				li {
+					border-bottom: #f5f5f5 solid 1px;
+					position: relative;
+
+					a {
+						&::after {
+							content: "\203A";
+							font-size: 1.5em;
+							margin-left: 10px;
+							position: absolute;
+							right: 14px;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+
+					&.active a::after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
