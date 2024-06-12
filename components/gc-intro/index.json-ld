@@ -14,7 +14,7 @@
 		"en": "Guidance about using the introduction block pattern on Canada.ca.",
 		"fr": "Orientation sur l’utilisation de la configuration de conception du bloc d’introduction sur Canada.ca."
 	},
-	"modified": "2023-08-16",
+	"modified": "2024-06-12",
 	"componentName": "gc-intro",
 	"pages": {
 		"docs": [
@@ -220,6 +220,105 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_intro_half_width_image",
+			"iteration": "_:iteration_intro_half_width_image_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages.",
+					"According to the Canada.ca design system guidance, the introduction block with half-width image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>half-width image (mandatory)</li><li>supertask button (optional)</li></ul>",
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"La configuration de conception du bloc d’introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.",
+					"Selon les directives du système de conception Canada.ca, le bloc d'introduction avec image demi largeur contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li>image demi largeur (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
+					"Référez-vous au code qui suit."
+				]
+			},
+			"techConsiderations": {
+				"en": [
+					"It is the responsibility of the author to make sure the image is not part of the background and sits on the right.",
+					"The half-width image size recommended is 825px by 200px. For more information on the half-width image, please consult the official guidelines."
+				],
+				"fr": [
+					"Il est de la responsabilité de l'auteur de s'assurer que l'image ne fait pas partie de l'arrière-plan et se trouve à droite.",
+					"La taille d’image demi-largeur recommandée est de 520 px sur 200 px. Pour plus d’informations sur l’image demi-largeur, veuillez consulter les directives officielles."
+				]
+			},
+			"notes": {
+				"en": [
+					"The introduction block pattern with half-width image must be located outside of the default page container (or any element with the class <code>.container</code>)."
+				],
+				"fr": [
+					"La configuration de conception du bloc d’introduction avec image demi-largeur doit être située en dehors du conteneur de page par défaut (ou de tout élément avec la classe <code>.container</code>)."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<div class=\"gc-intro half-width-image\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-6 mrgn-tp-sm hidden-sm hidden-xs\">\n\t\t\t\t<div class=\"bg-center bg-cover\" data-bgimg=\"img/825x200.jpg\"/></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<div class=\"gc-intro half-width-image\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-6 mrgn-tp-sm hidden-sm hidden-xs\">\n\t\t\t\t<div class=\"bg-center bg-cover\" data-bgimg=\"img/825x200.jpg\"/></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_intro_half_width_image_1",
+			"name": "Intro block half-width image - Iteration 1",
+			"date": "2024-06",
+			"detectableBy": ".gc-intro.half-width-image",
+			"additions": [
+				"Adding half-width image to intro block."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"gc-intro half-width-image\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-6 mrgn-tp-sm hidden-sm hidden-xs\">\n\t\t\t\t<div class=\"bg-center bg-cover\" data-bgimg=\"img/825x200.jpg\"/></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_intro_half_width_image",
+			"name": "Intro block half-width image",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_intro_half_width_image_1",
+			"detectableBy": ".gc-intro.half-width-image",
+			"layout": "Title, description, and super task button are located on the left. The half-width image is located on the right. The image is hidden when the screen is mobile sized.",
+			"style": "The half-width image starts in the middle and spans across the right of the viewport.",
+			"semantic": "h1+p+p>a",
+			"behaviour": "When the screen is mobile sized, the half-width image is hidden.",
+			"context": "The half-width image must not be located inside of a container.",
+			"schema": [
+				"Title (type: STRING)",
+				"Description (type: STRING)",
+				"Button text (type: STRING) - optional",
+				"Button URL (type: STRING) - optional",
+				"Image URL (type: STRING)"
+			],
+			"dependency": "background-image component"
 		}
 	]
 }
