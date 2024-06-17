@@ -288,17 +288,7 @@ css:
 		{% assign list-pages = designPattern.pages %}
 		<li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
 			<div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ designPattern.title[ page.language ] }}
-				{% if designPattern.status == "stable" %}
-				<span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ designPattern.status ] }}</span>
-				{% elsif designPattern.status == "provisional" %}
-				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ designPattern.status ] }}</span>
-				{% elsif designPattern.status == "deprecated" %}
-				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ designPattern.status ] }}</span>
-				{% else %}
-				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
-				{% endif %}
-				</h3>
+				<h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ designPattern.title[ page.language ] }}</h3>
 				<div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
 					<p>{{ designPattern.description[ page.language ] | default: "[Short description of the design pattern]" }}</p>
 					<!--
