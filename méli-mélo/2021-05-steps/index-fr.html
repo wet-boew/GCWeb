@@ -1,67 +1,49 @@
 ---
-title: List steps
+title: Liste des étapes
 dateModified: 2024-05-30
-description: "Style ordered list and divs with steps number in circles."
-lang: en
+description: "Stylisez la liste ordonnée et les divs avec le numéro d’étapes en cercles."
+lang: fr
 css:
 - steps.css
 ---
-<p>Style ordered list and divs with steps number in circles</p>
+<p>Stylisez la liste ordonnée et les divs avec le numéro d’étapes en cercles</p>
 
-<h2>GCWeb implementation plan</h2>
-
-{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-05-steps" | first %}
-
-<ul>
-{% for deliverable in implPlan.implementationPlan %}
-	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
-{% endfor %}
-</ul>
-
-<p>Todo and for future consideration</p>
-<ul>
-{% for todo in implPlan.todos %}
-	<li>{{ todo }}</li>
-{% endfor %}
-</ul>
-
-<p>Sponsor: {{ implPlan.sponsor }}</p>
-<ul class="list-inline">
-    <li><a class="btn btn-primary" href="steps-doc-en.html">Documentation</a></li>
-    <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=List%20steps">Questions or comments?</a></li>
+ <ul class="list-inline">
+    <li><a class="btn btn-primary" href="steps-doc-fr.html">Documentation</a></li>
+    <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Liste%20des%20étapes">Questions ou commentaires?</a></li>
   </ul>
   <section>
-    <h2>On this page</h2>
+    <h2>Sur cette page</h2>
     <ul>
-      <li><a href="#basic">Basic configuration</a></li>
-      <li><a href="#sublist">Sub (nested) lists</a></li>
-      <li><a href="#striped">Striped design</a></li>
-      <li><a href="#stripedsub">Striped design for sub list</a></li>
+      <li><a href="#base">Configuration de base</a></li>
+      <li><a href="#souslistes">Sous-listes (imbriquées)</a></li>
+      <li><a href="#rayee">Conception rayée</a></li>
+      <li><a href="#rayeesousliste">Conception rayée pour la sous-liste</a></li>
     </ul>
   </section>
   <section>
-    <h2 id="basic">Basic configuration</h2>
-    <h3>Default steps list design</h3>
+    <h2 id="base">Configuration de base</h2>
+    <h3>Modèle de liste d'étapes par défaut</h3>
     <ol class="lst-stps">
       <li>
-        <h4><a href="#">Topic/task hyperlink text for step 1</a></h4>
-        <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+        <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 1</a></h4>
+        <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
       </li>
       <li>
-        <h4><a href="#">Topic/task hyperlink text for step 2</a></h4>
-        <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+        <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 2</a></h4>
+        <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
       </li>
       <li>
-        <h4><a href="#">Topic/task hyperlink text for step 3</a></h4>
-        <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+        <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 3</a></h4>
+        <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
       </li>
       <li>
-        <h4><a href="#">Topic/task hyperlink text for step 4</a></h4>
-        <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+        <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 4</a></h4>
+        <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
       </li>
     </ol>
     <details>
-      <summary>View code</summary>
+      <summary>Visualiser le code</summary>
       <pre><code>&lt;ol class="lst-stps"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -69,34 +51,34 @@ css:
   &lt;li&gt;...&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
     </details>
-    <h3>Lead zero steps list design</h3>
+    <h3>Conception de liste d'étapes avec zéro en tête</h3>
     <div class="row">
       <div class="col-md-6">
-        <h4>With headers</h4>
+        <h4>Avec en-têtes</h4>
         <ol class="lst-stps ld-zr">
           <li>
-            <h5>Header for step 1</h5>
+            <h5>L'en-tête va ici pour l'étape 1</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum urna justo, porta ultrices purus blandit a. Nunc sed quam dolor. Donec vitae dapibus turpis, in ultrices nisl. Phasellus et tristique diam. Sed a sem eget nisi vehicula tristique et sit amet elit. Vivamus porta turpis sed sapien posuere blandit. Phasellus faucibus quis augue hendrerit tincidunt.</p>
           </li>
           <li>
-            <h5>Header for step 2</h5>
+            <h5>En-tête pour l'étape 2</h5>
             <p>Aliquam gravida, lorem at finibus pulvinar, orci neque dignissim erat, eget ornare velit sem tincidunt lectus. Duis condimentum volutpat blandit. Phasellus non lacinia dolor, eu scelerisque est. Donec sed elementum odio. Sed molestie molestie tempor. Praesent non justo venenatis, efficitur ex et, commodo libero.</p>
             <p>Duis euismod metus enim, id gravida nulla tincidunt eu. Vivamus rutrum nibh in dui pulvinar aliquam. Proin sit amet consectetur nisl, eget consectetur elit.</p>
           </li>
           <li>
-            <h5>Header for step 3</h5>
+            <h5>En-tête pour l'étape 3</h5>
             <p>Mauris ut consequat urna, sit amet interdum risus.Sed eu nulla ac nisl commodo laoreet nec eget ante.</p>
             <p>Quisque lorem tortor, cursus et pretium at, porta in risus. Donec ut placerat lorem. Curabitur neque ex, rutrum a justo sit amet, placerat viverra magna.</p>
             <p>Curabitur nunc dolor, molestie efficitur ullamcorper posuere, eleifend vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non tortor tellus.</p>
           </li>
           <li>
-            <h5>Header for step 4</h5>
+            <h5>En-tête pour l'étape 4</h5>
             <p>Quisque id accumsan tellus. Nunc sed volutpat ligula, eget semper arcu. Cras bibendum leo leo, sit amet varius turpis fermentum vel. Phasellus dapibus, ipsum sed volutpat efficitur, est massa dapibus nunc, vel vestibulum mauris nisl ac elit. Aliquam ultricies dignissim ligula ac interdum. Curabitur finibus cursus elementum. Maecenas ullamcorper interdum viverra. Sed massa eros, sagittis ut ipsum eget, lobortis pharetra leo.</p>
           </li>
         </ol>
       </div>
       <div class="col-md-6">
-        <h4>Without headers</h4>
+        <h4>Sans en-têtes</h4>
         <ol class="lst-stps ld-zr">
           <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum urna justo, porta ultrices purus blandit a. Nunc sed quam dolor. Donec vitae dapibus turpis, in ultrices nisl. Phasellus et tristique diam. Sed a sem eget nisi vehicula tristique et sit amet elit.  Duis id nibh in nisi varius facilisis. Mauris dictum nisl eros, eget sodales risus auctor nec. Praesent eget sem est. Quisque quis magna turpis.</li>
           <li>Aliquam gravida, lorem at finibus pulvinar, orci neque dignissim erat, eget ornare velit sem tincidunt lectus. Duis condimentum volutpat blandit. Phasellus non lacinia dolor, eu scelerisque est. Donec sed elementum odio. Sed molestie molestie tempor. Praesent non justo venenatis, efficitur ex et, commodo libero. Duis euismod metus enim, id gravida nulla tincidunt eu. Ut finibus convallis mi. Aenean in fermentum nisi, eu commodo metus. Vivamus vestibulum tincidunt nisl, quis dictum ante volutpat at.</li>
@@ -106,7 +88,7 @@ css:
       </div>
     </div>
     <details>
-      <summary>View code</summary>
+      <summary>Visualiser le code</summary>
       <pre><code>&lt;ol class="lst-stps ld-zr"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -116,49 +98,49 @@ css:
     </details>
   </section>
   <section>
-    <h2 id="sublist">Sub (nested) lists</h2>
+    <h2 id="souslistes">Sous-listes (imbriquées)</h2>
     <div class="row">
       <div class="col-md-6">
-        <h3>Default design</h3>
+        <h3>Conception par défaut</h3>
         <ol class="lst-stps">
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 1</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 1</a></h4>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
             <section>
-              <h4>Header for step 2</h4>
+              <h4>En-tête pour l'étape 2</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
               <ol class="lst-stps-sub">
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 2a</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2a</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 2b</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2b</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
                 <li>
-                  <h5><a href="#">Topic/task hyperlink text for sub-step 2c</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2c</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
               </ol>
             </section>
           </li>
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 3</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 3</a></h4>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
             <section>
-              <h4>Header for step 4</h4>
+              <h4>En-tête pour l'étape 4</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
               <ol class="lst-stps-sub">
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 4a</a></h5>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 4a</a></h5>
                 </li>
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 4b</a></h5>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 4b</a></h5>
                 </li>
               </ol>
             </section>
@@ -166,23 +148,23 @@ css:
         </ol>
       </div>
       <div class="col-md-6">
-        <h3>Lead zero design</h3>
+        <h3>Conception avec zéro en tête</h3>
         <ol class="lst-stps ld-zr">
           <li>
             <section>
-              <h4>Header for step 1</h4>
+              <h4>En-tête pour l'étape 1</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
               <ol class="lst-stps-sub">
                 <li>
-                  <h5>Header for sub step 1a</h5>
+                  <h5>En-tête pour la sous-étape 1a</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
                 <li>
-                  <h5>Header for sub step 1b</h5>
+                  <h5>En-tête pour la sous-étape 1b</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
                 <li>
-                  <h5>Header for sub step 1c</h5>
+                  <h5>En-tête pour la sous-étape 1c</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
               </ol>
@@ -190,24 +172,24 @@ css:
           </li>
           <li>
             <section>
-              <h4>Header for step 2</h4>
+              <h4>En-tête pour l'étape 2</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
             </section>
           </li>
           <li>
             <section>
-              <h4>Header for step 3</h4>
+              <h4>En-tête pour l'étape 3</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem.</p>
             </section>
           </li>
           <li>
             <section>
-              <h4>Header for step 4</h4>
+              <h4>En-tête pour l'étape 4</h4>
               Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.
               <ol class="lst-stps-sub">
-                <li>List item 4 sub item 1</li>
-                <li>List item 4 sub item 2</li>
-                <li>List item 4 sub item 3</li>
+                <li>Élément de liste 4 sous-élément 1</li>
+                <li>Élément de liste 4 sous-élément 2</li>
+                <li>Élément de liste 4 sous-élément 3</li>
               </ol>
             </section>
           </li>
@@ -215,8 +197,8 @@ css:
       </div>
     </div>
     <details>
-      <summary>View code</summary>
-      <pre><code>//Default design
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception par défaut
 &lt;ol class="lst-stps"&gt;
   &lt;li&gt;...
     &lt;ol class="lst-stps-sub"&gt;
@@ -235,7 +217,7 @@ css:
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-//Lead zero design
+//Conception avec zéro en tête
 &lt;ol class="lst-stps ld-zr"&gt;
   &lt;li&gt;...
     &lt;ol class="lst-stps-sub"&gt;
@@ -257,64 +239,64 @@ css:
     </details>
   </section>
   <section>
-    <h2 id="striped">Striped design</h2>
+    <h2 id="rayee">Conception rayée</h2>
     <div class="row">
       <div class="col-md-6">
-        <h3>Default design</h3>
+        <h3>Conception par défaut</h3>
         <ol class="lst-stps stps-strpd">
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 1</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h3><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 1</a></h3>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 2</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h3><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 2</a></h3>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 3</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h3><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 3</a></h3>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 4</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h3><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 4</a></h3>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
         </ol>
       </div>
       <div class="col-md-6">
-        <h3>Lead zero design</h3>
+        <h3>Conception avec zéro en tête</h3>
         <ol class="lst-stps ld-zr stps-strpd">
           <li>
-            <h4>Header for step 1</h4>
+            <h4>En-tête pour l'étape 1</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum urna justo, porta ultrices purus blandit a. Nunc sed quam dolor. Mauris dictum nisl eros, eget sodales risus auctor nec. Praesent eget sem est. Quisque quis magna turpis.</p>
           </li>
           <li>
-            <h4>Header for step 2</h4>
+            <h4>En-tête pour l'étape 2</h4>
             <p>Aliquam gravida, lorem at finibus pulvinar, orci neque dignissim erat, eget ornare velit sem tincidunt lectus. Duis condimentum volutpat blandit. Phasellus non lacinia dolor, eu scelerisque est. Donec sed elementum odio. Sed molestie molestie tempor.</p>
             <p>Duis euismod metus enim, id gravida nulla tincidunt eu. Vivamus rutrum nibh in dui pulvinar aliquam. Proin sit amet consectetur nisl, eget consectetur elit. Ut finibus convallis mi. Aenean in fermentum nisi, eu commodo metus. Vivamus vestibulum tincidunt nisl, quis dictum ante volutpat at.</p>
           </li>
           <li>
-            <h4>Header for step 3</h4>
+            <h4>En-tête pour l'étape 3</h4>
             <p>Mauris ut consequat urna, sit amet interdum risus. Sed eu nulla ac nisl commodo laoreet nec eget ante.</p>
             <p>Quisque lorem tortor, cursus et pretium at, porta in risus. Donec ut placerat lorem. Curabitur neque ex, rutrum a justo sit amet, placerat viverra magna.</p>
             <p>Curabitur nunc dolor, molestie efficitur ullamcorper posuere, eleifend vitae lorem.</p>
           </li>
           <li>
-            <h4>Header for step 4</h4>
+            <h4>En-tête pour l'étape 4</h4>
             <p>Quisque id accumsan tellus. Nunc sed volutpat ligula, eget semper arcu. Cras bibendum leo leo, sit amet varius turpis fermentum vel. Phasellus dapibus, ipsum sed volutpat efficitur, est massa dapibus nunc, vel vestibulum mauris nisl ac elit. Aliquam ultricies dignissim ligula ac interdum. Curabitur finibus cursus elementum. Maecenas ullamcorper interdum viverra. Sed massa eros, sagittis ut ipsum eget, lobortis pharetra leo.</p>
           </li>
         </ol>
       </div>
     </div>
     <details>
-      <summary>View code</summary>
-      <pre><code>//Default striped design
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception rayée par défaut
 &lt;ol class="lst-stps stps-strpd"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
 &lt;/ol&gt;
-//Lead zero striped design
+//Conception rayée avec zéro en tête
 &lt;ol class="lst-stps ld-zr stps-strpd"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...&lt;/li&gt;
@@ -324,49 +306,49 @@ css:
     </details>
   </section>
   <section>
-    <h2 id="stripedsub">Striped design for sub list</h2>
+    <h2 id="rayeesousliste">Conception rayée pour la sous-liste</h2>
     <div class="row">
       <div class="col-md-6">
-        <h3>Default design with one of the sub lists striped</h3>
+        <h3>Conception par défaut with one of the sub lists striped</h3>
         <ol class="lst-stps stps-strpd">
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 1</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 1</a></h4>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
             <section>
-              <h4>Header for step 2 (striped design added for sub steps)</h4>
+              <h4>En-tête pour l'étape 2 (conception rayée ajoutée pour les sous-étapes)</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
               <ol class="lst-stps-sub stps-strpd">
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 2a</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2a</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 2b</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2b</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
                 <li>
-                  <h5><a href="#">Topic/task hyperlink text for sub-step 2c</a></h5>
-                  <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+                  <h5><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 2c</a></h5>
+                  <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
                 </li>
               </ol>
             </section>
           </li>
           <li>
-            <h4><a href="#">Topic/task hyperlink text for step 3</a></h4>
-            <p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <h4><a href="#">Texte de lien hypertexte pour le sujet/la tâche de l'étape 3</a></h4>
+            <p>Utilisez des verbes d'action, ou énumérez simplement des mots-clés pour résumer les informations ou les tâches pouvant être accomplies sur la page vers laquelle il pointe</p>
           </li>
           <li>
             <section>
-              <h4>Header for step 4 (no striped design added for sub steps)</h4>
+              <h4>En-tête pour l'étape 4 (no conception rayée ajoutée pour les sous-étapes)</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei. In idque euismod sed.</p>
               <ol class="lst-stps-sub">
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 4a</a></h5>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 4a</a></h5>
                 </li>
                 <li>
-                  <h5 class="h4"><a href="#">Topic/task hyperlink text for sub-step 4b</a></h5>
+                  <h5 class="h4"><a href="#">Texte de lien hypertexte pour le sujet/la tâche du sous-étape 4b</a></h5>
                 </li>
               </ol>
             </section>
@@ -374,23 +356,23 @@ css:
         </ol>
       </div>
       <div class="col-md-6">
-        <h3>Lead zero design with one of the sub lists striped</h3>
+        <h3>Conception avec zéro en tête avec l'une des sous-listes rayée</h3>
         <ol class="lst-stps ld-zr stps-strpd">
           <li>
             <section>
-              <h4>Header for step 1  (striped design added for sub steps)</h4>
+              <h4>En-tête pour l'étape 1  (conception rayée ajoutée pour les sous-étapes)</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.</p>
               <ol class="lst-stps-sub  stps-strpd">
                 <li>
-                  <h5>Header for sub step 1a</h5>
+                  <h5>En-tête pour la sous-étape 1a</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
                 <li>
-                  <h5>Header for sub step 1b</h5>
+                  <h5>En-tête pour la sous-étape 1b</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
                 <li>
-                  <h5>Header for sub step 1c</h5>
+                  <h5>En-tête pour la sous-étape 1c</h5>
                   <p>Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
                 </li>
               </ol>
@@ -398,19 +380,19 @@ css:
           </li>
           <li>
             <section>
-              <h4>Header for step 2</h4>
+              <h4>En-tête pour l'étape 2</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem. Ea nec error scriptorem referrentur, patrioque torquatos conclusionemque pri in.</p>
             </section>
           </li>
           <li>
             <section>
-              <h4>Header for step 3</h4>
+              <h4>En-tête pour l'étape 3</h4>
               <p>Lorem ipsum dolor sit amet, esse autem per ex, nec in magna lorem.</p>
             </section>
           </li>
           <li>
             <section>
-              <h4>Header for step 4 (no striped design added for sub steps)</h4>
+              <h4>En-tête pour l'étape 4 (no conception rayée ajoutée pour les sous-étapes)</h4>
               Sed sint debitis ad, mazim vitae temporibus qui ut, vel erat ponderum efficiendi ei.
               <ol class="lst-stps-sub">
                 <li>List item 4 sub item 1</li>
@@ -423,8 +405,8 @@ css:
       </div>
     </div>
     <details>
-      <summary>View code</summary>
-      <pre><code>//Default striped design with one sub list striped
+      <summary>Visualiser le code</summary>
+      <pre><code>//Conception par défaut avec l'une des sous-listes rayée
 &lt;ol class="lst-stps stps-strpd"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...
@@ -443,7 +425,7 @@ css:
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-//Lead zero striped design with one sub list striped
+//Conception avec zéro en tête avec l'une des sous-listes rayée
 &lt;ol class="lst-stps ld-zr stps-strpd"&gt;
   &lt;li&gt;...&lt;/li&gt;
   &lt;li&gt;...
