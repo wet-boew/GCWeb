@@ -3,7 +3,7 @@ title: GC promotional thematic
 description: Custom CSS/JavaScript for GC promotional thematic use
 altLangPage: gc-thématique-fr.html
 lang: en
-dateModified": 2021-06-22
+dateModified: 2024-05-23
 ---
 
 <p>Custom CSS and/or JavaScript for GC promotional thematic use. Check out the <a href="#th-list">current list of promotional thematic projects below</a>.</p>
@@ -11,36 +11,98 @@ dateModified": 2021-06-22
 <p class="alert alert-info"><strong>Support is provided during the <a href="https://github.com/wet-boew/wet-boew/wiki/WET-BOEW-Code-sprint">wet-boew weekly code sprint</a> happening remotely every Tuesday afternoon.</strong></p>
 
 <h2>Rules for a proper GC promotional thematic project</h2>
-<ul>
-	<li>Be sponsored by a GC department and by an active representative from that department;</li>
-	<li>Must provide an <a href="#expiration">expiration date</a>;</li>
-	<li>Must be used on a respectable set of pages to make it worthwhile (Exact number will be provided eventually);</li>
-	<li>Each feature must be demoed;</li>
-	<li>An accessibility conformance report (ACR) must be provided per feature or per demoed pages, however an accessibility statement could be accepted in replacement of the ACR but only for small features. Refer to <a href="../méli-mélo/th-canadaday/canada-day.html">Canada Day as an example</a>;</li>
-	<li>Must list all CSS class and exposed JS function;</li>
-	<li>Quickly describe the purpose of each feature;</li>
-	<li>Must not be a departmental common style, it has to be for campaign or promotional events, such as Canada Day;</li>
-	<li>Their usage must be in conformance with the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/canada-content-information-architecture-specification.html">Canada.ca content and information architecture specification</a>;</li>
-	<li>Must not contain any interference with wet-boew, GCWeb;</li>
-	<li>Loading features must not change the state of generic page. Feature must be explicitly activated through HTML by the web publisher, like <a href="https://wet-boew.github.io/wet-boew/demos/helloworld/helloworld-en.html">wet-boew plugins</a> or by using a CSS class to hook onto an HTML element;</li>
-	<li>Must be designed by following the <a href="#progressive">progressive enhancement approach</a>;</li>
-	<li>Must be coded by respecting the code linting practice of GCWeb in order to successfully pass the build script, which includes: <a href="https://htmllint.github.io/demo.html" rel="external">HTMLlint</a>, <a href="https://eslint.org/demo" rel="external">ESlint</a> and <a href="https://github.com/sasstools/sass-lint/tree/develop/docs/rules" rel="external">SASSlint</a> (See <a href="https://github.com/sasstools/sass-lint/tree/develop/docs/rules">SASSlint configs on wet-boew</a>);</li>
-	<li>Favour a naming convention for features that represents the campaign followed by their function. This is to avoid collision with other styles, for example: <code>.bg-canadaday</code>.</li>
-</ul>
+
+<fieldset class="gc-chckbxrdio">
+	<legend id="requirements">Thematic requirements are:</legend>
+	<ul class="list-unstyled lst-spcd-2">
+		<li class="checkbox">
+			<input type="checkbox" id="req1">
+			<label for="req1">Be sponsored by a GC department and by an active representative from that department;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req2">
+			<label for="req2">Must provide an <a href="#expiration">expiration date</a>;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req3">
+			<label for="req3">Must be used on a respectable set of pages to make it worthwhile (exact number will be provided eventually);</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req4">
+			<label for="req4">Must be designed by following the <a href="#progressive">progressive enhancement approach</a>;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req5">
+			<label for="req5">Each feature must be demonstrated;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req6">
+			<label for="req6">An accessibility conformance report (ACR) must be provided per feature or per demonstrated pages, however an accessibility statement could be accepted in replacement of the ACR, but only for small features. Refer to <a href="../méli-mélo/th-canadaday/canada-day.html">Canada Day as an example</a>;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req7">
+			<label for="req7">Must list all CSS class and exposed JS function;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req8">
+			<label for="req8">Describe the purpose of each feature, change or update with:</label>
+			<ul class="disc mrgn-lft-xl mrgn-bttm-lg">
+				<li>Clear and simple explanations of the new feature, change or update;</li>
+				<li>The impact on the sponsored department of the new feature, change or update;</li>
+				<li>The impact on the public of the new feature, change or update.</li>
+			</ul>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req9">
+			<label for="req9">Must not be a departmental common style, it has to be for campaign or promotional events or temporarily in exceptional circumstances, such as Canada Day;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req10">
+			<label for="req10">Must be designed with conformance with the <a href="https://design.canada.ca/architecture/canada-content-information-architecture-specification.html">Canada.ca content and information architecture specification</a> in mind. The conformance to directives, standards and specifications remains the responsibility of the publisher when implementing the thematic into a web page;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req11">
+			<label for="req11">Must not contain any interference with WET-BOEW, GCWeb;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req12">
+			<label for="req12">Must not change the state of generic pages when features are loading. The feature must be explicitly activated through HTML by the web publisher, like <a href="https://wet-boew.github.io/wet-boew/demos/helloworld/helloworld-en.html">WET-BOEW plugins</a> or by using a CSS class to hook onto an HTML element;</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req13">
+			<label for="req13">Must be coded by respecting the code linting practice of GCWeb in order to successfully pass the build scripts, which includes: <a href="https://htmllint.github.io/demo.html" rel="external">HTMLlint</a>, <a href="https://eslint.org/demo" rel="external">ESlint</a> and <a href="https://github.com/sasstools/sass-lint/tree/develop/docs/rules" rel="external">SASSlint</a> (See <a href="https://github.com/sasstools/sass-lint/tree/develop/docs/rules">SASSlint configs on WET-BOEW</a>);</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req14">
+			<label for="req14">Must be fully tested by a representative of the sponsored department, either via GitHub pages or locally. The testing confirmation must be documented via a comment in the GitHub pull request.</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req15">
+			<label for="req15">Must be temporary or must provide a pre-approved action plan by the WET-BOEW team and related stakeholders.</label>
+		</li>
+		<li class="checkbox">
+			<input type="checkbox" id="req16">
+			<label for="req16">Favour a naming convention for sub-features that represents the campaign followed by their function. This is to avoid collision with other styles, for example: <code>.bg-canadaday</code>.</label>
+		</li>
+	</ul>
+</fieldset>
 
 <p>Most of the information gathering from the rules described above must be put in a <a href="#th-meta">meta file</a> accompanied with the project, see <a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/th-canadaday">Canada day project</a> as an example.
 
-<p>Keep in mind that all active features from any GC promotional thematic project are going to be merged into one unique CSS file and one unique JS file, like any <a href="../méli-mélo/méli-mélo-en.html#mli-mlo-list">méli-mélo compilation</a>. This framework for GC promotional thematic projects is excluded from the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3.html">GCWeb public API</a>. Any change or removal would only trigger a patch release of GCWeb. That means the author are fully responsible but not required to documents any subsequent change they would make to their project.</p>
+<p>Keep in mind that all active features from any GC promotional thematic project are going to be merged into one unique CSS file and one unique JS file, like any <a href="../méli-mélo/méli-mélo-en.html#mli-mlo-list">méli-mélo compilation</a>. This framework for GC promotional thematic projects is excluded from the <a href="https://wet-boew.github.io/wet-boew-documentation/decision/3.html">GCWeb public API</a>. Any change or removal would only trigger a patch release of GCWeb. That means the author is fully responsible but not required to document any subsequent change they would make to their project.</p>
 
 <h3 id="progressive">Progressive enhancement approach</h3>
-<p>If any thematic feature is removed from a web page, that page doesn't "break" and can still be surfed on without any functional or design issues nor accessibility failures caused by such removal. If helpers are used to keep a web page integrity, the project must have implementation notes just like the <a href="../méli-mélo/th-canadaday/détails-en.html">Canada day's implementation notes on its Details page</a>.</p>
+<p>If any thematic feature is removed from a web page, that page doesn't "break" and can still be navigated without any functional or design issues nor accessibility failures caused by such removal. If helpers are used to keep a web page's integrity, the project must have implementation notes just like the <a href="../méli-mélo/th-canadaday/détails-en.html">Canada day's implementation notes on its Details page</a>.</p>
 
 <h3 id="expiration">Expiration date</h3>
-<p>A promotional thematic feature has to indicate a removal target date that is less than one (1) year from its original submission. As needed, extensions can be granted upon agreement of interest parties. During the renewal process, the wet-boew maintainers team may ask for additional evidences for an extension, may require the removal of some sub-features or may initiate their conversion into méli-mélo features.</p>
+<p>A promotional thematic feature has to indicate a removal target date that is less than one (1) year from its original submission. As needed, extensions can be granted upon agreement of interest parties. During the renewal process, the WET-BOEW maintainers team may: (1) ask for additional evidence for an extension, (2) require the removal of some sub-features or (3) initiate their conversion into experimental features or having the thematic integrated as a stable feature.</p>
+
+<h4>Long term thematic feature</h4>
+<p>During the renewal of a thematic, the WET-BOEW team will analyze whether the feature should become a long term feature or not. In the eventuality that it does become a long term feature, an action plan inspired by the experimental feature must be provided. The exact goal and outcome would be adapted on a case by case basis via a discussion and pre-agreement between all the involved stakeholders. Delays may occur and should be expected in such situations.</p>
 
 <div class="alert alert-info">
 	<h2>Temporary implementation measure</h2>
-	<p>We are currently in progress of adapting our build script to support those GC promotional thematic features on their own. As an interim measure, we are going to use the méli-mélo compilation named "gc-thematic" to let departments start using this framework for their GC promotional campaign needs.</p>
+	<p>We are currently in the progress of adapting our build scripts to support GC promotional thematic features on their own. As an interim measure, we are going to use the méli-mélo compilation named "gc-thematic" to let departments start using this framework for their GC promotional campaign needs.</p>
 </div>
 
 <h2 id="th-list">Current list of GC promotional thematic projects</h2>
@@ -56,7 +118,7 @@ dateModified": 2021-06-22
 {% for feature in thematic_pages %}
 	{% assign thBasePath = feature.path | slice: 0, 10 %}
 	{% if thBasePath == "méli-mélo/" %}
-	<li><a href="../méli-mélo/{{  feature.componentName }}/détails-fr.html">{{ feature.title }}</a> - (Exp. {{ feature.expiry }})
+	<li><a href="../méli-mélo/{{  feature.componentName }}/détails-en.html">{{ feature.title }}</a> - (Exp. {{ feature.expiry }})
 
 		{% if feature.cssClass.size > 0 or feature.jsFunctions.size > 0 %}
 		<ul>
@@ -89,6 +151,7 @@ dateModified": 2021-06-22
 <details>
 	<summary>List of all CSS classes in alphabetical order</summary>
 	<ul>
+	{% assign cssClasses = cssClasses | sort %}
 	{% for cssClass in cssClasses %}
 		<li><code>{{ cssClass }}</code></li>
 	{% endfor %}
@@ -101,6 +164,7 @@ dateModified": 2021-06-22
 <details>
 	<summary>List of all JS functions in alphabetical order</summary>
 	<ul>
+	{% assign jsFunctions = jsFunctions | sort %}
 	{% for jsFunc in jsFunctions %}
 		<li><code>{{ jsFunc }}}</code></li>
 	{% endfor %}
@@ -152,14 +216,20 @@ output: false
 	<dt><code>a11yStatement</code></dt>
 	<dd>Mandatory: Accessibility conformance statement</dd>
 
+	<dt><code>sponsor</code>
+	<dd>Mandatory: Name of the sponsor department and representative name with point of contact</dd>
+
+	<dt><code>pages</code>
+	<dd>Mandatory: List of example pages for the thematic</dd>
+
 	<dt><code>peNote</code></dt>
-	<dd>Optional: Note and instructions to implement the thematic following progressive enhancement design approach</dd>
+	<dd>Optional: Note and instructions on how to implement the thematic following progressive enhancement design approach</dd>
 
 	<dt><code>cssClass</code>
-	<dd>Optional: Array for CSS class name which the project define</dd>
+	<dd>Optional: Array for CSS class names defined in the project</dd>
 
 	<dt><code>jsFunctions</code>
-	<dd>Optional: Array for public JavaScript function name which the project define</dd>
+	<dd>Optional: Array for public JavaScript function name defined in the project</dd>
 </dl>
 
-<p class="mrgn-tp-lg"><strong>See also:</strong> <a href="../méli-mélo/méli-mélo-en.html">Méli-mélo features</a> for custom code that is in a preliminary state of experimentation.</p>
+<p class="mrgn-tp-lg"><strong>See also:</strong> <a href="../méli-mélo/méli-mélo-en.html">méli-mélo features</a> for custom code that is in a preliminary state of experimentation.</p>

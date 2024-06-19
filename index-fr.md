@@ -34,7 +34,7 @@ css:
 					<li><a href="#composantes"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Composantes</a></li>
 					<li><a href="#gabarits"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a></li>
 					<li><a href="#modeles"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-md"></span>Configurations de conception</a></li>
-					<li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Méli-mélo et thématiques</a></li>
+					<li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Expérimentation et thématiques</a></li>
 					<li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Fonctionnalités globales et de sites</a></li>
 					<li><a href="#wetboew"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Wet-boew</a></li>
 					<li><a href="#autre"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Autre documentation</a></li>
@@ -59,7 +59,7 @@ css:
 			<a href="#modeles" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-sm"></span>Configurations de conception</a>
 		</li>
 		<li class="mrgn-lft-md">
-			<a href="#experimentation" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Méli-mélo et thématiques</a>
+			<a href="#experimentation" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Expérimentation et thématiques</a>
 		</li>
 		<li class="mrgn-lft-md">
 			<a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-sm"></span>Global et de sites</a>
@@ -378,9 +378,9 @@ css:
 				<h2 id="experimentation" class="mrgn-tp-md mrgn-bttm-0">Fonctionnalités spéciales</h2>
 					<div class="row">
 					    <div class="col-md-6">
-					    	<h3 id="méli-mélo">Méli-mélo</h3>
-						<p>L'espace d'expérimentation que vous attendiez&nbsp;! Les Méli-mélos permettent d'ajouter au thème de Canada.ca du nouveau code intéressant que vous considéreriez habituellement comme "personnalisé".</p>
-						<p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les méli-mélos</span></a></p>
+					    	<h3 id="méli-mélo">Expérimentation</h3>
+						<p>L'espace d'expérimentation que vous attendiez&nbsp;! Les compilation méli-mélos qui contenant le code expérimental permettent d'ajouter au thème de Canada.ca du nouveau code intéressant que vous considéreriez habituellement comme "personnalisé".</p>
+						<p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
 					    </div>
 					    <div class="col-md-6">
 						<h3 id="thematiques">Thématiques promotionnelles</h3><p>Avez-vous un ensemble de pages qui arborent un look original relié à une promotion spécifique&nbsp;? Dans ce cas, essayez plutôt cet espace de thématiques promotionnelles.</p>
