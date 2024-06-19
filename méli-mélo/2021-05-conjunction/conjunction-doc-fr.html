@@ -1,0 +1,204 @@
+---
+title: Conjonction (et/ou) - documentation
+dateModified: 2024-05-30
+description: "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+lang: fr
+css:
+- and-or.css
+---
+<section>
+    <h2>Objectif</h2>
+    <p>Utilisez la conception par conjonction (et/ou) pour démontrer clairement qu'il existe des options ou que des blocs de contenu sont complémentaires ou associés. Les phrases « et » et « ou » sont des textes générés par CSS.</p>
+    <p>Ceci est une conception mobile-first et nécessite un code supplémentaire pour passer de l'empilement côte à côte dans des résolutions plus grandes (similaire aux grilles).</p>
+  </section>
+  <section>
+    <h2>Usage</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3 id="h-1-1" class="mrgn-tp-md">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h3>
+        <ul class="fa-ul">
+          <li><span class="fa-li fas fa-check text-success"></span>Utilisez pour démontrer clairement qu'il y a des options</li>
+          <li><span class="fa-li fas fa-check text-success"></span>Utilisez pour rendre les options, et le nombre d'options, facilement scannables</li>
+          <li><span class="fa-li fas fa-check text-success"></span>Utilisez pour s'assurer qu'un utilisateur puisse facilement identifier quel bloc de contenu s'applique à lui afin qu'il ne passe pas de temps à lire du contenu inutile, avant de voir l'option suivante (ce qui est l'expérience par défaut lorsque le contenu est empilé verticalement)</li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <h3 id="h-1-2" class="mrgn-tp-md">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h3>
+        <p>Cette conception a une utilisation limitée car les en-têtes ne se connectent généralement pas les uns aux autres.</p>
+        <p>Lorsque nécessaire :</p>
+        <ul class="fa-ul">
+          <li><span class="fa-li fas fa-check text-success"></span>Utilisez-la pour démontrer clairement qu'il existe des blocs de contenu complémentaires ou associés</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Exemples pratiques</h2>
+    <ul>
+      <li><a href="index.html">Exemple anglais</a></li>
+      <li><a href="index-fr.html">Exemple français</a></li>
+    </ul>
+  </section>
+  <section>
+ 	<h2>Évaluation et rapport</h2>
+ 		<ul>
+ 			<li><a href="a11y-1-conjunction.json">Évaluation de l'accessibilité en anglais</a></li>
+ 		</ul>
+  </section>
+  <section>
+    <h2>Conseils d'accessibilité</h2>
+    <p>De nombreux lecteurs d'écran peuvent lire le texte CSS, mais il est toujours bon de rédiger le contenu de manière à indiquer que les options sont soit mutuellement exclusives (ou), soit font partie d'un concept global (et).</p>
+    <p>Ceci est utile non seulement pour les utilisateurs de lecteurs d'écran, mais pour toutes les personnes afin de mieux comprendre la connexion du contenu.</p>
+    <p>Quelques recommandations sont :</p>
+    <ul>
+      <li>Ajouter une déclaration préliminaire pour expliquer qu'il y a des options mutuellement exclusives (ou) ou mutuellement connectées (et)</li>
+      <li>Créer le et/ou en utilisant l'élément liste (<code>&lt;ul&gt;</code>) pour mieux indiquer que les éléments sont connectés</li>
+      <li>Utiliser des en-têtes indiquant que les éléments sont mutuellement exclusifs ou font partie d'un concept global
+        <ul>
+          <li>De plus, ajouter une phrase invisible telle que « option X sur X » à tous les en-têtes</li>
+        </ul>
+      </li>
+      <li>Ajouter le mot « ou », ou « et » comme partie de la déclaration pour relier chaque partie du contenu</li>
+      <li>Utiliser un élément <code>&lt;section&gt;</code> au lieu d'un élément <code>&lt;div&gt;</code> lorsque vous travaillez avec des en-têtes pour contenir sémantiquement le contenu de la conception</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Comment mettre en œuvre</h2>
+    <h3>Élément de liste</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="wb-inv">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+        <pre><code>&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <h4 class="wb-inv">Conception &laquo;&nbsp;Et&nbsp;&raquo;</h4>
+        <pre><code>&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </div>
+    </div>
+    <h3>Élément de bloc (e.g. <code>&lt;div&gt;</code>)</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="wb-inv">Conception &laquo;&nbsp;Ou&nbsp;&raquo;</h4>
+        <pre><code>&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <h4 class="wb-inv">And pattern</h4>
+        <pre><code>&lt;p&gt;Phrase d'introduction :&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Options de configuration</h2>
+    <h3>Conception côte à côte à certains points de résolution</h3>
+    <p>Ajoutez ces classes à l'élément avec la classe <code>cnjnctn-type-or</code> ou <code>cnjnctn-type-and</code>.</p>
+    <ul>
+      <li>Toujours côte à côte : ajouter la classe <code>cnjnctn-xs</code></li>
+      <li>Côte à côte &#x2265; 768px (tablette) et plus : ajouter la classe <code>cnjnctn-sm</code></li>
+      <li>Côte à côte &#x2265; 992px (petit écran de bureau) et plus : ajouter la classe <code>cnjnctn-md</code></li>
+      <li>Côte à côte &#x2265; au-dessus de 1200px (grand écran de bureau) et plus : ajouter la classe <code>cnjnctn-lg</code></li>
+    </ul>
+    <p>N'utilisez la classe « toujours côte à côte » (<code>cnjnctn-xs</code>) qu'avec parcimonie et lorsque le texte est très court. La conception peut ne pas bien se réduire aux appareils plus petits.</p>
+    <h3>Largeurs de colonne personnalisées</h3>
+    <p>Une colonne peut être définie en pourcentage d'elle-même pour permettre à un contenu plus large dans une autre colonne de moins se replier. La valeur par défaut est de 100% (<code>cnjnctn-col</code>).</p>
+    <p>Appliquez cette classe uniquement à une colonne qui a moins de contenu que les autres, car la classe <strong>réduit</strong> la largeur d'une colonne<strong>,</strong> et la colonne qui n'a pas la classe de largeur personnalisée <strong>s'agrandira</strong> pour compenser.</p>
+    <p>Cette classe peut être appliquée à plus d'une colonne (par exemple, si 1 colonne sur 3 a plus de contenu que les 2 autres).</p>
+    <p>La largeur ne peut pas être ajustée en fonction de différentes résolutions, et il est préférable d'empiler les colonnes lorsque le contenu devient difficile à lire sur les appareils plus petits.</p>
+    <table class="table table-condensed">
+      <caption>
+      Liste des classes pour largeurs de colonne personnalisées
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" class="col-sm-4">Nom de la classe</th>
+          <th scope="col" class="col-sm-8">Largeur de la colonne par rapport à la valeur par défaut (en pourcentage)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>cnjnctn-col</code></td>
+          <td>100% (Par défaut)</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-90</code></td>
+          <td>90%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-80</code></td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-75</code></td>
+          <td>75%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-70</code></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-60</code></td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-50</code></td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-40</code></td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-30</code></td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-25</code></td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-20</code></td>
+          <td>20%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Ces noms de classes sont mutuellement exclusifs, donc vous n'en utilisez qu'un seul lors de la définition de la largeur de votre colonne.</p>
+    <h3>Pas de bordure gauche sur les éléments empilés</h3>
+    <p>Cela peut être utilisé lorsqu'une conception (par exemple, rayure zébrée, panneau, puits, etc.) a déjà une bordure définie. La ligne qui divise la colonne disparaîtra lorsque les éléments seront empilés.</p>
+    <p>Pour supprimer la bordure lors de l'empilage, ajoutez la classe <code>brdr-0</code> à l'élément avec la classe <code>cnjnctn-type-or</code> ou <code>cnjnctn-type-and</code>.</p>
+    <p>La bordure ne doit pas être supprimée s'il y a des informations environnantes contenues dans la conception déjà bordée qui ne sont pas liées à la conception par conjonction (et/ou). Il peut être peu clair lorsque le point de conjonction a commencé ou terminé.</p>
+  </section>
+  <section>
+    <h2>Code source</h2>
+    <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2021-05-conjunction">Code source du plugin de conjonction sur GitHub</a></p>
+  </section>

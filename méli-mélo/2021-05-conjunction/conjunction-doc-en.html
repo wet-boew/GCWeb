@@ -1,0 +1,201 @@
+---
+title: Conjunctions (and/or) - documentation
+dateModified: 2025-05-30
+description: "Conjunctions for stacked or side by side decision points, and/or"
+lang: en
+css:
+- and-or.css
+---
+<section>
+    <h2>Purpose</h2>
+    <p>Use the conjunction (and/or) design to clearly demonstrate that there are options or that there are content blocks that are complementary or associated.</p>
+    <p>This is a mobile first design, and requires extra code for it to go from stacked to side-by-side in larger resolutions (similar to grids).</p>
+  </section>
+  <section>
+    <h2>Usage</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3 id="h-1-1" class="mrgn-tp-md">"Or" design</h3>
+        <ul class="fa-ul">
+          <li><span class="fa-li fas fa-check text-success"></span>Use to clearly demonstrate there are options</li>
+          <li><span class="fa-li fas fa-check text-success"></span>Use to make the options, and number of options, easily scannable</li>
+          <li><span class="fa-li fas fa-check text-success"></span>Use to ensure a user can easily identify which block of content applies to them so they don't spend time reading unneccessary content, before they see the next option (which is the default experience when content is stacked vertically)</li>
+        </ul>
+      </div>
+      <div class=" col-sm-6">
+        <h3 id="h-1-2" class="mrgn-tp-md">"And" design</h3>
+        <p>This design has limited use as headings don't typically bridge and connect to each other.</p>
+        <p>When necessary:</p>
+        <ul class="fa-ul">
+          <li><span class="fa-li fas fa-check text-success"></span>Use it to clearly demonstrate there are content blocks that are complementary or associated</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Working examples</h2>
+    <ul>
+      <li><a href="index.html">English example</a></li>
+      <li><a href="index-fr.html">French example</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Evaluation and report</h2>
+    <ul>
+      <li><a href="a11y-1-conjunction.json">English accessibility assessment</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Accessibility guidance</h2>
+    <p>Most screen readers can read CSS text these days, but it's still good practice to use text to convey that  the options are either mutually exclusive (or), or part of an entire concept (and).</p>
+    <p>Some recommendations are:</p>
+    <ul>
+      <li>Adding in a lead in statement to explain there are options that are mutually exclusive (or), or mutually connected (and)</li>
+      <li>Creating the and/or using the list (<code>&lt;ul&gt;</code>) element to better indicate that the items are connected</li>
+      <li>Use headers that indicate the items are mutually exclusive or part of an entire concept
+        <ul>
+          <li>Additionally append an invisible phrase such as &quot;option X of X&quot; to all headers</li>
+        </ul>
+      </li>
+      <li>Adding the word &quot;or&quot;, or &quot;and&quot; as part of the statement to connect each part of content</li>
+      <li>Use a <code>&lt;section&gt;</code> element instead of a <code>&lt;div&gt;</code> element when working with headers to semantically contain the design's content</li>
+    </ul>
+  </section>
+  <section>
+    <h2>How to implement</h2>
+    <h3> List element</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="wb-inv">"Or" design</h4>
+        <pre><code>&lt;p&gt;Lead in statement&lt;/p&gt;
+    &lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+        &lt;li class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/li&gt;
+        &lt;li class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <h4 class="wb-inv">"And" design</h4>
+        <pre><code>&lt;p&gt;Lead in statement&lt;/p&gt;
+   &lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+        &lt;li class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/li&gt;
+        &lt;li class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+      </div>
+    </div>
+    <h3>Block element (e.g. <code>&lt;div&gt;</code>)</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="wb-inv">"Or" design</h4>
+        <pre><code>&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+      </div>
+      <div class="col-md-6">
+        <h4 class="wb-inv">"And" design</h4>
+        <pre><code>&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class=&quot;cnjnctn-col&quot;&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Configuration options</h2>
+    <h3>Side-by-side design at certain resolution points</h3>
+    <p>Add these classes to the element with the <code>cnjnctn-type-or</code> or <code>cnjnctn-type-and</code> class.</p>
+    <ul>
+      <li>Always side-by-side: add class <code>cnjnctn-xs</code></li>
+      <li>Side-by-side &#x2265; 768px (tablet) and above: add class <code>cnjnctn-sm</code></li>
+      <li>Side-by-side &#x2265; 992px (small desktop screen) and above: add class <code>cnjnctn-md</code></li>
+      <li>Side-by-side &#x2265; above 1200px (large desktop screen) and above: add class <code>cnjnctn-lg</code></li>
+    </ul>
+    <p>Only use the &quot;always side-by-side&quot; class (<code>cnjnctn-xs</code>) sparingly and when there is very little text.  The design may not scale down well to smaller devices.</p>
+    <h3>Custom column widths</h3>
+    <p>A column can be set to a percentage of itself to allow larger content in another column to wrap less. The default is 100% (<code>cnjnctn-col</code>).</p>
+    <p>Only apply to a column that have less content than others, as the class <strong>reduces</strong> the width of a column<strong>,</strong> and the column that does not have the custom width class will <strong>expand</strong> to compensate. </p>
+    <p>This class can be applied to more than one column (e.g. if 1 column out of 3 has more content than the other 2).</p>
+    <p>The width cannot be adjusted based on different resolutions, and it best to stack the columns when content becomes difficult to read on smaller devices.</p>
+    <table class="table table-condensed">
+      <caption>
+      List of classes for custom column widths
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" class="col-sm-4">Class name</th>
+          <th scope="col" class="col-sm-8">With of column compared to default (in percentage)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>cnjnctn-col</code></td>
+          <td>100% (Default)</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-90</code></td>
+          <td>90%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-80</code></td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-75</code></td>
+          <td>75%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-70</code></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-60</code></td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-50</code></td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-40</code></td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-30</code></td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-25</code></td>
+          <td>25%</td>
+        </tr>
+        <tr>
+          <td><code>cnjnctn-col-20</code></td>
+          <td>20%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>These class names are mutually exclusive, so you only use one of them when defining your column width.</p>
+    <h3>No left border on stacked</h3>
+    <p>This can be used when a  design (e.g. zebra striping,  panel, well, etc.) already has a defined border. The line that splits the column will disappear when the items are stacked.</p>
+    <p>To remove the border when stacked, add the class <code>brdr-0</code> to the element with the <code>cnjnctn-type-or</code> or <code>cnjnctn-type-and</code> class.</p>
+    <p>The border should not be removed if there is sibling (surrounding) information contained within the existing bordered design that does not relate to the conjunction (and/or) design. It may be unclear when the conjunction point has started or ended.</p>
+  </section>
+  <section>
+    <h2>Source code</h2>
+    <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2021-05-conjunction">Source code for the conjunction plugin on GitHub</a></p>
+  </section>

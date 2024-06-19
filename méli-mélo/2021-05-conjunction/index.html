@@ -1,6 +1,6 @@
 ---
-title: And/Or decision points (Conjunctions)
-dateModified: 2021-05-27
+title: Conjunctions (and/or)
+dateModified: 2025-05-30
 description: "Conjunctions for stacked or side by side decision points, and/or"
 lang: en
 css:
@@ -28,849 +28,963 @@ css:
 	<li>2022-09 - updated CSS to allow nested decision points</li>
 	<li>2022-11 - updated CSS to allow no border on always stacked items</li>
 	<li>2023-07 - updated CRA to allow no border on all resolutions when stacked</li>
-    <li>2023-10 - Have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+	<li>2023-08 - allow for zoom text resolution of 200%
+    <li>2023-10 - have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
+	<li>2024-04 - updated to fix design when text is smaller, make border visible in high contrast mode</li>
 </ul>
 
 <p>Todo and for future consideration</p>
 <ul>
-	<li>Review code and governance to balance optimal accessibility and ease of implimentation by users.</li>
+	<li>>Finalize documentation and examples to be merged into GCWeb library.</li>
 </ul>
 
 <p>Lead: CRA - Christopher Oakes (@christopher-o)</p>
- <h2>Base configurations</h2>
-<p><a href="index-fr.html">Link to French examples</a></p>
-        <p>Most screen readers can read CSS text, but it's good to lead with or allude to the fact that the options are either mutually exclusive, or part of the entire concept.</p>
-        <p>Some options are:</p>
-        <ul>
-		  <li>Adding in a lead in statement to explain there are options that are mutually exclusive (or), or mututally connected (and)</li>	
-		<li>Creating the and/or using the list (<code>&lt;ul&gt;</code>) element</li>
-
-    <li>Adding option X of X to all headers</li>
-    <li>Adding the word &quot;or&quot; as part of the last statement in each column (except the last column)</li>
+  <ul class="list-inline">
+    <li><a class="btn btn-primary" href="conjunction-doc-en.html">Documentation</a></li>
+    <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Conjunction">Questions or comments?</a></li>
   </ul>
-<h3>Using a simple list (without headers) <span class="label label-info">New</span></h3>
-<section>
-<h4>Never stacked (always side-by-side)</h4>
-  <ul class="cnjnctn-type-or cnjnctn-xs">
-<li class="cnjnctn-col">This is content for option A </li>
-    <li class="cnjnctn-col">This is content for option B</li>
-          </ul>
-
-        <ul class="cnjnctn-type-and cnjnctn-xs">
-    <li class="cnjnctn-col">This is content for part A </li>
-    <li class="cnjnctn-col">This is content for part B</li>
-</ul>
-</section>
-<section>
-<h4>Always stacked (mobile first, no side-by-side)</h4>
-  <ul class="cnjnctn-type-or">
-<li class="cnjnctn-col">This is content for option A </li>
-    <li class="cnjnctn-col">This is content for option B</li>
-          </ul>
-
+  <section>
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#basic">Basic configuration</a></li>
+      <li><a href="#responsive">Responsive designs</a></li>
+      <li><a href="#custom">Customization</a></li>
+      <li><a href="#flex">Flexible designs</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 id="basic">Basic configurations</h2>
+    <p>The design can be configured using a list, or a simple block element.</p>
+    <h3>With headers</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Or design</h4>
+        <p>Lead in statement:</p>
+        <ul class="cnjnctn-type-or">
+          <li class="cnjnctn-col">
+            <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+            <p>This is content for header A
+            <p>
+          </li>
+          <li class="cnjnctn-col">
+            <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+            <p>This is content for header B</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>And design</h4>
+        <p>Lead in statement:</p>
         <ul class="cnjnctn-type-and">
-    <li class="cnjnctn-col">This is content for part A </li>
-    <li class="cnjnctn-col">This is content for part B</li>
-</ul>
-</section>
-
-   <details>
-    <summary>
-          View code
-          </summary>
-    <pre><code>//Never stacked "or"
-&lt;ul class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option B
-	&lt;/li&gt;
-&lt;/ul&gt;
-//Never stacked "and"
-&lt;ul class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for  part A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for part B
-	&lt;/li&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-//Always stacked "or"
+          <li class="cnjnctn-col">
+            <h5>Header A</h5>
+            <p>This is content for part A</p>
+          </li>
+          <li class="cnjnctn-col">
+            <h5>Header B</h5>
+            <p>This is content for part B</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//List element "or" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for option A&lt;/p&gt;
+    &lt;/li&gt;
 	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option B
-	&lt;/li&gt;
+        &lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for option B&lt;/p&gt;
+    &lt;/li&gt;
 &lt;/ul&gt;
-//Always stacked "and"
+
+//List element "and" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
 	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for  part A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for part B
-	&lt;/li&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</code>
-  </pre>
-  </details>
-
- <h3>No border on stacked <span class="label label-info">Updated</span></h3>
-  <p>This can be used when a bordered design (e.g. zebra striping, panel) has already defined the border of the content. The border will only disappear when the items are stacked.</p>
-  <p><strong>Note:</strong> The stacked left border should not be removed if there is sibling information contained within the existing bordered design that does not relate to the and/or design. There is a risk that it may be unclear when the decision point has started or ended. </p>
-<h4>Always stacked (mobile first, no side-by-side)</h4>
-<section class="panel panel-default">
-    <header class="panel-heading">
-      <h5 class="panel-title">Heading</h5>
-    </header>
-    <div class="panel-body">
-  <ul class="cnjnctn-type-or brdr-0">
-<li class="cnjnctn-col">This is content for option A </li>
-    <li class="cnjnctn-col">This is content for option B</li>
-          </ul>
-	</div>
-</section>
- <section class="panel panel-default">
-    <header class="panel-heading">
-      <h5 class="panel-title">Heading</h5>
-    </header>
-    <div class="panel-body">
-        <ul class="cnjnctn-type-and brdr-0">
-    <li class="cnjnctn-col">This is content for part A </li>
-    <li class="cnjnctn-col">This is content for part B</li>
-</ul>
-	 </div>
-</section>
- <h4>Stacks on small devices, tablets (768px to 992px) and below, no border when stacked</h4>
-  <section class="panel panel-default">
-    <header class="panel-heading">
-      <h5 class="panel-title">Heading</h5>
-    </header>
-    <div class="panel-body">
-      <ul class="cnjnctn-type-or  cnjnctn-md brdr-0">
-        <li class="cnjnctn-col">This is content for option A </li>
-        <li class="cnjnctn-col">This is content for option B</li>
-      </ul>
-    </div>
-  </section>
-  <h4>Stacks on medium devices, tablets (992px to 1200px) and below, no border when stacked</h4>
-  <section class="panel panel-default">
-    <header class="panel-heading">
-      <h5 class="panel-title">Heading</h5>
-    </header>
-    <div class="panel-body">
-      <ul class="cnjnctn-type-and  cnjnctn-lg brdr-0">
-        <li class="cnjnctn-col">This is content for part A </li>
-        <li class="cnjnctn-col">This is content for part B</li>
-      </ul>
-    </div>
-  </section>
-   <details>
-    <summary>
-      View code
-          </summary>
-    <pre><code>//Always stacked "or" with no border
-&lt;section class=&quot;panel panel-default&quot;&gt;
-&lt;header class=&quot;panel-heading&quot;&gt;
-&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
-&lt;/header&gt;
-&lt;div class=&quot;panel-body&quot;&gt;
-&lt;ul class=&quot;cnjnctn-type-or brdr-0&quot;&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for option B
-	&lt;/li&gt;
+        &lt;h5&gt;Header A&lt;/h5&gt;
+        &lt;p&gt;This is content for  part A&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header B&lt;/h5&gt;
+        &lt;p&gt;This is content for part B&lt;/p&gt;
+    &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/section&gt;
 
-//Always stacked "and" with no border
-&lt;section class=&quot;panel panel-default&quot;&gt;
-&lt;header class=&quot;panel-heading&quot;&gt;
-&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
-&lt;/header&gt;
-&lt;div class=&quot;panel-body&quot;&gt;
-&lt;ul class=&quot;cnjnctn-type-and brdr-0&quot;&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for  part A
-	&lt;/li&gt;
-	&lt;li class=&quot;cnjnctn-col&quot;&gt;
-		This is content for part B
-	&lt;/li&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-//Stacks on small devices &quot;or&quot;, no border when stacked
-&lt;section class=&quot;panel panel-default&quot;&gt;
-	&lt;header class=&quot;panel-heading&quot;&gt;
-		&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
-	&lt;/header&gt;
-	&lt;div class=&quot;panel-body&quot;&gt;
-		&lt;ul class=&quot;cnjnctn-type-or  cnjnctn-md brdr-0&quot;&gt;
-			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for option A &lt;/li&gt;
-			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for option B&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/section&gt;
-//Stacks on medium devices "and", no border when stacked
-&lt;section class=&quot;panel panel-default&quot;&gt;
-	&lt;header class=&quot;panel-heading&quot;&gt;
-		&lt;h5 class=&quot;panel-title&quot;&gt;Heading&lt;/h5&gt;
-	&lt;/header&gt;
-	&lt;div class=&quot;panel-body&quot;&gt;
-		&lt;ul class=&quot;cnjnctn-type-and  cnjnctn-lg brdr-0&quot;&gt;
-			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for part A &lt;/li&gt;
-			&lt;li class=&quot;cnjnctn-col&quot;&gt;This is content for part B&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;</code>
-  </pre>
-  </details>
-
-
-<section>
-        <h3>Never stacked (always side-by-side) </h3>
-
-        <div class="cnjnctn-type-or cnjnctn-xs">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h4>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h4>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-
-        <div class="cnjnctn-type-and cnjnctn-xs">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header A</h4>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header B</h4>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-</section>
-<section>
-        <h3>Always stacked (mobile first, no side-by-side)</h3>
-        <div class="cnjnctn-type-or">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h4>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h4>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-        <div class="cnjnctn-type-and">
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header A</h4>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h4 class="text-muted">Header B</h4>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-</section>
-        <details>
-    <summary>
-        View code
-          </summary>
-    <pre><code>//Never stacked "or"
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//Never stacked "and"
-&lt;div class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;Header A&lt;/h4&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h4 class=&quot;text-muted&quot;&gt;Header B&lt;/h4&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
+//Block element (e.g. &lt;div&gt;) &quot;or&quot; design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for option A&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for option B&lt;/p&gt;
+    &lt;/section&gt;
 &lt;/div&gt;
 
-//Always stacked "or"
-&lt;div class="cnjnctn-type-or"&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;Header A&lt;span class="wb-inv"&gt;: Option 1 of 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;Header B&lt;span class="wb-inv"&gt;: Option 2 of 2&lt;/span&gt;&lt;/h4&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//Always stacked "and"
-&lt;div class="cnjnctn-type-and"&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;Header A&lt;/h4&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class="cnjnctn-col"&gt;
-		&lt;h4 class="text-muted"&gt;Header B&lt;/h4&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
+//Block element "and" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header A&lt;/h5&gt;
+        &lt;p&gt;This is content for part A&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header B&lt;/h5&gt;
+        &lt;p&gt;This is content for part B&lt;/p&gt;
+    &lt;/section&gt;
 &lt;/div&gt;</code>
   </pre>
-  </details>
-        <h3>Responsive design</h3>
-        <p><strong>Note:</strong> all designs going forward will use the "or" model to simplify the amount of examples.</p>
-<section>
-<h4>Stacks on extra small devices, phones (&lt;768px)</h4>
-        <div class="cnjnctn-type-or cnjnctn-sm">
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h5>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h5>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-</section>
-<section>
-        <h4>Stacks on small devices, tablets (768px to 992px)</h4>
-        <div class="cnjnctn-type-or cnjnctn-md">
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h5>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h5>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-</section>
-<section>
-        <h4>Stacks on medium devices (992px to 1200px)</h4>
-        <div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of 2</span></h5>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of 2</span></h5>
-            <p>This is content for header B</p>
-          </div>
-  </div>
-</section>
-        <details>
-    <summary>View code</summary>
-    <pre><code>//Stacks on extra small devices, phones
+    </details>
+    <h3>Without headers</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Or design</h4>
+        <p>Lead in statement:</p>
+        <ul class="cnjnctn-type-or">
+          <li class="cnjnctn-col">This is content for option A</li>
+          <li class="cnjnctn-col">This is content for option B</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3>And design</h3>
+        <p>Lead in statement:</p>
+        <ul class="cnjnctn-type-and">
+          <li class="cnjnctn-col">This is content for part A</li>
+          <li class="cnjnctn-col">This is content for part B</li>
+        </ul>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//List element "or" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        This is content for option A
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        This is content for option B
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+//List element "and" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;ul class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        This is content for part A
+    &lt;/li&gt;
+    &lt;li class=&quot;cnjnctn-col&quot;&gt;
+        This is content for part B
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+//Block element (e.g. &lt;div&gt;) &quot;or&quot; design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;This is content for option A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;This is content for option B&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+//Block element "and" design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;This is content for part A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;p&gt;This is content for part B&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+  </pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="responsive">Responsive designs</h2>
+    <p>For the examples that follow, the code will be using a block element for simplicity.  However they can also be coded using a list element (as long as the content still respects all guidance on using lists).</p>
+    <p>Using these extra classes creates a side-by-side design above a certain pixel resolution (follows the WET4 responsive break points).</p>
+    <p>The default design (as shown above) is stacked on all resolutions and never is side-by-side.</p>
+    <p>Use your browser to resize the view of the page to see how the design reacts in different resolutions.</p>
+    <h3>Always side-by-side</h3>
+    <p>This design does not stack, on any resolution</p>
+    <h4 class="mrgn-tp-sm">Or design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-or cnjnctn-xs">
+      <section class="cnjnctn-col">
+        <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+        <p>This is content for header A </p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+        <p>This is content for header B</p>
+      </section>
+    </div>
+    <h4 class="mrgn-tp-sm">And design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-and cnjnctn-xs">
+      <section class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>This is content for header A </p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>This is content for header B</p>
+      </section>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Or design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-xs&quot;&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/div&gt;
+//And design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-xs&quot;&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Side-by-side &#x2265; 768px</h3>
+    <p>This design stacks on 767px and below.</p>
+    <h4 class="mrgn-tp-sm">Or design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-or cnjnctn-sm">
+      <section class="cnjnctn-col">
+        <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+        <p>This is content for header A </p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+        <p>This is content for header B</p>
+      </section>
+    </div>
+    <h4 class="mrgn-tp-sm">And design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-and cnjnctn-sm">
+      <section class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>This is content for header A </p>
+      </section>
+      <section class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>This is content for header B</p>
+      </section>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Or design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-sm&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
-//Stacks on small devices, tablets
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
+//And design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-sm&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//Stacks on medium devices
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-  </details>
-        <p>Use the <strong>always stacked</strong> design to stack across all resolutions.</p>
-        <h2>Extended configurations</h2>
-        <h3>Column count</h3>
-<section>
-<h4>Three columns (example stacks on small devices)</h4>
-        <div class="cnjnctn-type-or cnjnctn-md">
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of 3</span></h5>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of 3</span></h5>
-            <p>This is content for header B</p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header C<span class="wb-inv">: Option 3 of 3</span></h5>
-            <p>This is content for header C</p>
-          </div>
-  </div>
-</section>
-<section>
-        <h4>Four columns (example stacks on medium devices)</h4>
-        <div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of 4</span></h5>
-            <p>This is content for header A </p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of 4</span></h5>
-            <p>This is content for header B</p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header C<span class="wb-inv">: Option 3 of 4</span></h5>
-            <p>This is content for header C</p>
-          </div>
-    <div class="cnjnctn-col">
-            <h5 class="text-muted">Header D<span class="wb-inv">: Option 4 of 4</span></h5>
-            <p>This is content for header D</p>
-          </div>
-  </div>
-</section>
-        <details>
-    <summary>view code</summary>
-    <pre><code>//Three columns (example stacks on small devices)
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 3&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 3&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header C&lt;span class=&quot;wb-inv&quot;&gt;: Option 3 of 3&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header C&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-//Four columns (example stacks on medium devices)
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 4&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header A &lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 4&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header B&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header C&lt;span class=&quot;wb-inv&quot;&gt;: Option 3 of 4&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header C&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header D&lt;span class=&quot;wb-inv&quot;&gt;: Option 4 of 4&lt;/span&gt;&lt;/h5&gt;
-		&lt;p&gt;This is content for header D&lt;/p&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-  </details>
-<p>If you require more than four options (columns), consider the always stacked default design.</p>
-
-<h3>Nested conjunction<span class="label label-info">New</span></h3>
-<p>For instances where one of the decision points may have it's own set of decision points.</p>
-<section>
-<h4>An or decision point that stacks on small, nested with an always stacked and decision point</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-	<div class="cnjnctn-col-80">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A</p>
-	</div>
-	<div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-    <div class="cnjnctn-type-and">
-	<div class="cnjnctn-col">
-		<h6 class="text-muted">Header B.1</h6>
-		<p>This is content for header B.1</p>
-	</div>
-	<div class="cnjnctn-col">
-		<h6 class="text-muted">Header B.2</h6>
-		<p>This is content for header B.2</p>
-	</div>
-</div>
-	</div>
-</div>
-</section>
-<details>
-    <summary>View code</summary>
-    <pre><code>//nested decision point example
-&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
-&lt;div class=&quot;cnjnctn-col-80&quot;&gt;
-&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
-&lt;p&gt;This is content for header A&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cnjnctn-col&quot;&gt;
-&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
-&lt;p&gt;This is content for header B&lt;/p&gt;
-&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
-&lt;div class=&quot;cnjnctn-type-and&quot;&gt;
-&lt;div class=&quot;cnjnctn-col&quot;&gt;
-&lt;h6 class=&quot;text-muted&quot;&gt;Header B.1&lt;/h6&gt;
-&lt;p&gt;This is content for header B.1&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cnjnctn-col&quot;&gt;
-&lt;h6 class=&quot;text-muted&quot;&gt;Header B.2&lt;/h6&gt;
-&lt;p&gt;This is content for header B.2&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-</details>
-
-
-
-<h3>Width of column</h3>
-<p>To accommodate options that might be lopsided in the amount of text but a need to be visually pleasing, the columns can be set to a percentage of itself to allow larger content to wrap less. The default is 100% (<code>cnjnctn-col</code>).</p>
-<p><strong>Note:</strong> The width cannot be adjusted based on different resolutions, best to stack the columns when content becomes difficult to read on smaller devices.</p>
-<section>
-<h4>Column set to 90% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-	<div class="cnjnctn-col-90">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-        <p>This is content for header A (at 90% of default <code>cnjnctn-col-90</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-        <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 80% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-	<div class="cnjnctn-col-80">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 80% of default <code>cnjnctn-col-80</code>)</p>
-	</div>
-	<div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 75% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-75">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-        <p>This is content for header A (at 75% of default <code>cnjnctn-col-75</code>)</p>
+    </details>
+    <h3>Side-by-side &#x2265; 992px</h3>
+    <p>This design stacks on 991px and below.</p>
+    <h4 class="mrgn-tp-sm">Or design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-or cnjnctn-md">
+      <div class="cnjnctn-col">
+        <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+        <p>This is content for header A </p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+        <p>This is content for header B</p>
+      </div>
     </div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 70% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-70">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 70% of default <code>cnjnctn-col-70</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 60% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-60">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 60% of default <code>cnjnctn-col-60</code>)</p>
-	</div>
-	<div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 50% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-50">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 50% of default <code>cnjnctn-col-50</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 40% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-40">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 40% of default <code>cnjnctn-col-40</code>)</p>
-	</div>
-	<div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 30% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-30">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 30% of default <code>cnjnctn-col-30</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 25% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-25">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 25% of default <code>cnjnctn-col-25</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<section>
-<h4>Column set to 20% of original width (example stacks on medium devices)</h4>
-<div class="cnjnctn-type-or cnjnctn-lg">
-    <div class="cnjnctn-col-20">
-		<h5 class="text-muted">Header A<span class="wb-inv">: Option 1 of X</span></h5>
-		<p>This is content for header A (at 20% of default <code>cnjnctn-col-20</code>)</p>
-	</div>
-    <div class="cnjnctn-col">
-		<h5 class="text-muted">Header B<span class="wb-inv">: Option 2 of X</span></h5>
-		<p>This is content for header B</p>
-		<p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
-	</div>
-</div>
-</section>
-<details>
-    <summary>Code</summary>
-   <pre><code>//90% of default width
+    <h4 class="mrgn-tp-sm">And design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-and cnjnctn-md">
+      <div class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>This is content for header A </p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>This is content for header B</p>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Or design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//And design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Side-by-side &#x2265; 1200px</h3>
+    <p>This design stacks on 1199px and below.</p>
+    <h4 class="mrgn-tp-sm">Or design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-or cnjnctn-lg">
+      <div class="cnjnctn-col">
+        <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+        <p>This is content for header A </p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+        <p>This is content for header B</p>
+      </div>
+    </div>
+    <h4 class="mrgn-tp-sm">And design</h4>
+    <p>Lead in statement:</p>
+    <div class="cnjnctn-type-and cnjnctn-lg">
+      <div class="cnjnctn-col">
+        <h5>Header A</h5>
+        <p>This is content for header A </p>
+      </div>
+      <div class="cnjnctn-col">
+        <h5>Header B</h5>
+        <p>This is content for header B</p>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Or design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//And design
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="custom">Customization</h2>
+    <p>For the examples that follow, the examples will be using a block element and mostly the "or" design for simplicity.  However they can also be coded using a list element and using the "and" design.</p>
+    <h3>Custom column widths</h3>
+    <section>
+      <h4>Column set to 90% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-90">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 90% of default <code>cnjnctn-col-90</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 80% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-80">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 80% of default <code>cnjnctn-col-80</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 75% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-75">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 75% of default <code>cnjnctn-col-75</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 70% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-70">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 70% of default <code>cnjnctn-col-70</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 60% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-60">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 60% of default <code>cnjnctn-col-60</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 50% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-50">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 50% of default <code>cnjnctn-col-50</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 40% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-40">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 40% of default <code>cnjnctn-col-40</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 30% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-30">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 30% of default <code>cnjnctn-col-30</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 25% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-25">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 25% of default <code>cnjnctn-col-25</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Column set to 20% of original width (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-20">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A (at 20% of default <code>cnjnctn-col-20</code>)</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//90% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-90&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //80% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-80&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //75% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-75&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //70% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-70&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //60% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-60&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //50% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-50&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //40% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-40&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //30% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-30&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //25% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-25&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 //20% of default width
+&lt;p&gt;Lead in statement:&lt;/p&gt;
 &lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
 	&lt;div class=&quot;cnjnctn-col-20&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header A &lt;/p&gt;
 	&lt;/div&gt;
 	&lt;div class=&quot;cnjnctn-col&quot;&gt;
-		&lt;h5 class=&quot;text-muted&quot;&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of X&lt;/span&gt;&lt;/h5&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
 		&lt;p&gt;This is content for header B&lt;/p&gt;
 		&lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-  </details>
-        <div class="row">
-    <div class="col-sm-6">
-            <table class="table table-condensed">
-        <caption>
-              List of classes for column width
-              </caption>
-        <thead>
-                <tr>
-            <th scope="col" class="col-sm-6">Class name</th>
-            <th scope="col" class="col-sm-6">With of column compared to default (in percentage)</th>
-          </tr>
-              </thead>
-        <tbody>
-                <tr>
-            <td><code>cnjnctn-col</code></td>
-            <td>100% (Default)</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-90</code></td>
-            <td>90%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-80</code></td>
-            <td>80%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-75</code></td>
-            <td>75%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-70</code></td>
-            <td>70%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-60</code></td>
-            <td>60%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-50</code></td>
-            <td>50%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-40</code></td>
-            <td>40%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-30</code></td>
-            <td>30%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-25</code></td>
-            <td>25%</td>
-          </tr>
-                <tr>
-            <td><code>cnjnctn-col-20</code></td>
-            <td>20%</td>
-          </tr>
-              </tbody>
-      </table>
+    </details>
+    <h3>No left border when stacked</h3>
+    <h4>Basic configuration</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Or design</h5>
+          </header>
+          <div class="panel-body">
+            <p>Lead in statement:</p>
+            <div class="cnjnctn-type-or brdr-0">
+              <div class="cnjnctn-col">This is content for option A </div>
+              <div class="cnjnctn-col">This is content for option B</div>
+            </div>
           </div>
-  </div>
+        </section>
+      </div>
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">And design</h5>
+          </header>
+          <div class="panel-body">
+            <p>Lead in statement:</p>
+            <div class="cnjnctn-type-and brdr-0">
+              <div class="cnjnctn-col">This is content for part A </div>
+              <div class="cnjnctn-col">This is content for part B</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Basic "or" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option B
+	&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;
+
+//Basic "and" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part B
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;</code>
+  </pre>
+    </details>
+    <h4>Side-by-side &#x2265; 992px</h4>
+    <p>Use your browser to resize the view of the page to see that there is no left border when stacked.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">Or design</h5>
+          </header>
+          <div class="panel-body">
+            <p>Lead in statement:</p>
+            <ul class="cnjnctn-type-or cnjnctn-md brdr-0">
+              <li class="cnjnctn-col">This is content for option A </li>
+              <li class="cnjnctn-col">This is content for option B</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <h5 class="panel-title">And design</h5>
+          </header>
+          <div class="panel-body">
+            <p>Lead in statement:</p>
+            <ul class="cnjnctn-type-and cnjnctn-md brdr-0">
+              <li class="cnjnctn-col">This is content for part A </li>
+              <li class="cnjnctn-col">This is content for part B</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Side-by-side above 991px "or" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for option B
+	&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;
+
+//Side-by-side above 991px "and" design
+&lt;section class=&quot;panel panel-default&quot;&gt;
+...
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-and cnjnctn-md brdr-0&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part A
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		This is content for part B
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+...
+&lt;/section&gt;</code>
+  </pre>
+    </details>
+  </section>
+  <section>
+    <h2 id="flex">Flexible designs</h2>
+    <h3>Multiple columns</h3>
+    <p>If you require more than four options (columns), consider the always stacked default design.</p>
+    <section>
+      <h4>Three columns (example stacks on small devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-md">
+        <div class="cnjnctn-col">
+          <h5>Header A<span class="wb-inv">: Option 1 of 3</span></h5>
+          <p>This is content for header A </p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 3</span></h5>
+          <p>This is content for header B</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header C<span class="wb-inv">: Option 3 of 3</span></h5>
+          <p>This is content for header C</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h4>Four columns (example stacks on medium devices)</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col">
+          <h5>Header A<span class="wb-inv">: Option 1 of 4</span></h5>
+          <p>This is content for header A </p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 4</span></h5>
+          <p>This is content for header B</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header C<span class="wb-inv">: Option 3 of 4</span></h5>
+          <p>This is content for header C</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header D<span class="wb-inv">: Option 4 of 4</span></h5>
+          <p>This is content for header D</p>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Three columns (example stacks on small devices)
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-md&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header C&lt;span class=&quot;wb-inv&quot;&gt;: Option 3 of 3&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header C&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//Four columns (example stacks on medium devices)
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header A &lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header B&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header C&lt;span class=&quot;wb-inv&quot;&gt;: Option 3 of 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header C&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;cnjnctn-col&quot;&gt;
+		&lt;h5&gt;Header D&lt;span class=&quot;wb-inv&quot;&gt;: Option 4 of 4&lt;/span&gt;&lt;/h5&gt;
+		&lt;p&gt;This is content for header D&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+    <h3>Nested conjunctions</h3>
+    <p>For instances where one of the decision points may have it's own set of decision points.</p>
+    <section>
+      <h4>An &quot;or&quot; decision point that stacks on small, nested with an always stacked &quot;and&quot; decision point</h4>
+      <p>Lead in statement:</p>
+      <div class="cnjnctn-type-or cnjnctn-lg">
+        <div class="cnjnctn-col-80">
+          <h5>Header A<span class="wb-inv">: Option 1 of 2</span></h5>
+          <p>This is content for header A</p>
+        </div>
+        <div class="cnjnctn-col">
+          <h5>Header B<span class="wb-inv">: Option 2 of 2</span></h5>
+          <p>This is content for header B</p>
+          <p>Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. </p>
+          <p>Lead in statement:</p>
+          <div class="cnjnctn-type-and">
+            <div class="cnjnctn-col">
+              <h6>Header B.1</h6>
+              <p>This is content for header B.1</p>
+            </div>
+            <div class="cnjnctn-col">
+              <h6>Header B.2</h6>
+              <p>This is content for header B.2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <details>
+      <summary>View code</summary>
+      <pre><code>//Nested decision point example
+&lt;p&gt;Lead in statement:&lt;/p&gt;
+&lt;div class=&quot;cnjnctn-type-or cnjnctn-lg&quot;&gt;
+    &lt;div class=&quot;cnjnctn-col-80&quot;&gt;
+        &lt;h5&gt;Header A&lt;span class=&quot;wb-inv&quot;&gt;: Option 1 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for header A&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cnjnctn-col&quot;&gt;
+        &lt;h5&gt;Header B&lt;span class=&quot;wb-inv&quot;&gt;: Option 2 of 2&lt;/span&gt;&lt;/h5&gt;
+        &lt;p&gt;This is content for header B&lt;/p&gt;
+        &lt;p&gt;Nam fermentum cursus sodales. Mauris leo leo, congue et fringilla in, egestas eu sapien. &lt;/p&gt;
+        &lt;p&gt;Lead in statement:&lt;/p&gt;
+        &lt;div class=&quot;cnjnctn-type-and&quot;&gt;
+            &lt;div class=&quot;cnjnctn-col&quot;&gt;
+                &lt;h6&gt;Header B.1&lt;/h6&gt;
+                &lt;p&gt;This is content for header B.1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;cnjnctn-col&quot;&gt;
+                &lt;h6&gt;Header B.2&lt;/h6&gt;
+                &lt;p&gt;This is content for header B.2&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
