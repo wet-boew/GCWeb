@@ -29,6 +29,7 @@ pages:
     - title: Liste des étapes
       language: fr
       path: index-fr.html
+
 implementationPlan:
   - due: 2021-06
     what: Engage with TBS to show them this design pattern
@@ -42,8 +43,15 @@ implementationPlan:
     what: review updated CSS and governance added to validate usability toward stable
   - due: 2024-05
     what: change name of component to better reflect use case
+
 todos:
   - Finalize design
+
+changes:
+  - date: 2024-06-20
+    description: Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.
+    departmentImpact: No change from a departmental perspective.
+    publicImpact: Created a cleaner look for items using list steps with a smaller amount of content. Made the numbers more visible for edge case scenarios of print and high contrast.
 
 output: false
 ---
