@@ -14,8 +14,8 @@
 		"en": "Documentation on how to use the page details section.",
 		"fr": "Documentation sur l'utilisation de la section des détails de la page."
 	},
-	"version": "3.0",
-	"modified": "2022-04-11",
+	"version": "3.1",
+	"modified": "2024-06-03",
 	"componentName": "page-details",
 	"componentType": "container",
 	"status": "stable",
@@ -52,26 +52,6 @@
 				"title": "Détails de la page avec Outil de rétroaction sur la page",
 				"language": "fr",
 				"path": "page-details-pft-fr.html"
-			},
-			{
-				"title": "Page details with Share this page",
-				"language": "en",
-				"path": "page-details-share-en.html"
-			},
-			{
-				"title": "Détails de la page avec Partagez cette page",
-				"language": "fr",
-				"path": "page-details-share-fr.html"
-			},
-			{
-				"title": "Page details with Page feedback tool and Share this page",
-				"language": "en",
-				"path": "page-details-pft-share-en.html"
-			},
-			{
-				"title": "Détails de la page avec Outil de rétroaction sur la page et Partagez cette page",
-				"language": "fr",
-				"path": "page-details-pft-share-fr.html"
 			}
 		],
 		"reports": [
@@ -100,12 +80,10 @@
 	"dependencies": {
 		"en": [
 			{ "title": "Feedback area", "url": "https://wet-boew.github.io/GCWeb/sites/feedback/feedback-docs-en.html", "component": "feedback" },
-			{ "title": "Share widget", "url": "https://wet-boew.github.io/wet-boew/docs/ref/share/share-en.html", "component": "share" },
 			{ "title": "Date modified", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-en.html", "component": "date-modified" }
 		],
 		"fr": [
 			{ "title": "Zone de rétroaction", "url": "https://wet-boew.github.io/GCWeb/sites/feedback/feedback-docs-fr.html", "component": "feedback" },
-			{ "title": "Gadget de partage", "url": "https://wet-boew.github.io/wet-boew/docs/ref/share/share-fr.html", "component": "share" },
 			{ "title": "Date de modification", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-fr.html", "component": "date-modified" }
 		]
 	},
@@ -118,8 +96,8 @@
 			},
 			"status": "stable",
 			"description": {
-				"en": "This component may contain the following components: Page feedback tool, Share this page, and Date modified.",
-				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Outil de rétroaction sur la page, Partager cette page et Date de modification."
+				"en": "This component may contain the following components: Page feedback tool and Date modified.",
+				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Outil de rétroaction sur la page et Date de modification."
 			},
 			"iteration": "_:iteration_pd_3",
 			"example": [
@@ -132,19 +110,20 @@
 					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec Outil de rétroaction sur la page" }
 				},
 				{
-					"en": { "href": "page-details-share-en.html", "text": "Page details with Share this page" },
-					"fr": { "href": "page-details-share-fr.html", "text": "Détails de la page avec Partagez cette page" }
-				},
-				{
-					"en": { "href": "page-details-pft-share-en.html", "text": "Page details with Page feedback tool and Share this page" },
-					"fr": { "href": "page-details-pft-share-fr.html", "text": "Détails de la page avec Outil de rétroaction sur la page et Partagez cette page" }
+					"en": { "href": "demoted/page-details-v3-en.html", "text": "Demoted - Page details version 3.0" },
+					"fr": { "href": "demoted/page-details-v3-fr.html", "text": "Rétrogradé - Détails de la page version 3.0" }
 				}
 			],
 			"implementation": [
 				"_:implement_pd",
-				"_:implement_pd_gcweb"
+				"_:implement_pd_gcweb",
+				"_:implement_pd_3to4"
 			],
 			"history": [
+				{
+					"en": "June 2024 - Removed \"Share this page\" option.",
+					"fr": "Juin 2024 - Retrait de l'option « Partagez cette page »."
+				},
 				{
 					"en": "March 2023 - Tag <footer> changed to <section>.",
 					"fr": "Mars 2023 - Balise <footer> changée pour <section>."
@@ -163,7 +142,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_pd",
-			"iteration": "_:iteration_pd_3",
+			"iteration": "_:iteration_pd_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -174,22 +153,20 @@
 			},
 			"instructions": {
 				"en": [
-					"The Page details component must include the Date modified component. It can also contain the Page feedback component and the Share this page widget. See below the code sample for each scenario.",
-					"For more information about Page feedback tool component, please visit <a href=\"../sites/feedback/page-feedback-docs-en.html\">Page feedback area</a> page.",
-					"For more information about Share widget plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/share/share-en.html\">Share widget page</a>."
+					"The Page details component must include the Date modified component. It can also contain the Page feedback component. See below the code sample for each scenario.",
+					"For more information about Page feedback tool component, please visit <a href=\"../sites/feedback/page-feedback-docs-en.html\">Page feedback area</a> page."
 				],
 				"fr": [
-					"Le composant Détails de la page doit inclure le composant Date de modification. Il peut également contenir le composant Outil de rétroaction sur la page et le widget Partager cette page. Voir ci-dessous l'exemple de code pour chaque scénario.",
-					"Pour plus d'informations sur le composant de l'Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../sites/feedback/page-feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
-					"Pour plus d'informations sur le plugin de partage de widget, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/share/share-fr.html\">page de partage de widget </a>."
+					"Le composant Détails de la page doit inclure le composant Date de modification. Il peut également contenir le composant Outil de rétroaction sur la page. Voir ci-dessous l'exemple de code pour chaque scénario.",
+					"Pour plus d'informations sur le composant de l'Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../sites/feedback/page-feedback-docs-fr.html\">Zone de rétroaction sur la page</a>."
 				]
 			},
 			"notes": {
 				"en": [
-					"Although the component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
+					"Although the component has been updated to version 3.1, the version 2.0 and 3.0 are still supported. However, the page content and the &lt;footer&gt; have to be located inside an &lt;article&gt; tag."
 				],
 				"fr": [
-					"Bien que le composant ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
+					"Bien que le composant ait été mis à jour vers la version 3.1, la version 2.0 and 3.0 sont toujours pris en charge. Cependant, le contenu de la page et le &lt;footer&gt; doivent être situés à l'intérieur d'une balise &lt;article&gt;."
 				]
 			},
 			"sample": {
@@ -199,7 +176,7 @@
 						"description": "Default Page details:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-en.html#default"
+							"@value": "samples/page-details-4-en.html#default"
 						}
 					},
 					{
@@ -207,24 +184,7 @@
 						"description": "Page details with Page feedback tool:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-en.html#pft"
-						}
-					},
-					{
-						"@type": "source-code",
-						"description": "Page details with Share this page:",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-en.html#share"
-						}
-					}
-					,
-					{
-						"@type": "source-code",
-						"description": "Page details with Page feedback tool and Share this page:",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-en.html#pftShare"
+							"@value": "samples/page-details-4-en.html#pft"
 						}
 					}
 				],
@@ -234,7 +194,7 @@
 						"description": "Détails de la page par défaut :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-fr.html#default"
+							"@value": "samples/page-details-4-fr.html#default"
 						}
 					},
 					{
@@ -242,24 +202,7 @@
 						"description": "Détails de la page avec Outil de rétroaction sur la page :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-fr.html#pft"
-						}
-					},
-					{
-						"@type": "source-code",
-						"description": "Détails de la page avec Partagez cette page :",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-fr.html#share"
-						}
-					}
-					,
-					{
-						"@type": "source-code",
-						"description": "Détails de la page avec Outil de rétroaction sur la page et Partagez cette page :",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3-fr.html#pftShare"
+							"@value": "samples/page-details-4-fr.html#pft"
 						}
 					}
 				]
@@ -267,7 +210,7 @@
 		},
 		{
 			"@id": "_:implement_pd_gcweb",
-			"iteration": "_:iteration_pd_3",
+			"iteration": "_:iteration_pd_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -278,12 +221,10 @@
 			},
 			"instructions": {
 				"en": [
-					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
-					"To show the \"Share this page\" button, in the page's front-matter, set the property <code>share</code> to <code>true</code>."
+					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>."
 				],
 				"fr": [
-					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
-					"Pour afficher le bouton \"Partagez cette page\", dans l'en-tête de la page, définissez la propriété <code>share</code> à <code>true</code>."
+					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>."
 				]
 			},
 			"sample": {
@@ -291,76 +232,97 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "\"feedback\": true, \n\"share\": true"
+						"code": "\"feedback\": true"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code:",
-						"code": "\"feedback\": true, \n\"share\": true"
+						"code": "\"feedback\": true"
 					}
 				]
 			}
 		},
 		{
-			"@id": "_:implement_pd_2",
-			"iteration": "_:iteration_pd_3",
+			"@id": "_:implement_pd_3to4",
+			"iteration": "_:iteration_pd_4",
 			"name": {
-				"en": "Version 2.0",
-				"fr": "Version 2.0"
+				"en": "Migration from version 3.0 to 3.1",
+				"fr": "Migration de la version 3.0 vers 3.1"
 			},
 			"introduction": {
-				"en": "The following instructions are intended to anyone that currently have the Page details version 2.0 already implemented in their solution.",
-				"fr": "Les instructions suivantes sont destinées à toute personne ayant actuellement la version 2.0 des Détails de la page déjà implémentée dans sa solution."
+				"en": "This implementation is meant for developers or publishers trying to migrate their page from using the page details version 3.0 to 3.1 (removal of Share this page).",
+				"fr": "Cette implémentation est destinée aux développeurs ou aux éditeurs qui tentent de migrer leur page de la version 3.0 vers la version 3.1 (suppression de Partagez cette page)."
 			},
 			"instructions": {
 				"en": [
-					"Although the Page details component has been updated to version 3.0, the version 2.0 is still supported. However, the page content and the <code>&lt;footer&gt;</code> have to be located inside an <code>&lt;article&gt;</code> tag."
+					"Remove the element <code>&lt;div class=\"wb-share col-sm-4 col-md-3\" data-wb-share='{\"lnkClass\": \"btn btn-default btn-block\"}'>&lt;/div></code>.",
+					"Move the date modified component out of the grid and insert right before the closing <code>&lt;section></code> tag. Delete the <code>&lt;div class=\"col-xs-12\"></code> it was in."
 				],
 				"fr": [
-					"Bien que le composant Détails de la page ait été mis à jour vers la version 3.0, la version 2.0 est toujours prise en charge. Cependant, le contenu de la page et le <code>&lt;footer&gt;</code>. doivent être situés à l'intérieur d'une balise <code>&lt;article&gt;</code>."
-				]
-			},
-			"notes": {
-				"en": [
-					"<strong>This implementation of the Page details is deprecated as of 2023-11-08</strong>"
-				],
-				"fr": [
-					"<strong>Cette implémentation des Détails de la page est obsolète depuis le 2023-11-08</strong>"
-				]
-			},
-			"sample": {
-				"en": [
-					{
-						"@type": "source-code",
-						"description": "Code sample:",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/support-2.0-en.html"
-						}
-					}
-				],
-				"fr": [
-					{
-						"@type": "source-code",
-						"description": "Exemple de code:",
-						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/support-2.0-fr.html"
-						}
-					}
+					"Supprimez l'élément <code>&lt;div class=\"wb-share col-sm-4 col-md-3\" data-wb-share='{\"lnkClass\": \"btn btn-default btn-block\"}'>&lt;/div></code>.",
+					"Déplacez le composant de date de modification hors de la grille et insérez-le juste avant la balise de fermeture <code>&lt;section></code>. Supprimez le <code>&lt;div class=\"col-xs-12\"></code> dans lequel il se trouvait."
 				]
 			}
 		}
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_pd_4",
+			"name": "Page details - Iteration 4",
+			"date": "2024-06",
+			"detectableBy": "section.pagedetails",
+			"predecessor": "_:iteration_pd_3",
+			"fixes": [
+				"Removed \"Share this page\" button option."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Default Page details",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-4-en.html#default"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Détails de la page par défaut",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-4-fr.html#default"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Page details with Page feedback tool",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-4-en.html#pft"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-4-fr.html#pft"
+					}
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_pd_3",
 			"name": "Page details - Iteration 3",
 			"date": "2023-03",
 			"detectableBy": "section.pagedetails",
 			"predecessor": "_:iteration_pd_2",
+			"successor": "_:iteration_pd_4",
 			"fixes": [
 				"Changed <footer> to <section> as <footer> element does not provide a semantic break."
 			],
@@ -505,6 +467,44 @@
 	],
 	"changesets": [
 		{
+			"@id": "_:cs_pd_4",
+			"name": "Page details - version 3.1",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_pd_4",
+			"detectableBy": "section.pagedetails",
+			"layout": [
+				"Page feedback tool (if included) on the top left",
+				"Date modified on bottom left"
+			],
+			"style": "Not applicable",
+			"semantic": {
+				"@type": "source-code",
+				"description": "Source code",
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
+			},
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/footer.html"
+				}
+			},
+			"logic": "Not applicable",
+			"guidance": "Not applicable",
+			"context": "Not applicable",
+			"configuration": [
+				"Input the date when the page was last modified inside the <time> tag in the format YYYY-MM-DD."
+			],
+			"static": [
+				"Section header: \"Page details\""
+			],
+			"schema": "Not applicable",
+			"dependency": "Not applicable",
+			"file": "Not applicable"
+		},
+		{
 			"@id": "_:cs_pd_3",
 			"name": "Page details - Compatible with PFT + Accessiblity fix (version 3.0)",
 			"status": "stable",
@@ -527,7 +527,7 @@
 				"description": "Include with logic in Liquid.",
 				"code": {
 					"@type": [ "@id", "rdf:HTML" ],
-					"@value": "includes/footer.html"
+					"@value": "includes/footer-3.0.html"
 				}
 			},
 			"logic": "Not applicable",
