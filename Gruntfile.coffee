@@ -836,6 +836,7 @@ module.exports = (grunt) ->
 				expand: true
 				src: [
 					"node_modules/wet-boew/src/plugins/**/*.*",
+					"node_modules/wet-boew/src/plugins/**/config*.js",
 					"!node_modules/wet-boew/src/plugins/**/*.js",
 					"!node_modules/wet-boew/src/plugins/**/*.scss"
 				]
