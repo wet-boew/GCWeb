@@ -103,6 +103,13 @@ $social-media-icons-size: 38px;
 				margin-bottom: $social-media-li-margin-bottom;
 			}
 
+			&.more-ways {
+				display: block;
+				a {
+					text-decoration: underline;
+				}
+			}
+
 			a {
 				display: flex;
 				line-height: 1.54;
@@ -125,7 +132,7 @@ $social-media-icons-size: 38px;
 		&.list-inline {
 			padding-inline-start: 0;
 
-			li {
+			li:not(.more-ways) {
 				display: inline-block;
 				padding-right: 0;
 
@@ -299,6 +306,7 @@ $social-media-icons-size: 38px;
 		@extend %social-media-icons-followus-logo-properties;
 		@extend %social-media-icons-logo-email;
 	}
+
 }
 
 // Added social media icons
