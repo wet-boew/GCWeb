@@ -3,6 +3,7 @@ title: Steps Quiz
 dateModified: 2024-04-01
 description: "Addition of a Quiz pattern to the existing Steps Form component."
 lang: en
+altLangPage: "index-fr.html"
 css:
 - stepsquiz.css
 script:
@@ -27,6 +28,13 @@ script:
 {% endfor %}
 </ul>
 
+<p>Accessibility reports</p>
+<ul>
+{% for a11y in implPlan.a11y %}
+	<li>{{ a11y }}</li>
+{% endfor %}
+</ul>
+
 <p>Sponsor: {{ implPlan.sponsor }}</p>
 
 <section>
@@ -39,6 +47,25 @@ script:
 	<ol>
 		<li>Add the <code>quiz</code> CSS class to <code>&lt;div&gt;</code> element containing the <code>wb-steps</code> CSS class of the Steps Form component.</li>
 	</ol>
+</section>
+
+<section>
+	<h2>List of changes</h2>
+	<dl class="dl-horizontal">
+		<dt>Date:</dt>
+		<dd>2024-07-15</dd>
+		<dt>Description:</dt>
+		<dd>
+			<ul>
+				<li>French translation functionality on language toggle for two text elements found in the component.</li>
+				<li>Addition of a <code>&lt;label&gt;</code> element around the <code>&lt;progress&gt;</code> element in order to resolve an accessibility issue (ref: <a href="reports/a11y-1-en.html">Accessibility assessment no.1 - Progress bar</a>).</li>
+			</ul>
+		</dd>
+		<dt>Impact on the sponsoring department:</dt>
+		<dd>Prevents a possible complaint related to official languages and/or accessibility.</dd>
+		<dt>Impact on users:</dt>
+		<dd>Access to content that complies with official languages and that meets WCAG accessibilty guidlines 2.1 (Option: Level AA).</dd>
+	</dl>
 </section>
 
 <section>

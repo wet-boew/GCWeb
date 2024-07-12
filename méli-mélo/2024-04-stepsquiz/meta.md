@@ -39,6 +39,9 @@ implementationPlan:
   - due: 2026-05
     what: Have this feature officialy integrated to the Steps Form plugin.
 
+a11y:
+  - 2024-06-25 - <a href="reports/a11y-1-en.html">Accessibility assessment no.1 - Progress bar</a>
+
 todos:
   - Write governance and rationale for the use of this design.
   - Optimize code as suggested in the <a href="https://github.com/wet-boew/GCWeb/pull/2347">Github pull request &#35;2347</a>.
