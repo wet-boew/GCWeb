@@ -7,6 +7,18 @@
 ( function( $, document ) {
 "use strict";
 
+// Fetch page language and set variables accordingly
+let relpreposition = " of ",
+progressLabel = "Questionnaire progress:";
+
+// Define French progress label
+if ( wb.lang === "fr" ) {
+	relpreposition = " de ";
+	progressLabel = "Progression du questionnaire : ";
+
+}
+
+
 //Detect the enhancement of the quiz
 var quizSelector = ".provisional.wb-steps.quiz",
 	instances = document.querySelectorAll( quizSelector );
@@ -19,8 +31,7 @@ instances.forEach ( ( instance ) => {
 	let numQuestion = $( "fieldset", $instance ).length;
 
 	// Addition to UI (Ex: progress bar)
-	$( "form", $instance ).prepend( "<p class='progressText' role='status'></p>" );
-	$( "form", $instance ).prepend( "<p><progress class='progressBar' max='" + numQuestion + "'></progress></p>" );
+	( "form", $instance ).prepend( "<label><span class='wb-inv'>" + progressLabel + "</span><progress class='progressBar' max='" + numQuestion + "'></progress><p class='progressText' role='status'></p></label>" );
 
 });
 
@@ -52,7 +63,7 @@ var hideOtherSteps = function( e ) {
 	let numQuestion = $progressBar.attr( "max" );
 
 	// Set the progress label
-	$( "p.progressText", steps ).text( currentTabId + " of  " + numQuestion );
+	$( "p.progressText", steps ).text( currentTabId + relpreposition + numQuestion );
 
 	// Update progress bar
   	$progressBar.val( currentTabId );

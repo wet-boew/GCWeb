@@ -1,0 +1,101 @@
+---
+title: Steps Quiz - Content Limited Width
+dateModified: 2024-04-01
+description: "Addition of a Quiz pattern to the existing Steps Form component using the content limited width template."
+lang: en
+altLangPage: "stepsquiz-limited-fr.html"
+pageclass: cnt-wdth-lmtd
+css:
+- stepsquiz.css
+script:
+- js/stepsquiz.js
+---
+<p>Quiz pattern for the Steps Form component using the <code>panel</code> class along with the content limited width template.</p>
+
+<h2>How to use</h2>
+<ul>
+	<li>Add the CSS class name <code>cnt-wdth-lmtd</code> to the <code>&lt;body&gt;</code> of your page.</li>
+	<li>Apply <code>panel</code>, <code>panel-default</code> and <code>stepsquiz</code> CSS classes to the first <code>&lt;section&gt;</code> element of the Steps Form.</li>
+	<li>Add the <code>panel-body</code> CSS class to the <code>&lt;div&gt;</code> element containing the <code>wb-steps</code> class.</li>
+</ul>
+
+<section>
+	<h2>Working Examples</h2>
+	<ul>
+		<li><a href="index.html">Steps Quiz - Default (full width)</a></li>
+		<li><a href="#cntlmtd-1">Steps Quiz - Content Limited Width Panel</a></li>
+	</ul>
+</section>
+
+<section class="panel panel-default stepsquiz">
+	<div class="wb-frmvld provisional wb-steps quiz panel-body">
+		<h2 id="cntlmtd-1">Example - Content Limited Width</h2>
+		<form action="#" id="quiz-example">
+			<fieldset>
+				<legend>1. Which is your favorite fruit?</legend>
+				<div>
+					<p>My favorite fruit is:</p>
+					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+						<li class="radio">
+							<input type="radio" name="fruit" id="apple-1" value="Apple">
+							<label for="apple-1">Apple</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="fruit" id="orange-1" value="Orange">
+							<label for="orange-1">Orange</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="fruit" id="banana-1" value="Banana">
+							<label for="banana-1">Banana</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="fruit" id="kiwi-1" value="Kiwi">
+							<label for="kiwi-1">Kiwi</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>2. Which is your favorite pet?</legend>
+				<div>
+					<p>My favorite pet is:</p>
+					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+						<li class="radio">
+							<input type="radio" name="animal" id="dog-1" value="Dog">
+							<label for="dog-1">Dog</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="animal" id="cat-1" value="Cat">
+							<label for="cat-1">Cat</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="animal" id="bird-1" value="Bird">
+							<label for="bird-1">Bird</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>3. Condiments</legend>
+				<div>
+					<p>Choose your condiments:</p>
+					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+						<li class="checkbox">
+							<input type="checkbox" id="ketchup-1" value="Ketchup" name="condiments">
+							<label for="ketchup-1">Ketchup</label>
+						</li>
+						<li class="checkbox">
+							<input type="checkbox" id="relish-1"  value="Relish" name="condiments">
+							<label for="relish-1">Relish</label>
+						</li>
+						<li class="checkbox">
+							<input type="checkbox" id="mustard-1"  value="Mustard" name="condiments">
+							<label for="mustard-1">Mustard</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+		</form>
+	</div>
+</section>

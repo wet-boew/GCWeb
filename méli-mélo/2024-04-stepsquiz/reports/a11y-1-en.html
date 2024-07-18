@@ -1,0 +1,98 @@
+---
+title: Accessibility assessment #1 - Progress bar
+dateModified: 2024-07-15
+description: "Accessibility assessment for the progress bar element."
+lang: en
+---
+<p>Partial. Evaluation of new Success Criteria at Level A and Level AA of WCAG 2.1 and WCAG 2.2</p>
+
+<nav>
+	<h2>On this page</h2>
+	<ul>
+		<li><a href="#summary">Summary</a></li>
+		<li><a href="#acr">Assessement details</a></li>
+	</ul>
+</nav>
+
+<section>
+	<h2 id="summary">Summary</h2>
+	<p>This is an informal assessment based on an accessibility testing rule set. It cannot be seen as an accessibility conformance report. The latter is published separately from the assessment and only indicates if the requirements are satisfied, not satisfied, or if further testing is needed as specified by establishing the conformity described in WCAG 2.1. This assessment can contain false positives, false negatives, or be accurate. The assessment interpretation, via the accessibility conformance report, can consider other independent assessments in order to establish the conformance.</p>
+
+	<dl>
+		<dt>Type:</dt>
+		<dd>Accessibility assessment</dd>
+		<dt>Asserted by:</dt>
+		<dd><a href="https://esdc.prv/en/hrsb/accessibility/roadmap.shtml">ESDC Accessibility Office</a></dd>
+		<dt>Date:</dt>
+		<dd>2024-06-25</dd>
+		<dt>Subject:</dt>
+		<dd>
+			<ul class="list-unstyled">
+				<li><strong>Page / Screen title</strong>: Questionnaire - What to do when someone dies</li>
+				<li><strong>Page URL</strong>: <a href="https://www.canada.ca/en/employment-social-development/employment-social-development/navigating-death/questionnaire.html">https://www.canada.ca/en/employment-social-development/employment-social-development/navigating-death/questionnaire.html</a></li>
+				<li><strong>Applicability:</strong>The main content of the page including the interactive form, excluding the site header, site footer and the page details section.</li>
+				<li><strong>CSS selector of the applicability:</strong> <code>main</code></li>
+			</ul>
+		</dd>
+		<dt>Toward a conformity at:</dt>
+		<dd>WCAG 2.1 (Option: Level AA)</dd>
+		<dt>Summary:</dt>
+		<dd>Partial evaluation focused only on the component not its container. Evaluated all Success Criteria at Level AA of WCAG 2.2</dd>
+	</dl>
+
+	<h2 id="acr">Assessment details</h2>
+	<table class="table table-hover table-bordered" id="MainContent_FormView_GridViewPoints">
+		<thead>
+			<tr>
+				<th>Standard Name</th>
+				<th>Point Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Web Content Accessibility Guidelines</td>
+				<td>1.3.1 Info and Relationships (Level A)</td>
+			</tr>
+			<tr>
+				<td>Web Content Accessibility Guidelines</td>
+				<td>3.3.2 Labels or Instructions (Level A)</td>
+			</tr>
+			<tr>
+				<td>Web Content Accessibility Guidelines</td>
+				<td>4.1.2 Name, Role, Value (Level A)</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h3>Error 1 - Form elements must have labels</h3>
+	<dl class="dl-horizontal">
+		<dt>Error Title:</dt>
+		<dd>Form elements must have labels.</dd>
+		<dt>Error Severity:</dt>
+		<dd>Critical</dd>
+		<dt>Date fixed:</dt>
+		<dd>2024-07-15</dd>
+		<dt>Description:</dt>
+		<dd>The progress bar does not have a label.</dd>
+		<dt>Impact on Users:</dt>
+		<dd>Screen reader users do not hear anything that would make them think it is a progress bar, they only hear : "clickable progress bar 1 1 of 4 grouping My relationship to the deceased is:"</dd>
+		<dt>Pattern (required if on multiple pages):</dt>
+		<dd>This occurs on all Questionnaire pages.</dd>
+		<dt>Steps to Reproduce:</dt>
+		<dd>
+			<ol>
+				<li>Load the page <a href="https://www.canada.ca/en/employment-social-development/employment-social-development/navigating-death/questionnaire.html">https://www.canada.ca/en/employment-social-development/employment-social-development/navigating-death/questionnaire.html</a>.</li>
+				<li>Open a screen reader such as NVDA.</li>
+				<li>Read the page.</li>
+				<li>Note that the screen reader reads "clickable progress bar 1 1 of 4 grouping My relationship to the deceased is:".</li>
+				<li>right click on the progress bar and choose inspect.</li>
+				<li>Note that the progress bar does not have a label</li>
+			</ol>
+		</dd>
+		<dt>Sample Code:</dt>
+		<dd><code>&lt;p&gt;&lt;progress max="4" class="progressBar" value="1"&gt;&lt;/progress&gt;&lt;/p&gt; &lt;p role="status" class="progressText"&gt;1 of 4&lt;/p&gt;</code></dd>
+		<dt>Remediation:</dt>
+		<dd>Recommendation would be to add a label to the progress bar component that is descriptive of what it represents. For example: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#accessibility">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#accessibility</a></dd>
+	</dl>
+</section>
+
