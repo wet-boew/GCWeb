@@ -631,7 +631,7 @@
 }
 ,{
 	"@context": {
-		"@version": 2.0,
+		"@version": 2.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -645,10 +645,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2023-01-10",
+	"modified": "2024-07-19",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.0",
+	"version": "2.1",
 	"pages": {
 		"docs": [
 			{
@@ -741,7 +741,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"example": [
 				{
 					"en": { "href": "page-feedback-en.html", "text": "Page feedback tool" },
@@ -755,6 +755,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en": "July 2024 - AJAX fragment: Added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
+					"fr": "Juillet 2024 - Fragment AJAX&nbsp;: Ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
+				},
 				{
 					"en": "August 2023 - Initial implementation of the variation.",
 					"fr": "Août 2023 - Implémentation initiale de la variante."
@@ -775,7 +779,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"example": [
 				{
 					"en": { "href": "page-feedback-contact-en.html", "text": "Page feedback tool with contact link" },
@@ -985,7 +989,7 @@
 		},
 		{
 			"@id": "_:implement_pft",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "Standard (wet-boew)",
 				"fr": "Standard (wet-boew)"
@@ -1055,7 +1059,7 @@
 		},
 		{
 			"@id": "_:implement_pft_gcweb",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -1093,7 +1097,7 @@
 		},
 		{
 			"@id": "_:implement_pft_upgrade_rap",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "Upgrade from RAP",
 				"fr": "Mise à jour à partir de SUP"
@@ -1115,7 +1119,7 @@
 		},
 		{
 			"@id": "_:implement_pft_mws_author",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "MWS users",
 				"fr": "Utilisateur SWG"
@@ -1141,7 +1145,7 @@
 		},
 		{
 			"@id": "_:implement_pft_contact",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "Standard (WET-BOEW)",
 				"fr": "Standard (WET-BOEW)"
@@ -1211,7 +1215,7 @@
 		},
 		{
 			"@id": "_:implement_pft_contact_gcweb",
-			"iteration": "_:iteration_pft_1",
+			"iteration": "_:iteration_pft_2",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -1255,7 +1259,7 @@
 			"@id": "_:cs_pft_container",
 			"name": "Page feedback tool with AJAX",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_1",
+			"baseOnIteration": "_:iteration_pft_2",
 			"detectableBy": ".pagedetails .wb-disable-allow[data-ajax-replace*=feedback]",
 			"layout": [
 				"At the top-left column in the page details component",
@@ -1303,7 +1307,7 @@
 			"@id": "_:cs_pft_ajax",
 			"name": "Page feedback tool AJAX file",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_1",
+			"baseOnIteration": "_:iteration_pft_2",
 			"dependOnChangeSet": "_:cs_pft_container",
 			"detectableBy": "<div class=\"gc-pft\">",
 			"layout": [
@@ -1600,10 +1604,15 @@
 	],
 	"iteration": [
 		{
-			"@id": "_:iteration_pft_1",
-			"name": "Page feedback tool - Iteration 1",
-			"date": "2023-08",
-			"detectableBy": ".gc-pft",
+			"@id": "_:iteration_pft_2",
+			"name": "Page feedback tool - Iteration 1.1",
+			"date": "2024-07",
+			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
+			"fixes": [
+				"AJAX fragment: Added <code>pageData</code> to the French variant",
+				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\"."
+			],
+			"predecessor": "_:iteration_pft_1",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -1645,6 +1654,56 @@
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "assets/page-feedback-fr.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_pft_1",
+			"name": "Page feedback tool - Iteration 1",
+			"date": "2023-08",
+			"detectableBy": "#gc-pft",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"></div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample with contact link",
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"\ndata-feedback-link=\"[Contact link text]\"\ndata-feedback-url=\"[Contact link URL]\"></div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Ajaxed-in content",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "assets/deprecated/page-feedback-v1-en.html"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant le thème de votre page]\" \ndata-feedback-theme=\"[Texte définissant la section où réside votre page]\"\ndata-feedback-link=\"[Texte du lien de contact]\"\ndata-feedback-url=\"[URL du lien de contact]\"></div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code avec lien de contact",
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/page-feedback-fr.html\" \ndata-feedback-section=\"[Texte définissant le thème de votre page]\" \ndata-feedback-theme=\"[Texte définissant la section où réside votre page]\"></div>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Contenu ajouté via Ajax",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "assets/deprecated/page-feedback-v1-fr.html"
 					}
 				}
 			]
