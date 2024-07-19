@@ -8,14 +8,16 @@
 	},
 	"title": {
 		"en": "Header",
-		"fr": "Entête"
+		"fr": "En-tête"
 	},
 	"description": {
 		"en": "Documentation on how to use the header.",
 		"fr": "Documentation sur l'utilisation de l'entête."
 	},
-	"modified": "2024-03-29",
+	"version": "4.0",
+	"modified": "2024-08-01",
 	"componentName": "header",
+	"componentType": "container",
 	"status": "stable",
 	"pages": {
 		"docs": [
@@ -52,5 +54,395 @@
 				"path": "reports/a11y-8-fr.html"
 			}
 		]
-	}
+	},
+	"dependencies": {
+		"en": [
+			{ "title": "Language toggle link", "url": "https://wet-boew.github.io/GCWeb/sites/language/language-en.html", "component": "language" },
+			{ "title": "Breadcrumb trail", "url": "https://wet-boew.github.io/GCWeb/sites/breadcrumbs/breadcrumbs-en.html", "component": "breadcrumbs" },
+			{ "title": "Authentication patterns", "url": "https://wet-boew.github.io/GCWeb/sites/authentication/authentication-en.html", "component": "authentication" }
+		],
+		"fr": [
+			{ "title": "Lien pour changer de langue", "url": "https://wet-boew.github.io/GCWeb/sites/language/language-fr.html", "component": "language" },
+			{ "title": "Fil d'Ariane", "url": "https://wet-boew.github.io/GCWeb/sites/breadcrumbs/breadcrumbs-fr.html", "component": "breadcrumbs" },
+			{ "title": "Modèles d'authentification", "url": "https://wet-boew.github.io/GCWeb/sites/authentication/authentication-fr.html", "component": "authentication" }
+		]
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Header",
+				"fr": "En-tête"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This component may contain the following components: Language toggle link, Breadcrumb trail, and Authentication patterns. It also contains the following untracked elements: Branding and Search",
+				"fr": "Ce composant peut contenir les composants suivants : Lien pour changer de langue, Fil d'Ariane et Modèles d'authentification. Il contient également les éléments non suivis suivants : Image de marque et Recherche"
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/global-header.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/en-tete-general.html"
+			},
+			"iteration": "_:iteration_header_4",
+			"example": [
+				{
+					"en": { "href": "../../templates/content-page/content-en.html", "text": "Content page" },
+					"fr": { "href": "../../templates/content-page/content-fr.html", "text": "Page de contenu" }
+				},
+				{
+					"en": { "href": "../authentication/contextual-signin-en.html", "text": "Content page including Authentication section" },
+					"fr": { "href": "../authentication/contextual-signin-en.html", "text": "Page de contenu incluant la section d'authentification" }
+				}
+			],
+			"implementation": [
+				"_:implement_header",
+				"_:implement_header_3_to_4",
+				"_:implement_header_gcweb"
+			],
+			"history": [
+				{
+					"en": "August 2024 - The GCWeb menu has been removed. The Breadcrumbs container has been moved to the Header component",
+					"fr": "Août 2024 - Le Menu GCWeb a été retiré. Le conteneur anciennement situé dans le composant Fil d'Ariane a été déplacé vers le composant En-tête."
+				},
+				{
+					"en": "October 2022 - Changed Menu column to make consistent whether there is a Sign in button or not (always col-md-8). Changed the value for col-xs-5 and col-xs-offset-7 have been adjusted to a \"6\" so the button text doesn't break and stays on one line for every viewport.",
+					"fr": "Octobre 2022 - Colonne de menu modifiée pour rendre cohérent s'il y a ou non un bouton d'authentification (toujours col-md-8). La valeur de col-xs-5 et col-xs-offset-7 a été modifiée à \"6\" afin que le texte du bouton ne soit pas coupé et reste sur une ligne pour toutes les largeurs d'écran."
+				},
+				{
+					"en": "May 2022 - The container has been moved outside of the GCWeb menu component.",
+					"fr": "Mai 2022 - Le conteneur a été déplacé à l'extérieur du composant Menu GCWeb."
+				},
+				{
+					"en": "June 2020 - Initial implementation of the variation.",
+					"fr": "Juin 2020 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_header",
+			"iteration": "_:iteration_header_4",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous."
+				]
+			},
+			"notes": {
+				"en": [
+					"As of version 4.0, the Header no longer includes the GCWeb menu.",
+					"As of version 4.0, the container located in the Breadcrumbs component has been removed and the Breadrumb component has been moved to the container located right after the <code>&lt;hr></code>."
+				],
+				"fr": [
+					"Depuis la version 4.0, l'En-tête n'inclut plus le menu GCWeb.",
+					"Depuis la version 4.0, le conteneur situé dans le composant Fil d'Ariane a été retiré et le composant Fil d'Ariane a été déplacé à l'intérieur du conteneur situé juste après le <code>&lt;hr></code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Language toggle [version 1.1] -->\n\t\t\t<!-- Branding [version 1.0] -->\n\t\t\t<!-- Search [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<!-- Breadcrumb trail [version 2.0] -->\n\t\t<!-- Authentication pattern (optional) [version 2.0] -->\n\t</div>\n</header>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Changer de langue [version 1.1] -->\n\t\t\t<!-- Image de marque [version 1.0] -->\n\t\t\t<!-- Recherche [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<!-- Fil d'Ariane [version 2.0] -->\n\t\t<!-- Modèles d'authentification (optionnel) [version 2.0] -->\n\t</div>\n</header>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_header_3_to_4",
+			"iteration": "_:iteration_header_4",
+			"name": {
+				"en": "Migrating from v3.0 to v4.0",
+				"fr": "Migration de v3.0 vers v4.0"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers or publishers trying to migrate their page from using the page details version 3.0 to 4.0.",
+				"fr": "Cette implémentation est destinée aux développeurs ou aux éditeurs qui tentent de migrer leur page de la version 3.0 vers la version 4.0."
+			},
+			"instructions": {
+				"en": [
+					"Remove the <code>&lt;div class=\"row\"></code> from inside the <code>&lt;div class=\"container\"></code> located right after the <code>&lt;hr></code>.",
+					"Remove the <code>&lt;nav class=\"gcweb-menu\"></code>.",
+					"Remove the <code>&lt;div class=\"container\"></code> from inside the <code>&lt;nav id=\"wb-bc\"></code>.",
+					"Move the <code>&lt;nav id=\"wb-bc\"></code> inside the <code>&lt;div class=\"container\"></code> located right after the <code>&lt;hr></code>."
+				],
+				"fr": [
+					"Supprimez le <code>&lt;div class=\"row\"></code> situé à l'intérieur du <code>&lt;div class=\"container\"></code> situé juste après le <code>&lt;hr></code>.",
+					"Supprimez le <code>&lt;nav class=\"gcweb-menu\"></code>.",
+					"Supprimez le <code>&lt;div class=\"container\"></code> situé à l'intérieur du <code>&lt;nav id=\"wb-bc\"></code>.",
+					"Déplacez le <code>&lt;nav id=\"wb-bc\"></code> à l'intérieur du <code>&lt;div class=\"container\"></code> situé juste après le <code> &lt;hr></code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Version 3.0:",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Language toggle [version 1.1] -->\n\t\t\t<!-- Branding [version 1.0] -->\n\t\t\t<!-- Search [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8\">\n\t\t\t\t<!-- Site menu [version 2.0] -->\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4\">\n\t\t\t\t<!-- Optional Authentication Section [version 1.0] -->\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- Breadcrumbs [version 1.0] -->\n</header>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Version 4.0:",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Language toggle [version 1.1] -->\n\t\t\t<!-- Branding [version 1.0] -->\n\t\t\t<!-- Search [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<!-- Breadcrumb trail [version 2.0] -->\n\t\t<!-- Authentication pattern (optional) [version 2.0] -->\n\t</div>\n</header>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Version 3.0 :",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Changer de langue [version 1.1] -->\n\t\t\t<!-- Image de marque [version 1.0] -->\n\t\t\t<!-- Recherche [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8\">\n\t\t\t\t<!-- Menu [version 2.0] -->\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4\">\n\t\t\t\t<!-- Modèle d'authentification (optionnel) [version 1.0] -->\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- Fil d'Ariane [version 1.0] -->\n</header>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Version 4.0 :",
+						"code": "<header>\n\t<div id=\"wb-bnr\" class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<!-- Changer de langue [version 1.1] -->\n\t\t\t<!-- Image de marque [version 1.0] -->\n\t\t\t<!-- Recherche [version 1.0] -->\n\t\t</div>\n\t</div>\n\t<hr>\n\t<div class=\"container\">\n\t\t<!-- Fil d'Ariane [version 2.0] -->\n\t\t<!-- Modèle d'authentification (optionnel) [version 2.0] -->\n\t</div>\n</header>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_header_gcweb",
+			"iteration": "_:iteration_header_4",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"To show the language toggle link, in the page's front-matter, set the property <code>altLangPage</code> to the URL of the alternative language's page.",
+					"To hide the search bar, in the page's front-matter, set the property <code>nositesearch</code> to <code>true</code>.",
+					"To hide the breadcrumb trail, in the page's front-matter, set the property <code>breadcrumbs</code> to <code>false</code>. For more information on how to define the breadcrumb links, refer to the <a href=\"../breadcrumbs/breadcrumbs-docs-en.html\">breadcrumbs documentation</a>.",
+					"To show the authentication link, in the page's front-matter, set the property <code>auth</code> to an object containing the URL and label of the link.  For more information on how to define the authentication link, refer to the <a href=\"../authentication/authentication-en.html\">authentication pattern documentation</a>."
+				],
+				"fr": [
+					"Pour afficher le lien pour changer de langue, dans l'en-tête de la page, définissez la propriété <code>altLangPage</code> à l'URL de la page de la langue alternative.",
+					"Pour cacher la barre de recherche, dans l'en-tête de la page, définissez la propriété <code>nositesearch</code> à <code>true</code>.",
+					"Pour cacher le fil d'Ariane, dans l'en-tête de la page, définissez la propriété <code>breadcrumbs</code> à <code>false</code>. Pour plus d'informations sur la façon de définir les liens du fil d'Ariane, consultez la <a href=\"../breadcrumbs/breadcrumbs-docs-en.html\">documentation du fil d'Ariane</a>.",
+					"Pour afficher le lien d'authentification, dans l'en-tête de la page, définissez la propriété <code>auth</code> à un objet contenant l'URL et l'étiquette du lien. Pour plus d'informations sur la façon de définir les liens d'authentification', consultez la <a href=\"../authentication/authentication-en.html\">documentation du modèle d'authentification</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "---\n{\n\t\"altLangPage\": \"page-url.html\",\n\t\"nositesearch\": true,\n\t\"breadcrumbs\": false,\n\t\"auth\": {\n\t\t\"type\": \"contextual\",\n\t\t\"link\": \"page-url.html\",\n\t\t\"label\": \"Sign in\"\n\t}\n}\n---"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "---\n{\n\t\"altLangPage\": \"page-url.html\",\n\t\"nositesearch\": true,\n\t\"breadcrumbs\": false,\n\t\"auth\": {\n\t\t\"type\": \"contextual\",\n\t\t\"link\": \"page-url.html\",\n\t\t\"label\": \"Sign in\"\n\t}\n}\n---"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_header_4",
+			"name": "Header - Iteration 4",
+			"date": "2024-08",
+			"detectableBy": "#wb-bnr:not(:has(+ hr + .container > .row))",
+			"predecessor": "_:iteration_header_3",
+			"breaking": [
+				"Removing GCWeb menu"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Include with logic in liquid",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "includes/header.html"
+					}
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_header_3",
+			"name": "Header - Iteration 3",
+			"date": "2022-10",
+			"detectableBy": "#wb-bnr + hr + .container > .row > .col-md-8",
+			"successor": "_:iteration_header_4",
+			"predecessor": "_:iteration_header_2",
+			"breaking": [
+				"Changed Menu column to make consistent whether there is a Sign in button or not (always col-md-8).",
+				"Changed the value for col-xs-5 and col-xs-offset-7 have been adjusted to a \"6\" so the button text doesn't break and stays on one line for every viewport."
+			],
+			"example": {
+				"en": [
+					{
+						"href": "demoted/header-v3.html",
+						"text": "Header version 3"
+					},
+					{
+						"href": "demoted/header-auth-v3.html",
+						"text": "Header version 3 with authentication link"
+					}
+				],
+				"fr": [
+					{
+						"href": "demoted/header-v3.html",
+						"text": "Header version 3"
+					},
+					{
+						"href": "demoted/header-auth-v3.html",
+						"text": "Header version 3 with authentication link"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:iteration_header_2",
+			"name": "Header - Iteration 2",
+			"date": "2022-05",
+			"detectableBy": "#wb-bnr + hr + .container > .row > .col-md-12",
+			"successor": "_:iteration_header_3",
+			"predecessor": "_:iteration_header_1",
+			"breaking": [
+				"The container has been moved outside of the GCWeb menu component."
+			],
+			"example": {
+				"en": [
+					{
+						"href": "deprecated/header-v2.html",
+						"text": "Header version 2"
+					},
+					{
+						"href": "deprecated/header-auth-v2.html",
+						"text": "Header version 2 with authentication link"
+					}
+				],
+				"fr": [
+					{
+						"href": "deprecated/header-v2.html",
+						"text": "Header version 2"
+					},
+					{
+						"href": "deprecated/header-auth-v2.html",
+						"text": "Header version 2 with authentication link"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:iteration_header_1",
+			"name": "Header - Iteration 1",
+			"date": "2020-06",
+			"detectableBy": "#wb-bnr + .gcweb-menu",
+			"successor": "_:iteration_header_2",
+			"example": {
+				"en": [
+					{
+						"href": "deprecated/header-v1.html",
+						"text": "Header version 1"
+					}
+				],
+				"fr": [
+					{
+						"href": "deprecated/header-v1.html",
+						"text": "Header version 1"
+					}
+				]
+			}
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_header_4",
+			"name": "Header - version 4.0",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_header_4",
+			"detectableBy": "#wb-bnr:not(:has(+ hr + .container > .row))",
+			"layout": [
+				"Language toggle link on the top right",
+				"Branding on the left, Search on the right",
+				"Horizontal divider",
+				"Breadcrumbs on the left, Authentication pattern on the right"
+			],
+			"style": "Horizontal divider is 1px and light-gray",
+			"semantic": "<header>\n\t<!-- Language toggle [version 1.1] -->\n\t<!-- Branding [version 1.0] -->\n\t<!-- Search [version 1.0] -->\n\t<hr>\n\t<!-- Breadcrumb trail [version 2.0] -->\n\t<!-- Authentication pattern (optional) [version 2.0] -->\n</header>",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/header.html"
+				}
+			},
+			"logic": "Not applicable",
+			"guidance": "Not applicable",
+			"context": "Not applicable",
+			"configuration": [
+				"Show or hide the alternative language link and define the alternative language page URL",
+				"Show or hide the search bar",
+				"Show or hide the breadcrumbs and defined the breadcrumbs item(s)",
+				"Show or hide the authentication pattern and define the authentication link(s)"
+			]
+		},
+		{
+			"@id": "_:cs_header_3",
+			"name": "Header - version 3.0",
+			"status": "demoted",
+			"baseOnIteration": "_:iteration_header_3",
+			"detectableBy": "#wb-bnr + hr + .container > .row > .col-md-8",
+			"layout": [
+				"Language toggle link on the top right",
+				"Branding on the left, Search on the right",
+				"Horizontal divider",
+				"Breadcrumbs on the left, Authentication pattern on the right"
+			],
+			"style": "Horizontal divider is 3px and dark-blue",
+			"semantic": "<header>\n\t<!-- Language toggle [version 1.1] -->\n\t<!-- Branding [version 1.0] -->\n\t<!-- Search [version 1.0] -->\n\t<hr>\n\t<!-- Breadcrumb trail [version 1.0] -->\n\t<!-- Authentication pattern (optional) [version 2.0] -->\n</header>",
+			"logic": "Not applicable",
+			"guidance": "Not applicable",
+			"context": "Not applicable",
+			"configuration": [
+				"Show or hide the alternative language link and define the alternative language page URL",
+				"Show or hide the search bar",
+				"Show or hide the breadcrumbs and defined the breadcrumbs item(s)",
+				"Show or hide the authentication pattern and define the authentication link(s)"
+			]
+		},
+		{
+			"@id": "_:cs_header_2",
+			"name": "Header - version 2.0",
+			"status": "deprecated",
+			"baseOnIteration": "_:iteration_header_2",
+			"detectableBy": "#wb-bnr + hr + .container > .row > .col-md-12"
+		},
+		{
+			"@id": "_:cs_header_1",
+			"name": "Header - version 1.0",
+			"status": "deprecated",
+			"baseOnIteration": "_:iteration_header_1",
+			"detectableBy": "#wb-bnr + .gcweb-menu"
+		}
+	]
 }

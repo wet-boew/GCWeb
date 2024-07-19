@@ -14,9 +14,10 @@
 		"en": "Indicates the location of the current page in relation to its parent in the site structure to reinforce a visitor’s current location in the Canada.ca user navigation model.",
 		"fr": "L’objectif du fil d'Ariane est de renforcer l’emplacement actuel des visiteurs dans le modèle de navigation de l’utilisateur du site Canada.ca."
 	},
-	"modified": "2023-09-06",
+	"modified": "2024-08-01",
 	"componentName": "breadcrumbs",
 	"status": "stable",
+	"version": "2.0",
 	"pages": {
 		"docs": [
 			{
@@ -30,5 +31,184 @@
 				"path": "breadcrumbs-fr.html"
 			}
 		]
-	}
+	},
+	"dependencies": "No dependency.",
+	"a11yGuidance": "No accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Breadcrumb trail - default",
+				"fr": "Fil d'Ariane - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "The breadcrumb trail is a horizontal series of links that gives people a sense of where they are in relation to Canada.ca's navigation model. It represents the location of a page in relation to its parent and provides a clear way to navigate to higher levels in the site structure.",
+				"fr": "Le fil d’Ariane est une série horizontale de liens qui permet aux gens de se situer par rapport au modèle de navigation du site Canada.ca. Il représente l’emplacement d’une page par rapport à son parent et donne un moyen clair de naviguer vers les niveaux supérieurs de la structure du site."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/breadcrumb-trail.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/fil-ariane.html"
+			},
+			"iteration": "_:iteration_bc_3",
+			"example": [
+				{
+					"en": { "href": "../../content-page/content-en.html", "text": "Content page (breadcrumb trail at top of page)" },
+					"fr": { "href": "../../content-page/content-fr.html", "text": "Page de contenu (fil d'Ariane au haut de la page)" }
+				}
+			],
+			"implementation": [
+				"_:implement_bc"
+			],
+			"history": [
+				{
+					"en": "August 2024 - Removing container from the breadcrumb trail.",
+					"fr": "Août 2024 - Retrait du conteneur situé à l'intérieur du fil d'Ariane."
+				},
+				{
+					"en": "March 2023 - Updating icon between breadcrumb items.",
+					"fr": "Mars 2023 - Mise à jour de l'icône entre les items du fil d'Ariane."
+				},
+				{
+					"en": "January 2020 - Start of components version tracking.",
+					"fr": "Janvier 2020 - Début du suivi de version des composants."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_bc",
+			"iteration": "_:iteration_bc_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below.",
+					"The first item is always “Canada.ca”, which always links to the Canada.ca home page in the current language",
+					"The current page is never displayed at the end of the breadcrumb trail",
+					"Use a chevron right icon (<span class=\"glyphicon glyphicon-chevron-right\"></span>) to separate levels",
+					"Longer page titles are to be shortened where possible to reduce the space required to display the trail"
+				],
+				"fr": [
+					"Référez-vous à l'exemple de code ci-dessous.",
+					"Le fil d'Ariane commence toujours par « Canada.ca », qui est toujours un lien vers la page d'accueil de Canada.ca dans la langue actuelle.",
+					"La page en cours n’est jamais affichée à la fin de la piste de navigation.",
+					"Utilisez une icône de chevron à droite (<span class=\"glyphicon glyphicon-chevron-right\"></span>) pour séparer les niveaux",
+					"Les longs titres de page doivent être raccourcis dans la mesure du possible, pour permettre de réduire l’espace horizontal nécessaire pour afficher la piste."
+				]
+			},
+			"notes": {
+				"en": [
+					"Each page or section name on the Canada.ca site should be associated with a shortened version of the name, for the purposes of breadcrumb and other navigation systems. For example, when on the “Planning a business” page in the Business and industry theme, the breadcrumb trail will be:<br>Canada.ca&nbsp;>&nbsp;Business&nbsp;>&nbsp;Starting a business",
+					"The page title should not be included within the breadcrumbs list items."
+				],
+				"fr": [
+					"Le nom de chaque page ou section dans le site Canada.ca doit être associé à une version raccourcie du nom, aux fins du fil d'Ariane et d’autres systèmes de navigation. Par exemple, lorsqu'une personne est sur la page « Planification d'entreprise » dans le thème « Entreprises et industrie » le fil d'Ariane sera :<br>Canada.ca&nbsp;&nbsp;>&nbsp;&nbsp;Entreprises&nbsp;&nbsp;>&nbsp;&nbsp;Lancer une entreprise",
+					"Le titre de la page ne dois pas être inclus parmis la liste de fil d'arianne."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<nav id=\"wb-bc\" property=\"breadcrumb\">\n\t<h2>You are here:</h2>\n\t<ol class=\"breadcrumb\" typeof=\"BreadcrumbList\">\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://www.canada.ca/en.html\">\n\t\t\t\t<span property=\"name\">Canada.ca</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"1\">\n\t\t</li>\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"/index-en.html\">\n\t\t\t\t<span property=\"name\">GCWeb</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"2\">\n\t\t</li>\n\t</ol>\n</nav>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<nav id=\"wb-bc\" property=\"breadcrumb\">\n\t<h2>Vous êtes ici :</h2>\n\t<ol class=\"breadcrumb\" typeof=\"BreadcrumbList\">\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://www.canada.ca/fr.html\">\n\t\t\t\t<span property=\"name\">Canada.ca</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"1\">\n\t\t</li>\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"/index-en.html\">\n\t\t\t\t<span property=\"name\">GCWeb</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"2\">\n\t\t</li>\n\t</ol>\n</nav>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_bc_3",
+			"name": "Breadcrumb trail - Iteration 3",
+			"date": "2020-08",
+			"detectableBy": "#wb-bc:not(:has(.container))",
+			"breaking": [
+				"The container has been removed."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<nav id=\"wb-bc\" property=\"breadcrumb\">\n\t<h2>You are here:</h2>\n\t<ol class=\"breadcrumb\" typeof=\"BreadcrumbList\">\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://www.canada.ca/en.html\">\n\t\t\t\t<span property=\"name\">Canada.ca</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"1\">\n\t\t</li>\n\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"/index-en.html\">\n\t\t\t\t<span property=\"name\">GCWeb</span>\n\t\t\t</a>\n\t\t\t<meta property=\"position\" content=\"2\">\n\t\t</li>\n\t</ol>\n</nav>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_bc_2",
+			"name": "Breadcrumb trail - Iteration 2",
+			"date": "2023-03",
+			"detectableBy": "#wb-bc",
+			"fixes": [
+				"Styles: changing levels separator from a greater-than sign (>) to a chevron right icon"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<nav id=\"wb-bc\" property=\"breadcrumb\">\n\t<h2>You are here:</h2>\n\t<div class=\"container\">\n\t\t<ol class=\"breadcrumb\" typeof=\"BreadcrumbList\">\n\t\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://www.canada.ca/en.html\">\n\t\t\t\t\t<span property=\"name\">Canada.ca</span>\n\t\t\t\t</a>\n\t\t\t\t<meta property=\"position\" content=\"1\">\n\t\t\t</li>\n\t\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://wet-boew.github.io/GCWeb/index-en.html\">\n\t\t\t\t\t<span property=\"name\">GCWeb</span>\n\t\t\t\t</a>\n\t\t\t\t<meta property=\"position\" content=\"2\">\n\t\t\t</li>\n\t\t</ol>\n\t</div>\n</nav>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_bc_1",
+			"name": "Breadcrumb trail - Iteration 1",
+			"date": "2020-01",
+			"detectableBy": "#wb-bc",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<nav id=\"wb-bc\" property=\"breadcrumb\">\n\t<h2>You are here:</h2>\n\t<div class=\"container\">\n\t\t<ol class=\"breadcrumb\" typeof=\"BreadcrumbList\">\n\t\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://www.canada.ca/en.html\">\n\t\t\t\t\t<span property=\"name\">Canada.ca</span>\n\t\t\t\t</a>\n\t\t\t\t<meta property=\"position\" content=\"1\">\n\t\t\t</li>\n\t\t\t<li property=\"itemListElement\" typeof=\"ListItem\">\n\t\t\t\t<a property=\"item\" typeof=\"WebPage\" href=\"https://wet-boew.github.io/GCWeb/index-en.html\">\n\t\t\t\t\t<span property=\"name\">GCWeb</span>\n\t\t\t\t</a>\n\t\t\t\t<meta property=\"position\" content=\"2\">\n\t\t\t</li>\n\t\t</ol>\n\t</div>\n</nav>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_bc",
+			"name": "Breadcrumb trail",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_bc_3",
+			"detectableBy": "#wb-bc:not(:has(.container))",
+			"layout": "The breadcrumb items are displayed horizontally.",
+			"semantic": "nav > h2 + (ol > li*n > (a + meta[property=position]))",
+			"static": [
+				"You are here:",
+				"Vous êtes ici :"
+			],
+			"schema": [
+				"Array of breadcrumb item objects containing the following properties:",
+				"STRING: name",
+				"STRING: url"
+			],
+			"style": "The levels separator is a chevron right icon.",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/breadcrumbs.html"
+				}
+			}
+		}
+	]
 }

@@ -1,7 +1,15 @@
 ---
 {
 	"layout": null,
-	"title": "Header version 3.0"
+	"title": "Header version 4.0 including authentication section",
+	"language": "en",
+	"auth": {
+		"type": "contextual",
+		"link": "#",
+		"label": "My Account",
+		"labelExtended": "Sign in to [account name]"
+	},
+	"altLangPage": "#"
 }
 ---
 {%- include variable-core.liquid -%}
@@ -30,7 +38,7 @@
 		<header>
 			<div id="wb-bnr" class="container">
 				<div class="row">
-					{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+					{% if page.altLangPage %}{% include language/languagetoggle.html %}{% endif %}
 					{% include headers-includes/brand.html %}
 					{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
 				</div>
@@ -44,7 +52,7 @@
 								{% include gcweb-menu/sitemenu.html %}
 							</div>
 				{%- endunless -%}
-				{%- assign colSo = "col-xs-5 col-xs-offset-7 col-md-offset-0 col-md-4" -%}
+				{%- assign colSo = "col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4" -%}
 				{%- if page.nomenu -%}
 					{%- assign colSo = "col-xs-12" -%}
 				{%- endif -%}
@@ -55,7 +63,7 @@
 				{%- endif -%}
 				</div>
 			</div>
-	{% include breadcrumbs/breadcrumbs.html %}
+			{% include sites/breadcrumbs/breadcrumbs-v1-en.html %}
 		</header>
 		{%- capture page-title -%}
 			{%- if page.titleH1 -%}

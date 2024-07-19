@@ -2,12 +2,45 @@
  * Site header
  */
 
-#wb-bnr + hr {
-	border-top: 3px solid #38414d;
-	margin-bottom: 0px;
-	margin-top: 5px;
+#wb-bnr {
+	+ hr {
+		border-top: 1px solid #ddd;
+		margin-bottom: 0px;
+		margin-top: 5px;
 
-	+ .container {
-		font-size: 20px;
+		+ .container {
+			display: flex;
+			justify-content: flex-end;
+			position: relative;
+		}
 	}
 }
+
+/* START: To be removed when support for the header v4.0 is removed */
+#wb-bnr:has(+ hr + .container > .row) {
+	+ hr {
+		border-top: 3px solid #38414d;
+
+		+ .container {
+			display: block;
+			font-size: 20px;
+
+			#wb-so .btn {
+				margin-top: 5px;
+			}
+
+			+ #wb-bc {
+				padding-right: 0;
+
+				ol {
+					margin-top: 15px;
+				}
+
+				li {
+					padding: 7px 0;
+				}
+			}
+		}
+	}
+}
+/* END */
