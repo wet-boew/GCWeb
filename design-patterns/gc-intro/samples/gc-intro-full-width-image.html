@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7">
-				<h1 property="name" id="wb-cont">{{ page.title }}</h1>
+				<h1 property="name" id="wb-cont">{% if page.language == "en" %}Introduction block with full-width image{% else %}Bloc d'introduction avec image pleine largeur{% endif %}</h1>
 				<p>{% if page.language == "en" %}The introduction block pattern introduces the content of a landing page.{% else %}La configuration de conception du bloc d'introduction introduit le contenu d'une page de destination.{% endif %}</p>
 				<p><a class="btn btn-call-to-action" href="#">{% if page.language == "en" %}Supertask button{% else %}Bouton de super-tâche{% endif %}</a></p>
 			</div>

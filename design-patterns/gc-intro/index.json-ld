@@ -7,14 +7,14 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Introduction block - Documentation and working example",
-		"fr": "Bloc d’introduction - Documentation et example pratique"
+		"en": "Introduction block",
+		"fr": "Bloc d’introduction"
 	},
 	"description": {
-		"en": "Guidance about using the introduction block pattern on Canada.ca.",
-		"fr": "Orientation sur l’utilisation de la configuration de conception du bloc d’introduction sur Canada.ca."
+		"en": "Guidance about using the introduction block component on Canada.ca.",
+		"fr": "Orientation sur l’utilisation du composant bloc d’introduction sur Canada.ca."
 	},
-	"modified": "2023-08-16",
+	"modified": "2024-06-12",
 	"componentName": "gc-intro",
 	"pages": {
 		"docs": [
@@ -41,14 +41,24 @@
 				"path": "gc-intro-fr.html"
 			},
 			{
-				"title": "Introduction block with image",
+				"title": "Introduction block with full-width image",
 				"language": "en",
-				"path": "gc-intro-image-en.html"
+				"path": "gc-intro-full-width-image-en.html"
 			},
 			{
-				"title": "Bloc d’introduction avec image",
+				"title": "Bloc d’introduction avec image pleine largeur",
 				"language": "fr",
-				"path": "gc-intro-image-fr.html"
+				"path": "gc-intro-full-width-image-fr.html"
+			},
+			{
+				"title": "Introduction block with half-width image",
+				"language": "en",
+				"path": "gc-intro-half-width-image-en.html"
+			},
+			{
+				"title": "Bloc d’introduction avec image demi-largeur",
+				"language": "fr",
+				"path": "gc-intro-half-width-image-fr.html"
 			}
 		]
 	},
@@ -75,7 +85,6 @@
 				"en": "https://design.canada.ca/common-design-patterns/intro-block.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/block-introduction.html"
 			},
-			"iteration": "_:iteration_intro_1",
 			"example": [
 				{
 					"en": { "href": "gc-intro-en.html", "text": "Introduction block" },
@@ -94,12 +103,12 @@
 		},
 		{
 			"name": {
-				"en": "Introduction block with image",
-				"fr": "Bloc d'introduction avec image"
+				"en": "Introduction block with full-width image",
+				"fr": "Bloc d'introduction avec image pleine largeur"
 			},
 			"description": {
-				"en": "The introduction block pattern introduces the content of a landing page. This variation can contain an image and a super task button.",
-				"fr": "La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil. Cette variation peur contenir une image."
+				"en": "The introduction block pattern introduces the content of a landing page. This variation contains an image.",
+				"fr": "La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil. Cette variation contient une image."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/common-design-patterns/intro-block.html",
@@ -107,12 +116,12 @@
 			},
 			"example": [
 				{
-					"en": { "href": "gc-intro-image-en.html", "text": "Introduction block with image" },
-					"fr": { "href": "gc-intro-image-fr.html", "text": "Bloc d'introduction avec image" }
+					"en": { "href": "gc-intro-full-width-image-en.html", "text": "Introduction block with full-width image" },
+					"fr": { "href": "gc-intro-full-width-image-fr.html", "text": "Bloc d'introduction avec image pleine largeur" }
 				}
 			],
 			"implementation": [
-				"_:implement_intro_image"
+				"_:implement_intro_full_width_image"
 			],
 			"history": [
 				{
@@ -120,12 +129,40 @@
 					"fr": "Mars 2024 - Implémentation initiale de la variante."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Introduction block with half-width image",
+				"fr": "Bloc d'introduction avec image demi-largeur"
+			},
+			"description": {
+				"en": "The introduction block pattern introduces the content of a landing page. This variation contains an image.",
+				"fr": "La configuration de conception du bloc d’introduction introduit le contenu d’une page d’accueil. Cette variation contient une image."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/intro-block.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/block-introduction.html"
+			},
+			"example": [
+				{
+					"en": { "href": "gc-intro-half-width-image-en.html", "text": "Introduction block with half-width image" },
+					"fr": { "href": "gc-intro-half-width-image-fr.html", "text": "Bloc d'introduction avec image demi-largeur" }
+				}
+			],
+			"implementation": [
+				"_:implement_intro_half_width_image"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Initial implementation of the variation.",
+					"fr": "Juin 2024 - Implémentation initiale de la variante."
+				}
+			]
 		}
 	],
 	"implementation": [
 		{
 			"@id": "_:implement_intro",
-			"iteration": "_:iteration_intro_1",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -164,8 +201,7 @@
 			}
 		},
 		{
-			"@id": "_:implement_intro_image",
-			"iteration": "_:iteration_intro_image_1",
+			"@id": "_:implement_intro_full_width_image",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -176,12 +212,12 @@
 			},
 			"instructions": {
 				"en": [
-					"The introduction block pattern is a mandatory element for institutional landing pages and topic pages. It’s optional for other landing pages.",
+					"This introduction block variant is a mandatory element for institutional landing pages. It’s optional for other landing pages.",
 					"According to the Canada.ca design system guidance, the introduction block with image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>image (mandatory)</li><li>supertask button (optional)</li></ul>",
 					"Refer to the code sample below."
 				],
 				"fr": [
-					"La configuration de conception du bloc d’introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.",
+					"Cette variante du bloc d'introduction est un élément obligatoire pour les pages d’accueil institutionnelles et les pages de sujet. Elle est facultative pour les autres pages d’accueil.",
 					"Selon les directives du système de conception Canada.ca, le bloc d'introduction avec image contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li>image (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
 					"Référez-vous au code qui suit."
 				]
@@ -198,7 +234,7 @@
 			},
 			"notes": {
 				"en": [
-					"The introduction block pattern with image must be located outside of the default page container (or any element with the class <code>.container</code>)."
+					"The introduction block with image pattern must be located outside of the default page container (or any element with the class <code>.container</code>)."
 				],
 				"fr": [
 					"La configuration de conception du bloc d’introduction avec image doit être située en dehors du conteneur de page par défaut (ou de tout élément avec la classe <code>.container</code>)."
@@ -209,14 +245,69 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Institution name]</h1>\n\t\t\t\t<p>Short description of the institution’s mandate.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Super task button</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">Introduction block with full-width image</h1>\n\t\t\t\t<p>The introduction block pattern introduces the content of a landing page.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Supertask button</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">[Nom de l’institution]</h1>\n\t\t\t\t<p>Description courte du mandat de d’institution.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+						"code": "<div class=\"bg-center bg-cover\" data-bgimg-srcset=\"https://wet-boew.github.io/vocab/wb/utilities#no-image 991w, img/ip-cover-image-1200x726.jpg 992w\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-7\">\n\t\t\t\t<h1 property=\"name\" id=\"wb-cont\">Bloc d'introduction avec image pleine largeur</h1>\n\t\t\t\t<p>La configuration de conception du bloc d'introduction introduit le contenu d'une page de destination.</p>\n\t\t\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_intro_half_width_image",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"This introduction block variant is a mandatory element for topic pages.",
+					"According to the Canada.ca design system guidance, the introduction block with half-width image contains the following elements:<ul><li>title (mandatory)</li><li>short description (mandatory)</li><li>half-width image (mandatory)</li><li>supertask button (optional)</li></ul>",
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Cette variante du bloc d’introduction est un élément obligatoire pour les pages de sujet.",
+					"Selon les directives du système de conception Canada.ca, le bloc d'introduction avec image demi largeur contient les éléments suivants&nbsp;:<ul><li>titre (obligatoire)</li><li>description courte (obligatoire)</li><li>image demi largeur (obligatoire)</li><li> bouton de super-tâche (facultatif)</li></ul>",
+					"Référez-vous au code qui suit."
+				]
+			},
+			"techConsiderations": {
+				"en": [
+					"The size recommended for this variant's image is 520px by 200px. For more information on the half-width image, please consult the official guidelines. If the image is decorative, meaning it doesn't provide any message and doesn't contain any text, ensure the text alternative is empty on the image. Otherwise, provide a text alternative that represents the message illustrated by the image and a text alternative that contains every words, written as is, in the text alternative."
+				],
+				"fr": [
+					"La taille d’image recommandée pour cette variante est de 520 px par 200 px. Pour plus d’informations sur l’image demi-largeur, veuillez consulter les directives officielles. Si l'image est décorative, c'est-à-dire qu'elle ne transmet aucun message et ne contient aucun texte, assurez-vous que le texte alternatif est vide sur l'image. Sinon, fournissez un texte alternatif qui représente le message illustré par l’image et qui contient tous les mots, écrits tels quels dans l'image."
+				]
+			},
+			"notes": {
+				"en": [
+					"The introduction block with half-width image pattern must be located outside of the default page container (or any element with the class <code>.container</code>)."
+				],
+				"fr": [
+					"La configuration de conception du bloc d’introduction avec image demi-largeur doit être située en dehors du conteneur de page par défaut (ou de tout élément avec la classe <code>.container</code>)."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<div class=\"row\">\n\t<div class=\"col-md-6\">\n\t\t<h1 property=\"name\" id=\"wb-cont\">Introduction block with half-width image</h1>\n\t\t<p>The introduction block pattern introduces the content of a landing page.</p>\n\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Supertask button</a></p>\n\t</div>\n\t<div class=\"col-md-6 hidden-sm hidden-xs\">\n\t\t<img src=\"https://via.placeholder.com/520x200/000000/FFFFFF.png\" alt=\"\" class=\"img-responsive pull-right mrgn-tp-lg\">\n\t</div>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<div class=\"row\">\n\t<div class=\"col-md-6\">\n\t\t<h1 property=\"name\" id=\"wb-cont\">Bloc d'introduction avec image demi-largeur</h1>\n\t\t<p>La configuration de conception du bloc d'introduction introduit le contenu d'une page de destination.</p>\n\t\t<p><a class=\"btn btn-call-to-action\" href=\"#\">Bouton de super-tâche</a></p>\n\t</div>\n\t<div class=\"col-md-6 hidden-sm hidden-xs\">\n\t\t<img src=\"https://via.placeholder.com/520x200/000000/FFFFFF.png\" alt=\"\" class=\"img-responsive pull-right mrgn-tp-lg\">\n\t</div>\n</div>"
 					}
 				]
 			}
