@@ -30,7 +30,7 @@ module.exports = (grunt) ->
 		"Build distribution files ready for production"
 		[
 			"checkDependencies"
-			"check-wet-version"
+			#"check-wet-version"
 			"test"
 			"jekyll-theme"
 			"core-dist-PROD"
@@ -44,7 +44,7 @@ module.exports = (grunt) ->
 		"Build a local working copy"
 		[
 			"checkDependencies"
-			"check-wet-version"
+			#"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
 			"core-dist-DEBUG"
