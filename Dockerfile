@@ -1,5 +1,5 @@
 
-ARG RUBY_VERSION=2.7.3
+ARG RUBY_VERSION=3.3.0
 FROM ruby:$RUBY_VERSION
 
 RUN apt-get update \
@@ -15,6 +15,7 @@ RUN apt-get update \
     jekyll-github-metadata \
     minitest \
   && gem install rake html-proofer \
+  && gem install webrick \
   && mkdir -p /usr/src/app \
   && rm -rf /usr/lib/ruby/gems/*/cache/*.gem
 
