@@ -1,0 +1,55 @@
+---
+{
+	"layout": null,
+	"title": "Content page including complete page details version 3.1 (demoted)",
+	"language": "en",
+	"altLangPage": "page-details-v3.1-fr.html",
+	"secondlevel": false,
+	"dateModified": "2024-07-24",
+	"share": "true",
+	"feedback": "true"
+}
+---
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+	{%- if page.title -%}
+		{{ page.title }}
+	{%- else -%}
+		Page untitled
+	{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+<head>
+<meta charset="utf-8">
+{% include license.html %}
+<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+{% include metadata.html %}
+{% include resources-inc/head.html %}
+</head>
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+{% include skiplinks/skiplinks.html %}
+{% include header/header.html %}
+<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+<div class="wb-prettify all-pre hidden"></div>
+<h1 id="wb-cont" property="name">{{ page-title }}</h1>
+<p>This is version 3.1 (demoted) of the page details.</p>
+<pre><code>&lt;section class="pagedetails">
+	&lt;h2 class="wb-inv">Page details&lt;/h2>
+	&lt;div class="row">
+		&lt;div class="col-sm-8 col-md-9 col-lg-9">
+			&lt;div data-ajax-replace="https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html" class="wb-disable-allow">&lt;!-- Will always be replaced by data-ajax -->&lt;/div>
+		&lt;/div>
+		&lt;dl id="wb-dtmd">
+			&lt;dt>Date modified:&lt;/dt>
+			&lt;dd>&lt;time property="dateModified">2024-07-24&lt;/time>&lt;/dd>
+		&lt;/dl>
+	&lt;/div>
+&lt;/section></code></pre>
+{% include page-details/footer-3.1.html %}
+</main>
+{% include footers/footer.html %}
+{% include resources-inc/footer.html %}
+</body>
+</html>
