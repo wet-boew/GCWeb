@@ -13,23 +13,15 @@
 	{% unless page.layout == "application" %}
 	<hr>
 	<div class="container">
-		<div class="row">
-			{%- unless page.nomenu -%}
-				<div class="col-md-8">
-					{% include gcweb-menu/sitemenu.html %}
-				</div>
-			{%- endunless -%}
-			{%- assign colSo = "col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4" -%}
-			{%- if page.nomenu -%}
-				{%- assign colSo = "col-xs-12" -%}
-			{%- endif -%}
-			{%- if page.auth -%}
-				<div class="{{ colSo }}">
-					{% include authentication/authentication.html %}
-				</div>
-			{%- endif -%}
-		</div>
+		{% include breadcrumbs/breadcrumbs.html %}
+		{%- if page.auth -%}
+			{% include authentication/authentication.html %}
+		{%- endif -%}
 	</div>
 	{% endunless %}
-	{% include breadcrumbs/breadcrumbs.html %}
+	{% if page.layout == "application" %}
+	<div class="container">
+		{% include breadcrumbs/breadcrumbs.html %}
+	</div>
+	{% endif %}
 </header>
