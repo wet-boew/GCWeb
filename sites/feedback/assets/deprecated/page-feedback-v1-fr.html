@@ -1,13 +1,13 @@
 <div id="gc-pft" class="row wb-disable-allow" data-wb-jsonmanager='{
 	"name": "gc-pft",
 	"extractor": [
-		{ "selector": "title", "path": "pageData/pageTitle" },
-		{ "selector": "html", "attr": "lang", "path": "pageData/language" },
-		{ "interface": "locationHref", "path": "pageData/submissionPage" },
-		{ "selector": "#wb-lng ul li:first-child a[lang]", "attr": "href", "path": "pageData/oppositelang" },
-		{ "selector": "[data-feedback-theme]", "attr": "data-feedback-theme", "path": "pageData/themeopt" },
-		{ "selector": "[data-feedback-section]", "attr": "data-feedback-section", "path": "pageData/sectionopt" },
-		{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "pageData/institutionopt" },
+		{ "selector": "title", "path": "pageTitle" },
+		{ "selector": "html", "attr": "lang", "path": "language" },
+		{ "interface": "locationHref", "path": "submissionPage" },
+		{ "selector": "#wb-lng ul li:first-child a[lang]", "attr": "href", "path": "oppositelang" },
+		{ "selector": "[data-feedback-theme]", "attr": "data-feedback-theme", "path": "themeopt" },
+		{ "selector": "[data-feedback-section]", "attr": "data-feedback-section", "path": "sectionopt" },
+		{ "selector": "meta[name=\"dcterms.creator\"]", "attr": "content", "path": "institutionopt" },
 		{ "selector": "[data-feedback-link]", "attr": "data-feedback-link", "path": "contact/link" },
 		{ "selector": "[data-feedback-url]", "attr": "data-feedback-url", "path": "contact/url" }
 	]
@@ -17,7 +17,7 @@
 			<h3 class="wb-inv">Donnez votre rétroaction sur cette page</h3>
 			<form action="https://feedback-retroaction.canada.ca/api/QueueProblemForm" method="post" class="wb-postback wb-disable-allow" data-wb-postback='{"success":".gc-pft-thnk"}'>
 				<div class="wb-disable-allow" data-wb-json='{
-					"url": "#[gc-pft]/pageData",
+					"url": "#[gc-pft]",
 					"mapping": [
 						{ "selector": "input", "attr": "name", "value": "/@id" },
 						{ "selector": "input", "attr": "value", "value": "/@value" }
@@ -42,7 +42,7 @@
 				</fieldset>
 				<div class="gc-pft-no nojs-show">
 					<p id="gc-pft-why" class="nojs-show mrgn-tp-lg mrgn-bttm-md">Sinon, dites nous pourquoi ci-dessous&nbsp;:</p>
-					<p class="nojs-hide wb-inv" role="status">Dites nous pourquoi ci-dessous&nbsp;:</p>
+					<p class="nojs-hide wb-inv" aria-live="polite">Dites nous pourquoi ci-dessous&nbsp;:</p>
 					<div class="wb-disable-allow"  data-wb-json='{
 						"url": "#[gc-pft]/contact",
 						"streamline": "true",
