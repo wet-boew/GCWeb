@@ -30,6 +30,28 @@
 				"language": "fr",
 				"path": "main-page-title-fr.html"
 			}
+		],
+		"examples": [
+			{
+				"title": "Content page with default main page title",
+				"language": "en",
+				"path": "../../templates/content-page/content-en.html"
+			},
+			{
+				"title": "Page de contenu avec titre principal par défaut",
+				"language": "fr",
+				"path": "../../templates/content-page/content-fr.html"
+			},
+			{
+				"title": "Stacked main page title",
+				"language": "en",
+				"path": "main-page-title-stacked-en.html"
+			},
+			{
+				"title": "Titre principal superposé",
+				"language": "fr",
+				"path": "main-page-title-stacked-fr.html"
+			}
 		]
 	},
 	"a11yGuidance": "This component respects all WCAG 2.1 guidelines.",
@@ -56,12 +78,45 @@
 				}
 			],
 			"implementation": [
-				"_:implement_mpt"
+				"_:implement_mpt",
+				"_:implement_mpt_gcweb"
 			],
 			"history": [
 				{
 					"en": "2024-01 - Visual update",
 					"fr": "2024-01 - Mise à jour visuelle"
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Stacked main page title",
+				"fr": "Titre principal superposé"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/styles/typography.html",
+				"fr": "https://conception.canada.ca/styles/typographie.html"
+			},
+			"iteration": "_:iteration_smpt_1",
+			"example": [
+				{
+					"en": { "href": "main-page-title-stacked-en.html", "text": "Stacked main page title" },
+					"fr": { "href": "main-page-title-stacked-fr.html", "text": "Titre principal superposé" }
+				}
+			],
+			"implementation": [
+				"_:implement_smpt",
+				"_:implement_smpt_gcweb"
+			],
+			"history": [
+				{
+					"en": "2024-08 - Initial implementation of the variant.",
+					"fr": "2024-01 - Implémentation initiale de la variation."
 				}
 			]
 		}
@@ -75,8 +130,16 @@
 				"fr": "Standard"
 			},
 			"introduction": {
-				"en": "The purpose of the main page title component is to provide a default style for the first H1 in the main element with a short bold red rule for use in Canada.ca websites. It is used to indicate the main heading of a page.",
-				"fr": "Le but du composant du titre principal de la page est de fournir un style par défaut pour le premier H1 de l'élément main avec une ligne rouge épaisse et courte pour utilisation sur les sites web de Canada.ca. Il est utilisé pour indiquer le titre principal d'une page"
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
 			},
 			"notes": {
 				"en": [
@@ -102,29 +165,124 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_mpt_gcweb",
+			"iteration": "_:iteration_mpt_2",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"In the page's front-matter set the variable <code>title</code> to the main title of the page."
+				],
+				"fr": [
+					"Dans l'en-tête de la page définissez la variable <code>title</code> au titre principal de la page."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "---\n{\n\t...\n\t\"title\": \"My page title\"\n\t...\n}\n---"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "---\n{\n\t...\n\t\"title\": \"Titre de la page\"\n\t...\n}\n---"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_smpt",
+			"iteration": "_:iteration_smpt_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "HTML sample",
+						"code":	"<hgroup>\n\t<p>GCWeb technical documentation</p>\n\t<h1 id=\"wb-cont\">Stacked main page title</h1>\n</hgroup>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple HTML",
+						"code":	"<hgroup>\n\t<p>Documentation technique GCWeb</p>\n\t<h1 id=\"wb-cont\">Titre principal superposé</h1>\n</hgroup>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_smpt_gcweb",
+			"iteration": "_:iteration_smpt_1",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"In the page's front-matter do the following:<ul><li>set the variable <code>title</code> to the main title of the page.</li><li>set the variable <code>sectionTitle</code> to the title of the section where this page resides.</li></ul>"
+				],
+				"fr": [
+					"Dans l'en-tête de la page faites ce qui suit&nbsp;:<ul><li>définissez la variable <code>title</code> au titre principal de la page.</li><li>définissez la variable <code>sectionTitle</code> au titre de la section où réside cette page.</li></ul>"
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "---\n{\n\t...\n\t\"title\": \"My page title\", \n\t\"sectionTitle\": \"My section title\"\n\t...\n}\n---"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "---\n{\n\t...\n\t\"title\": \"Titre de la page\", \n\t\"sectionTitle\": \"Titre de la section\"\n\t...\n}\n---"
+					}
+				]
+			}
 		}
 	],
-	"changeset": [
+	"changesets": [
 		{
 			"@id": "_:cs_mpt",
-			"name": {
-				"en": "Default h1",
-				"fr": "H1 par default"
-			},
+			"name": "Default h1",
 			"baseOnIteration": "_:iteration_mpt_2",
 			"detectableBy": "Visual inspection can be used to detect the size of the line. The width of the line should be 71px (3.55em) long and the thickness should be 3.6px (0.18em), with the color #af3c43.",
 			"layout": "The line is positioned below the text.",
-			"semantic": {
-				"@type": "h1",
-				"description": "Level 1 heading",
-				"code": {
-					"@type": [
-						"@id",
-						"rdf:HTML"
-					],
-					"@value": "includes/main-page-title.html"
-				}
-			},
+			"semantic": "h1",
 			"static": "none",
 			"schema": "dct:title",
 			"include": {
@@ -137,14 +295,30 @@
 				}
 			},
 			"style": "The line has a width of 3.55em (71px) and a thickness of 0.18em (3.6px) with the color #af3c43. Optionally, include a byline, tagline, or subtitle.",
-			"logic": "none",
-			"behaviour": "none",
 			"perceptible": "The thin hairline has been replaced with a shorter and thicker line.",
 			"guidance": "https://design.canada.ca/styles/typography.html",
-			"context": "First semantic element inside the main",
-			"configuration": "none",
-			"dependency": "none",
-			"file": "none"
+			"context": "First semantic element inside the main"
+		},
+		{
+			"@id": "_:cs_smpt",
+			"name": "Stacked main page title",
+			"baseOnIteration": "_:iteration_smpt_1",
+			"detectableBy": "hgroup > h1#wb-cont",
+			"layout": "The section page title is above the page title. The line is positioned below the page title.",
+			"semantic": "hgroup > p + h1",
+			"schema": "dct:title, sectionTitle",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/main-page-title.html"
+				}
+			},
+			"style": "The line has a width of 3.55em (71px) and a thickness of 0.18em (3.6px) with the color #af3c43. Optionally, include a byline, tagline, or subtitle. The section page title has a font-size of 26px and has a color of #555.",
+			"guidance": "https://design.canada.ca/styles/typography.html",
+			"context": "First semantic element inside the main"
 		}
 	],
 	"iteration": [
@@ -164,6 +338,12 @@
 				"style": "Width of the line should 70px and the thickness .18em #af3c43. Followed by optional byline, tagline or subtitle"
 			},
 			"predecessor": "_:iteration_mpt_1"
+		},
+		{
+			"@id": "_:iteration_smpt_1",
+			"name": "Stacked main page title - Iteration 1",
+			"date": "2024-08",
+			"detectableBy": "hgroup > h1#wb-cont"
 		}
 	]
 }
