@@ -1265,115 +1265,115 @@ $document.on( fieldflowActionsEvents, selector, function( event, data ) {
 	var eventType = event.type;
 
 	switch ( event.namespace ) {
-	case drawEvent:
-		switch ( eventType ) {
-		case componentName:
-			drwFieldflow( event, data );
+		case drawEvent:
+			switch ( eventType ) {
+				case componentName:
+					drwFieldflow( event, data );
+					break;
+				case "tblfilter":
+					drwTblFilter( event, data );
+					break;
+			}
 			break;
-		case "tblfilter":
-			drwTblFilter( event, data );
-			break;
-		}
-		break;
 
-	case createCtrlEvent:
-		switch ( eventType ) {
-		case "select":
-			ctrlSelect( event, data );
+		case createCtrlEvent:
+			switch ( eventType ) {
+				case "select":
+					ctrlSelect( event, data );
+					break;
+				case "checkbox":
+					data.typeRadCheck = "checkbox";
+					ctrlChkbxRad( event, data );
+					break;
+				case "radio":
+					data.typeRadCheck = "radio";
+					ctrlChkbxRad( event, data );
+					break;
+			}
 			break;
-		case "checkbox":
-			data.typeRadCheck = "checkbox";
-			ctrlChkbxRad( event, data );
-			break;
-		case "radio":
-			data.typeRadCheck = "radio";
-			ctrlChkbxRad( event, data );
-			break;
-		}
-		break;
 
-	case actionEvent:
-		switch ( eventType ) {
-		case "append":
-			actAppend( event, data );
-			break;
-		case "redir":
-			pushData( $( data.provEvt ), submitJQData, data, true );
-			break;
-		case "ajax":
-			actAjax( event, data );
-			break;
-		case "tblfilter":
-			actTblFilter( event, data );
-			break;
-		case "toggle":
-			if ( data.live ) {
-				subToggle( event, data );
-			} else {
-				data.preventSubmit = true;
-				pushData( $( data.provEvt ), submitJQData, data );
+		case actionEvent:
+			switch ( eventType ) {
+				case "append":
+					actAppend( event, data );
+					break;
+				case "redir":
+					pushData( $( data.provEvt ), submitJQData, data, true );
+					break;
+				case "ajax":
+					actAjax( event, data );
+					break;
+				case "tblfilter":
+					actTblFilter( event, data );
+					break;
+				case "toggle":
+					if ( data.live ) {
+						subToggle( event, data );
+					} else {
+						data.preventSubmit = true;
+						pushData( $( data.provEvt ), submitJQData, data );
+					}
+					break;
+				case "addClass":
+					if ( !data.source || !data.class ) {
+						return;
+					}
+					if ( data.live ) {
+						$( data.source ).addClass( data.class );
+					} else {
+						data.preventSubmit = true;
+						pushData( $( data.provEvt ), submitJQData, data );
+					}
+					break;
+				case "removeClass":
+					if ( !data.source || !data.class ) {
+						return;
+					}
+					if ( data.live ) {
+						$( data.source ).removeClass( data.class );
+					} else {
+						data.preventSubmit = true;
+						pushData( $( data.provEvt ), submitJQData, data );
+					}
+					break;
+				case "query":
+					actQuery( event, data );
+					break;
 			}
 			break;
-		case "addClass":
-			if ( !data.source || !data.class ) {
-				return;
-			}
-			if ( data.live ) {
-				$( data.source ).addClass( data.class );
-			} else {
-				data.preventSubmit = true;
-				pushData( $( data.provEvt ), submitJQData, data );
-			}
-			break;
-		case "removeClass":
-			if ( !data.source || !data.class ) {
-				return;
-			}
-			if ( data.live ) {
-				$( data.source ).removeClass( data.class );
-			} else {
-				data.preventSubmit = true;
-				pushData( $( data.provEvt ), submitJQData, data );
-			}
-			break;
-		case "query":
-			actQuery( event, data );
-			break;
-		}
-		break;
 
-	case submitEvent:
-		switch ( eventType ) {
-		case "redir":
-			subRedir( event, data );
+		case submitEvent:
+			switch ( eventType ) {
+				case "redir":
+					subRedir( event, data );
+					break;
+				case "ajax":
+					subAjax( event, data );
+					break;
+				case "toggle":
+					subToggle( event, data );
+					break;
+				case "addClass":
+					$( data.source ).addClass( data.class );
+					break;
+				case "removeClass":
+					$( data.source ).removeClass( data.class );
+					break;
+				case "query":
+					actQuery( event, data );
+					break;
+			}
 			break;
-		case "ajax":
-			subAjax( event, data );
-			break;
-		case "toggle":
-			subToggle( event, data );
-			break;
-		case "addClass":
-			$( data.source ).addClass( data.class );
-			break;
-		case "removeClass":
-			$( data.source ).removeClass( data.class );
-			break;
-		case "query":
-			actQuery( event, data );
-			break;
-		}
-		break;
 	}
 } );
 
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, function( event ) {
 	switch ( event.type ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 	}
 
 	/*
