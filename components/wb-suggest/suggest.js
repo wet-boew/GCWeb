@@ -81,17 +81,17 @@ var $document = wb.doc,
 		if ( filter ) {
 
 			switch ( filterType ) {
-			case "startWith":
-				filter = "^" + filter;
-				break;
-			case "word":
-				filter = "^" + filter + "|\\s" + filter;
-				break;
-			case "any":
-			default:
+				case "startWith":
+					filter = "^" + filter;
+					break;
+				case "word":
+					filter = "^" + filter + "|\\s" + filter;
+					break;
+				case "any":
+				default:
 
-				// Keep the filter as is for the regular expression check
-				break;
+					// Keep the filter as is for the regular expression check
+					break;
 			}
 
 			filterRegExp = new RegExp( filter, "i" );
@@ -210,20 +210,20 @@ var $document = wb.doc,
 		}
 
 		switch ( event.type ) {
-		case "change":
-			wait = setTimeout( addDataListOptions.bind( datalistElm, query ), waitInterval );
-			break;
-		case "keyup":
-			if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
+			case "change":
+				wait = setTimeout( addDataListOptions.bind( datalistElm, query ), waitInterval );
+				break;
+			case "keyup":
+				if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
 
-				// Backspace, Spacebar, a - z keys, 0 - 9 keys punctuation, and symbols
-				if ( which === 8 ||  which === 32 || ( which > 47 && which < 91 ) ||
-					( which > 95 && which < 112 ) || ( which > 159 && which < 177 ) ||
-					( which > 187 && which < 223 ) ) {
+					// Backspace, Spacebar, a - z keys, 0 - 9 keys punctuation, and symbols
+					if ( which === 8 ||  which === 32 || ( which > 47 && which < 91 ) ||
+						( which > 95 && which < 112 ) || ( which > 159 && which < 177 ) ||
+						( which > 187 && which < 223 ) ) {
 
-					wait = setTimeout( addDataListOptions.bind( datalistElm, query ), waitInterval );
+						wait = setTimeout( addDataListOptions.bind( datalistElm, query ), waitInterval );
+					}
 				}
-			}
 		}
 	},
 
@@ -259,13 +259,13 @@ $document.on( "timerpoke.wb " + initEvent + " " + jsonFetched, selector, functio
 	if ( event.currentTarget === eventTarget ) {
 
 		switch ( event.type ) {
-		case "timerpoke":
-		case "wb-init":
-			init( event );
-			break;
-		case "json-fetched":
-			initSuggestion.call( eventTarget, event.fetch.response );
-			break;
+			case "timerpoke":
+			case "wb-init":
+				init( event );
+				break;
+			case "json-fetched":
+				initSuggestion.call( eventTarget, event.fetch.response );
+				break;
 		}
 	}
 	return true;

@@ -249,21 +249,21 @@ function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
 $document.on( wb.resizeEvents, function( event ) {
 
 	switch ( event.type ) {
-	case "xxsmallview":
-	case "xsmallview":
-	case "smallview":
-		isMobileMode = true;
-		setMnu3LevelOrientationExpandState( false, false );
-		break;
-	case "mediumview":
-		isMobileMode = false;
-		setMnu3LevelOrientationExpandState( false, true );
-		break;
-	case "largeview":
-	case "xlargeview":
-	default:
-		isMobileMode = false;
-		setMnu3LevelOrientationExpandState( true, true );
+		case "xxsmallview":
+		case "xsmallview":
+		case "smallview":
+			isMobileMode = true;
+			setMnu3LevelOrientationExpandState( false, false );
+			break;
+		case "mediumview":
+			isMobileMode = false;
+			setMnu3LevelOrientationExpandState( false, true );
+			break;
+		case "largeview":
+		case "xlargeview":
+		default:
+			isMobileMode = false;
+			setMnu3LevelOrientationExpandState( true, true );
 	}
 } );
 
