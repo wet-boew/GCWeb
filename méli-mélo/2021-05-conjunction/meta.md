@@ -46,6 +46,9 @@ changes:
     description: Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased miminum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.
     departmentImpact: No change from a departmental perspective.
     publicImpact: Allows border to be shown in high contrast (could require additional adjustment for FF and MacOS browsers). Fixed issue of using design in font sizes other than 20px (GCWeb standard)
-
+ - date: 2024-08-07
+    description: Change was to remove the side-by-side line separator in Firefox (but keep the shape and text) when in High contrast mode. The previous pattern had the line separator "cut" through the words (and/or) which could make it slightly illegible.
+    departmentImpact: There is minimal impact, as we do not normally use Firefox as a browser, nor does the majority of users use high contrast mode on their devices.
+    publicImpact: Only those who use high contrast mode with the Firefox browser, and will be a slight improvement on readability of the text.
 output: false
 ---
