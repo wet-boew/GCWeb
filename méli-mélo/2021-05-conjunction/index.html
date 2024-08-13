@@ -18,27 +18,23 @@ css:
 </nav>
 
 <h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-05-conjunction" | first %}
+
 <ul>
-	<li>2021-06 - Engage with TBS to show them this design pattern</li>
-  <li>2021-06 - Provide UX research and analysis to describe how pattern helps usability</li>
-	<li>2021-10 - Review and identify requirement to make this functionality enterprise ready</li>
-	<li>2021-11 - Produce accessibility and usability report on its usage on Canada.ca</li>
-	<li>2022-02 - Have this feature as provisional feature in GCWeb and get TBS to publish guidance on how to use it.</li>
-	<li>2022-05 - updated to focus more on using as list items (with or without headers)</li>
-	<li>2022-09 - updated CSS to allow nested decision points</li>
-	<li>2022-11 - updated CSS to allow no border on always stacked items</li>
-	<li>2023-07 - updated CRA to allow no border on all resolutions when stacked</li>
-	<li>2023-08 - allow for zoom text resolution of 200%
-    <li>2023-10 - have this feature as provisional/stable feature in GCWeb and get TBS to publish guidance on how to use it.</li>
-	<li>2024-04 - updated to fix design when text is smaller, make border visible in high contrast mode</li>
+{% for deliverable in implPlan.implementationPlan %}
+	<li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+{% endfor %}
 </ul>
 
 <p>Todo and for future consideration</p>
 <ul>
-	<li>>Finalize documentation and examples to be merged into GCWeb library.</li>
+{% for todo in implPlan.todos %}
+	<li>{{ todo }}</li>
+{% endfor %}
 </ul>
 
-<p>Lead: CRA - Christopher Oakes (@christopher-o)</p>
+<p>Sponsor: {{ implPlan.sponsor }}</p>
   <ul class="list-inline">
     <li><a class="btn btn-primary" href="conjunction-doc-en.html">Documentation</a></li>
     <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Conjunction">Questions or comments?</a></li>
