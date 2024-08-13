@@ -52,7 +52,7 @@ changes:
     description: Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.
     departmentImpact: No change from a departmental perspective.
     publicImpact: Created a cleaner look for items using list steps with a smaller amount of content. Made the numbers more visible for edge case scenarios of print and high contrast.
- - date: 2024-08-07
+  - date: 2024-08-07
     description: Fixed issue with printing pages as some text would be cut off 
     departmentImpact: No change from a departmental perspective.
     publicImpact: Improved look of print document
