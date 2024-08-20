@@ -1285,10 +1285,10 @@
 		"en": "Topic template examples",
 		"fr": "Exemples de page de sujets"
 	},
-	"modified": "2024-06-10",
+	"modified": "2024-08-20",
 	"componentName": "topic",
 	"status": "stable",
-	"version": "2.0",
+	"version": "2.1",
 	"pages": {
 		"examples": [
 			{
@@ -1300,6 +1300,16 @@
 				"title": "[Titre du sujet]",
 				"language": "fr",
 				"path": "topic-fr.html"
+			},
+			{
+				"title": "[Topic title without stacked header]",
+				"language": "en",
+				"path": "topic-nostackedheader-en.html"
+			},
+			{
+				"title": "[Titre du sujet sans en-tête superposée]",
+				"language": "fr",
+				"path": "topic-nostackedheader-fr.html"
 			},
 			{
 				"title": "Theme/Topic page - Demoted",
@@ -1355,6 +1365,39 @@
 	},
 	"a11yGuidance": "No accessibility guidance.",
 	"variations": [
+		{
+			"name": {
+				"en": "Topic page with stacked header",
+				"fr": "Page de sujet avec en-tête superposée"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
+			},
+			"iteration": "_:iteration_topic_4",
+			"example": [
+				{
+					"en": { "href": "topic-en.html", "text": "Topic page with stacked header" },
+					"fr": { "href": "topic-fr.html", "text": "Page de sujet avec en-tête superposée" }
+				}
+			],
+			"implementation": [
+				"_:implement_topic",
+				"_:implement_topic_aem",
+				"_:implement_topic_1_to_2"
+			],
+			"history": [
+				{
+					"en": "August 2024 - Version 1 of the stacked header variant.",
+					"fr": "août 2024 - Version 1 de la variante d'en-tête empilé."
+				}
+			]
+		},
 		{
 			"name": {
 				"en": "Topic page",
@@ -1463,9 +1506,51 @@
 					"Veuillez suivre les instructions d'implémentation sous l'onglet «&nbsp;Standard&nbsp;»\"."
 				]
 			}
+		},
+		{
+			"@id": "_:implement_topic_stackedheader",
+			"iteration": "_:iteration_topic_4",
+			"name": {
+				"en": "Topic page with stacked header",
+				"fr": "Page de sujet avec en-tête superposée"
+			},
+			"introduction": {
+				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+			},
+			"instructions": {
+				"en": [
+					"A full content review needs to be performed. This change cannot be automated.",
+					"Follow the implementation instructions under the \"Standard\" tab."
+				],
+				"fr": [
+					"Un examen complet du contenu doit être effectué. Ce changement ne peut pas être automatisé.",
+					"Veuillez suivre les instructions d'implémentation sous l'onglet «&nbsp;Standard&nbsp;»\"."
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_topic_4",
+			"name": "Topic page - Iteration 4",
+			"date": "2024-08",
+			"detectableBy": "Stacked main page title to display the page's section title as well as the page title.",
+			"example": {
+				"en": [
+					{
+						"href": "topic-en.html",
+						"text": "Topic page with stacked header"
+					}
+				],
+				"fr": [
+					{
+						"href": "topic-fr.html",
+						"text": "Page de sujet avec en-tête superposée"
+					}
+				]
+			}
+		},
 		{
 			"@id": "_:iteration_topic_3",
 			"name": "Topic page - Iteration 3",
