@@ -1339,34 +1339,34 @@ $document.on( "keyup", "[role=combobox] input", function( evt ) {
 		isInError = evt.target.classList.contains( "error" );
 
 	switch ( key ) {
-	case KeyCode.UP:
-	case KeyCode.DOWN:
-	case KeyCode.ESC:
-	case KeyCode.RETURN:
-	case KeyCode.HOME:
-	case KeyCode.END:
-		evt.preventDefault();
-		if ( isInError ) {
-			setTimeout( function() {
-				onChange( evt.target );
-			}, 100 );
-		}
-		return;
-
-	case KeyCode.TAB:
-		if ( isInError ) {
-			setTimeout( function() {
-				onChange( evt.target );
-			}, 100 );
-		}
-		return;
-	default:
-		setTimeout( function() {
-			updateResults( evt.target, false );
+		case KeyCode.UP:
+		case KeyCode.DOWN:
+		case KeyCode.ESC:
+		case KeyCode.RETURN:
+		case KeyCode.HOME:
+		case KeyCode.END:
+			evt.preventDefault();
 			if ( isInError ) {
-				onChange( evt.target );
+				setTimeout( function() {
+					onChange( evt.target );
+				}, 100 );
 			}
-		}, 100 );
+			return;
+
+		case KeyCode.TAB:
+			if ( isInError ) {
+				setTimeout( function() {
+					onChange( evt.target );
+				}, 100 );
+			}
+			return;
+		default:
+			setTimeout( function() {
+				updateResults( evt.target, false );
+				if ( isInError ) {
+					onChange( evt.target );
+				}
+			}, 100 );
 	}
 } );
 
@@ -1415,59 +1415,59 @@ $document.on( "keydown", "[role=combobox] input", function( evt ) {
 
 
 	switch ( key ) {
-	case KeyCode.UP:
+		case KeyCode.UP:
 
-		// Move focus to and select the previous option. If focus is on the first option do nothing
-		if ( activeIndex === -1 ) {
-			activeIndex = resultsCount - 1;
-		} else if ( activeIndex !== 0 ) {
-			activeIndex--;
-		} else {
-			activeIndex = resultsCount - 1;
-		}
+			// Move focus to and select the previous option. If focus is on the first option do nothing
+			if ( activeIndex === -1 ) {
+				activeIndex = resultsCount - 1;
+			} else if ( activeIndex !== 0 ) {
+				activeIndex--;
+			} else {
+				activeIndex = resultsCount - 1;
+			}
 
-		break;
-	case KeyCode.DOWN:
+			break;
+		case KeyCode.DOWN:
 
-		// Move focus to and select next option. If focus is on the first option do nothing
-		if ( activeIndex === -1 ) {
+			// Move focus to and select next option. If focus is on the first option do nothing
+			if ( activeIndex === -1 ) {
+				activeIndex = 0;
+			} else if ( activeIndex < resultsCount ) {
+				activeIndex++;
+			}
+
+			break;
+
+		case KeyCode.HOME:
+
+			// Move focus to and selects the first option
 			activeIndex = 0;
-		} else if ( activeIndex < resultsCount ) {
-			activeIndex++;
-		}
+			break;
 
-		break;
+		case KeyCode.END:
 
-	case KeyCode.HOME:
+			// Move focus to and selects the last option
+			activeIndex = resultsCount - 1;
 
-		// Move focus to and selects the first option
-		activeIndex = 0;
-		break;
+			break;
 
-	case KeyCode.END:
+		case KeyCode.RETURN:
 
-		// Move focus to and selects the last option
-		activeIndex = resultsCount - 1;
-
-		break;
-
-	case KeyCode.RETURN:
-
-		$( options[ activeIndex ] ).trigger( "wb.select" );
-
-		hideListbox();
-		evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submited
-		return;
-	case KeyCode.TAB:
-
-		// Should only select if the last active item selected was made through keyboard
-		if ( isLastActiveKeyboardSelect ) {
 			$( options[ activeIndex ] ).trigger( "wb.select" );
-		}
-		hideListbox();
-		return;
-	default:
-		return;
+
+			hideListbox();
+			evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submited
+			return;
+		case KeyCode.TAB:
+
+			// Should only select if the last active item selected was made through keyboard
+			if ( isLastActiveKeyboardSelect ) {
+				$( options[ activeIndex ] ).trigger( "wb.select" );
+			}
+			hideListbox();
+			return;
+		default:
+			return;
 	}
 
 	evt.preventDefault();

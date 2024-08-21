@@ -383,32 +383,32 @@ var $document = wb.doc,
 
 			switch ( cache_action ) {
 
-			case "patch":
-				var ops = i_cache.patches,
-					basePntr = i_cache.base || "/";
-				if ( !ops ) {
-					ops = [ patchDefault ];
-					i_cache.cumulative = true;
-				}
-				if ( !$.isArray( ops ) ) {
-					ops = [ ops ];
-				}
-				ops = patchFixArray( ops, i_cache.qval, basePntr );
-				i_cache.patches = ops;
-				break;
-			case "ajax":
-				if ( i_cache.trigger && dontTriggerWET ) {
-					i_cache.trigger = false;
-				}
-				i_cache.url = replaceMappingKeys( i_cache.url, i_cache.qval );
-				break;
-			case "tblfilter":
-				i_cache.value = replaceMappingKeys( i_cache.value, i_cache.qval );
-				break;
-			default:
+				case "patch":
+					var ops = i_cache.patches,
+						basePntr = i_cache.base || "/";
+					if ( !ops ) {
+						ops = [ patchDefault ];
+						i_cache.cumulative = true;
+					}
+					if ( !$.isArray( ops ) ) {
+						ops = [ ops ];
+					}
+					ops = patchFixArray( ops, i_cache.qval, basePntr );
+					i_cache.patches = ops;
+					break;
+				case "ajax":
+					if ( i_cache.trigger && dontTriggerWET ) {
+						i_cache.trigger = false;
+					}
+					i_cache.url = replaceMappingKeys( i_cache.url, i_cache.qval );
+					break;
+				case "tblfilter":
+					i_cache.value = replaceMappingKeys( i_cache.value, i_cache.qval );
+					break;
+				default:
 
-				// Just do the action as defined.
-				break;
+					// Just do the action as defined.
+					break;
 
 			}
 
@@ -579,39 +579,39 @@ $document.on( actionMngEvent, selector, function( event, data ) {
 
 	if ( actionEvent === event.namespace ) {
 		switch ( eventType ) {
-		case "run":
-			runAct( event, data );
-			break;
-		case "tblfilter":
-			tblflrAct( event, data );
-			break;
-		case "addClass":
-			addClassAct( event, data );
-			break;
-		case "removeClass":
-			remClassAct( event, data );
-			break;
-		case "ajax":
-			ajaxAct( event, data );
-			break;
-		case "patch":
-			patchAct( event, data );
-			break;
-		case "selectInput":
-			selectInputAct( event, data );
-			break;
-		case "mapfilter":
-			geomapAOIAct( event, data );
-			break;
-		case "tocsv":
-			tblToCSV( data.source, data.filename );
-			break;
-		case "loadJSON":
-			loadJSON( data );
-			break;
-		case "withInput":
-			withInput( event, data );
-			break;
+			case "run":
+				runAct( event, data );
+				break;
+			case "tblfilter":
+				tblflrAct( event, data );
+				break;
+			case "addClass":
+				addClassAct( event, data );
+				break;
+			case "removeClass":
+				remClassAct( event, data );
+				break;
+			case "ajax":
+				ajaxAct( event, data );
+				break;
+			case "patch":
+				patchAct( event, data );
+				break;
+			case "selectInput":
+				selectInputAct( event, data );
+				break;
+			case "mapfilter":
+				geomapAOIAct( event, data );
+				break;
+			case "tocsv":
+				tblToCSV( data.source, data.filename );
+				break;
+			case "loadJSON":
+				loadJSON( data );
+				break;
+			case "withInput":
+				withInput( event, data );
+				break;
 		}
 	}
 } );

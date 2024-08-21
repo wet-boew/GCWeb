@@ -99,24 +99,24 @@ $( document ).on( "draw.dt", "[data-wbtbl-draw]", function( evnt ) {
 	//total = evnt.displayed;
 
 	switch ( action.command ) {
-	case "display":
-		return setValue( $elm, $table.page.info()[ action.options ] );
-	case "count":
-		var rows = isFiltered ? $table.rows( { search: "applied" } ) : $table.rows( { page: "all" } );
-		rows.iterator( "row", function( context, index ) {
-			if ( $( this.row( index ).node() ).text().indexOf( action.options ) > -1 ) {
-				count++;
-			}
-		} );
-		if ( $elm.is( "progress" ) ) {
-			$elm.attr( { max: all, value: count } );
+		case "display":
+			return setValue( $elm, $table.page.info()[ action.options ] );
+		case "count":
+			var rows = isFiltered ? $table.rows( { search: "applied" } ) : $table.rows( { page: "all" } );
+			rows.iterator( "row", function( context, index ) {
+				if ( $( this.row( index ).node() ).text().indexOf( action.options ) > -1 ) {
+					count++;
+				}
+			} );
+			if ( $elm.is( "progress" ) ) {
+				$elm.attr( { max: all, value: count } );
 
-			if ( $node.hasClass( "wbtbl-silent" ) ) {
-				return true;
+				if ( $node.hasClass( "wbtbl-silent" ) ) {
+					return true;
+				}
+				$elm.trigger( "updated.wb5" );
 			}
-			$elm.trigger( "updated.wb5" );
-		}
-		return $elm.text( count );
+			return $elm.text( count );
 	}
 } );
 
