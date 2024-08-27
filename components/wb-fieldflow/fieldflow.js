@@ -1112,7 +1112,7 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 		$elm = $( elm ),
 		wbFieldFlowRegistered = $elm.data( registerJQData ),
 		wbRegisteredHidden = $elm.data( registerHdnFld ) || [],
-		$hdnField,
+		hdnField,
 		i, i_len = wbFieldFlowRegistered ? wbFieldFlowRegistered.length : 0,
 		$wbFieldFlow, fieldOrigin,
 		lstFieldFlowPostEvent = [],
@@ -1207,9 +1207,14 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 						cacheName = items[ 0 ];
 						cacheParam = items[ 1 ];
 					}
-					$hdnField = $( "<input type='hidden' name='" + cacheName + "' value='" + wb.escapeAttribute( cacheParam ) + "' />" );
-					$elm.append( $hdnField );
-					wbRegisteredHidden.push( $hdnField.get( 0 ) );
+
+					hdnField = document.createElement( "input" );
+					hdnField.type = "hidden";
+					hdnField.name = cacheName;
+					hdnField.value = wb.escapeAttribute( cacheParam );
+
+					$elm.append( hdnField );
+					wbRegisteredHidden.push( hdnField );
 				}
 				$elm.data( registerHdnFld, wbRegisteredHidden );
 			}
