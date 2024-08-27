@@ -1285,10 +1285,10 @@
 		"en": "Topic template examples",
 		"fr": "Exemples de page de sujets"
 	},
-	"modified": "2024-06-10",
+	"modified": "2024-08-27",
 	"componentName": "topic",
 	"status": "stable",
-	"version": "2.0",
+	"version": "2.1",
 	"pages": {
 		"examples": [
 			{
@@ -1300,6 +1300,16 @@
 				"title": "[Titre du sujet]",
 				"language": "fr",
 				"path": "topic-fr.html"
+			},
+			{
+				"title": "[Topic title with stacked header]",
+				"language": "en",
+				"path": "topic-stackedheader-en.html"
+			},
+			{
+				"title": "[Titre du sujet avec en-tête superposé]",
+				"language": "fr",
+				"path": "topic-stackedheader-fr.html"
 			},
 			{
 				"title": "Theme/Topic page - Demoted",
@@ -1395,6 +1405,39 @@
 					"fr": "Selon le gabarit en date de Janvier 2018 - Implémentation de la version 1 du gabarit de page."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Topic page with stacked header",
+				"fr": "Page de sujet avec en-tête superposé"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
+			},
+			"iteration": "_:iteration_topic_3",
+			"example": [
+				{
+					"en": { "href": "topic-stackedheader-en.html", "text": "Topic page with stacked header" },
+					"fr": { "href": "topic-stackedheader-fr.html", "text": "Page de sujet avec en-tête superposé" }
+				}
+			],
+			"implementation": [
+				"_:implement_topic_stackedheader",
+				"_:implement_topic_aem",
+				"_:implement_topic_1_to_2"
+			],
+			"history": [
+				{
+					"en": "August 2024 - Version 1 of the stacked header variant.",
+					"fr": "août 2024 - Version 1 de la variante d'en-tête superposé."
+				}
+			]
 		}
 	],
 	"implementation": [
@@ -1406,8 +1449,9 @@
 				"fr": "Standard"
 			},
 			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the template manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+
 			},
 			"instructions": {
 				"en": [
@@ -1430,8 +1474,9 @@
 				"fr": "Utilisateurs AEM"
 			},
 			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+
 			},
 			"instructions": {
 				"en": [
@@ -1462,6 +1507,30 @@
 					"Un examen complet du contenu doit être effectué. Ce changement ne peut pas être automatisé.",
 					"Veuillez suivre les instructions d'implémentation sous l'onglet «&nbsp;Standard&nbsp;»\"."
 				]
+			}
+		},
+		{
+			"@id": "_:implement_topic_stackedheader",
+			"iteration": "_:iteration_topic_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the template manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "topic-stackedheader-en.html main > *:not(.pagedetails)",
+				"fr": "topic-stackedheader-fr.html main > *:not(.pagedetails)"
 			}
 		}
 	],
