@@ -1,6 +1,6 @@
 ---
 altLangPage: "main-page-title-en.html"
-dateModified: "2024-01-29"
+dateModified: "2024-08-27"
 description: "Documentation à propos du H1 par défaut souligné d'une courte ligne rouge en gras."
 language: "fr"
 pageclass: "wb-prettify all-pre"
