@@ -4,26 +4,9 @@
  */
 
 #wb-info {
-	.gc-sub-footer, .brand { // ".brand" to support footer v2.0
+	.gc-sub-footer {
 		nav {
 			ul {
-				/* START: To support footer v3.0 */
-				display: block;
-
-				& + h4 {
-					margin-top: 0;
-
-					&::before {
-						border-width: 0 0 1px 0;
-						display: block !important;
-						height: 0;
-						margin: 1em 0;
-						position: static;
-						width: 1.5em;
-					}
-				}
-				/* END */
-
 				li {
 					display: block;
 
@@ -37,29 +20,5 @@
 				}
 			}
 		}
-
-		/* START: To support footer <= v2.0 */
-		.row {
-			nav {
-				margin: .75em 0 3em;
-
-				ul {
-					column-count: 2;
-					padding-top: 0;
-				}
-
-				li {
-					display: block;
-					margin-bottom: .75em;
-
-					&::before {
-						content: "\2022";
-						display: inline;
-						margin-right: .75em;
-					}
-				}
-			}
-		}
-		/* END */
 	}
 }

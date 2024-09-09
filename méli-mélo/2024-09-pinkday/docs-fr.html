@@ -1,0 +1,31 @@
+---
+title: "Thème journée rose - documentation"
+language: "fr"
+altLangPage: "docs-en.html"
+category: "Gabarits"
+dateModified: "2024-09-11"
+---
+
+<p>Applique la couleur de la Journée rose de façon globale, comme cette propriété est définie sur l’élément <code>&lt;html></code> ou <code>&lt;body></code>.</p>
+
+<h2>Exemples pratiques</h2>
+<ul>
+	<li><a href="pink-day-fr.html">Journée rose</a></li>
+	<li><a href="pink-day-home-fr.html">Journée rose - page d'accueil</a></li>
+</ul>
+
+<h2>Échantillon du code JavaScript pour programmer l’ajout CSS pour la Journée rose</h2>
+<p>Le script suivant ajoute la classe CSS seulement pour le 10 avril 2019 heure locale.</p>
+<pre><code>( function( d ) {
+"use strict";
+
+var t = new Date(),
+	msT = t.getTime(),
+	s = new Date( 2019, 3, 10, 0, 1 ),
+	e = new Date( 2019, 3, 10, 23, 59 );
+
+if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
+	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "provisional");
+}
+
+} )( document );</code></pre>
