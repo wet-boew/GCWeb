@@ -221,8 +221,23 @@ layout: default
 	"mapping": [
 		{ "selector": "[data-name]", "value": "/name/{{lng}}" },
 		{ "selector": "[data-description]", "value": "/description/{{lng}}", "isHTML": true  },
-		{ "selector": "[data-guidance]", "value": "/guidance/{{lng}}", "attr": "href" },
 		{ "selector": "[data-iteration]", "value": "/revisedFor/name/{{lng}}" },
+
+		{
+			"template": "[data-guidance]",
+			"test": "fn:guessType",
+			"expect": "rdfs:Resource",
+			"assess": "/guidance",
+			"mapping": [
+				{
+					"selector": "p",
+					"value": "/guidance",
+					"mapping": [
+						{ "selector": "a", "value": "/{{lng}}", "attr": "href" }
+					]
+				}
+			]
+		},
 
 		{
 			"@type": "rdf:Alt",
@@ -500,11 +515,14 @@ layout: default
 		</h3>
 
 		<p data-description>[[ Short description ]]</p>
-		{%- if lng == "fr" -%}
-		<p>Consultez les <a data-guidance href>guides de conception concernant cette variante</a>.</p>
-		{%- else -%}
-		<p>Consult the <a data-guidance href>design guidance about this variation</a>.</p>
-		{%- endif -%}
+
+		<template data-guidance>
+			{%- if lng == "fr" -%}
+			<p>Consultez les <a href>guides de conception concernant cette variante</a>.</p>
+			{%- else -%}
+			<p>Consult the <a href>design guidance about this variation</a>.</p>
+			{%- endif -%}
+		</template>
 
 		<!--
 		<p>TODO: Screen capture</p>
@@ -548,7 +566,10 @@ layout: default
 							</template>
 
 							<template data-ajax-source-code>
-								<pre><code data-wb-ajax='{ "encode": true }'></code></pre>
+								<details>
+									<summary>{% if lng == "fr" %}Exemple de code{% else %}Code sample{% endif %}</summary>
+									<pre><code data-wb-ajax='{ "encode": true }'></code></pre>
+								</details>
 							</template>
 
 							<template data-notes>

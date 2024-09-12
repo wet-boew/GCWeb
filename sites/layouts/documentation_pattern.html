@@ -208,7 +208,21 @@ layout: default
 	"mapping": [
 		{ "selector": "[data-name]", "value": "/name/{{lng}}" },
 		{ "selector": "[data-description]", "value": "/description/{{lng}}", "isHTML": true  },
-		{ "selector": "[data-guidance]", "value": "/guidance/{{lng}}", "attr": "href" },
+
+		{
+			"template": "[data-guidance]",
+			"test": "fn:guessType",
+			"assess": "/guidance",
+			"mapping": [
+				{
+					"selector": "p",
+					"value": "/guidance",
+					"mapping": [
+						{ "selector": "a", "value": "/{{lng}}", "attr": "href" }
+					]
+				}
+			]
+		},
 
 		{
 			"template": "[data-variation-example]",
@@ -430,11 +444,14 @@ layout: default
 		<h3><span data-name>[[ Name of the variation ]]</span></h3>
 
 		<p data-description>[[ Short description ]]</p>
-		{%- if lng == "fr" -%}
-		<p>Consultez les <a data-guidance href>guides de conception concernant cette variante</a>.</p>
-		{%- else -%}
-		<p>Consult the <a data-guidance href>design guidance about this variation</a>.</p>
-		{%- endif -%}
+
+		<template data-guidance>
+			{%- if lng == "fr" -%}
+			<p>Consultez les <a data-guidance href>guides de conception concernant cette variante</a>.</p>
+			{%- else -%}
+			<p>Consult the <a data-guidance href>design guidance about this variation</a>.</p>
+			{%- endif -%}
+		</template>
 
 		<!--
 		<p>TODO: Screen capture</p>
