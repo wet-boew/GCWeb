@@ -9,6 +9,7 @@
  *
  *      Version  History: 1.0.4
  *                        Footercallback Applied to ALL wb-tables, added code to check the current Table for its Settings
+ *                        Footer Total in French displayed as NaN
  *
  *                        Fix for wb-col-mailto not Working
  *
@@ -50,9 +51,6 @@
  *
  *                          wb-col-url    Process url's in column and turn them into clickable <a href="http...."
  *                             url-col    Legacy Value for wb-col-cur-thousand
- *
- *               NOTE:  If this plugin is initialized using the wb-tables-utility class on a wb-tables OTHER footerCallback
- *                      implementation will be overidden for all wb-tables on the current page.
  *
  ********************************************************************************************
  */
@@ -176,7 +174,13 @@
         {
             var intVal = function (i)
             {
-                return typeof i === 'string' ? i.replace(/[\$, %]/g, '') * 1 :
+
+                if (typeof i === 'string' && wb.lang == 'fr')
+                {
+                    i = i.replace(/[,]/g, '.');
+                }
+
+                return typeof i === 'string' ? i.replace(/[\$,\s%]/g, '') * 1 :
                     typeof i === 'number' ?
                         i : 0;
             };
@@ -196,8 +200,6 @@
                     {
                         return;
                     }
-
-                    //
 
                     var data = $(this).data('wb-tables-utility');
 
@@ -254,7 +256,7 @@
                             formatedGrandTotal = GrandTotal;
                         }
 
-                        $(api.column(index).footer()).html('<strong>' + formatedGrandTotal + '</strong>');
+                        $(api.column(index).footer()).html('<strong>' + formatedGrandTotal.toString().replace(/\s/g, '&nbsp;') + '</strong>');
                     });
                 }
             };
