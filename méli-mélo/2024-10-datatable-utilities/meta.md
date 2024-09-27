@@ -42,7 +42,7 @@ implementationPlan:
     what: Work toward a provisional plugin
 
 todos:
-  - None at this time (2024-10)
+  - Add Other Data Manipulation Classes Maybe (percentage)?
 
 output: false
 ---

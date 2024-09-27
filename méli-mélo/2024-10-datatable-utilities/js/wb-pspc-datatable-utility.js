@@ -260,7 +260,7 @@
             };
         }
 
-        function toFrenchMoney(amount)
+        function toFrenchMoney(amount, noDecimals)
         {
             if (arguments.length == 1) // Means second parameter is not passed
             {
