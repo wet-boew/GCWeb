@@ -256,7 +256,7 @@
                             formatedGrandTotal = GrandTotal;
                         }
 
-                        $(api.column(index).footer()).html('<strong>' + formatedGrandTotal.toString().replace(/\s/g, '&nbsp;') + '</strong>');
+                        $(api.column(index).footer()).html(formatedGrandTotal.toString().replace(/\s/g, '&nbsp;'));
                     });
                 }
             };
