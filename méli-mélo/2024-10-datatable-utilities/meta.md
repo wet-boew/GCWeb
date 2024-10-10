@@ -15,7 +15,7 @@ title:
 description: Examples of how to use these Utilities
 modified: 2024-10-01
 componentName: 2024-10-datatable-utilities
-sponsor: PSCP - Steve Bourgeois (steve.bourgeois@tpsgc-pwgsc.gc.ca)
+sponsor: Steve Bourgeois (steve.bourgeois@tpsgc-pwgsc.gc.ca)
 
 pages:
   examples:
@@ -25,13 +25,13 @@ pages:
 
 implementationPlan:
   - due: 2024-09-24
-    what: Initial Development
+    what: "Initial Development <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-01
-    what: Get Intial Feedback from Wet-Boew Team Before Pull Request
+    what: "Get Intial Feedback from Wet-Boew Team Before Pull Request <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-08
-    what: Fix Issue Identified by Wet-Boew Team
+    what: "Fix Issue Identified by Wet-Boew Team <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-12
-    what: Get French Sample page Translated
+    what: "Get French Sample page Translated <span class=\"label label-warning\">In Progress</span>"
   - due: 2024-10-15
     what: Get Pages throuh our QC cycle and our WACR Team
   - due: 2024-10-22
@@ -41,8 +41,29 @@ implementationPlan:
   - due: 2025-06-30
     what: Work toward a provisional plugin
 
+implementationPlanFR:
+  - due: 2024-09-24
+    what: "Dévélopement initial <span class=\"label label-success\">Completé</span>"
+  - due: 2024-10-01
+    what: "Obtenir des rétroaction de l'équipe Wet-Boew avant la demande de tirage <span class=\"label label-success\">Completé</span>"
+  - due: 2024-10-08
+    what: "Corriger tout problèmes identifiés par l'équipe Wet-Boew <span class=\"label label-success\">Completé</span>"
+  - due: 2024-10-12
+    what: "Faire traduire la page d'exemple en français <span class=\"label label-success\">Completé</span>"
+  - due: 2024-10-15
+    what: "Soumettre les pages à notre processus de CQ et à notre équipe ECAW"
+  - due: 2024-10-22
+    what: "Corriger les problèmes identifiés et les problèmes d'accessibilité"
+  - due: 2024-10-31
+    what: "Soumettre la demandes de tirage"
+  - due: 2025-06-30
+    what: "Travailler vers un plugiciel provisoire"
+
 todos:
   - Add Other Data Manipulation Classes Maybe (percentage)?
+
+todosFR:
+  - •	Envisager d'ajouter d'autres classes de manipulation de données (pourcentage)?
 
 output: false
 ---

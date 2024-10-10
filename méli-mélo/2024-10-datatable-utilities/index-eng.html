@@ -9,7 +9,8 @@ css: [ "css/wb-pspc-datatable-utility.css"]
 ---
 <p>DataTable Utilities, includes Data Manipulation Classes for emails, Urls and Money. Also Includes Datatable Footer Totals.</p>
 <p>Having this plugin intergrated will make the transition to Canada.ca easier as these features are already in use on https://www.tpsgc-pwgsc.gc.ca, currently some of the pages that make use of this plugin and other pages that make use of Other Javascripts are just pointed to from Canada.ca</p>
-<p>The Public at Large, the plugin makes Datables more user friendly with Clickable Links, and they are used to this functionality our PRE Canada.ca Pages.</p>
+<p>The Public at Large, the plugin makes DataTables more user friendly with Clickable Links, and they are used to this functionality our PRE Canada.ca Pages.</p>
+
 <h2>GCWeb implementation plan</h2>
 
 {% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2024-10-datatable-utilities" | first %}
@@ -27,9 +28,10 @@ css: [ "css/wb-pspc-datatable-utility.css"]
     {% endfor %}
 </ul>
 
-<p>Sponsor: {{ implPlan.sponsor }}</p>
+<p>Sponsor: PSPC - {{ implPlan.sponsor }}</p>
 
 <h2>Control Table with Raw Data</h2>
+
 <div class="mrgn-bttm-lg">
     <table class="wb-tables table table-striped table-hover table-condensed small" id="t1" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
                                       { "data": "DepartmentEN" },
@@ -57,10 +59,10 @@ css: [ "css/wb-pspc-datatable-utility.css"]
             </tr>
         </thead>
     </table>
-
 </div>
 
 <h2>Column Data Manipulation Example</h2>
+
 <ul>
     <li><code>.wb-col-mailto</code> Wrap email Addresses with a &lt;a href=&quot;mailto:...&quot;&gt;email@example.net&lt;/a&gt;</li>
     <li><code>.wb-col-money</code> Formnat numbers as Money.</li>
@@ -82,6 +84,7 @@ css: [ "css/wb-pspc-datatable-utility.css"]
                                             { &quot;className&quot;: &quot;text-right <strong>wb-col-money</strong>&quot;, &quot;targets&quot;: [4] }],
                                                          &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
 </pre>
+
 <div class="mrgn-bttm-lg">
     <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t2" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
                                       { "data": "DepartmentEN" },
@@ -110,9 +113,12 @@ css: [ "css/wb-pspc-datatable-utility.css"]
         </thead>
     </table>
 </div>
+
 <h2>Table Footer With Static Totals</h2>
+
 <p><code>.wb-col-sum</code> class on the column to perform column Total</p>
 <p>Add a Placehoder &lt;tfoot&gt; at the bottom of the Table.</p>
+
 <pre class="mrgn-bttm-lg">
         &lt;tfoot&gt;
         &lt;tr class=&quot;active&quot;&gt;
@@ -121,6 +127,7 @@ css: [ "css/wb-pspc-datatable-utility.css"]
         &lt;/tr&gt;
         &lt;/tfoot&gt;
 </pre>
+
 <h3>Code</h3>
 <p>Pass <code>false</code> via filteredsum to the plugin <code>data-wb-tables-utility="{"filteredsum":false}"</code> as the default is true</p>
 
@@ -140,6 +147,7 @@ css: [ "css/wb-pspc-datatable-utility.css"]
                                             { &quot;className&quot;: &quot;text-right <strong>wb-col-sum</strong> wb-col-money&quot;, &quot;targets&quot;: [4] }],
                                                 &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
 </pre>
+
 <div class="mrgn-bttm-lg">
     <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t3" data-wb-tables-utility="{&quot;debug&quot;:true, &quot;filteredsum&quot;:false}" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
                                       { "data": "DepartmentEN" },
@@ -174,6 +182,7 @@ css: [ "css/wb-pspc-datatable-utility.css"]
         </tfoot>
     </table>
 </div>
+
 <h2>Table Footer With Dynamic Totals updated when Filtered</h2>
 
 <p><code>.wb-col-sum</code> class on the column to perform column Total</p>

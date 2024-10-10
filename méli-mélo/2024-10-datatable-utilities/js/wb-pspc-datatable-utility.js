@@ -7,6 +7,12 @@
  *                                    <steve.bourgeois@tpsgc-pwgsc.gc.ca>
  *
  *
+ *      Version  History: 1.1.0
+ *                        Implement Wet-Boew Team recomendations
+ *                          1. Remove <strong> formatting on Totals in favor of css
+ *                          2. Change Init Event to a single function instead
+ *                          3. French Translation of Examples Page
+ *
  *      Version  History: 1.0.4
  *                        Footercallback Applied to ALL wb-tables, added code to check the current Table for its Settings
  *                        Footer Total in French displayed as NaN
@@ -123,8 +129,11 @@
 
                 options = settings;
 
-                // Call my custom event
-                $elm.trigger("wb-tables.utility", settings);
+                if (window["wb-tables"] && window["wb-tables"][componentName])
+                {
+                    // Call Initialization
+                    initDataTableUtilityInstance(settings);
+                }
 
                 // Identify that initialization has completed
                 wb.ready($elm, componentName);
@@ -142,7 +151,7 @@
 
     // Add your plugin event handler
 
-    $document.on("wb-tables.utility", selector, function (event, settings)
+    var initDataTableUtilityInstance = function (settings)
     {
         /**
          * Lowercase and Trim Settings Object Keys so LOADLIST, LoadList or loadlist parameters will work
@@ -167,119 +176,124 @@
             });
         }
 
-        debugMsg('PSPC: wb-pspc-datatable-utility plugin version 1.0.4 Initialized');
+        debugMsg('PSPC: wb-pspc-datatable-utility plugin Version 1.1.0 Initialized');
         debugMsg(data);
 
-        if (data)
-        {
-            var intVal = function (i)
-            {
+    }
 
-                if (typeof i === 'string' && wb.lang == 'fr')
+    function toFrenchMoney(amount, noDecimals)
+    {
+        if (arguments.length == 1) // Means second parameter is not passed
+        {
+            noDecimals = 2;
+        }
+        return intVal(amount).toFixed(noDecimals).replace(/\d(?=(\d{3})+\.)/g, '$& ').replace(/\./, ',') + ' $'
+    }
+
+    function toEnglishMoney(amount, noDecimals)
+    {
+        if (arguments.length == 1) // Means second parameter is not passed
+        {
+            noDecimals = 2;
+        }
+        return '$' + intVal(amount).toFixed(noDecimals).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+    }
+
+    var intVal = function (i)
+    {
+
+        if (typeof i === 'string' && wb.lang == 'fr')
+        {
+            i = i.replace(/[,]/g, '.');
+        }
+
+        return typeof i === 'string' ? i.replace(/[\$,\s%]/g, '') * 1 :
+            typeof i === 'number' ?
+                i : 0;
+    };
+
+    /**
+     * This applies to all wb-tables, so if the plugin is initialized
+     **/
+
+    if (window["wb-tables"])
+    {
+        console.error("Can not initialize wb-table global settings as it is already define.");
+    }
+    else
+    {
+        window["wb-tables"] = {
+            footerCallback: function (tfoot, aData, start, end, display)
+            {
+                /* Only do the footerCallback if the wb-tables has the wb-tables-utility class */
+
+                if (!$(this).hasClass("wb-tables-utility"))
                 {
-                    i = i.replace(/[,]/g, '.');
+                    return;
                 }
 
-                return typeof i === 'string' ? i.replace(/[\$,\s%]/g, '') * 1 :
-                    typeof i === 'number' ?
-                        i : 0;
-            };
+                var data = $(this).data('wb-tables-utility');
 
-            var sLanguage = wb.lang;
+                debugMsg('wb-datatable-utility: footerCallback Executed');
 
-            /**
-             * This applies to all wb-tables, so if the plugin is initialized
-             **/
+                var api = this.api();
 
-            window["wb-tables"] = {
-                footerCallback: function (tfoot, aData, start, end, display)
+                var searchApplied = { search: 'applied' };
+
+                if (typeof (data) !== "undefined")
                 {
-                    /* Only do the footerCallback if the wb-tables has the wb-tables-utility class */
-
-                    if (!$(this).hasClass("wb-tables-utility"))
+                    if (data && !data.filteredsum)
                     {
-                        return;
+                        searchApplied = {};
                     }
+                }
 
-                    var data = $(this).data('wb-tables-utility');
-
-                    debugMsg('wb-datatable-utility: footerCallback Executed');
-
-                    var api = this.api();
-
-                    var searchApplied = { search: 'applied' };
-
-                    if (typeof (data) !== "undefined")
+                api.columns('.wb-col-sum', {}).every(function (index)
+                {
+                    var GrandTotal = api.column(index, searchApplied).data().reduce(function (a, b)
                     {
-                        if (data && !data.filteredsum)
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                    var formatedGrandTotal = 0;
+
+                    if ($(this.header()).hasClass('wb-col-money'))
+                    {
+                        if (wb.lang == 'fr')
                         {
-                            searchApplied = {};
+                            formatedGrandTotal = toFrenchMoney(GrandTotal);
+                        }
+                        else
+                        {
+                            formatedGrandTotal = toEnglishMoney(GrandTotal);
                         }
                     }
-
-                    api.columns('.wb-col-sum', {}).every(function (index)
+                    else if ($(this.header()).hasClass('cur-thousand-col') || $(this.header()).hasClass('wb-col-cur-thousand'))
                     {
                         var GrandTotal = api.column(index, searchApplied).data().reduce(function (a, b)
                         {
                             return intVal(a) + intVal(b);
                         }, 0);
 
-                        var formatedGrandTotal = 0;
+                        formatedNumber = parseFloat(GrandTotal).toFixed(2)
 
-                        if ($(this.header()).hasClass('wb-col-money'))
-                        {
-                            if (sLanguage == 'fr')
-                            {
-                                formatedGrandTotal = toFrenchMoney(GrandTotal);
-                            }
-                            else
-                            {
-                                formatedGrandTotal = toEnglishMoney(GrandTotal);
-                            }
-                        }
-                        else if ($(this.header()).hasClass('cur-thousand-col') || $(this.header()).hasClass('wb-col-cur-thousand'))
-                        {
-                            var GrandTotal = api.column(index, searchApplied).data().reduce(function (a, b)
-                            {
-                                return intVal(a) + intVal(b);
-                            }, 0);
+                        formatedGrandTotal = Number(formatedNumber).toLocaleString(wb.lang, {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                        });
+                    }
+                    else
+                    {
+                        formatedGrandTotal = GrandTotal;
+                    }
 
-                            formatedNumber = parseFloat(GrandTotal).toFixed(2)
-
-                            formatedGrandTotal = Number(formatedNumber).toLocaleString(wb.lang, {
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2,
-                            });
-                        }
-                        else
-                        {
-                            formatedGrandTotal = GrandTotal;
-                        }
-
-                        $(api.column(index).footer()).html(formatedGrandTotal.toString().replace(/\s/g, '&nbsp;'));
-                    });
-                }
-            };
-        }
-
-        function toFrenchMoney(amount, noDecimals)
-        {
-            if (arguments.length == 1) // Means second parameter is not passed
-            {
-                noDecimals = 2;
+                    $(api.column(index).footer()).html('<strong>' + formatedGrandTotal.toString().replace(/\s/g, '&nbsp;') + '</strong>');
+                });
             }
-            return intVal(amount).toFixed(noDecimals).replace(/\d(?=(\d{3})+\.)/g, '$& ').replace(/\./, ',') + ' $'
-        }
-
-        function toEnglishMoney(amount, noDecimals)
-        {
-            if (arguments.length == 1) // Means second parameter is not passed
-            {
-                noDecimals = 2;
-            }
-            return '$' + intVal(amount).toFixed(noDecimals).replace(/\d(?=(\d{3})+\.)/g, '$&,')
-        }
-    });
+        };
+        /** set a flag that we where able to intialize wb-tables with our footerCallback */
+        window["wb-tables"][componentName] = true;
+    }
 
     /********************************************************************************************
      *
@@ -318,8 +332,6 @@
             debugMsg('wb-pspc-plugin: Could Not Get wb-table JSON Data Bailing Out')
             return;
         }
-
-        var formatedNumber = '';
 
         var mailtoColumnTarget = [];
         var curThousandColTarget = [];

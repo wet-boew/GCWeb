@@ -7,27 +7,31 @@ altLangPage: "index-eng.html"
 script: [ "js/wb-pspc-datatable-utility.js" ]
 css: [ "css/wb-pspc-datatable-utility.css" ]
 ---
+<p>Les utilitaires de table de données incluent des classes de manipulation de données pour les courriels, les URL et l’argent. Ils comprennent également des totaux dans le pied de page de la table de données.</p>
+<p>L'intégration de ce plugin facilitera la transition vers Canada.ca, car ces fonctionnalités sont déjà mises en œuvre sur https://www.tpsgc-pwgsc.gc.ca. Actuellement, certaines pages utilisant ce plugiciel, ainsi que d'autres pages qui utilisent différents JavaScripts, sont simplement liées directement de Canada.ca.</p>
+<p>Pour le grand public, le plugiciel rend les tables de données plus conviviales en fournissant des liens cliquables, et les utilisateurs sont déjà habitués à cette fonctionnalité sur nos anciennes pages Canada.ca.</p>
 
-<h2>GCWeb implementation plan</h2>
+<h2>Plan de mise en œuvre de GCWeb</h2>
 
-{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2021-05-steps" | first %}
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2024-10-datatable-utilities" | first %}
 
 <ul>
-    {% for deliverable in implPlan.implementationPlan %}
+    {% for deliverable in implPlan.implementationPlanFR %}
     <li>{{ deliverable.due }} - {{ deliverable.what }}</li>
     {% endfor %}
 </ul>
 
 <p>Todo and for future consideration</p>
 <ul>
-    {% for todo in implPlan.todos %}
+    {% for todo in implPlan.todosFR %}
     <li>{{ todo }}</li>
     {% endfor %}
 </ul>
 
-<p>Sponsor: {{ implPlan.sponsor }}</p>
+<p>Commanditaire : SPAC - {{ implPlan.sponsor }}</p>
 
-<h2>Control Table with Raw Data</h2>
+<h2>Table de contrôle avec données brute</h2>
+
 <div class="mrgn-bttm-lg">
     <table class="wb-tables table table-striped table-hover table-condensed small" id="t1" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
                                       { "data": "DepartmentFR" },
@@ -43,7 +47,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
                                     { "className": "text-right", "targets": [4] }],
                                      "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
         <caption class="text-left">
-            Table&nbsp;1: Raw Data
+            Tableau&nbsp;1&nbsp;: données brute
         </caption>
         <thead>
             <tr class="active">
@@ -55,14 +59,14 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
             </tr>
         </thead>
     </table>
-
 </div>
 
-<h2>Column Data Manipulation Example</h2>
+<h2>Exemple de manipulation des données de colonne</h2>
+
 <ul>
-    <li><code>.wb-col-mailto</code> Wrap email Addresses with a &lt;a href=&quot;mailto:...&quot;&gt;email@example.net&lt;/a&gt;</li>
-    <li><code>.wb-col-money</code> Formnat numbers as Money.</li>
-    <li><code>.wb-col-url</code> Stitch 2 columns (column-name, column-name-url) into a single URL / Caption or URL and URL as the caption if (column-name-url) does not exists within the JSON File.</li>
+    <li><code>.wb-col-mailto</code> Entourer les adresses courriels avec un &lt;a href=&quot;mailto:...&quot;&gt;email@example.net&lt;/a&gt;</li>
+    <li><code>.wb-col-money</code> FFormater les nombres en tant que montant d'argent.</li>
+    <li><code>.wb-col-url</code> Fusionner 2 colonnes (nom-colonne, nom-colonne-url) en une seule URL / Sous-titre ou URL et URL comme sous-titre si (nom-colonne-url) n'existe pas dans le fichier JSON.</li>
 </ul>
 
 <pre class="mrgn-bttm-lg">
@@ -96,7 +100,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
                                     { "className": "text-right wb-col-money", "targets": [4] }],
                                      "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
         <caption class="text-left">
-            Table&nbsp;2: Example of JSON Data Manipulation
+        Tableau&nbsp;2&nbsp;: Exemple de manipulation des données JSON
         </caption>
         <thead>
             <tr class="active">
@@ -110,10 +114,10 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
     </table>
 </div>
 
-<h2>Table Footer With Static Totals</h2>
+<h2>Pied de page de table avec totaux statiques</h2>
 
-<p><code>.wb-col-sum</code> class on the column to perform column Total</p>
-<p>Add a Placehoder &lt;tfoot&gt; at the bottom of the Table.</p>
+<p><code>.wb-col-sum</code> classe sur la colonne pour effectuer le total de la colonne.</p>
+<p>Ajouter un espace réservé &lt;tfoot&gt; en bas de la table.</p>
 
 <pre class="mrgn-bttm-lg">
     &lt;tfoot&gt;
@@ -125,11 +129,12 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
 </pre>
 
 <h3>Code</h3>
-<p>Pass <code>false</code> via filteredsum to the plugin <code>data-wb-tables-utility="{"filteredsum":false}"</code> as the default is true</p>
+
+<p>Définissez le paramètre filteredsum a «&nbsp;<code>false</code>&nbsp;» dans le plugiciel <code>data-wb-tables-utility="{\"filteredsum\":false}"</code>, car la valeur par défaut est «&nbsp;<code>true</code>&nbsp;».</p>
 
 <pre class="mrgn-bttm-lg">
     &lt;table class=&quot;wb-tables table table-striped table-hover table-condensed small <strong>wb-tables-utility</strong>&quot; id=&quot;t3&quot;
-    <strong>data-wb-tables-utility="{&quot;filteredsum&quot;:false}"</strong>
+            <strong>data-wb-tables-utility="{&quot;filteredsum&quot;:false}"</strong>
             data-wb-tables=&apos;{ &quot;ajax&quot;:&quot;data/datatable-utility.json&quot;,
                             &quot;columns&quot;: [{ &quot;data&quot;: &quot;DepartmentFR&quot; },
                                         { &quot;data&quot;: &quot;ContactEmail&quot; },
@@ -143,6 +148,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
                                             { &quot;className&quot;: &quot;text-right <strong>wb-col-sum</strong> wb-col-money&quot;, &quot;targets&quot;: [4] }],
                                                 &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
 </pre>
+
 <div class="mrgn-bttm-lg">
     <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t3" data-wb-tables-utility="{&quot;debug&quot;:true, &quot;filteredsum&quot;:false}" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
                                       { "data": "DepartmentFR" },
@@ -158,7 +164,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
                                     { "className": "text-right wb-col-money wb-col-sum", "targets": [4] }],
                                      "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
         <caption class="text-left">
-            Table&nbsp;3: Static Totals in Table Footer Example
+            Tableau&nbsp;3&nbsp;: Exemple de totaux statiques dans le pied de page de table
         </caption>
         <thead>
             <tr class="active">
@@ -178,10 +184,10 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
     </table>
 </div>
 
-<h2>Table Footer With Dynamic Totals updated when Filtered</h2>
+<h2>Pied de page de table avec totaux dynamiques mis à jour lors du filtrage</h2>
 
-<p><code>.wb-col-sum</code> class on the column to perform column Total</p>
-<p>Add a Placehoder &lt;tfoot&gt; at the bottom of the Table.</p>
+<p><code>.wb-col-sum</code> classe sur la colonne pour effectuer le total de la colonne.</p>
+<p>Ajouter un espace réservé &lt;tfoot&gt; en bas de la table.</p>
 
 <pre class="mrgn-bttm-lg">
     &lt;tfoot&gt;
@@ -191,6 +197,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
         &lt;/tr&gt;
     &lt;/tfoot&gt;
 </pre>
+
 <h3>Code</h3>
 
 <pre class="mrgn-bttm-lg">
@@ -224,7 +231,7 @@ css: [ "css/wb-pspc-datatable-utility.css" ]
                                     { "className": "text-right wb-col-money wb-col-sum", "targets": [4] }],
                                      "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
         <caption class="text-left">
-            Table&nbsp;4: Dynamic Totals in Table Footer Example
+            Table&nbsp;4&nbsp;: Exemple de totaux dynamiques dans le pied de page
         </caption>
         <thead>
             <tr class="active">
