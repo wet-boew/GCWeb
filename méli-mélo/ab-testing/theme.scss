@@ -1,0 +1,184 @@
+#wb-bnr.new-theme + hr {
+	border-top: 1px solid #ddd;
+}
+
+#wb-bc.new-theme {
+	li:first-child a {
+		border-left: solid #26374a 5px;
+		padding-left: 8px;
+	}
+
+	.breadcrumb {
+		margin-bottom: 15px;
+	}
+}
+
+#gridContainer {
+	> nav {
+		#menuBtn {
+			border-radius: 0;
+			display: block;
+			margin-bottom: 1em;
+			margin-left: -15px;
+			text-align: left;
+			width: calc(100% + 30px);
+
+			.glyphicon-chevron-down {
+				margin-left: 10px;
+			}
+
+			&.expanded .glyphicon-chevron-down {
+				transform: rotate(180deg) translateY(2px);
+			}
+
+			// Les items du menu sont affichés par défaut en mode basic HTML, donc il n'est pas nécessaire d'afficher le bouton menu car il ne sera pas fonctionnel
+			.wb-disable & {
+				display: none;
+			}
+		}
+
+		li {
+			a {
+				color: #295376;
+				display: block;
+				font-size: 16px;
+				line-height: 1.65em;
+				padding: 10px 14px;
+				text-decoration: none;
+
+				&:hover {
+					background-color: #f5f5f5;
+					color: #284162;
+					text-decoration: underline;
+				}
+			}
+
+			&.active {
+				a, a:hover {
+					background-color: #26374a;
+					color: #fff;
+				}
+
+				a:focus {
+					outline: 5px auto #fff;
+					outline-offset: -5px;
+				}
+			}
+		}
+
+		& + section {
+			h1#wb-cont {
+				border: none;
+				font-size: 1.2em;
+				line-height: 1.1;
+				margin: 10px 0 11.5px;
+			}
+
+			.gc-most-requested {
+				h2 {
+					float: none;
+					font-size: 1em;
+					width: auto;
+				}
+			}
+		}
+	}
+}
+
+// screen-sm-max
+@media screen and (max-width: 991px) {
+	#gridContainer {
+		> nav {
+			#menuBtn.expanded + ul {
+				display: block;
+			}
+
+			ul {
+				display: none;
+
+				.wb-disable & {
+					display: block;
+				}
+
+				li {
+					border-bottom: #f5f5f5 solid 1px;
+					position: relative;
+
+					a {
+						&::after {
+							content: "\203A";
+							font-size: 1.5em;
+							margin-left: 10px;
+							position: absolute;
+							right: 14px;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+
+					&.active a::after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+// screen-md-min
+@media screen and (min-width: 992px) {
+	#gridContainer {
+		display: flex;
+		margin: 0 auto;
+		padding: 0 15px;
+		width: 970px;
+
+		> nav {
+			border-right: 5px solid #26374a;
+			flex: 0 0 300px;
+
+			.container {
+				padding: 0;
+				width: auto;
+			}
+
+			#menuBtn {
+				display: none;
+			}
+
+			& + section {
+				flex: 1 0 0%;
+
+				.container {
+					padding-left: 35px;
+					width: auto;
+				}
+
+				.gc-most-requested {
+					position: relative;
+
+					&::after {
+						background-color: #f5f5f5;
+						bottom: 0;
+						content: "";
+						left: calc(100% - 1px);
+						position: absolute;
+						top: 0;
+						width: calc( (100vw - 970px + 15px)/2 );
+					}
+				}
+			}
+		}
+	}
+}
+
+// screen-lg-min
+@media screen and (min-width: 1200px) {
+	#gridContainer {
+		width: 1170px;
+
+		> nav + section .gc-most-requested::after {
+			width: calc( (100vw - 1170px + 15px)/2 );
+		}
+	}
+}
