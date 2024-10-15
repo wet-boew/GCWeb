@@ -17,7 +17,7 @@
 	"modified": "2024-08-27",
 	"componentName": "main-page-title",
 	"status": "stable",
-	"version": "1.1.1",
+	"version": "1.2",
 	"pages": {
 		"docs": [
 			{
@@ -51,6 +51,46 @@
 				"title": "Titre principal superposé",
 				"language": "fr",
 				"path": "main-page-title-stacked-fr.html"
+			},
+			{
+				"title": "Main page title aligned on the right",
+				"language": "en",
+				"path": "main-page-title-align-right-en.html"
+			},
+			{
+				"title": "Titre principal de la page aligné à droite",
+				"language": "fr",
+				"path": "main-page-title-align-right-fr.html"
+			},
+			{
+				"title": "Main page title in a div aligned on the right",
+				"language": "en",
+				"path": "main-page-title-div-align-right-en.html"
+			},
+			{
+				"title": "Titre principal dans une div alignée à droite",
+				"language": "fr",
+				"path": "main-page-title-div-align-right-fr.html"
+			},
+			{
+				"title": "Stacked main page title in a div aligned on the right",
+				"language": "en",
+				"path": "main-page-title-div-stacked-align-right-en.html"
+			},
+			{
+				"title": "Titre principal superposé dans une div alignée à droite",
+				"language": "fr",
+				"path": "main-page-title-div-stacked-align-right-fr.html"
+			},
+			{
+				"title": "Stacked main page title aligned on the right",
+				"language": "en",
+				"path": "main-page-title-stacked-align-right-en.html"
+			},
+			{
+				"title": "Titre principal superposé aligné à droite",
+				"language": "fr",
+				"path": "main-page-title-stacked-align-right-fr.html"
 			}
 		]
 	},
@@ -70,11 +110,19 @@
 				"en": "https://design.canada.ca/styles/typography.html",
 				"fr": "https://conception.canada.ca/styles/typographie.html"
 			},
-			"iteration": "_:iteration_mpt_3",
+			"iteration": "_:iteration_mpt_4",
 			"example": [
 				{
 					"en": { "href": "../../templates/content-page/content-en.html", "text": "Content page (main page title)" },
 					"fr": { "href": "../../templates/content-page/content-fr.html", "text": "Page de contenu (titre principal)" }
+				},
+				{
+					"en": { "href": "main-page-title-align-right-en", "text": "Main page title aligned on the right" },
+					"fr": { "href": "main-page-title-align-right-fr.html", "text": "Titre principal de la page aligné à droite" }
+				},
+				{
+					"en": { "href": "main-page-title-div-align-right-en", "text": "Main page title in a div aligned on the right" },
+					"fr": { "href": "main-page-title-div-align-right-fr.html", "text": "Titre principal dans une div alignée à droite" }
 				}
 			],
 			"implementation": [
@@ -82,6 +130,10 @@
 				"_:implement_mpt_gcweb"
 			],
 			"history": [
+				{
+					"en": "2024-10 - Right to left support - initial implementation of the variant.",
+					"fr": "2024-10 - Support de droite à gauche - Implémentation initiale de la variation."
+				},
 				{
 					"en": "2024-08 - Fixed three-sided border bug in Safari &lt;= 15.3",
 					"fr": "2024-08 - Correction d’un bogue de bordure à trois côtés dans Safari &lt;= 15.3"
@@ -106,11 +158,19 @@
 				"en": "https://design.canada.ca/styles/typography.html",
 				"fr": "https://conception.canada.ca/styles/typographie.html"
 			},
-			"iteration": "_:iteration_smpt_1",
+			"iteration": "_:iteration_smpt_2",
 			"example": [
 				{
 					"en": { "href": "main-page-title-stacked-en.html", "text": "Stacked main page title" },
 					"fr": { "href": "main-page-title-stacked-fr.html", "text": "Titre principal superposé" }
+				},
+				{
+					"en": { "href": "main-page-title-stacked-align-right-en", "text": "Stacked main page title aligned on the right" },
+					"fr": { "href": "main-page-title-stacked-align-right-fr.html", "text": "Titre principal superposé aligné à droite" }
+				},
+				{
+					"en": { "href": "main-page-title-div-stacked-align-right-en", "text": "Stacked main page title in a div aligned on the right" },
+					"fr": { "href": "main-page-title-div-stacked-align-right-fr.html", "text": "Titre principal superposé aligné à droite" }
 				}
 			],
 			"implementation": [
@@ -118,6 +178,10 @@
 				"_:implement_smpt_gcweb"
 			],
 			"history": [
+				{
+					"en": "2024-10 - Right to left support - initial implementation of the variant.",
+					"fr": "2024-10 - Support de droite à gauche - Implémentation initiale de la variation."
+				},
 				{
 					"en": "2024-08 - Initial implementation of the variant.",
 					"fr": "2024-01 - Implémentation initiale de la variation."
@@ -128,7 +192,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_mpt",
-			"iteration": "_:iteration_mpt_3",
+			"iteration": "_:iteration_mpt_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -172,7 +236,7 @@
 		},
 		{
 			"@id": "_:implement_mpt_gcweb",
-			"iteration": "_:iteration_mpt_2",
+			"iteration": "_:iteration_mpt_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -208,7 +272,7 @@
 		},
 		{
 			"@id": "_:implement_smpt",
-			"iteration": "_:iteration_smpt_1",
+			"iteration": "_:iteration_smpt_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -244,7 +308,7 @@
 		},
 		{
 			"@id": "_:implement_smpt_gcweb",
-			"iteration": "_:iteration_smpt_1",
+			"iteration": "_:iteration_smpt_2",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -283,7 +347,7 @@
 		{
 			"@id": "_:cs_mpt",
 			"name": "Default h1",
-			"baseOnIteration": "_:iteration_mpt_3",
+			"baseOnIteration": "_:iteration_mpt_4",
 			"detectableBy": "Visual inspection can be used to detect the size of the line. The width of the line should be 71px (3.55em) long and the thickness should be 3.6px (0.18em), with the color #af3c43.",
 			"layout": "The line is positioned below the text.",
 			"semantic": "h1",
@@ -306,7 +370,7 @@
 		{
 			"@id": "_:cs_smpt",
 			"name": "Stacked main page title",
-			"baseOnIteration": "_:iteration_smpt_1",
+			"baseOnIteration": "_:iteration_smpt_2",
 			"detectableBy": "hgroup > h1#wb-cont",
 			"layout": "The section page title is above the page title. The line is positioned below the page title.",
 			"semantic": "hgroup > p + h1",
@@ -352,13 +416,36 @@
 			"fixes": [
 				"Style: Added left/right/top <code>border-*-width: 0;</code> properties to avoid three-sided borders in Safari &lt;= 15.3."
 			],
-			"predecessor": "_:iteration_mpt_2"
+			"predecessor": "_:iteration_mpt_2",
+			"successor": "_:iteration_mpt_4"
+		},
+		{
+			"@id": "_:iteration_mpt_4",
+			"name": "Main page title aligned on the right",
+			"date": "2024-09",
+			"detectableBy": "h1#wb-cont[dir='rtl'], [dir='rtl'] h1#wb-cont",
+			"additions": [
+				"Added right to left support"
+			],
+			"predecessor": "_:iteration_mpt_3"
+
 		},
 		{
 			"@id": "_:iteration_smpt_1",
 			"name": "Stacked main page title - Iteration 1",
 			"date": "2024-08",
-			"detectableBy": "hgroup > h1#wb-cont"
+			"detectableBy": "hgroup > h1#wb-cont",
+			"successor": "_:iteration_smpt_2"
+		},
+		{
+			"@id": "_:iteration_smpt_2",
+			"name": "Stacked main page title - Iteration 2 (LTR support)",
+			"date": "2024-10",
+			"detectableBy": "hgroup > h1#wb-cont[dir='ltr'], [dir='ltr'] hgroup > h1#wb-cont",
+			"additions": [
+				"Added right to left support"
+			],
+			"predecessor": "_:iteration_smpt_1"
 		}
 	]
 }

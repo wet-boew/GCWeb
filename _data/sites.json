@@ -2182,7 +2182,7 @@
 	"modified": "2024-08-27",
 	"componentName": "main-page-title",
 	"status": "stable",
-	"version": "1.1.1",
+	"version": "1.2",
 	"pages": {
 		"docs": [
 			{
@@ -2216,6 +2216,46 @@
 				"title": "Titre principal superposé",
 				"language": "fr",
 				"path": "main-page-title-stacked-fr.html"
+			},
+			{
+				"title": "Main page title aligned on the right",
+				"language": "en",
+				"path": "main-page-title-align-right-en.html"
+			},
+			{
+				"title": "Titre principal de la page aligné à droite",
+				"language": "fr",
+				"path": "main-page-title-align-right-fr.html"
+			},
+			{
+				"title": "Main page title in a div aligned on the right",
+				"language": "en",
+				"path": "main-page-title-div-align-right-en.html"
+			},
+			{
+				"title": "Titre principal dans une div alignée à droite",
+				"language": "fr",
+				"path": "main-page-title-div-align-right-fr.html"
+			},
+			{
+				"title": "Stacked main page title in a div aligned on the right",
+				"language": "en",
+				"path": "main-page-title-div-stacked-align-right-en.html"
+			},
+			{
+				"title": "Titre principal superposé dans une div alignée à droite",
+				"language": "fr",
+				"path": "main-page-title-div-stacked-align-right-fr.html"
+			},
+			{
+				"title": "Stacked main page title aligned on the right",
+				"language": "en",
+				"path": "main-page-title-stacked-align-right-en.html"
+			},
+			{
+				"title": "Titre principal superposé aligné à droite",
+				"language": "fr",
+				"path": "main-page-title-stacked-align-right-fr.html"
 			}
 		]
 	},
@@ -2235,11 +2275,19 @@
 				"en": "https://design.canada.ca/styles/typography.html",
 				"fr": "https://conception.canada.ca/styles/typographie.html"
 			},
-			"iteration": "_:iteration_mpt_3",
+			"iteration": "_:iteration_mpt_4",
 			"example": [
 				{
 					"en": { "href": "../../templates/content-page/content-en.html", "text": "Content page (main page title)" },
 					"fr": { "href": "../../templates/content-page/content-fr.html", "text": "Page de contenu (titre principal)" }
+				},
+				{
+					"en": { "href": "main-page-title-align-right-en", "text": "Main page title aligned on the right" },
+					"fr": { "href": "main-page-title-align-right-fr.html", "text": "Titre principal de la page aligné à droite" }
+				},
+				{
+					"en": { "href": "main-page-title-div-align-right-en", "text": "Main page title in a div aligned on the right" },
+					"fr": { "href": "main-page-title-div-align-right-fr.html", "text": "Titre principal dans une div alignée à droite" }
 				}
 			],
 			"implementation": [
@@ -2247,6 +2295,10 @@
 				"_:implement_mpt_gcweb"
 			],
 			"history": [
+				{
+					"en": "2024-10 - Right to left support - initial implementation of the variant.",
+					"fr": "2024-10 - Support de droite à gauche - Implémentation initiale de la variation."
+				},
 				{
 					"en": "2024-08 - Fixed three-sided border bug in Safari &lt;= 15.3",
 					"fr": "2024-08 - Correction d’un bogue de bordure à trois côtés dans Safari &lt;= 15.3"
@@ -2276,6 +2328,14 @@
 				{
 					"en": { "href": "main-page-title-stacked-en.html", "text": "Stacked main page title" },
 					"fr": { "href": "main-page-title-stacked-fr.html", "text": "Titre principal superposé" }
+				},
+				{
+					"en": { "href": "main-page-title-stacked-align-right-en", "text": "Stacked main page title aligned on the right" },
+					"fr": { "href": "main-page-title-stacked-align-right-fr.html", "text": "Titre principal superposé aligné à droite" }
+				},
+				{
+					"en": { "href": "main-page-title-div-stacked-align-right-en", "text": "Stacked main page title in a div aligned on the right" },
+					"fr": { "href": "main-page-title-div-stacked-align-right-fr.html", "text": "Titre principal superposé aligné à droite" }
 				}
 			],
 			"implementation": [
@@ -2283,6 +2343,10 @@
 				"_:implement_smpt_gcweb"
 			],
 			"history": [
+				{
+					"en": "2024-10 - Right to left support - initial implementation of the variant.",
+					"fr": "2024-10 - Support de droite à gauche - Implémentation initiale de la variation."
+				},
 				{
 					"en": "2024-08 - Initial implementation of the variant.",
 					"fr": "2024-01 - Implémentation initiale de la variation."
@@ -2293,7 +2357,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_mpt",
-			"iteration": "_:iteration_mpt_3",
+			"iteration": "_:iteration_mpt_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -2520,10 +2584,28 @@
 			"predecessor": "_:iteration_mpt_2"
 		},
 		{
+			"@id": "_:iteration_mpt_4",
+			"name": "Main page title aligned on the right",
+			"date": "2024-09",
+			"detectableBy": "h1#wb-cont[dir='rtl'], [dir='rtl'] h1#wb-cont",
+			"additions": [
+				"Added right to left support"
+			]
+		},
+		{
 			"@id": "_:iteration_smpt_1",
 			"name": "Stacked main page title - Iteration 1",
 			"date": "2024-08",
 			"detectableBy": "hgroup > h1#wb-cont"
+		},
+		{
+			"@id": "_:iteration_smpt_2",
+			"name": "Stacked main page title - Iteration 2 (LTR support)",
+			"date": "2024-10",
+			"detectableBy": "hgroup > h1#wb-cont[dir='ltr'], [dir='ltr'] hgroup > h1#wb-cont",
+			"additions": [
+				"Added right to left support"
+			]
 		}
 	]
 }
