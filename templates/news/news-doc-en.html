@@ -3,7 +3,7 @@ title: Documentation about News template
 description: Documentation and working examples for the News template.
 language: en
 altLangPage: news-doc-fr.html
-dateModified: 2023-02-21
+dateModified: 2024-09-13
 share: true
 ---
 
@@ -15,22 +15,73 @@ share: true
 	<dt>Type</dt>
 	<dd>Canada.ca template</dd>
 	<dt>Last review</dt>
-	<dd>2019-01-30</dd>
+	<dd>2024-09-13</dd>
 	<dt>Conforming to</dt>
-	<dd>Content and IA spec 2.1</dd>
+	<dd>Content and IA spec 3.0</dd>
 	<dt>Specification</dt>
 	<dd><a href="https://design.canada.ca/mandatory-templates/news-pages.html#landing">News pages - Canada.ca mandatory template</a></dd>
 	<dt>Template version</dt>
-	<dd>Version 2.0</dd>
+	<dd>Version 3.0</dd>
+	<dt>Available instances</dt>
+	<dd><a href="https://www.canada.ca/en/news.html">https://www.canada.ca/en/news.html</a></dd>
+	<dd><a href="https://www.canada.ca/fr/nouvelles.html">https://www.canada.ca/fr/nouvelles.html</a></dd>
 </dl>
 
 <h2>Working examples</h2>
 <ul>
-	<li><a href="news-en.html">Working example</a></li>
-	<li><a href="news-fr.html" lang="fr">Exemple pratique</a></li>
+	<li><a href="news-en.html">News landing page template - Version 3.0</a></li>
+	<li><a href="news-fr.html" lang="fr">Gabarit de la page d'accueil des nouvelles - Version 3.0</a></li>
+</ul>
+
+<h2>List of changes</h2>
+<ul>
+	<li>Version 3.0:
+		<ul>
+			<li>Removal of the promotions section at the top of the page.</li>
+			<li>Addition of introduction text to the left of the Follow section.</li>
+			<li>Addition of randomized functionality for the three items in the features section.</li>
+			<li>Update of the advanced search link URL.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Previous version</h3>
+<dl>
+	<dt>Version 2.0</dt>
+	<dd><a href="deprecated/news_v2-en.html">News landing page template - Version 2.0</a></dd>
+</dl>
+
+<h2>Transition from version 2.0 to 3.0</h2>
+<ul>
+	<li>Promotions:
+		<ul>
+			<li>Remove the promotions section at the top of the page.</li>
+			<li>Add introduction text to the left of the "Follow" section and change <code>pull-right</code> class to <code>text-sm-right</code> on the <code>&lt;div></code> wrapping the "Follow" section. See working example for HTML markup.</li>
+		</ul>
+	</li>
+</ul>
+
+<ul>
+	<li>Features:
+		<ul>
+			<li>Add the attribute <code>data-wb-randomize='{ "toggle": "hide" }'</code> to each <code>&lt;div class="col-lg-4 col-sm-6 hght-inhrt"></code> element wrapping the features groups.</li>
+			<li>Change the HTML tag for features from <code>&lt;div></code> to <code>&lt;section></code></li>
+			<li>Add the class <code>hide</code> to the <code>&lt;section class="well well-sm eqht-trgt"></code> elements (feature elements).</li>
+			<li>Above the <code>&lt;div class="row"></code> element, add a <code>&lt;ul class="nojs-show"></code> with a list of the links for all the features contained in all the <code>&lt;div class="col-lg-4 col-sm-6 hght-inhrt"></code> elements. This step is necessary for users of the basic HTML version.</li>
+		</ul>
+	</li>
+</ul>
+
+<ul>
+	<li>News articles:
+		<ul>
+			<li>Update the advanced search link to the following: <code>https://www.canada.ca/en/news/advanced-news-search/news-results.html</code></li>
+		</ul>
+	</li>
 </ul>
 
 <h2>Deprecated layout</h2>
+
 <p>As of version 5.0.0 of GCWeb, the promotions use version 5.0 of Context-specific features. The following code sample is therefore deprecated.</p>
 <pre><code>&lt;header&gt;
 ...

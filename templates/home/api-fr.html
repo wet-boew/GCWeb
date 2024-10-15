@@ -8,7 +8,7 @@
 		{ "title": "GCWeb home", "link": "../index-fr.html" }
 	],
 	"secondlevel": false,
-	"dateModified": "2024-05-31",
+	"dateModified": "2024-09-16",
 	"share": "true"
 }
 ---
@@ -49,8 +49,8 @@
 		<li>Most requested - Version 1.0</li>
 		<li>Service and information - Version 1.0</li>
 		<li>Focus on - Version 1.0</li>
-		<li><a href="#your-government">Your government</a> - Version 2.0</li>
-		<li>Government initiatives - Version 1.0</li>
+		<li><a href="#your-government">Your government - Version 2.0</a></li>
+		<li><a href="#government-initiatives">Government initiatives - Version 2.0</a></li>
 	</ul>
 
 	<h3 id="home-page-menu">Home page menu</h3>
@@ -128,7 +128,7 @@
 		<dt>Notes</dt>
 		<dd>Provisional color was removed.</dd>
 	</dl>
-	<pre><code>&lt;div class="provisional bg-cover" data-bgimg="https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg"&gt;
+	<pre><code>&lt;div class="bg-cover" data-bgimg="https://www.canada.ca/content/dam/canada/carousel/bkg-home-banner.jpg"&gt;
 		&lt;div class="container p-0 p-sm-3"&gt;
 			&lt;div class="well header-rwd brdr-0 brdr-rds-0 text-white bg-gctheme"&gt;
 				&lt;h1 property="name" id="wb-cont"&gt;Canada.ca&lt;/h1&gt;
@@ -147,40 +147,6 @@
 		&lt;/div&gt;
 	&lt;/div&gt;
 	</code></pre>
-	<h4>Previous version</h4>
-	<details>
-		<summary>Version 1.0 - 2018-12-27</summary>
-		<pre><code>&lt;div class="home-banner"&gt;
-			&lt;div class="container"&gt;
-				&lt;div class="innerbox"&gt;
-					&lt;h1 property="name" id="wb-cont"&gt;Canada.ca&lt;/h1&gt;
-					&lt;p&gt;The official website of the Government of Canada&lt;/p&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="promo"&gt;
-				&lt;div class="container"&gt;
-					&lt;a class="figcaption" href="#"&gt;
-						&lt;figure class="clearfix"&gt;
-							&lt;div&gt;&lt;p class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;Featured:&lt;/p&gt;&lt;/div&gt;
-							&lt;figcaption class="pull-left mrgn-tp-md mrgn-bttm-md"&gt;[Promotion title]&lt;/figcaption&gt;
-						&lt;/figure&gt;
-					&lt;/a&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		</code></pre>
-		<h5>Provisional</h5>
-		<p>Support for a set of predefined color to match the season. The intend is to set the color of the inner box with the site title to match the promotional banner background color.</p>
-		<p>The promotional color theme are set on the <code>div.home-banner</code>. Here the supported theme with their corresponding CSS class name</p>
-		<ul>
-			<li>(default) Sky - <code>sky</code></li>
-			<li>Earth - <code>earth</code></li>
-			<li>Vegetation - <code>vegetation</code></li>
-			<li>Night - <code>night</code></li>
-			<li>Forest - <code>forest</code></li>
-			<li>Autumn - <code>autumn</code></li>
-		</ul>
-	</details>
 
 	<h3 id="your-government">Your government</h3>
 	<dl>
@@ -259,6 +225,117 @@
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/section&gt;</code></pre>
+	</details>
+
+	<h3 id="government-initiatives">Government initiatives</h3>
+	<dl>
+		<dt>Version</dt>
+		<dd>2.0</dd>
+		<dt>Updated</dt>
+		<dd>2024-09-16</dd>
+		<dt>Notes</dt>
+		<dd>Two feature items have been added for a total of four feature items.</dd>
+		<dd>Implementation of the randomized functionality on each feature items so different images along with their links and descriptions appear on each page load.</dd>
+	</dl>
+	<p>There are four feature items in this section presented as four tiles in 2 columns.</p>
+	<pre><code>&lt;section class="container gc-features"&gt;
+	&lt;h2&gt;Government initiatives&lt;/h2&gt;
+	&lt;ul class="nojs-show">
+		&lt;li>&lt;a href="#">[1. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[2. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[3. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[4. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[5. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[6. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[7. Feature hyperlink text]&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#">[8. Feature hyperlink text]&lt;/a>&lt;/li>
+	&lt;/ul>
+	&lt;div class="row wb-eqht"&gt;
+		&lt;div class="col-sm-6" data-wb-randomize='{ "toggle": "hide" }'&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[1. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;1. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[2. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;2. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class="col-sm-6" data-wb-randomize='{ "toggle": "hide" }'&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[3. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;3. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[4. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;4. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="row wb-eqht"&gt;
+		&lt;div class="col-sm-6" data-wb-randomize='{ "toggle": "hide" }'&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[5. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;5. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[6. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;6. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class="col-sm-6" data-wb-randomize='{ "toggle": "hide" }'&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[7. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;7. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+			&lt;section class="well well-sm eqht-trgt hide"&gt;
+				&lt;img src="[image URL]" alt=""&gt;
+				&lt;h3&gt;&lt;a class="stretched-link" href="#"&gt;[8. Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;8. Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+	<h5>Transition from version 1.0 to 2.0</h5>
+	<ul>
+		<li>Add a second row of features under the first one.</li>
+		<li>Add the attribute <code>data-wb-randomize='{ "toggle": "hide" }'</code> to the <code>&lt;div class="col-sm-6"></code> element wrapping the features groups.</li>
+		<li>Change the HTML tag for features from <code>&lt;div></code> to <code>&lt;section></code></li>
+		<li>Add the class <code>hide</code> to the <code>&lt;section class="well well-sm eqht-trgt"></code> elements (feature elements).</li>
+		<li>Above the <code>&lt;div class="row"></code> element, add a <code>&lt;ul class="nojs-show"></code> with a list of the links for all the features contained in the <code>&lt;div class="row"></code> element. This step is necessary for users of the basic HTML version.</li>
+	</ul>
+
+	<h4>Previous version</h4>
+	<details>
+		<summary>Deprecated - Version 1.0</summary>
+		<p>There were two static feature items with links and descriptions.</p>
+		<pre><code>&lt;section class="container gc-features"&gt;
+	&lt;h2&gt;Government initiatives&lt;/h2&gt;
+	&lt;div class="row wb-eqht"&gt;
+		&lt;div class="col-sm-6"&gt;
+			&lt;div class="well well-sm brdr-rds-0 eqht-trgt"&gt;
+				&lt;img class="img-responsive full-width" src="../../components/gc-features/img/initiative-520x200.png" alt=""/&gt;
+				&lt;h3 class="h5"&gt;&lt;a class="stretched-link" href="#"&gt;[Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-sm-6"&gt;
+			&lt;div class="well well-sm brdr-rds-0 eqht-trgt"&gt;
+				&lt;img class="img-responsive full-width" src="../../components/gc-features/img/initiative-520x200.png" alt=""/&gt;
+				&lt;h3 class="h5"&gt;&lt;a class="stretched-link" href="#"&gt;[Feature hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+				&lt;p&gt;Brief description of the feature being promoted.&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
 	</details>
 
 	<h2>Evaluation and report</h2>
