@@ -4,7 +4,11 @@
 <script src="{{ setting-resourcesBasePathTheme }}/js/theme{{ setting-minifiedSuffix }}.js"></script>
 {%- if page.script.first -%}
 	{%- for js in page.script -%}
-		<script src="{{ js }}"></script>
+		{%- if js.first -%}
+			<script src="{{ js.src }}" integrity="{{ js.integrity }}" crossorigin="anonymous"></script>
+		{%- elsif js -%}
+			<script src="{{ js }}"></script>
+		{%- endif -%}
 	{%- endfor -%}
 {%- elsif page.script -%}
 	<script src="{{ page.script }}"></script>
