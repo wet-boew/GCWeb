@@ -1,0 +1,121 @@
+---
+title: Utilitaires DataTables - Documentation
+language: fr
+description: Liste d'utilitaires permettant la modification de tableaux DataTables.
+tag: DataTable
+altLangPage: datatable-utilities-doc-fr.html
+dateModified: 2024-11-01
+---
+<p>Les utilitaires de table de données incluent des classes de manipulation de données pour les courriels, les URL et l’argent. Ils comprennent également des totaux dans le pied de page de la table de données.</p>
+<p>L'intégration de ce plugin facilitera la transition vers Canada.ca, car ces fonctionnalités sont déjà mises en œuvre sur https://www.tpsgc-pwgsc.gc.ca. Actuellement, certaines pages utilisant ce plugiciel, ainsi que d'autres pages qui utilisent différents JavaScripts, sont simplement liées directement de Canada.ca.</p>
+<p>Pour le grand public, le plugiciel rend les tables de données plus conviviales en fournissant des liens cliquables, et les utilisateurs sont déjà habitués à cette fonctionnalité sur nos anciennes pages Canada.ca.</p>
+
+<h2>Plan de mise en œuvre de GCWeb</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2024-10-datatable-utilities" | first %}
+
+<ul>
+    {% for deliverable in implPlan.implementationPlanFR %}
+    <li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+    {% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+    {% for todo in implPlan.todosFR %}
+    <li>{{ todo }}</li>
+    {% endfor %}
+</ul>
+
+<p>Commanditaire : SPAC - {{ implPlan.sponsor }}</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<h2>Exemples pratiques</h2>
+<ul>
+    <li><a href="index-fr.html">Utilitaire DataTable</a></li>
+</ul>
+
+<h2>Options de configuration</h2>
+
+<p>Activez le plugiciel pour le tableau ciblé en ajoutant la classe CSS <code>wb-tables-utility</code> au tableau. Ajoutez l'attribut <code>data-wb-tables-utility</code> pour configurer les options.</p>
+
+<table class="table" lang="en">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Description</th>
+            <th>How to configure</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>debug</td>
+            <td>Print Debug messages to the console</td>
+            <td><code>data-wb-tables-utility="{&amp;quot;debug&amp;quot;:true}"</code></td>
+            <td>
+                <dl>
+                    <dt>false (default)</dt>
+                    <dd>Suppress Printing of debug messages.</dd>
+                    <dt>true</dt>
+                    <dd>Show debug messages to the console.</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <td>filteredsum</td>
+            <td>Column Totals to reflect Filtered DataTable Data</td>
+            <td><code>data-wb-tables-utility="{&amp;quot;filteredsum&amp;quot;:false}"</code></td>
+            <td>
+                <dl>
+                    <dt>true (default):</dt>
+                    <dd>As Data is Filtered adjust Totals to match filtered Data.</dd>
+                    <dt>false:</dt>
+                    <dd>Show Grand Total Regardless of data filtered.</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-sum</td>
+            <td>When this class is applied to a column, a column footer total is calculated</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-sum&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-sum
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-money</td>
+            <td>When this class is applied to a column, the data is manipulated to reflect currency with $</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-money&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-money
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-cur-thousand</td>
+            <td>When this class is applied to a column, the data is manipulated to reflect currency without $</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-cur-thousand&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-cur-thousand
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-mailto</td>
+            <td>When this class is applied to a column, the data is searched with an email partern, and when found are wrapped with &lt;a href=&quot;mailto:...&quot;&gt;...&lt;/a&gt; to make it a clikcable link.</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-mailto&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-mailto
+            </td>
+        </tr>
+        <tr>(column-name, column-name-url)
+            <td>wb-col-url</td>
+            <td>When this class is applied to a column, dataTable Utilites looks for a second column with the same name as this column that is ending with -url
+                and the 2 are stiched into a single column wrapped with &lt;a href=&quot;column-name-url&quot;&gt;column-name&lt;/a&gt; to make it a clikcable link.</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-url&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-url
+            </td>
+        </tr>
+    </tbody>
+</table>

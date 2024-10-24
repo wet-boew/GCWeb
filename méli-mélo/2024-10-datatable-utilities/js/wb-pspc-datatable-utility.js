@@ -7,6 +7,12 @@
  *                                    <steve.bourgeois@tpsgc-pwgsc.gc.ca>
  *
  *
+ *      Version  History: 1.1.1
+ *                        Implement Wet-Boew Team recomendations Post Pull Request
+ *                          1. Suggestion: create a separate documentation page for all the options instead of having them in the JS file
+ *                          2. Please add an implementation plan item: "Produce accessibility conformance report"
+ *                          3. I don't see a working example for the following option: wb-col-cur-thousand.
+ *
  *      Version  History: 1.1.0
  *                        Implement Wet-Boew Team recomendations
  *                          1. Remove <strong> formatting on Totals in favor of css
@@ -42,7 +48,7 @@
  *                      { "className": "wb-col-sum wb-col-money text-right", "targets": [2] }],
  *                       "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
  *
- *            Paramaters: searchApplied   Total of Filtered Results Only or All if nothing was filtered
+ *            Paramaters: filteredsum     Total of Filtered Results Only or All if nothing was filtered
  *                        Default Value:  true
  *
  *                           wb-col-sum   Class added to the columnDefs option of data-wb-tables to let the plugin know that this column needs to be totaled
@@ -60,7 +66,6 @@
  *
  ********************************************************************************************
  */
-
 
 (function ($, window, wb)
 {
@@ -176,7 +181,7 @@
             });
         }
 
-        debugMsg('PSPC: wb-pspc-datatable-utility plugin Version 1.1.0 Initialized');
+        debugMsg('PSPC: wb-pspc-datatable-utility plugin Version 1.1.1 Initialized');
         debugMsg(data);
 
     }
