@@ -39,7 +39,7 @@ implementationPlan:
   - due: 2024-10-24
     what: "Submit Pull Request <span class=\"label label-success\">Completed</span>"
   - due: 2025-06-30
-    what: Work toward a provisional plugin <span class=\"label label-warning\">In Progress</span>"
+    what: "Work toward a provisional plugin <span class=\"label label-warning\">In Progress</span>"
 
 implementationPlanFR:
   - due: 2024-09-24
@@ -57,7 +57,7 @@ implementationPlanFR:
   - due: 2024-10-24
     what: "Soumettre la demandes de tirage <span class=\"label label-success\">Completé</span>"
   - due: 2025-06-30
-    what: "Travailler vers un plugiciel provisoire <span class=\"label label-success\">En cours</span>""
+    what: "Travailler vers un plugiciel provisoire <span class=\"label label-success\">En cours</span>"
 
 todos:
   - Add Other Data Manipulation Classes Maybe (percentage)?
