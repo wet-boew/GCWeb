@@ -31,15 +31,15 @@ implementationPlan:
   - due: 2024-10-08
     what: "Fix Issue Identified by Wet-Boew Team <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-12
-    what: "Get French Sample page Translated <span class=\"label label-warning\">In Progress</span>"
+    what: "Get French Sample page Translated <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-15
-    what: Get Pages throuh our QC cycle and our WACR Team
+    what: "Get Pages throuh our QC cycle and our WACR Team <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-22
-    what: Fix Identified problems and accesibility issues
-  - due: 2024-10-31
-    what: Submit Pull Request
+    what: "Fix Identified problems and accesibility issues <span class=\"label label-success\">Completed</span>"
+  - due: 2024-10-24
+    what: "Submit Pull Request <span class=\"label label-success\">Completed</span>"
   - due: 2025-06-30
-    what: Work toward a provisional plugin
+    what: Work toward a provisional plugin <span class=\"label label-warning\">In Progress</span>"
 
 implementationPlanFR:
   - due: 2024-09-24
@@ -51,13 +51,13 @@ implementationPlanFR:
   - due: 2024-10-12
     what: "Faire traduire la page d'exemple en français <span class=\"label label-success\">Completé</span>"
   - due: 2024-10-15
-    what: "Soumettre les pages à notre processus de CQ et à notre équipe ECAW"
+    what: "Soumettre les pages à notre processus de CQ et à notre équipe ECAW <span class=\"label label-success\">Completé</span>"
   - due: 2024-10-22
-    what: "Corriger les problèmes identifiés et les problèmes d'accessibilité"
-  - due: 2024-10-31
-    what: "Soumettre la demandes de tirage"
+    what: "Corriger les problèmes identifiés et les problèmes d'accessibilité <span class=\"label label-success\">Completé</span>"
+  - due: 2024-10-24
+    what: "Soumettre la demandes de tirage <span class=\"label label-success\">Completé</span>"
   - due: 2025-06-30
-    what: "Travailler vers un plugiciel provisoire"
+    what: "Travailler vers un plugiciel provisoire <span class=\"label label-success\">En cours</span>""
 
 todos:
   - Add Other Data Manipulation Classes Maybe (percentage)?
