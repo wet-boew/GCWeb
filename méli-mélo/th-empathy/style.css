@@ -84,3 +84,42 @@ h1#wb-cont.empathy {
     color: #5c2790;;
 
 }
+
+/* Thematic Journey Labs homepage layout */
+
+.empathy.cards {
+	padding: 20px;
+	box-shadow: 0px 2px 3px 0px #cccccc;
+	border-radius: 10px;
+}
+
+.empathy.main-content .empathy.cards:hover {
+    background-color: #6c3c9b;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Added to specifically target the link*/
+.empathy.main-content .empathy.cards:hover a {
+    color: #fff;
+}
+
+.empathy.quiz-content {
+	background-color: #6c3c9b;
+	color: #fff;
+}
+
+/*
+ Might be able to accomplish something similar by adding the purple box first and floating it right -- doesn't work in a display flex
+*/
+@media screen and (max-width: 991px) {
+    .empathy.main-content {
+    order: 1;
+    }
+}
+
+@media screen and (min-width: 992px) {
+	.empathy.quiz-img {
+	width: 100%;
+        }
+}
