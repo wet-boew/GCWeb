@@ -1,0 +1,292 @@
+---
+title: DataTable Utilities
+dateModified: 2024-10-31
+description: "Utilities that allow Columns to be MONEY Formatted, Emails wrapped with mailto, url's to be clickable and Footer totals that can be affected by filtered Data Or not."
+lang: en
+altLangPage: "index-fr.html"
+script: [ "js/wb-pspc-datatable-utility.js" ]
+css: [ "css/wb-pspc-datatable-utility.css"]
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<p><a href="datatable-utilities-doc-en.html" class="btn btn-primary">Documentation</a></p>
+
+<h2>On this page</h2>
+<ul>
+    <li><a href="#a1">Control Table with Raw Data</a></li>
+    <li><a href="#a2">Column Data Manipulation Example 1</a></li>
+    <li><a href="#a3">Column Data Manipulation Example 2</a></li>
+    <li><a href="#a4">Table Footer With Static Totals</a></li>
+    <li><a href="#a5">Table Footer With Dynamic Totals updated when Filtered</a></li>
+</ul>
+
+<h2 id="a1">Control Table with Raw Data</h2>
+
+<table class="wb-tables table table-striped table-hover table-condensed small" id="t1" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
+                                      { "data": "DepartmentEN" },
+                                      { "data": "ContactEmail" },
+                                      { "data": "Custom study titleEN" },
+                                      { "data": "Custom study titleEN-url" },
+                                      { "data": "Registration number" },
+                                      { "data": "Contract value" }
+                                    ],
+                            "columnDefs": [{ "className": "text-left", "targets": [0]},
+                                    { "className": "text-left", "targets": [1] },
+                                    { "className": "text-left", "targets": [2] },
+                                    { "className": "text-left", "targets": [3] },
+                                    { "className": "text-left", "targets": [4] },
+                                    { "className": "text-right", "targets": [5] }],
+                                     "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
+    <caption class="text-left">
+        Table&nbsp;1: Raw Data
+    </caption>
+    <thead>
+        <tr class="active">
+            <th scope="col">Department</th>
+            <th scope="col">Contact Email</th>
+            <th scope="col">Custom study</th>
+            <th scope="col">Custom study URL</th>
+            <th scope="col">Reg#</th>
+            <th scope="col">Contract value</th>
+        </tr>
+    </thead>
+</table>
+
+<h2 id="a2">Column Data Manipulation Example 1</h2>
+
+<ul>
+    <li><code>.wb-col-mailto</code> Wrap email Addresses with a &lt;a href=&quot;mailto:...&quot;&gt;email@example.net&lt;/a&gt;</li>
+    <li><code>.wb-col-money</code> Format numbers as Money.</li>
+    <li><code>.wb-col-url</code> Stitch 2 columns (column-name, column-name-url) into a single URL / Caption or URL and URL as the caption if (column-name-url) does not exists within the JSON File.</li>
+</ul>
+
+<pre class="mrgn-bttm-lg">
+    &lt;table class=&quot;wb-tables table table-striped table-hover table-condensed small <strong>wb-tables-utility</strong>&quot; id=&quot;t2&quot;
+            data-wb-tables=&apos;{ &quot;ajax&quot;:&quot;data/datatable-utility.json&quot;,
+                            &quot;columns&quot;: [{ &quot;data&quot;: &quot;DepartmentEN&quot; },
+                                        { &quot;data&quot;: &quot;ContactEmail&quot; },
+                                        { &quot;data&quot;: &quot;Custom study titleEN&quot; },
+                                        { &quot;data&quot;: &quot;Registration number&quot; },
+                                        { &quot;data&quot;: &quot;Contract value&quot; }],
+                                    &quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [0]},
+                                            { &quot;className&quot;: &quot;text-left <strong>wb-col-mailto</strong>&quot;, &quot;targets&quot;: [1] },
+                                            { &quot;className&quot;: &quot;text-left <strong>wb-col-url</strong>&quot;, &quot;targets&quot;: [2] },
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [3] },
+                                            { &quot;className&quot;: &quot;text-right <strong>wb-col-money</strong>&quot;, &quot;targets&quot;: [4] }],
+                                                         &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
+</pre>
+
+<div class="mrgn-bttm-lg">
+    <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t2" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
+                                      { "data": "DepartmentEN" },
+                                      { "data": "ContactEmail" },
+                                      { "data": "Custom study titleEN" },
+                                      { "data": "Registration number" },
+                                      { "data": "Contract value" }
+                                    ],
+                            "columnDefs": [{ "className": "text-left", "targets": [0]},
+                                    { "className": "text-left wb-col-mailto", "targets": [1] },
+                                    { "className": "text-left wb-col-url", "targets": [2] },
+                                    { "className": "text-left", "targets": [3] },
+                                    { "className": "text-right wb-col-money", "targets": [4] }],
+                                     "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
+        <caption class="text-left">
+            Table&nbsp;2: Example of JSON Data Manipulation
+        </caption>
+        <thead>
+            <tr class="active">
+                <th scope="col">Department</th>
+                <th scope="col">Contact Email</th>
+                <th scope="col">Custom study</th>
+                <th scope="col">Reg#</th>
+                <th scope="col">Contract value</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<h2 id="a3">Column Data Manipulation Example 2</h2>
+
+<p><code>.wb-col-cur-thousand</code> Format numbers with thousands separator with 2 decimals.</p>
+
+<pre class="mrgn-bttm-lg">
+    &lt;table class=&quot;wb-tables table table-striped table-hover table-condensed small <strong>wb-tables-utility</strong>&quot; id=&quot;t3&quot;
+            data-wb-tables=&apos;{ &quot;ajax&quot;:&quot;data/datatable-utility.json&quot;,
+                            &quot;columns&quot;: [{ &quot;data&quot;: &quot;DepartmentEN&quot; },
+                                        { &quot;data&quot;: &quot;ContactEmail&quot; },
+                                        { &quot;data&quot;: &quot;Custom study titleEN&quot; },
+                                        { &quot;data&quot;: &quot;Registration number&quot; },
+                                        { &quot;data&quot;: &quot;Contract value&quot; }],
+                                    &quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [0]},
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [1] },
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [2] },
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [3] },
+                                            { &quot;className&quot;: &quot;text-right <strong>wb-col-cur-thousand</strong>&quot;, &quot;targets&quot;: [4] }],
+                                                         &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
+</pre>
+
+<div class="mrgn-bttm-lg">
+    <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t3" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
+                                      { "data": "DepartmentEN" },
+                                      { "data": "ContactEmail" },
+                                      { "data": "Custom study titleEN" },
+                                      { "data": "Registration number" },
+                                      { "data": "Contract value" }
+                                    ],
+                            "columnDefs": [{ "className": "text-left", "targets": [0]},
+                                    { "className": "text-left", "targets": [1] },
+                                    { "className": "text-left", "targets": [2] },
+                                    { "className": "text-left", "targets": [3] },
+                                    { "className": "text-right wb-col-cur-thousand", "targets": [4] }],
+                                     "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
+        <caption class="text-left">
+            Table&nbsp;3: Second Example of JSON Data Manipulation
+        </caption>
+        <thead>
+            <tr class="active">
+                <th scope="col">Department</th>
+                <th scope="col">Contact Email</th>
+                <th scope="col">Custom study</th>
+                <th scope="col">Reg#</th>
+                <th scope="col">Contract value</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<h2 id="a4">Table Footer With Static Totals</h2>
+
+<p><code>.wb-col-sum</code> class on the column to perform column Total</p>
+<p>Add a Placehoder &lt;tfoot&gt; at the bottom of the Table.</p>
+
+<pre class="mrgn-bttm-lg">
+        &lt;tfoot&gt;
+        &lt;tr class=&quot;active&quot;&gt;
+        &lt;th colspan=&quot;4&quot;&gt;Total&lt;/th&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tfoot&gt;
+</pre>
+
+<h3>Code</h3>
+<p>Pass <code>false</code> via filteredsum to the plugin <code>data-wb-tables-utility="{"filteredsum":false}"</code> as the default is true</p>
+
+<pre class="mrgn-bttm-lg">
+    &lt;table class=&quot;wb-tables table table-striped table-hover table-condensed small <strong>wb-tables-utility</strong>&quot; id=&quot;t4&quot;
+    <strong>data-wb-tables-utility="{&quot;filteredsum&quot;:false}"</strong>
+            data-wb-tables=&apos;{ &quot;ajax&quot;:&quot;data/datatable-utility.json&quot;,
+                            &quot;columns&quot;: [{ &quot;data&quot;: &quot;DepartmentEN&quot; },
+                                        { &quot;data&quot;: &quot;ContactEmail&quot; },
+                                        { &quot;data&quot;: &quot;Custom study titleEN&quot; },
+                                        { &quot;data&quot;: &quot;Registration number&quot; },
+                                        { &quot;data&quot;: &quot;Contract value&quot; }],
+                                    &quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [0]},
+                                            { &quot;className&quot;: &quot;text-left wb-col-mailto&quot;, &quot;targets&quot;: [1] },
+                                            { &quot;className&quot;: &quot;text-left wb-col-url&quot;, &quot;targets&quot;: [2] },
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [3] },
+                                            { &quot;className&quot;: &quot;text-right <strong>wb-col-sum</strong> wb-col-money&quot;, &quot;targets&quot;: [4] }],
+                                                &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
+</pre>
+
+<div class="mrgn-bttm-lg">
+    <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t4" data-wb-tables-utility="{&quot;debug&quot;:true, &quot;filteredsum&quot;:false}" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
+                                      { "data": "DepartmentEN" },
+                                      { "data": "ContactEmail" },
+                                      { "data": "Custom study titleEN" },
+                                      { "data": "Registration number" },
+                                      { "data": "Contract value" }
+                                    ],
+                            "columnDefs": [{ "className": "text-left", "targets": [0]},
+                                    { "className": "text-left wb-col-mailto", "targets": [1] },
+                                    { "className": "text-left wb-col-url", "targets": [2] },
+                                    { "className": "text-left", "targets": [3] },
+                                    { "className": "text-right wb-col-money wb-col-sum", "targets": [4] }],
+                                     "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
+        <caption class="text-left">
+            Table&nbsp;4: Static Totals in Table Footer Example
+        </caption>
+        <thead>
+            <tr class="active">
+                <th scope="col">Department</th>
+                <th scope="col">Contact Email</th>
+                <th scope="col">Custom study</th>
+                <th scope="col">Reg#</th>
+                <th scope="col">Contract value</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="active">
+                <th colspan="4">Total</th>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<h2 id="a5">Table Footer With Dynamic Totals updated when Filtered</h2>
+
+<p><code>.wb-col-sum</code> class on the column to perform column Total</p>
+<p>Add a Placehoder &lt;tfoot&gt; at the bottom of the Table.</p>
+
+<pre class="mrgn-bttm-lg">
+        &lt;tfoot&gt;
+            &lt;tr class=&quot;active&quot;&gt;
+                &lt;th colspan=&quot;4&quot;&gt;Total&lt;/th&gt;
+                &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+</pre>
+
+<h3>Code</h3>
+
+<pre class="mrgn-bttm-lg">
+    &lt;table class=&quot;wb-tables table table-striped table-hover table-condensed small <strong>wb-tables-utility</strong>&quot; id=&quot;t5&quot;
+            data-wb-tables=&apos;{ &quot;ajax&quot;:&quot;data/datatable-utility.json&quot;,
+                            &quot;columns&quot;: [{ &quot;data&quot;: &quot;DepartmentEN&quot; },
+                                        { &quot;data&quot;: &quot;ContactEmail&quot; },
+                                        { &quot;data&quot;: &quot;Custom study titleEN&quot; },
+                                        { &quot;data&quot;: &quot;Registration number&quot; },
+                                        { &quot;data&quot;: &quot;Contract value&quot; }],
+                                    &quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [0]},
+                                            { &quot;className&quot;: &quot;text-left wb-col-mailto&quot;, &quot;targets&quot;: [1] },
+                                            { &quot;className&quot;: &quot;text-left wb-col-url&quot;, &quot;targets&quot;: [2] },
+                                            { &quot;className&quot;: &quot;text-left&quot;, &quot;targets&quot;: [3] },
+                                            { &quot;className&quot;: &quot;text-right <strong>wb-col-sum</strong> wb-col-money&quot;, &quot;targets&quot;: [4] }],
+                                                &quot;lengthMenu&quot;: [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, &quot;All&quot;] ]}&apos;&gt;
+</pre>
+
+<div class="mrgn-bttm-lg">
+    <table class="wb-tables table table-striped table-hover table-condensed small wb-tables-utility" id="t5" data-wb-tables='{ "ajax":"data/datatable-utility.json", "columns": [
+                                      { "data": "DepartmentEN" },
+                                      { "data": "ContactEmail" },
+                                      { "data": "Custom study titleEN" },
+                                      { "data": "Registration number" },
+                                      { "data": "Contract value" }
+                                    ],
+                            "columnDefs": [{ "className": "text-left", "targets": [0]},
+                                    { "className": "text-left wb-col-mailto", "targets": [1] },
+                                    { "className": "text-left wb-col-url", "targets": [2] },
+                                    { "className": "text-left", "targets": [3] },
+                                    { "className": "text-right wb-col-money wb-col-sum", "targets": [4] }],
+                                     "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ]}'>
+        <caption class="text-left">
+            Table&nbsp;5: Dynamic Totals in Table Footer Example
+        </caption>
+        <thead>
+            <tr class="active">
+                <th scope="col">Department</th>
+                <th scope="col">Contact Email</th>
+                <th scope="col">Custom study</th>
+                <th scope="col">Reg#</th>
+                <th scope="col">Contract value</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="active">
+                <th colspan="4">Total</th>
+                <td>&nbsp;</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

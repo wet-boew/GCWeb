@@ -1,0 +1,122 @@
+---
+title: DataTable Utilities - Documentation
+language: en
+description: List of utilities to manipulate DataTables tables.
+tag: DataTable
+altLangPage: datatable-utilities-doc-fr.html
+dateModified: 2024-11-01
+---
+
+<p>DataTable Utilities, includes Data Manipulation Classes for emails, Urls and Money. Also Includes Datatable Footer Totals.</p>
+<p>Having this plugin intergrated will make the transition to Canada.ca easier as these features are already in use on https://www.tpsgc-pwgsc.gc.ca, currently some of the pages that make use of this plugin and other pages that make use of Other Javascripts are just pointed to from Canada.ca</p>
+<p>The Public at Large, the plugin makes DataTables more user friendly with Clickable Links, and they are used to this functionality our PRE Canada.ca Pages.</p>
+
+<h2>GCWeb implementation plan</h2>
+
+{% assign implPlan = site.pages | where: "output", "false" | where: "componentName", "2024-10-datatable-utilities" | first %}
+
+<ul>
+    {% for deliverable in implPlan.implementationPlan %}
+    <li>{{ deliverable.due }} - {{ deliverable.what }}</li>
+    {% endfor %}
+</ul>
+
+<p>Todo and for future consideration</p>
+<ul>
+    {% for todo in implPlan.todos %}
+    <li>{{ todo }}</li>
+    {% endfor %}
+</ul>
+
+<p>Sponsor: PSPC - {{ implPlan.sponsor }}</p>
+
+<div class="wb-prettify all-pre"></div>
+
+<h2>Working examples</h2>
+<ul>
+    <li><a href="index-en.html">DataTables utilities</a></li>
+</ul>
+
+<h2>Configuration options</h2>
+
+<p>Enable the plugin for the targeted table by adding the CSS class <code>wb-tables-utility</code> to the table. Add the attribute <code>data-wb-tables-utility</code> to configure the options.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Description</th>
+            <th>How to configure</th>
+            <th>Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>debug</td>
+            <td>Print Debug messages to the console</td>
+            <td><code>data-wb-tables-utility="{&amp;quot;debug&amp;quot;:true}"</code></td>
+            <td>
+                <dl>
+                    <dt>false (default)</dt>
+                    <dd>Suppress Printing of debug messages.</dd>
+                    <dt>true</dt>
+                    <dd>Show debug messages to the console.</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <td>filteredsum</td>
+            <td>Column Totals to reflect Filtered DataTable Data</td>
+            <td><code>data-wb-tables-utility="{&amp;quot;filteredsum&amp;quot;:false}"</code></td>
+            <td>
+                <dl>
+                    <dt>true (default):</dt>
+                    <dd>As Data is Filtered adjust Totals to match filtered Data.</dd>
+                    <dt>false:</dt>
+                    <dd>Show Grand Total Regardless of data filtered.</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-sum</td>
+            <td>When this class is applied to a column, a column footer total is calculated</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-sum&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-sum
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-money</td>
+            <td>When this class is applied to a column, the data is manipulated to reflect currency with $</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-money&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-money
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-cur-thousand</td>
+            <td>When this class is applied to a column, the data is manipulated to reflect currency without $</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-cur-thousand&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-cur-thousand
+            </td>
+        </tr>
+        <tr>
+            <td>wb-col-mailto</td>
+            <td>When this class is applied to a column, the data is searched with an email partern, and when found are wrapped with &lt;a href=&quot;mailto:...&quot;&gt;...&lt;/a&gt; to make it a clikcable link.</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-mailto&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-mailto
+            </td>
+        </tr>
+        <tr>(column-name, column-name-url)
+            <td>wb-col-url</td>
+            <td>When this class is applied to a column, dataTable Utilites looks for a second column with the same name as this column that is ending with -url
+                and the 2 are stiched into a single column wrapped with &lt;a href=&quot;column-name-url&quot;&gt;column-name&lt;/a&gt; to make it a clikcable link.</td>
+            <td><code>&quot;columnDefs&quot;: [{ &quot;className&quot;: &quot;wb-col-url&quot;, &quot;targets&quot;: [3]}]</code></td>
+            <td>
+                wb-col-url
+            </td>
+        </tr>
+    </tbody>
+</table>
