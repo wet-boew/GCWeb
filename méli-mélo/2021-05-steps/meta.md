@@ -17,7 +17,7 @@ title:
 description:
   en: Style ordered list and divs with steps number in circles.
   fr: Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle
-modified: 2024-05-30
+modified: 2024-10-31
 componentName: 2021-05-steps
 sponsor: CRA - Christopher Oakes (@christopher-o)
 
@@ -56,5 +56,9 @@ changes:
     description: Fixed issue with printing pages as some text would be cut off 
     departmentImpact: No change from a departmental perspective.
     publicImpact: Improved look of print document
+  - date: 2024-10-30
+    description: Added customized option to use start attribute for items 2 to 10
+    departmentImpact: No change from a departmental perspective.
+    publicImpact: Enhanced flexibility to better mimic ordered lists using HTML
 output: false
 ---
