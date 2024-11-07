@@ -1,8 +1,8 @@
 ﻿---
 title: "Compilations gelées"
 lang: fr
-altLangPage: "méli-mélo-en.html"
-dateModified: "2024-05-29"
+altLangPage: "index-en.html"
+dateModified: "2024-11-07"
 ---
 
 Ce répertoire contient la liste des compilations méli-mélo qui sont dites gelées. Ceci veux dire qu'aucune modification ou ajout de fonctionnalité ne sera autorisé à moins qu'il apporte un correctif majeur relié à l'accessibilité ou à la sécurité. Un tel correctif doit être documenté et strictement limité à l'accessibilité ou à la sécurité.
@@ -30,6 +30,16 @@ L'étape suivante serait de relancer la fonctionnalité expérimentale dans une 
 	- 2023-09-menu [à partir de GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-menu)
 	- 2023-09-distance-calculator [à partir de GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-distance-calculator)
 	- 2023-09-collection-sort [à partir de GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-collection-sort)
+* 2024-09-kejimkujik
+	- 2021-05-conjunction [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
+	- 2023-09-menu [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-menu)
+	- 2023-10-clipboard [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-10-clipboard)
+	- 2023-09-distance-calculator[as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-distance-calculator)
+	- 2023-09-collection-sort [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-collection-sort)
+	- 2021-05-steps [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/steps)
+	- 2024-04-stepsquiz [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2024-04-stepsquiz)
+	- 2024-02-charts [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2024-02-charts)
+	- deprecated [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/deprecated)
 
 ## Gabarit pour la liste de compilations gelées
 

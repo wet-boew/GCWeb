@@ -1,8 +1,8 @@
 ﻿---
 title: "Frozen compilations"
 lang: en
-altLangPage: "méli-mélo-fr.html"
-dateModified: "2024-05-29"
+altLangPage: "index-fr.html"
+dateModified: "2024-11-07"
 ---
 
 This directory contains the list of méli-mélo compilations which are said to be frozen. This means that no modification or addition of functionality will be authorized unless it provides a major fix related to accessibility or security. Any such fix must be documented and strictly limited to accessibility or security.
@@ -30,6 +30,17 @@ The next step would be to relaunch the experimental feature in a new méli-mélo
 	- 2023-09-menu [as of GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-menu)
 	- 2023-09-distance-calculator [as of GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-distance-calculator)
 	- 2023-09-collection-sort [as of GCWeb v14.5.0](https://github.com/wet-boew/GCWeb/tree/v14.5.0/m%C3%A9li-m%C3%A9lo/2023-09-collection-sort)
+
+* 2024-09-kejimkujik
+	- 2021-05-conjunction [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
+	- 2023-09-menu [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-menu)
+	- 2023-10-clipboard [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-10-clipboard)
+	- 2023-09-distance-calculator[as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-distance-calculator)
+	- 2023-09-collection-sort [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2023-09-collection-sort)
+	- 2021-05-steps [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/steps)
+	- 2024-04-stepsquiz [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2024-04-stepsquiz)
+	- 2024-02-charts [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/2024-02-charts)
+	- deprecated [as of GCWeb v15.7.0](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/deprecated)
 
 ## Template for the frozen compilations list
 
