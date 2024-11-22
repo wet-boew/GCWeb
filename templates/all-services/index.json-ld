@@ -1,0 +1,131 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "All services",
+		"fr": "Tous les services"
+	},
+	"description": {
+		"en": "All services page template.",
+		"fr": "Gabarit de page pour tous les services."
+	},
+	"modified": "2024-11-21",
+	"componentName": "all-services",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "All services",
+				"language": "en",
+				"path": "all-services-en.html"
+			},
+			{
+				"title": "Tous les services",
+				"language": "fr",
+				"path": "all-services-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "All services",
+				"language": "en",
+				"path": "all-services-doc-en.html"
+			},
+			{
+				"title": "Tous les services",
+				"language": "fr",
+				"path": "all-services-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "All services",
+				"fr": "Tous les services"
+			},
+			"status": "stable",
+			"description": {
+				"en": "All services page template.",
+				"fr": "Gabarit de page pour tous les services."
+			},
+			"iteration": "_:iteration_allservices_1",
+			"example": [
+				{
+					"en": { "href": "all-services-en.html", "text": "All services" },
+					"fr": { "href": "all-services-fr.html", "text": "Tous les services" }
+				}
+			],
+			"implementation": [
+				"_:implement_allservices"
+			],
+			"history": [
+				{
+					"en": "November 2024 - Initial implementation of the page template.",
+					"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_allservices",
+			"iteration": "_:iteration_allservices_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "all-services-en.html main > *:not(.pagedetails)",
+				"fr": "all-services-fr.html main > *:not(.pagedetails)"
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_allservices_1",
+			"name": "All services page - Iteration 1",
+			"date": "2024-11",
+			"detectableBy": "Three navigation bands followed by a series of <details> elements for all goc themes and topics."
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_allservices",
+			"name": "All services page",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_allservices_1",
+			"detectableBy": "By the sequence of elements.",
+			"semantic": "h1 + h2*3 + h1 + h2*n",
+			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
+			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
+			"layout": [
+				"Top serches navigation band",
+				"Most requested services navigation band",
+				"Supporting through life's transitions navigation band",
+				"Most requested - version 1 (optional)",
+				"Series of <details> elements for all goc themes and topics"
+			]
+		}
+	]
+}

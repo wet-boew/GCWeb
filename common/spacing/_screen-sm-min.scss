@@ -1,0 +1,47 @@
+/*
+ *
+ * @title: Spacing
+ * sm breakpoint and up
+ *
+ */
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $size, $length in $spacers {
+		.#{$abbrev}-sm-#{$size} { #{$prop}: $length !important; }
+		.#{$abbrev}t-sm-#{$size},
+		.#{$abbrev}y-sm-#{$size} {
+			#{$prop}-top: $length !important;
+		}
+		.#{$abbrev}r-sm-#{$size},
+		.#{$abbrev}x-sm-#{$size} {
+			#{$prop}-right: $length !important;
+		}
+		.#{$abbrev}b-sm-#{$size},
+		.#{$abbrev}y-sm-#{$size} {
+			#{$prop}-bottom: $length !important;
+		}
+		.#{$abbrev}l-sm-#{$size},
+		.#{$abbrev}x-sm-#{$size} {
+			#{$prop}-left: $length !important;
+		}
+	}
+}
+
+// Auto margins
+.m-sm-auto { margin: auto !important; }
+.mt-sm-auto,
+.my-sm-auto {
+	margin-top: auto !important;
+}
+.mr-sm-auto,
+.mx-sm-auto {
+	margin-right: auto !important;
+}
+.mb-sm-auto,
+.my-sm-auto {
+	margin-bottom: auto !important;
+}
+.ml-sm-auto,
+.mx-sm-auto {
+	margin-left: auto !important;
+}

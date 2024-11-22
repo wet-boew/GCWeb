@@ -1,0 +1,125 @@
+---
+{
+"title": "Espacement",
+"language": "fr",
+"altLangPage": "spacing-en.html",
+"description": "Classes utilitaires pour ajouter de l'espacement entre des éléments.",
+"dateModified": "2024-11-22"
+}
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<p>Classes utilitaires pour ajouter de l'espacement entre les éléments.</p>
+
+<p>Cette page présente les fonctionnalités utilitaires de wet-boew, y compris certaines intégrations de Bootstrap 4.</p>
+<p>Veuillez noter que certaines classes Bootstrap 4 rétroportées ont été ajustées pour suivre les points d'arrêt de vue de Bootstrap 3.4. Par exemple, la largeur minimale d'une vue de petite taille (<code>sm</code>) est de 768&nbsp;px dans Bootstrap 3.4, contre 576&nbsp;px dans Bootstrap 4.</p>
+
+<h2>Comment ça marche</h2>
+<p>Attribuez des valeurs de marge ou de remplissage adaptées à la réactivité à un élément ou à un sous-ensemble de ses côtés avec des classes abrégées. Inclut la prise en charge des propriétés individuelles, de toutes les propriétés et des propriétés verticales et horizontales.</p>
+
+<h2>Notation</h2>
+<p>Les utilitaires d'espacement qui s'appliquent à tous les points d'arrêt, de <code>xs</code> à <code>lg</code>, n'ont pas d'abréviation de point d'arrêt. Cela est dû au fait que ces classes sont appliquées à partir de <code>min-width: 0</code> et plus, et ne sont donc pas liées par une requête média. Les points d'arrêt restants incluent cependant une abréviation de point d'arrêt.</p>
+<p>Les classes sont nommées selon le format <code>{propriété}{côtés}-{grosseur}</code> pour <code>xs</code> et <code>{propriété}{côtés}-{point d'arrêt}-{grosseur}</code> pour <code>sm</code>, <code>md</code> et <code>lg</code>.</p>
+<p>Où <em>propriété</em> est l'un des éléments suivants&nbsp;:</p>
+<ul>
+	<li><code>m</code> - pour les classes qui définissent la <code>margin</code></li>
+	<li><code>p</code> - pour les classes qui définissent le <code>padding</code></li>
+</ul>
+<p>Où <em>côtés</em> est l'un des éléments suivants&nbsp;:</p>
+<ul>
+	<li><code>t</code> - pour les classes qui définissent <code>margin-top</code> ou <code>padding-top</code></li>
+	<li><code>b</code> - pour les classes qui définissent <code>margin-bottom</code> ou <code>padding-bottom</code></li>
+	<li><code>l</code> - pour les classes qui définissent <code>margin-left</code> ou <code>padding-left</code></li>
+	<li><code>r</code> - pour les classes qui définissent <code>margin-right</code> ou <code>padding-right</code></li>
+	<li><code>x</code> - pour les classes qui définissent à la fois <code>*-left</code> et <code>*-right</code></li>
+	<li><code>y</code> - pour les classes qui définissent à la fois <code>*-top</code> et <code>*-bottom</code></li>
+	<li>blank - pour les classes qui définissent une <code>margin</code> ou <code>padding</code> sur les 4 côtés de l'élément</li>
+</ul>
+<p>Où <em>grosseur</em> est l'une des valeurs suivantes&nbsp;:</p>
+<ul>
+	<li><code>0</code> - pour les classes qui éliminent la <code>margin</code> ou le <code>padding</code> en le définissant sur <code>0</code></li>
+	<li><code>1</code> - pour les classes qui définissent le <code>margin</code> ou le <code>padding</code> à <code>5px</code></li>
+	<li><code>2</code> - pour les classes qui définissent le <code>margin</code> ou le <code>padding</code> à <code>10px</code></li>
+	<li><code>3</code> - pour les classes qui définissent le <code>margin</code> ou le <code>padding</code> à <code>20px</code></li>
+	<li><code>4</code> - pour les classes qui définissez le <code>margin</code> ou le <code>padding</code> à <code>30px</code></li>
+	<li><code>5</code> - pour les classes qui définissent le <code>margin</code> ou le <code>padding</code> à <code>60px</code></li>
+	<li><code>auto</code> - pour les classes qui définissent la marge à <code>auto</code></li>
+</ul>
+
+<h3>Quelques exemples fonctionnels</h3>
+<p class="bg-primary mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<p class="bg-primary px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<p class="bg-primary mt-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<div class="d-flex">
+	<div class="col-xs-6 mx-auto"><p class="bg-primary">Lorem ipsum dolor sit amet.</p></div>
+</div>
+
+<h4>Exemple de code</h4>
+<pre><code>&lt;p class="bg-primary mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;p class="bg-primary px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;p class="bg-primary mt-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;div class="d-flex">
+	&lt;div class="col-xs-6 mx-auto">&lt;p class="bg-primary">Lorem ipsum dolor sit amet.&lt;/p>&lt;/div>
+&lt;/div></code></pre>
+
+<h2>Classes d'espacement additionnelles</h2>
+<h3><code>mrgn-{position}-{grosseur}</code></h3>
+<p>Où <em>position</em> est l'une des suivantes&nbsp;:</p>
+<ul>
+<li><code>tp</code> - pour les classes qui définissent <code>margin-top</code></li>
+<li><code>lft</code> - pour les classes qui définissent <code>margin-left</code></li>
+<li><code>rght</code> - pour les classes qui définissent <code>margin-right</code></li>
+<li><code>bttm</code> - pour les classes qui définissent <code>margin-bottom</code></li>
+</ul>
+<p>Où <em>grosseur</em> est l'une des suivantes&nbsp;:</p>
+<ul>
+<li><code>0</code> - pour les classes qui définissent une marge de <code>0px</code></li>
+<li><code>sm</code> - pour les classes qui définissent une marge de <code>5px</code></li>
+<li><code>md</code> - pour les classes qui définissent une marge de <code>15px</code></li>
+<li><code>lg</code> - pour les classes qui définissent une marge de <code>30px</code></li>
+<li><code>xl</code> - pour les classes qui définissent une marge de <code>50px</code></li>
+</ul>
+<h4>Exemples pratiques</h4>
+<p class="bg-primary mrgn-tp-0 mrgn-rght-0 mrgn-bttm-0 mrgn-lft-0">Aucune marge (en haut, en bas, à droite et à gauche)</p>
+<p class="bg-primary mrgn-tp-sm mrgn-rght-sm mrgn-bttm-sm mrgn-lft-sm">Petite marge (en haut, en bas, à droite et à gauche)</p>
+<p class="bg-primary mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">Moyenne marge (en haut, en bas, à droite et à gauche)</p>
+<p class="bg-primary mrgn-tp-lg mrgn-rght-lg mrgn-bttm-lg mrgn-lft-lg">Grande marge (en haut, en bas, à droite et à gauche)</p>
+<p class="bg-primary mrgn-tp-xl mrgn-rght-xl mrgn-bttm-xl mrgn-lft-xl">Extra grande marge (en haut, en bas, à droite et à gauche)</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="bg-primary mrgn-tp-0 mrgn-rght-0 mrgn-bttm-0 mrgn-lft-0">Aucune marge (en haut, en bas, à droite et à gauche)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-sm mrgn-rght-sm mrgn-bttm-sm mrgn-lft-sm">Petite marge (en haut, en bas, à droite et à gauche)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">Moyenne marge (en haut, en bas, à droite et à gauche)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-lg mrgn-rght-lg mrgn-bttm-lg mrgn-lft-lg">Grande marge (en haut, en bas, à droite et à gauche)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-xl mrgn-rght-xl mrgn-bttm-xl mrgn-lft-xl">Extra grande marge (en haut, en bas, à droite et à gauche)&lt;/p></code></pre>
+
+<h2>Héritage</h2>
+<p>Recommandation, ne les utilisez pas. Il s'agit de styles hérités de WET-BOEW 3 qui est toujours dans notre base de code.</p>
+
+<h3><code>margin-bottom-none</code></h3>
+<p>Retire la marge du bas.</p>
+<h4>Exemple pratique</h4>
+<p class="margin-bottom-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Exemple de code</h5>
+<pre><code>&lt;p class="margin-bottom-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-bottom-small</code></h3>
+<p>Ajoute une marge en bas de <code>.25em</code>.</p>
+<h4>Exemple pratique</h4>
+<p class="margin-bottom-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Exemple de code</h5>
+<pre><code>&lt;p class="margin-bottom-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-top-medium</code></h3>
+<p>Ajoute une marge en haut de <code>.75em</code>.</p>
+<h4>Exemple pratique</h4>
+<p class="margin-top-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Exemple de code</h5>
+<pre><code>&lt;p class="margin-top-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-top-large</code></h3>
+<p>Ajoute une marge en haut de <code>1.5em</code>.</p>
+<h4>Exemple pratique</h4>
+<p class="margin-top-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Exemple de code</h5>
+<pre><code>&lt;p class="margin-top-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
