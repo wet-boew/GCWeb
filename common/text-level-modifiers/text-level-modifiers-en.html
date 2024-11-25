@@ -1,147 +1,109 @@
 ---
 {
-	"title": "Text-Level Modifiers",
-	"language":"en",
-	"altLangPage":"text-level-modifiers-fr.html",
-	"breadcrumbs":
-		[
-			{
-				"title": "GCWeb home",
-				"link": "https://wet-boew.github.io/themes-dist/GCWeb/index-en.html"
-			}
-		],
-	"secondlevel": false,
-	"dateModified": "2024-03-06",
-	"share": "true"
+	"title": "Text-level modifiers",
+	"language": "en",
+	"altLangPage": "text-level-modifiers-fr.html",
+	"dateModified": "2024-11-25",
+	"description": "In the realm of GCweb, text-level modifiers play a pivotal role in shaping the visual and functional aspects of website text. They enable web developers to fine-tune text attributes such as size, color, weight, and style, ensuring that the textual content is not only aesthetically pleasing but also accessible and easy to read."
 }
 ---
 
-<p>In the realm of GCweb, text-level modifiers play a pivotal role in shaping the visual and
-	functional aspects of website text.They enable web developers to fine-tune text attributes such as size, color, weight, and
-	style, ensuring that the textual content is not only aesthetically pleasing but also accessible and easy to read.</p>
-<h2>Overview</h2>
-<dl class="dl-horizontal brdr-bttm">
-	<dt><code>.stretched-link</code></dt>
-	<dd>Works in conjunction with position-relative to set a link's clickable area</dd>
-	<dt><code>.small</code></dt>
-	<dd>Decreases the font size of the element</dd>
-	<dt><code>.mark</code></dt>
-	<dd>Highlights the text</dd>
-	<dt><code>.lead</code></dt>
-	<dd>Increases the font size and line height</dd>
-	<dt><code>.text-*</code></dt>
-	<dd>Changes the alignment or case of the text</dd>
-	<dt><code>.no-wrap</code></dt>
-	<dd>Prevents the text from wrapping</dd>
-	<dt><code>.fnt-nrml</code></dt>
-	<dd>Resets the font size to the default</dd>
-</dl>
+<div class="wb-prettify all-pre"></div>
+
+<p>In the realm of GCweb, text-level modifiers play a pivotal role in shaping the visual and functional aspects of website text. They enable web developers to fine-tune text attributes such as size, color, weight, and style, ensuring that the textual content is not only aesthetically pleasing but also accessible and easy to read.</p>
+
+<h2><code>.stretched-link</code></h2>
+<p>Used to make an entire containing block clickable, effectively "stretching" a hyperlink over the entire block. Make sure the element that you want to be clickable is positioned. This can be done by aping <code>position: relative</code> to an element.</p>
+<div class="position-relative">
+	<a class="stretched-link" href="#">Stretched link</a>
+</div>
+<pre><code>&lt;div <strong>class=&quot;positon-relative&quot;</strong>&gt;&lt;a <strong>class=&quot;stretched-link&quot;</strong> href="#"&gt;Stretched link&lt;/a&gt;&lt;/div&gt;</code></pre>
+
+<h2><code>.small</code></h2>
+<p>Decreases the font size of the element.</p>
+<p class="small">Example small text</p>
+<pre><code>&lt;p <strong>class=&quot;small&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h2><code>.mark</code></h2>
+<p>Highlights the text.</p>
+<p class="mark">Example highlighted text</p>
+<pre><code>&lt;p <strong>class=&quot;mark&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h2><code>.lead</code></h2>
+<p>Increases the font size and line height.</p>
+<p class="lead">
+	Example lead text
+</p>
+<pre><code>&lt;p <strong>class=&quot;lead&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h2><code>.nowrap</code></h2>
+<p>Prevents the text from wrapping.</p>
 <div class="row">
-	<div class="position-relative">
-		<h2><code>.stretched-link</code></h2>
-		<dd>Used to make an entire containing block clickable, effectively "stretching" a hyperlink over the entire block.
-			Make sure the element that you want to be clickable is positioned. This can be done by setting its CSS position to relative.</dd>
-
-		<a class="stretched-link" href="">Stretched link</a>
-		<pre><code>&lt;div <strong>class=&quot;positon-relative&quot;</strong>&gt;&lt;a <strong>class=&quot;stretched-link&quot; href=&quot;&quot;</strong>&gt;Stretched link&lt;/a&gt;&lt;/div&gt;</code></pre>
-	</div>
-	<div>
-		<h2><code>.small</code></h2>
-		<dd>Decreases the font size of the element.</dd>
-		<p class="small">
-			Example small text
-		</p>
-		<pre><code>&lt;p <strong>class=&quot;small&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-	</div>
-	<div>
-		<h2><code>.mark</code></h2>
-		<dd>Highlights the text</dd>
-		<p class="mark">
-			Example highlighted text
-		</p>
-		<pre><code>&lt;p <strong>class=&quot;mark&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-	</div>
-	<div>
-		<h2><code>.lead</code></h2>
-		<dd>Increases the font size and line height</dd>
-		<p class="lead">
-			Example lead text
-		</p>
-		<pre><code>&lt;p <strong>class=&quot;lead&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-	</div>
-	<div>
-		<h2><code>.text-*</code></h2>
-		<dd>Can be used to align text or change its case.</dd>
-		<h2>Alignment examples:</h2>
-		<div class="row">
-			<p class="text-left col-sm-6">
-				Aligned left
-			</p>
-			<pre class="text-left col-sm-6"><code>&lt;p <strong>class=&quot;text-left&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+		<div class="well">
+			<p class="nowrap">Example no wrap: xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
 		</div>
-		<div class="row">
-			<p class="text-right col-sm-6">
-				Aligned right
-			</p>
-			<pre class="text-right col-sm-6"><code>&lt;p <strong>class=&quot;text-right&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-		</div>
-		<div class="row">
-			<p class="text-center col-sm-6">
-				Aligned center
-			</p>
-			<pre class="text-center col-sm-6"><code>&lt;p <strong>class=&quot;text-center&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-		</div>
-		<div class="row">
-			<p class="text-justify col-sm-6">
-				Justified text
-			</p>
-			<pre class="text-justify col-sm-6"><code>&lt;p <strong>class=&quot;text-justify&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-		</div>
-		<div class="row">
-			<p class="text-nowrap col-sm-6">
-				No-wrap text: xxxxxxxxxxxxxxxxxxxxxxx
-			</p>
-			<pre class="text-nowrap col-sm-6"><code>&lt;p <strong>class=&quot;text-danger&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-		</div>
-
-		<h2>Transformation examples:</h2>
-		<div class="row">
-			<p class="text-lowercase col-sm-6">
-				LOWERCASE TEXT
-			</p>
-			<pre class="col-sm-6"><code>&lt;p <strong>class=&quot;text-lowercase&quot;</strong>&gt;LOWERCASE TEXT&lt;/p&gt;</code></pre>
-		</div>
-		<div class="row">
-			<p class="text-uppercase col-sm-6">
-				uppercase text
-			</p>
-			<pre class="col-sm-6"><code>&lt;p <strong>class=&quot;text-uppercase&quot;</strong>&gt;uppercase text&lt;/p&gt;</code></pre>
-		</div>
-		<div class="row">
-			<p class="text-capitalize col-sm-6">
-				capitalized text
-			</p>
-			<pre class="col-sm-6"><code>&lt;p <strong>class=&quot;text-capitalize&quot;</strong>&gt;capitalized text&lt;/p&gt;</code></pre>
-		</div>
-	</div>
-	<div>
-		<h2><code>.no-wrap</code></h2>
-		<dd>Prevents the text from wrapping</dd>
-		<p class="no-wrap">
-			Example no wrap: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-		</p>
-		<pre><code>&lt;p <strong>class=&quot;no-wrap&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
-	</div>
-	<div>
-		<h2><code>.fnt-nrml</code></h2>
-		<dd>Resets the font size to the default</dd>
-		<p>Example 1: Default font style</p>
-		<p class="fnt-nrml">Example 2: Normal font style</p>
-		<p><strong>Example 3: <em class="fnt-nrml">Normal font style</em></strong></p>
-		<p><em>Example 4: <strong class="fnt-nrml">Normal font style</strong></em></p>
-		<pre><code>&lt;p&gt;Example 1: Default font style&lt;/p&gt;</code></pre>
-		<pre><code>&lt;p <strong>class=&quot;fnt-nrml&quot;</strong>&gt;Example 2: Normal font style&lt;/p&gt;</code></pre>
-		<pre><code>&lt;p <strong>class=&quot;fnt-nrml&quot;</strong>&gt;&lt;strong&gt;Example 3: &lt;em class="fnt-nrml"&gt;Normal font style&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</code></pre>
-		<pre><code>&lt;p <strong>class=&quot;fnt-nrml&quot;</strong>&gt;&lt;em&gtExample 4: &lt;strong class="fnt-nrml"&gtNormal font style&lt;/strong&gt&lt;/em&gt&lt;/p&gt;</code></pre>
 	</div>
 </div>
+<pre><code>&lt;div class="row">
+	&lt;div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+		&lt;div class="well">
+			&lt;p <strong>class="nowrap"</strong>>Example no wrap: xxxxxxxxxxxxxxxxxxxxxxxxxxx&lt;/p>
+		&lt;/div>
+	&lt;/div>
+&lt;/div></code></pre>
+
+<h2><code>.fnt-nrml</code></h2>
+<p>Resets the <code>font-weight</code> to <code>normal</code>.</p>
+<p>The following element has a normal <strong class="fnt-nrml">[font-weight]</strong>.</p>
+<pre><code>&lt;p>The following element has a normal &lt;strong <strong>class="fnt-nrml"</strong>>[font-weight]&lt;/strong>.&lt;/p></code></pre>
+
+<h2><code>.text-*</code></h2>
+<p>Can be used to align text or change its case.</p>
+
+<h3><code>.text-nowrap</code></h3>
+<p>Prevents the text from wrapping.</p>
+<div class="row">
+	<div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+		<div class="well">
+			<p class="text-nowrap">Example text: xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+		</div>
+	</div>
+</div>
+<pre><code>&lt;div class="row">
+	&lt;div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
+		&lt;div class="well">
+			&lt;p <strong>class="text-nowrap"</strong>>Example text: xxxxxxxxxxxxxxxxxxxxxxxxxxx&lt;/p>
+		&lt;/div>
+	&lt;/div>
+&lt;/div></code></pre>
+
+<h3>Text alignment</h3>
+<h4><code>.text-left</code></h4>
+<p class="text-left">Aligned left</p>
+<pre><code>&lt;p <strong>class=&quot;text-left&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h4><code>.text-right</code></h4>
+<p class="text-right">Aligned right</p>
+<pre><code>&lt;p <strong>class=&quot;text-right&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h4><code>.text-center</code></h4>
+<p class="text-center">Aligned center</p>
+<pre><code>&lt;p <strong>class=&quot;text-center&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h4><code>.text-justify</code></h4>
+<p class="text-justify">Justified text. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas magnam odit tenetur veniam sed! Iusto adipisci eius autem magnam error. At hic alias earum, corrupti aspernatur culpa repudiandae aperiam amet labore magnam nemo praesentium a inventore accusantium quod velit quia nostrum ut aliquam ex debitis. Suscipit, inventore soluta? Aspernatur, illo!</p>
+<pre><code>&lt;p <strong>class=&quot;text-justify&quot;</strong>&gt;...&lt;/p&gt;</code></pre>
+
+<h3>Text transformation</h3>
+<h4><code>.text-lowercase</code></h4>
+<p class="text-lowercase">Lowercase Text.</p>
+<pre><code>&lt;p <strong>class=&quot;text-lowercase&quot;</strong>&gt;Lowercase Text&lt;/p&gt;</code></pre>
+
+<h4><code>.text-uppercase</code></h4>
+<p class="text-uppercase">Uppercase Text.</p>
+<pre><code>&lt;p <strong>class=&quot;text-uppercase&quot;</strong>&gt;Uppercase Text&lt;/p&gt;</code></pre>
+
+<h4><code>.text-capitalize</code></h4>
+<p class="text-capitalize">capitalize text.</p>
+<pre><code>&lt;p <strong>class=&quot;text-capitalize&quot;</strong>&gt;capitalize text&lt;/p&gt;</code></pre>
