@@ -72,6 +72,14 @@ fieldset.gc-chckbxrdio {
 			}
 		}
 
+		&:hover {
+			cursor: pointer;
+
+			+ label::before {
+				@include chckbxrdio-hover;
+			}
+		}
+
 		&:focus + label::before {
 			@include chckbxrdio-focus;
 		}
