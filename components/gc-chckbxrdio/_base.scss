@@ -38,14 +38,9 @@ fieldset.gc-chckbxrdio {
 
 	input[type="radio"],
 	input[type="checkbox"] {
-		border: 0;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		padding: 0;
-		position: absolute;
-		width: 1px;
+		margin-left: 10px;
+		opacity: 0;
+		z-index: 2;
 
 		&[disabled] + label {
 			cursor: not-allowed;
@@ -73,6 +68,14 @@ fieldset.gc-chckbxrdio {
 			}
 
 			label:hover::before {
+				@include chckbxrdio-hover;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			+ label::before {
 				@include chckbxrdio-hover;
 			}
 		}
@@ -147,6 +150,36 @@ fieldset.gc-chckbxrdio {
 
 		label {
 			padding-left: 10px;
+		}
+	}
+}
+@media (prefers-contrast: more) {
+	.gc-chckbxrdio {
+		input[type=checkbox] {
+			&:focus+label {
+				&::before {
+					border: 5px double #000;
+				}
+			}
+		}
+		input[type=radio] {
+			&:focus+label {
+				&::before {
+					border: 5px double #000;
+				}
+			}
+		}
+		input[type="radio"] {
+			&:checked {
+				+ {
+					label {
+						&::before {
+							outline: 10px solid #444;
+							outline-offset: -20px;
+						}
+					}
+				}
+			}
 		}
 	}
 }
