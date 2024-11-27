@@ -9,7 +9,7 @@ contextualFooter:
     text: Lien contextuel 2
   - url: http://canada.ca/fr
     text: Lien contextuel 3
-dateModified: 2023-12-04
+dateModified: 2024-11-20
 includes:
   footer: edge
 language:	fr
@@ -29,12 +29,13 @@ Consultez le système de conception de Canada.ca pour savoir quels éléments de
 
 ## Changements récents
 
-### Version 7.0
+### Version 8.0
 
 Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
-* Version 7.0: Ajouté "www." à l'URL du lien "<span lang="en">Canada and the world</span>".
-* Version 6.0: Changé l'URL du lien "Vétérans et militaires".
-* Version 5.0: Changement de "<span lang="en">All Contacts</span>" à "<span lang="en">All contacts</span>" dans la version anglaise.
+* Version 8.0 : Pluriel de "finance" dans "Argent et finance", mise en majuscule de "peoples" dans "<span lang="en">Indigenous peoples</span>" dans la version anglaise.
+* Version 7.0 : Ajout de "www." à l'URL de "Canada et le monde".
+* Version 6.0 : Changé l'URL du lien "Vétérans et militaires".
+* Version 5.0 : Changement de "<span lang="en">All Contacts</span>" à "<span lang="en">All contacts</span>" dans la version anglaise.
 
 Les modifications suivantes ont été apportées depuis la **version 2.0**&nbsp;:
 * Ajout d'une bande contextuelle au-dessus de la bande principale.
