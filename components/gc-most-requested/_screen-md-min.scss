@@ -11,14 +11,33 @@ div:not(.container) .gc-most-requested {
 	}
 
 	ul {
-		display: flex;
-		flex-wrap: wrap;
-		padding-left: 2.5em;
+		column-count: 2;
+		column-gap: 0;
+		margin-bottom: 0;
+		padding-left: 1.55em;
 
 		li {
-			flex-basis: 50%;
+			display: inline-block;
 			font-size: $small-size;
-			padding-right: 1.3em;
+			line-height: 1.25em;
+			margin-bottom: 10px;
+			padding-left: 1.15em;
+			padding-right: 1em;
+			position: relative;
+
+			&::before {
+				content: "\2022";
+				font-size: .8em;
+				left: 0;
+				position: absolute;
+				top: 0;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				width: 335px;
+			}
 		}
 	}
 }

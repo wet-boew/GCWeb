@@ -14,10 +14,10 @@
 		"en": "Features top tasks related to the page it is on.",
 		"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
 	},
-	"modified": "2024-02-14",
+	"modified": "2024-11-05",
 	"componentName": "gc-most-requested",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.0.1",
 	"pages": {
 		"docs": [
 			{
@@ -70,7 +70,7 @@
 				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
 			},
-			"iteration": "_:iteration_mostrequested_1",
+			"iteration": "_:iteration_mostrequested_2",
 			"example": [
 				{
 					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
@@ -86,6 +86,10 @@
 			],
 			"history": [
 				{
+					"en": "November 2024 - Items are now distributed vertically instead of horizontally.",
+					"fr": "Novembre 2024 - Les items sont maintenant distribués verticalement plutôt que horizontalement."
+				},
+				{
 					"en": "February 2024 - Initial implementation of the variation.",
 					"fr": "Février 2024 - Implémentation initiale de la variante."
 				},
@@ -99,7 +103,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_mostrequested",
-			"iteration": "_:iteration_mostrequested_1",
+			"iteration": "_:iteration_mostrequested_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -146,11 +150,30 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_mostrequested_2",
+			"name": "Most requested - Iteration 2",
+			"date": "2024-11",
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_1",
+			"fixes": [
+				"Changed display of items from flex to column-count."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_mostrequested_1",
 			"name": "Most requested - Iteration 1",
 			"date": "2024-02",
 			"detectableBy": ".gc-most-requested:not(.provisional)",
 			"predecessor": "_:iteration_mostrequested_0",
+			"successor": "_:iteration_mostrequested_2",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -169,6 +192,28 @@
 		}
 	],
 	"changesets": [
+		{
+			"@id": "_:cs_mostrequested",
+			"name": "Most requested - columns",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_mostrequested_2",
+			"detectableBy": ".gc-most-requested",
+			"layout": "On smaller screens, the title is on the top and links are stacked. On medium and larger, the title is on the left and links are distributed over two columns from top to bottom and left to right.",
+			"style": "The component has a light gray background.",
+			"semantic": "h2 + (ul > li > a)",
+			"static": [
+				"Most requested",
+				"En demande"
+			],
+			"context": "The component must not be located inside an element with the class \"container\"",
+			"schema": [
+				"arrays of 'MostRequestedLink'",
+				"'MostRequestedLink' object: [ \"task links\", \"task names\" ]"
+			],
+			"test": [
+				"<a href=\"gc-most-requested-provisional-en.html\">Most-requested (provisional)</a>"
+			]
+		},
 		{
 			"@id": "_:cs_mostrequested",
 			"name": "Most requested",
