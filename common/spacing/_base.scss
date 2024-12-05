@@ -1,0 +1,70 @@
+/*
+ *
+ * @title: Spacing
+ *
+ */
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $size, $length in $spacers {
+		.#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+		.#{$abbrev}t-#{$size},
+		.#{$abbrev}y-#{$size} {
+			#{$prop}-top: $length !important;
+		}
+		.#{$abbrev}r-#{$size},
+		.#{$abbrev}x-#{$size} {
+			#{$prop}-right: $length !important;
+		}
+		.#{$abbrev}b-#{$size},
+		.#{$abbrev}y-#{$size} {
+			#{$prop}-bottom: $length !important;
+		}
+		.#{$abbrev}l-#{$size},
+		.#{$abbrev}x-#{$size} {
+			#{$prop}-left: $length !important;
+		}
+	}
+}
+
+/*
+ * TODO TODO TODO
+ * The following styles will need to be removed in WET-BOEW:
+ * .p-0, .pl-2, .px-2, .pr-2, .px-2, .pt-4, .py-4, .pb-4, .py-4, .mt-auto
+ * TODO TODO TODO
+*/
+
+// Auto margins
+.m-auto { margin: auto !important; }
+.mt-auto,
+.my-auto {
+	margin-top: auto !important;
+}
+.mr-auto,
+.mx-auto {
+	margin-right: auto !important;
+}
+.mb-auto,
+.my-auto {
+	margin-bottom: auto !important;
+}
+.ml-auto,
+.mx-auto {
+	margin-left: auto !important;
+}
+
+// Legacy utility classes
+.margin-bottom-none {
+	margin-bottom: 0;
+}
+
+.margin-bottom-small {
+	margin-bottom: .25em;
+}
+
+.margin-top-large {
+	margin-top: 1.5em;
+}
+
+.margin-top-medium {
+	margin-top: .75em;
+}

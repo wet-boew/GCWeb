@@ -1,0 +1,125 @@
+---
+{
+	"title": "Spacing",
+	"language": "en",
+	"altLangPage": "spacing-fr.html",
+	"description": "Utility classes to add spacing between elements.",
+	"dateModified": "2024-11-22"
+}
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<p>Utility classes to add spacing between elements.</p>
+
+<p>This page showcases wet-boew utility features including some integration from Bootstrap 4.</p>
+<p>Please note that some backported Bootstrap 4 classes have been adjusted to follow Bootstrap 3.4's view breakpoints. For example, small (<code>sm</code>) view's minimum width is 768px in Bootstrap 3.4, as opposed to 576px in Bootstrap 4.</p>
+
+<h2>How it works</h2>
+<p>Assign responsive-friendly <code>margin</code> or <code>padding</code> values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties.</p>
+
+<h2>Notation</h2>
+<p>Spacing utilities that apply to all breakpoints, from <code>xs</code> to <code>lg</code>, have no breakpoint abbreviation in them. This is because those classes are applied from <code>min-width: 0</code> and up, and thus are not bound by a media query. The remaining breakpoints, however, do include a breakpoint abbreviation.</p>
+<p>The classes are named using the format <code>{property}{sides}-{size}</code> for <code>xs</code> and <code>{property}{sides}-{breakpoint}-{size}</code> for <code>sm</code>, <code>md</code>, and <code>lg</code>.</p>
+<p>Where <em>property</em> is one of:</p>
+<ul>
+	<li><code>m</code> - for classes that set <code>margin</code></li>
+	<li><code>p</code> - for classes that set <code>padding</code></li>
+</ul>
+<p>Where <em>sides</em> is one of:</p>
+<ul>
+	<li><code>t</code> - for classes that set <code>margin-top</code> or <code>padding-top</code></li>
+	<li><code>b</code> - for classes that set <code>margin-bottom</code> or <code>padding-bottom</code></li>
+	<li><code>l</code> - for classes that set <code>margin-left</code> or <code>padding-left</code></li>
+	<li><code>r</code> - for classes that set <code>margin-right</code> or <code>padding-right</code></li>
+	<li><code>x</code> - for classes that set both <code>*-left</code> and <code>*-right</code></li>
+	<li><code>y</code> - for classes that set both <code>*-top</code> and <code>*-bottom</code></li>
+	<li>blank - for classes that set a <code>margin</code> or <code>padding</code> on all 4 sides of the element</li>
+</ul>
+<p>Where <em>size</em> is one of:</p>
+<ul>
+	<li><code>0</code> - for classes that eliminate the <code>margin</code> or <code>padding</code> by setting it to <code>0</code></li>
+	<li><code>1</code> - for classes that set the <code>margin</code> or <code>padding</code> to <code>5px</code></li>
+	<li><code>2</code> - for classes that set the <code>margin</code> or <code>padding</code> to <code>10px</code></li>
+	<li><code>3</code> - for classes that set the <code>margin</code> or <code>padding</code> to <code>20px</code></li>
+	<li><code>4</code> - for classes that set the <code>margin</code> or <code>padding</code> to <code>30px</code></li>
+	<li><code>5</code> - for classes that set the <code>margin</code> or <code>padding</code> to <code>60px</code></li>
+	<li><code>auto</code> - for classes that set the <code>margin</code> to <code>auto</code></li>
+</ul>
+
+<h3>Some working examples</h3>
+<p class="bg-primary mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<p class="bg-primary px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<p class="bg-primary mt-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<div class="d-flex">
+	<div class="col-xs-6 mx-auto"><p class="bg-primary">Lorem ipsum dolor sit amet.</p></div>
+</div>
+
+<h4>Code sample</h4>
+<pre><code>&lt;p class="bg-primary mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;p class="bg-primary px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;p class="bg-primary mt-sm-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p>
+&lt;div class="d-flex">
+	&lt;div class="col-xs-6 mx-auto">&lt;p class="bg-primary">Lorem ipsum dolor sit amet.&lt;/p>&lt;/div>
+&lt;/div></code></pre>
+
+<h2>Additional spacing classes</h2>
+<h3><code>mrgn-{position}-{size}</code></h3>
+<p>Where <em>position</em> is one of:</p>
+<ul>
+	<li><code>tp</code> - for classes that set <code>margin-top</code></li>
+	<li><code>lft</code> - for classes that set <code>margin-left</code></li>
+	<li><code>rght</code> - for classes that set <code>margin-right</code></li>
+	<li><code>bttm</code> - for classes that set <code>margin-bottom</code></li>
+</ul>
+<p>Where <em>size</em> is one of:</p>
+<ul>
+	<li><code>0</code> - for classes that set a <code>margin</code> of <code>0px</code></li>
+	<li><code>sm</code> - for classes that set a <code>margin</code> of <code>5px</code></li>
+	<li><code>md</code> - for classes that set a <code>margin</code> of <code>15px</code></li>
+	<li><code>lg</code> - for classes that set a <code>margin</code> of <code>30px</code></li>
+	<li><code>xl</code> - for classes that set a <code>margin</code> of <code>50px</code></li>
+</ul>
+<h4>Working examples</h4>
+<p class="bg-primary mrgn-tp-0 mrgn-rght-0 mrgn-bttm-0 mrgn-lft-0">No margin (top, bottom, left, and right)</p>
+<p class="bg-primary mrgn-tp-sm mrgn-rght-sm mrgn-bttm-sm mrgn-lft-sm">Small margin (top, bottom, left, and right)</p>
+<p class="bg-primary mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">Medium margin (top, bottom, left, and right)</p>
+<p class="bg-primary mrgn-tp-lg mrgn-rght-lg mrgn-bttm-lg mrgn-lft-lg">Large margin (top, bottom, left, and right)</p>
+<p class="bg-primary mrgn-tp-xl mrgn-rght-xl mrgn-bttm-xl mrgn-lft-xl">Extra large margin (top, bottom, left, and right)</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="bg-primary mrgn-tp-0 mrgn-rght-0 mrgn-bttm-0 mrgn-lft-0">No margin (top, bottom, left, and right)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-sm mrgn-rght-sm mrgn-bttm-sm mrgn-lft-sm">Small margin (top, bottom, left, and right)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">Medium margin (top, bottom, left, and right)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-lg mrgn-rght-lg mrgn-bttm-lg mrgn-lft-lg">Large margin (top, bottom, left, and right)&lt;/p>
+&lt;p class="bg-primary mrgn-tp-xl mrgn-rght-xl mrgn-bttm-xl mrgn-lft-xl">Extra large margin (top, bottom, left, and right)&lt;/p></code></pre>
+
+<h2>Legacy</h2>
+<p>Recommendation, don't use them. Those are legacy style from WET-BOEW 3 that are still in our code base.</p>
+
+<h3><code>margin-bottom-none</code></h3>
+<p>Removes bottom margin.</p>
+<h4>Working example</h4>
+<p class="margin-bottom-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="margin-bottom-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-bottom-small</code></h3>
+<p>Adds a bottom margin of <code>.25em</code>.</p>
+<h4>Working example</h4>
+<p class="margin-bottom-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="margin-bottom-small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-top-medium</code></h3>
+<p>Adds a top margin of <code>.75em</code>.</p>
+<h4>Working example</h4>
+<p class="margin-top-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="margin-top-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
+
+<h3><code>margin-top-large</code></h3>
+<p>Adds a top margin of <code>1.5em</code>.</p>
+<h4>Working example</h4>
+<p class="margin-top-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.</p>
+<h5>Code sample</h5>
+<pre><code>&lt;p class="margin-top-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, magnam.&lt;/p></code></pre>
