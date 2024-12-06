@@ -1,0 +1,31 @@
+---
+title: "Pink day theme - documentation"
+language: "en"
+altLangPage: "docs-fr.html"
+category: "Templates"
+dateModified: "2024-09-11"
+---
+
+<p>Applies global template color change for the pink day color, as that property is defined on the <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> element.</p>
+
+<h2>Working examples</h2>
+<ul>
+	<li><a href="pink-day-en.html">Pink day</a></li>
+	<li><a href="pink-day-home-en.html">Pink day - home page</a></li>
+</ul>
+
+<h2>Javascript code sample to schedule the CSS addition for pink day</h2>
+<p>The following script adds the CSS class only on April 10, 2019 based on local time.</p>
+<pre><code>( function( d ) {
+"use strict";
+
+var t = new Date(),
+	msT = t.getTime(),
+	s = new Date( 2019, 3, 10, 0, 1 ),
+	e = new Date( 2019, 3, 10, 23, 59 );
+
+if ( s.getTime() &lt; msT && msT &lt; e.getTime() ) {
+	d.getElementsByTagName( "html" )[ 0 ].classList.add ("pnkDy-theme", "provisional");
+}
+
+} )( document );</code></pre>

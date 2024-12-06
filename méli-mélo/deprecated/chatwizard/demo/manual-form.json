@@ -1,0 +1,84 @@
+{
+  "header": {
+  "formType": "dynamic",
+  "method": "GET",
+  "defaultDestination": "https://google.ca",
+  "avatar": "https://wet-boew.github.io/wet-boew-documentation/research/2019-assets/bot-default-avatar.png",
+  "first":"q1",
+  "name":"example-json",
+  "form": {
+    "title":"Help us help you",
+    "instructions": "If you just want to surf the internet, go to <a href=&quot;https://google.ca&quot;>Google search</a>",
+    "sendButton":"Search now"
+  },
+  "title":"I can help you find the information you need",
+  "instructions": "If you just want to surf the internet, go to <a href=&quot;https://google.ca&quot;>Google search</a>",
+  "sendButton":"Show result",
+  "greetings":"Hi! I can help you find resources that are available to help you in your quest to find information.",
+  "farewell":"Thank you! Your personalized results are ready for you."
+  },
+  "questions":{
+  "q1":{
+    "name":"ask",
+    "input":"radio",
+    "labelForm":"It would help me out if I knew a little more about you. Are you ready?",
+    "label":"It would help me out if I knew a little more about you. Are you ready?",
+    "choices":[
+    {
+      "content":"Yes I am",
+      "value":"yes",
+      "next":"q2"
+    },
+    {
+      "content":"No",
+      "value":"no",
+      "next":"none"
+    },
+    {
+      "content":"Go straight to the point",
+      "value":"skip",
+      "next":"q3"
+    }
+    ]
+  },
+  "q2":{
+    "name":"situation",
+    "input":"radio",
+    "labelForm":"Do you have a preferred language?",
+    "label":"Do you have a preferred language?",
+    "choices":[
+    {
+      "content":"Of course",
+      "value":"yes",
+      "next":"q3"
+    },
+    {
+      "content":"No",
+      "value":"no",
+      "next":"none",
+      "url":"https://canada.ca/home.html"
+    }
+    ]
+  },
+  "q3":{
+    "name":"lang",
+    "input":"radio",
+    "labelForm":"Which one is it?",
+    "label":"Which one is it?",
+    "choices":[
+    {
+      "content":"English",
+      "value":"en",
+      "next":"none",
+      "url":"https://canada.ca/en.html"
+    },
+    {
+      "content":"Français",
+      "value":"fr",
+      "next":"none",
+      "url":"https://canada.ca/fr.html"
+    }
+    ]
+  }
+  }
+}
