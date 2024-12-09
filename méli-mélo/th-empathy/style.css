@@ -93,14 +93,14 @@ h1#wb-cont.empathy {
 	border-radius: 10px;
 }
 
-.empathy.main-content .empathy.cards:hover {
+.empathy.services-and-information .empathy.cards:hover {
     background-color: #6c3c9b;
     color: #fff;
     cursor: pointer;
 }
 
 /* Added to specifically target the link*/
-.empathy.main-content .empathy.cards:hover a {
+.empathy.services-and-information .empathy.cards:hover a {
     color: #fff;
 }
 
@@ -109,17 +109,28 @@ h1#wb-cont.empathy {
 	color: #fff;
 }
 
-/*
- Might be able to accomplish something similar by adding the purple box first and floating it right -- doesn't work in a display flex
-*/
-@media screen and (max-width: 991px) {
-    .empathy.main-content {
-    order: 1;
-    }
-}
-
 @media screen and (min-width: 992px) {
 	.empathy.quiz-img {
 	width: 100%;
         }
 }
+
+/* checklist.hmtl specific css */
+@media screen {
+	.empathy.cards details summary {
+	border: 0;
+	list-style-position: outside;
+	margin-left: 0px;
+	padding-left: 0px;
+	}
+	.empathy.cards details[open] {
+	border: 0;
+	}
+	}
+
+	@media print {
+	details[open] > summary::marker {
+	content: "\2B1C\0020";
+	display: none;
+	}
+	}
