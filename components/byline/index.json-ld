@@ -1,0 +1,204 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Institutional byline",
+		"fr": "Institution responsable"
+	},
+	"description": {
+		"en": "The institutional byline provides people with a link to the institution or institutions responsible for the content.",
+		"fr": "La signature institutionnelle fournit aux personnes un lien vers l’institution ou les institutions responsables du contenu."
+	},
+	"modified": "2024-12-10",
+	"componentName": "byline",
+	"status": "demoted",
+	"version": "1.1.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Institutional byline",
+				"language": "en",
+				"path": "byline-doc-en.html"
+			},
+			{
+				"title": "Institution responsable",
+				"language": "fr",
+				"path": "byline-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Institutional byline - default",
+				"fr": "Institution responsable - par défaut"
+			},
+			"status": "demoted",
+			"description": {
+				"en": "The institutional byline provides people with a link to the institution or institutions responsible for the content.",
+				"fr": "La signature institutionnelle fournit aux personnes un lien vers l’institution ou les institutions responsables du contenu."
+			},
+			"iteration": "_:iteration_byline_2",
+			"example": [
+				{
+					"en": { "href": "../../templates/content-page/content-en.html", "text": "Content page (byline after the main title)" },
+					"fr": { "href": "../../templates/content-page/content-fr.html", "text": "Page de contenu (institution responsable sous le titre principal)" }
+				}
+			],
+			"implementation": [
+				"_:implement_byline"
+			],
+			"history": [
+				{
+					"en": "December 2024 - Demotion of the component - Moved to the Main title component. Use the Contributors component instead.",
+					"fr": "Décembre 2024 - Composante maintenant rétrogradée - Déplacée vers la componante Titre principal. Utilisez plutôt la composante Contributeurs."
+				},
+				{
+					"en": "April 2016 - Addition of the class <code>.gc-byline</code>.",
+					"fr": "Avril 2016 - Ajout de la classe <code>.gc-byline</code>."
+				},
+				{
+					"en": "January 2016 - Initial implementation of the component.",
+					"fr": "Janvier 2016 - Implémentation initiale pde la composante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_byline",
+			"iteration": "_:iteration_byline_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Standard example:",
+						"code": "<h1>[Main title]</h1>\n<p class=\"gc-byline\">From <a href=\"#\">[Institution name]</a></p>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Standard example with &lt;strong&gt; element:",
+						"code": "<h1>[Main title]</h1>\n<p class=\"gc-byline\"><strong>From <a href=\"#\">[Institution name]</a></strong></p>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Example without \"gc-byline\" class:",
+						"code": "<h1>[Main title]</h1>\n<p><strong>From <a href=\"#\">[Institution name]</a></strong></p>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de base :",
+						"code": "<h1>[Titre principal]</h1>\n<p class=\"gc-byline\">De <a href=\"#\">[Nom de l'institution]</a></p>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de base avec élément &lt;strong&gt; :",
+						"code": "<h1>[Titre principal]</h1>\n<p class=\"gc-byline\"><strong>De <a href=\"#\">[Nom de l'institution]</a></strong></p>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple sans la classe  « gc-byline » :",
+						"code": "<h1>[Titre principal]</h1>\n<p><strong>De <a href=\"#\">[Nom de l'institution]</a></strong></p>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_byline_2",
+			"name": "Institutional byline - Iteration 2",
+			"date": "2016-04",
+			"detectableBy": "h1#wb-cont+p>strong>a",
+			"addition": [
+				"Added CSS class <code>.gc-byline</code>"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p class=\"gc-byline\"><strong>From <a href=\"#\">[Institution name]</a></strong></p>"
+				}
+			],
+			"predecessor": "_:iteration_byline"
+		},
+		{
+			"@id": "_:iteration_byline",
+			"name": "Institutional byline - Iteration 1",
+			"date": "2016-01",
+			"detectableBy": "h1#wb-cont+p>strong>a",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p><strong>From <a href=\"#\">[Institution name]</a></strong></p>"
+				}
+			],
+			"successor": "_:iteration_byline_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_byline_2",
+			"name": "Institutional byline - version 2",
+			"status": "demoted",
+			"baseOnIteration": "_:iteration_byline_2",
+			"detectableBy": ".gc-byline",
+			"guidance": "The component must be located directly after the first <h1> of the page.",
+			"style": "The whole byline is bolded.",
+			"semantic": "p>strong>a",
+			"static": [
+				"From",
+				"De"
+			],
+			"schema": [
+				"insitution name",
+				"insitution url"
+			]
+		},
+		{
+			"@id": "_:cs_byline",
+			"name": "Institutional byline",
+			"status": "demoted",
+			"baseOnIteration": "_:iteration_byline",
+			"detectableBy": "h1#wb-cont+p>strong>a",
+			"guidance": "The component must be located directly after the first <h1> of the page.",
+			"style": "The whole byline is bolded.",
+			"semantic": "p>strong>a",
+			"static": [
+				"From",
+				"De"
+			],
+			"schema": [
+				"insitution name",
+				"insitution url"
+			]
+		}
+	]
+}
