@@ -1,12 +1,11 @@
 ---
 {
 	"layout": null,
-	"title": "Content page including complete page details version 3.1 (deprecated)",
+	"title": "Content page including complete page details version 3.2 (demoted)",
 	"language": "en",
-	"altLangPage": "page-details-v3.1-fr.html",
+	"altLangPage": "page-details-v3.2-fr.html",
 	"secondlevel": false,
 	"dateModified": "2024-12-16",
-	"share": "true",
 	"feedback": "true"
 }
 ---
@@ -34,11 +33,11 @@
 <main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
 <div class="wb-prettify all-pre hidden"></div>
 <h1 id="wb-cont" property="name">{{ page-title }}</h1>
-<p>This is version 3.1 (deprecated) of the page details.</p>
+<p>This is version 3.2 (demoted) of the page details.</p>
 <pre><code>&lt;section class="pagedetails">
 	&lt;h2 class="wb-inv">Page details&lt;/h2>
 	&lt;div class="row">
-		&lt;div class="col-sm-8 col-md-9 col-lg-9">
+		&lt;div class="col-sm-8 col-md-9">
 			&lt;div data-ajax-replace="https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html" class="wb-disable-allow">&lt;!-- Will always be replaced by data-ajax -->&lt;/div>
 		&lt;/div>
 		&lt;dl id="wb-dtmd">
@@ -47,7 +46,18 @@
 		&lt;/dl>
 	&lt;/div>
 &lt;/section></code></pre>
-{% include page-details/footer-3.1.html %}
+<section class="pagedetails">
+	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
+
+	{%- if page.feedback and page.feedback != "" -%}
+	<div class="row">
+		<div class="col-sm-8 col-md-9">
+			{% include feedback/feedback.html %}
+		</div>
+	</div>
+	{%- endif -%}
+	{%- include date-modified/date-modified.html -%}
+</section>
 </main>
 {% include footers/footer.html %}
 {% include resources-inc/footer.html %}
