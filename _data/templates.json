@@ -1431,7 +1431,7 @@
 	"modified": "2024-08-27",
 	"componentName": "topic",
 	"status": "stable",
-	"version": "2.1",
+	"version": "3.0",
 	"pages": {
 		"examples": [
 			{
@@ -1522,7 +1522,7 @@
 				"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
 			},
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"example": [
 				{
 					"en": { "href": "topic-en.html", "text": "Topic page" },
@@ -1535,6 +1535,10 @@
 				"_:implement_topic_1_to_2"
 			],
 			"history": [
+				{
+					"en": "December 2024 - Contributors component moved to the page details section.",
+					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+				},
 				{
 					"en": "June 2024 - Stabilization of the version 2 of the page template.",
 					"fr": "Juin 2024 - Stabilisation de la version 2 du gabarit de page."
@@ -1560,7 +1564,7 @@
 				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
 			},
 			"guidance": "no guidance defined.",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"example": [
 				{
 					"en": { "href": "topic-stackedheader-en.html", "text": "Topic page with stacked header" },
@@ -1574,6 +1578,10 @@
 			],
 			"history": [
 				{
+					"en": "December 2024 - Contributors component moved to the page details section.",
+					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+				},
+				{
 					"en": "August 2024 - Version 1 of the stacked header variant.",
 					"fr": "août 2024 - Version 1 de la variante d'en-tête superposé."
 				}
@@ -1583,7 +1591,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_topic",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1608,7 +1616,7 @@
 		},
 		{
 			"@id": "_:implement_topic_aem",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "AEM users",
 				"fr": "Utilisateurs AEM"
@@ -1630,8 +1638,8 @@
 			"@id": "_:implement_topic_1_to_2",
 			"iteration": "_:iteration_topic_3",
 			"name": {
-				"en": "Migrate to version 2",
-				"fr": "Migration vers la version 2"
+				"en": "Migrate from version 1 to version 2",
+				"fr": "Migration de la version 1 vers la version 2"
 			},
 			"introduction": {
 				"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2 of the topic page template.",
@@ -1650,7 +1658,7 @@
 		},
 		{
 			"@id": "_:implement_topic_stackedheader",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1674,7 +1682,7 @@
 		},
 		{
 			"@id": "_:implement_topic_stackedheader_aem",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "AEM users",
 				"fr": "Utilisateurs AEM"
@@ -1696,6 +1704,15 @@
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_topic_4",
+			"name": "Topic page - Iteration 4",
+			"date": "2024-12",
+			"breaking": [
+				"Contributors component moved to the page details section."
+			],
+			"detectableBy": ".page-type-topic"
+		},
 		{
 			"@id": "_:iteration_topic_3",
 			"name": "Topic page - Iteration 3",
