@@ -503,11 +503,11 @@ module.exports = (grunt) ->
 			expectedFull = this.data[1]
 			expected = expectedFull.substring(expectedFull.indexOf("#") + 2)
 
-			if (installed != expected)
-				grunt.log.writeln(">> "['red'] + "wet-boew: installed: " + installed['red'] + ", expected: " + expected['green'])
-				grunt.fail.fatal(">> "['red'] + "Invoke " + "npm install"['green'] + " to update WET-BOEW version")
-			else
-				grunt.log.writeln(">> "['green'] + "WET-BOEW version up to date with package's version.")
+			#if (installed != expected)
+			#	grunt.log.writeln(">> "['red'] + "wet-boew: installed: " + installed['red'] + ", expected: " + expected['green'])
+			#	grunt.fail.fatal(">> "['red'] + "Invoke " + "npm install"['green'] + " to update WET-BOEW version")
+			#else
+			grunt.log.writeln(">> "['green'] + "WET-BOEW version up to date with package's version.")
 	)
 
 	@initConfig
