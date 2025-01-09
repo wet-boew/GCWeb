@@ -99,10 +99,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2024-11-21",
+	"modified": "2025-01-09",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.1",
 	"pages": {
 		"examples": [
 			{
@@ -141,7 +141,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_1",
+			"iteration": "_:iteration_allservices_2",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -162,7 +162,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_1",
+			"iteration": "_:iteration_allservices_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -188,6 +188,13 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_allservices_2",
+			"name": "All services page - Iteration 2",
+			"date": "2025-01",
+			"additions": [ "Adding expand/collapse all buttons." ],
+			"detectableBy": "Three navigation bands followed by a series of <details> elements for all goc themes and topics."
+		},
+		{
 			"@id": "_:iteration_allservices_1",
 			"name": "All services page - Iteration 1",
 			"date": "2024-11",
@@ -199,7 +206,7 @@
 			"@id": "_:cs_allservices",
 			"name": "All services page",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_allservices_1",
+			"baseOnIteration": "_:iteration_allservices_2",
 			"detectableBy": "By the sequence of elements.",
 			"semantic": "h1 + h2*3 + h1 + h2*n",
 			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
@@ -1485,6 +1492,18 @@
 				"title": "Gabarit de page de sujet",
 				"language": "fr",
 				"path": "topic-doc-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1 - GC topic template",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation d'accessibilité #1 - Gabarits de page de sujet GC",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
 			}
 		]
 	},
