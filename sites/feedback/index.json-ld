@@ -14,10 +14,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2024-07-19",
+	"modified": "2025-01-09",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.1",
+	"version": "2.0.1",
 	"pages": {
 		"docs": [
 			{
@@ -98,10 +98,20 @@
 	},
 	"dependencies": {
 		"en": [
-			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" }
+			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" },
+			{ "title": "Postback", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-en.html", "component": "postback" },
+			{ "title": "PII Scrub", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-en.html", "component": "pii-scrub" },
+			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-en.html", "component": "wb-data-json" },
+			{ "title": "JSON Manager", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-en.html", "component": "wb-json-manager" },
+			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-en.html", "component": "doaction" }
 		],
 		"fr": [
-			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" }
+			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" },
+			{ "title": "Envoie de formulaire via Ajax", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-fr.html", "component": "postback" },
+			{ "title": "Nettoyage d'IPI", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-fr.html", "component": "pii-scrub" },
+			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-fr.html", "component": "wb-data-json" },
+			{ "title": "Gestionnaire JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-fr.html", "component": "wb-json-manager" },
+			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-fr.html", "component": "doaction" }
 		]
 	},
 	"a11yGuidance": "no accessibility guidance",
@@ -393,10 +403,12 @@
 			},
 			"notes": {
 				"en": [
+					"In order for your PFT to benefit from the personal information screening tool, you have to make sure your version of WET-BOEW is at 4.0.84 or higher.",
 					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour que votre ORP puisse bénéficier de l'outil de filtrage des informations personnelles, vous devez vous assurer que votre version de WET-BOEW est supérieure ou égalse à 4.0.84.",
 					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
@@ -984,12 +996,13 @@
 	"iteration": [
 		{
 			"@id": "_:iteration_pft_2",
-			"name": "Page feedback tool - Iteration 1.1",
-			"date": "2024-07",
+			"name": "Page feedback tool - Iteration 2",
+			"date": "2025-01",
 			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
 			"fixes": [
 				"AJAX fragment: Added <code>pageData</code> to the French variant",
-				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\"."
+				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
+				"AJAX fragment: Added PII scrub of the comment field."
 			],
 			"predecessor": "_:iteration_pft_1",
 			"assets": [
