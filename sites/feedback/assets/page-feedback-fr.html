@@ -15,7 +15,35 @@
 	<div class="col-sm-10 col-md-9 col-lg-8">
 		<section class="well mrgn-bttm-0">
 			<h3 class="wb-inv">Donnez votre rétroaction sur cette page</h3>
-			<form action="https://feedback-retroaction.canada.ca/api/QueueProblemForm" method="post" class="wb-postback wb-disable-allow" data-wb-postback='{"success":".gc-pft-thnk"}'>
+			<form action="https://feedback-retroaction.canada.ca/api/QueueProblemForm" method="post" class="wb-postback wb-disable-allow wb-pii-scrub" data-wb-postback='{"success":".gc-pft-thnk"}' data-wb-pii-scrub='{"modalTemplate": "[data-pft-scrub-modal]", "scrubChar": "########"}'>
+				<template data-pft-scrub-modal>
+					<header class="modal-header">
+						<h2 class="modal-title">Les renseignements personnels dans votre commentaire ont été supprimés</h2>
+					</header>
+					<div class="modal-body">
+						<p>Les commentaires ne servent qu’à améliorer notre site Web. Vous ne recevrez aucune réponse.</p>
+						<p><strong>Afin de veiller à la protection de vos renseignements personnels, votre commentaire sera soumis comme suit&nbsp;:</strong></p>
+						<div data-scrub-modal-fields=""></div>
+						<details class="mrgn-tp-md">
+							<summary>Qu'est-ce qui est considéré comme un renseignement personnel?</summary>
+							<p>Certains renseignements <strong>ne peuvent pas</strong> être inclus dans ce formulaire de commentaire, notamment :</p>
+							<ul>
+								<li>Adresse courriel</li>
+								<li>Numéro de téléphone</li>
+								<li>Code postal</li>
+								<li>Numéro de passeport</li>
+								<li>Numéro d’entreprise</li>
+								<li>Numéro d’assurance sociale (NAS)</li>
+							</ul>
+						</details>
+					</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-link btn-block popup-modal-dismiss" data-scrub-submit="">Soumettre le commentaire</button></div>
+							<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block popup-modal-dismiss">Revenir en arrière et modifier le commentaire</button></div>
+						</div>
+					</div>
+				</template>
 				<div class="wb-disable-allow" data-wb-json='{
 					"url": "#[gc-pft]/pageData",
 					"mapping": [
@@ -71,7 +99,7 @@
 						<label for="gc-pft-prblm" class="mrgn-bttm-0"><span class="field-name">Veuillez fournir plus de détails</span></label>
 						<p id="gc-pft-prblm-note" class="mrgn-bttm-sm"><small>Vous ne recevrez pas de réponse. N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</small></p>
 						<p id="gc-pft-prblm-instruction" class="fnt-nrml small">Maximum de 300 caractères</p>
-						<textarea id="gc-pft-prblm" aria-describedby="gc-pft-prblm-note gc-pft-prblm-instruction" name="details" class="form-control full-width" maxlength="300"></textarea>
+						<textarea id="gc-pft-prblm" aria-describedby="gc-pft-prblm-note gc-pft-prblm-instruction" name="details" class="form-control full-width" maxlength="300" data-scrub-field></textarea>
 					</div>
 					<button name="helpful" value="No-Non" class="btn btn-primary">Soumettre</button>
 				</div>

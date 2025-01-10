@@ -507,6 +507,18 @@
 				"language": "fr",
 				"path": "contributors-fr.html"
 			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
 		]
 	},
 	"a11yGuidance": "No accessibility guidance.",
@@ -927,7 +939,7 @@
 }
 ,{
 	"@context": {
-		"@version": 2.1,
+		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -941,10 +953,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2024-07-19",
+	"modified": "2025-05-28",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.1",
+	"version": "2.0.1",
 	"pages": {
 		"docs": [
 			{
@@ -1035,10 +1047,20 @@
 	},
 	"dependencies": {
 		"en": [
-			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" }
+			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" },
+			{ "title": "Postback", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-en.html", "component": "postback" },
+			{ "title": "PII Scrub", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-en.html", "component": "pii-scrub" },
+			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-en.html", "component": "wb-data-json" },
+			{ "title": "JSON Manager", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-en.html", "component": "wb-json-manager" },
+			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-en.html", "component": "doaction" }
 		],
 		"fr": [
-			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" }
+			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" },
+			{ "title": "Envoie de formulaire via Ajax", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-fr.html", "component": "postback" },
+			{ "title": "Nettoyage d'IPI", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-fr.html", "component": "pii-scrub" },
+			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-fr.html", "component": "wb-data-json" },
+			{ "title": "Gestionnaire JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-fr.html", "component": "wb-json-manager" },
+			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-fr.html", "component": "doaction" }
 		]
 	},
 	"a11yGuidance": "no accessibility guidance",
@@ -1072,8 +1094,8 @@
 			],
 			"history": [
 				{
-					"en": "July 2024 - AJAX fragment: Added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
-					"fr": "Juillet 2024 - Fragment AJAX&nbsp;: Ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
+					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
+					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
 				},
 				{
 					"en": "August 2023 - Initial implementation of the variation.",
@@ -1109,6 +1131,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
+					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
+				},
 				{
 					"en": "August 2023 - Initial implementation of the variation.",
 					"fr": "Août 2023 - Implémentation initiale de la variante."
@@ -1316,24 +1342,26 @@
 			},
 			"instructions": {
 				"en": [
-					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 13.9.0 or newer of GCWeb</a> is implemented.",
+					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Ensure the <a href=\"../page-details/page-details-docs-en.html\">version 3.0 or newer of the page details</a> is implemented.",
 					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
-					"Vérifier que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 13.9.0 ou plus récente de GCWeb</a> est implémentée.",
-					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
+					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
+					"Vérifiez que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
 					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
 			"notes": {
 				"en": [
+					"In order for your PFT to benefit from the personal information screening tool, you have to make sure your version of WET-BOEW is at 4.0.84 or higher.",
 					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
+					"Pour que votre ORP puisse bénéficier de l'outil de filtrage des informations personnelles, vous devez vous assurer que votre version de WET-BOEW est supérieure ou égalse à 4.0.84.",
 					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
@@ -1386,10 +1414,12 @@
 			},
 			"instructions": {
 				"en": [
+					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Set the variable <code>feedback</code> to <code>true</code>.",
 					"Set the variable <code>feedbackData</code> to an object containing the following customizable strings:<ul><li><code>section</code>: to define the section where your page resides.</li><li><code>theme</code>: to define the theme of your page.</li></ul>"
 				],
 				"fr": [
+					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
 					"Définissez la variable <code>feedback</code> à <code>true</code>.",
 					"Définissez la variable <code>feedbackData</code> à un objet contenant les chaînes de caractères suivantes&nbsp;:<ul><li><code>section</code>: pour définir la section où réside votre page.</li><li><code>theme</code>: pour définir le thème de votre page.</li></ul>"
 				]
@@ -1472,14 +1502,14 @@
 			},
 			"instructions": {
 				"en": [
-					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 13.9.0 or newer of GCWeb</a> is implemented.",
+					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Ensure the <a href=\"../page-details/page-details-docs-en.html\">version 3.0 or newer of the page details</a> is implemented.",
 					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
-					"Vérifier que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 13.9.0 ou plus récente de GCWeb</a> est implémentée.",
-					"Vérifier que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
+					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
+					"Vérifiez que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
 					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
@@ -1542,11 +1572,13 @@
 			},
 			"instructions": {
 				"en": [
+					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Set the variable <code>feedback</code> to <code>true</code>.",
 					"Set the variable <code>feedbackContact</code> to an object containing the following properties:<ul><li><code>link</code>: to define the contact link's text.</li><li><code>url</code>: to define the contact link's URL.</li></ul>",
 					"Optionally, set the variable <code>feedbackData</code> to an object containing the following customizable strings:<ul><li><code>section</code>: to define the section where your page resides.</li><li><code>theme</code>: to define the theme of your page.</li></ul>"
 				],
 				"fr": [
+					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
 					"Définissez la variable <code>feedback</code> à <code>true</code>.",
 					"Définissez la variable <code>feedbackContact</code> à un objet contenant les propriétés&nbsp;:<ul><li><code>link</code>: pour définir le texte du lien de contact.</li><li><code>url</code>: pour définir l'URL du lien de contact.</li></ul>",
 					"Facultativement, définissez la variable <code>feedbackData</code> à un objet contenant les propriétés suivantes&nbsp;:<ul><li><code>section</code>: pour définir la section où réside votre page.</li><li><code>theme</code>: pour définir le thème de votre page.</li></ul>"
@@ -1921,12 +1953,13 @@
 	"iteration": [
 		{
 			"@id": "_:iteration_pft_2",
-			"name": "Page feedback tool - Iteration 1.1",
-			"date": "2024-07",
+			"name": "Page feedback tool - Iteration 2",
+			"date": "2025-01",
 			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
 			"fixes": [
 				"AJAX fragment: Added <code>pageData</code> to the French variant",
-				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\"."
+				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
+				"AJAX fragment: Added PII scrub of the comment field."
 			],
 			"predecessor": "_:iteration_pft_1",
 			"assets": [
@@ -1984,13 +2017,13 @@
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"></div>"
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/demoted/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"></div>"
 				},
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample with contact link",
-					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"\ndata-feedback-link=\"[Contact link text]\"\ndata-feedback-url=\"[Contact link URL]\"></div>"
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/demoted/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"\ndata-feedback-link=\"[Contact link text]\"\ndata-feedback-url=\"[Contact link URL]\"></div>"
 				},
 				{
 					"@type": "source-code",
@@ -1998,7 +2031,7 @@
 					"description": "Ajaxed-in content",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "assets/deprecated/page-feedback-v1-en.html"
+						"@value": "assets/demoted/page-feedback-v1-en.html"
 					}
 				},
 				{
@@ -2019,7 +2052,7 @@
 					"description": "Contenu ajouté via Ajax",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "assets/deprecated/page-feedback-v1-fr.html"
+						"@value": "assets/demoted/page-feedback-v1-fr.html"
 					}
 				}
 			]
