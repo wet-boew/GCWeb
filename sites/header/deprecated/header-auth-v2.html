@@ -7,7 +7,8 @@
 		"link": "#",
 		"label": "My Account",
 		"labelExtended": "Sign in to [account name]"
-	}
+	},
+	"altLangPage": "#"
 }
 ---
 {%- include variable-core.liquid -%}
@@ -36,7 +37,7 @@
 		<header>
 			<div id="wb-bnr" class="container">
 				<div class="row">
-					{% if page.altLangPage %}{% include language/inc-languagetoggle.html %}{% endif %}
+					{% if page.altLangPage %}{% include language/languagetoggle.html %}{% endif %}
 					{% include headers-includes/brand.html %}
 					{% unless page.nositesearch %}{% include headers-includes/sitesearch.html %}{% endunless %}
 				</div>
@@ -67,7 +68,7 @@
 				{%- endif -%}
 				</div>
 			</div>
-	{% include breadcrumbs/breadcrumbs.html %}
+			{% include sites/breadcrumbs/breadcrumbs-v1-en.html %}
 		</header>
 		{%- capture page-title -%}
 			{%- if page.titleH1 -%}
