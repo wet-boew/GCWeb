@@ -13,7 +13,7 @@ share: true
 <p>Ajouter la classe CSS <code>.cnt-wdth-lmtd</code> à l'élément de section <code>&lt;section class="cnt-wdth-lmtd"&gt;...&lt;section&gt;</code> à l'intérieur du contenu principal de votre page. De plus amples renseignements sont disponibles dans la spécification du contenu et de l'architecture de l'information pour Canada.ca.</p>
 <section class="cnt-wdth-lmtd">
 	<h3>Exemple de section avec une largeur de contenu limitée</h3>
-	<p>Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent.</p>
+	<p>Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Ceci est un très long mot intergouvernementalisationsintergouvernementalisations.</p>
 </section>
 <h2 id="call-to-action">Bouton d'appel à l'action</h2>
 <p>Ajouter la classe CSS <code>.btn-call-to-action</code> à votre bouton ou lien qui definie l'appel à l'action principal de la page. Par example le bouton ou le lien de lancement d'une page de lancements d'un service. De plus amples renseignements sont disponibles dans la spécification du contenu et de l'architecture de l'information pour Canada.ca.</p>
