@@ -1,0 +1,13 @@
+//	Empathy thematic
+@use "../th-journeylab/journeylab.scss";
+
+$themeName: 'empathy';
+$themePrimaryColor: #5c2790;
+$themeSecondaryColor: #d6b9ec;
+
+@include journeyGeneric($themeName, $themePrimaryColor, $themeSecondaryColor);
+@include journeyButtons($themeName, $themePrimaryColor, $themeSecondaryColor);
+
+.#{$themeName} {
+	@include journeyComponents($themeName, #themePrimaryColor, #themeSecondaryColor);
+}
