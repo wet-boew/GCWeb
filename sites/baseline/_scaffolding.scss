@@ -7,6 +7,10 @@
  *
  */
 
+%gcweb-scaffolding-word-break-break-word {
+	word-break: break-word;
+}
+
 //
 // Apply baseline font styling
 // For the font smooth, read the justification here: https://wet-boew.github.io/themes-dist/GCWeb/gcweb-theme/index.html#antialiasing
@@ -22,7 +26,19 @@ main {
 	line-height: 1.65em;
 
 	h1, h2, h3, h4, h5, h6, p {
-		word-break: break-word;
+		@extend %gcweb-scaffolding-word-break-break-word;
+	}
+
+	table {
+		caption {
+			p {
+				@extend %gcweb-scaffolding-word-break-break-word;
+			}
+		}
+
+		p {
+			word-break: initial;
+		}
 	}
 }
 
