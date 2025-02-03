@@ -24,7 +24,7 @@
             if (elm) {
                 $elm = $(elm);
 
-                // Check if there is already a gcweb menu. 
+                // Check if there is already a gcweb menu.
                 // If there are 2 present, the global GCWeb menu is present, hide this custom menu
                 var gcWebMenus = document.querySelectorAll(".gcweb-menu");
                 if (gcWebMenus.length > 1) {
@@ -34,7 +34,7 @@
                     return;
                 }
 
-                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs 
+                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs
                 var megamenuExists = document.querySelector("#wb-sm");
                 if (megamenuExists != undefined || megamenuExists != null) {
                     console.warn(componentName + " - megamenu already exsits on the page, aborting");
@@ -63,7 +63,7 @@
                     // Build list item without a submenu
                     let href = anchor.getAttribute('href');
                     let linkText = anchor.textContent;
-                    megamenuHTML += `<li><a href="${href}">${linkText}</a></li>`;
+                    megamenuHTML += `<li role="none"><a href="${href}">${linkText}</a></li>`;
                 });
 
                 // Get GCWeb h2
@@ -72,7 +72,7 @@
                 var megamenuAjaxReplace = $elm[0].getAttribute('data-megamenu-ajax');
 
 				var megamenuColorClass = "";
-                
+
                 if ($elm[0].hasAttribute('data-megamenu-bg-color')) {
                     megamenuColorClass = $elm[0].getAttribute('data-megamenu-bg-color');
                 }
@@ -80,9 +80,9 @@
                 // Wrap menu HTML with the megamenu wrapper
                 // NOTE: Removed role="navigation" (redundant) and typeof="SiteNavigationElement" (not required)
                 megamenuHTML = `
-                <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg ${megamenuColorClass}" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
+                <nav aria-labelledby="megaMenu" id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg ${megamenuColorClass}" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
                     <div class="pnl-strt nvbar">
-                        <h2>${gcwebMenuH2.textContent}</h2>
+                        <h2 id="megaMenu">${gcwebMenuH2.textContent}</h2>
                         <ul role="menubar" class="list-inline menu">
                             ${megamenuHTML}
                         </ul>
