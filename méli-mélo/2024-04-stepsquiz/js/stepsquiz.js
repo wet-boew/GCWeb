@@ -15,25 +15,25 @@ progressLabel = "Questionnaire progress:";
 if ( wb.lang === "fr" ) {
 	relpreposition = " de ";
 	progressLabel = "Progression du questionnaire : ";
+
 }
+
 
 //Detect the enhancement of the quiz
-var quizSelector = ".provisional.wb-steps.quiz";
+var quizSelector = ".provisional.wb-steps.quiz",
+	instances = document.querySelectorAll( quizSelector );
 
-//Initialize all instances
-var init = function( e ) {
-	let $instance = $( e.currentTarget );
+//How many quiz instances in the page
+instances.forEach ( ( instance ) => {
+	let $instance = $( instance );
 
 	// Calculate number of questions
-	let numQuestion = $( ".steps-wrapper", $instance ).length;
+	let numQuestion = $( "fieldset", $instance ).length;
 
 	// Addition to UI (Ex: progress bar)
-	if ( !$.contains( $instance, "progress" ) ) {
-		$( "form", $instance ).prepend( "<label class='full-width'><span class='wb-inv'>" + progressLabel + "</span><progress class='progressBar' max='" + numQuestion + "'></progress><p class='progressText' role='status'></p></label>" );
-	}
+	( "form", $instance ).prepend( "<label><span class='wb-inv'>" + progressLabel + "</span><progress class='progressBar' max='" + numQuestion + "'></progress><p class='progressText' role='status'></p></label>" );
 
-	hideOtherSteps( e );
-}
+});
 
 var hideOtherSteps = function( e ) {
 	// Get wb-steps component
@@ -42,6 +42,7 @@ var hideOtherSteps = function( e ) {
 
 	if ( currentElement.classList.contains( "quiz" ) && currentElement.classList.contains( "wb-steps" ) ) {
 		steps = currentElement;
+
 	} else {
 		steps = $( currentElement ).parentsUntil( quizSelector ).parent().get( 0 );
 	}
@@ -76,6 +77,6 @@ var hideOtherSteps = function( e ) {
 $( document ).on( "click", quizSelector + " .steps-wrapper div.buttons > :button", hideOtherSteps );
 
 //Init
-$( quizSelector ).on( "wb-ready.wb-steps", init );
+$( quizSelector ).on( "wb-ready.wb-steps", hideOtherSteps );
 
 } )( jQuery, document );

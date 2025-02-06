@@ -4,7 +4,7 @@ lang: en
 title: Vitality theme
 description: Background colours used for vitality.
 componentName: th-vitality
-expiry: November 30, 2024
+expiry: November 30, 2025
 mainPage: vitality.html
 cssClass:
 - vitality
