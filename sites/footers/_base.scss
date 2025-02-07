@@ -7,18 +7,18 @@
 	z-index: 5;
 
 	h3 {
-		margin-bottom: 1em;
+		font-size: 1.625rem;
+		margin-bottom: 1.5rem;
 		margin-top: 0;
 	}
 
 	a {
-		font-size: .875em;
 		text-decoration: none;
 	}
 
 	nav {
-		padding-bottom: 1em;
-		padding-top: 1.4em;
+		padding-bottom: .75rem;
+		padding-top: 2.25rem;
 		position: relative;
 
 		ul[class*="colcount-"] {
@@ -26,7 +26,7 @@
 		}
 
 		li {
-			margin-bottom: .75em;
+			margin-bottom: 1.5rem;
 		}
 	}
 
@@ -47,34 +47,22 @@
 		}
 	}
 
-	.gc-main-footer, .landscape { // ".landscape" to support footer v2.0
+	.gc-main-footer {
 		background: #26374a url(../assets/landscape.png) no-repeat right bottom;
 		color: #fff;
 
-		/* Start: to support footer version 2.0 (with gcweb v4.0.22) */
-		nav h2.wb-inv + ul {
-			padding-bottom: 1em;
-			padding-top: .6em;
-		}
-		/* END */
-
 		h4 {
-			margin-top: 2em;
+			margin-bottom: 2rem;
+			margin-top: 1.75rem;
 			position: relative;
 
 			&::before {
 				border-bottom: 4px solid #fff;
 				content: "";
 				display: block;
-				left: 0;
 				position: absolute;
-				top: -1.5em;
-				width: 2.25em;
-
-				[dir=rtl] & {
-					left: auto;
-					right: 0;
-				}
+				top: -1.5rem;
+				width: 40px;
 			}
 		}
 
@@ -87,10 +75,10 @@
 		}
 	}
 
-	.gc-sub-footer, .brand { // ".brand" to support footer v2.0
+	.gc-sub-footer {
 		background: #f8f8f8;
 		color: #333;
-		padding: 1.5em 0 2em;
+		padding: 1.5rem 0 2rem;
 
 		object,
 		img {
@@ -104,7 +92,6 @@
 			padding-top: 0;
 
 			ul {
-				display: inline-block; // To support footer v3.0
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -112,115 +99,14 @@
 				li {
 					display: inline-block;
 					margin-bottom: 0;
-					margin-right: .5em;
-
-					[dir=rtl] & {
-						margin-left: .5em;
-						margin-right: 0;
-					}
+					margin-inline-end: .5rem;
 
 					&:not(:first-child)::before {
 						content: "\2022";
-						margin-right: .7em;
-
-						[dir=rtl] & {
-							margin-left: .7em;
-							margin-right: 0;
-						}
+						margin-inline-end: .7rem;
 					}
 				}
 			}
-
-			/* START: To support footer v3.0 */
-			h4 {
-				margin: 0;
-			}
-
-			ul + h4 {
-				display: inline-block;
-				margin: 0;
-
-				&::before {
-					border: 1px solid #333;
-					border-width: 0 0 0 1px;
-					content: "";
-					display: block;
-					height: 1em;
-					margin: 0 .75em 0 .4em;
-					position: relative;
-					top: .1875em;
-				}
-			}
-			/* END */
 		}
-
-		.wtrmrk {
-			text-align: right;
-
-			[dir=rtl] & {
-				text-align: left;
-			}
-		}
-
-		/* START: To support footer <= v2.0 */
-		.row {
-			ul {
-				list-style-type: none;
-				margin-bottom: 0;
-				padding: 0;
-				padding-top: 1em;
-
-				li {
-					display: inline-block;
-					margin-right: .5em;
-
-					[dir=rtl] & {
-						margin-left: .5em;
-						margin-right: 0;
-					}
-
-					&:not(:first-child):before {
-						content: "\2022";
-						margin-right: .75em;
-
-						[dir=rtl] & {
-							margin-left: .75em;
-							margin-right: 0;
-						}
-					}
-				}
-			}
-
-			nav {
-				padding-bottom: 0;
-				padding-top: 0;
-			}
-		}
-
-		.tofpg {
-			line-height: 40px;
-
-			a {
-				color: #000;
-
-				span {
-					margin-left: 25px;
-				}
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-
-			[dir=rtl] & {
-				float: right;
-
-				a span {
-					margin-left: 0;
-					margin-right: 10px;
-				}
-			}
-		}
-		/* END */
 	}
 }
