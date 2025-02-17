@@ -5,7 +5,9 @@
 {%- if page.script.first -%}
 	{%- for js in page.script -%}
 		{%- if js.first -%}
-			<script src="{{ js.src }}" integrity="{{ js.integrity }}" crossorigin="anonymous"></script>
+			{% assign jsType = js.type %}
+			{% assign jsIntegrity = js.integrity %}
+			<script src="{{ js.src }}"{% if jsType %} type="{{ jsType }}"{% endif %}{% if jsIntegrity %} integrity="{{ jsIntegrity }}" crossorigin="anonymous"{% endif %}></script>
 		{%- elsif js -%}
 			<script src="{{ js }}"></script>
 		{%- endif -%}
