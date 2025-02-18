@@ -87,6 +87,8 @@ css:
 			<dd>Plutôt stable, mais expérimental; utilisez à vos risques et périls.</dd>
 			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
 			<dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
+      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
+			<dd>Utilisation non recommandée puisque ce sera obsolète à la prochaine version manjeure.</dd>
 			<dt><span class="label label-default">Défaut</span></dt>
 			<dd>Manque le statut dans la documentation de la composante.</dd>
 			<!--<dt><span class="label label-success">Conforme</span></dt>
@@ -118,6 +120,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% elsif component.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+				{% elsif component.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
@@ -207,6 +211,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% elsif template.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+				{% elsif template.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
@@ -401,6 +407,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
 				{% elsif item.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
@@ -489,6 +497,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
 				{% elsif item.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
 				{% endif %}
@@ -577,6 +587,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
 				{% elsif wetboew.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
+				{% elsif wetboew.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
