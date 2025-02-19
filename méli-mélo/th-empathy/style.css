@@ -43,6 +43,10 @@ h1#wb-cont.empathy {
 	border-right-width: 0;
 	border-top-width: 0;
 }
+/* Thematic text color */
+.text-empathy {
+	color: #5C2790;
+}
 
 /*  Thematic Steps Quiz */
 
@@ -83,4 +87,54 @@ h1#wb-cont.empathy {
 .empathy.provisional.wb-steps.quiz .wb-tggle-fildst > legend.wb-steps-active {
     color: #5c2790;;
 
+}
+
+/* Thematic Journey Labs homepage layout */
+
+.empathy.cards {
+	padding: 20px;
+	box-shadow: 0px 2px 3px 0px #cccccc;
+	border-radius: 10px;
+}
+
+.empathy.services-and-information .empathy.cards:hover {
+    background-color: #6c3c9b;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Added to specifically target the link*/
+.empathy.services-and-information .empathy.cards:hover a {
+    color: #fff;
+}
+
+.empathy.quiz-content {
+	background-color: #6c3c9b;
+	color: #fff;
+}
+
+@media screen and (min-width: 992px) {
+	.empathy.quiz-img {
+	width: 100%;
+        }
+}
+
+/* checklist.hmtl specific css */
+@media screen {
+	.empathy.cards details summary {
+	border: 0;
+	list-style-position: outside;
+	margin-left: 0px;
+	padding-left: 0px;
+	}
+	.empathy.cards details[open] {
+	border: 0;
+	}
+}
+
+@media print {
+	details[open] > summary::marker {
+	content: "\2B1C\0020";
+	display: none;
+	}
 }

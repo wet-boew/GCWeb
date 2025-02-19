@@ -20,5 +20,12 @@ pages:
       language: en
       path: empathy.html
 sponsor: ESDC - Principal Publisher
+
+changes:
+  - date: 2024-12-02
+    description: Life Journey home page layout, includes the code and an example to enable the home page layout to be used by current and future Life Journey projects
+    departmentImpact: Having this layout intergrated will allow Canada.ca to have a more streamlined and consistent theme throughout the Journey Labs projects. Currently the pages that make use of this layout have it hardcoded into the page
+    publicImpact: The Public at Large, the layout makes it easy for users to know that they are currently on a Journey Labs project page
+
 output: false
 ---
