@@ -4,7 +4,7 @@ lang: en
 title: Empathy theme
 description: Background colours used for empathy.
 componentName: th-empathy
-expiry: November 30, 2024
+expiry: November 30, 2025
 mainPage: empathy.html
 cssClass:
 - empathy
