@@ -1,0 +1,296 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Contributors",
+		"fr": "Collaborateurs"
+	},
+	"description": {
+		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
+		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
+	},
+	"modified": "2024-12-13",
+	"componentName": "contributors",
+	"status": "stable",
+	"version": "1.1",
+	"pages": {
+		"docs": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "contributors-doc-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "contributors-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "contributors-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "contributors-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Contributors - default",
+				"fr": "Collaborateurs - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Links to institutions or organizations that support the content on the page.",
+				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
+			},
+			"iteration": "_:iteration_contributors_3",
+			"example": [
+				{
+					"en": { "href": "contributors-en.html", "text": "Contributors" },
+					"fr": { "href": "contributors-fr.html", "text": "Collaborateurs" }
+				},
+				{
+					"en": { "href": "demoted/contributors-v1-en.html", "text": "Demoted as of GCWeb v16.2.0 - Contributors version 1.0" },
+					"fr": { "href": "demoted/contributors-v1-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Collaborateurs 1.0" }
+				}
+			],
+			"implementation": [
+				"_:implement_contributors",
+				"_:implement_contributors_gcweb",
+				"_:implement_contributors_migrate_1_to_1.1"
+			],
+			"history": [
+				{
+					"en": "December 2024 - Component context of use changed from anywhere in the <code>&lt;main></code> to the page details section.",
+					"fr": "Décembre 2024 - Le contexte d'utilisation de la composante a changé de n'importe où dans le <code>&lt;main></code> à la section détails de la page."
+				},
+				{
+					"en": "May 2024 - Stabilizing component.",
+					"fr": "Mai 2024 - Stabilisation du composant."
+				},
+				{
+					"en": "January 2021 - Initial provisional implementation to gather user experience data.",
+					"fr": "Janvier 2021 - Implémentation provisoire initiale pour recueillir des données sur l'expérience utilisateur."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_contributors",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample.",
+					"The component must be located inside the Page details component and use the <a href=\"../page-details/page-details-docs-en.html\">Page details component version 3.3</a> or higher."
+				],
+				"fr": [
+					"Référez-vous au code qui suit.",
+					"La composante doit être située à l'intérieur de la composante Détails de la page et utiliser la <a href=\"../page-details/page-details-docs-fr.html\">version 3.3 ou supérieure de la composante Détails de la page</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>De&nbsp;:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_contributors_gcweb",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"To show the page's contributors, in the page's front-matter, set the property <code>contributors</code> to an array of objects containing the following properties: <code>name</code> and <code>url</code>."
+				],
+				"fr": [
+					"Pour afficher les contributeurs de la page, dans l'en-tête de la page, définissez la propriété <code>contributors</code> à un tableau d'objets contenant les propriétés suivantes&nbsp;: <code>name</code> et <code>url</code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "\"contributors\": [\n\t{ \"name\": \"[Department or agency 1]\", \"url\": \"https://www.canada.ca/en\" },\n\t{ \"name\": \"[Department or agency 2]\", \"url\": \"https://www.canada.ca/en\" }\n]"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code:",
+						"code": "\"contributors\": [\n\t{ \"name\": \"[Ministère ou agence 1]\", \"url\": \"https://www.canada.ca/fr\" },\n\t{ \"name\": \"[Ministère ou agence 2]\", \"url\": \"https://www.canada.ca/fr\" }\n]"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_contributors_migrate_1_to_1.1",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "Migrate from version 1 to 1.1",
+				"fr": "Migration de la version 1 à 1.1"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers or publishers trying to migrate their page from using the contributors version 1.0 to 1.1.",
+				"fr": "Cette implémentation est destinée aux développeurs ou aux éditeurs qui tentent de migrer leur composante contributeurs de la version 1.0 vers la version 1.1."
+			},
+			"instructions": {
+				"en": [
+					"Move the contributors component directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code> located inside the <code>&lt;section class=\"pagedetails\"&gt;</code> section.",
+					"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
+				],
+				"fr": [
+					"Déplacez la composante contributeurs directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code> situé à l'intérieur de la section <code>&lt;section class=\"pagedetails\"&gt;</code>.",
+					"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"This version of the component <strong>must</strong> now be located inside the Page details component <strong>version 3.3</strong>."
+				],
+				"fr": [
+					"Cette version de la composante <strong>doit</strong> être incluse dans la composante Détails de la page <strong>version 3.3</strong>."
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_contributors_3",
+			"name": "Contributors - Iteration 3",
+			"date": "2024-12",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"breaking": [
+				"Changed context of use in the page. The component must be located in the page details section above the date modified component.",
+				"<h2> changed to <h3>."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_2"
+		},
+		{
+			"@id": "_:iteration_contributors_2",
+			"name": "Contributors - Iteration 2",
+			"date": "2024-05",
+			"detectableBy": ".gc-contributors:not(.provisional)",
+			"additions": [
+				"Stabilized component"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_1",
+			"successor": "_:iteration_contributors_3"
+		},
+		{
+			"@id": "_:iteration_contributors_1",
+			"name": "Contributors - Iteration 1",
+			"date": "2021-01",
+			"detectableBy": ".provisional.gc-contributors",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"provisional gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"successor": "_:iteration_contributors_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1.1",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_3",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h3+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded.",
+			"context": "Located in the page details section of the page above the date modified component.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		},
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1",
+			"status": "demoted",
+			"baseOnIteration": "_:iteration_contributors_2",
+			"detectableBy": ".gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h2+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded.",
+			"context": "Located within the main section of the page",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			],
+			"test": [
+				"<a href=\"demoted/contributors-v1-en.html\">Contributors version 1</a>",
+				"<a href=\"demoted/contributors-v1-fr.html\">Contributeurs version 1</a>"
+			]
+		}
+	]
+}
