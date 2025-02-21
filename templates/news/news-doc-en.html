@@ -3,7 +3,7 @@ title: Documentation about News template
 description: Documentation and working examples for the News template.
 language: en
 altLangPage: news-doc-fr.html
-dateModified: 2024-12-19
+dateModified: 2025-02-21
 share: true
 ---
 
@@ -35,6 +35,7 @@ share: true
 	<li>Version 4.0:
 		<ul>
 			<li>Changed paragraph above news items.</li>
+			<li>Added basic HTML list of links.</li>
 			<li>Changed paragraph below news items.</li>
 		</ul>
 	</li>
@@ -52,8 +53,6 @@ share: true
 <dl>
 	<dt>Version 3.0</dt>
 	<dd><a href="deprecated/news_v3-en.html">News landing page template - Version 3.0</a></dd>
-	<dt>Version 2.0</dt>
-	<dd><a href="deprecated/news_v2-en.html">News landing page template - Version 2.0</a></dd>
 </dl>
 
 <h2>Transition from version 3.0 to 4.0</h2>
@@ -68,13 +67,13 @@ share: true
 		Change paragraph below news items from:<br>
 		<pre><code>&lt;p>To access all articles, please visit the &lt;a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html">advanced search&lt;/a>.&lt;/p></code></pre>
 		to:<br>
-		<pre><code>&lt;p class="text-center nojs-hide">&lt;a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html">Access all news products&lt;/a>&lt;/p></code></pre>
+		<pre><code>&lt;p class="text-center nojs-hide">&lt;a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html">All news products&lt;/a>&lt;/p></code></pre>
 	</li>
-	<li>Add the following block right after the first paragraph (before the news products table):
-		<pre><code>&lt;div class="nojs-show">&lt;p>News products are not available in basic HTML view. You can either:&lt;/p>
+	<li>Add the following block right after the first paragraph, before the news products table (only visible in basic HTML):
+		<pre><code>&lt;div class="nojs-show">&lt;p>While using basic HTML visit:&lt;/p>
 			&lt;ul>
-				&lt;li>&lt;a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html">Access all news products&lt;/a> or&lt;/li>
-				&lt;li>&lt;a href="https://www.canada.ca/en/news/advanced-news-search.html">Perform an advanced search&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="https://www.canada.ca/en/news/advanced-news-search/news-results.html">All news products&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="https://www.canada.ca/en/news/advanced-news-search.html">News search&lt;/a>&lt;/li>
 			&lt;/ul>
 		&lt;/div></code></pre>
 	</li>
