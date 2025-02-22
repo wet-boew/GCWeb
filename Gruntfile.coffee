@@ -29,7 +29,6 @@ module.exports = (grunt) ->
 		"dist"
 		"Build distribution files ready for production"
 		[
-			"checkDependencies"
 			"check-wet-version"
 			"test"
 			"jekyll-theme"
@@ -43,7 +42,6 @@ module.exports = (grunt) ->
 		"debug"
 		"Build a local working copy"
 		[
-			"checkDependencies"
 			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
@@ -78,7 +76,6 @@ module.exports = (grunt) ->
 		"méli-mélo"
 		"Build méli-mélo files and run it in-place"
 		[
-			"checkDependencies"
 			"check-wet-version"
 			"jekyll-theme"
 			"jekyll-theme-runLocal"
@@ -529,12 +526,6 @@ module.exports = (grunt) ->
 		méliméloFolder: "méli-mélo-demos"
 		curMéliPack: "mélimélo.js"
 		curMéliLibs: [ ]
-
-		checkDependencies:
-			all:
-				options:
-					npmInstall: false
-					checkGitUrls: true
 
 		"check-wet-version":
 			src: ["<%= pkgWET.version %>", "<%= pkg.dependencies['wet-boew'] %>"]
