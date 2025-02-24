@@ -1,0 +1,35 @@
+---
+{
+	"breadcrumbs": [
+		{ "title": "Feedback area - Documentation", "link": "sites/feedback/feedback-docs-en.html" }
+	],
+	"dateModified": "2025-02-26",
+	"description": "GC Feedback example for Canada.ca when the server is down.",
+	"language": "en",
+	"title": "GC Feedback when end-point is down",
+	"feedback": "true",
+	"feedbackData": {
+		"theme": "Theme",
+		"section": "Section"
+	},
+	"feedbackPath": "assets/page-feedback-down.html"
+}
+---
+
+<div class="wb-prettify all-pre hide"></div>
+
+<p>Note: This working example is only available in English as it is for testing purposes only. It is used to test the behaviour of the Page feedback tool when the form's end point is down.</p>
+
+<p>HTML code in the web page</p>
+<pre><code>&lt;div class="wb-disable-allow"
+	data-ajax-replace="https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html"
+	data-feedback-section="Section"
+	data-feedback-theme="Theme"&gt;&lt;/div&gt;</code></pre>
+
+<details>
+	<summary>Ajaxed-in content source code</summary>
+	<p>Note: This working example page loads a local copy of the feedback form for testing purposes only. Institutions are asked to load the centralized feedback form at this web address: <code>https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html</code>.</p>
+{% highlight text %}
+{% include_relative assets/page-feedback-down.html %}
+{% endhighlight %}
+</details>
