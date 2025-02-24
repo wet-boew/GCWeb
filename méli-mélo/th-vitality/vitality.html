@@ -28,8 +28,18 @@ layout: without-h1
     <dt><code>.vitality</code></dt>
     <dd>When applied to the <code>&lt;h1&gt;</code> element it sets a green underline to the title element of the page.</dd>
     <dd>When applied to the Steps Quiz along with the <code>wb-steps</code> and <code>quiz</code> it set the thematic colors to the navigation buttons, the progress bar and to the <code>&lt;legend&gt;</code> text.</dd>
-    <dt><code>.btn-vitality</code></dt>
+    <dt><code>.cards</code></dt>
+    <dd>Cards can be used with <code>.light-hover</code> or <code>.dark-hover</code> to change the colours on hover or active states.</dd>
+	<dt><code>.text-vitality</code></dt>
+    <dd>Style the content with the primary thematic color.</dd>
+	<dt><code>.bg-vitality</code></dt>
+    <dd>Style the content's background with the primary thematic color.</dd>
+	<dt><code>.bg-vitality-light</code></dt>
+    <dd>Style the content's background with the secondary thematic color.</dd>
+	<dt><code>.btn-vitality</code></dt>
     <dd>Along with <code>.btn-primary</code> or <code>.btn-default</code>, set a green colour thematic to buttons.</dd>
+	<dt><code>.printable-checklist</code></dt>
+    <dd>Shows checkboxes besides summary elements that have an open state in print view.</dd>
 </dl>
 
 <h2>Examples</h2>
@@ -38,10 +48,64 @@ layout: without-h1
 <h4>Code</h4>
 <pre><code>&lt;h1 property="name" id="wb-cont" class="vitality"&gt;&lt;-- Page title --&gt;&lt;/h1&gt;</code></pre>
 
-<h3>Green Button</h3>
-<button class="btn btn-primary btn-vitality" type="button">Button</button>
+<h3>Cards</h3>
+<p>Example of cards used in a grid layout.</p>
+<div class="row">
+	<div class="col-xs-12 col-md-4">
+		<div class="cards">
+			<h4><a href="#" class="stretched-link">Default card title</a></h4>
+			<p>Default card content</p>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div class="cards light-hover">
+			<h4><a href="#" class="stretched-link">Light card with hover</a></h4>
+			<p>Default card content</p>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div class="cards dark-hover">
+			<h4><a href="#" class="stretched-link">Dark card with hover</a></h4>
+			<p>Default card content</p>
+		</div>
+	</div>
+</div>
 <h4>Code</h4>
-<pre><code>&lt;button class="btn btn-primary btn-vitality" type="button"&gt;Button&lt;/button&gt;</code></pre>
+<pre><code>&lt;div class="row"&gt;
+	&lt;div class="col-xs-12 col-md-4"&gt;
+		&lt;div class="cards"&gt;
+			&lt;h4&gt;&lt;a href="#" class="stretched-link"&gt;Default card title&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Default card content&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-xs-12 col-md-4"&gt;
+		&lt;div class="cards light-hover"&gt;
+			&lt;h4&gt;&lt;a href="#" class="stretched-link"&gt;Light card with hover&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Default card content&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-xs-12 col-md-4"&gt;
+		&lt;div class="cards dark-hover"&gt;
+			&lt;h4&gt;&lt;a href="#" class="stretched-link"&gt;Dark card with hover&lt;/a&gt;&lt;/h4&gt;
+			&lt;p&gt;Default card content&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Green text</h3>
+<p class="text-vitality">This is green text</p>
+<h4>Code</h4>
+<pre><code>&lt;p class="text-vitality"&gt;This is green text&lt;/p&gt;</code></pre>
+
+<h3>Green background</h3>
+<p class="bg-vitality">This is on a green backgroud</p>
+<h4>Code</h4>
+<pre><code>&lt;p class="bg-vitality"&gt;This is on a green backgroud&lt;/p&gt;</code></pre>
+
+<h3>Light green background</h3>
+<p class="bg-vitality-light">This is on a light green backgroud</p>
+<h4>Code</h4>
+<pre><code>&lt;p class="bg-vitality-light"&gt;This is on a light green backgroud&lt;/p&gt;</code></pre>
 
 <h3>Light Green Button</h3>
 <button class="btn btn-default btn-vitality" type="button">Button</button>
@@ -92,3 +156,34 @@ layout: without-h1
 <pre><code>&lt;div class="wb-frmvld provisional wb-steps quiz vitality panel-body"&gt;
     &lt;!-- Steps Form --&gt;
 &lt;/div&gt;</code></pre>
+
+<h3>Open summary elements with checkboxes in print view</h3>
+<ul class="printable-checklist">
+	<li>
+		<details>
+			<summary>Item 1 to do</summary>
+			<p>Description of what needs to be done.</p>
+		</details>
+	</li>
+	<li>
+		<details>
+			<summary>Item 2 to do</summary>
+			<p>The expanded summaries will have a checkbox besides them on print media.</p>
+		</details>
+	</li>
+</ul>
+<h4>Code</h4>
+<pre><code>&lt;ul class="printable-checklist"&gt;
+	&lt;li&gt;
+		&lt;details&gt;
+			&lt;summary&gt;Item 1 to do&lt;/summary&gt;
+			&lt;p&gt;Description of what needs to be done.&lt;/p&gt;
+		&lt;/details&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;details&gt;
+			&lt;summary&gt;Item 2 to do&lt;/summary&gt;
+			&lt;p&gt;The expanded summaries will have a checkbox besides them on print media.&lt;/p&gt;
+		&lt;/details&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
