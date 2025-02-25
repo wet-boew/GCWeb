@@ -1,0 +1,8 @@
+<section class="gc-contributors">
+	<h3>{% if page.language == "en" %}From:{% else %}De&nbsp;:{% endif %}</h3>
+	<ul>
+		{%- for contributor in page.contributors -%}
+		<li><a href="{{ contributor.url }}">{{ contributor.name }}</a></li>
+		{%- endfor -%}
+	</ul>
+</section>

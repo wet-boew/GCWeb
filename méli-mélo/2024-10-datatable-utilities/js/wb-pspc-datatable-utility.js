@@ -343,7 +343,24 @@
         var moneyFormat = [];
         var urlColTarget = [];
 
-        var oColumnNames = oTable.settings().init().columns;
+        var oAllColumnNames = oTable.settings().init().columns;
+
+        var oGetColumnVisibility = oTable.columns().visible();
+
+        /**
+         * Only put Visible Columns in the list of Available ColumnNames
+         */
+
+        var oColumnNames = [];
+
+
+        for (var key in oAllColumnNames)
+        {
+            if (oGetColumnVisibility[key])
+            {
+                oColumnNames.push(oAllColumnNames[key]);
+            }
+        }
 
         /**
          * Find all table columns that have

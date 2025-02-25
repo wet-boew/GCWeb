@@ -14,7 +14,7 @@ share: true
 <p>Add the CSS class name <code>.cnt-wdth-lmtd</code> to a sectioning element <code>&lt;section class="cnt-wdth-lmtd"&gt;...&lt;section&gt;</code> inside the main content of your page. More guidance are provided in the Content and IA specification.</p>
 <section class="cnt-wdth-lmtd">
 	<h3>Section example with limited width content</h3>
-	<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
+	<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. This is a very long word pneumonoultramicroscopicsilicovolcanoconiosis.</p>
 </section>
 <h2 id="call-to-action">Call to action button</h2>
 <p>Add the CSS class name <code>.btn-call-to-action</code> to a your button or link that define the main call for action for a page. For example the initiation button/link in a service initiation pages. More guidance are provided in the Content and IA specification.</p>

@@ -3,7 +3,7 @@ title: Documentation au sujet de la page de nouvelles
 description: Documentation et exemple pratique des pages de nouvelles.
 language: fr
 altLangPage: news-doc-en.html
-dateModified: 2024-09-13
+dateModified: 2025-02-21
 share: true
 ---
 
@@ -15,26 +15,30 @@ share: true
 	<dt>Type</dt>
 	<dd>Gabarit de Canada.ca</dd>
 	<dt>Dernière revue</dt>
-	<dd>2024-09-13</dd>
+	<dd>2024-12-19</dd>
 	<dt>Est conforme à</dt>
 	<dd>Spécifications du contenu et de l'architecture de l'information 3.0</dd>
 	<dt>Spécification</dt>
 	<dd><a href="https://conception.canada.ca/modeles-obligatoire/pages-nouvelles.html">Pages de profil des ministres - Modèle obligatoire de Canada.ca</a></dd>
 	<dt>Version du gabarit</dt>
-	<dd>Version 3.0</dd>
+	<dd>Version 4.0</dd>
 	<dt>Instances disponibles</dt>
 	<dd><a href="https://www.canada.ca/fr/nouvelles.html">https://www.canada.ca/fr/nouvelles.html</a></dd>
 	<dd><a href="https://www.canada.ca/en/news.html">https://www.canada.ca/en/news.html</a></dd>
 </dl>
 
-<h2>Exemples pratiques</h2>
-<ul>
-	<li><a href="news-fr.html">Gabarit de la page d'accueil des nouvelles - Version 3.0</a></li>
-	<li><a href="news-en.html" lang="en">News landing page template - Version 3.0</a></li>
-</ul>
+<h2>Exemple pratique</h2>
+<p><a href="news-fr.html">Gabarit de la page d'accueil des nouvelles - Version 4.0</a></p>
 
 <h2>Liste des modifications</h2>
 <ul>
+	<li>Version 4.0&nbsp;:
+		<ul>
+			<li>Modification du paragraphe au-dessus des nouvelles.</li>
+			<li>Ajout d'une liste de liens visible en version HTML simplifiée.</li>
+			<li>Modification du paragraphe sous des nouvelles.</li>
+		</ul>
+	</li>
 	<li>Version 3.0&nbsp;:
 		<ul>
 			<li>Suppression de la section des promotions au haut de la page.</li>
@@ -47,36 +51,31 @@ share: true
 
 <h2>Version précédente</h2>
 <dl>
-	<dt>Version 2.0</dt>
-	<dd><a href="deprecated/news_v2-fr.html">Gabarit de la page d'accueil des nouvelles - Version 2.0</a></dd>
+	<dt>Version 3.0</dt>
+	<dd><a href="deprecated/news_v3-fr.html">Gabarit de la page d'accueil des nouvelles - Version 3.0</a></dd>
 </dl>
 
-<h2>Transition de la version 2.0 à la version 3.0</h2>
+<h2>Transition de la version 3.0 à la version 4.0</h2>
 <ul>
-	<li>Promotions&nbsp;:
-		<ul>
-			<li>Supprimez la section des promotions en haut de la page.</li>
-			<li>Ajoutez le texte d'introduction à gauche de la section « Suivez » et remplacez la classe <code>pull-right</code> par <code>text-sm-right</code> sur le <code>&lt;div></code> qui entoure la section « Suivez ». Voir l'exemple pratique pour le code HTML.</li>
-		</ul>
+	<li>
+		Modifier le paragraphe au-dessus des nouvelles de&nbsp;:<br>
+		<pre><code>&lt;p>Pour accéder à tous les articles, visitez la &lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles/resultats-de-nouvelles.html">page de recherche avancée&lt;/a>.&lt;/p></code></pre>
+		à&nbsp;:<br>
+		<pre><code>&lt;p class="nojs-hide">&lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles.html">Effectuer une recherche avancée&lt;/a>&lt;/p></code></pre>
 	</li>
-</ul>
-
-<ul>
-	<li>En vedette&nbsp;:
-		<ul>
-			<li>Ajoutez l'attribut <code>data-wb-randomize='{ "toggle": "hide" }'</code> à chaque élément <code>&lt;div class="col-lg-4 col-sm-6 hght-inhrt"></code> enveloppant les groupes de fonctionnalités.</li>
-			<li>Modifiez la balise HTML des fonctionnalités de <code>&lt;div></code> à <code>&lt;section></code></li>
-			<li>Ajoutez la classe <code>hide</code> aux éléments <code>&lt;section class="well well-sm eqht-trgt"></code> (éléments de fonctionnalité).</li>
-			<li>Au-dessus de l'élément <code>&lt;div></code> nouvellement créé, ajoutez un <code>&lt;ul class="nojs-show"></code> avec une liste des liens vers toutes les promotions contenues dans l'élément <code>&lt;div></code>. Cette étape est nécessaire pour les utilisateurs de la version HTML de base.</li>
-		</ul>
+	<li>
+		Modifier le paragraphe sous les nouvelles de&nbsp;:<br>
+		<pre><code>&lt;p>Pour accéder à tous les articles, visitez la &lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles/resultats-de-nouvelles.html">page de recherche avancée&lt;/a>.&lt;/p></code></pre>
+		à&nbsp;:<br>
+		<pre><code>&lt;p class="text-center">&lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles/resultats-de-nouvelles.html">Toutes les nouvelles&lt;/a>&lt;/p></code></pre>
 	</li>
-</ul>
-
-<ul>
-	<li>Articles de nouvelles&nbsp;:
-		<ul>
-			<li>Mettez à jour le lien de recherche avancée vers ce qui suit&nbsp;: <code>https://www.canada.ca/fr/nouvelles/recherche-avancée-nouvelles/resultats-nouvelles.html</code></li>
-		</ul>
+	<li>Ajoutez le bloc suivant juste après le premier paragraphe (avant le tableau des produits d’actualité)&nbsp;:
+		<pre><code>&lt;div class="nojs-show">&lt;p>En utilisant le HTML de base, consultez&nbsp;:&lt;/p>
+			&lt;ul>
+				&lt;li>&lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles/resultats-de-nouvelles.html">Tous les produits de nouvelles&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="https://www.canada.ca/fr/nouvelles/recherche-avancee-de-nouvelles.html">Recherche - Nouvelles&lt;/a>&lt;/li>
+			&lt;/ul>
+		&lt;/div></code></pre>
 	</li>
 </ul>
 

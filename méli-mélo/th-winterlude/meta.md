@@ -4,7 +4,7 @@ lang: en
 title: Winterlude theme
 description: Background colours and custom heading 1 used for the Winterlude campaign
 componentName: th-winterlude
-expiry: February 1, 2024
+expiry: February 1, 2026
 mainPage: winterlude.html
 cssClass:
 - bg-winterlude

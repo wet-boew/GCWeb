@@ -80,6 +80,10 @@ todosFR:
   - Envisager d'ajouter d'autres classes de manipulation de données (pourcentage)?
 
 changes:
+  - date: 2025-01-23
+    description: Change was to fix a bug with tables that have hidden columns. The hidden columns caused the formatting to apply to the wrong column.
+    departmentImpact: The bug is now fixed and the workaround of having to move the hidden columns to the end is no longer necessary.
+    publicImpact: The bug is now fixed and the workaround of having to move the hidden columns to the end is no longer necessary.
   - date: 2024-11-01
     description: DataTable Utilities, includes Data Manipulation Classes for emails, Urls and Money. Also Includes Datatable Footer Totals
     departmentImpact: Having this plugin intergrated will make the transition to Canada.ca easier as these features are already in use on https://www.tpsgc-pwgsc.gc.ca, currently some of the pages that make use of this plugin and other pages that make use of Other Javascripts are just pointed to from Canada.ca

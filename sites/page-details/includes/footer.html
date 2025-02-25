@@ -1,6 +1,10 @@
 <section class="pagedetails{% if include.addContainer %} container{% endif %}">
 	<h2 class="wb-inv">{{ i18nText-pageDetails }}</h2>
 
+	{%- if page.contributors and page.contributors != "" -%}
+		{% include contributors/contributors.html %}
+	{%- endif -%}
+
 	{%- if page.feedback and page.feedback != "" -%}
 	<div class="row">
 		<div class="col-sm-8 col-md-9">

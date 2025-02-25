@@ -465,6 +465,302 @@
 }
 ,{
 	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Contributors",
+		"fr": "Collaborateurs"
+	},
+	"description": {
+		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
+		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
+	},
+	"modified": "2024-12-13",
+	"componentName": "contributors",
+	"status": "stable",
+	"version": "1.1",
+	"pages": {
+		"docs": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "contributors-doc-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "contributors-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Contributors",
+				"language": "en",
+				"path": "contributors-en.html"
+			},
+			{
+				"title": "Collaborateurs",
+				"language": "fr",
+				"path": "contributors-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Contributors - default",
+				"fr": "Collaborateurs - par défaut"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Links to institutions or organizations that support the content on the page.",
+				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
+			},
+			"iteration": "_:iteration_contributors_3",
+			"example": [
+				{
+					"en": { "href": "contributors-en.html", "text": "Contributors" },
+					"fr": { "href": "contributors-fr.html", "text": "Collaborateurs" }
+				},
+				{
+					"en": { "href": "demoted/contributors-v1-en.html", "text": "Demoted as of GCWeb v16.2.0 - Contributors version 1.0" },
+					"fr": { "href": "demoted/contributors-v1-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Collaborateurs 1.0" }
+				}
+			],
+			"implementation": [
+				"_:implement_contributors",
+				"_:implement_contributors_gcweb",
+				"_:implement_contributors_migrate_1_to_1.1"
+			],
+			"history": [
+				{
+					"en": "December 2024 - Component context of use changed from anywhere in the <code>&lt;main></code> to the page details section.",
+					"fr": "Décembre 2024 - Le contexte d'utilisation de la composante a changé de n'importe où dans le <code>&lt;main></code> à la section détails de la page."
+				},
+				{
+					"en": "May 2024 - Stabilizing component.",
+					"fr": "Mai 2024 - Stabilisation du composant."
+				},
+				{
+					"en": "January 2021 - Initial provisional implementation to gather user experience data.",
+					"fr": "Janvier 2021 - Implémentation provisoire initiale pour recueillir des données sur l'expérience utilisateur."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_contributors",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample.",
+					"The component must be located inside the Page details component and use the <a href=\"../page-details/page-details-docs-en.html\">Page details component version 3.3</a> or higher."
+				],
+				"fr": [
+					"Référez-vous au code qui suit.",
+					"La composante doit être située à l'intérieur de la composante Détails de la page et utiliser la <a href=\"../page-details/page-details-docs-fr.html\">version 3.3 ou supérieure de la composante Détails de la page</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<section class=\"gc-contributors\">\n\t<h2>De&nbsp;:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_contributors_gcweb",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"To show the page's contributors, in the page's front-matter, set the property <code>contributors</code> to an array of objects containing the following properties: <code>name</code> and <code>url</code>."
+				],
+				"fr": [
+					"Pour afficher les contributeurs de la page, dans l'en-tête de la page, définissez la propriété <code>contributors</code> à un tableau d'objets contenant les propriétés suivantes&nbsp;: <code>name</code> et <code>url</code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "\"contributors\": [\n\t{ \"name\": \"[Department or agency 1]\", \"url\": \"https://www.canada.ca/en\" },\n\t{ \"name\": \"[Department or agency 2]\", \"url\": \"https://www.canada.ca/en\" }\n]"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code:",
+						"code": "\"contributors\": [\n\t{ \"name\": \"[Ministère ou agence 1]\", \"url\": \"https://www.canada.ca/fr\" },\n\t{ \"name\": \"[Ministère ou agence 2]\", \"url\": \"https://www.canada.ca/fr\" }\n]"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_contributors_migrate_1_to_1.1",
+			"iteration": "_:iteration_contributors_3",
+			"name": {
+				"en": "Migrate from version 1 to 1.1",
+				"fr": "Migration de la version 1 à 1.1"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers or publishers trying to migrate their page from using the contributors version 1.0 to 1.1.",
+				"fr": "Cette implémentation est destinée aux développeurs ou aux éditeurs qui tentent de migrer leur composante contributeurs de la version 1.0 vers la version 1.1."
+			},
+			"instructions": {
+				"en": [
+					"Move the contributors component directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code> located inside the <code>&lt;section class=\"pagedetails\"&gt;</code> section.",
+					"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
+				],
+				"fr": [
+					"Déplacez la composante contributeurs directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code> situé à l'intérieur de la section <code>&lt;section class=\"pagedetails\"&gt;</code>.",
+					"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"This version of the component <strong>must</strong> now be located inside the Page details component <strong>version 3.3</strong>."
+				],
+				"fr": [
+					"Cette version de la composante <strong>doit</strong> être incluse dans la composante Détails de la page <strong>version 3.3</strong>."
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_contributors_3",
+			"name": "Contributors - Iteration 3",
+			"date": "2024-12",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"breaking": [
+				"Changed context of use in the page. The component must be located in the page details section above the date modified component.",
+				"<h2> changed to <h3>."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_2"
+		},
+		{
+			"@id": "_:iteration_contributors_2",
+			"name": "Contributors - Iteration 2",
+			"date": "2024-05",
+			"detectableBy": ".gc-contributors:not(.provisional)",
+			"additions": [
+				"Stabilized component"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_1",
+			"successor": "_:iteration_contributors_3"
+		},
+		{
+			"@id": "_:iteration_contributors_1",
+			"name": "Contributors - Iteration 1",
+			"date": "2021-01",
+			"detectableBy": ".provisional.gc-contributors",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"provisional gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"successor": "_:iteration_contributors_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1.1",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_3",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h3+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded.",
+			"context": "Located in the page details section of the page above the date modified component.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		},
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1",
+			"status": "demoted",
+			"baseOnIteration": "_:iteration_contributors_2",
+			"detectableBy": ".gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h2+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded.",
+			"context": "Located within the main section of the page",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			],
+			"test": [
+				"<a href=\"demoted/contributors-v1-en.html\">Contributors version 1</a>",
+				"<a href=\"demoted/contributors-v1-fr.html\">Contributeurs version 1</a>"
+			]
+		}
+	]
+}
+,{
+	"@context": {
 		"@version": 2.0,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
@@ -2266,6 +2562,16 @@
 				"title": "Titre principal superposé aligné à droite",
 				"language": "fr",
 				"path": "main-page-title-stacked-align-right-fr.html"
+			},
+			{
+				"title": "Main page title with byline for news articles",
+				"language": "en",
+				"path": "main-page-title-byline-en.html"
+			},
+			{
+				"title": "Titre principal avec institution responsable pour les articles de nouvelles",
+				"language": "fr",
+				"path": "main-page-title-byline-fr.html"
 			}
 		]
 	},
@@ -2360,6 +2666,38 @@
 				{
 					"en": "2024-08 - Initial implementation of the variant.",
 					"fr": "2024-01 - Implémentation initiale de la variation."
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Main page title with byline for news articles",
+				"fr": "Titre principal avec institution responsable pour les articles de nouvelles"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This variation is limited to news pages. It is not permitted on any other page.",
+				"fr": "Cette variante est limitée aux pages de nouvelles. Elle n'est permise sur aucune autre page."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/institutional-byline.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/institution-responsable.html"
+			},
+			"iteration": "_:iteration_mptb_1",
+			"example": [
+				{
+					"en": { "href": "main-page-title-byline-en.html", "text": "Main page title with byline" },
+					"fr": { "href": "main-page-title-byline-fr.html", "text": "Titre principal avec institution responsable" }
+				}
+			],
+			"implementation": [
+				"_:implement_mptb",
+				"_:implement_mptb_gcweb"
+			],
+			"history": [
+				{
+					"en": "2024-12 - Initial implementation of the variant. This component is the successor of the Institution byline component.",
+					"fr": "2024-12 - Implémentation initiale de la variation. Cette composante succède à la composante Institution responsable."
 				}
 			]
 		}
@@ -2516,6 +2854,78 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_mptb",
+			"iteration": "_:iteration_mptb_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "HTML sample",
+						"code":	"<hgroup id=\"wb-cont\">\n\t<h1>Main page title</h1>\n\t<p class=\"gc-byline\">From: <a href=\"https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada.html\">Service Canada</a></p>\n</hgroup>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple HTML",
+						"code":	"<hgroup id=\"wb-cont\">\n\t<h1>Titre principal</h1>\n\t<p class=\"gc-byline\">De&nbsp;: <a href=\"https://www.canada.ca/fr/emploi-developpement-social/ministere/portefeuille/service-canada.html\">Service Canada</a></p>\n</hgroup>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_mptb_gcweb",
+			"iteration": "_:iteration_mptb_1",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"In the page's front-matter do the following:<ul><li>set the variable <code>title</code> to the main title of the page.</li><li>set the variable <code>byline</code> to an object containing the following properties:<ul><li><code>institution</code>: which contains the name of the institution</li><li><code>url</code>: which contains the URL to the institution's page</li></ul></li></ul>"
+				],
+				"fr": [
+					"Dans l'en-tête de la page faites ce qui suit&nbsp;:<ul><li>définissez la variable <code>title</code> au titre principal de la page.</li><li>définissez la variable <code>byline</code> avec un objet contenant les propriétés suivantes&nbsp;:<ul><li><code>institution</code>&nbsp;: qui contient le nom de l'institution</li><li><code>url</code>&nbsp;: qui contient l'URL de la page de l'institution</li></ul></li></ul>"
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "---\n{\n\t\"title\": \"My page title\",\n\t\"byline\": {\n\t\t\"institution\": \"Service Canada\",\n\t\t\"url\": \"https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada.html\"\n\t}\n}\n---"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "---\n{\n\t\"title\": \"Titre de la page\",\n\t\"byline\": {\n\t\t\"institution\": \"Service Canada\",\n\t\t\"url\": \"https://www.canada.ca/fr/emploi-developpement-social/ministere/portefeuille/service-canada.html\"\n\t}\n}\n---"
+					}
+				]
+			}
 		}
 	],
 	"changesets": [
@@ -2546,7 +2956,7 @@
 			"@id": "_:cs_smpt",
 			"name": "Stacked main page title",
 			"baseOnIteration": "_:iteration_smpt_2",
-			"detectableBy": "hgroup > h1#wb-cont",
+			"detectableBy": "hgroup#wb-cont > p:first-child + h1",
 			"layout": "The section page title is above the page title. The line is positioned below the page title.",
 			"semantic": "hgroup > p + h1",
 			"schema": "dct:title, sectionTitle",
@@ -2562,6 +2972,27 @@
 			"style": "The line has a width of 3.55em (71px) and a thickness of 0.18em (3.6px) with the color #af3c43. Optionally, include a byline, tagline, or subtitle. The section page title has a font-size of 26px and has a color of #555.",
 			"guidance": "https://design.canada.ca/styles/typography.html",
 			"context": "First semantic element inside the main"
+		},
+		{
+			"@id": "_:cs_mptb",
+			"name": "Main page title with byline",
+			"baseOnIteration": "_:iteration_mptb_1",
+			"detectableBy": "hgroup#wb-cont > h1 + p:last-child",
+			"layout": "The byline is below the page title. The line is positioned between the page title and the byline.",
+			"semantic": "hgroup > h1 + p",
+			"schema": "dct:title, institutionName, institutionUrl",
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/main-page-title.html"
+				}
+			},
+			"style": "The line has a width of 3.55em (71px) and a thickness of 0.18em (3.6px) with the color #af3c43. The byline is bolded.",
+			"guidance": "https://design.canada.ca/common-design-patterns/institutional-byline.html",
+			"context": "Page context: First semantic element inside the main. Site context: limited to news pages on Canada.ca."
 		}
 	],
 	"iteration": [
@@ -2609,18 +3040,25 @@
 			"@id": "_:iteration_smpt_1",
 			"name": "Stacked main page title - Iteration 1",
 			"date": "2024-08",
-			"detectableBy": "hgroup > h1#wb-cont",
+			"detectableBy": "hgroup#wb-cont > h1",
 			"successor": "_:iteration_smpt_2"
 		},
 		{
 			"@id": "_:iteration_smpt_2",
 			"name": "Stacked main page title - Iteration 2 (LTR support)",
 			"date": "2024-10",
-			"detectableBy": "hgroup > h1#wb-cont[dir='ltr'], [dir='ltr'] hgroup > h1#wb-cont",
+			"detectableBy": "hgroup#wb-cont > h1[dir='ltr'], [dir='ltr'] hgroup#wb-cont > h1",
 			"additions": [
 				"Added right to left support"
 			],
 			"predecessor": "_:iteration_smpt_1"
+		},
+		{
+			"@id": "_:iteration_mptb_1",
+			"name": "Main page title with byline - Iteration 1",
+			"date": "2024-12",
+			"detectableBy": "hgroup#wb-cont > h1 + p.gc-byline",
+			"successor": "_:iteration_mptb_1"
 		}
 	]
 }
@@ -2640,8 +3078,8 @@
 		"en": "Documentation on how to use the page details section.",
 		"fr": "Documentation sur l'utilisation de la section des détails de la page."
 	},
-	"version": "3.2",
-	"modified": "2024-07-24",
+	"version": "3.3",
+	"modified": "2024-12-20",
 	"componentName": "page-details",
 	"componentType": "container",
 	"status": "stable",
@@ -2706,11 +3144,13 @@
 	"dependencies": {
 		"en": [
 			{ "title": "Feedback area", "url": "https://wet-boew.github.io/GCWeb/sites/feedback/feedback-docs-en.html", "component": "feedback" },
-			{ "title": "Date modified", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-en.html", "component": "date-modified" }
+			{ "title": "Date modified", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-en.html", "component": "date-modified" },
+			{ "title": "Contributors", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-en.html", "component": "contributors" }
 		],
 		"fr": [
 			{ "title": "Zone de rétroaction", "url": "https://wet-boew.github.io/GCWeb/sites/feedback/feedback-docs-fr.html", "component": "feedback" },
-			{ "title": "Date de modification", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-fr.html", "component": "date-modified" }
+			{ "title": "Date de modification", "url": "https://wet-boew.github.io/GCWeb/sites/date-modified/date-modified-fr.html", "component": "date-modified" },
+			{ "title": "Contributeurs", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-fr.html", "component": "contributors" }
 		]
 	},
 	"a11yGuidance": "no accessibility guidance",
@@ -2736,20 +3176,33 @@
 					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec Outil de rétroaction sur la page" }
 				},
 				{
-					"en": { "href": "deprecated/page-details-v3-en.html", "text": "Deprecated as of GCWeb v16.0.0 - Page details version 3.0" },
-					"fr": { "href": "deprecated/page-details-v3-fr.html", "text": "Obsolète à partir de GCWeb v16.0.0 - Détails de la page version 3.0" }
+					"en": { "href": "page-details-contributors-en.html", "text": "Page details with Contributors" },
+					"fr": { "href": "page-details-contributors-fr.html", "text": "Détails de la page avec Contributeurs" }
+				},
+				{
+					"en": { "href": "demoted/page-details-v3.2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Page details version 3.2" },
+					"fr": { "href": "demoted/page-details-v3.2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Détails de la page version 3.2" }
 				},
 				{
 					"en": { "href": "deprecated/page-details-v3.1-en.html", "text": "Deprecated as of GCWeb v16.0.0 - Page details version 3.1" },
 					"fr": { "href": "deprecated/page-details-v3.1-fr.html", "text": "Obsolète à partir de GCWeb v16.0.0 - Détails de la page version 3.1" }
+				},
+				{
+					"en": { "href": "deprecated/page-details-v3-en.html", "text": "Deprecated as of GCWeb v16.0.0 - Page details version 3.0" },
+					"fr": { "href": "deprecated/page-details-v3-fr.html", "text": "Obsolète à partir de GCWeb v16.0.0 - Détails de la page version 3.0" }
 				}
 			],
 			"implementation": [
 				"_:implement_pd",
 				"_:implement_pd_gcweb",
-				"_:implement_pd_3to5"
+				"_:implement_pd_3to5",
+				"_:implement_pd_5to6"
 			],
 			"history": [
+				{
+					"en": "December 2024 - Added Contributors component.",
+					"fr": "Juillet 2024 - Ajout de la composante Contributeurs."
+				},
 				{
 					"en": "July 2024 - Removed \"col-lg-9\" class.",
 					"fr": "Juillet 2024 - Retrait de la classe «&nbsp;col-lg-9&nbsp;»."
@@ -2776,7 +3229,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_pd",
-			"iteration": "_:iteration_pd_5",
+			"iteration": "_:iteration_pd_6",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -2787,12 +3240,14 @@
 			},
 			"instructions": {
 				"en": [
-					"The Page details component must include the Date modified component. It can also contain the Page feedback component. See below the code sample for each scenario.",
-					"For more information about Page feedback tool component, please visit <a href=\"../sites/feedback/page-feedback-docs-en.html\">Page feedback area</a> page."
+					"The Page details component must include the Date modified component. It can also contain the Page feedback component and Contributors component. See below the code sample for each scenario.",
+					"For more information about Page feedback tool component, please visit <a href=\"../../sites/feedback/feedback-docs-en.html\">Page feedback area</a> page.",
+					"For more information about Contributors component, please visit <a href=\"../../sites/contributors/contributors-doc-en.html\">Contributors</a> page."
 				],
 				"fr": [
-					"Le composant Détails de la page doit inclure le composant Date de modification. Il peut également contenir le composant Outil de rétroaction sur la page. Voir ci-dessous l'exemple de code pour chaque scénario.",
-					"Pour plus d'informations sur le composant de l'Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../sites/feedback/page-feedback-docs-fr.html\">Zone de rétroaction sur la page</a>."
+					"Le composant Détails de la page doit inclure la composante Date de modification. Il peut également contenir la composante Outil de rétroaction sur la page et la composante Contributeurs. Voir ci-dessous l'exemple de code pour chaque scénario.",
+					"Pour plus d'informations sur la composante Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../../sites/feedback/feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
+					"Pour plus d'informations sur la composante de Contributeurs, veuillez visiter la page <a href=\"../../sites/contributors/contributors-doc-fr.html\">Contributeurs</a>."
 				]
 			},
 			"sample": {
@@ -2802,7 +3257,7 @@
 						"description": "Default Page details:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3.2-en.html#default"
+							"@value": "samples/page-details-3.3-en.html#default"
 						}
 					},
 					{
@@ -2810,7 +3265,15 @@
 						"description": "Page details with Page feedback tool:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3.2-en.html#pft"
+							"@value": "samples/page-details-3.3-en.html#pft"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Page details with Contributors:",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "samples/page-details-3.3-en.html#contributors"
 						}
 					}
 				],
@@ -2820,7 +3283,7 @@
 						"description": "Détails de la page par défaut :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3.2-fr.html#default"
+							"@value": "samples/page-details-3.3-fr.html#default"
 						}
 					},
 					{
@@ -2828,7 +3291,15 @@
 						"description": "Détails de la page avec Outil de rétroaction sur la page :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
-							"@value": "samples/page-details-3.2-fr.html#pft"
+							"@value": "samples/page-details-3.3-fr.html#pft"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Détails de la page avec Contributeurs :",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "samples/page-details-3.3-fr.html#contributors"
 						}
 					}
 				]
@@ -2836,7 +3307,7 @@
 		},
 		{
 			"@id": "_:implement_pd_gcweb",
-			"iteration": "_:iteration_pd_5",
+			"iteration": "_:iteration_pd_6",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -2847,10 +3318,12 @@
 			},
 			"instructions": {
 				"en": [
-					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>."
+					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
+					"To show the page's contributors, in the page's front-matter, set the property <code>contributors</code> to an array of objects containing the following properties: <code>name</code> and <code>url</code>."
 				],
 				"fr": [
-					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>."
+					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
+					"Pour afficher les contributeurs de la page, dans l'en-tête de la page, définissez la propriété <code>contributors</code> à un tableau d'objets contenant les propriétés suivantes&nbsp;: <code>name</code> et <code>url</code>."
 				]
 			},
 			"sample": {
@@ -2858,14 +3331,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "\"feedback\": true"
+						"code": "\"feedback\": true,\n\"contributors\": [\n\t{ \"name\": \"[Department or agency 1]\", \"url\": \"https://www.canada.ca/en\" },\n\t{ \"name\": \"[Department or agency 2]\", \"url\": \"https://www.canada.ca/en\" }\n]"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code:",
-						"code": "\"feedback\": true"
+						"code": "\"feedback\": true,\n\"contributors\": [\n\t{ \"name\": \"[Ministère ou agence 1]\", \"url\": \"https://www.canada.ca/fr\" },\n\t{ \"name\": \"[Ministère ou agence 2]\", \"url\": \"https://www.canada.ca/fr\" }\n]"
 					}
 				]
 			}
@@ -2893,15 +3366,104 @@
 					"Déplacez le composant de date de modification hors de la grille et insérez-le juste avant la balise de fermeture <code>&lt;section></code>. Supprimez le <code>&lt;div class=\"col-xs-12\"></code> dans lequel il se trouvait."
 				]
 			}
+		},
+		{
+			"@id": "_:implement_pd_5to6",
+			"iteration": "_:iteration_pd_6",
+			"name": {
+				"en": "Migration from version 3.2 to 3.3",
+				"fr": "Migration de la version 3.2 vers 3.3"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers or publishers trying to migrate their page from using the page details version 3.2 to 3.3 (move to page details).",
+				"fr": "Cette implémentation est destinée aux développeurs ou aux éditeurs qui tentent de migrer leur page de la version 3.0 vers la version 3.2 (déplacement vers les détails de la page)."
+			},
+			"instructions": {
+				"en": [
+					"If there is a \"Contributors\" component present on the page, move it directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code>.",
+					"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
+				],
+				"fr": [
+					"S'il y a une composante «&nbsp;Contributeurs&nbsp;» présente dans la page, déplacez la composante directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code>.",
+					"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_pd_6",
+			"name": "Page details - Iteration 6",
+			"date": "2024-12",
+			"detectableBy": "section.pagedetails",
+			"predecessor": "_:iteration_pd_5",
+			"additions": [
+				"Adding contributors component."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Default Page details",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-en.html#default"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Détails de la page par défaut",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-fr.html#default"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Page details with Page feedback tool",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-en.html#pft"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-fr.html#pft"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Page details with contributors",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-en.html#contributors"
+					}
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Détails de la page avec contributeurs",
+					"code": {
+						"@type": [ "rdf:HTML", "@id" ],
+						"@value": "samples/page-details-3.3-fr.html#contributors"
+					}
+				}
+			]
+		},
 		{
 			"@id": "_:iteration_pd_5",
 			"name": "Page details - Iteration 5",
 			"date": "2024-07",
 			"detectableBy": "section.pagedetails",
 			"predecessor": "_:iteration_pd_4",
+			"successor": "_:iteration_pd_6",
 			"fixes": [
 				"Removed \"col-lg-9\" class since \"col-md-9\" already fulfils the same purpose."
 			],
@@ -3144,9 +3706,48 @@
 	],
 	"changesets": [
 		{
+			"@id": "_:cs_pd_6",
+			"name": "Page details - version 3.3",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_pd_6",
+			"detectableBy": "section.pagedetails",
+			"layout": [
+				"Contributors (if included) on the top row",
+				"Page feedback tool (if included) on the top left",
+				"Date modified on bottom left"
+			],
+			"style": "Not applicable",
+			"semantic": {
+				"@type": "source-code",
+				"description": "Source code",
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Contributors (optional) -->\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatatory) -->\n</section>"
+			},
+			"include": {
+				"@type": "source-code",
+				"collapsed": true,
+				"description": "Include with logic in Liquid.",
+				"code": {
+					"@type": [ "@id", "rdf:HTML" ],
+					"@value": "includes/footer.html"
+				}
+			},
+			"logic": "Not applicable",
+			"guidance": "Not applicable",
+			"context": "The last item of the <main> element.",
+			"configuration": [
+				"Input the date when the page was last modified inside the <time> tag in the format YYYY-MM-DD."
+			],
+			"static": [
+				"Section header: \"Page details\""
+			],
+			"schema": "Not applicable",
+			"dependency": "Not applicable",
+			"file": "Not applicable"
+		},
+		{
 			"@id": "_:cs_pd_5",
 			"name": "Page details - version 3.2",
-			"status": "stable",
+			"status": "demoted",
 			"baseOnIteration": "_:iteration_pd_5",
 			"detectableBy": "section.pagedetails",
 			"layout": [
@@ -3165,7 +3766,7 @@
 				"description": "Include with logic in Liquid.",
 				"code": {
 					"@type": [ "@id", "rdf:HTML" ],
-					"@value": "includes/footer.html"
+					"@value": "includes/footer-3.2.html"
 				}
 			},
 			"logic": "Not applicable",

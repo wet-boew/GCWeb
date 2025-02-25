@@ -99,10 +99,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2024-11-21",
+	"modified": "2025-01-09",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.1",
 	"pages": {
 		"examples": [
 			{
@@ -141,7 +141,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_1",
+			"iteration": "_:iteration_allservices_2",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -162,7 +162,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_1",
+			"iteration": "_:iteration_allservices_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -188,6 +188,13 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_allservices_2",
+			"name": "All services page - Iteration 2",
+			"date": "2025-01",
+			"additions": [ "Adding expand/collapse all buttons." ],
+			"detectableBy": "Three navigation bands followed by an expand all and a collapse all button followed by a series of <details> elements for all goc themes and topics."
+		},
+		{
 			"@id": "_:iteration_allservices_1",
 			"name": "All services page - Iteration 1",
 			"date": "2024-11",
@@ -199,7 +206,7 @@
 			"@id": "_:cs_allservices",
 			"name": "All services page",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_allservices_1",
+			"baseOnIteration": "_:iteration_allservices_2",
 			"detectableBy": "By the sequence of elements.",
 			"semantic": "h1 + h2*3 + h1 + h2*n",
 			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
@@ -1079,7 +1086,7 @@
 		"en": "News templates samples",
 		"fr": "Exemple de page générique."
 	},
-	"modified": "2018-09-11",
+	"modified": "2025-02-21",
 	"componentName": "news",
 	"status": "stable",
 	"pages": {
@@ -1431,7 +1438,7 @@
 	"modified": "2024-08-27",
 	"componentName": "topic",
 	"status": "stable",
-	"version": "2.1",
+	"version": "2.2",
 	"pages": {
 		"examples": [
 			{
@@ -1486,6 +1493,18 @@
 				"language": "fr",
 				"path": "topic-doc-fr.html"
 			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1 - GC topic template",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation d'accessibilité #1 - Gabarits de page de sujet GC",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
 		]
 	},
 	"dependencies": {
@@ -1495,7 +1514,7 @@
 			{ "title": "Services and information", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html", "component": "gc-srvinfo" },
 			{ "title": "Context-specific features", "url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-en.html", "component": "gc-features" },
 			{ "title": "Social media channels", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-en.html", "component": "gc-follow-us" },
-			{ "title": "Contributors", "url": "https://wet-boew.github.io/GCWeb/components/gc-contributors/gc-contributors-doc-en.html", "component": "gc-contributors" }
+			{ "title": "Contributors", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-en.html", "component": "gc-contributors" }
 		],
 		"fr": [
 			{ "title": "Bloc d'introduction", "url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-fr.html", "component": "gc-intro" },
@@ -1503,7 +1522,7 @@
 			{ "title": "Services et renseignements", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html", "component": "gc-srvinfo" },
 			{ "title": "Promotions contextuelles", "url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-fr.html", "component": "gc-features" },
 			{ "title": "Bloc des réseaux de médias sociaux", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-fr.html", "component": "gc-follow-us" },
-			{ "title": "Collaborateurs", "url": "https://wet-boew.github.io/GCWeb/components/gc-contributors/gc-contributors-doc-fr.html", "component": "gc-contributors" }
+			{ "title": "Collaborateurs", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-fr.html", "component": "gc-contributors" }
 		]
 	},
 	"a11yGuidance": "No accessibility guidance.",
@@ -1522,19 +1541,28 @@
 				"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
 			},
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"example": [
 				{
 					"en": { "href": "topic-en.html", "text": "Topic page" },
 					"fr": { "href": "topic-fr.html", "text": "Page de sujet" }
+				},
+				{
+					"en": { "href": "demoted/topic_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page version 2" },
+					"fr": { "href": "demoted/topic_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet version 2" }
 				}
 			],
 			"implementation": [
 				"_:implement_topic",
 				"_:implement_topic_aem",
-				"_:implement_topic_1_to_2"
+				"_:implement_topic_1_to_2",
+				"_:implement_topic_2_to_2.1"
 			],
 			"history": [
+				{
+					"en": "December 2024 - Contributors component moved to the page details section.",
+					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+				},
 				{
 					"en": "June 2024 - Stabilization of the version 2 of the page template.",
 					"fr": "Juin 2024 - Stabilisation de la version 2 du gabarit de page."
@@ -1560,11 +1588,15 @@
 				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
 			},
 			"guidance": "no guidance defined.",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"example": [
 				{
 					"en": { "href": "topic-stackedheader-en.html", "text": "Topic page with stacked header" },
 					"fr": { "href": "topic-stackedheader-fr.html", "text": "Page de sujet avec en-tête superposé" }
+				},
+				{
+					"en": { "href": "demoted/topic-stackedheader_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page with stacked header version 2" },
+					"fr": { "href": "demoted/topic-stackedheader_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet avec en-tête superposé version 2" }
 				}
 			],
 			"implementation": [
@@ -1573,6 +1605,10 @@
 				"_:implement_topic_1_to_2"
 			],
 			"history": [
+				{
+					"en": "December 2024 - Contributors component moved to the page details section.",
+					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+				},
 				{
 					"en": "August 2024 - Version 1 of the stacked header variant.",
 					"fr": "août 2024 - Version 1 de la variante d'en-tête superposé."
@@ -1583,7 +1619,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_topic",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1601,6 +1637,14 @@
 					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
 				]
 			},
+			"notes": {
+				"en": [
+					"The Contributors component has been moved inside the Page details component."
+				],
+				"fr": [
+					"La composante Contributeurs a été déplacée à l'intérieur de la composante Détails de la page."
+				]
+			},
 			"ajaxSourceCode": {
 				"en": "topic-en.html main > *:not(.pagedetails)",
 				"fr": "topic-fr.html main > *:not(.pagedetails)"
@@ -1608,7 +1652,7 @@
 		},
 		{
 			"@id": "_:implement_topic_aem",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "AEM users",
 				"fr": "Utilisateurs AEM"
@@ -1630,8 +1674,8 @@
 			"@id": "_:implement_topic_1_to_2",
 			"iteration": "_:iteration_topic_3",
 			"name": {
-				"en": "Migrate to version 2",
-				"fr": "Migration vers la version 2"
+				"en": "Migrate from version 1 to version 2",
+				"fr": "Migration de la version 1 vers la version 2"
 			},
 			"introduction": {
 				"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2 of the topic page template.",
@@ -1649,8 +1693,30 @@
 			}
 		},
 		{
+			"@id": "_:implement_topic_2_to_2.1",
+			"iteration": "_:iteration_topic_4",
+			"name": {
+				"en": "Migrate from version 2 to version 2.1",
+				"fr": "Migration de la version 2 vers la version 2.1"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2.1 of the topic page template.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui tentent de migrer leur page de sujet actuelle vers la version 2.1 du modèle de page de sujet."
+			},
+			"instructions": {
+				"en": [
+					"Move the \"Contributors\" component directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code>.",
+					"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
+				],
+				"fr": [
+					"Déplacez la composante «&nbsp;Contributeurs&nbsp;» directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code>.",
+					"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
+				]
+			}
+		},
+		{
 			"@id": "_:implement_topic_stackedheader",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1674,7 +1740,7 @@
 		},
 		{
 			"@id": "_:implement_topic_stackedheader_aem",
-			"iteration": "_:iteration_topic_3",
+			"iteration": "_:iteration_topic_4",
 			"name": {
 				"en": "AEM users",
 				"fr": "Utilisateurs AEM"
@@ -1696,6 +1762,15 @@
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_topic_4",
+			"name": "Topic page - Iteration 4",
+			"date": "2024-12",
+			"breaking": [
+				"Contributors component moved to the page details section."
+			],
+			"detectableBy": ".page-type-topic"
+		},
 		{
 			"@id": "_:iteration_topic_3",
 			"name": "Topic page - Iteration 3",
@@ -1748,9 +1823,23 @@
 	],
 	"changesets": [
 		{
-			"@id": "_:cs_topic_2",
-			"name": "Topic page",
+			"@id": "_:cs_topic_3",
+			"name": "Topic page - Version 2.2",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_topic_4",
+			"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
+			"layout": [
+				"Intro block (mandatory)",
+				"Most requested - version 1 (optional)",
+				"Services and information - version 3 (mandatory)",
+				"Context-specific features - version 5.0 [.col-md-8] (optional) + Social media channels - version 2.1 [.col-md-4] (optional)",
+				"Contributors - version 1.1 (optional)"
+			]
+		},
+		{
+			"@id": "_:cs_topic_2",
+			"name": "Topic page - Version 2",
+			"status": "demoted",
 			"baseOnIteration": "_:iteration_topic_2",
 			"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
 			"layout": [

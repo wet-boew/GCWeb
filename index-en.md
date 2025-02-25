@@ -1,7 +1,7 @@
 ---
 title: GCWeb, the WET-BOEW Canada.ca theme
 altLangPage: index-fr.html
-dateModified: 2024-12-09
+dateModified: 2025-02-19
 description: "Home page describing all the components of the Canada.ca theme, named GCWeb."
 layout: no-container
 language: en
@@ -20,7 +20,7 @@ css:
 			<p>The page templates and design patterns below comprise a reference implementation of the <a href="https://design.canada.ca">Canada.ca design system</a>, including the mandatory requirement of the Content and Information Architecture (C&amp;IA) Specification. Government of Canada departments and agencies can contribute additional patterns and templates via <a href="https://github.com/wet-boew/GCWeb">GCWeb github repository</a>.</p>
 		</div>
 		<div class="col-xs-12 col-md-auto pull-right">
-			<p><a href="https://github.com/wet-boew/GCWeb/archive/v16.0.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v16.0.0</strong></a><br />
+			<p><a href="https://github.com/wet-boew/GCWeb/archive/v16.3.0.zip" class="btn btn-primary">Download GCWeb theme <strong>v16.3.0</strong></a><br />
 				<small>(<time>{{ page.dateModified | date: '%F' }}</time> - <a href="https://github.com/wet-boew/gcweb/releases/latest">Release notes</a>)</small></p>
 		</div>
 	</div>
@@ -87,6 +87,8 @@ css:
 			<dd>Relatively stable, yet experimental; use at your own risks.</dd>
 			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
 			<dd>Do not use because it's deprecated, but listed here for your information.</dd>
+      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
+			<dd>Not recommended as it's going to be deprecated in the next major version.</dd>
 			<dt><span class="label label-default">Undefined</span></dt>
 			<dd>Missing State in the component documentation.</dd>
 			<!--<dt><span class="label label-success">Up to spec</span></dt>
@@ -118,6 +120,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
 				{% elsif component.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
+				{% elsif component.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
@@ -207,6 +211,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ template.status ] }}</span>
 				{% elsif template.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ template.status ] }}</span>
+				{% elsif template.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ template.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
@@ -401,6 +407,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
 				{% elsif item.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
@@ -489,6 +497,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
 				{% elsif item.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
+				{% elsif item.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ item.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
@@ -577,6 +587,8 @@ css:
 				<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
 				{% elsif wetboew.status == "deprecated" %}
 				<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
+				{% elsif wetboew.status == "demoted" %}
+				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
 				{% else %}
 				<span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
 				{% endif %}
