@@ -19,6 +19,6 @@ pages:
     - title: Vitality theme
       language: en
       path: vitality.html
-sponsor: ESDC - Portfolio web
+sponsor: Francis Snoddy on behalf of ESDC - Portfolio web
 output: false
 ---
