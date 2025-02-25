@@ -1,0 +1,131 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Departmental results report",
+		"fr": "Rapport sur les résultats ministériels"
+	},
+	"description": {
+		"en": "Departmental results report page template.",
+		"fr": "Rapport sur les résultats ministériels pour tous les services."
+	},
+	"modified": "2025-02-24",
+	"componentName": "results-resultats",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "Departmental results report combined",
+				"language": "en",
+				"path": "drr-combined.md"
+			},
+			{
+				"title": "Rapport sur les résultats ministériels conjoint",
+				"language": "fr",
+				"path": "rrm-conjoint.md"
+			}
+		],
+		"docs": [
+			{
+				"title": "Departmental results report combined",
+				"language": "en",
+				"path": "drr-combined.md"
+			},
+			{
+				"title": "Rapport sur les résultats ministériels conjoint",
+				"language": "fr",
+				"path": "rrm-conjoint.md"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Departmental results report",
+				"fr": "Rapport sur les résultats ministériels"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Departmental results reports template.",
+				"fr": "Rapport sur les résultats ministériels pour tous les services."
+			},
+			"iteration": "_:iteration_departmental_plans_1",
+			"example": [
+				{
+					"en": { "href": "drr-combined.md", "text": "Departmental results reports" },
+					"fr": { "href": "rrm.md", "text": "Rapport sur les résultats ministériels" }
+				}
+			],
+			"implementation": [
+				"_:implement_departmental_result_reports"
+			],
+			"history": [
+				{
+					"en": "January 2025 - Initial implementation of the page template.",
+					"fr": "Janvier 2025 - Implémentation initiale du gabarit de page."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:Departmental results reports",
+			"iteration": "_:iteration_Departmental results reports_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "drr-combined.md main > *:not(.pagedetails)",
+				"fr": "rrm-conjoint.md main > *:not(.pagedetails)"
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_departmental plans_1",
+			"name": "Departmental plans - Iteration 1",
+			"date": "2025-01",
+			"detectableBy": ""
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_departmental_plans",
+			"name": "Departmental plans",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_departmental_plans_1",
+			"detectableBy": "By the sequence of elements.",
+			"semantic": "h1 + h2*3 + h1 + h2*n",
+			"accessibility": "",
+			"context": "",
+			"layout": [
+				"Top serches navigation band",
+				"Most requested services navigation band",
+				"Supporting through life's transitions navigation band",
+				"Most requested - version 1 (optional)",
+				"Series of <details> elements for all goc themes and topics"
+			]
+		}
+	]
+}
