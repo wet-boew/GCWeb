@@ -1,3 +1,12 @@
+<div data-wb-jsonmanager='{
+	"url": "pft-test.json",
+	"name": "service",
+	"patches": [
+		{ "op": "test", "path": "/isPFTActive", "value": true },
+		{ "op": "add", "path": "/unhideme", "value": "hidden" }
+	]
+}'></div>
+
 <div id="gc-pft" class="row wb-disable-allow" data-wb-jsonmanager='{
 	"name": "gc-pft",
 	"extractor": [
@@ -12,7 +21,10 @@
 		{ "selector": "[data-feedback-url]", "attr": "data-feedback-url", "path": "contact/url" }
 	]
 }'>
-	<div class="col-sm-10 col-md-9 col-lg-8">
+	<div class="col-sm-10 col-md-9 col-lg-8 hidden" data-wb-json='{
+		"url": "#[service]/unhideme",
+		"type": "removeclass"
+	}'>
 		<section class="well mrgn-bttm-0">
 			<h3 class="wb-inv">Donnez votre rétroaction sur cette page</h3>
 			<form action="https://feedback-retroaction.canada.ca/api/QueueProblemForm" method="post" class="wb-postback wb-disable-allow" data-wb-postback='{"success":".gc-pft-thnk"}'>
