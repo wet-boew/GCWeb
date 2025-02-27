@@ -1,0 +1,964 @@
+---
+{
+	"title": "Forms - Utilities/Helpers",
+	"language": "en",
+	"altLangPage": "formulaires.html",
+	"breadcrumbs": [
+		{ "title": "GCWeb home", "link": "https://wet-boew.github.io/GCWeb/index-en.html" }
+	],
+	"dateModified": "2023-08-20"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<div class="alert alert-warning">
+<p>The purpose of this page is to test all native forms related elements, if they are aligned with our design and are compliant to our accessibility guideline when used as is without any special customization. The following include all form elements in the HTML5 specification and a few examples was inspired by the <a href="https://html.spec.whatwg.org/multipage/forms.html#forms">WHATWG section 4.10</a> as February 2023. This page may not contain all the possible forms element combination.</p>
+</div>
+
+<h2>The <code>form</code> element</h2>
+<form></form>
+<pre><code>&lt;form&gt;&lt;/form&gt;</code></pre>
+
+<h2 id="form-controls">Form controls</h2>
+
+<p>Textual form controls—like <code class="prettyprint prettyprinted">&lt;input&gt;</code>s, <code class="prettyprint prettyprinted">&lt;select&gt;</code>s, and <code class="prettyprint prettyprinted">&lt;textarea&gt;</code>s—are styled with the <code class="prettyprint prettyprinted">.form-control</code> class. Included are styles for general appearance, focus state, sizing, and more.</p>
+
+<p>Be sure to explore our <a href="#custom-forms">custom forms</a> to further style <code class="prettyprint prettyprinted">&lt;select&gt;</code>s.</p>
+
+<form>
+	<div class="form-group">
+	<label for="exampleFormControlInput1">Email address</label>
+		<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Example select</label>
+		<select class="form-control" id="exampleFormControlSelect1">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlSelect2">Example multiple select</label>
+		<select multiple="" class="form-control" id="exampleFormControlSelect2">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlTextarea1">Example textarea</label>
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
+	<div class="form-group form-horizontal">
+		<label for="form-control-static-ex1"><p class="form-control-static">
+		<input	type="text" name="form-control-static-ex1" class="input-sm" id="inlineFormBlock4" value="input 1" />
+		text</p></label>
+		<label for="form-control-static-ex2"><p class="form-control-static">
+		<input	type="checkbox" name="form-control-static-ex2" class="input-sm" id="inlineFormBlock5" value="input 2" />
+		checkbox</p></label>
+		<label for="form-control-static-ex3"><p class="form-control-static">
+		<input	type="button" name="form-control-static-ex3" class="input-sm" id="inlineFormBlock6" value="input 3" />
+		button</p></label>
+	</div>
+
+	<div class="form-group form-group-sm">
+		<label for="exampleFormControl2">Example select</label>
+		<select id="exampleFormControl2"><option value='1'>1</option><option value='2'>2</option></select>
+		<label for="exampleFormControl3">Example textarea</label>
+		<textarea class="form-control" id="exampleFormControl3" rows="3"></textarea>
+		<label class="form-control-static" for="exampleFormControl4">Example multiple select</label>
+		<select id="exampleFormControl4" multiple ><option value='1'>1</option><option value='2'>2</option></select>
+	</div>
+
+	<div class="form-group form-group-lg">
+		<label for="exampleFormControl5">Example select</label>
+		<select id="exampleFormControl5"><option value='1'>1</option><option value='2'>2</option></select>
+		<label for="exampleFormControl6">Example textarea</label>
+		<textarea class="form-control" id="exampleFormControl6" rows="3"></textarea>
+		<label class="form-control-static" for="exampleFormControl7">Example multiple select</label>
+		<select id="exampleFormControl7" multiple ><option value='1'>1</option><option value='2'>2</option></select>
+	</div>
+</form>
+
+<pre class="prettyprint prettyprinted"><code class="prettyprint prettyprinted" data-lang="html">&lt;form&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="exampleFormControlInput1"&gt;Email address&lt;/label&gt;
+		&lt;input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" /&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="exampleFormControlSelect1"&gt;Example select&lt;/label&gt;
+		&lt;select class="form-control" id="exampleFormControlSelect1"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="exampleFormControlSelect2"&gt;Example multiple select&lt;/label&gt;
+		&lt;select multiple="" class="form-control" id="exampleFormControlSelect2"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="exampleFormControlTextarea1"&gt;Example textarea&lt;/label&gt;
+		&lt;textarea class="form-control" id="exampleFormControlTextarea1" rows="3"&gt;&lt;/textarea&gt;
+	&lt;/div&gt;
+	&lt;/form&gt;
+	&lt;div class="form-group form-horizontal">
+		&lt;label for="form-control-static-ex1">&lt;p class="form-control-static">
+		&lt;input	type="text" name="form-control-static-ex1" class="input-sm" id="inlineFormBlock4" value="input 1" />
+		text&lt;/p>&lt;/label>
+		&lt;label for="form-control-static-ex2">&lt;p class="form-control-static">
+		&lt;input	type="checkbox" name="form-control-static-ex2" class="input-sm" id="inlineFormBlock5" value="input 2" />
+		checkbox&lt;/p>&lt;/label>
+		&lt;label for="form-control-static-ex3">&lt;p class="form-control-static">
+		&lt;input	type="button" name="form-control-static-ex3" class="input-sm" id="inlineFormBlock6" value="input 3" />
+		button&lt;/p>&lt;/label>
+	&lt;/div>
+	&lt;div class="form-group form-group-sm">
+		&lt;label for="exampleFormControl2">Example select&lt;/label>
+		&lt;select id="exampleFormControl2">&lt;option value='1'>1&lt;/option>&lt;option value='2'>2&lt;/option>&lt;/select>
+		&lt;label for="exampleFormControl3">Example textarea&lt;/label>
+		&lt;textarea class="form-control" id="exampleFormControl3" rows="3">&lt;/textarea>
+		&lt;label class="form-control-static" for="exampleFormControl4">Example multiple select&lt;/label>
+		&lt;select id="exampleFormControl4" multiple >&lt;option value='1'>1&lt;/option>&lt;option value='2'>2&lt;/option>&lt;/select>
+	&lt;/div>
+	&lt;div class="form-group form-group-lg">
+		&lt;label for="exampleFormControl5">Example select&lt;/label>
+		&lt;select id="exampleFormControl5">&lt;option value='1'>1&lt;/option>&lt;option value='2'>2&lt;/option>&lt;/select>
+		&lt;label for="exampleFormControl6">Example textarea&lt;/label>
+		&lt;textarea class="form-control" id="exampleFormControl6" rows="3">&lt;/textarea>
+		&lt;label class="form-control-static" for="exampleFormControl7">Example multiple select&lt;/label>
+		&lt;select id="exampleFormControl7" multiple >&lt;option value='1'>1&lt;/option>&lt;option value='2'>2&lt;/option>&lt;/select>
+	&lt;/div>
+</code></pre>
+
+<p>For file inputs, swap the <code class="prettyprint prettyprinted">.form-control</code> for <code class="prettyprint prettyprinted">.form-control-file</code>.</p>
+
+<form>
+	<div class="form-group">
+		<label for="exampleFormControlFile1">Example file input</label>
+		<input type="file" class="form-control-file" id="exampleFormControlFile1" />
+	</div>
+</form>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;form&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="exampleFormControlFile1"&gt;Example file input&lt;/label&gt;
+		&lt;input type="file" class="form-control-file" id="exampleFormControlFile1" /&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+
+<h3 id="sizing">Sizing</h3>
+
+<p>Set heights using classes like <code class="prettyprint prettyprinted">.form-control .input-lg</code> and <code class="prettyprint prettyprinted">.form-control .input-sm</code>.</p>
+
+<input class="form-control input-lg" type="text" placeholder=".form-control .input-lg" />
+<input class="form-control" type="text" placeholder="Default input" />
+<input class="form-control input-sm" type="text" placeholder=".form-control .input-sm" />
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;input class="form-control .input-lg" type="text" placeholder=".form-control .input-lg" /&gt;
+&lt;input class="form-control" type="text" placeholder="Default input" /&gt;
+&lt;input class="form-control .input-sm" type="text" placeholder=".form-control .input-sm" /&gt;</code></pre>
+
+<select class="form-control input-lg">
+	<option>Large select</option>
+</select>
+<select class="form-control">
+	<option>Default select</option>
+</select>
+<select class="form-control input-sm">
+	<option>Small select</option>
+</select>
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;select class="form-control input-lg"&gt;
+	&lt;option&gt;Large select&lt;/option&gt;
+&lt;/select&gt;
+&lt;select class="form-control"&gt;
+	&lt;option&gt;Default select&lt;/option&gt;
+&lt;/select&gt;
+&lt;select class="form-control input-sm"&gt;
+	&lt;option&gt;Small select&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+<p>Here is sizing using some other form elements</p>
+
+<h4>input type: password</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="password" placeholder=".form-control .input-lg" />
+<input class="form-control" type="password" placeholder="Default input" />
+<input class="form-control input-sm" type="password" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="password" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="password" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="password" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+
+<h4>input type: datetime</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="datetime" placeholder=".form-control .input-lg" />
+<input class="form-control" type="datetime-local" placeholder="Default input" />
+<input class="form-control input-sm" type="date" placeholder=".form-control .input-sm" />
+<input class="form-control input-lg" type="month" placeholder=".form-control .input-lg" />
+<input class="form-control" type="time" placeholder="Default input" />
+<input class="form-control input-sm" type="week" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="datetime" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="datetime-local" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="date" placeholder=".form-control .input-sm" />
+&lt;input class="form-control input-lg" type="month" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="datetime-time" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="week" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: number</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="number" placeholder=".form-control .input-lg" />
+<input class="form-control" type="number" placeholder="Default input" />
+<input class="form-control input-sm" type="number" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="number" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="number" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="number" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: email</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="email" placeholder=".form-control .input-lg" />
+<input class="form-control" type="email" placeholder="Default input" />
+<input class="form-control input-sm" type="email" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="email" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="email" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="email" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: url</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="url" placeholder=".form-control .input-lg" />
+<input class="form-control" type="url" placeholder="Default input" />
+<input class="form-control input-sm" type="url" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="url" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="url" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="url" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: search</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="search" placeholder=".form-control .input-lg" />
+<input class="form-control" type="search" placeholder="Default input" />
+<input class="form-control input-sm" type="search" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="search" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="search" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="search" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: tel</h4>
+<div class="form-group">
+<input class="form-control input-lg" type="tel" placeholder=".form-control .input-lg" />
+<input class="form-control" type="tel" placeholder="Default input" />
+<input class="form-control input-sm" type="tel" placeholder=".form-control .input-sm" />
+</div>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="tel" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="tel" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="tel" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>input type: color</h4>
+<input class="form-control input-lg" type="color" placeholder=".form-control .input-lg" />
+<input class="form-control" type="color" placeholder="Default input" />
+<input class="form-control input-sm" type="color" placeholder=".form-control .input-sm" />
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;input class="form-control input-lg" type="color" placeholder=".form-control .input-lg" />
+&lt;input class="form-control" type="color" placeholder="Default input" />
+&lt;input class="form-control input-sm" type="color" placeholder=".form-control .input-sm" />
+</code></pre>
+
+
+
+<h4>textarea</h4>
+<textarea class="form-control input-lg" placeholder=".form-control .input-lg"></textarea>
+<textarea class="form-control" placeholder="Default input"></textarea>
+<textarea class="form-control input-sm" placeholder=".form-control .input-sm"></textarea>
+
+
+<pre><code class="language-html" data-lang="html">
+&lt;textarea class="form-control input-lg" placeholder=".form-control .input-lg">&lt;/textarea>
+&lt;textarea class="form-control" placeholder="Default input">&lt;/textarea>
+&lt;textarea class="form-control input-sm" placeholder=".form-control .input-sm">&lt;/textarea>
+</code></pre>
+
+
+<h3 id="readonly">Readonly</h3>
+
+<p>Add the <code class="prettyprint prettyprinted">readonly</code> boolean attribute on an input to prevent modification of the input’s value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.</p>
+
+<input class="form-control" type="text" placeholder="Readonly input here…" readonly="" />
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Readonly input here…"</span> <span class="na">readonly</span><span class="nt">&gt;</span></code></pre>
+
+<h3 id="readonly-plain-text">Readonly plain text</h3>
+
+<p>If you want to have <code class="prettyprint prettyprinted">&lt;input readonly&gt;</code> elements in your form styled as plain text, use the <code class="prettyprint prettyprinted">.form-control-plaintext</code> class to remove the default form field styling and preserve the correct margin and padding.</p>
+
+<form>
+	<div class="form-group">
+		<label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+		<div class="col-sm-10">
+			<input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+		<div class="col-sm-10">
+			<input type="password" class="form-control" id="inputPassword" placeholder="Password" />
+		</div>
+	</div>
+</form>
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;form&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="staticEmail" class="col-sm-2 col-form-label"&gt;Email&lt;/label&gt;
+		&lt;div class="col-sm-10"&gt;
+			&lt;input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com" /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="inputPassword" class="col-sm-2 col-form-label"&gt;Password&lt;/label&gt;
+		&lt;div class="col-sm-10"&gt;
+			&lt;input type="password" class="form-control" id="inputPassword" placeholder="Password" /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+<form class="form-inline">
+	<div class="form-group">
+		<label for="staticEmail2" class="sr-only">Email</label>
+		<input type="text" readonly="" class="form-control-plaintext" id="staticEmail2" value="email@example.com" />
+	</div>
+	<div class="form-group">
+		<label for="inputPassword2" class="sr-only">Password</label>
+		<input type="password" class="form-control" id="inputPassword2" placeholder="Password" />
+	</div>
+	<button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+</form>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;form class="form-inline"&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="staticEmail2" class="sr-only"&gt;Email&lt;/label&gt;
+		&lt;input type="text" readonly="" class="form-control-plaintext" id="staticEmail2" value="email@example.com" /&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="inputPassword2" class="sr-only"&gt;Password&lt;/label&gt;
+		&lt;input type="password" class="form-control" id="inputPassword2" placeholder="Password" /&gt;
+	&lt;/div&gt;
+	&lt;button type="submit" class="btn btn-primary mb-2"&gt;Confirm identity&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h2 id="checkboxes-and-radios">Checkboxes and radios</h2>
+
+<h3 id="default-stacked">Default (stacked)</h3>
+
+<p>By default, any number of checkboxes and radios that are immediate sibling will be vertically stacked</p>
+<div class="checkbox">
+	<input type="checkbox" value="" id="defaultCheck1" />
+	<label class="form-check-label" for="defaultCheck1">
+		Default checkbox
+	</label>
+</div>
+<div class="form-check	checkbox">
+	<input type="checkbox" value="" id="defaultCheck2" disabled="" />
+	<label for="defaultCheck2">
+		Disabled checkbox
+	</label>
+</div>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;div class="checkbox"&gt;
+	&lt;input	type="checkbox" value="" id="defaultCheck1" /&gt;
+	&lt;label class="form-check-label" for="defaultCheck1"&gt;
+		Default checkbox
+	&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="checkbox"&gt;
+	&lt;input type="checkbox" value="" id="defaultCheck2" disabled="" /&gt;
+	&lt;label for="defaultCheck2"&gt;
+		Disabled checkbox
+	&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+<div class="radio">
+	<input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="" />
+	<label for="exampleRadios1">
+		Default radio
+	</label>
+</div>
+<div class="radio">
+	<input	type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+	<label for="exampleRadios2">
+		Second default radio
+	</label>
+</div>
+<div class="radio disabled">
+	<input type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled="" />
+	<label for="exampleRadios3">
+		Disabled radio
+	</label>
+</div>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;div class="radio"&gt;
+	&lt;input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="" /&gt;
+	&lt;label for="exampleRadios1"&gt;
+		Default radio
+	&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio"&gt;
+	&lt;input	type="radio" name="exampleRadios" id="exampleRadios2" value="option2" /&gt;
+	&lt;label for="exampleRadios2"&gt;
+		Second default radio
+	&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=" radio disabled"&gt;
+	&lt;input type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled="" /&gt;
+	&lt;label for="exampleRadios3"&gt;
+		Disabled radio
+	&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3 id="inline">Inline</h3>
+
+<p>Group checkboxes or radios on the same horizontal row by adding <code class="prettyprint prettyprinted">.checkbox-inline or radio-inline</code>
+
+<div class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox1" value="option1" />
+	<label	for="inlineCheckbox1">1</label>
+</div>
+<div class="checkbox-inline">
+	<input type="checkbox" id="inlineCheckbox2" value="option2" />
+	<label	for="inlineCheckbox2">2</label>
+</div>
+<div class="checkbox-inline">
+	<input	type="checkbox" id="inlineCheckbox3" value="option3" disabled="" />
+	<label for="inlineCheckbox3">3 (disabled)</label>
+</div>
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div class="checkbox-inline"&gt;
+	&lt;input type="checkbox" id="inlineCheckbox1" value="option1" /&gt;
+	&lt;label	for="inlineCheckbox1"&gt;1&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="checkbox-inline"&gt;
+	&lt;input type="checkbox" id="inlineCheckbox2" value="option2" /&gt;
+	&lt;label	for="inlineCheckbox2"&gt;2&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="checkbox-inline"&gt;
+	&lt;input	type="checkbox" id="inlineCheckbox3" value="option3" disabled="" /&gt;
+	&lt;label for="inlineCheckbox3"&gt;3 (disabled)&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+
+<div class="radio-inline">
+	<input	type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+	<label for="inlineRadio1">1</label>
+</div>
+<div class="radio-inline">
+	<input	type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+	<label	for="inlineRadio2">2</label>
+</div>
+<div class="radio-inline">
+	<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled="" />
+	<label	for="inlineRadio3">3 (disabled)</label>
+</div>
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">&lt;div class="radio-inline"&gt;
+	&lt;input	type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" /&gt;
+	&lt;label for="inlineRadio1"&gt;1&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio-inline"&gt;
+	&lt;input	type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /&gt;
+	&lt;label	for="inlineRadio2"&gt;2&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio-inline"&gt;
+	&lt;input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled="" /&gt;
+	&lt;label	for="inlineRadio3"&gt;&gt;3 (disabled)&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h4>form-inline</h4>
+
+
+<div class="form-group form-inline">
+	<input	type="text" name="inlineRadioOptions2" id="inlineFormBlock1" value="input 1" />
+	<label for="inlineFormBlock1">text</label>
+	<input	type="checkbox" name="inlineCheckboxOptions2" id="inlineFormBlock2" value="input 2" />
+	<label for="inlineFormBlock2">checkbox</label>
+	<input	type="button" name="inlineButtonOptions2" id="inlineFormBlock3" value="input 3" />
+	<label for="inlineFormBlock2">button</label>
+</div>
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div class="form-group form-inline">
+	&lt;input	type="text" name="inlineRadioOptions2" id="inlineFormBlock1" value="input 1" />
+	&lt;label for="inlineFormBlock1">text&lt;/label>
+	&lt;input	type="checkbox" name="inlineCheckboxOptions2" id="inlineFormBlock2" value="input 2" />
+	&lt;label for="inlineFormBlock2">checkbox&lt;/label>
+	&lt;input	type="button" name="inlineButtonOptions2" id="inlineFormBlock3" value="input 3" />
+	&lt;label for="inlineFormBlock2">button&lt;/label>
+&lt;/div>
+</code></pre>
+
+
+<h4>form-horizontal</h4>
+
+
+<div class="form-group form-horizontal">
+	<input	type="text" name="inlineRadioOptions3" id="inlineFormBlock4" value="input 4" />
+	<label for="inlineFormBlock4">text</label>
+	<input	type="checkbox" name="inlineCheckboxOptions3" id="inlineFormBlock5" value="input 5" />
+	<label for="inlineFormBlock5">checkbox</label>
+	<input	type="button" name="inlineButtonOptions3" id="inlineFormBlock6" value="input 6" />
+	<label for="inlineFormBlock6">button</label>
+</div>
+
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div class="form-group form-horizontal">
+	&lt;input	type="text" name="inlineRadioOptions3" id="inlineFormBlock4" value="input 4" />
+	&lt;label for="inlineFormBlock4">text&lt;/label>
+	&lt;input	type="checkbox" name="inlineCheckboxOptions3" id="inlineFormBlock5" value="input 5" />
+	&lt;label for="inlineFormBlock5">checkbox&lt;/label>
+	&lt;input	type="button" name="inlineButtonOptions3" id="inlineFormBlock6" value="input 6" />
+	&lt;label for="inlineFormBlock6">button&lt;/label>
+&lt;/div>
+</code></pre>
+
+
+
+<h3>Checkbox and radio options "hide" the inputs</h3>
+
+
+<p>In order to support the browser's form validation feedback, powered by the
+`required` attribute, we have to "hide" the inputs via `clip`</p>
+
+<div class="form-group btn-group" data-toggle="buttons">
+	<input class="btn" type="button" id="btnGroupdata-toggle1" value="button 1" />
+	<input class="btn" type="button" id="btnGroupdata-toggle2" value="button 2" />
+	<input class="btn" type="radio" id="btnGroupdata-toggle3" value="button 3" />
+	<input class="btn" type="checkbox" id="btnGroupdata-toggle4" value="button 4" />
+</div>
+
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div class="form-group btn-group" data-toggle="buttons">
+	&lt;input class="btn" type="button" id="btnGroupdata-toggle1" value="button 1" />
+	&lt;input class="btn" type="button" id="btnGroupdata-toggle2" value="button 2" />
+	&lt;input class="btn" type="radio" id="btnGroupdata-toggle3" value="button 3" />
+	&lt;input class="btn" type="checkbox" id="btnGroupdata-toggle4" value="button 4" />
+&lt;/div>
+</code></pre>
+
+
+<h3>Button groups</h3>
+
+
+<div class="btn-group input-group-btn">
+	<input class="btn" type="button" id="btnGroup1" value="button 1" />
+	<input class="btn" type="button" id="btnGroup2" value="button 2" />
+	<input class="btn" type="button" id="btnGroup3" value="button 3" />
+</div>
+
+<div class="btn-group-vertical input-group-btn">
+	<input class="btn" type="button" id="btnGroup4" value="button 4" />
+	<input class="btn" type="button" id="btnGroup5" value="button 5" />
+	<input class="btn" type="button" id="btnGroup6" value="button 6" />
+</div>
+
+<div class="btn-toolbar input-group-btn">
+	<input class="btn" type="button" id="btnGroup7" value="button 7" />
+	<input class="btn" type="button" id="btnGroup8" value="button 8" />
+	<input class="btn" type="button" id="btnGroup9" value="button 9" />
+</div>
+
+
+<div class="input-group-lg">
+	<div class="form-control">
+		<input class="btn input-lg" type="button" id="btnGroup10" value="button 10" />
+	</div>
+	<div class="input-group-addon">
+		<input class="btn input-lg" type="button" id="btnGroup11" value="button 11" />
+	</div>
+	<div class="input-group-btn">
+		<input class="btn input-lg" type="button" id="btnGroup12" value="button 12" />
+	</div>
+	<div class="form-control">
+		<input class="input-lg" type="checkbox" id="chkGroup12" value="checkbox 13" />
+	</div>
+</div>
+
+<div class="input-group-sm">
+	<div class="form-control">
+		<input class="btn" type="button" id="btnGroup13" value="button 14" />
+	</div>
+	<div class="input-group-addon">
+		<input class="btn" type="button" id="btnGroup14" value="button 15" />
+	</div>
+	<div class="input-group-btn">
+		<input class="btn input-lg" type="button" id="btnGroup15" value="button 16" />
+	</div>
+	<div class="form-control">
+		<input class="input-sm" type="checkbox" id="chkGroup15" value="checkbox 17" />
+	</div>
+</div>
+
+
+<div class="btn-group-xs">
+	<input class="btn" type="button" id="btnGroup18" value="button 18" />
+	<input class="btn" type="button" id="btnGroup19" value="button 19" />
+	<input class="btn" type="button" id="btnGroup20" value="button 20" />
+</div>
+
+<div class="btn-group-sm">
+	<input class="btn" type="button" id="btnGroup21" value="button 21" />
+	<input class="btn" type="button" id="btnGroup22" value="button 22" />
+	<input class="btn" type="button" id="btnGroup23" value="button 23" />
+</div>
+
+<div class="btn-group-lg">
+	<input class="btn" type="button" id="btnGroup24" value="button 24" />
+	<input class="btn" type="button" id="btnGroup25" value="button 25" />
+	<input class="btn" type="button" id="btnGroup26" value="button 26" />
+</div>
+
+<div class="btn-group-justified">
+	<input class="btn" type="button" id="btnGroup27" value="button 27" />
+	<input class="btn" type="button" id="btnGroup28" value="button 28" />
+	<div class="btn-group">
+		<input class="btn" type="button" id="btnGroup29" value="button 29" />
+	</div>
+</div>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div class="btn-group input-group-btn">
+	&lt;input class="btn" type="button" id="btnGroup1" value="button 1" />
+	&lt;input class="btn" type="button" id="btnGroup2" value="button 2" />
+	&lt;input class="btn" type="button" id="btnGroup3" value="button 3" />
+&lt;/div>
+
+&lt;div class="btn-group-vertical input-group-btn">
+	&lt;input class="btn" type="button" id="btnGroup4" value="button 4" />
+	&lt;input class="btn" type="button" id="btnGroup5" value="button 5" />
+	&lt;input class="btn" type="button" id="btnGroup6" value="button 6" />
+&lt;/div>
+
+&lt;div class="btn-toolbar input-group-btn">
+	&lt;input class="btn" type="button" id="btnGroup7" value="button 7" />
+	&lt;input class="btn" type="button" id="btnGroup8" value="button 8" />
+	&lt;input class="btn" type="button" id="btnGroup9" value="button 9" />
+&lt;/div>
+
+&lt;div class="input-group-lg">
+	&lt;div class="form-control">
+		&lt;input class="btn input-lg" type="button" id="btnGroup10" value="button 10" />
+	&lt;/div>
+	&lt;div class="input-group-addon">
+		&lt;input class="btn input-lg" type="button" id="btnGroup11" value="button 11" />
+	&lt;/div>
+	&lt;div class="input-group-btn">
+		&lt;input class="btn input-lg" type="button" id="btnGroup12" value="button 12" />
+	&lt;/div>
+	&lt;div class="form-control">
+		&lt;input class="input-lg" type="checkbox" id="chkGroup13" value="checkbox 13" />
+	&lt;/div>
+&lt;/div>
+
+&lt;div class="input-group-sm">
+	&lt;div class="form-control">
+		&lt;input class="btn input-sm" type="button" id="btnGroup14" value="button 14" />
+	&lt;/div>
+	&lt;div class="input-group-addon">
+		&lt;input class="btn input-sm" type="button" id="btnGroup15" value="button 15" />
+	&lt;/div>
+	&lt;div class="input-group-btn">
+		&lt;input class="btn input-sm" type="button" id="btnGroup16" value="button 16" />
+	&lt;/div>
+	&lt;div class="form-control">
+		&lt;input class="input-sm" type="checkbox" id="chkGroup17" value="checkbox 17" />
+	&lt;/div>
+&lt;/div>
+
+
+&lt;div class="btn-group-xs">
+	&lt;input class="btn" type="button" id="btnGroup18" value="button 18" />
+	&lt;input class="btn" type="button" id="btnGroup19" value="button 19" />
+	&lt;input class="btn" type="button" id="btnGroup20" value="button 20" />
+&lt;/div>
+
+&lt;div class="btn-group-sm">
+	&lt;input class="btn" type="button" id="btnGroup21" value="button 21" />
+	&lt;input class="btn" type="button" id="btnGroup22" value="button 22" />
+	&lt;input class="btn" type="button" id="btnGroup23" value="button 23" />
+&lt;/div>
+
+&lt;div class="btn-group-lg">
+	&lt;input class="btn" type="button" id="btnGroup24" value="button 24" />
+	&lt;input class="btn" type="button" id="btnGroup25" value="button 25" />
+	&lt;input class="btn" type="button" id="btnGroup26" value="button 26" />
+&lt;/div>
+
+&lt;div class="btn-group-justified">
+	&lt;input class="btn" type="button" id="btnGroup27" value="button 27" />
+	&lt;div class="btn-group">
+		&lt;input class="btn" type="button" id="btnGroup28" value="button 28" />
+		&lt;input class="btn" type="button" id="btnGroup29" value="button 29" />
+	&lt;/div>
+&lt;/div>
+</code></pre>
+
+<h3 id="gc-font-2019-example">gc-font-2019 example</h3>
+
+<form class="gc-font-2019">
+	<fieldset>
+		<legend>gc-font-2019 example</legend>
+		<div class="form-group">
+			<label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+			<div class="">
+				<input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+			<div class="">
+				<input type="password" class="form-control" id="inputPassword" placeholder="Password" />
+			</div>
+		</div>
+		<div class="form-group">
+			<input class="btn btn-lg" type="checkbox" id="gc-font-2019-checkbox" value="checkbox" />
+			<input class="btn btn-lg" type="radio" id="gc-font-2019-radio" value="radio" />
+			<input class="btn btn-lg" type="submit" id="gc-font-2019-submit" value="submit" />
+		</div>
+	</fieldset> 
+
+</form>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;form class="gc-font-2019">
+	&lt;fieldset>
+		&lt;legend>gc-font-2019 example&lt;/legend>
+		&lt;div class="form-group">
+			&lt;label for="staticEmail" class="col-sm-2 col-form-label">Email&lt;/label>
+			&lt;div class="col-sm-10">
+				&lt;input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com" />
+			&lt;/div>
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="inputPassword" class="col-sm-2 col-form-label">Password&lt;/label>
+			&lt;div class="col-sm-10">
+				&lt;input type="password" class="form-control" id="inputPassword" placeholder="Password" />
+			&lt;/div>
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;input class="btn btn-lg" type="checkbox" id="gc-font-2019-checkbox" value="checkbox" />
+			&lt;input class="btn btn-lg" type="radio" id="gc-font-2019-radio" value="radio" />
+			&lt;input class="btn btn-lg" type="submit" id="gc-font-2019-submit" value="submit" />
+		&lt;/div>
+	&lt;/fieldset> 
+
+&lt;/form>
+</code></pre>
+
+<h3 id="validation-states">Validation states</h3>
+
+<p>Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add
+<code class="prettyprint prettyprinted" aria-invalid="true">.has-warning</code>,
+<code class="prettyprint prettyprinted" aria-invalid="true">.has-error</code>, or
+<code class="prettyprint prettyprinted" aria-invalid="false">.has-success</code> to the parent element.
+Any <code class="prettyprint prettyprinted">.control-label</code>,
+<code class="prettyprint prettyprinted">.form-control</code>, and
+<code class="prettyprint prettyprinted">.help-block</code>
+within that element will receive the validation styles.</p>
+
+<form>
+	<div class="form-group has-success has-feedback">
+	<label class="control-label" for="inputSuccess1">Input with success</label>
+	<input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+	<span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+	</div>
+	<div class="form-group has-warning has-feedback">
+	<label class="control-label" for="inputWarning1">Input with warning</label>
+	<input type="text" class="form-control" id="inputWarning1">
+	</div>
+	<div class="form-group has-error has-feedback">
+	<label class="control-label" for="inputError1">Input with error</label>
+	<input type="text" class="form-control" id="inputError1">
+	</div>
+<div class="form-group has-success has-feedback">
+	<label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+	<div class="input-group">
+		<span class="input-group-addon">@</span>
+		<input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+	</div>
+	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	<span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+</div>
+	<div class="has-success">
+	<div class="checkbox">
+		<label>
+		<input type="checkbox" id="checkboxSuccess" value="option1">
+		Checkbox with success
+		</label>
+	</div>
+	</div>
+	<div class="has-warning">
+	<div class="checkbox">
+		<label>
+		<input type="checkbox" id="checkboxWarning" value="option1">
+		Checkbox with warning
+		</label>
+	</div>
+	</div>
+	<div class="has-error">
+	<div class="checkbox">
+		<label>
+		<input type="checkbox" id="checkboxError" value="option1">
+		Checkbox with error
+		</label>
+	</div>
+	</div>
+</form>
+
+<figure class="highlight">
+<pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-success has-feedback"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputSuccess2"</span><span class="nt">&gt;</span>Input with success<span class="nt">&lt;/label&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputSuccess2"</span> <span class="na">aria-describedby=</span><span class="s">"inputSuccess2Status"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-ok form-control-feedback"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"inputSuccess2Status"</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>(success)<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-warning has-feedback"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputWarning2"</span><span class="nt">&gt;</span>Input with warning<span class="nt">&lt;/label&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputWarning2"</span> <span class="na">aria-describedby=</span><span class="s">"inputWarning2Status"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-warning-sign form-control-feedback"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"inputWarning2Status"</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>(warning)<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-error has-feedback"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputError2"</span><span class="nt">&gt;</span>Input with error<span class="nt">&lt;/label&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputError2"</span> <span class="na">aria-describedby=</span><span class="s">"inputError2Status"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-remove form-control-feedback"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"inputError2Status"</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>(error)<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-success has-feedback"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputGroupSuccess1"</span><span class="nt">&gt;</span>Input group with success<span class="nt">&lt;/label&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputGroupSuccess1"</span> <span class="na">aria-describedby=</span><span class="s">"inputGroupSuccess1Status"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;/div&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-ok form-control-feedback"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"inputGroupSuccess1Status"</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>(success)<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+</figure>
+
+<h3>WET-BOEW overides</h3>
+
+<h4>WET-BOEW search bar</h4>
+
+<div id="wb-srch" class="srch-pnl">
+	<div class="form-control">
+		<input type="text" id="srchFormBlock1" value="srch" placeholder="srch-pnl" />
+		<label for="srchFormBlock1">srch-pnl</label>
+		<input class="btn btn-lg" type="reset" id="wbORreset" value="reset" />
+		<label for="wbORreset">srch-pnl</label>
+		<input class="btn btn-sm" type="button" id="wbORbutton" value="button" />
+		<label for="wbORbutton">srch-pnl</label>
+		<input class="btn btn-xs" type="submit" id="wbORsubmit" value="submit" />
+		<label for="wbORsubmit">srch-pnl</label>
+	</div>
+</div>
+
+<pre class="prettyprint prettyprinted"><code class="language-html" data-lang="html">
+&lt;div id="wb-srch" class="srch-pnl">
+	&lt;div class="form-control">
+		&lt;input type="text" id="srchFormBlock1" value="srch" placeholder="srch-pnl" />
+		&lt;label for="srchFormBlock1">srch-pnl&lt;/label>
+		&lt;input class="btn btn-lg" type="reset" id="wbORreset" value="reset" />
+		&lt;label for="wbORreset">srch-pnl&lt;/label>
+		&lt;input class="btn btn-sm" type="button" id="wbORbutton" value="button" />
+		&lt;label for="wbORbutton">srch-pnl&lt;/label>
+		&lt;input class="btn btn-xs" type="submit" id="wbORsubmit" value="submit" />
+		&lt;label for="wbORsubmit">srch-pnl&lt;/label>
+	&lt;/div>
+&lt;/div>
+</code></pre>
+
+<h4>WET-BOEW Form inline override</h4>
+
+<fieldset class="form-group has-error">
+	<legend class="has-error">This form has an error</legend>
+	<label for="checkboxWBOR">
+		<input class="required" type="checkbox" id="checkboxWBOR" value="checkbox" />
+		<strong class="required">srch-pnl<strong>
+	</label>
+</fieldset>
