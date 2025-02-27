@@ -1,30 +1,17 @@
 {%- unless page.pageclass contains "home" or page.breadcrumbs == false or layout.breadcrumbs == false -%}
 <nav id="wb-bc" property="breadcrumb">
 	<h2>{{ i18nText-breadcrumb }}</h2>
-	<div class="container">
-		<ol class="breadcrumb" typeof="BreadcrumbList">
-			<li property="itemListElement" typeof="ListItem">
-				<a property="item" typeof="WebPage" href="{{ i18nText-homePage }}">
-					<span property="name">{{ i18nText-home }}</span>
-				</a>
-				<meta property="position" content="1">
-			</li>
-			{% assign breadcrumbCounter = 2 %}
-			{%- unless page.overwriteBreadcrumbs -%}
-				{%- if site.global.breadcrumbs -%}
-					{% for breadcrumb in site.global.breadcrumbs[i18nText-lang] %}
-							<li property="itemListElement" typeof="ListItem">
-								<a property="item" typeof="WebPage" href="{% unless breadcrumb.link contains "http" or breadcrumb.link contains "../" %}{{ setting-siteBasePath }}{% endunless %}{{ breadcrumb.link }}">
-									<span property="name">{{ breadcrumb.title }}</span>
-								</a>
-								<meta property="position" content="{{ breadcrumbCounter }}">
-							</li>
-							{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
-					{%- endfor -%}
-				{% endif %}
-			{%- endunless -%}
-			{%- if page.breadcrumbs -%}
-				{% for breadcrumb in page.breadcrumbs %}
+	<ol class="breadcrumb" typeof="BreadcrumbList">
+		<li property="itemListElement" typeof="ListItem">
+			<a property="item" typeof="WebPage" href="{{ i18nText-homePage }}">
+				<span property="name">{{ i18nText-home }}</span>
+			</a>
+			<meta property="position" content="1">
+		</li>
+		{% assign breadcrumbCounter = 2 %}
+		{%- unless page.overwriteBreadcrumbs -%}
+			{%- if site.global.breadcrumbs -%}
+				{% for breadcrumb in site.global.breadcrumbs[i18nText-lang] %}
 						<li property="itemListElement" typeof="ListItem">
 							<a property="item" typeof="WebPage" href="{% unless breadcrumb.link contains "http" or breadcrumb.link contains "../" %}{{ setting-siteBasePath }}{% endunless %}{{ breadcrumb.link }}">
 								<span property="name">{{ breadcrumb.title }}</span>
@@ -34,7 +21,18 @@
 						{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
 				{%- endfor -%}
 			{% endif %}
-		</ol>
-	</div>
+		{%- endunless -%}
+		{%- if page.breadcrumbs -%}
+			{% for breadcrumb in page.breadcrumbs %}
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="{% unless breadcrumb.link contains "http" or breadcrumb.link contains "../" %}{{ setting-siteBasePath }}{% endunless %}{{ breadcrumb.link }}">
+							<span property="name">{{ breadcrumb.title }}</span>
+						</a>
+						<meta property="position" content="{{ breadcrumbCounter }}">
+					</li>
+					{% assign breadcrumbCounter = breadcrumbCounter | plus:1 %}
+			{%- endfor -%}
+		{% endif %}
+	</ol>
 </nav>
 {% endunless %}
