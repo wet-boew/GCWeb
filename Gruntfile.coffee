@@ -20,6 +20,7 @@ module.exports = (grunt) ->
 		[
 			"eslint:all"
 			"jsonlint:all"
+			"stylelint"
 			"sasslint:all"
 			"lintspaces:all"
 		]
@@ -934,6 +935,23 @@ module.exports = (grunt) ->
 				]
 				dest: "<%= themeDist %>/css"
 				expand: true
+
+		stylelint:
+			options:
+				configFile: "stylelint.config.js"
+
+			css:
+				src: [
+					"**/*.css"
+					"!**/*.min.css"
+					"!node_modlules"
+				]
+
+			scss:
+				src: [
+					"**/*.scss"
+					"!node_modlules"
+				]
 
 		cssmin:
 			theme:
