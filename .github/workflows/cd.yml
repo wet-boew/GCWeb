@@ -295,18 +295,3 @@ jobs:
               name: 'Release ' + process.env.ref_name + ' (' + context.runId + ')',
               target_commitish: process.env.commitish
             });
-
-      #
-      # Refresh GCWeb GitHub pages
-      #
-      - name: Dist CDN - Applying changes
-        uses: actions/github-script@v7
-        env:
-          repo: ${{ env.REPO_GCWEB }}
-        with:
-          github-token: ${{ secrets.my_token }}
-          script: |
-            github.repos.requestPagesBuild({
-              owner: context.repo.owner,
-              repo: process.env.repo
-            });
