@@ -24,7 +24,7 @@ Let us know if you have any questions, or join [WET Office hours](https://github
 
 ______________________
 
-([English](#how-to-contribe))
+([English](#how-to-contribute))
 
 # Comment contribuer
 

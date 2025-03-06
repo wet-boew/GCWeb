@@ -1,6 +1,6 @@
 # Contributor Covenant Code of Conduct for the GCWeb project
 
-([Français](#Code-de-conduite-pour-le-projet-GCweb))
+([Français](#code-de-conduite-pour-le-projet-gcweb))
 
 Contributors to repositories hosted in [**WET-BOEW**](https://github.com/wet-boew/) are expected to follow the Contributor Covenant Code of Conduct, and those working within Government are also expected to follow the Values and Ethics Code for the Public Sector
 
@@ -68,7 +68,7 @@ ___
 
 # Code de conduite pour le projet GCWeb
 
-([English](#Contributor-Covenant-Code-of-Conduct-for-the-GCWeb-project))
+([English](#contributor-covenant-code-of-conduct-for-the-gcweb-project))
 
 Les contributeurs aux dépôts hébergés dans [**WET-BOEW**](https://github.com/wet-boew/) sont tenus de respecter le Code de conduite du Pacte des contributeurs, et ceux qui travaillent au sein du gouvernement sont également tenus de respecter le Code de valeurs et d'éthique du secteur public.
 
