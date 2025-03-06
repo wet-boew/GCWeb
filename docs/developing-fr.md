@@ -92,7 +92,6 @@ docker-compose up
 
 HTML link checker
 
-
 ```
 docker exec -i gcweb_jekyll rake
 ```

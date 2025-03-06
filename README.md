@@ -19,7 +19,6 @@ Commencez avec des modèles, des configurations de conception et des principes d
 
 Voir [CONTRIBUTING.md](CONTRIBUTING.md)
 
-
 ## Comment compiler et exécuter les tests
 
 Avec Docker `docker build -t gcweb . -p`
