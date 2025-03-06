@@ -112,7 +112,7 @@ grunt htmllint:all
 
 ## Build demo files
 
-Run the following command to generate files for a demo on https://github.com/ServiceCanada/wet-boew-demos where `[branchName]` refers to the branch name where your demo is hosted.
+Run the following command to generate files for a demo on <https://github.com/ServiceCanada/wet-boew-demos> where `[branchName]` refers to the branch name where your demo is hosted.
 
 `grunt demo --branch=[branchName]`
 

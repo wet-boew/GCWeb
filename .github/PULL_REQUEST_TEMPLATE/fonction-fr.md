@@ -31,7 +31,7 @@ Assurez-vous de supprimer ce commentaire lorsque vous avez terminé.
 ## Liste de contrôle générale
 
 - [] [Documentation technique](FONCTIONNALITE.md) créé / mis à jour
-- [] Conforme aux [guides de style] (https://www.canada.ca/en/gouvernment/apropos/design-system.html)
+- [] Conforme aux [guides de style](https://www.canada.ca/en/gouvernment/apropos/design-system.html)
 - [] Entrée du journal des modifications ajoutée, si nécessaire
 - [] Tests ajoutés pour cette fonctionnalité / bug
 
