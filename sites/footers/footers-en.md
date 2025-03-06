@@ -80,7 +80,7 @@ The following changes have been made since **version 2.0**:
 
 ## GCWeb-Jekyll implementation
 
-* For the contextual band over the main band: 
+* For the contextual band over the main band:
   * the title and links are defined globally in `_config.yml`. It is also possible to remove the contextual band globally by removing its definition in `_config.yml`.
   * the title and links can be changed for specific pages in the page's `contextualFooter` property.
 * The links "Terms and conditions" and "Privacy" are visible at all times, even when `noFooterCorporate` is set to true.
