@@ -16,6 +16,7 @@ titleH1: Afficher la bande principale et la bande sous pied de page
 <div class="wb-prettify all-pre hide"></div>
 
 Le pied de page général (à l'échelle du site) situé au bas de chaque page Web contient jusqu'à 3 bandes :
+
 * bande contextuelle
 * bande principale
 * bande sous pied de page
@@ -33,6 +34,7 @@ La bande contextuelle est facultative sur tous les types de page (régulière, t
 </figure>
 
 ## Pour le thème GCWeb-Jekyll
+
 * En définissant la variable `noFooterContextual` à «&nbsp;true&nbsp;», la bande contextuelle sera masquée au chargement de la page.
 * La bande contextuelle est définie dans `_config.yml`, mais peut également être écrasée sur n'importe quelle page donnée dans le «&nbsp;front matter&nbsp;» (voir [Pied de page complet](footers-fr.html) pour un exemple).
 

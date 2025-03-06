@@ -20,11 +20,13 @@ title: Pied de page complet
 <div class="wb-prettify all-pre hide"></div>
 
 Le pied de page général (à l'échelle du site) situé au bas de chaque page Web peut contenir jusqu'à 3 bandes&nbsp;:
+
 * Bande contextuelle
 * Bande principale
 * Bande sous pied de page
 
 Consultez le système de conception de Canada.ca pour savoir quels éléments de pied de page ou quelles implémentations adaptées utiliser en fonction du type de page que vous créez&nbsp;:
+
 * [Pied de page général - Système de conception Canada.ca](https://conception.canada.ca/configurations-conception-communes/pied-page.html)
 
 ## Changements récents
@@ -32,12 +34,14 @@ Consultez le système de conception de Canada.ca pour savoir quels éléments de
 ### Version 8.0
 
 Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
+
 * Version 8.0 : Pluriel de "finance" dans "Argent et finance", mise en majuscule de "peoples" dans "<span lang="en">Indigenous peoples</span>" dans la version anglaise.
 * Version 7.0 : Ajout de "www." à l'URL de "Canada et le monde".
 * Version 6.0 : Changé l'URL du lien "Vétérans et militaires".
 * Version 5.0 : Changement de "<span lang="en">All Contacts</span>" à "<span lang="en">All contacts</span>" dans la version anglaise.
 
 Les modifications suivantes ont été apportées depuis la **version 2.0**&nbsp;:
+
 * Ajout d'une bande contextuelle au-dessus de la bande principale.
 * La classe `.landscape` a été renommée à `.gc-main-footer`
 * Ajout d'un nouveau titre « Gouvernement du Canada » dans la bande principale.

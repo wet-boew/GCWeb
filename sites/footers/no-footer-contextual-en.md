@@ -16,6 +16,7 @@ titleH1: Display main footer band and sub-footer band
 <div class="wb-prettify all-pre hide"></div>
 
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
+
 * Contextual band
 * Main band
 * Sub-footer band
@@ -36,7 +37,6 @@ The contextual band is optional on all page types (standard, transactional, camp
 
 * By setting the `noFooterContextual` variable to "true", the contextual band will be hidden on page load.
 * The contextual band is defined in `_config.yml`, but can also be overwritten on any given page in the front matter section (view [Complete footer](footers-en.html) for an example).
-
 
 ## Guidance
 
