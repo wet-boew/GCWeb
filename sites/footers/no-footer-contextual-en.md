@@ -37,7 +37,6 @@ The contextual band is optional on all page types (standard, transactional, camp
 * By setting the `noFooterContextual` variable to "true", the contextual band will be hidden on page load.
 * The contextual band is defined in `_config.yml`, but can also be overwritten on any given page in the front matter section (view [Complete footer](footers-en.html) for an example).
 
-
 ## Guidance
 
 Consult the Canada.ca Design System for guidance on which footer elements to use based on the type of page you’re creating:
