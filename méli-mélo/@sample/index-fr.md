@@ -16,8 +16,8 @@ Les exigences minimal c'est:
 
 * Une démonstration existe pour chaque fonctionnalité afin de mettre à l'essaie  inclus dans ce méli-mélo.
 * Il ne doit pas interférer, ni remplacer n'importe lequel partie des libraries de la BOEW, du thème de Canada.ca ni avec les méli-mélo dans son ensemble.
-	- Par example, le code javascript est encapsulé avec une "closure" et l'instruction "use strict" dont l'ensemble des variable global sont géré.
-	- Les écouteur d'événement sont ajouté via le code javascript. Autrement, il n'y a pas d'attribut événementiel ou de callback javascript via le code HTML. Le code HTML n'est pas directement binder au script.
+	* Par example, le code javascript est encapsulé avec une "closure" et l'instruction "use strict" dont l'ensemble des variable global sont géré.
+	* Les écouteur d'événement sont ajouté via le code javascript. Autrement, il n'y a pas d'attribut événementiel ou de callback javascript via le code HTML. Le code HTML n'est pas directement binder au script.
 * Une revision préalable qui sera brève et partielle sera fait afin de repérer des erreurs d'accessibilité majeur et flagrant.
 * Le propriétaire de contenu duquel le méli-mélo sera utilisé en production prendra toutes les mesures nécessaire pour une conformance et assumera l'entièreté des risques.
 * Toutes fonctionnalité méli-mélo est assujetti à l'approbation et au droit de vétaux des administrateurs de la BOEW.
@@ -63,6 +63,6 @@ Un CSS personnalisé a été compilé par le thème jekyll. La grosseur de la po
 * Contacter l'éditeur principal et/ou DTO et/ou participé au code sprint hebdomadaire
 * Refactorisation du méli-mélo vers une solution entreprise entièrement réutilisable
 * Prioritization des technologies dans cet ordre
-	- Seulement du HTML
-	- Seulement du HTML avec une combinaison de CSS. Le contenu responsive devrais être idéalement résolu à l'aide de CSS
-	- Utilisation du JS pour les interactions.
+	* Seulement du HTML
+	* Seulement du HTML avec une combinaison de CSS. Le contenu responsive devrais être idéalement résolu à l'aide de CSS
+	* Utilisation du JS pour les interactions.
