@@ -15,6 +15,7 @@ Note : Si votre demande est reliée à la sécurité, veuillez ne pas ouvrir une
 ## To Reproduce
 <!-- Obligatoire -->
 Étapes pour reproduire le comportement :
+
 1. Aller à '...'.
 2. Cliquez sur '...'.
 3. Faites défiler vers le bas jusqu'à '...'.

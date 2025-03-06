@@ -20,11 +20,13 @@ title: Footer
 <div class="wb-prettify all-pre hide"></div>
 
 The global (site-wide) footer at the bottom of each web page can contain up to 3 bands:
+
 * Contextual band
 * Main band
 * Sub-footer band
 
 Consult the Canada.ca Design System for guidance on which footer elements or custom implementations to use based on the type of page you're creating:
+
 * [Global footer - Canada.ca Design System](https://design.canada.ca/common-design-patterns/site-footer.html)
 
 ## Latest changes
@@ -32,12 +34,14 @@ Consult the Canada.ca Design System for guidance on which footer elements or cus
 ### Version 8.0
 
 The following changes have been made since **version 4.0**:
+
 * Version 8.0 : Pluralized "finance" in "Money and finance", capitalized "peoples" in "Indigenous peoples".
 * Version 7.0 : Added "www." to the "Canada and the world" URL.
 * Version 6.0 : Changed the "Veterans and military" URL.
 * Version 5.0 : Changed “All Contacts” to “All contacts”.
 
 The following changes have been made since **version 2.0**:
+
 * Added a contextual band above the main band.
 * The `.landscape` class was renamed to `.gc-main-footer`
 * Added new heading "Government of Canada" in the main band.

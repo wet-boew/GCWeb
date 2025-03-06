@@ -14,6 +14,7 @@ Note: If your request is related to security, please do not open a publicly visi
 ## To Reproduce
 <!-- Mandatory -->
 Steps to reproduce the behaviour:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'

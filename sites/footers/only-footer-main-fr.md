@@ -17,6 +17,7 @@ titleH1: Afficher la bande principale et la bande sous pied de page sans les lie
 <div class="wb-prettify all-pre hide"></div>
 
 Le pied de page général (à l'échelle du site) situé au bas de chaque page Web contient jusqu'à 3 bandes&nbsp;:
+
 * bande contextuelle
 * bande principale
 * bande sous pied de page
@@ -42,4 +43,5 @@ En définissant les variables `noFooterContextual` et `noFooterCorporate` à «&
 ## Lignes directrices
 
 Consultez le système de conception de Canada.ca pour savoir quels éléments de pied de page ou quelles implémentations adaptées utiliser en fonction du type de page que vous créez&nbsp;:
+
 * [Pied de page général - Système de conception Canada.ca](https://conception.canada.ca/configurations-conception-communes/pied-page.html)
