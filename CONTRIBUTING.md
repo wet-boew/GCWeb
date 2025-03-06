@@ -32,7 +32,7 @@ Lorsque vous contribuez, veuillez également publier des commentaires et discute
 
 N'hésitez pas à proposer des modifications en créant des demandes de tirage ([Pull Requests](https://wet-boew.github.io/wet-boew/docs/pull-fr.html)). Si vous n'avez pas accès au mode de rédaction, la modification d'un fichier créera une copie (Fork) de ce projet afin que vous puissiez enregistrer les modifications que vous proposez. Le fait de proposer une modification à un fichier l'écrira dans une nouvelle branche dans votre copie (Fork), de sorte que vous puissiez envoyer une demande de tirage (Pull Request).
 
-Si c'est la première fois que vous contribuez à GitHub, ne vous en faites pas! 
+Si c'est la première fois que vous contribuez à GitHub, ne vous en faites pas!
 
 ## Corriger ou améliorer GCWeb en tant que développeur
 

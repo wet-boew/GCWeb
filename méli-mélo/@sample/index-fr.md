@@ -16,7 +16,7 @@ Les exigences minimal c'est:
 
 * Une démostration existe pour chaques fonctionalité afin de mettre à l'essaie  inclus dans ce méli-mélo.
 * Il ne doit pas interférer, ni remplacer n'importe lequel partie des libraries de la BOEW, du thème de Canada.ca ni avec les méli-mélo dans son ensemble.
-	* Par example, le code javascript est encapsulé avec une "closure" et l'instruction "use stric" dont l'ensemble des variable global sont géré. 
+	* Par example, le code javascript est encapsulé avec une "closure" et l'instruction "use stric" dont l'ensemble des variable global sont géré.
 	* Les écouteur d'événement sont ajouté via le code javascript. Autremendit, il n'y a pas d'attribut événementiel ou de callback javascript via le code HTML. Le code HTML n'est pas directement binder au scirpt.
 * Une revision préalable qui sera brève et partielle sera fait afin de repérer des erreurs d'accessibilité majeur et flagrant.
 * Le propriétaire de contenu duquel le méli-mélo sera utilisé en production prendra toutes les mesures nécessaire pour une conformance et assumera l'entièreté des risques.
