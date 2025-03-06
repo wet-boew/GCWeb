@@ -7,6 +7,7 @@
 [Aller vers le site officiel de cette référence d'implémentation du thème de Canada.ca (GCWeb)](https://wet-boew.github.io/GCWeb/)
 
 ## Objectif
+
 Le but de ce dépôt est de permettre à la communauté de développeurs d'utiliser, examiner et expérimenter de nouvelles composantes, mises en page, gabarits et fonctionnalités pour créer des produits numériques. Utilisez ce thèmes pour offrir aux personnes qui accèdent aux services numériques du gouvernement du Canada une expérience en ligne plus conviviale, cohérente et fiable.
 
 Commencez avec des modèles, des configurations de conception et des principes de conception testés par les utilisateurs pour débuter rapidement et gagner du temps et économiser de l'argent.

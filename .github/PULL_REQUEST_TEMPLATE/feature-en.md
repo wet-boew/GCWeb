@@ -20,6 +20,7 @@ Make sure to remove this comment when you are done.
 -->
 
 ## Contribution category (please only choose one)
+
 - [ ] Stateless or basic component
 - [ ] Interactive component
 - [ ] Helper component

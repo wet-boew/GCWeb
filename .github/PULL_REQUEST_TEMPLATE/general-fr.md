@@ -19,6 +19,7 @@ Assurez-vous de supprimer ce commentaire lorsque vous avez terminé.
 -->
 
 ## Liste de contrôle générale
+
 - [] [Documentation] (README.md) créé / mis à jour
 - [] Entrée du journal des modifications ajoutée, si nécessaire
 
