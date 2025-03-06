@@ -35,13 +35,13 @@ After your are running docking container or the docker composer you will be able
 
 Build Dockerfile locally
 
-```
+```shell
 docker build -t jekyll-with-env-options .
 ```
 
 Run your image
 
-```
+```shell
 grunt debug
 
 docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='--config _config.yml,_localJekyll.yml' jekyll-with-env-options
@@ -51,7 +51,7 @@ docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='
 
 This version leverage the remote theme wet-boew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
 
-```
+```shell
 grunt debug
 docker-compose up
 ```
@@ -72,7 +72,7 @@ GitHub fork needed:
 
 Run the continuous deployment script
 
-```
+```shell
 act -f deploy-gcweb -s my_token=<XXXXXXXXXXXXXX> -s my_username="<GITHUB USERNAME>" - my_email="<GITHUB HANDLE>@users.noreply.github.com" -a <GITHUB HANDLE>
 ```
 
@@ -86,7 +86,7 @@ Where:
 
 Pre-requites
 
-```
+```shell
 grunt debug
 docker-compose up
 
@@ -94,19 +94,19 @@ docker-compose up
 
 HTML link checker
 
-```
+```shell
 docker exec -i gcweb_jekyll rake
 ```
 
 Bootlint test
 
-```
+```shell
 grunt bootlint
 ```
 
 HTML lint
 
-```
+```shell
 grunt htmllint:all
 ```
 
@@ -120,7 +120,7 @@ Run the following command to generate files for a demo on https://github.com/Ser
 
 You can make a commit to your site and it will get regenerated with the latest version of the jekyll theme. Alternatively, the following curl command will told github to regenerate your site.
 
-```
+```shell
 curl -u <GITHUB HANDLE>:<XXXXXXXXXXXXXX> -X POST https://api.github.com/repos/<GITHUB HANDLE>/<GITHUB REPOSITORY>/pages/builds
 ```
 

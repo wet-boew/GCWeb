@@ -47,7 +47,7 @@ Un CSS personnalisé a été compilé par le thème jekyll. La grosseur de la po
 
 ### Code source
 
-```
+```html
 <p class="wb-bonjour">Exemple 1</p>
 <p>Exemple 2 (<em class="wb-bonjour">à l'intérieur d'un em</em>)</p>
 <p class="wb-bonjour" data-wb-bonjour='{ "surpassetoi": true }'>Exemple 3 avec paramètre</p>
