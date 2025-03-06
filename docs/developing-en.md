@@ -38,6 +38,7 @@ docker build -t jekyll-with-env-options .
 ```
 
 Run your image
+
 ```
 grunt debug
 
