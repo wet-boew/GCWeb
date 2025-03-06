@@ -27,6 +27,7 @@ titleH1: Display contextual band and sub-footer band
 <div class="wb-prettify all-pre hide"></div>
 
 The global (site-wide) footer at the bottom of each web page contains up to 3 bands:
+
 * Contextual band
 * Main band
 * Sub-footer band
@@ -50,4 +51,5 @@ By setting the `noFooterMain` variable to "true", the main band will be hidden o
 ## Guidance
 
 Consult the Canada.ca Design System for guidance on which footer elements to use based on the type of page you’re creating:
+
 * [Global footer - Canada.ca Design System](https://design.canada.ca/common-design-patterns/site-footer.html)

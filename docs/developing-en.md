@@ -75,6 +75,7 @@ act -f deploy-gcweb -s my_token=<XXXXXXXXXXXXXX> -s my_username="<GITHUB USERNAM
 ```
 
 Where:
+
 * `<GITHUB USERNAME>`: Your name, like "John Doe"
 * `<GITHUB HANDLE>`: Your github id
 * `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
@@ -122,6 +123,7 @@ curl -u <GITHUB HANDLE>:<XXXXXXXXXXXXXX> -X POST https://api.github.com/repos/<G
 ```
 
 Where:
+
 * `<GITHUB HANDLE>`: Your github id
 * `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
 * `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"

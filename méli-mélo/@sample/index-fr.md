@@ -24,6 +24,7 @@ Les exigences minimal c'est:
 * Ces fonctionalités doivent répondre à un besoin d'un département asujeti à la politique des communications du gouvernement du Canada.
 
 Vous pouvez aussi inclure:
+
 * Vos documents sommaire de recherche utilisateur
 * Identifier une personne resource ou un département.
 * Vos rapport de mise à l'essaie
