@@ -87,8 +87,8 @@ var componentName = "wb-combobox",
 			}
 
 			function similartextCheck( s1, s2 ) {
-				s1 = s1.replace( /[\-\/]|_/g, " " ).replace( /[^\w\s]|_/g, "" ).trim().toLowerCase();
-				s2 = s2.replace( /[\-\/]|_/g, " " ).replace( /[^\w\s]|_/g, "" ).trim().toLowerCase();
+				s1 = s1.replace( /[-/]|_/g, " " ).replace( /[^\w\s]|_/g, "" ).trim().toLowerCase();
+				s2 = s2.replace( /[-/]|_/g, " " ).replace( /[^\w\s]|_/g, "" ).trim().toLowerCase();
 
 				var arrShorter = s1.split( " " ),
 					arrLonger  = s2.split( " " );
@@ -434,7 +434,7 @@ var componentName = "wb-combobox",
 	parseExpression = function( exp, data, altData ) {
 
 		// https://stackoverflow.com/questions/249791/regex-for-quoted-string-with-escaping-quotes
-		var regDoubleQuotes = /"([^"\\]*(\\.[^"\\]*)*)"|\'([^\'\\]*(\\.[^\'\\]*)*)\'/g;
+		var regDoubleQuotes = /"([^"\\]*(\\.[^"\\]*)*)"|'([^'\\]*(\\.[^'\\]*)*)'/g;
 		var regWordFunction = /[a-zA-Z]([^\s]+)/g;
 		var regExMustache = /{{-\s?([^}]*)\s?-}}/g;
 
@@ -810,7 +810,7 @@ var componentName = "wb-combobox",
 	*/
 	parseFor = function( exp ) {
 		var forAliasRE = /([^]*?)\s+(?:in|of)\s+([^]*)/;
-		var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
+		var forIteratorRE = /,([^,}\]]*)(?:,([^,}\]]*))?$/;
 		var stripParensRE = /^\(|\)$/g;
 
 		var inMatch = exp.match( forAliasRE );
@@ -1226,7 +1226,7 @@ var componentName = "wb-combobox",
 
 		function observeData( obj ) {
 			for ( var key in obj ) {
-				if ( obj.hasOwnProperty( key ) ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, key ) ) {
 					makeReactive( obj, key );
 				}
 			}
