@@ -115,7 +115,7 @@ var componentName = "wb-fieldflow",
 			}
 			config = $.extend( {}, defaults, wbDataElm );
 
-			if ( config.defaultIfNone && !$.isArray( config.defaultIfNone ) ) {
+			if ( config.defaultIfNone && !Array.isArray( config.defaultIfNone ) ) {
 				config.defaultIfNone = [ config.defaultIfNone ];
 			}
 
@@ -929,7 +929,7 @@ $document.on( resetActionEvent, selector + ", ." + subComponentName, function( e
 		if ( settings && settings.reset ) {
 			settingsReset = settings.reset;
 
-			if ( $.isArray( settingsReset ) ) {
+			if ( Array.isArray( settingsReset ) ) {
 				resetAction = settingsReset;
 			} else {
 				resetAction.push( settingsReset );
@@ -1013,7 +1013,7 @@ $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event
 	}
 	if ( $optSel.length && $optSel.val() && settings && settings.default ) {
 		cacheAction = settings.default;
-		if ( $.isArray( cacheAction ) ) {
+		if ( Array.isArray( cacheAction ) ) {
 			actions = cacheAction;
 		} else {
 			actions.push( cacheAction );
@@ -1050,7 +1050,7 @@ $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event
 						} catch ( error ) {
 							$.error( "Bad JSON object " + actionAttr );
 						}
-						if ( !$.isArray( cacheAction ) ) {
+						if ( !Array.isArray( cacheAction ) ) {
 							cacheAction = [ cacheAction ];
 						}
 					} else {
