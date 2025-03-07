@@ -9,7 +9,7 @@
 
 // Fetch page language and set variables accordingly
 let relpreposition = " of ",
-progressLabel = "Questionnaire progress:";
+	progressLabel = "Questionnaire progress:";
 
 // Define French progress label
 if ( wb.lang === "fr" ) {
@@ -24,7 +24,7 @@ var quizSelector = ".provisional.wb-steps.quiz",
 	instances = document.querySelectorAll( quizSelector );
 
 //How many quiz instances in the page
-instances.forEach ( ( instance ) => {
+instances.forEach( ( instance ) => {
 	let $instance = $( instance );
 
 	// Calculate number of questions
@@ -33,12 +33,13 @@ instances.forEach ( ( instance ) => {
 	// Addition to UI (Ex: progress bar)
 	( "form", $instance ).prepend( "<label><span class='wb-inv'>" + progressLabel + "</span><progress class='progressBar' max='" + numQuestion + "'></progress><p class='progressText' role='status'></p></label>" );
 
-});
+} );
 
 var hideOtherSteps = function( e ) {
+
 	// Get wb-steps component
 	let steps,
-	currentElement = e.currentTarget;
+		currentElement = e.currentTarget;
 
 	if ( currentElement.classList.contains( "quiz" ) && currentElement.classList.contains( "wb-steps" ) ) {
 		steps = currentElement;
@@ -55,7 +56,7 @@ var hideOtherSteps = function( e ) {
 
 	// Find the steps form context and validate it is a quiz
 	let currentTabId = $( "legend.wb-steps-active:first-child", steps ).parents().prevAll( ".steps-wrapper" ).length + 1;
-	
+
 	// Get progress bar
 	let $progressBar = $( ".progressBar", steps );
 
@@ -66,9 +67,9 @@ var hideOtherSteps = function( e ) {
 	$( "p.progressText", steps ).text( currentTabId + relpreposition + numQuestion );
 
 	// Update progress bar
-  	$progressBar.val( currentTabId );
+	$progressBar.val( currentTabId );
 
-  	// Hide other steps that are not active
+	// Hide other steps that are not active
 	$( ".steps-wrapper", steps ).removeClass( "hidden" );
 	$( ".steps-wrapper:has( div.hidden )", steps ).addClass( "hidden" );
 
