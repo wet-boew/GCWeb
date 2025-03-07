@@ -30,16 +30,16 @@ var $document = wb.doc,
 
 			$quizDiv = $( ".quiz-content" );
 
-			if ( $quizDiv ){
-				$quizDiv.clone().addClass( "hidden-md hidden-lg" ).insertBefore( " .services-and-information ");
+			if ( $quizDiv ) {
+				$quizDiv.clone().addClass( "hidden-md hidden-lg" ).insertBefore( " .services-and-information " );
 				$quizDiv.addClass( "hidden-xs hidden-sm" );
 			}
 
 			// Prevent on-load blinking on desktop
 			elm.classList.add( "no-blink" );
 
-		// Identify that initialization has completed
-		wb.ready( $elm, componentName );
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
 		}
 	};
 
