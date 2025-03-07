@@ -1052,11 +1052,13 @@ module.exports = (grunt) ->
 
 		eslint:
 			options:
-				configFile: if process.env.CI == "true" then "node_modules/wet-boew/.eslintrc.ci.json" else "node_modules/wet-boew/.eslintrc.json"
+				overrideConfigFile: if process.env.CI == "true" then "node_modules/wet-boew/.eslintrc.ci.json" else "node_modules/wet-boew/.eslintrc.json"
 				quiet: true
 			all:
 				src: [
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
+					"**/*.js"
+					"!node_modules/**/*.js"
+					"!dist/**/*.js"
 				]
 		jsonlint:
 			all:
