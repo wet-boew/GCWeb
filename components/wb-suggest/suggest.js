@@ -15,7 +15,7 @@ var $document = wb.doc,
 	initEvent = "wb-init." + componentName,
 	jsonFetched = "json-fetched.wb",
 	wait,
-	waitInterval = 250, // In-bettween typing delay before refreshing the suggested list.
+	waitInterval = 250, // In-between typing delay before refreshing the suggested list.
 	maxWaitLoading = 5, // Number of time of waitInterval the plugin are allow wait for getting JSON suggestions
 
 	// Remove accent and normalize the string
@@ -49,8 +49,8 @@ var $document = wb.doc,
 	//
 	// this: datalist instance
 	// filter: filter items that match the suggestion
-	// limti: (for overwride) limit number of result
-	// attSuggestions: (for overwride) Array of string with suggestion
+	// limit: (for override) limit number of result
+	// attSuggestions: (for override) Array of string with suggestion
 	//
 	addDataListOptions = function( filter, limit, attrSuggestions ) {
 		var suggestions = attrSuggestions || JSON.parse( this.dataset.wbSuggestions || [] ),
@@ -124,7 +124,7 @@ var $document = wb.doc,
 		var template = this.querySelector( "template" );
 
 		// IE11 support
-		// Polyfil the template, like if added after the polyfill or this a sub-template in a template container that wasn't polyfill
+		// Polyfill the template, like if added after the polyfill or this a sub-template in a template container that wasn't polyfill
 		// FYI - The polyfill is loaded from the data-json plugin
 		if ( template && !template.content ) {
 			wb.tmplPolyfill( template );
@@ -170,7 +170,7 @@ var $document = wb.doc,
 		// Attach the JSON list to the datalist element
 		this.dataset.wbSuggestions = JSON.stringify( suggestions );
 
-		// Remove the reference as it not needed anymore
+		// Remove the reference as it not needed any more
 		delete this.dataset.wbSuggest;
 
 		// Add the suggested options

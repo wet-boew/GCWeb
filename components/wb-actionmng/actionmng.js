@@ -249,7 +249,7 @@ var $document = wb.doc,
 				var cellCSVText;
 				if ( isDataTable ) {
 
-					// I would like to use ".node()" instead of ".data()" but it is not possible to get the referencied
+					// I would like to use ".node()" instead of ".data()" but it is not possible to get the referenced
 					// node because it don't exist if the table have multiple pages.
 					cellCSVText = $datatable.cell( i, j, { "page": "all" } ).data();
 
@@ -309,7 +309,7 @@ var $document = wb.doc,
 
 	},
 
-	// From a user input or a predefined input, apply some tranformation to the command prior to execute it
+	// From a user input or a predefined input, apply some transformation to the command prior to execute it
 	// This functionality was already in the URL mapping and was moved here to be reused by any user input
 	withInput = function( event, data ) {
 

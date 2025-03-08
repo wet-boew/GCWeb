@@ -86,7 +86,7 @@ var componentName = "wb-chtwzrd",
 	},
 
 	/**
-	 * Prepare initiation depending on the input type, wether it's JSON or a form
+	 * Prepare initiation depending on the input type, whether it's JSON or a form
 	 * @method fireChtwzrd
 	 * @param {jQuery DOM element} $selector Element to which the wizard will be appended
 	 */
@@ -405,7 +405,7 @@ var componentName = "wb-chtwzrd",
 				}
 			};
 
-			// Correct bubble positionning on load, on resize an on Y scroll if necessary
+			// Correct bubble positioning on load, on resize an on Y scroll if necessary
 			stickyUntilFooter( $selector );
 
 			$( window ).on( "resize scroll", function() {
@@ -627,7 +627,7 @@ var componentName = "wb-chtwzrd",
 	 * Toggle between form and wizard
 	 * @method toggleExperience
 	 * @param {jQuery DOM element} $selector Element to which the experience will be active
-	 * @param {String} toggle Give context to the toggle, wether it is form or wizard
+	 * @param {String} toggle Give context to the toggle, whether it is form or wizard
 	 */
 	toggleExperience = function( $selector, toggle ) {
 
@@ -698,7 +698,7 @@ var componentName = "wb-chtwzrd",
 
 			if ( first !== "" ) {
 
-				// Show greetings on first occurence
+				// Show greetings on first occurrence
 				$lastQuestion.html( datainput.header.greetings );
 				first = "";
 				appendInteraction( $selector );
@@ -716,7 +716,7 @@ var componentName = "wb-chtwzrd",
 				$selector.attr( "action", redirurl );
 			} else {
 
-				// On every other occurences, append the question and its possible answers
+				// On every other occurrences, append the question and its possible answers
 				$lastQuestion.html( current.label );
 				current.input = "radio";
 				inputsTimeout = setTimeout( function() {
