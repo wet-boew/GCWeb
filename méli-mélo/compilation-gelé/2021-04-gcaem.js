@@ -145,7 +145,7 @@ var componentName = "wb-combobox",
 				return ( matchChars / maxChars ) * 100;
 			}
 
-			// Check agains the pass Ratio
+			// Check against the pass Ratio
 			var result = similartextCheck( str1, str2 );
 			passRatio = parseInt( passRatio );
 			if ( result >= passRatio ) {
@@ -474,7 +474,7 @@ var componentName = "wb-combobox",
 
 			if ( typeof replacementValue === "object" ) {
 
-				// Stringfy the value
+				// Stringify the value
 				replacementValue = JSON.stringify( replacementValue );
 			}
 
@@ -526,7 +526,7 @@ var componentName = "wb-combobox",
 		el.ifConditions.push( condition );
 	},
 
-	// @tmplId going to be replated by the Real DOM template
+	// @tmplId going to be replaced by the Real DOM template
 	renderTemplate = function( dataObj, settings ) {
 
 		// Prepare the template
@@ -553,7 +553,7 @@ var componentName = "wb-combobox",
 
 		// Template cheat sheet
 		// 		Document.querySelector()
-		//		It only take the first occurence
+		//		It only take the first occurrence
 		//var cssSelectorsMapping = {
 		//	"CSS selector": "Property Name in the dataObj" // Need a modifier (like TextContent, ....)
 		//}
@@ -725,7 +725,7 @@ var componentName = "wb-combobox",
 				virtualLinearDOM[ frgItemId ] = dataObject;
 
 				// Add a class || data attribute to note it is a component
-				// - This is to be able to retreive the associated data on a event
+				// - This is to be able to retrieve the associated data on a event
 				i_cache.classList.add( "wb5React" );
 			}
 
@@ -739,7 +739,7 @@ var componentName = "wb-combobox",
 			// The fragment would replace the current element
 			elm.parentNode.insertBefore( tmpl, elm );
 
-			// Detach the current element - Eventually they could be completly removed
+			// Detach the current element - Eventually they could be completely removed
 			if ( !settings.hideSourceUI ) {
 				elm.id = wb.getId();
 				docFragmentSourceUI.appendChild( elm );
@@ -866,7 +866,7 @@ var componentName = "wb-combobox",
 
 		if ( idxOpen !== -1 && idxClose !== -1 && idxOpen + 1 !== idxClose ) {
 
-			// We have an internal functin
+			// We have an internal function
 
 			// Extract in between and re-process
 			var newPointer = pointer.substring( 0, idxOpen ),
@@ -1205,7 +1205,7 @@ var componentName = "wb-combobox",
 			if ( Array.isArray( val ) ) {
 
 				// Just make reactive those special properties
-				val.wbLen = parseInt( val.length ); // Length of the array (Updated before an iteration happend on it)
+				val.wbLen = parseInt( val.length ); // Length of the array (Updated before an iteration happened on it)
 				val.wbActive = 0; // Number of items that was identified being "True"
 
 				makeReactive( val, "wbLen", key );
@@ -1456,7 +1456,7 @@ $document.on( "keydown", "[role=combobox] input", function( evt ) {
 		$( options[ activeIndex ] ).trigger( "wb.select" );
 
 		hideListbox();
-		evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submited
+		evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submitted
 		return;
 	case KeyCode.TAB:
 
@@ -1695,7 +1695,7 @@ $doc.on( "wb.change", "[role=combobox]:not(.wb-fieldflow-init)", function( event
 
 /*
  WET 5.0 (early bird)
- @author: Goverment of Canada
+ @author: Government of Canada
  ======================================================== */
 ( function( $, document ) {
 "use strict";
@@ -1785,7 +1785,7 @@ $.fn.extend( {
 
 	/* ---------------------------------
 	@extension: rand
-	@returns: [collection] of randoms elements
+	@returns: [collection] of random elements
 	-------------------------------- */
 	rand: function( k ) {
 		var b = this,
@@ -1846,7 +1846,7 @@ $.fn.extend( {
 
 /* ---------------------------------
     Bind
-    @description: creates a referencable set of elements to a node
+    @description: creates a referenceable set of elements to a node
     @api
       - elements are extended with related function
         $elm.related( nodelist )
@@ -2103,7 +2103,7 @@ $( document ).on( "wb-ready.wb-charts", "[data-wb-charts-interactive]", function
 		tooltipid =  wb.getId().replace( /-/g, "" ),
 		template = $( action.selector ).html(),
 		decimals = ( action.options ) ? action.options : 1,
-		$chart = $table.prev(); // Because the charts is inserted immediatly before the table when it is not inside an expand collapse.
+		$chart = $table.prev(); // Because the charts is inserted immediately before the table when it is not inside an expand collapse.
 
 	$( "<div id='" + tooltipid + "' class='wbchrt-tpl'></div>" ).css( {
 		position: "absolute",
@@ -2137,7 +2137,7 @@ $( document ).on( "wb-ready.wb-charts", "[data-wb-charts-interactive]", function
 
 /*
  Global Helper functions
- @author: Goverment of Canada
+ @author: Government of Canada
  ======================================================== */
 
 /* ---------------------------------
@@ -2201,7 +2201,7 @@ $( document ).on( "draw.dt", ".wb-tables", function( evnt ) {
 } );
 
 /* Workaround for IE and Edge, which need the details polyfills
- * The source of the issue are unknow.
+ * The source of the issue are unknown.
  * Hypothesis: Is the polyfill get executed and then the datatable do a DOM mutation which remove the event handler previously added by the polyfill?
  */
 if ( !Modernizr.details ) {
@@ -2438,7 +2438,7 @@ $( document ).on( "keypress click", "[data-wbtbl-tagcloud] li button", function(
 } );
 
 /*
- * External event to refresh the table controler
+ * External event to refresh the table controller
  *
  * @param: isSelected Define if the search trigger a selection or not, undefined means true
  *
@@ -2575,7 +2575,7 @@ function applySearchFilter() {
  * data-wbtbl-post
  * @description post to a datable search columns via form elements
  * @param  {[event]}     evt
- * @return {[boolean]}     proceed to submite
+ * @return {[boolean]}     proceed to submit
  */
 $( document ).on( "submit", "[data-wbtbl-post]", function( ) {
 
@@ -2592,7 +2592,7 @@ $( document ).on( "submit", "[data-wbtbl-post]", function( ) {
  * data-wbtbl-post
  * @description post to a datable search columns via form elements
  * @param  {[event]}     evt
- * @return {[boolean]}     proceed to submite
+ * @return {[boolean]}     proceed to submit
  */
 $( document ).on( "reset", "[data-wbtbl-post]", function( ) {
 

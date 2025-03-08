@@ -59,7 +59,7 @@ $( document ).on( "wb-ready.wb-charts", "[data-wb-charts-interactive]", function
 		tooltipid =  wb.getId().replace( /-/g, "" ),
 		template = $( action.selector ).html(),
 		decimals = ( action.options ) ? action.options : 1,
-		$chart = $table.prev(); // Because the charts is inserted immediatly before the table when it is not inside an expand collapse.
+		$chart = $table.prev(); // Because the charts is inserted immediately before the table when it is not inside an expand collapse.
 
 	$( "<div id='" + tooltipid + "' class='wbchrt-tpl'></div>" ).css( {
 		position: "absolute",
