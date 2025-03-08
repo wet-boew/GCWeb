@@ -32,7 +32,7 @@
 		</ul>
 	</li>
 	<li><a href="results-advanced-en.html">Results advanced (English)</a></li>
-	<li><a href="results-advanced-fr.html" hreflang="fr" lang="fr">Résultats advancés (Français)</a></li>
+	<li><a href="results-advanced-fr.html" hreflang="fr" lang="fr">Résultats avancés (Français)</a></li>
 </ul>
 
 <h3>Prototype:</h3>
@@ -84,7 +84,7 @@
 	<li>Perform WCAG 2.0 Level AA conformance check on each working example</li>
 	<li>Complete the Search Template Schemas and its Shapes graphs</li>
 	<li>The description should not surpass 4 rows of text on mobile screens. The description may be different in mobile than in desktop to accommodate. JS or CSS might be useful to ensure this rule are followed and enforced.</li>
-	<li>Provide instructions on how search result item are structured to ease navigation with an assitive technology software.</li>
+	<li>Provide instructions on how search result item are structured to ease navigation with an assistive technology software.</li>
 </ul>
 
 <h2>Template component</h2>
@@ -113,9 +113,9 @@
 <p>Implementer need to properly configure forms and inputs.</p>
 
 <pre><code>&lt;h1 property="name"&gt;Search results&lt;/h1&gt;
-&lt;!-- Search bar (mendatory) --&gt;
+&lt;!-- Search bar (mandatory) --&gt;
 &lt;!-- Search filter (optional) --&gt;
-&lt;!-- Search result (mendatory) --&gt;
+&lt;!-- Search result (mandatory) --&gt;
 &lt;!-- Advanced search link (optional) --&gt;</code></pre>
 
 <h3>Search bar</h3>
@@ -543,7 +543,7 @@
 	<li>"See result from"
 		<ul>
 			<li>Selecting a "radio" should not "refresh" the page and creating a change of context issue.</li>
-			<li>Idea: Toogling the result set instead of refreshing the current page</li>
+			<li>Idea: Toggling the result set instead of refreshing the current page</li>
 			<li>If the whole page is refreshed, that design would need to incorporate a submit button to do the page refresh</li>
 		</ul>
 	</li>
@@ -567,7 +567,7 @@
 
 <h4>Alternate "Search bar" with the alternate "See result from:" template</h4>
 
-<p>The "All Governement of..." is the current location in that example.</p>
+<p>The "All Government of..." is the current location in that example.</p>
 <pre><code>
 &lt;div class="well"&gt;
 	&lt;form class="mrgn-tp-sm"&gt;
@@ -664,10 +664,10 @@
 
 <p>Notes:</p>
 <ul>
-	<li>A <code>&lt;section&gt;</code> element is necessary because of the pagination. Without that, the pagination, which is at the ends, would belong sementically to the last result item, but we need it to belong to the h2 without considering the content identified by the h3 heading.</li>
+	<li>A <code>&lt;section&gt;</code> element is necessary because of the pagination. Without that, the pagination, which is at the ends, would belong semantically to the last result item, but we need it to belong to the h2 without considering the content identified by the h3 heading.</li>
 </ul>
 
-<p>Shemas information block:</p>
+<p>Schemas information block:</p>
 <ul>
 	<li>&lt;foaf:page&gt; Link of the search result, required, only one</li>
 	<li>&lt;dct:title&gt; Title of the search result
@@ -758,7 +758,7 @@
 	<li><a href="test-pagination.html#s2">Scenario 2 - The second page is current and there is more than 50 results page</a></li>
 	<li><a href="test-pagination.html#s3">Scenario 3 - The fifth page is current and there is more than 50 results page</a></li>
 	<li><a href="test-pagination.html#s4">Scenario 4 - The twelfth page is current and there is more than 50 results page</a></li>
-	<li><a href="test-pagination.html#s5">Scenario 5 - The forthy-eighth page is current and there is more than 50 results page</a></li>
+	<li><a href="test-pagination.html#s5">Scenario 5 - The forty-eighth page is current and there is more than 50 results page</a></li>
 	<li><a href="test-pagination.html#s6">Scenario 6 - The last page is current and there is more than 50 results page</a></li>
 	<li><a href="test-pagination.html#s7">Scenario 7 - The third page is current and there is 6 results page</a></li>
 </ol>
@@ -943,7 +943,7 @@ tmpl:searchContext
 	a rdf:Property ;
 	rdfs:domains tmpl:SearchBar ;
 	rdfs:domains tmpl:SearchResult ;
-	rdfs:range wms:Departements .
+	rdfs:range wms:Departments .
 
 </code></pre>
 
@@ -985,7 +985,7 @@ tmpl:SearchBarShape
 	sh:targetClass tmpl:SearchBar ;
 	sh:property [
 		sh:path tmpl:searchContext ;
-		sh:in wms:Departements
+		sh:in wms:Departments
 	] .
 
 
@@ -1004,7 +1004,7 @@ tmpl:SearchResultShape
 	)
 	sh:property [
 		sh:path tmpl:searchContext ;
-		sh:in wms:Departements
+		sh:in wms:Departments
 	] .
 
 tmpl:SearchResultItemShape
