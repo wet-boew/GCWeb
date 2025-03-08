@@ -131,7 +131,7 @@ var componentName = "wb-fieldflow",
 				};
 			}
 
-			// Transform the list into a select, use the first paragrap content for the label, and extract for i18n the name of the button action.
+			// Transform the list into a select, use the first paragraph content for the label, and extract for i18n the name of the button action.
 			var bodyID = wb.getId(),
 				stdOut,
 				formElm,
@@ -779,7 +779,7 @@ var componentName = "wb-fieldflow",
 			j_len = childNodes.length;
 
 			if ( !firstNode ) {
-				throw "You have a markup error, There may be an empyt <li> elements in your list.";
+				throw "You have a markup error, There may be an empty <li> elements in your list.";
 			}
 
 			actions = [];
@@ -951,7 +951,7 @@ $document.on( resetActionEvent, selector + ", ." + subComponentName, function( e
 	}
 } );
 
-// Load content after the user have choosen an option
+// Load content after the user has chosen an option
 $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event ) {
 
 	var elm = event.currentTarget,
@@ -1040,7 +1040,7 @@ $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event
 
 			if ( bindTo ) {
 
-				// Retreive action set on the binded element
+				// Retrieve action set on the binded element
 				bindToElm = document.getElementById( bindTo );
 				actionAttr = bindToElm.getAttribute( "data-" + componentName );
 				if ( typeof actionAttr === "string" ) {
@@ -1105,7 +1105,7 @@ $document.on( "change", selectorForm + " " + crtlSelectSelector, function( event
 } );
 
 
-// Load content after the user have choosen an option
+// Load content after the user has chosen an option
 $document.on( "submit", selectorForm + " form", function( event ) {
 
 	var elm = event.currentTarget,
@@ -1131,7 +1131,7 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 		$wbFieldFlow.trigger( cleanEvent );
 	}
 
-	// For each wb-fieldflow component, execute submiting task.
+	// For each wb-fieldflow component, execute submitting task.
 	for ( i = 0; i !== i_len; i += 1 ) {
 		$wbFieldFlow = $( "#" + wbFieldFlowRegistered[ i ] );
 		componentRegistered = $wbFieldFlow.data( registerJQData );
@@ -1172,7 +1172,7 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 		}
 	}
 
-	// Before to submit, remove jj-down accessesory control
+	// Before to submit, remove jj-down accessory control
 	if ( !preventSubmit ) {
 		$elm.find( basenameInputSelector ).removeAttr( "name" );
 
@@ -1256,7 +1256,7 @@ $document.on( "keyup", selectorForm + " select", function( Ev ) {
 	// Add the fix for the on change event - https://bugzilla.mozilla.org/show_bug.cgi?id=126379
 	if ( navigator.userAgent.indexOf( "Gecko" ) !== -1 ) {
 
-		// prevent tab, alt, ctrl keys from fireing the event
+		// prevent tab, alt, ctrl keys from firing the event
 		if ( Ev.keyCode && ( Ev.keyCode === 1 || Ev.keyCode === 9 || Ev.keyCode === 16 || Ev.altKey || Ev.ctrlKey ) ) {
 			return true;
 		}

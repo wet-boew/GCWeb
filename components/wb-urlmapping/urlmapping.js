@@ -18,7 +18,7 @@ var componentName = "wb-urlmapping",
 	initEvent = "wb-init." + componentName,
 	doMappingEvent = "domapping." + componentName,
 	$document = wb.doc,
-	authTrigger, // Flag to prevent instation of WET no more than twice by page load
+	authTrigger, // Flag to prevent initiation of WET no more than twice by page load
 
 	/**
 	 * @method init
@@ -87,7 +87,7 @@ $document.on( doMappingEvent, selector, function( event ) {
 
 		if ( typeof settingQuery === "object" ) {
 
-			// Send it to the action manager to get proccessed with the action "withInput"
+			// Send it to the action manager to get processed with the action "withInput"
 			$elm.trigger( {
 				type: "do.wb-actionmng",
 				actions: {

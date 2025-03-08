@@ -48,7 +48,7 @@ dateModified: 2021-04-28
 	<div class="well">
 		<h3 class="mrgn-tp-0 text-warning h4">Be careful when <span class="glyphicon glyphicon-exclamation-sign"></span></h3>
 		<ul>
-			<li>Creating a complex user interface, you may need to follow additional requirements for acessibilty (WCAG) or progressive enhancement, like providing an alternative representation.</li>
+			<li>Creating a complex user interface, you may need to follow additional requirements for accessibility (WCAG) or progressive enhancement, like providing an alternative representation.</li>
 			<li>Amazing thing could be done, but depending on how you configure it you can make your page fail WCAG.</li>
 		</ul>
 	</div>
@@ -141,7 +141,7 @@ dateModified: 2021-04-28
 		<li>Upon plugin initialisation
 			<ul>
 				<li>[wet-boew plugin] <strong>Init</strong>: WET core initiates the creation of a fieldflow component. The fieldflow control is registered in the parent form</li>
-				<li>[extension] <strong>Ready</strong>: Notify the exention that it should init() and get its things ready to execute actions that is support.</li>
+				<li>[extension] <strong>Ready</strong>: Notify the extension that it should init() and get its things ready to execute actions that is support.</li>
 			</ul>
 		</li>
 		<li>When creating a control
@@ -213,7 +213,7 @@ dateModified: 2021-04-28
 						<dt>false (default):</dt>
 						<dd>Same as if the value was set to <code>wb-fieldflow</code>.  It will use the standard content interpreter.</dd>
 						<dt>Table filter <code>tblfilter</code>:</dt>
-						<dd>It will use data table information to create a field flow control. The additional property <code>fltrseq</code> is requried.</dd>
+						<dd>It will use data table information to create a field flow control. The additional property <code>fltrseq</code> is required.</dd>
 					</dl>
 				</td>
 			</tr>
@@ -239,7 +239,7 @@ dateModified: 2021-04-28
 						<dt>false (default):</dt>
 						<dd>Use the current plugin container</dd>
 						<dt>jQuery Selector</dt>
-						<dd>A <a href="https://api.jquery.com/category/selectors/">jQuery selector</a> that contains an understandable structure to proceed. For example, when using field flow to dynamicly filter a table, the source property will make the binding to that table.</dd>
+						<dd>A <a href="https://api.jquery.com/category/selectors/">jQuery selector</a> that contains an understandable structure to proceed. For example, when using field flow to dynamically filter a table, the source property will make the binding to that table.</dd>
 					</dl>
 				</td>
 			</tr>
@@ -390,7 +390,7 @@ dateModified: 2021-04-28
 			</tr>
 			<tr>
 				<td>fltrseq</td>
-				<td>Array indicating the table filtering sequence to follow. Availble only for and required when <code>{&quot;srctype&quot;:&quot;tblfilter&quot;}</code></td>
+				<td>Array indicating the table filtering sequence to follow. Available only for and required when <code>{&quot;srctype&quot;:&quot;tblfilter&quot;}</code></td>
 				<td><code>data-wb-fieldflow='{&quot;srctype&quot;: &quot;tblfilter&quot;, &quot;fltrseq&quot;: [<em>{Column filter object}</em>]}</code></td>
 				<td>
 					<dl>
@@ -406,7 +406,7 @@ dateModified: 2021-04-28
 				<td>Object contained in the fltrseq array. Required for adding item in <code>fltrseq</code>.</td>
 				<td><code>&quot;fltrseq&quot;: [<em>{Column filter object}</em>, <em>{Column filter object}</em>, ...]</code></td>
 				<td>
-					<p>Note that all the following properties can be used outside the <code>fltrseq</code> context like <code>data-wb-fieldflow='{&quot;srctype&quot;: &quot;tblfilter&quot;, &quot;columng&quot;: 0}</code>. If the <code>Column filter object</code> property and the <code>fltrseq</code> properties are present, then the "Column filter object" will be know as being the first column being filtered, followed by the column being filtered in the array.</p>
+					<p>Note that all the following properties can be used outside the <code>fltrseq</code> context like <code>data-wb-fieldflow='{&quot;srctype&quot;: &quot;tblfilter&quot;, &quot;column&quot;: 0}</code>. If the <code>Column filter object</code> property and the <code>fltrseq</code> properties are present, then the "Column filter object" will be know as being the first column being filtered, followed by the column being filtered in the array.</p>
 					<p>Properties:</p>
 					<ul>
 						<li><code>column</code> <strong>(required)</strong>: Integer representing the column number or a <a href="https://datatables.net/reference/type/column-selector">DataTable column selector</a>.</li>
@@ -431,7 +431,7 @@ dateModified: 2021-04-28
 			</tr>
 			<tr>
 				<td>action</td>
-				<td>Define the default action for an unknow item (<code>data-wb-fieldflow="something"</code>). Usually used in conjunction with "prop".</td>
+				<td>Define the default action for an unknown item (<code>data-wb-fieldflow="something"</code>). Usually used in conjunction with "prop".</td>
 				<td><code>data-wb-fieldflow='{&quot;action&quot;: &quot;<em>[Name of the action]</em>&quot;}</code></td>
 				<td>
 					<dl>
@@ -444,20 +444,20 @@ dateModified: 2021-04-28
 			</tr>
 			<tr>
 				<td>prop</td>
-				<td>Define the default property for an unknow item (<code>data-wb-fieldflow="something"</code>). Usually used in conjunction with "action".</td>
+				<td>Define the default property for an unknown item (<code>data-wb-fieldflow="something"</code>). Usually used in conjunction with "action".</td>
 				<td><code>data-wb-fieldflow='{&quot;prop&quot;: &quot;<em>[Name of the property]</em>&quot;}</code></td>
 				<td>
 					<dl>
 						<dt>false (default):</dt>
 						<dd>url</dd>
 						<dt>Name of the property</dt>
-						<dd>A property recognized by the the action where its value will be set by the value of the unknow item.</dd>
+						<dd>A property recognized by the the action where its value will be set by the value of the unknown item.</dd>
 					</dl>
 				</td>
 			</tr>
 			<tr>
 				<td>actionData</td>
-				<td>Define a base object for an action created from an unknow item. Usually use in conjunction with "action" and "prop".</td>
+				<td>Define a base object for an action created from an unknown item. Usually use in conjunction with "action" and "prop".</td>
 				<td><code>data-wb-fieldflow='{&quot;actionData&quot;: { [...] }}</code></td>
 				<td>
 					<dl>
@@ -1542,7 +1542,7 @@ dateModified: 2021-04-28
 						<li>Plugin core</li>
 					</ul>
 				</td>
-				<td>Triggered automatically on field flow control and sub control when they need to be reseted or destroyed.</td>
+				<td>Triggered automatically on field flow control and sub control when they need to be reset or destroyed.</td>
 				<td>It applies the reset actions set by the configuration of the control.</td>
 			</tr>
 			<tr>

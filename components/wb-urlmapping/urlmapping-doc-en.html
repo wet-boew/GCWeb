@@ -71,7 +71,7 @@
 	</dl>
 
 	<h3>Table filtering</h3>
-	<p>On an element with a source refering to a table or directly on a table element</p>
+	<p>On an element with a source referring to a table or directly on a table element</p>
 	<pre><code>&lt;table class=&quot;wb-tables table&quot; data-wb-urlmapping='{
 		&quot;date=jul26&quot;:
 			{
@@ -138,7 +138,7 @@
 
 	<p>If <code>match</code> is defined in your configuration, then the <code>default</code> configuration <strong>must</strong> be also defined.</p>
 
-	<p>For security reason, any value retreived from the page URL always require to configure <code>match</code> that will contain a regular expresion. If there no match or the matching result is an empty string, the <code>default</code> configuration will be used as the value fallback.</p>
+	<p>For security reason, any value retrieved from the page URL always require to configure <code>match</code> that will contain a regular expression. If there no match or the matching result is an empty string, the <code>default</code> configuration will be used as the value fallback.</p>
 
 	<p>When you specify a regular expression, it is recommended to have it prefixed with "<code>^</code>" and suffixed with "<code>$</code>". Be careful to not use regular expression that could compromise the security.</p>
 
@@ -298,7 +298,7 @@
 	</tr>
 	<tr>
 		<td>url</td>
-		<td><p>Specify the url to load. Ajax filtering is supported. The <code>{qval}</code> placeholder can be used to replace it by a value that has match the specified regular expression throug the <code>match</code> configuration.</p>
+		<td><p>Specify the url to load. Ajax filtering is supported. The <code>{qval}</code> placeholder can be used to replace it by a value that has match the specified regular expression through the <code>match</code> configuration.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>ajax</li>
@@ -374,13 +374,13 @@
 				<dt>false (default):</dt>
 				<dd>Will be set as per the mapped query value</dd>
 				<dt>string:</dt>
-				<dd>Any value that will be recongnized as the query parameter value</dd>
+				<dd>Any value that will be recognized as the query parameter value</dd>
 			</dl>
 		</td>
 	</tr>
 	<tr>
 		<td>match</td>
-		<td><p>Regular expression use to extrac the value from the url parameter. Required when "{qval}" is used as a placeholder, otherwise it will be replaced by the required <code>default</code> value.</p>
+		<td><p>Regular expression use to extract the value from the url parameter. Required when "{qval}" is used as a placeholder, otherwise it will be replaced by the required <code>default</code> value.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>ajax</li>
@@ -406,7 +406,7 @@
 	</tr>
 	<tr>
 		<td>source</td>
-		<td><p>jQuery selector that refer to an existing element on the page. This configuration option can be omited for a table filtering if the url-mapping is set directly on the table element. This configuration option can also be omited for a selectinput.</p>
+		<td><p>jQuery selector that refer to an existing element on the page. This configuration option can be omitted for a table filtering if the url-mapping is set directly on the table element. This configuration option can also be omitted for a selectinput.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>tblfilter</li>
@@ -451,11 +451,11 @@
 			</ul>
 		</td>
 		<td><code>data-wb-urlmapping='{ "QueryStringToBeMapped": { "action": "tblfilter", "value": "a value to be filtered about" } }'</code></td>
-		<td>A value that will be searched agains the specified column in order to filter the rows.</td>
+		<td>A value that will be searched against the specified column in order to filter the rows.</td>
 	</tr>
 	<tr>
 		<td>regex</td>
-		<td><p>Treat the searched value as a regular expression. Enable regular expressions without desabling smart search, as smart search use regular expressions, both might conflict and cause unexpected results.</p>
+		<td><p>Treat the searched value as a regular expression. Enable regular expressions without disabling smart search, as smart search use regular expressions, both might conflict and cause unexpected results.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>tblfilter</li>
@@ -591,7 +591,7 @@
 	</tr>
 	<tr>
 		<td>cumulative</td>
-		<td><p>Apply persistant patches for the current page instance. That means that patches exectued will remain when further patches modification is completed by the JSON manager during the current page load. When WET is re-executed (on page load) then all the permently change are ignored. It do not change the data source, it just apply the change in the dataset.</p>
+		<td><p>Apply persistant patches for the current page instance. That means that patches executed will remain when further patches modification is completed by the JSON manager during the current page load. When WET is re-executed (on page load) then all the permanently change are ignored. It do not change the data source, it just apply the change in the dataset.</p>
 			<p>Available for:</p>
 			<ul>
 				<li>patch</li>
@@ -669,7 +669,7 @@
 					</ul>
 				</td>
 				<td>Triggered automatically on patch action execution.</td>
-				<td>Prepare the patches data to be sent to JSON manager throught the event "<code>patches.wb-jsonmanager</code>".</td>
+				<td>Prepare the patches data to be sent to JSON manager through the event "<code>patches.wb-jsonmanager</code>".</td>
 			</tr>
 			<tr>
 				<td><code>ajax.action.wb-urlmapping</code>
