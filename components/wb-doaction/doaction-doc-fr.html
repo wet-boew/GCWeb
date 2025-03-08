@@ -217,8 +217,6 @@
 		<dt><code>?date-search=YYYY-MM-DD</code></dt>
 		<dd>Will show result that match the default "2016-07-23" in the second column.</dd>
 	</dl>
-	</section>
-
 
 	<h2>Default patch operation</h2>
 	<pre><code>{
@@ -689,23 +687,24 @@
 						</dl>
 					</td>
 				</tr>
-				<td>filename</td>
-				<td>
-					<p>Define the filename to use for downloading</p>
-					<p>Available for:</p>
-					<ul>
-						<li>tocsv</li>
-					</ul>
-				</td>
-				<td><code>data-wb-doaction='{ "action": "tocsv", "source": "#myTable", "filename": "an awsome name.csv" }'</code></td>
-				<td>
-					<dl>
-						<dt>false (default):</dt>
-						<dd>It will use the table caption + ".csv", if not available it will fallback on "table.csv"</dd>
-						<dt>String:</dt>
-						<dd>The filename to use including the file extension, like <code>.csv</code></dd>
-					</dl>
-				</td>
+				<tr>
+					<td>filename</td>
+					<td>
+						<p>Define the filename to use for downloading</p>
+						<p>Available for:</p>
+						<ul>
+							<li>tocsv</li>
+						</ul>
+					</td>
+					<td><code>data-wb-doaction='{ "action": "tocsv", "source": "#myTable", "filename": "an awsome name.csv" }'</code></td>
+					<td>
+						<dl>
+							<dt>false (default):</dt>
+							<dd>It will use the table caption + ".csv", if not available it will fallback on "table.csv"</dd>
+							<dt>String:</dt>
+							<dd>The filename to use including the file extension, like <code>.csv</code></dd>
+						</dl>
+					</td>
 				</tr>
 				<tr>
 					<td>srcInput</td>
@@ -721,6 +720,9 @@
 						<dl>
 							<dt>String:</dt>
 							<dd>jQuery selector of an input field when the action is set to <code>withInput</code></dd>
+						</dl>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</section>
