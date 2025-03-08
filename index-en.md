@@ -75,7 +75,7 @@ css:
 	</ul>
 </nav>
 <div class="container">
-	<p><small>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submiting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
+	<p><small>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
 	{% assign page_group = site.data.i18n.page_group[ page.language ] %}
 	{% assign comp_status = site.data.i18n.component_status[ page.language ] %}
 	<details class="mrgn-tp-lg">
@@ -102,9 +102,9 @@ css:
 			<dt><span class="label label-warning">Outdated</span></dt>
 			<dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
 			<dt><span class="label label-default">Backlog</span></dt>
-			<dd>Need to be developped.</dd>
+			<dd>Need to be developed.</dd>
 			<dt><span class="label label-danger">Incomplete</span></dt>
-			<dd>Incomplete because it don't fully meet all the specification yet. Still need developpement work.</dd>-->
+			<dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
 		</dl>
 	</details>
 	<h2 id="components" class="mrgn-bttm-lg">Components</h2>

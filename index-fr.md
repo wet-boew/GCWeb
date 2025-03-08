@@ -75,7 +75,7 @@ css:
 	</ul>
 </nav>
 <div class="container">
-	<p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au dévelopement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hedbomadaire à chaque mardi.</small></p>
+	<p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
 	{% assign page_group = site.data.i18n.page_group[ page.language ] %}
 	{% assign comp_status = site.data.i18n.component_status[ page.language ] %}
 	<details class="mrgn-tp-lg">
@@ -88,7 +88,7 @@ css:
 			<dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
 			<dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
       <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
-			<dd>Utilisation non recommandée puisque ce sera obsolète à la prochaine version manjeure.</dd>
+			<dd>Utilisation non recommandée puisque ce sera obsolète à la prochaine version majeure.</dd>
 			<dt><span class="label label-default">Défaut</span></dt>
 			<dd>Manque le statut dans la documentation de la composante.</dd>
 			<!--<dt><span class="label label-success">Conforme</span></dt>
@@ -100,11 +100,11 @@ css:
 			<dt><span class="label label-warning">Partiel</span></dt>
 			<dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
 			<dt><span class="label label-warning">Désuet</span></dt>
-			<dd>N'est pas conforme à la dernière spécification, mais il l'a précedemment été. Son rétablisement à la conformité nécessite des changements immédiat.</dd>
+			<dd>N'est pas conforme à la dernière spécification, mais il l'a précédemment été. Son rétablissement à la conformité nécessite des changements immédiat.</dd>
 			<dt><span class="label label-default">Arriéré</span></dt>
-			<dd>Nécessite du dévelopement.</dd>
+			<dd>Nécessite du développement.</dd>
 			<dt><span class="label label-danger">Incomplet</span></dt>
-			<dd>Incomplet car il ne se conforme pas complétement à toute les exigences de la spécification. Nécessite encore des travaux de dévelopement.</dd>-->
+			<dd>Incomplet car il ne se conforme pas complètement à toute les exigences de la spécification. Nécessite encore des travaux de développement.</dd>-->
 		</dl>
 	</details>
 	<h2 id="composantes" class="mrgn-bttm-lg">Composantes</h2>
