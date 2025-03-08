@@ -115,7 +115,7 @@ function CloseMenu( elm, force ) {
 		var currentFocusIsOn = elm.nextElementSibling.querySelector( "[role=menuitem]:focus" );
 		var siblingHasFocus = elm.parentElement.parentElement.querySelector( "[role=menuitem]:focus" );
 
-		// Check if we keep the menu opon
+		// Check if we keep the menu open
 		if ( currentFocusIsOn || siblingHasFocus === elm ) {
 			return;
 		}
