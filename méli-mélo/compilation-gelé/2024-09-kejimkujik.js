@@ -24,20 +24,20 @@
             if (elm) {
                 $elm = $(elm);
 
-                // Check if there is already a gcweb menu. 
+                // Check if there is already a gcweb menu.
                 // If there are 2 present, the global GCWeb menu is present, hide this custom menu
                 var gcWebMenus = document.querySelectorAll(".gcweb-menu");
                 if (gcWebMenus.length > 1) {
-                    console.warn(componentName + " - gcweb menu already exsits on the page, hiding gcweb campaign menu and aborting");
+                    console.warn(componentName + " - gcweb menu already exists on the page, hiding gcweb campaign menu and aborting");
                     $elm.addClass('hidden');
                     wb.ready($elm, componentName);
                     return;
                 }
 
-                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs 
+                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs
                 var megamenuExists = document.querySelector("#wb-sm");
                 if (megamenuExists != undefined || megamenuExists != null) {
-                    console.warn(componentName + " - megamenu already exsits on the page, aborting");
+                    console.warn(componentName + " - megamenu already exists on the page, aborting");
                     $elm.addClass('hidden');
                     wb.ready($elm, componentName);
                     return;
@@ -72,7 +72,7 @@
                 var megamenuAjaxReplace = $elm[0].getAttribute('data-megamenu-ajax');
 
 				var megamenuColorClass = "";
-                
+
                 if ($elm[0].hasAttribute('data-megamenu-bg-color')) {
                     megamenuColorClass = $elm[0].getAttribute('data-megamenu-bg-color');
                 }
@@ -260,8 +260,8 @@ var componentName = "collection-sort",
 		if ( elm ) {
 			$elm = $( elm );
 			// ... Do the plugin initialisation
-								
-			
+
+
 			// Get the plugin JSON configuration set on attribute data-collection-sort
 			settings = $.extend(
 				true,
@@ -283,31 +283,31 @@ $document.on( "collection-sort", selector, function( event, data ) {
 	function SortCollection(){
 
 		var sortContainers = elm.querySelectorAll(data.section);
-		
+
 		sortContainers.forEach(function(container){
-			
-			var sortItems = container.querySelectorAll(data.selector); 		
-			
+
+			var sortItems = container.querySelectorAll(data.selector);
+
 			let sortArray = [];
 			let sortDestinationArray = [];
-			
+
 			sortItems.forEach( function (element) {
 				sortDestinationArray.push(element.parentElement);
-				
-				let sortObj = { 
+
+				let sortObj = {
 					"elm" : element,
 					"sortVal" : ""
 				};
-					
+
 				sortArray.push(sortObj);
 			});
 
 			data.sort.forEach( function(sort) {
-				
-				sortArray.forEach( function (sortObj) {	
-					sortObj.sortVal = sortObj.elm.querySelector(sort.selector).innerHTML;			
+
+				sortArray.forEach( function (sortObj) {
+					sortObj.sortVal = sortObj.elm.querySelector(sort.selector).innerHTML;
 				});
-								
+
 				if(sort.type === "numeric"){
 					if(sort.order === "desc")
 						sortArray.sort((a,b) => b.sortVal - a.sortVal);
@@ -317,23 +317,23 @@ $document.on( "collection-sort", selector, function( event, data ) {
 					if(sort.order === "desc")
 						sortArray.sort((a,b) => b.sortVal.localeCompare(a.sortVal));
 					else
-						sortArray.sort((a,b) => a.sortVal.localeCompare(b.sortVal));	
+						sortArray.sort((a,b) => a.sortVal.localeCompare(b.sortVal));
 				}
 			});
-			
+
 			sortArray.forEach(function(element, index) {
 				sortDestinationArray[index].append(element.elm);
 			});
-		
+
 		});
 	}
 	if(data.section && data.selector && data.sort){
 		SortCollection();
-		
+
 		$document.on( "wb-contentupdated", selector, function( event, data )  {
-			SortCollection();	
+			SortCollection();
 		});
-	}		
+	}
 });
 
 
@@ -376,10 +376,10 @@ wb.add( selector );
 			if ( elm ) {
 				$elm = $( elm );
 				// ... Do the plugin initialisation
-				
-				
-						
-				
+
+
+
+
 				// Get the plugin JSON configuration set on attribute data-distance-calculator
 				settings = $.extend(
 					true,
@@ -398,18 +398,18 @@ wb.add( selector );
 	$document.on( "distance-calculator", selector, function( event, data ) {
 		var elm = event.currentTarget,
 		$elm = $( elm );
-		
+
 		// Function to get the distance in KM between each office begin
 		function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 			var R = 6371; // Radius of the earth in km
 			var dLat = deg2rad(lat2-lat1);  // deg2rad below
-			var dLon = deg2rad(lon2-lon1); 
-			var a = 
+			var dLon = deg2rad(lon2-lon1);
+			var a =
 			Math.sin(dLat/2) * Math.sin(dLat/2) +
-			Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+			Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
 			Math.sin(dLon/2) * Math.sin(dLon/2)
-			; 
-			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+			;
+			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 			var d = R * c; // Distance in km
 
 			return d;
@@ -428,13 +428,13 @@ wb.add( selector );
 			while (rgx.test(x1)) {
 				x1 = x1.replace(rgx, '$1' + number_seperator + '$2');
 			}
-			
+
 			return x1 + x2;
 		}
-		
+
 		//Set filter event distance handler
-		$elm.find(data.form).on( "submit", function(distEvent) {		
-		
+		$elm.find(data.form).on( "submit", function(distEvent) {
+
 		var distForm = distEvent.currentTarget;
 
 		var address = distForm.querySelector(data.location).value;
@@ -442,41 +442,41 @@ wb.add( selector );
 
 		var distCollection = elm.querySelector(data.section);
 		var distCollectionItems = distCollection.querySelectorAll(data.selector);
-		
+
 		var distAPI = (wb.lang==="fr")?"https://geogratis.gc.ca/services/geolocation/fr/locate?q=":"https://geogratis.gc.ca/services/geolocation/en/locate?q=";
-		
+
 		// Start of geogratis location service call to the API
 		$.getJSON(distAPI + addressEnc, function(json) {
 			if ( json.length == 0 ) {
 				console.log("Empty response from geogratis");
 			}
 			else {
-			
+
 			var longitude = json[0].geometry.coordinates[0];
 			var latitude = json[0].geometry.coordinates[1];
 			var global_nice_address = json[0].title;
-			
-			
+
+
 			// Inserts the distance between the VAC offices and the location entered in each PO's variable array
 			distCollectionItems.forEach( function(element) {
-			
+
 				let dist = element.querySelector(data.target);
 				let distSort = element.querySelector(data.sort);
-				
+
 				if(typeof dist !== "undefined" && dist !== null && typeof distSort !== "undefined" && distSort !== null && typeof dist.dataset.distanceCoordinates !== "undefined" && dist.dataset.distanceCoordinates !== null){
-				
+
 					let coordinates = JSON.parse(dist.dataset.distanceCoordinates);
 					let itemLongtitude = coordinates.longtitude;
 					let itemLatitude = coordinates.latitude;
 					let thousandSeparator = (wb.lang==="fr")?" ":",";
 					let addressDist = getDistanceFromLatLonInKm(latitude,longitude,itemLatitude,itemLongtitude);
-					
+
 					distSort.innerHTML = Math.round(addressDist);
-					dist.innerHTML = addCommas(Math.round(addressDist),thousandSeparator);	
-				}				
-		
+					dist.innerHTML = addCommas(Math.round(addressDist),thousandSeparator);
+				}
+
 			});
-			
+
 			if(typeof data.name !== "undefined" && data.name !== null){
 				let titleArray = elm.querySelectorAll(data.name);
 				titleArray.forEach(function(title){
@@ -489,15 +489,15 @@ wb.add( selector );
 					elem.classList.remove(data.display.removeClass);
 				});
 			}
-			
+
 			$elm.trigger( "wb-contentupdated", [{"source":componentName}] );
-			
+
 			}
 		});
-		
+
 			return false;
 		});
-		
+
 	} );
 	// Bind the init event of the plugin
 	$document.on( "timerpoke.wb " + initEvent, selector, init );
@@ -692,7 +692,7 @@ wb.add( selector );
                 clipElm.innerHTML = clipTxt;
             }
         },
-        // This function updates the hidden text surronding and identifying the copyable area
+        // This function updates the hidden text surrounding and identifying the copyable area
         updateClipText = function( copyAreaElm ) {
             $( "." + contentShell ).each( function() {
                 if ( typeof( copyAreaElm ) !== "undefined" && copyAreaElm.id === this.copyAreaId ) {
@@ -798,7 +798,7 @@ wb.add( selector );
             }
         };
 
-    // Initalizes and styles the copy area and copy button or reset button
+    // Initializes and styles the copy area and copy button or reset button
     $document.on( "wb-clipboard", selector, function( event, data ) {
         var elm = event.currentTarget,
             $elm = $( elm ),
@@ -1219,7 +1219,7 @@ var hideOtherSteps = function( e ) {
 
 	// Find the steps form context and validate it is a quiz
 	let currentTabId = $( "legend.wb-steps-active:first-child", steps ).parents().prevAll( ".steps-wrapper" ).length + 1;
-	
+
 	// Get progress bar
 	let $progressBar = $( ".progressBar", steps );
 

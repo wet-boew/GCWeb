@@ -12,10 +12,10 @@ feature: méli-mélo
 title:
   en: Create an interactive SVG image map
   fr: Creation d'une image map SVG interactive
-description: Link to content with an interative SVG image map
+description: Link to content with an interactive SVG image map
 modified: 2022-09-21
 componentName: 2022-09-svgimagemap
-sponsor: Pacifican - Karina Perez (@karinapereznolasco)
+sponsor: PacifiCan - Karina Perez (@karinapereznolasco)
 
 pages:
   examples:
@@ -40,11 +40,11 @@ implementationPlan:
 
 todos:
   - Review code and governance to balance optimal accessibility and ease of implementation for users.
-  - Review and change the CSS class name for something more meaningful: st0 is not descriptive enougth of what it is and how it should be applied to the SVG.
+  - Review and change the CSS class name for something more meaningful: st0 is not descriptive enough of what it is and how it should be applied to the SVG.
   - Contextualisation of the CSS classes to limit their application to this component/feature only.
-  - Review color schemes: They should match the sequence of colors used by the charts and graphs.
+  - Review color schemes: They should match the sequence of colours used by the charts and graphs.
   - Revise in order to provide more details for implementation instructions: Like how to organize the sibling styles and how to group them with the anchor elements.
-  - Investigate and apply best practices regarding the SVG viewbox versus how it get rendered (scaled) in browser.
+  - Investigate and apply best practices regarding the SVG viewBox versus how it get rendered (scaled) in browser.
   - Review tabulation order: suggested pattern is top - bottom - left and right.
   - Produce a WCAG 2.1 ACR
 

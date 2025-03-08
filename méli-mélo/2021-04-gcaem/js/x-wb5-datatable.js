@@ -6,7 +6,7 @@
 
 /*
  Global Helper functions
- @author: Goverment of Canada
+ @author: Government of Canada
  ======================================================== */
 
 /* ---------------------------------
@@ -70,7 +70,7 @@ $( document ).on( "draw.dt", ".wb-tables", function( evnt ) {
 } );
 
 /* Workaround for IE and Edge, which need the details polyfills
- * The source of the issue are unknow.
+ * The source of the issue are unknown.
  * Hypothesis: Is the polyfill get executed and then the datatable do a DOM mutation which remove the event handler previously added by the polyfill?
  */
 if ( !Modernizr.details ) {
@@ -307,7 +307,7 @@ $( document ).on( "keypress click", "[data-wbtbl-tagcloud] li button", function(
 } );
 
 /*
- * External event to refresh the table controler
+ * External event to refresh the table controller
  *
  * @param: isSelected Define if the search trigger a selection or not, undefined means true
  *
@@ -444,7 +444,7 @@ function applySearchFilter() {
  * data-wbtbl-post
  * @description post to a datable search columns via form elements
  * @param  {[event]}     evt
- * @return {[boolean]}     proceed to submite
+ * @return {[boolean]}     proceed to submit
  */
 $( document ).on( "submit", "[data-wbtbl-post]", function( ) {
 
@@ -461,7 +461,7 @@ $( document ).on( "submit", "[data-wbtbl-post]", function( ) {
  * data-wbtbl-post
  * @description post to a datable search columns via form elements
  * @param  {[event]}     evt
- * @return {[boolean]}     proceed to submite
+ * @return {[boolean]}     proceed to submit
  */
 $( document ).on( "reset", "[data-wbtbl-post]", function( ) {
 

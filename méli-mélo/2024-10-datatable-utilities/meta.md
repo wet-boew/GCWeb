@@ -37,15 +37,15 @@ implementationPlan:
   - due: 2024-09-24
     what: "Initial Development <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-01
-    what: "Get Intial Feedback from Wet-Boew Team Before Pull Request <span class=\"label label-success\">Completed</span>"
+    what: "Get Initial Feedback from Wet-Boew Team Before Pull Request <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-08
     what: "Fix Issue Identified by Wet-Boew Team <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-12
     what: "Get French Sample page Translated <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-15
-    what: "Get Pages throuh our QC cycle and our WACR Team <span class=\"label label-success\">Completed</span>"
+    what: "Get Pages through our QC cycle and our WACR Team <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-22
-    what: "Fix Identified problems and accesibility issues <span class=\"label label-success\">Completed</span>"
+    what: "Fix Identified problems and accessibility issues <span class=\"label label-success\">Completed</span>"
   - due: 2024-10-24
     what: "Submit Pull Request <span class=\"label label-success\">Completed</span>"
   - due: 2025-11-30
@@ -55,19 +55,19 @@ implementationPlan:
 
 implementationPlanFR:
   - due: 2024-09-24
-    what: "Dévélopement initial <span class=\"label label-success\">Completé</span>"
+    what: "Développement initial <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-01
-    what: "Obtenir des rétroaction de l'équipe Wet-Boew avant la demande de tirage <span class=\"label label-success\">Completé</span>"
+    what: "Obtenir des rétroaction de l'équipe Wet-Boew avant la demande de tirage <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-08
-    what: "Corriger tout problèmes identifiés par l'équipe Wet-Boew <span class=\"label label-success\">Completé</span>"
+    what: "Corriger tout problèmes identifiés par l'équipe Wet-Boew <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-12
-    what: "Faire traduire la page d'exemple en français <span class=\"label label-success\">Completé</span>"
+    what: "Faire traduire la page d'exemple en français <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-15
-    what: "Soumettre les pages à notre processus de CQ et à notre équipe ECAW <span class=\"label label-success\">Completé</span>"
+    what: "Soumettre les pages à notre processus de CQ et à notre équipe ECAW <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-22
-    what: "Corriger les problèmes identifiés et les problèmes d'accessibilité <span class=\"label label-success\">Completé</span>"
+    what: "Corriger les problèmes identifiés et les problèmes d'accessibilité <span class=\"label label-success\">Complété</span>"
   - due: 2024-10-24
-    what: "Soumettre la demandes de tirage <span class=\"label label-success\">Completé</span>"
+    what: "Soumettre la demandes de tirage <span class=\"label label-success\">Complété</span>"
   - due: 2025-11-30
     what: "Produce accessibility conformance report <span class=\"label label-warning\">A faire</span>"
   - due: 2025-06-30
@@ -86,7 +86,7 @@ changes:
     publicImpact: The bug is now fixed and the workaround of having to move the hidden columns to the end is no longer necessary.
   - date: 2024-11-01
     description: DataTable Utilities, includes Data Manipulation Classes for emails, Urls and Money. Also Includes Datatable Footer Totals
-    departmentImpact: Having this plugin intergrated will make the transition to Canada.ca easier as these features are already in use on https://www.tpsgc-pwgsc.gc.ca, currently some of the pages that make use of this plugin and other pages that make use of Other Javascripts are just pointed to from Canada.ca
+    departmentImpact: Having this plugin integrated will make the transition to Canada.ca easier as these features are already in use on https://www.tpsgc-pwgsc.gc.ca, currently some of the pages that make use of this plugin and other pages that make use of Other JavaScripts are just pointed to from Canada.ca
     publicImpact: The Public at Large, the plugin makes DataTables more user friendly with Clickable Links, and they are used to this functionality our PRE Canada.ca Pages
 
 output: false

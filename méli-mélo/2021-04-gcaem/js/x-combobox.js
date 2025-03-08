@@ -145,7 +145,7 @@ var componentName = "wb-combobox",
 				return ( matchChars / maxChars ) * 100;
 			}
 
-			// Check agains the pass Ratio
+			// Check against the pass Ratio
 			var result = similartextCheck( str1, str2 );
 			passRatio = parseInt( passRatio );
 			if ( result >= passRatio ) {
@@ -474,7 +474,7 @@ var componentName = "wb-combobox",
 
 			if ( typeof replacementValue === "object" ) {
 
-				// Stringfy the value
+				// Stringify the value
 				replacementValue = JSON.stringify( replacementValue );
 			}
 
@@ -526,7 +526,7 @@ var componentName = "wb-combobox",
 		el.ifConditions.push( condition );
 	},
 
-	// @tmplId going to be replated by the Real DOM template
+	// @tmplId going to be replaced by the Real DOM template
 	renderTemplate = function( dataObj, settings ) {
 
 		// Prepare the template
@@ -553,7 +553,7 @@ var componentName = "wb-combobox",
 
 		// Template cheat sheet
 		// 		Document.querySelector()
-		//		It only take the first occurence
+		//		It only take the first occurrence
 		//var cssSelectorsMapping = {
 		//	"CSS selector": "Property Name in the dataObj" // Need a modifier (like TextContent, ....)
 		//}
@@ -725,7 +725,7 @@ var componentName = "wb-combobox",
 				virtualLinearDOM[ frgItemId ] = dataObject;
 
 				// Add a class || data attribute to note it is a component
-				// - This is to be able to retreive the associated data on a event
+				// - This is to be able to retrieve the associated data on a event
 				i_cache.classList.add( "wb5React" );
 			}
 
@@ -739,7 +739,7 @@ var componentName = "wb-combobox",
 			// The fragment would replace the current element
 			elm.parentNode.insertBefore( tmpl, elm );
 
-			// Detach the current element - Eventually they could be completly removed
+			// Detach the current element - Eventually they could be completely removed
 			if ( !settings.hideSourceUI ) {
 				elm.id = wb.getId();
 				docFragmentSourceUI.appendChild( elm );
@@ -866,7 +866,7 @@ var componentName = "wb-combobox",
 
 		if ( idxOpen !== -1 && idxClose !== -1 && idxOpen + 1 !== idxClose ) {
 
-			// We have an internal functin
+			// We have an internal function
 
 			// Extract in between and re-process
 			var newPointer = pointer.substring( 0, idxOpen ),
@@ -1205,7 +1205,7 @@ var componentName = "wb-combobox",
 			if ( Array.isArray( val ) ) {
 
 				// Just make reactive those special properties
-				val.wbLen = parseInt( val.length ); // Length of the array (Updated before an iteration happend on it)
+				val.wbLen = parseInt( val.length ); // Length of the array (Updated before an iteration happened on it)
 				val.wbActive = 0; // Number of items that was identified being "True"
 
 				makeReactive( val, "wbLen", key );
@@ -1456,7 +1456,7 @@ $document.on( "keydown", "[role=combobox] input", function( evt ) {
 			$( options[ activeIndex ] ).trigger( "wb.select" );
 
 			hideListbox();
-			evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submited
+			evt.preventDefault(); // Need to prevent default here because when the combobox is within a form, the form are submitted
 			return;
 		case KeyCode.TAB:
 

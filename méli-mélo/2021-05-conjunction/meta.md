@@ -61,7 +61,7 @@ todos:
 
 changes:
   - date: 2024-06-20
-    description: Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased miminum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.
+    description: Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased minimum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.
     departmentImpact: No change from a departmental perspective.
     publicImpact: Allows border to be shown in high contrast (could require additional adjustment for FF and MacOS browsers). Fixed issue of using design in font sizes other than 20px (GCWeb standard)
   - date: 2024-08-07

@@ -14,7 +14,7 @@
 	},
 	"description": {
 		"en": "Isolation of custom CSS and JS code that was in the GCWeb version published on AEM",
-		"fr": "Isolation du code CSS et JS personalisé qui était inclus dans la version de GCWeb publié sur AEM"
+		"fr": "Isolation du code CSS et JS personnalisé qui était inclus dans la version de GCWeb publié sur AEM"
 	},
 	"modified": "2021-04-17",
 	"componentName": "2021-04-gcaem",
