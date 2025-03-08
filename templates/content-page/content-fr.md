@@ -16,7 +16,7 @@ share: true
 	<p>Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Ceci est un très long mot intergouvernementalisationsintergouvernementalisations.</p>
 </section>
 <h2 id="call-to-action">Bouton d'appel à l'action</h2>
-<p>Ajouter la classe CSS <code>.btn-call-to-action</code> à votre bouton ou lien qui definie l'appel à l'action principal de la page. Par example le bouton ou le lien de lancement d'une page de lancements d'un service. De plus amples renseignements sont disponibles dans la spécification du contenu et de l'architecture de l'information pour Canada.ca.</p>
+<p>Ajouter la classe CSS <code>.btn-call-to-action</code> à votre bouton ou lien qui définie l'appel à l'action principal de la page. Par example le bouton ou le lien de lancement d'une page de lancements d'un service. De plus amples renseignements sont disponibles dans la spécification du contenu et de l'architecture de l'information pour Canada.ca.</p>
 <div class="row">
 	<div class="col-sm-6">
 		<h3>Lien</h3>
