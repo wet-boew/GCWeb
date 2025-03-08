@@ -25,9 +25,9 @@ Install NodeJS
 	* `_data/templates.json`
 	* `_wetboew-demos/**`
 
-## Run GCWeb wetsite locally
+## Run GCWeb website locally
 
-Ensure that you have builded GCWeb first
+Ensure that you have built GCWeb first
 
 After your are running docking container or the docker composer you will be able to access your local website at: `http://localhost:4000`
 
@@ -46,7 +46,7 @@ docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" --env JEKYLL_OPTIONS='
 
 ### alternative with docker-compose
 
-This version leverage the remote theme wet-beoew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
+This version leverage the remote theme wet-boew/gcweb-jekyll. This equivalent if you run with gh-pages through your own GCWeb repository.
 
 ```
 grunt debug
@@ -55,11 +55,11 @@ docker-compose up
 
 First time run: `docker-compose up --build`
 
-## Run the continous integration and deployment script locally
+## Run the continuos integration and deployment script locally
 
 Install ACT - [https://github.com/nektos/act](https://github.com/nektos/act)
 
-Github fork needed:
+GitHub fork needed:
 
 * [wet-boew/gcweb](https://github.com/wet-boew/gcweb)
 * [wet-boew/gcweb-jekyll](https://github.com/wet-boew/gcweb-jekyll)

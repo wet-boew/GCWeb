@@ -30,7 +30,7 @@
 </ul>
 
 
-<p><strong>Note for implementer that has used the GCWeb developer build on or before January 30, 2019</strong>. (This is not applicable for implemeter that has use the official GCWeb v5 release.) The top menu is now identified by using the CSS class <code>gcweb-menu</code> instead of <code>gcweb-v2</code>.</p>
+<p><strong>Note for implementer that has used the GCWeb developer build on or before January 30, 2019</strong>. (This is not applicable for implementers that has use the official GCWeb v5 release.) The top menu is now identified by using the CSS class <code>gcweb-menu</code> instead of <code>gcweb-v2</code>.</p>
 
 <h2 id="pg-footer">Page footer</h2>
 
@@ -235,7 +235,7 @@
 
 <h3>Technical notes</h3>
 <ul>
-	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1. See the technical notes in the gcweb theme meta page.</li>
+	<li>The menu was designed similarly like the menu design pattern from WAI-ARIA 1.1. See the technical notes in the gcweb theme meta page.</li>
 	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
 	<li>
 		<p>There is a confusion in the WAI-ARIA practice 1.1 vs WAI-ARIA 1.1 spec.</p>
@@ -554,7 +554,7 @@
 
 <h2 id="pg-type">Navigation pages, Theme, Topic, Home,...</h2>
 
-<p>Navigation page need to be identified by adding a global class. Before it was <code>.secondary</code> which are now deprecated because of the ambuiguity of it's purpose. It don't represent secondary content, but it was representing navigational page type. So the new name is now <code>.page-type-nav</code> which make it clear it's purpose.</p>
+<p>Navigation page need to be identified by adding a global class. Before it was <code>.secondary</code> which are now deprecated because of the ambiguity of it's purpose. It don't represent secondary content, but it was representing navigational page type. So the new name is now <code>.page-type-nav</code> which make it clear it's purpose.</p>
 
 <p>The following change apply for any navigation page identified by the content and IA spec such:</p>
 <ul>
@@ -572,9 +572,9 @@
 		<p><small>The older CSS class would still work, but it should be updated</small></p>
 	</li>
 	<li>
-		<p>Remove the custom CSS class set on in-page section header and on dormat link header. Now the customize sizing are managed by adding the CSS class <code>.page-type-nav</code></p>
+		<p>Remove the custom CSS class set on in-page section header and on doormat link header. Now the customize sizing are managed by adding the CSS class <code>.page-type-nav</code></p>
 		<ul>
-			<li>For dormat link: <code>&lt;h3 class="h5"&gt;...&lt;/h3&gt;</code> are changed to: <code>&lt;h3&gt;...&lt;/h3&gt;</code>. Using the class "h5" on dormat link are deprecated for navigation page type.</li>
+			<li>For doormat link: <code>&lt;h3 class="h5"&gt;...&lt;/h3&gt;</code> are changed to: <code>&lt;h3&gt;...&lt;/h3&gt;</code>. Using the class "h5" on doormat link are deprecated for navigation page type.</li>
 			<li>For section title: remain <code>&lt;h2&gt;...&lt;/h2&gt;</code> but it will render with a new font-size</li>
 		</ul>
 	</li>
@@ -594,7 +594,7 @@
 <h3>Difference if there no markup change - Incomplete</h3>
 <p>Note: as Nov 2, we didn't compared both version, like how the previous markup (from GCWeb 4.0.29) would be different from this new design</p>
 <ul>
-	<li>Breadcrumb: You will notice the breadcrumb are moved 15 pixel right and 15 pixel left. We expected that change would have minor/trivial impact on the user. If needed, a solution can be provided but migth require some additional markup change for implementor.</li>
+	<li>Breadcrumb: You will notice the breadcrumb are moved 15 pixel right and 15 pixel left. We expected that change would have minor/trivial impact on the user. If needed, a solution can be provided but might require some additional markup change for implementer.</li>
 	<li>For implementation that didn't moved the date modified under the "Report a problem" row as per C&amp;IA v1.5.1, there will be a larger top margin at the bottom of each pages.</li>
 </ul>
 
@@ -603,11 +603,11 @@
 
 <p>Note: Other requirement might get added, at this time of implementing this new look in GCWeb github repos it wasn't fully compliant to Content and IA spec 1.5.1.</p>
 
-<p>Some of the items bellow might be related to being conform to Content and IA spec 1.5.1 or to ensure previous change made to GCWeb are applied. Those change might not neccessary directly applicable with applying the new look.</p>
+<p>Some of the items bellow might be related to being conform to Content and IA spec 1.5.1 or to ensure previous change made to GCWeb are applied. Those change might not necessary directly applicable with applying the new look.</p>
 <ul>
 	<li>Review the text for skip link, they were a change a year ago to change 'Skip: "About this site"' for 'Skip: "About government"'. In French it is from 'Passer à « À propos de ce site »' for 'Passer à « Au sujet du gouvernement »'</li>
-	<li>(Under review - See item 33) The size of the heading of any dormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each dormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
-	<li>Ensure the date modified is after the "Report a probleme" instead of being before. The top margin was added to that field.</li>
+	<li>(Under review - See item 33) The size of the heading of any doormat link need to be updated to a size comparable to an heading level 6. Implementer would need to edit each doormat link and change the current CSS class <code>h5</code> for the CSS class <code>h6</code>.</li>
+	<li>Ensure the date modified is after the "Report a problem" instead of being before. The top margin was added to that field.</li>
 </ul>
 
 <h4>Page details section (before the end of the main)</h4>
@@ -617,12 +617,12 @@
 	<li>Major - visual update v5 - Move of the date modified after button as per the Content and IA spec.</li>
 	<li>Major - visual update v5 - Include the CSS class container (only for the home page) when the CSS class container is not added to the main element.</li>
 	<li>Minor - v.4.0.28 - April 27, 2018 - Removal of the Privacy statement</li>
-	<li>Major - v.4.0.27 - December 14, 2017: Markup restructuration - Grid cell are now independant from the interactive elements to display the report a problem inline form.</li>
+	<li>Major - v.4.0.27 - December 14, 2017: Markup restructuration - Grid cell are now independent from the interactive elements to display the report a problem inline form.</li>
 	<li>Major - v.4.0.22 - August 9, 2016: Markup restructuration - Feedback link was change into an inline report a problem form.</li>
 	<li>Initial markup - v4.0.0 - Date modified followed by feedback form link.</li>
 </ul>
 
-<p>Lastest markup:</p>
+<p>Latest markup:</p>
 <pre><code>&lt;div class="pagedetails"&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-sm-6 col-md-5 col-lg-4"&gt;
@@ -630,7 +630,7 @@
 				&lt;summary class="btn btn-default text-center"&gt;Report a problem on this page&lt;/summary&gt;
 				&lt;div class="well row"&gt;
 
-					&lt;!-- Report a probleme inline form code here --&gt;
+					&lt;!-- Report a problem inline form code here --&gt;
 
 				&lt;/div&gt;
 			&lt;/details&gt;
