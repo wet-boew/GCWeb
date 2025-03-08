@@ -30,12 +30,12 @@ dateModified: "2016-11-30"
 	<h2>Sur cette page:</h2>
 
 	<ul>
-		<li><a href="#ajax">Requête ajax personalisé</a></li>
+		<li><a href="#ajax">Requête ajax personnalisé</a></li>
 		<li><a href="#ajouter">Ajouter un control fieldflow</a></li>
 		<li><a href="#css">Ajout ou retirer des classes CSS</a></li>
 		<li><a href="#defaultreinit">Appliquer des actions par défaut et pour la réinitialisation</a></li>
 		<li><a href="#actionBase">Définir une action de base</a></li>
-		<li><a href="#redefinirdefautcomportement">Redéfinir les comportement par défault lors d'une configuration simple</a></li>
+		<li><a href="#redefinirdefautcomportement">Redéfinir les comportement par défaut lors d'une configuration simple</a></li>
 		<li><a href="#interrogation">Interrogation et intégration aux formulaires</a></li>
 		<li><a href="#basculer">Basculer</a></li>
 		<li><a href="#tblfiltrage">Filtrage de tableaux</a></li>
@@ -43,16 +43,16 @@ dateModified: "2016-11-30"
 </nav>
 
 
-<h2 id="ajax">Requête ajax personalisé</h2>
+<h2 id="ajax">Requête ajax personnalisé</h2>
 
 
 	<div class="well">
 
-		<p>Le contenu est insérer en utilisant le plugiciel data-ajax. Il est possible de cibler des récipent spécifique, il est possible d'utiliser différente méthode (tel que: <span lang="en">append, prepend, after, before, replace</span>) et de bénifier des fonctionalité de filtrage fait par le ajax fetch.</p>
+		<p>Le contenu est insérer en utilisant le plugiciel data-ajax. Il est possible de cibler des récipient spécifique, il est possible d'utiliser différente méthode (tel que: <span lang="en">append, prepend, after, before, replace</span>) et de bénéficier des fonctionnalité de filtrage fait par le ajax fetch.</p>
 
 		<p>Un usage simplet c'est de définir le chemin du fichier (URL) à insérer à l'aide de l'attribut <code>data-wb-fieldflow=&quot;Chemin/du/fichier&quot;</code>.</p>
 
-		<p>Le contenu définie par l'attribut <code>data-wb-fieldflow</code> peut ne pas être accessible lorsque le javascript est déactivé et par les moteurs de recherche à des fins d'indexation et de référencement. Donc, il est recommendé de fournir une solution alternative duquel l'utilisateur pourra obtenir de l'information équivalente.</p>
+		<p>Le contenu définie par l'attribut <code>data-wb-fieldflow</code> peut ne pas être accessible lorsque le javascript est déactivé et par les moteurs de recherche à des fins d'indexation et de référencement. Donc, il est recommandé de fournir une solution alternative duquel l'utilisateur pourra obtenir de l'information équivalente.</p>
 
 		<p>Utilisé l'attribut <code>data-wb-fieldflow=&quot;Chemin/du/fichier&quot;</code> est la même instruction que:</p>
 		<ul>
@@ -66,7 +66,7 @@ dateModified: "2016-11-30"
 			<dd>Défini comment le contenu sera inséré. Les options disponible sont: insérer du contenu après l'élément (<span lang="en">after</span>), ajouter du contenu à la fin de l'élément (<span lang="en">append</span>), insérer le contenu avant l'élément (<span lang="en">before</span>), ajouter le contenu au début de l'élément (<span lang="en">prepend</span>), remplace le contenu de l'élément (<span lang="en">replace</span>). La valeur par défaut c'est "replace"</dd>
 
 			<dt><code>container</code></dt>
-			<dd>Un sélecteur jquery qui sera l'hôte pour l'éxécution du plugiciel data-ajax. S'il n'est pas spécifier, un conteneur vide sera créer et insérer après les controle de déroulement de champs.</dd>
+			<dd>Un sélecteur jquery qui sera l'hôte pour l'exécution du plugiciel data-ajax. S'il n'est pas spécifier, un conteneur vide sera créer et insérer après les contrôle de déroulement de champs.</dd>
 
 			<dt><code>clean</code></dt>
 			<dd>Un sélecteur jquery dont l'instruction jquery <code>empty()</code> sera exécuté.</dd>
@@ -79,7 +79,7 @@ dateModified: "2016-11-30"
 
 	<section id="ajaxPanel" class="panel panel-primary">
 		<header class="panel-heading">
-			<h3 class="panel-title"><code>id="ajaxPanel"</code> Paneau a des fins d'example pratique</h3>
+			<h3 class="panel-title"><code>id="ajaxPanel"</code> Panneau a des fins d'example pratique</h3>
 		</header>
 		<div class="panel-body">
 			<p>(Pour illustrer le comportement de la configuration <code>container</code> et de la configuration <code>clean</code>)</p>
@@ -98,7 +98,7 @@ dateModified: "2016-11-30"
 			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-3.html", "container": "#ajaxPanel .panel-body"}'>Ensemble 3 - Utilise le récipient: $("#ajaxPanel .panel-body")</li>
 			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-4.html", "container": "#ajaxPanel .panel-body"}'>Ensemble 4 - Utilise le récipient: $("#ajaxPanel .panel-body")</li>
 			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-4.html", "container": "#ajaxPanel .panel-body", "type": "append"}'>Ensemble 4 - Ajoute le contenu au récipient: $("#ajaxPanel .panel-body")</li>
-			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-3.html", "container": "#ajaxPanel .panel-body", "type": "prepend", "clean": "#ajaxPanel .panel-body"}'>Set 3 - Insert le contenu au début du récipent $("#ajaxPanel .panel-body") et le vide (clean) lors du changement de sélection</li>
+			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-3.html", "container": "#ajaxPanel .panel-body", "type": "prepend", "clean": "#ajaxPanel .panel-body"}'>Set 3 - Insert le contenu au début du récipient $("#ajaxPanel .panel-body") et le vide (clean) lors du changement de sélection</li>
 			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-5.html"}'>Ensemble 5</li>
 			<li data-wb-fieldflow='{"action": "ajax", "url": "ajax/ajax-5.html", "trigger": true}'>Ensemble 5 - avec initialisation de plugiciel</li>
 		</ul>
@@ -107,7 +107,7 @@ dateModified: "2016-11-30"
 
 <pre><code>&lt;section id=&quot;ajaxPanel&quot; class=&quot;panel panel-primary&quot;&gt;
 	&lt;header class=&quot;panel-heading&quot;&gt;
-		&lt;h3 class=&quot;panel-title&quot;&gt;&lt;code&gt;id=&quot;ajaxPanel&quot;&lt;/code&gt; Paneau a des fins d'example pratique&lt;/h3&gt;
+		&lt;h3 class=&quot;panel-title&quot;&gt;&lt;code&gt;id=&quot;ajaxPanel&quot;&lt;/code&gt; Panneau a des fins d'example pratique&lt;/h3&gt;
 	&lt;/header&gt;
 	&lt;div class=&quot;panel-body&quot;&gt;
 		&lt;p&gt;(Pour illustrer le comportement de la configuration &lt;code&gt;container&lt;/code&gt; et de la configuration &lt;code&gt;clean&lt;/code&gt;)&lt;/p&gt;
@@ -126,7 +126,7 @@ dateModified: "2016-11-30"
 		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-3.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Ensemble 3 - Utilise le récipient: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
 		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-4.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Ensemble 4 - Utilise le récipient: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
 		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-4.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;, &quot;type&quot;: &quot;append&quot;}'&gt;Ensemble 4 - Ajoute le contenu au récipient: $(&quot;#ajaxPanel .panel-body&quot;)&lt;/li&gt;
-		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-3.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;, &quot;type&quot;: &quot;prepend&quot;, &quot;clean&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Set 3 - Insert le contenu au début du récipent $(&quot;#ajaxPanel .panel-body&quot;) et le vide (clean) lors du changement de sélection&lt;/li&gt;
+		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-3.html&quot;, &quot;container&quot;: &quot;#ajaxPanel .panel-body&quot;, &quot;type&quot;: &quot;prepend&quot;, &quot;clean&quot;: &quot;#ajaxPanel .panel-body&quot;}'&gt;Set 3 - Insert le contenu au début du récipient $(&quot;#ajaxPanel .panel-body&quot;) et le vide (clean) lors du changement de sélection&lt;/li&gt;
 		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-5.html&quot;}'&gt;Ensemble 5&lt;/li&gt;
 		&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;ajax/ajax-5.html&quot;, &quot;trigger&quot;: true}'&gt;Ensemble 5 - avec initialisation de plugiciel&lt;/li&gt;
 	&lt;/ul&gt;
@@ -137,11 +137,11 @@ dateModified: "2016-11-30"
 <h2 id="ajouter">Ajouter un control fieldflow</h2>
 
 	<div class="well">
-		<p>L'action ajout (<span lang="en">append</span>) nécessite la configuration <code>source</code> représentant un sélecteur jQuery pointant vers le block d'un élément qui peut être utilisé en tant que sous plugin. Ce sous contrôle sera inséré à la suite du contrôle initiateur de l'action. Un comportement similar peut être fait en dupliquant le contenu du sous-controle dans chacune des items de la listes, voir l'exemple subséquent.</p>
+		<p>L'action ajout (<span lang="en">append</span>) nécessite la configuration <code>source</code> représentant un sélecteur jQuery pointant vers le block d'un élément qui peut être utilisé en tant que sous plugin. Ce sous contrôle sera inséré à la suite du contrôle initiateur de l'action. Un comportement similar peut être fait en dupliquant le contenu du sous-contrôle dans chacune des items de la listes, voir l'exemple subséquent.</p>
 
-		<p>La configuration <code>target</code> contient un <code>id</code> qui définie que cet action sera exécuté lors que l'item identifier par l'id sera sélectioné par un contrôle de déroulement de contenu.</p>
+		<p>La configuration <code>target</code> contient un <code>id</code> qui définie que cet action sera exécuté lors que l'item identifier par l'id sera sélectionné par un contrôle de déroulement de contenu.</p>
 
-		<p>Cette fonctionalité est utile pour évité la duplication de contenu.</p>
+		<p>Cette fonctionnalité est utile pour évité la duplication de contenu.</p>
 	</div>
 
 <div class="wb-fieldflow">
@@ -234,7 +234,7 @@ dateModified: "2016-11-30"
 	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
-<h3>Cela est équivale à:</h3>
+<h3>Cela est équivalent à:</h3>
 
 <div class="wb-fieldflow">
 	<p>Trouvez le plugiciel qui répond à vos besoin:</p>
@@ -498,7 +498,7 @@ dateModified: "2016-11-30"
 
 
 
-<h2 id="redefinirdefautcomportement">Redéfinir les comportement par défault lors d'une configuration simple</h2>
+<h2 id="redefinirdefautcomportement">Redéfinir les comportement par défaut lors d'une configuration simple</h2>
 
 <p>Change le comportement par défaut lors de la configuration de la liste des items.</p>
 
@@ -569,7 +569,7 @@ dateModified: "2016-11-30"
 				<ul>
 					<li>C'est pourquoi une version alternative statique a été ajouter après le formulaire.</li>
 					<li>Le formulaire est caché par défaut.</li>
-					<li>Le formulaire est affiché après l'initialistion du plugiciel car l'option de configuration <code>unhideelm</code> contient un sélecteur qui identifie ledit formulaire.</li>
+					<li>Le formulaire est affiché après l'initialisation du plugiciel car l'option de configuration <code>unhideelm</code> contient un sélecteur qui identifie ledit formulaire.</li>
 				</ul>
 			</li>
 		</ul>
@@ -580,7 +580,7 @@ dateModified: "2016-11-30"
 <form action="advanced-fr.html" class="col-md-12">
 
 	<fieldset>
-		<legend><span class="field-name">Mes animeaux favories</span></legend>
+		<legend><span class="field-name">Mes animaux favoris</span></legend>
 		<div class="checkbox">
 			<label for="animal5"><input type="checkbox" name="animal" value="Chien" id="animal5" /> Chien</label>
 		</div>
@@ -604,21 +604,21 @@ dateModified: "2016-11-30"
 					<p>Quel type d'habitat vous vous intéresser?</p>
 					<ul>
 						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"sauvage"}'>Sauvage</li>
-						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"HabRecommendé"}'>Recommendé</li>
+						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"HabRecommandé"}'>Recommandé</li>
 						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"intérieur"}'>À l'intérieur</li>
 						<li data-wb-fieldflow='[
 							{"action": "query", "name":"moreinfo", "value":"extérieur"},
 							{"action": "redir", "url": "https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html"}
-						]'>à l'éxtérieur</li>
+						]'>à l'extérieur</li>
 					</ul>
 				</div>
 			</li>
-			<li>La nouriture
+			<li>La nourriture
 				<div class="wb-fieldflow-sub">
 					<p>Quel type de nourriture vous vous intéresser?</p>
 					<ul>
 						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"santé"}'>Santé</li>
-						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"nouRecommendé"}'>Recommandé</li>
+						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"nouRecommandé"}'>Recommandé</li>
 						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"éviter"}'>à éviter</li>
 						<li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"tendance"}'>Tendance</li>
 					</ul>
@@ -629,7 +629,7 @@ dateModified: "2016-11-30"
 	</div>
 
 
-	<input class="mrgn-bttm-lg" type="submit" value="Soummetez et regardé l'URL de la page" />
+	<input class="mrgn-bttm-lg" type="submit" value="Soumettez et regardé l'URL de la page" />
 </form></div>
 
 <details id="myformidAlternate">
@@ -638,46 +638,46 @@ dateModified: "2016-11-30"
 	<p>Chien:</p>
 	<ul>
 		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=sauvage">Habitation sauvage</a></li>
-		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=HabRecommendé">Habitation recommendé</a></li>
+		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=HabRecommandé">Habitation recommandé</a></li>
 		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=intérieur">Habitation à l'intérieur</a></li>
 		<li><a href="https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Chien&amp;moreinfo=extérieur">Habitation à l'extérieur</a></li>
-		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=santé">Nouriture santé</a></li>
-		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=nouRecommendé">Nouriture recommendé</a></li>
-		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=éviter">Nouriture à éviter</a></li>
-		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=tendance">Nouriture tendance</a></li>
+		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=santé">Nourriture santé</a></li>
+		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=nouRecommandé">Nourriture recommandé</a></li>
+		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=éviter">Nourriture à éviter</a></li>
+		<li><a href="advanced-fr.html?animal=Chien&amp;moreinfo=tendance">Nourriture tendance</a></li>
 	</ul>
 	<p>Chat:</p>
 	<ul>
 		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=sauvage">Habitation sauvage</a></li>
-		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=HabRecommendé">Habitation recommendé</a></li>
+		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=HabRecommandé">Habitation recommandé</a></li>
 		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=intérieur">Habitation à l'intérieur</a></li>
 		<li><a href="https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Chat&amp;moreinfo=extérieur">Habitation à l'extérieur</a></li>
-		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=santé">Nouriture santé</a></li>
-		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=nouRecommendé">Nouriture recommendé</a></li>
-		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=éviter">Nouriture à éviter</a></li>
-		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=tendance">Nouriture tendance</a></li>
+		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=santé">Nourriture santé</a></li>
+		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=nouRecommandé">Nourriture recommandé</a></li>
+		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=éviter">Nourriture à éviter</a></li>
+		<li><a href="advanced-fr.html?animal=Chat&amp;moreinfo=tendance">Nourriture tendance</a></li>
 	</ul>
 	<p>Poisson:</p>
 	<ul>
 		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=sauvage">Habitation sauvage</a></li>
-		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=HabRecommendé">Habitation recommendé</a></li>
+		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=HabRecommandé">Habitation recommandé</a></li>
 		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=intérieur">Habitation à l'intérieur</a></li>
 		<li><a href="https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Poisson&amp;moreinfo=extérieur">Habitation à l'extérieur</a></li>
-		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=santé">Nouriture santé</a></li>
-		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=nouRecommendé">Nouriture recommendé</a></li>
-		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=éviter">Nouriture à éviter</a></li>
-		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=tendance">Nouriture tendance</a></li>
+		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=santé">Nourriture santé</a></li>
+		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=nouRecommandé">Nourriture recommandé</a></li>
+		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=éviter">Nourriture à éviter</a></li>
+		<li><a href="advanced-fr.html?animal=Poisson&amp;moreinfo=tendance">Nourriture tendance</a></li>
 	</ul>
 	<p>Serpent:</p>
 	<ul>
 		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=sauvage">Habitation sauvage</a></li>
-		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=HabRecommendé">Habitation recommendé</a></li>
+		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=HabRecommandé">Habitation recommandé</a></li>
 		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=intérieur">Habitation à l'intérieur</a></li>
 		<li><a href="https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Serpent&amp;moreinfo=extérieur">Habitation à l'extérieur</a></li>
-		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=santé">Nouriture santé</a></li>
-		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=nouRecommendé">Nouriture recommendé</a></li>
-		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=éviter">Nouriture à éviter</a></li>
-		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=tendance">Nouriture tendance</a></li>
+		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=santé">Nourriture santé</a></li>
+		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=nouRecommandé">Nourriture recommandé</a></li>
+		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=éviter">Nourriture à éviter</a></li>
+		<li><a href="advanced-fr.html?animal=Serpent&amp;moreinfo=tendance">Nourriture tendance</a></li>
 	</ul>
 </details>
 
@@ -687,7 +687,7 @@ dateModified: "2016-11-30"
 &lt;form action=&quot;advanced-fr.html&quot; class=&quot;col-md-12&quot;&gt;
 
 	&lt;fieldset&gt;
-		&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Mes animeaux favories&lt;/span&gt;&lt;/legend&gt;
+		&lt;legend&gt;&lt;span class=&quot;field-name&quot;&gt;Mes animaux favoris&lt;/span&gt;&lt;/legend&gt;
 		&lt;div class=&quot;checkbox&quot;&gt;
 			&lt;label for=&quot;animal5&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;Chien&quot; id=&quot;animal5&quot; /&gt; Chien&lt;/label&gt;
 		&lt;/div&gt;
@@ -711,21 +711,21 @@ dateModified: "2016-11-30"
 					&lt;p&gt;Quel type d'habitat vous vous intéresser?&lt;/p&gt;
 					&lt;ul&gt;
 						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;sauvage&quot;}'&gt;Sauvage&lt;/li&gt;
-						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;HabRecommendé&quot;}'&gt;Recommendé&lt;/li&gt;
+						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;HabRecommandé&quot;}'&gt;Recommandé&lt;/li&gt;
 						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;intérieur&quot;}'&gt;À l'intérieur&lt;/li&gt;
 						&lt;li data-wb-fieldflow='[
 							{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;extérieur&quot;},
 							{&quot;action&quot;: &quot;redir&quot;, &quot;url&quot;: &quot;https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html&quot;}
-						]'&gt;à l'éxtérieur&lt;/li&gt;
+						]'&gt;à l'extérieur&lt;/li&gt;
 					&lt;/ul&gt;
 				&lt;/div&gt;
 			&lt;/li&gt;
-			&lt;li&gt;La nouriture
+			&lt;li&gt;La nourriture
 				&lt;div class=&quot;wb-fieldflow-sub&quot;&gt;
 					&lt;p&gt;Quel type de nourriture vous vous intéresser?&lt;/p&gt;
 					&lt;ul&gt;
 						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;santé&quot;}'&gt;Santé&lt;/li&gt;
-						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;nouRecommendé&quot;}'&gt;Recommandé&lt;/li&gt;
+						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;nouRecommandé&quot;}'&gt;Recommandé&lt;/li&gt;
 						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;éviter&quot;}'&gt;à éviter&lt;/li&gt;
 						&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;query&quot;, &quot;name&quot;:&quot;moreinfo&quot;, &quot;value&quot;:&quot;tendance&quot;}'&gt;Tendance&lt;/li&gt;
 					&lt;/ul&gt;
@@ -736,55 +736,55 @@ dateModified: "2016-11-30"
 	&lt;/div&gt;
 
 
-	&lt;input class=&quot;mrgn-bttm-lg&quot; type=&quot;submit&quot; value=&quot;Soummetez et regardé l'URL de la page de résultat&quot; /&gt;
+	&lt;input class=&quot;mrgn-bttm-lg&quot; type=&quot;submit&quot; value=&quot;Soumettez et regardé l'URL de la page de résultat&quot; /&gt;
 &lt;/form&gt;&lt;/div&gt;
 
 &lt;details id=&quot;myformidAlternate&quot;&gt;
-	&lt;summary&gt;Version alternative permettant d'obtenir la même informatio que le formulaire précédent.&lt;/summary&gt;
+	&lt;summary&gt;Version alternative permettant d'obtenir la même information que le formulaire précédent.&lt;/summary&gt;
 
 	&lt;p&gt;Chien:&lt;/p&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=sauvage&quot;&gt;Habitation sauvage&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=HabRecommendé&quot;&gt;Habitation recommendé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=HabRecommandé&quot;&gt;Habitation recommandé&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=intérieur&quot;&gt;Habitation à l'intérieur&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Chien&amp;amp;moreinfo=extérieur&quot;&gt;Habitation à l'extérieur&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=santé&quot;&gt;Nouriture santé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=nouRecommendé&quot;&gt;Nouriture recommendé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=éviter&quot;&gt;Nouriture à éviter&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=tendance&quot;&gt;Nouriture tendance&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=santé&quot;&gt;Nourriture santé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=nouRecommandé&quot;&gt;Nourriture recommandé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=éviter&quot;&gt;Nourriture à éviter&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chien&amp;amp;moreinfo=tendance&quot;&gt;Nourriture tendance&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 	&lt;p&gt;Chat:&lt;/p&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=sauvage&quot;&gt;Habitation sauvage&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=HabRecommendé&quot;&gt;Habitation recommendé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=HabRecommandé&quot;&gt;Habitation recommandé&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=intérieur&quot;&gt;Habitation à l'intérieur&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Chat&amp;amp;moreinfo=extérieur&quot;&gt;Habitation à l'extérieur&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=santé&quot;&gt;Nouriture santé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=nouRecommendé&quot;&gt;Nouriture recommendé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=éviter&quot;&gt;Nouriture à éviter&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=tendance&quot;&gt;Nouriture tendance&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=santé&quot;&gt;Nourriture santé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=nouRecommandé&quot;&gt;Nourriture recommandé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=éviter&quot;&gt;Nourriture à éviter&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Chat&amp;amp;moreinfo=tendance&quot;&gt;Nourriture tendance&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 	&lt;p&gt;Poisson:&lt;/p&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=sauvage&quot;&gt;Habitation sauvage&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=HabRecommendé&quot;&gt;Habitation recommendé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=HabRecommandé&quot;&gt;Habitation recommandé&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=intérieur&quot;&gt;Habitation à l'intérieur&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Poisson&amp;amp;moreinfo=extérieur&quot;&gt;Habitation à l'extérieur&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=santé&quot;&gt;Nouriture santé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=nouRecommendé&quot;&gt;Nouriture recommendé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=éviter&quot;&gt;Nouriture à éviter&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=tendance&quot;&gt;Nouriture tendance&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=santé&quot;&gt;Nourriture santé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=nouRecommandé&quot;&gt;Nourriture recommandé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=éviter&quot;&gt;Nourriture à éviter&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Poisson&amp;amp;moreinfo=tendance&quot;&gt;Nourriture tendance&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 	&lt;p&gt;Serpent:&lt;/p&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=sauvage&quot;&gt;Habitation sauvage&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=HabRecommendé&quot;&gt;Habitation recommendé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=HabRecommandé&quot;&gt;Habitation recommandé&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=intérieur&quot;&gt;Habitation à l'intérieur&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;https://wet-boew.github.io/v4.0-ci/demos/overlay/overlay-fr.html?animal=Serpent&amp;amp;moreinfo=extérieur&quot;&gt;Habitation à l'extérieur&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=santé&quot;&gt;Nouriture santé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=nouRecommendé&quot;&gt;Nouriture recommendé&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=éviter&quot;&gt;Nouriture à éviter&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=tendance&quot;&gt;Nouriture tendance&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=santé&quot;&gt;Nourriture santé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=nouRecommandé&quot;&gt;Nourriture recommandé&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=éviter&quot;&gt;Nourriture à éviter&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;advanced-fr.html?animal=Serpent&amp;amp;moreinfo=tendance&quot;&gt;Nourriture tendance&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/details&gt;</code></pre>
 
@@ -981,7 +981,7 @@ dateModified: "2016-11-30"
 			<th><a href="https://news.gc.ca/web/index-en.do">Backgrounder: Government of Canada delivers $109 million to Alberta for community infrastructure projects</a></th>
 			<td>2016-07-29 11:07:00</td>
 			<td>
-				<p>The Government of Canada delivered the first of two federal Gas Tax Fund installments for 2016-17 to all the provinces and territories benefitting 364 municipalities in Alberta..</p>
+				<p>The Government of Canada delivered the first of two federal Gas Tax Fund instalments for 2016-17 to all the provinces and territories benefiting 364 municipalities in Alberta..</p>
 				<p>For:</p>
 				<ul>
 					<li>Media</li>
@@ -1116,7 +1116,7 @@ dateModified: "2016-11-30"
 
 
 
-<h3>Filtrage avec une interface personalisé <small>Filtrage de tableaux</small></h3>
+<h3>Filtrage avec une interface personnalisé <small>Filtrage de tableaux</small></h3>
 
 <div id="table-filtering-example2-form" class="wb-frmvld hidden">
 	<form>
@@ -1290,7 +1290,7 @@ dateModified: "2016-11-30"
 			<th><a href="https://news.gc.ca/web/index-en.do">Backgrounder: Government of Canada delivers $109 million to Alberta for community infrastructure projects</a></th>
 			<td>2016-07-29 11:07:00</td>
 			<td>
-				<p>The Government of Canada delivered the first of two federal Gas Tax Fund installments for 2016-17 to all the provinces and territories benefitting 364 municipalities in Alberta..</p>
+				<p>The Government of Canada delivered the first of two federal Gas Tax Fund instalments for 2016-17 to all the provinces and territories benefiting 364 municipalities in Alberta..</p>
 				<p>For:</p>
 				<ul>
 					<li>Media</li>
