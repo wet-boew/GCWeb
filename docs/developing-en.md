@@ -16,14 +16,14 @@ Install NodeJS
 * Run code quality check: `grunt test`
 * Build production files: `grunt dist`
 * Compile and assemble méli-mélo:
-	* Run local: `grunt méli-mélo`
-	* Run from compiled dist: `grunt méli-mélo-runLocal`
-	* Run from wet-boew sites : `grunt méli-mélo-remote`
+  * Run local: `grunt méli-mélo`
+  * Run from compiled dist: `grunt méli-mélo-runLocal`
+  * Run from wet-boew sites : `grunt méli-mélo-remote`
 * Regenerate site web content: `grunt site-contents`
-	* `_data/components.json`
-	* `_data/sites.json`
-	* `_data/templates.json`
-	* `_wetboew-demos/**`
+  * `_data/components.json`
+  * `_data/sites.json`
+  * `_data/templates.json`
+  * `_wetboew-demos/**`
 
 ## Run GCWeb website locally
 

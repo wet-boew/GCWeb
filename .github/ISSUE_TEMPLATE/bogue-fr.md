@@ -39,16 +39,16 @@ Le cas échéant, ajoutez des captures d'écran pour expliquer votre problème.
 
 ## Ordinateur de bureau (veuillez compléter les informations suivantes) :
 <!-- Facultatif -->
- - OS : [par exemple iOS]
- - Navigateur : [par exemple chrome, safari]
- - Version : [par exemple 22]
+- OS : [par exemple iOS]
+- Navigateur : [par exemple chrome, safari]
+- Version : [par exemple 22]
 
 ## Télépone intelligent (veuillez compléter les informations suivantes) :
 <!-- Facultatif -->
- - Appareil : [par exemple iPhone6]
- - OS : [par exemple iOS8.1]
- - Navigateur : [par exemple stock browser, safari]
- - Version : [par exemple 22]
+- Appareil : [par exemple iPhone6]
+- OS : [par exemple iOS8.1]
+- Navigateur : [par exemple stock browser, safari]
+- Version : [par exemple 22]
 
 ## Contexte supplémentaire
 <!-- Facultatif -->
