@@ -11,7 +11,7 @@
 <p>On this page:</p>
 <ul>
 	<li><a href="#menuCDN">Menu CDN</a></li>
-	<li><a href="#gcweb-v5">GCWeb Canada.ca theme) visual update - V5</a></li>
+	<li><a href="#gcweb-v5">GCWeb (Canada.ca theme) visual update - V5</a></li>
 	<li><a href="#evaluation">Evaluation and report</a></li>
 	<li><a href="#special-notes">Special notes</a></li>
 	<li><a href="#static-header-footer">Static header and footer</a></li>
@@ -22,7 +22,7 @@
 </ul>
 
 <h2 id="menuCDN">Menu CDN</h2>
-<p>Principal publisher udpate those following HTML fragment file every time there is a change to Canada.ca top menu.</p>
+<p>Principal publisher updated the following HTML fragment file every time there is a change to Canada.ca top menu.</p>
 <ul>
 	<li>English: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-en.html</a></li>
 	<li>French: <a href="https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html">https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-fr.html</a></li>
@@ -88,7 +88,7 @@
 </tbody>
 </table>
 
-<h2 id="gcweb-v5">GCWeb Canada.ca theme) visual update - V5</h2>
+<h2 id="gcweb-v5">GCWeb (Canada.ca theme) visual update - V5</h2>
 
 <p>The GCWeb v5 (Canada.ca theme) visual update are supporting the Canada.ca Content and Information Architecture Specification 2.0.</p>
 
@@ -128,9 +128,9 @@
 	<li><a href="temp-v5issue.html">Temporary internal list of issues and todo</a></li>
 </ul>
 
-<h3>Noticable visual difference with no markup change</h3>
+<h3>Noticeable visual difference with no markup change</h3>
 
-<p>This is a list of perceptible changes that would be visually noticiable if only the GCWeb javascript and CSS are replaced without doing any markup change as identified by the migration instruction.</p>
+<p>This is a list of perceptible changes that would be visually noticeable if only the GCWeb javascript and CSS are replaced without doing any markup change as identified by the migration instruction.</p>
 
 <ul>
 	<li><strong>Language Toggle link:</strong> Font changed</li>
@@ -148,13 +148,13 @@
 
 <h3 id="temp-avoid-visual">Temporary avoiding the visual difference</h3>
 
-<p>The increased font size and the new line-height might impact some visual design. Mostly the one where it was thighly designed for desktop first, like some campaign pages.</p>
+<p>The increased font size and the new line-height might impact some visual design. Mostly the one where it was originally designed for desktop first, like some campaign pages.</p>
 
 <p>Here a list of design items to look at:</p>
 <ul>
-	<li>Pages where the number of characted (like in a title) are closely counted to ensure it fit in a specific container, like to remain in one single line. For example the title of a feature tile.</li>
+	<li>Pages where the number of characters (like in a title) are closely counted to ensure it fit in a specific container, like to remain in one single line. For example the title of a feature tile.</li>
 	<li>Pages where there is textual content inside a column of a width of 1 and 2. Textual content inside a column of width of 3 might or might not cause issue. Those cases might require you to re-think how to present the information.</li>
-	<li>Pages where datatables was intentionally skrinked in order to fit all columns inside the extra-large view port (desktop). For example a datatable with 10 columns or more in a report.</li>
+	<li>Pages where datatables was intentionally shrunk in order to fit all columns inside the extra-large view port (desktop). For example a datatable with 10 columns or more in a report.</li>
 </ul>
 
 <p>The visual difference is avoided for:</p>
@@ -168,9 +168,9 @@
 
 <h3>Reference and notes</h3>
 <ul>
-	<li>The menu was designed similary like the menu design pattern from WAI-ARIA 1.1</li>
+	<li>The menu was designed similarly like the menu design pattern from WAI-ARIA 1.1</li>
 	<li>The double role on list item in the menu was added as suggested by the W3C validator because the <code>role=none</code> are not widely supported yet.</li>
-	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the whatwg validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
+	<li>Originally the attribute <code>aria-haspopup</code> was set with the value <code>menu</code>. But in order to pass the WHATWG validation, when the markup are validated as output by the server, as a best practice because w3c , the value of aria-haspopup was change to true. As per the WAI-ARIA 1.1 spec. the value <code>true</code> is equivalent to setting the value <code>menu</code> - <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup</a> (Note the validation, as per WCAG 2.0 and WCAG 2.1 should be done after all JS has run and the DOM is mark "ready". Also the DOM markup should validate after any DOM manipulation that are happing in the page)</li>
 	<li>The menu item focus are managed by using a Roving tabindex. - <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex">https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_roving_tabindex</a></li>
 	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton">WAI-ARIA Practices 1.1 - 3.15 Menu Button</a></li>
 	<li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#menu">WAI-ARIA Practices 1.1 - 3.14 Menu or Menu bar</a></li>
@@ -183,7 +183,7 @@
 <ul>
 	<li>February 20, 2019: <a href="test-menu.html" hreflang="fr">Test on the menu component</a> (French only)</li>
 	<li>November 16, 2018: <a href="evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing of WET plugin for GCWeb theme version 2</a></li>
-	<li>November 14, 2018: <a href="evaluation-report/1-accessibility.html">1 - Accessibility assesment of GCWeb theme version 2</a></li>
+	<li>November 14, 2018: <a href="evaluation-report/1-accessibility.html">1 - Accessibility assessment of GCWeb theme version 2</a></li>
 	<li>October 22-26, 2018: Partial screen reader compatibility test has been made to the new menu, but for a different markup compared to the one published as Oct 31. From that test, the recommendation was to replace the button text "top menu" by "main menu".</li>
 </ul>
 
@@ -202,7 +202,7 @@
 
 <p>The style sheet link includes a hash for the integrity check. </p>
 
-<p>Font Awesome's privacy policy notes that it tracks use of the CDN including what fonts are downloaded and when, with no personally identifidable data tracked.</p>
+<p>Font Awesome's privacy policy notes that it tracks use of the CDN including what fonts are downloaded and when, with no personally identifiable data tracked.</p>
 
 <p><a href="https://fontawesome.com/privacy#cdns">Font Awesome collects data about use of its content delivery networks</a>.</p>
 
@@ -216,7 +216,7 @@
 <p><time datetime="2018-11-02">November 2<sup>nd</sup>, 2018</time></p>
 <p>It is explicitly said that anti-aliasing CSS is not in a standard track and it is recommended to avoid. Currently that feature is only limited to webkit browser and FF by applying some prefix vendor.</p>
 
-<p>It was an experimental feature that was removed from an old CSS W3C editor draft. It is only supported by Chrome browser. That feature wasn't consistently supported by Chrome. Considering the published article referenced by Mozila that support to avoid font smoothing and it's removal from the old editor draft specification, the wet-boew team lead consider that feature at risk and recommend to avoid it. At the time of publishing this, no extensive research was made to find an alternative solution that would meet the above requirement.</p>
+<p>It was an experimental feature that was removed from an old CSS W3C editor draft. It is only supported by Chrome browser. That feature wasn't consistently supported by Chrome. Considering the published article referenced by Mozilla that support to avoid font smoothing and it's removal from the old editor draft specification, the wet-boew team lead consider that feature at risk and recommend to avoid it. At the time of publishing this, no extensive research was made to find an alternative solution that would meet the above requirement.</p>
 
 <ul>
 	<li><q>Though present in early (2002) drafts of CSS3 Fonts, font-smooth has been removed from this specification and is currently not on the standard track.</q> - <a href="https://caniuse.com/#search=font-smoothing">https://caniuse.com/#search=font-smoothing</a></li>
@@ -225,7 +225,7 @@
 	<li>See also: <a href="https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/">Please Stop "Fixing" Font Smoothing – UsabilityPost</a></li>
 	<li>See also: <a href="https://www.zachleat.com/web/font-smooth/">Laissez-faire font smoothing and anti-aliasing</a></li>
 </ul>
-<p>The above article makes reference that playing with the anti-aliasing feature make the font more blury for use, so less readable.</p>
+<p>The above article makes reference that playing with the anti-aliasing feature make the font more blurry for use, so less readable.</p>
 
 <h4>Rational / Justification</h4>
 
@@ -258,7 +258,7 @@
 
 <h3>Use of Google API</h3>
 
-<p>GCWeb was already leveraging Google API to retreive jQuery library and now with the new look it leverage Google API to retreive two fonts, Lato and Noto.</p>
+<p>GCWeb was already leveraging Google API to retrieve jQuery library and now with the new look it leverage Google API to retrieve two fonts, Lato and Noto.</p>
 
 <p>Here an excerpt of the answer we got from TBS on the usage of Google API for GCWeb.</p>
 
@@ -273,11 +273,11 @@
 
 <h3>Technical note about the design of the menu</h3>
 <ul>
-	<li>The orientation of the sperator before the most requested sub-menu change from vertical to horizontal in tablet/mobile view</li>
+	<li>The orientation of the separator before the most requested sub-menu change from vertical to horizontal in tablet/mobile view</li>
 	<li>The most requested sub-menu has an attribute to indicate the JS plugin that sub-menu need to remain expanded in medium and large device. <code>data-keep-expanded="md-min"</code></li>
 	<li>The use of the <code>aria-controls</code> on menu item that open sub-menu might not required. Before to take a decision, we should do more testing to confirm the useless of that property on sub-menu items. Comments received from one user testing with a screen reader has recommended to remove it for the menu button.</li>
 	<li><code>role=none</code>: As per WAI-ARIA 1.1 practice, there example use the <code>role=none</code> for each list item. The W3C validator has recommended to use both role "none" and "presentation" because the role "none" is not yet widely supported. The use of the role "none" currently (2018-12-28) trigger an error by the validator.nu but not by the W3C validator. The issue is the validator.nu don't support yet WAI-ARIA 1.1 and because of that we would only keep one role <code>role=presentation</code> instead of having a dual role. The list item role should be updated once the role "none" would be widely supported.</li>
-	<li><code>aria-haspopup=menu</code>: As per WAI-ARIA 1.1, the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">aria-haspopup</a> property can have multiple value other than "true". The value set to "true" is the same as being set to "menu". Ideally, the menu design would use aria-haspopop=menu instead of aria-haspopup=true because it is more explicit. The validator.nu trigger an error when the aria-haspopup is set to menu instead of true because it don't support WAI-ARIA 1.1. The anchor and the button with the attribute aria-haspopup should be updated once validator.nu support WAI-ARIA 1.1. Using "menu" instead of "true" shouldn't impact assisstive technology that only support WAI-ARIA 1.0</li>
+	<li><code>aria-haspopup=menu</code>: As per WAI-ARIA 1.1, the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup">aria-haspopup</a> property can have multiple value other than "true". The value set to "true" is the same as being set to "menu". Ideally, the menu design would use aria-haspopop=menu instead of aria-haspopup=true because it is more explicit. The validator.nu trigger an error when the aria-haspopup is set to menu instead of true because it don't support WAI-ARIA 1.1. The anchor and the button with the attribute aria-haspopup should be updated once validator.nu support WAI-ARIA 1.1. Using "menu" instead of "true" shouldn't impact assistive technology that only support WAI-ARIA 1.0</li>
 </ul>
 
 <h2 id="customGCWebVariant">Customizing GCWeb for your implementation variant</h2>
