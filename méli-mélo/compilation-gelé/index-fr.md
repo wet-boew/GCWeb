@@ -7,11 +7,11 @@ dateModified: "2024-11-07"
 
 Ce répertoire contient la liste des compilations méli-mélo qui sont dites gelées. Ceci veux dire qu'aucune modification ou ajout de fonctionnalité ne sera autorisé à moins qu'il apporte un correctif majeur relié à l'accessibilité ou à la sécurité. Un tel correctif doit être documenté et strictement limité à l'accessibilité ou à la sécurité.
 
-Ces compilations sont et doivent être considérées désuettes et leur utilisation est fortement déconseillée.
+Ces compilations sont et doivent être considérées désuètes et leur utilisation est fortement déconseillée.
 
-Si vous nécessitez une fonctionalité de l'une de ces compilations gelées, veuillez contacter l'équipe de la BOEW via les «&nbsp;Github issues&nbsp;» pour initier la discussion.
+Si vous nécessitez une fonctionnalité de l'une de ces compilations gelées, veuillez contacter l'équipe de la BOEW via les «&nbsp;GitHub issues&nbsp;» pour initier la discussion.
 
-L'étape suivante serait de relancer la fonctionnalité expérimentale dans une nouvelle compilation méli-mélo et d'initier le travail nécessaire afin que la fonctionalité soit intégrée à GCWeb et acceptée par le bureau de la transformation numérique (BTN) et/ou le sécrétariat du conseil du trésors (SCT).
+L'étape suivante serait de relancer la fonctionnalité expérimentale dans une nouvelle compilation méli-mélo et d'initier le travail nécessaire afin que la fonctionnalité soit intégrée à GCWeb et acceptée par le bureau de la transformation numérique (BTN) et/ou le secrétariat du conseil du trésors (SCT).
 
 ## Compilations gelées
 
@@ -44,4 +44,4 @@ L'étape suivante serait de relancer la fonctionnalité expérimentale dans une 
 ## Gabarit pour la liste de compilations gelées
 
 * DATE (AAAA-MM-JJ) - [nom de la compilation méli-mélo]
-	- Nom de la fonctionnalité expérimentale incluse - Hash du dernier commit Github connu avant que le code soit retiré ou gelé.
+	- Nom de la fonctionnalité expérimentale incluse - Hash du dernier commit GitHub connu avant que le code soit retiré ou gelé.

@@ -9,7 +9,7 @@ This directory contains the list of méli-mélo compilations which are said to b
 
 These compilations are and must be considered obsolete and their use is strongly discouraged.
 
-If you need a feature from one of these frozen compilations, please contact the WET team via Github issues to initiate the discussion.
+If you need a feature from one of these frozen compilations, please contact the WET team via GitHub issues to initiate the discussion.
 
 The next step would be to relaunch the experimental feature in a new méli-mélo compilation and initiate the necessary work so that the functionality is integrated into GCWeb and accepted by the Digital Transformation Office (BTN) and/or the Secretariat of the Treasury Board (SCT).
 
@@ -45,4 +45,4 @@ The next step would be to relaunch the experimental feature in a new méli-mélo
 ## Template for the frozen compilations list
 
 * DATE (YYYY-MM-DD) - [méli-mélo compilation name]
-	- Méli-mélo experimental feature included - Hash of the last known Github commit before the code was removed or frozen.
+	- Méli-mélo experimental feature included - Hash of the last known GitHub commit before the code was removed or frozen.

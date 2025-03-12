@@ -13,7 +13,7 @@
 		"fr": "Exemple pour la création de composant méli-mélo"
 	},
 	"description": {
-		"en": "Generic hello world demos and intructions",
+		"en": "Generic hello world demos and instructions",
 		"fr": "Demos générique bonjour le monde et instruction"
 	},
 	"modified": "2021-02-18",
