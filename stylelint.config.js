@@ -133,6 +133,8 @@ module.exports = {
 	ignoreFiles: [
 		"**/*.min.css",
 		"méli-mélo/compilation-gelé/**",
-		"node_modules/**"
+		"node_modules/**",
+		"~sites/**",
+		"dist/**"
 	]
 };
