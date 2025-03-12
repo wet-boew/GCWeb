@@ -24,20 +24,20 @@
             if (elm) {
                 $elm = $(elm);
 
-                // Check if there is already a gcweb menu. 
+                // Check if there is already a gcweb menu.
                 // If there are 2 present, the global GCWeb menu is present, hide this custom menu
                 var gcWebMenus = document.querySelectorAll(".gcweb-menu");
                 if (gcWebMenus.length > 1) {
-                    console.warn(componentName + " - gcweb menu already exsits on the page, hiding gcweb campaign menu and aborting");
+                    console.warn(componentName + " - gcweb menu already exists on the page, hiding gcweb campaign menu and aborting");
                     $elm.addClass('hidden');
                     wb.ready($elm, componentName);
                     return;
                 }
 
-                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs 
+                // If a megamenu is already present, abort to avoid duplicate wb-sm IDs
                 var megamenuExists = document.querySelector("#wb-sm");
                 if (megamenuExists != undefined || megamenuExists != null) {
-                    console.warn(componentName + " - megamenu already exsits on the page, aborting");
+                    console.warn(componentName + " - megamenu already exists on the page, aborting");
                     $elm.addClass('hidden');
                     wb.ready($elm, componentName);
                     return;
@@ -72,7 +72,7 @@
                 var megamenuAjaxReplace = $elm[0].getAttribute('data-megamenu-ajax');
 
 				var megamenuColorClass = "";
-                
+
                 if ($elm[0].hasAttribute('data-megamenu-bg-color')) {
                     megamenuColorClass = $elm[0].getAttribute('data-megamenu-bg-color');
                 }

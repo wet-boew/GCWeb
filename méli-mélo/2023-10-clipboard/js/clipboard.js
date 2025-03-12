@@ -185,7 +185,7 @@
                 clipElm.innerHTML = clipTxt;
             }
         },
-        // This function updates the hidden text surronding and identifying the copyable area
+        // This function updates the hidden text surrounding and identifying the copyable area
         updateClipText = function( copyAreaElm ) {
             $( "." + contentShell ).each( function() {
                 if ( typeof( copyAreaElm ) !== "undefined" && copyAreaElm.id === this.copyAreaId ) {
@@ -291,7 +291,7 @@
             }
         };
 
-    // Initalizes and styles the copy area and copy button or reset button
+    // Initializes and styles the copy area and copy button or reset button
     $document.on( "wb-clipboard", selector, function( event, data ) {
         var elm = event.currentTarget,
             $elm = $( elm ),

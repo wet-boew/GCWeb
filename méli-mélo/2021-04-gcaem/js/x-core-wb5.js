@@ -1,6 +1,6 @@
 /*
  WET 5.0 (early bird)
- @author: Goverment of Canada
+ @author: Government of Canada
  ======================================================== */
 ( function( $, document ) {
 "use strict";
@@ -90,7 +90,7 @@ $.fn.extend( {
 
 	/* ---------------------------------
 	@extension: rand
-	@returns: [collection] of randoms elements
+	@returns: [collection] of random elements
 	-------------------------------- */
 	rand: function( k ) {
 		var b = this,
@@ -151,7 +151,7 @@ $.fn.extend( {
 
 /* ---------------------------------
     Bind
-    @description: creates a referencable set of elements to a node
+    @description: creates a referenceable set of elements to a node
     @api
       - elements are extended with related function
         $elm.related( nodelist )

@@ -11,7 +11,7 @@ feature: méli-mélo
 
 title:
   en: Campaign Menu
-  fr: Menu pour une campaigne promotionelle
+  fr: Menu pour une campagne promotionnelle
 description: Example of a new menu that uses megamenu for md and lg, and GCWeb menu for sm and xs
 modified: 2024-05-16
 componentName: 2023-09-menu
@@ -44,7 +44,7 @@ implementationPlan:
     what: Work toward a provisional plugin
 
 todos:
-  - Remove the dependencies on wb-menu for desktop and on gc-menu for mobile by rewritting the code
+  - Remove the dependencies on wb-menu for desktop and on gc-menu for mobile by rewriting the code
 
 output: false
 ---
