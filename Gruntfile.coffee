@@ -247,7 +247,7 @@ module.exports = (grunt) ->
 
 	@registerMultiTask(
 		"méli-mélo-build"
-		"Try to dynamically compile mélimelo",
+		"Try to dynamically compile mélimélo",
 		() ->
 			méliméloData = this.data
 			runType = méliméloData.runType
@@ -522,7 +522,7 @@ module.exports = (grunt) ->
 		banner: "/*!\n * @title Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)\n * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html\n" +
 				" * v<%= pkg.version %> - " + "<%= grunt.template.today('yyyy-mm-dd') %>\n *\n */"
 
-		# Placeholder modal for multimélo task
+		# Placeholder modal for mélimélo task
 		méliméloFolder: "méli-mélo-demos"
 		curMéliPack: "mélimélo.js"
 		curMéliLibs: [ ]
@@ -532,7 +532,7 @@ module.exports = (grunt) ->
 
 		"a11y-report":
 			all:
-				# Read those genrated json file only at runtime of the task
+				# Read those generated json file only at runtime of the task
 				sites: "_data/sites.json"
 				components: "_data/components.json"
 				templates: "_data/templates.json"
@@ -623,7 +623,7 @@ module.exports = (grunt) ->
 				]
 				dest: "<%= themeDist %>/css/theme.css"
 
-			# Placeholder modal for multimélo task
+			# Placeholder modal for mélimélo task
 			mélimélo:
 				options:
 					stripBanners: false
@@ -655,7 +655,7 @@ module.exports = (grunt) ->
 					]
 			#
 			# Use the name in the package.json as packageName in the theme
-			# used to build the URL and to ease the reuse of this build script for derivated theme
+			# used to build the URL and to ease the reuse of this build script for derivative themes
 			#
 			#definePckName:
 			#	options:
@@ -1220,7 +1220,7 @@ getA11yReportSummary = ( fname, componentName, reportData, wcag21AAList, refTest
 		# Reporting from a Test Requirement perspective
 		#
 
-		# Create the test requirement placeholder if required or retreive it
+		# Create the test requirement placeholder if required or retrieve it
 		refTestRequirements[ testId ] = { } if !refTestRequirements[ testId ]
 		tRequirementDetail = refTestRequirements[ testId ]
 
@@ -1316,7 +1316,7 @@ getAcrSummary = ( fname, componentName, reportData, wcag21AAList, refConformityR
 		# Reporting from a conformity perspective
 		#
 
-		# Create the test requirement placeholder if required or retreive it
+		# Create the test requirement placeholder if required or retrieve it
 		refConformityRequirements[ reqId ] = { } if !refConformityRequirements[ reqId ]
 		tConformityDetail = refConformityRequirements[ reqId ]
 
