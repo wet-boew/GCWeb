@@ -1186,7 +1186,8 @@ module.exports = (grunt) ->
 				src: [
 					'**/*.md'
 					'!node_modules/**/*.md'
-					'!_wetboew-demos/**/*.md'
+					'!_wetboew-demos/**/*.md',
+					'!~sites/**/*.md'
 				]
 
 	require( "load-grunt-tasks" )( grunt )
