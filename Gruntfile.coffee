@@ -18,6 +18,7 @@ module.exports = (grunt) ->
 		"test"
 		"Run code quality test"
 		[
+			"markdownlint"
 			"eslint:all"
 			"jsonlint:all"
 			"stylelint"
@@ -1177,6 +1178,17 @@ module.exports = (grunt) ->
 					"{js,css,méli-mélo}/*.{js,css}"
 				]
 				expand: true
+
+		markdownlint:
+			all:
+				options:
+					config: grunt.file.readJSON(".markdownlint.json")
+				src: [
+					'**/*.md'
+					'!node_modules/**/*.md'
+					'!_wetboew-demos/**/*.md',
+					'!~sites/**/*.md'
+				]
 
 	require( "load-grunt-tasks" )( grunt )
 
