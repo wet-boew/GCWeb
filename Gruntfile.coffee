@@ -888,7 +888,7 @@ module.exports = (grunt) ->
 			all:
 				options:
 					implementation: sass,
-					includePaths: [
+					loadPaths: [
 						"./node_modules"
 						"./node_modules/wet-boew/node_modules"
 						if grunt.file.exists( "misc/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
@@ -911,17 +911,9 @@ module.exports = (grunt) ->
 				expand: true
 				src: [
 					"<%= méliméloFolder %>/<%= curMéliPack %>/workdir/**/*.scss"
-#					"<%= méliméloFolder %>/méli-mélo-2021-1/workdir/**/*.scss"
-#					"<%= méliméloFolder %>/{<% _.forEach(curMéliLibs, function(lib) { %><%- lib %>,<% }); %>}/**/*.scss"
 				]
 				dest: ""
-#				dest: "méli-mélo/méli-mélo-2021-1/css"
-#				dest: "méli-mélo/<%= curMéliPack %>/<%= curMéliPack %>.css"
 				ext: ".css"
-#				rename: (dest, src) ->
-#					console.log( src )
-#					console.log( dest )
-#					return dest
 
 		postcss:
 			options:
