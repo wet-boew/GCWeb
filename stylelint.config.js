@@ -111,7 +111,6 @@ module.exports = {
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
 				"number-max-precision": null,
 				"scss/at-extend-no-missing-placeholder": null,
-				"scss/at-mixin-argumentless-call-parentheses": null,
 				"scss/comment-no-empty": null,
 				"scss/dollar-variable-empty-line-before": null,
 				"scss/dollar-variable-pattern": null, // Fixable
