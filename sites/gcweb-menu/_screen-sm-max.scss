@@ -5,14 +5,12 @@
 
 // This block is to only support GCWeb menu version 1
 #wb-bnr + .gcweb-menu {
-
 	button[aria-haspopup=true] {
 		margin-left: calc( 50% - 360px );
 	}
 }
 
 .gcweb-menu {
-
 	.container {
 		padding: 0;
 		width: 100%;
@@ -47,9 +45,11 @@
 		text-decoration: underline;
 		width: auto;
 	}
+
 	[role=menu] {
 		width: auto;
 	}
+
 	[role=menu] [role=menu] {
 		border-top: none;
 		box-shadow: none;
@@ -62,14 +62,17 @@
 	[role="menu"] [role="menu"] li {
 		width: auto;
 	}
+
 	button:hover {
 		text-decoration: underline;
 	}
+
 	button + [role=menu] [role="menuitem"][aria-expanded=false]:hover,
 	button + [role=menu] [role="menuitem"][aria-expanded=false]:focus {
 		background: transparent;
 		color:#fff;
 	}
+
 	button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:hover,
 	button + [role=menu] [role=menu] [role="menuitem"][aria-expanded=false]:focus {
 		color:#000;
@@ -105,6 +108,7 @@
 	[role=treegrid] > [role=row] > [role=rowheader]::before {
 		content: "\25BA\a0";
 	}
+
 	[aria-haspopup][aria-expanded=true]:not(button)::before,
 	[role=treegrid] > [role=row][aria-expanded=true] > [role=rowheader]::before {
 		content: "\25BC\a0";
@@ -116,12 +120,14 @@
 		border-bottom: 1px solid #ccc;
 		color: #000;
 	}
+
 	[role=menu] [role=menu] [role=menuitem],
 	[role=menu] [role=menu] li:last-child [role=menuitem],
 	[role=menu] [role=menu] [role=menu] li:first-child [role=menuitem] {
 		color: #284162;
 		text-decoration: none;
 	}
+
 	[role=menu] [role=menu] [role=menuitem]:hover, /* default style */
 	[role=menu] [role=menu] [role=menuitem]:focus, /* default style */
 	[role=menu] [role=menu] li:first-child [role=menuitem]:hover, /*this line is an override*/
@@ -131,6 +137,7 @@
 		color: #000;
 		text-decoration: underline;
 	}
+
 	[role=menu] [role=menu] li:first-child [role=menuitem],
 	[role=menu] [role=menu] li:last-child [role=menuitem] {
 		background-color: #e1e1e1;
@@ -143,6 +150,7 @@
 		position: static;
 		top: auto;
 	}
+
 	[role="menu"] [role="menu"] li:last-child [role="menu"] {
 		list-style: none;
 	}
