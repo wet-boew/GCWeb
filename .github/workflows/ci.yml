@@ -1,6 +1,9 @@
 name: Continuos integration
 
 on:
+  push:
+    branches-ignore:
+      - "dependabot/**"
   pull_request:
 
 jobs:
@@ -19,17 +22,19 @@ jobs:
           node-version: 24
           cache: 'npm'
 
-      - name: Install dependencies
-        run: |
-          npm i -g bower grunt-cli
-          npm ci
+      - name: Install Grunt
+        run: npm i -g grunt-cli --force
+
+      - name: Install npm dependencies
+        run: npm ci
 
       - name: Checkout wet-boew latest build
         if: ${{ env.ACT }}
-        run: |
-          git clone --depth 1 https://github.com/wet-boew/wet-boew-cdn.git --branch v4.0-dist ~wet-boew-cdn
-          mkdir -p node_modules/wet-boew/dist/wet-boew
-          mv ~wet-boew-cdn/* node_modules/wet-boew/dist/wet-boew
+        uses: actions/checkout@v7
+        with:
+          repository: wet-boew/wet-boew-cdn
+          ref: v4.0-dist
+          path: node_modules/wet-boew/dist/wet-boew
 
       - name: Build GCWeb
         if: ${{ !env.ACT }}
