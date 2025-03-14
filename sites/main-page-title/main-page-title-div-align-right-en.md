@@ -12,10 +12,10 @@ breadcrumbs: [
 ---
 
 <div dir="rtl">
-	<h1 id="wb-cont">Main page title in a div aligned on the right</h1>
-	<p>Main page title aligned on the right using dir="rtl" on the parent div</p>
+  <h1 id="wb-cont">Main page title in a div aligned on the right</h1>
+  <p>Main page title aligned on the right using dir="rtl" on the parent div</p>
 </div>
 <pre><code>&lt;div dir="rtl">
-	&lt;h1 id="wb-cont">Main page title in a div aligned on the right&lt;/h1>
-	&lt;p>Main page title aligned on the right using dir="rtl" on the parent div&lt;/p>
+  &lt;h1 id="wb-cont">Main page title in a div aligned on the right&lt;/h1>
+  &lt;p>Main page title aligned on the right using dir="rtl" on the parent div&lt;/p>
 &lt;div></code></pre>

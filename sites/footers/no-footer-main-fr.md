@@ -38,7 +38,7 @@ Sur les pages **transactionnelles** et de **campagne**, la bande principale est 
   <figcaption class="h3">Code final attendu - Pied de page sans la bande principale</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

@@ -14,6 +14,6 @@ breadcrumbs: [
 <p>Main title of a page with a short bold red underline aligned on the right.</p>
 
 <pre><code>
-	&lt;h1 id="wb-cont" dir="rtl">Main page title aligned on the right&lt;/h1>
-	&lt;p>Main title of a page with a short bold red underline aligned on the right.&lt;/p>
+  &lt;h1 id="wb-cont" dir="rtl">Main page title aligned on the right&lt;/h1>
+  &lt;p>Main title of a page with a short bold red underline aligned on the right.&lt;/p>
 </code></pre>

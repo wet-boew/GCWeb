@@ -29,7 +29,7 @@ The contextual band is optional on all page types (standard, transactional, camp
   <figcaption class="h3">Expected output code - Footer with no contextual band</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 
