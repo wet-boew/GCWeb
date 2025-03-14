@@ -113,7 +113,6 @@ module.exports = {
 				"scss/at-extend-no-missing-placeholder": null,
 				"scss/comment-no-empty": null,
 				"scss/dollar-variable-pattern": null, // Fixable
-				"scss/load-no-partial-leading-underscore": null,
 				"scss/no-global-function-names": null, // Fixable, need to run sass migrator
 				"selector-attribute-quotes": null,
 				"selector-class-pattern": null,
