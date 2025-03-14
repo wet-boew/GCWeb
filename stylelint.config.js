@@ -118,7 +118,6 @@ module.exports = {
 				"selector-id-pattern": null,
 				"selector-not-notation": null,
 				"selector-pseudo-element-colon-notation": null,
-				"shorthand-property-no-redundant-values": null,
 				"value-keyword-case": null
 			}
 		}
