@@ -12,11 +12,11 @@ breadcrumbs: [
 ---
 
 <hgroup id="wb-cont" dir="rtl">
-	<p>Documentation technique GCWeb</p>
-	<h1>Titre principal superposé aligné à droite</h1>
+  <p>Documentation technique GCWeb</p>
+  <h1>Titre principal superposé aligné à droite</h1>
 </hgroup>
 
 <pre><code>&lt;hgroup id="wb-cont" dir="rtl">
-	&lt;p>Documentation technique GCWeb&lt;/p>
-	&lt;h1>Titre principal superposé aligné à droite&lt;/h1>
+  &lt;p>Documentation technique GCWeb&lt;/p>
+  &lt;h1>Titre principal superposé aligné à droite&lt;/h1>
 &lt;/hgroup></code></pre>

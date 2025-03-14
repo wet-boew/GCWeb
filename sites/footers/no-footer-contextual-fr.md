@@ -29,7 +29,7 @@ La bande contextuelle est facultative sur tous les types de page (régulière, t
   <figcaption class="h3">Code final attendu - Pied de page sans la bande contextuelle</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

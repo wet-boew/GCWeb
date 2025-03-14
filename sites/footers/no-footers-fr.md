@@ -31,7 +31,7 @@ La bande sous pied de page est obligatoire sur toutes les types de pages, mais s
   <figcaption class="h3">Code final attendu - Pied de page minimum avec la bande sous pied de page uniquement et sans les liens facultatifs</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

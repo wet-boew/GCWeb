@@ -39,7 +39,7 @@ On **transactional** and **campaign** pages, the main band is optional. You can 
   <figcaption class="h3">Expected output code - Footer with no main band and no optional links in sub-footer band</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 
