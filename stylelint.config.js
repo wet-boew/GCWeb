@@ -104,7 +104,6 @@ module.exports = {
 				// Suppress stylelint-config-standard errors
 				"at-rule-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
-				"declaration-empty-line-before": null,
 				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
 				"no-descending-specificity": null, // Extremely slow
