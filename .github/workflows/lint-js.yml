@@ -1,0 +1,45 @@
+name: JavaScript Linting
+on:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+    paths:
+      - "package*.json"
+      - "Gruntfile.coffee"
+      - "eslint.config.mjs"
+      - "**/*.js"
+      - "**/*.mjs"
+      - ".github/workflows/lint-js.yml"
+
+  pull_request:
+    paths:
+      - "package*.json"
+      - "Gruntfile.coffee"
+      - "eslint.config.mjs"
+      - "**/*.js"
+      - "**/*.mjs"
+      - ".github/workflows/lint-js.yml"
+
+jobs:
+  lint-js:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      # setup-node task is used without a particular version in order to load
+      # the ESLint problem matchers
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+
+      - name: Install Grunt
+        run: npm i -g grunt-cli --force
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: ESLint
+        run: grunt eslint
