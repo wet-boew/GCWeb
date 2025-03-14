@@ -107,7 +107,6 @@ module.exports = {
 				"comment-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
 				"declaration-empty-line-before": null,
-				"font-family-name-quotes": null,
 				"function-url-quotes": null,
 				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
