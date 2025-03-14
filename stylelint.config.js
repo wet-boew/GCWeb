@@ -113,7 +113,6 @@ module.exports = {
 				"no-duplicate-selectors": null,
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
 				"number-max-precision": null,
-				"property-no-vendor-prefix": null,
 				"rule-empty-line-before": null,
 				"scss/at-extend-no-missing-placeholder": null,
 				"scss/at-mixin-argumentless-call-parentheses": null,
