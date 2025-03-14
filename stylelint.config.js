@@ -95,7 +95,6 @@ module.exports = {
 			],
 			rules: {
 				"at-rule-empty-line-before": null,
-				"comment-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
 				"declaration-empty-line-before": null,
 				"hue-degree-notation": null,
