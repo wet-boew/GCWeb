@@ -112,7 +112,6 @@ module.exports = {
 				"number-max-precision": null,
 				"scss/at-extend-no-missing-placeholder": null,
 				"scss/comment-no-empty": null,
-				"scss/dollar-variable-empty-line-before": null,
 				"scss/dollar-variable-pattern": null, // Fixable
 				"scss/double-slash-comment-empty-line-before": null,
 				"scss/double-slash-comment-whitespace-inside": null,
