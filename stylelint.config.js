@@ -109,7 +109,6 @@ module.exports = {
 				"declaration-empty-line-before": null,
 				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
-				"length-zero-no-unit": null,
 				"no-descending-specificity": null, // Extremely slow
 				"no-duplicate-selectors": null,
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
