@@ -14,6 +14,6 @@ breadcrumbs: [
 <p>Titre principal d'une page avec un court soulignement rouge en gras aligné à droite.</p>
 
 <pre><code>
-	&lt;h1 id="wb-cont" dir="rtl">Titre principal de la page aligné à droite&lt;/h1>
-	&lt;p>Titre principal d'une page avec un court soulignement rouge en gras aligné à droite.&lt;/p>
+  &lt;h1 id="wb-cont" dir="rtl">Titre principal de la page aligné à droite&lt;/h1>
+  &lt;p>Titre principal d'une page avec un court soulignement rouge en gras aligné à droite.&lt;/p>
 </code></pre>

@@ -32,7 +32,7 @@ On **transactional** and **campaign** pages, you can omit the Social media, Mobi
   <figcaption class="h3">Expected output code - Footer with no contextual band and no optional links in sub-footer band</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 
