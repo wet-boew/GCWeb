@@ -103,7 +103,6 @@ module.exports = {
 
 				// Suppress stylelint-config-standard errors
 				"at-rule-empty-line-before": null,
-				"color-hex-length": null,
 				"comment-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
 				"declaration-empty-line-before": null,
