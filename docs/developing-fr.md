@@ -98,12 +98,6 @@ HTML link checker
 docker exec -i gcweb_jekyll rake
 ```
 
-Bootlint test
-
-```shell
-grunt bootlint
-```
-
 HTML lint
 
 ```shell
