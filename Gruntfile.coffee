@@ -1074,43 +1074,28 @@ module.exports = (grunt) ->
 			all:
 				src: [
 						# Root files
-						".editorconfig"
-						".git*"
-						".*rc"
-						"*.yml"
-						"Gemfile*"
-						"Gruntfile.coffee"
-						"Licen?e-*.txt"
-						"*.json"
-						# "*.json-ld"
-						"Rakefile"
+						"\.*"
+						"**"
 
-						# Folders
-						"{sites,common,components,templates,design-patterns,wet-boew}/**"
+						# temp fixed in #2526
+						"!**/*.md"
 
-						#
+						# temp fixed in ESLint updates in #2503
+						"!**/*.js"
+
 						# Exemptions...
-						#
+						"!node_modules/**"
+						"!~jekyll-dist/**"
+						"!_wetboew-demos/**"
+						"!dist/**"
+						"!méli-mélo/compilation-gelé/**"
+						"!méli-mélo-demos/**"
 
-						# Generated files
-						"!Gemfile.lock"
-
-						# Web contents
-						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.md"
-						# "{sites,components,templatesdesign-patterns}/*/*.{md,html}"
-						# "{sites,components,templatesdesign-patterns}/*.{md, html}"
-						# "!{sites,components,templatesdesign-patterns}/*/**/*.{md,html}"
-
-						# Images
-						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{jpg,png,ico}"
-						"!{sites,common,components,templates,design-patterns,wet-boew}/*.{ico,jpg,png}"
-
-						# External fonts
-						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{eot,svg,ttf,woff}"
-
-						# Docker environment file
-						# File that gets created/populated in a manner that goes against .editorconfig settings during the main Travis-CI build.
-						"!script/docker/env"
+						# Binary files
+						"!**/*.{jpg,png,ico}"
+						"!**/*.{eot,ttf,woff}"
+						"!**/*.odt"
+						"!.DS_Store"
 					],
 				options:
 					editorconfig: ".editorconfig",
