@@ -51,6 +51,10 @@ changes:
     description: French translation functionality on language toggle for two text elements found in the component. Addition of a <code>&lt;label&gt;</code> element around the <code>&lt;progress&gt;</code> element in order to resolve an accessibility issue <a href="reports/a11y-1-en.html">Accessibility assessment no.1 - Progress bar</a>.
     departmentImpact: Prevents a possible complaint related to official languages and/or accessibility.
     publicImpact: Access to content that complies with official languages and that meets WCAG accessibility guidelines 2.1.
+  - date: 2024-03-18
+    description: This patch on the steps quiz allows nesting of fieldset.
+    departmentImpact: Allows ESDC to respect ITAO's advice to be more accessible.
+    publicImpact: Improve accessibility on some scenarios of pages using this plugin.
 
 output: false
 ---
