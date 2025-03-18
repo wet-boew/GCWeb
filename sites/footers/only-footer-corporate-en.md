@@ -30,7 +30,7 @@ The sub-footer band is mandatory on all page types (standard, transactional, cam
   <figcaption class="h3">Expected output code - Sub-footer only</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

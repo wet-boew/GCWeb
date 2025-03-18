@@ -19,7 +19,7 @@ breadcrumbs: [
 <hr>
 <pre><code>&lt;div dir="rtl">
 &lt;hgroup id="wb-cont">
-	&lt;p>GCWeb technical documentation&lt;/p>
-	&lt;h1>Stacked main page title in a div aligned on the right&lt;/h1>
+  &lt;p>GCWeb technical documentation&lt;/p>
+  &lt;h1>Stacked main page title in a div aligned on the right&lt;/h1>
 &lt;/hgroup>
 &lt;/div></code></pre>

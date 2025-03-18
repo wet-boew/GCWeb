@@ -63,7 +63,7 @@ The following changes have been made since **version 2.0**:
   <figcaption class="h3">Expected output code - Complete footer</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

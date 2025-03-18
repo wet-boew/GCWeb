@@ -26,12 +26,12 @@ images:
   - https://www.canada.ca/content/dam/canada/splash/sp-bg-12.jpg
 ---
 <div class="row">
-	<section class="col-xs-6 text-right">
-	  <h2 class="wb-inv">Gouvernement du Canada</h2>
-	  <p><a href="../home/home-fr.html" class="btn btn-primary" translate="no">Français</a></p>
-	</section>
-	<section class="col-xs-6" lang="en">
-	  <h2 class="wb-inv">Government of Canada</h2>
-	  <p><a href="../home/home-en.html " class="btn btn-primary" translate="no">English</a></p>
-	</section>
+  <section class="col-xs-6 text-right">
+    <h2 class="wb-inv">Gouvernement du Canada</h2>
+    <p><a href="../home/home-fr.html" class="btn btn-primary" translate="no">Français</a></p>
+  </section>
+  <section class="col-xs-6" lang="en">
+    <h2 class="wb-inv">Government of Canada</h2>
+    <p><a href="../home/home-en.html " class="btn btn-primary" translate="no">English</a></p>
+  </section>
 </div>
