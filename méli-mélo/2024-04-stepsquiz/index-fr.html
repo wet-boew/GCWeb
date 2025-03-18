@@ -73,6 +73,7 @@ script:
 	<ul>
 		<li><a href="#default-1">Questionnaire à étapes  - Par défaut (pleine largeur)</a></li>
 		<li><a href="stepsquiz-limited-fr.html">Steps Quiz - Contenu à largeur limitée</a></li>
+		<li><a href="#nested">Questionnaire à étapes - fieldsets imbriqué</a></li>
 	</ul>
 </section>
 
@@ -145,6 +146,68 @@ script:
 				</div>
 			</fieldset>
 			<input type="submit" name="submit" value="Soumettre" class="btn btn-primary" />
+		</form>
+	</div>
+</section>
+
+<section>
+	<div class="wb-frmvld provisional wb-steps quiz">
+		<h2 id="nested">Questionnaire à étapes - fieldsets imbriqué</h2>
+		<form action="#" id="quiz-example2">
+			<fieldset>
+				<legend>Nom</legend>
+				<div>
+					<div class="form-group">
+						<label for="firstName">Prénom</label>
+						<input type="text" name="firstName" id="firstName" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label for="lastName">Nom de famille</label>
+						<input type="text" name="lastName" id="lastName" class="form-control" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>2. Quels sont vos intérêts?</legend>
+				<div>
+					<fieldset class="gc-chckbxrdio">
+						<legend>Sports:</legend>
+						<ul class="list-unstyled lst-spcd-2">
+							<li class="radio">
+								<input type="radio" name="sports" id="hockey-1" value="hockey">
+								<label for="hockey-1">Hockey</label>
+							</li>
+							<li class="radio">
+								<input type="radio" name="sports" id="soccer-1" value="soccer">
+								<label for="soccer-1">Soccer</label>
+							</li>
+							<li class="radio">
+								<input type="radio" name="sports" id="basketball-1" value="basketball">
+								<label for="basketball-1">Basketball</label>
+							</li>
+						</ul>
+					</fieldset>
+					<fieldset class="gc-chckbxrdio">
+						<legend>Arts:</legend>
+						<ul class="list-unstyled lst-spcd-2">
+							<li class="radio">
+								<input type="radio" name="arts" id="music-1" value="music">
+								<label for="music-1">Musique</label>
+							</li>
+							<li class="radio">
+								<input type="radio" name="arts" id="theater-1" value="theater">
+								<label for="theater-1">Théatre</label>
+							</li>
+							<li class="radio">
+								<input type="radio" name="arts" id="museum-1" value="museum">
+								<label for="museum-1">Musées</label>
+							</li>
+						</ul>
+					</fieldset>
+				</div>
+			</fieldset>
+			<input type="submit" class="btn btn-primary" />
 		</form>
 	</div>
 </section>

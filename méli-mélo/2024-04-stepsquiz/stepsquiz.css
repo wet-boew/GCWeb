@@ -9,8 +9,7 @@
 }
 
 /* Customisation for the progress bar and text */
-.provisional.wb-steps.quiz progress.progressBar,
-.provisional.wb-steps.quiz label {
+.provisional.wb-steps.quiz progress.progressBar {
 	/*-webkit-appearance: progress-bar;*/
 	width: 100%;
 }
@@ -32,4 +31,19 @@
 	display: inline-block;
 	width: 48%;
 	margin: 10px 1%;
+}
+
+/* Fix nested fieldsets */
+.provisional.wb-steps.quiz fieldset:not(:first-child):has(legend) legend {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 10px;
+}
+
+.provisional.wb-steps.quiz fieldset:not(:first-child):not(:has(legend)) {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 10px;
+}
+
+.provisional.wb-steps.quiz fieldset legend {
+	float: none;
 }
