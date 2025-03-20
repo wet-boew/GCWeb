@@ -8,7 +8,7 @@
 }
 ---
 
-__[Needs translation]__
+[Needs translation]
 
 Install NodeJS
 
