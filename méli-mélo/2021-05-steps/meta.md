@@ -53,7 +53,7 @@ changes:
     departmentImpact: No change from a departmental perspective.
     publicImpact: Created a cleaner look for items using list steps with a smaller amount of content. Made the numbers more visible for edge case scenarios of print and high contrast.
   - date: 2024-08-07
-    description: Fixed issue with printing pages as some text would be cut off 
+    description: Fixed issue with printing pages as some text would be cut off
     departmentImpact: No change from a departmental perspective.
     publicImpact: Improved look of print document
   - date: 2024-10-30
