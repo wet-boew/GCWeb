@@ -1022,57 +1022,6 @@ module.exports = (grunt) ->
 					"!~sites/wetboew-demos/*"
 				]
 
-		bootlint:
-			all:
-				options:
-					stoponerror: true
-					stoponwarning: true
-					showallerrors: true
-					relaxerror: [
-						# We recommend handling this through the server headers so it never appears in the markup
-						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
-						# TODO: The rules below should be resolved
-						"E013" # Only columns (`.col-*-*`) may be children of `.row`s
-						"E014" # Columns (`.col-*-*`) can only be children of `.row`s or `.form-group`s
-						"E031" # Glyphicon classes must only be used on elements that contain no text content and have no child elements.
-						"E023" # `.panel-body` must have a `.panel` or `.panel-collapse` parent
-						"E024" # `.panel-heading` must have a `.panel` parent
-						"W010" # Using `.pull-left` or `.pull-right` as part of the media object component is deprecated as of Bootstrap v3.3.0. Use `.media-left` or `.media-right` instead.
-						"E032" # `.modal-content` must be a child of `.modal-dialog`
-						"W009" # Using empty spacer columns isn't necessary with Bootstrap's grid. So instead of having an empty grid column with `class="col-xs-12"` , just add `class="col-xs-offset-12"` to the next grid column.
-						"E012" # `.input-group` and `.col-*-*` cannot be used directly on the same element. Instead, nest the `.input-group` within the `.col-*-*`
-						"E017" # GCWeb wants to support explicit labels when using checkbox inputs under the .gc-chckbxrdio .checkbox classes
-						"E018" # GCWeb wants to support explicit labels when using radio inputs under the .gc-chckbxrdio .radio classes
-					]
-				src: [
-					"~sites/**/*.html"
-					# Ignore wet-boew demos files
-					"!~sites/wetboew-demos/*"
-					# Ignore HTML fragments used for the menus
-					"!~sites/**/assets/*.html"
-					"!~sites/**/ajax/*.html"
-					# Ignore deprecated page as it is just for testing
-					"!~sites/**/deprecated-*.html"
-					# Ignore Bootstrap 4 test page
-					"!~sites/**/bootstrap-4.html"
-				]
-			bootstrap4:
-				options:
-					stoponerror: true
-					stoponwarning: true
-					showallerrors: true
-					relaxerror: [
-						# We recommend handling this through the server headers so it never appears in the markup
-						"W002" # `<head>` is missing X-UA-Compatible `<meta>` tag that disables old IE compatibility modes
-						# Ignore jQuery missing warning
-						"W005" # Unable to locate jQuery, which is required for Bootstrap's JavaScript plugins to work; however, you might not be using Bootstrap's JavaScript
-						# Ignore Bootstrap 4 usage warning
-						"W015" # Detected what appears to be Bootstrap v4 or later. This version of Bootlint only supports Bootstrap v3.
-					]
-				src: [
-					"~sites/**/bootstrap-4.html"
-				]
-
 		watch:
 			gruntfile:
 				files: "Gruntfile.coffee"
