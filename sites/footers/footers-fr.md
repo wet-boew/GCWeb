@@ -64,7 +64,7 @@ Les modifications suivantes ont été apportées depuis la **version 2.0**&nbsp;
   <figcaption class="h3">Code final attendu - pied de page complet</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-   {%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 
