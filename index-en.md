@@ -129,9 +129,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ component.description[ page.language ] | default: "[Short description of the component]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -149,9 +149,9 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
@@ -162,11 +162,11 @@ css:
           <li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
           <ul class="list-unstyled">
           {% for pgGroup in list-pages %}
@@ -220,9 +220,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ template.description[ page.language ] | default: "[Short description of the template]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -240,9 +240,9 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
@@ -252,11 +252,11 @@ css:
           {% endif %}
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
             <ul class="mrgn-tp-md">
               {% for pgGroup in list-pages %}
@@ -298,9 +298,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ designPattern.description[ page.language ] | default: "[Short description of the design pattern]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -318,9 +318,9 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
@@ -331,11 +331,11 @@ css:
           <li><a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
           <ul class="list-unstyled">
           {% for pgGroup in list-pages %}
@@ -416,9 +416,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ item.description[ page.language ] | default: "[Short description of the site global functionality]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -436,9 +436,9 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
@@ -448,11 +448,11 @@ css:
           {% endif %}
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
             <ul class="mrgn-tp-md">
               {% for pgGroup in list-pages %}
@@ -506,9 +506,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ item.description[ page.language ] | default: "[Short description of the common component]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -526,9 +526,9 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
@@ -538,11 +538,11 @@ css:
           {% endif %}
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
             <ul class="mrgn-tp-md">
               {% for pgGroup in list-pages %}
@@ -573,7 +573,7 @@ css:
     </li>
   {% endfor %}
   </ul>
-                             <!-- The new added section of wet-boew -->
+  <!-- The new added section of wet-boew -->
   <h2 id="wetboew" class="mrgn-bttm-lg">Wet-boew</h2>
   <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
   {% for wetboew in site.data[ "wet-boew" ] %}
@@ -596,9 +596,9 @@ css:
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <p>{{ wetboew.description[ page.language ] | default: "[Short description of the wetboew]" }}</p>
           <!--
-					Main working example
-					- First working example in the example list where the language match
-					-->
+          Main working example
+          - First working example in the example list where the language match
+          -->
           {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
@@ -616,29 +616,29 @@ css:
           {% endif %}
           {% endif %}
           <!--
-					Documentation
-					- Link to the documentations if any
-					-->
+          Documentation
+          - Link to the documentations if any
+          -->
           {% if list-pages.docs %}
           <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
           {% assign docs = list-pages.docs | where: "language", page.language %}
           <!--
-					Documentation in GCWeb repo
-					-->
+          Documentation in GCWeb repo
+          -->
             {% for doc in docs %}
                 {% if doc.url %}
             <li><a href="{{ doc.url }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-                 {% endif %}
-             {% endfor %}
+                {% endif %}
+            {% endfor %}
           {% endif %}
               <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
           </ul>
           <!--
-					> All examples and info
-					* Example
-					* Documentation
-					* Spec
-					-->
+          > All examples and info
+          * Example
+          * Documentation
+          * Spec
+          -->
           <details class="mrgn-tp-lg"><summary>All examples and info</summary>
           <ul class="list-unstyled">
           {% for pgGroup in list-pages %}

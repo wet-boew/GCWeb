@@ -1091,9 +1091,6 @@ module.exports = (grunt) ->
 						"\.*"
 						"**"
 
-						# temp fixed in #2526
-						"!**/*.md"
-
 						# temp fixed in ESLint updates in #2503
 						"!**/*.js"
 
