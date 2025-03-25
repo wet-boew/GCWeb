@@ -1043,8 +1043,10 @@ module.exports = (grunt) ->
 		jsonlint:
 			all:
 				src: [
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json",
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json-ld"
+					"**/*.json",
+					"**/*.json-ld"
+					"!_wetboew-demos/**"
+					"!node_modules/**"
 				]
 				options: {
 					indent: "\t"
