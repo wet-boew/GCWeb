@@ -17,7 +17,7 @@ description:
   en: Sort a collection of elements based on CSS selectors.
 modified: 2023-09-08
 componentName: 2023-09-collection-sort
-sponsor: Donald McDill Sites management, Service Canada  
+sponsor: Donald McDill Sites management, Service Canada
 
 pages:
   examples:

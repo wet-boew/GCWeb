@@ -4,8 +4,8 @@ lang: fr
 dateModified: 2021-02-06
 script: wb-bonjour.js
 css:
- - wb-bonjour.css
- - mycss.css
+- wb-bonjour.css
+- mycss.css
 ---
 
 Ceci est un example afin de démontrer la structure nécessaire pour procéder à la création de composant méli-mélo.
