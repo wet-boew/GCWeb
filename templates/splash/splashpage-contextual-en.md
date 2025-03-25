@@ -26,12 +26,12 @@ images:
   - https://www.canada.ca/content/dam/canada/splash/sp-bg-12.jpg
 ---
 <div class="row wb-eqht-grd">
-	<section class="col-sm-6 text-sm-right">
-		<h2 class="hght-inhrt h4">[Contextual title]</h2>
-		<p><a href="../home/home-en.html" class="btn btn-primary" translate="no">English</a></p>
-	</section>
-		<section class="col-sm-6" lang="fr">
-		<h2 class="hght-inhrt h4">[Titre contextuel]</h2>
-		<p><a href="../home/home-fr.html" class="btn btn-primary" translate="no">Français</a></p>
-	</section>
+  <section class="col-sm-6 text-sm-right">
+    <h2 class="hght-inhrt h4">[Contextual title]</h2>
+    <p><a href="../home/home-en.html" class="btn btn-primary" translate="no">English</a></p>
+  </section>
+    <section class="col-sm-6" lang="fr">
+    <h2 class="hght-inhrt h4">[Titre contextuel]</h2>
+    <p><a href="../home/home-fr.html" class="btn btn-primary" translate="no">Français</a></p>
+  </section>
 </div>

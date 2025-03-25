@@ -31,7 +31,7 @@ The sub-footer band is mandatory on all page types, but on **transactional** and
   <figcaption class="h3">Expected output code - Minimum footer with only sub-footer band and no optional links</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

@@ -12,11 +12,11 @@ breadcrumbs: [
 ---
 
 <hgroup id="wb-cont" dir="rtl">
-	<p>GCWeb technical documentation</p>
-	<h1>Stacked main page title aligned on the right</h1>
+  <p>GCWeb technical documentation</p>
+  <h1>Stacked main page title aligned on the right</h1>
 </hgroup>
 
 <pre><code>&lt;hgroup id="wb-cont" dir="rtl">
-	&lt;p>GCWeb technical documentation&lt;/p>
-	&lt;h1>Stacked main page title aligned on the right&lt;/h1>
+  &lt;p>GCWeb technical documentation&lt;/p>
+  &lt;h1>Stacked main page title aligned on the right&lt;/h1>
 &lt;/hgroup></code></pre>

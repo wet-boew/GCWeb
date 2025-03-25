@@ -36,7 +36,7 @@ The global (site-wide) footer at the bottom of each web page contains up to 3 ba
   <figcaption class="h3">Expected output code - Contextual band and link variations</figcaption>
 {%- include variable-core.liquid -%}
 {% highlight html %}
-	{%- include footers/footer.html -%}
+  {%- include footers/footer.html -%}
 {% endhighlight %}
 </figure>
 

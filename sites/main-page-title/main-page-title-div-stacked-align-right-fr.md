@@ -19,7 +19,7 @@ breadcrumbs: [
 <hr>
 <pre><code>&lt;div dir="rtl">
 &lt;hgroup id="wb-cont">
-	&lt;p>Titre principal superposé dans une div alignée à droite&lt;/p>
-	&lt;h1>Titre principal superposé aligné à droite&lt;/h1>
+  &lt;p>Titre principal superposé dans une div alignée à droite&lt;/p>
+  &lt;h1>Titre principal superposé aligné à droite&lt;/h1>
 &lt;/hgroup>
 &lt;/div></code></pre>
