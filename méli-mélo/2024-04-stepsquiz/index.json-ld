@@ -1,0 +1,178 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Steps form with progress bar",
+		"fr": "Formulaire d'étapes avec barre de progression"
+	},
+	"description": {
+		"en": "Addition of a progress bar for the Steps Form component.",
+		"fr": "Ajout d'une barre de progression à la composante du Formulaire à étapes."
+	},
+	"modified": "2025-03-05",
+	"componentName": "quiz",
+	"status": "stable",
+	"version": "1.0.0",
+	"pages": {
+		"docs": [
+			{
+				"title": "Steps form with progress bar",
+				"language": "en",
+				"path": "stepsquiz-doc-en.html"
+			},
+			{
+				"title": "Formulaire d'étapes avec barre de progression",
+				"language": "fr",
+				"path": "stepsquiz-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Steps form with progress bar",
+				"language": "en",
+				"path": "index.html"
+			},
+			{
+				"title": "Formulaire d'étapes avec barre de progression",
+				"language": "fr",
+				"path": "index-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Steps form with progress bar - Content Limited Width Panel",
+				"fr": "Formulaire d'étapes avec barre de progression - Contenu à largeur limitée"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Steps form with progress bar using the panel class along with the content limited width template.",
+				"fr": "Formulaire d'étapes avec barre de progression en utilisant la classe panel avec le modèle de contenu à largeur limitée."
+			},
+			"iteration": "_:iteration_stepsquiz_1",
+			"example": [
+				{
+					"en": { "href": "stepsquiz-limited-en.html", "text": "Steps form with progress bar - Content Limited Width Panel" },
+					"fr": { "href": "stepsquiz-limited-fr.html", "text": "Formulaire d'étapes avec barre de progression - Contenu à largeur limitée" }
+				}
+			],
+			"implementation": [
+				"_:implement_stepsquiz"
+			],
+			"history": [
+				{
+					"en": "March 2025 - Stabilizing component.",
+					"fr": "Mars 2025 - Stabilisation du composant."
+				},
+				{
+					"en": "July 2024 - French translation functionality on language toggle for two text elements found in the component.",
+					"fr": "Juillet 2024 - Fonctionnalité de traduction française sur basculement de langue pour deux éléments de texte trouvés dans la composante."
+				},
+				{
+					"en": "July 2024 - Addition of a <label> element around the <code>progress</code> element in order to resolve an accessibility issue.",
+					"fr": "Juillet 2024 - Ajout d'un élément <label> autour de l'élément <code>progress</code> afin de résoudre un problème d'accessibilité."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_stepsquiz",
+			"iteration": "_:iteration_stepsquiz_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code sample."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<div class=\"wb-frmvld wb-steps quiz\">\n\t<form action =\"#\" method=\"get\" id=\"steps-example\">\n\t<fieldset>\n\t<legend>Client information</legend>\n<div>lorem ipsum</div>\n</fieldset>\n</form>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code :",
+						"code": "<div class=\"wb-frmvld wb-steps quiz\">\n\t<form action =\"#\" method=\"get\" id=\"steps-example\">\n\t<fieldset>\n\t<legend>Client information</legend>\n<div>lorem ipsum</div>\n</fieldset>\n</form>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_stepsquiz_2",
+			"name": "Steps quiz - Iteration 2",
+			"date": "2024-05",
+			"detectableBy": ".wb-steps.quiz",
+			"additions": [
+				"Stabilized component"
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"wb-frmvld wb-steps quiz\">\n\t<form action =\"#\" method=\"get\" id=\"steps-example\">\n\t<fieldset>\n\t<legend>Client information</legend>\n<div>lorem ipsum</div>\n</fieldset>\n</form>\n</div>"
+				}
+			],
+			"predecessor": "_:iteration_stepsquiz_1"
+		},
+		{
+			"@id": "_:iteration_stepsquiz_1",
+			"name": "Steps quiz - Iteration 1",
+			"date": "2024-07-15",
+			"detectableBy": ".wb-steps.quiz",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"wb-frmvld wb-steps quiz\">\n\t<form action =\"#\" method=\"get\" id=\"steps-example\">\n\t<fieldset>\n\t<legend>Client information</legend>\n<div>lorem ipsum</div>\n</fieldset>\n</form>\n</div>"
+				}
+			],
+			"successor": "_:iteration_stepsquiz_2"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_stepsquiz",
+			"name": "Steps quiz",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_stepsquiz_2",
+			"detectableBy": ".wb-steps.quiz",
+			"layout": "This feature provides a quiz pattern when applied to the Steps Form component.",
+			"semantic": "div>form>fieldset>legend>div",
+			"style": "",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		}
+	]
+}
