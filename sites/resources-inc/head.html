@@ -1,6 +1,22 @@
+{%- if site.global.gcds and site.global.gcds != false -%}
+	{%- capture gcds-version -%}
+		{%- if site.global.gcds == true -%}
+			latest
+		{%- else -%}
+			{{ site.global.gcds }}
+		{%- endif -%}
+	{%- endcapture -%}
+
+<!-- GC Design System -->
+<link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.css">
+<script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.esm.js"></script>
+<script nomodule src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.js"></script>
+{% endif %}
+
 <link href="{{ setting-resourcesBasePathTheme }}/assets/favicon.ico" rel="icon" type="image/x-icon" />
 <link rel="stylesheet" href="{{ setting-resourcesBasePathTheme }}/css/theme{{ setting-minifiedSuffix }}.css" />
 <noscript><link rel="stylesheet" href="{{ setting-resourcesBasePathWetboew }}/css/noscript{{ setting-minifiedSuffix }}.css" /></noscript>
+
 {%- if page.css.first -%}
 	{%- for sheet in page.css -%}
 		{%- if sheet.first -%}
