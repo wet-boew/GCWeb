@@ -18,28 +18,28 @@ layout: without-h1
 <p>Accessibility statement: {{ metadata.a11yStatement }}</p>
 <p>Progressive enhancement note:</p>
 <ul>
-    {% for peNote in metadata.peNote %}
-    <li>{{ peNote }}</li>
-    {% endfor %}
+	{% for peNote in metadata.peNote %}
+	<li>{{ peNote }}</li>
+	{% endfor %}
 </ul>
 
 <h2>CSS classes</h2>
 <dl>
-    <dt><code>.vitality</code></dt>
-    <dd>When applied to the <code>&lt;h1&gt;</code> element it sets a green underline to the title element of the page.</dd>
-    <dd>When applied to the Steps Quiz along with the <code>wb-steps</code> and <code>quiz</code> it set the thematic colours to the navigation buttons, the progress bar and to the <code>&lt;legend&gt;</code> text.</dd>
-    <dt><code>.cards</code></dt>
-    <dd>Cards can be used with <code>.light-hover</code> or <code>.dark-hover</code> to change the colours on hover or active states.</dd>
+	<dt><code>.vitality</code></dt>
+	<dd>When applied to the <code>&lt;h1&gt;</code> element it sets a green underline to the title element of the page.</dd>
+	<dd>When applied to the Steps Quiz along with the <code>wb-steps</code> and <code>quiz</code> it set the thematic colours to the navigation buttons, the progress bar and to the <code>&lt;legend&gt;</code> text.</dd>
+	<dt><code>.cards</code></dt>
+	<dd>Cards can be used with <code>.light-hover</code> or <code>.dark-hover</code> to change the colours on hover or active states.</dd>
 	<dt><code>.text-vitality</code></dt>
-    <dd>Style the content with the primary thematic color.</dd>
+	<dd>Style the content with the primary thematic color.</dd>
 	<dt><code>.bg-vitality</code></dt>
-    <dd>Style the content's background with the primary thematic color.</dd>
+	<dd>Style the content's background with the primary thematic color.</dd>
 	<dt><code>.bg-vitality-light</code></dt>
-    <dd>Style the content's background with the secondary thematic color.</dd>
+	<dd>Style the content's background with the secondary thematic color.</dd>
 	<dt><code>.btn-vitality</code></dt>
-    <dd>Along with <code>.btn-primary</code> or <code>.btn-default</code>, set a green colour thematic to buttons.</dd>
+	<dd>Along with <code>.btn-primary</code> or <code>.btn-default</code>, set a green colour thematic to buttons.</dd>
 	<dt><code>.printable-checklist</code></dt>
-    <dd>Displays a checkbox besides open summary elements on print media.</dd>
+	<dd>Displays a checkbox besides open summary elements on print media.</dd>
 </dl>
 
 <h2>Examples</h2>
@@ -114,47 +114,47 @@ layout: without-h1
 
 <h3>Steps Form with progress bar</h3>
 <div class="panel panel-default stepsquiz">
-    <div class="wb-frmvld provisional wb-steps quiz vitality panel-body">
-        <form action="#" id="progress-example">
-            <fieldset>
-                <legend>Which is your favorite fruit?</legend>
-                <div>
-                    <p>My favorite fruit is:</p>
-                    <ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-                        <li class="radio">
-                            <input type="radio" name="fruit" id="apple-1" value="apple">
-                            <label for="apple-1">Apple</label>
-                        </li>
-                        <li class="radio">
-                            <input type="radio" name="fruit" id="orange-1" value="orange">
-                            <label for="orange-1">Orange</label>
-                        </li>
-                    </ul>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend>Condiments</legend>
-                <div>
-                    <p>Choose your condiments:</p>
-                    <ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
-                        <li class="checkbox">
-                            <input type="checkbox" id="ketchup-1" value="ketchup" name="condiments">
-                            <label for="ketchup-1">Ketchup</label>
-                        </li>
-                        <li class="checkbox">
-                            <input type="checkbox" id="relish-1"  value="relish" name="condiments">
-                            <label for="relish-1">Relish</label>
-                        </li>
-                    </ul>
-                </div>
-            </fieldset>
-            <input type="submit" class="btn btn-primary" />
-        </form>
-    </div>
+	<div class="wb-frmvld provisional wb-steps quiz vitality panel-body">
+		<form action="#" id="progress-example">
+			<fieldset>
+				<legend>Which is your favorite fruit?</legend>
+				<div>
+					<p>My favorite fruit is:</p>
+					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+						<li class="radio">
+							<input type="radio" name="fruit" id="apple-1" value="apple">
+							<label for="apple-1">Apple</label>
+						</li>
+						<li class="radio">
+							<input type="radio" name="fruit" id="orange-1" value="orange">
+							<label for="orange-1">Orange</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Condiments</legend>
+				<div>
+					<p>Choose your condiments:</p>
+					<ul class="list-unstyled lst-spcd-2 gc-chckbxrdio">
+						<li class="checkbox">
+							<input type="checkbox" id="ketchup-1" value="ketchup" name="condiments">
+							<label for="ketchup-1">Ketchup</label>
+						</li>
+						<li class="checkbox">
+							<input type="checkbox" id="relish-1"  value="relish" name="condiments">
+							<label for="relish-1">Relish</label>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+			<input type="submit" class="btn btn-primary" />
+		</form>
+	</div>
 </div>
 <h4>Code</h4>
 <pre><code>&lt;div class="wb-frmvld provisional wb-steps quiz vitality panel-body"&gt;
-    &lt;!-- Steps Form --&gt;
+	&lt;!-- Steps Form --&gt;
 &lt;/div&gt;</code></pre>
 
 <h3>Open summary elements with checkboxes in print view</h3>
