@@ -95,37 +95,21 @@ module.exports = {
 			],
 			rules: {
 				"at-rule-empty-line-before": null,
-				"color-hex-length": null,
-				"comment-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
-				"declaration-empty-line-before": null,
-				"font-family-name-quotes": null,
-				"function-url-quotes": null,
 				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
-				"length-zero-no-unit": null,
 				"no-descending-specificity": null, // Extremely slow
 				"no-duplicate-selectors": null,
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
 				"number-max-precision": null,
-				"property-no-vendor-prefix": null,
-				"rule-empty-line-before": null,
 				"scss/at-extend-no-missing-placeholder": null,
-				"scss/at-mixin-argumentless-call-parentheses": null,
 				"scss/comment-no-empty": null,
-				"scss/dollar-variable-empty-line-before": null,
 				"scss/dollar-variable-pattern": null, // Fixable
-				"scss/double-slash-comment-empty-line-before": null,
-				"scss/double-slash-comment-whitespace-inside": null,
-				"scss/load-no-partial-leading-underscore": null,
 				"scss/no-global-function-names": null, // Fixable, need to run sass migrator
-				"selector-attribute-quotes": null,
 				"selector-class-pattern": null,
 				"selector-id-pattern": null,
 				"selector-not-notation": null,
 				"selector-pseudo-element-colon-notation": null,
-				"selector-type-no-unknown": null,
-				"shorthand-property-no-redundant-values": null,
 				"value-keyword-case": null
 			}
 		}
