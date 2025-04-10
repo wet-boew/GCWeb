@@ -17,7 +17,7 @@
 	"modified": "2025-04-07",
 	"componentName": "gc-minister",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.1",
 	"pages": {
 		"examples": [
 			{
@@ -96,16 +96,17 @@
 				}
 			],
 			"implementation": [
-				"_:implement_minister_2"
+				"_:implement_minister",
+				"_:implement_minister_v1_to_v1.1"
 			],
 			"history": [
 				{
-					"en": "March 2024 - Initial implementation of the variation.",
-					"fr": "Mars 2024 - Implémentation initiale de la variante."
-				},
-				{
 					"en": "April 2025 - Fixed issue where links were not clickable in mobile view.",
 					"fr": "Avril 2025 - Problème résolu où les liens n'étaient pas cliquables dans la vue mobile."
+				},
+				{
+					"en": "March 2024 - Initial implementation of the variation.",
+					"fr": "Mars 2024 - Implémentation initiale de la variante."
 				}
 			]
 		}
@@ -113,7 +114,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_minister",
-			"iteration": "_:iteration_minister_1",
+			"iteration": "_:iteration_minister_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -147,72 +148,11 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample with image:",
-						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
-					},
-					{
-						"@type": "source-code",
-						"description": "Code sample without image:",
-						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
-					}
-				],
-				"fr": [
-					{
-						"@type": "source-code",
-						"description": "Exemple de code avec image :",
-						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[url de l'image]\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
-					},
-					{
-						"@type": "source-code",
-						"description": "Exemple de code sans image :",
-						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
-					}
-				]
-			}
-		},
-		{
-			"@id": "_:implement_minister_2",
-			"iteration": "_:iteration_minister_2",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
-			},
-			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the component manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
-			},
-			"instructions": {
-				"en": [
-					"The following coded example is the default layout. When you are implementing your instance, you can omit any of the following:<ul><li>image</li><li>mandate letter link</li><li>briefing book link</li></ul>",
-					"Add the class <code>col-xs-12</code> to the <code>col-md-5</code> and <code>col-md-7</code> elements (containing the image and description respectively) in order to fix issue where links are not clickable in mobile view",
-					"The <code>&lt;div class=\"col-md-6\"></code> can be repeated as many times as there are ministers or institutional heads.",
-					"Refer to the official guidance for the appropriate section heading."
-				],
-				"fr": [
-					"L'exemple codé suivant est la présentation par défaut. Lorsque vous mettez en œuvre votre instance, vous pouvez omettre les éléments suivants&nbsp;:<ul><li>Image</li><li>Lettre de mandat</li><li>Dossier d’information</li></ul>",
-					"Ajoutez la classe col-xs-12 aux éléments col-md-5 et col-md-7 (contenant respectivement l'image et la description) afin de résoudre le problème où les liens ne sont pas cliquables dans la vue mobile",
-					"Le <code>&lt;div class=\"col-md-6\"></code> peut être répété autant de fois qu'il y a de ministres ou de chefs d'institution.",
-					"Reportez-vous aux directives officielles pour connaître le titre de section approprié."
-				]
-			},
-			"notes": {
-				"en": [
-					"The recommended image size is 200px by 250px."
-				],
-				"fr": [
-					"La taille d'image recommandée est de 200px par 250px."
-				]
-			},
-			"sample": {
-				"en": [
-					{
-						"@type": "source-code",
-						"@language": "en",
-						"description": "Code sample with image",
 						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 					},
 					{
 						"@type": "source-code",
-						"description": "Code sample without image",
+						"description": "Code sample without image:",
 						"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
 					}
 				],
@@ -227,6 +167,26 @@
 						"description": "Exemple de code sans image :",
 						"code": "<section class=\"gc-minister\">\n\t<h2>Ministre</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
 					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_minister_v1_to_v1.1",
+			"iteration": "_:iteration_minister_2",
+			"name": {
+				"en": "Migrate component from version 1 to 1.1",
+				"fr": "Migrer le composant de la version 1 vers la version 1.1"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers migrating from version 1 to 1.1 of the component.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui migrent de la version 1 vers la version 1.1 de la composante."
+			},
+			"instructions": {
+				"en": [
+					"Add the class <code>col-xs-12</code> to the <code>col-md-5</code> and <code>col-md-7</code> elements (containing the image and description respectively) in order to fix issue where links are not clickable in mobile view"
+				],
+				"fr": [
+					"Ajoutez la classe col-xs-12 aux éléments col-md-5 et col-md-7 (contenant respectivement l'image et la description) afin de résoudre le problème où les liens ne sont pas cliquables dans la vue mobile"
 				]
 			}
 		}
@@ -255,18 +215,21 @@
 			"@id": "_:iteration_minister_2",
 			"name": "Minister - Iteration 2",
 			"date": "2025-04",
-			"detectableBy": ".gc-minister",
+			"additions": [
+				"Add css class to fix issue where links are not clickable in mobile view. Bump component version number to 1.1"
+			],
+			"detectableBy": ".gc-minister .col-xs-12.col-md-5",
 			"assets": [
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample with image",
-					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					"code": "<section class=\"gc-minister col-xs-12 col-md-5\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 				},
 				{
 					"@type": "source-code",
 					"description": "Code sample without image",
-					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+					"code": "<section class=\"gc-minister col-xs-12 col-md-5\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
 				}
 			]
 		}
@@ -276,7 +239,7 @@
 			"@id": "_:cs_minister",
 			"name": "Minister or institutional head",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_minister_1",
+			"baseOnIteration": "_:iteration_minister_2",
 			"detectableBy": ".gc-minister",
 			"layout": "Each minister takes up half the container. The image (if available) is on the left",
 			"semantic": "section ((h3 a) + img + p + (ul > li))",
