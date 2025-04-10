@@ -14,7 +14,7 @@
 		"en": "This component is for the minister or institutional head pattern on the institutional landing page.",
 		"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution sur la page d'accueil de l'institution."
 	},
-	"modified": "2024-03-11",
+	"modified": "2025-04-07",
 	"componentName": "gc-minister",
 	"status": "stable",
 	"version": "1.0",
@@ -80,7 +80,7 @@
 				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
 			},
-			"iteration": "_:iteration_minister_1",
+			"iteration": "_:iteration_minister_2",
 			"example": [
 				{
 					"en": { "href": "gc-minister-en.html", "text": "Minister or institutional head" },
@@ -96,12 +96,16 @@
 				}
 			],
 			"implementation": [
-				"_:implement_minister"
+				"_:implement_minister_2"
 			],
 			"history": [
 				{
 					"en": "March 2024 - Initial implementation of the variation.",
 					"fr": "Mars 2024 - Implémentation initiale de la variante."
+				},
+				{
+					"en": "April 2025 - Fixed issue where links were not clickable in mobile view.",
+					"fr": "Avril 2025 - Problème résolu où les liens n'étaient pas cliquables dans la vue mobile."
 				}
 			]
 		}
@@ -164,6 +168,26 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_minister_2",
+			"iteration": "_:iteration_minister_2",
+			"name": {
+				"en": "Add class in order to fix link issue",
+				"fr": "Ajouter une classe afin de résoudre le problème de lien"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Add the class <code>col-xs-12</code> to the <code>col-md-5</code> and <code>col-md-7</code> elements (containing the image and description respectively) in order to fix issue where links are not clickable in mobile view"
+				],
+				"fr": [
+					"Ajoutez la classe col-xs-12 aux éléments col-md-5 et col-md-7 (contenant respectivement l'image et la description) afin de résoudre le problème où les liens ne sont pas cliquables dans la vue mobile"
+				]
+			}
 		}
 	],
 	"iteration": [
@@ -178,6 +202,28 @@
 					"@language": "en",
 					"description": "Code sample with image",
 					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Code sample without image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_minister_2",
+			"name": "Minister - Iteration 2",
+			"date": "2025-04",
+			"fixes": [
+				"Fixes issue where links are not clickable in mobile view"
+			],
+			"detectableBy": ".gc-minister",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample with image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t<img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
 				},
 				{
 					"@type": "source-code",
