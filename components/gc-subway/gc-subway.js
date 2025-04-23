@@ -66,9 +66,6 @@ var $document = wb.doc,
 
 				$elm.find( "a.active" ).attr( { tabindex: "0", "aria-current": "page" } );
 
-				//$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" ); Put back once correctly implemented
-				$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a, main .pager a" );// Remove once correctly implemented
-
 				// Cloning .gc-subway-support
 				$support = $( "." + supportClass );
 				if ( $support ) {
@@ -76,30 +73,33 @@ var $document = wb.doc,
 					$support.addClass( "hidden-md hidden-lg" );
 				}
 
-				// Duplicating GC-Subway links for single-page application feel on mobile
-				$subwayLinks.each( function( i, el ) {
-					let $el = $( el ),
-						elHref = $el.attr( "href" ),
-
-						//cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont"; Put back once correctly implemented
-						cloneHref;
-
-					// Remove once correctly implemented
-					if ( elHref ) {
-						cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont";
-					}
-
-					$el.clone()
-						.addClass( "hidden-md hidden-lg" )
-						.attr( "href", cloneHref )
-						.insertAfter( el );
-
-					$el.addClass( "hidden-xs hidden-sm" );
-				} );
-
 				// Prevent on-load blinking on desktop
 				elm.classList.add( "no-blink" );
 			}
+
+			//$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" ); Put back once correctly implemented
+			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a, main .pager a" );// Remove once correctly implemented
+
+			// Duplicating GC-Subway links for single-page application feel on mobile
+			$subwayLinks.each( function( i, el ) {
+				let $el = $( el ),
+					elHref = $el.attr( "href" ),
+
+					//cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont"; Put back once correctly implemented
+					cloneHref;
+
+				// Remove once correctly implemented
+				if ( elHref ) {
+					cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont";
+				}
+
+				$el.clone()
+					.addClass( "hidden-md hidden-lg" )
+					.attr( "href", cloneHref )
+					.insertAfter( el );
+
+				$el.addClass( "hidden-xs hidden-sm" );
+			} );
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
