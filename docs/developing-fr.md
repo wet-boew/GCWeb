@@ -8,6 +8,7 @@
 }
 ---
 
+<div lang="en">
 [Needs translation]
 
 Install NodeJS
@@ -125,6 +126,55 @@ Where:
 * `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
 
 Note: A manual update is required if you have specified a version for your jekyll remote theme in your `config.yml` file.
+
+## Develop using Github Pages
+
+### 1. Create Personal Access Token (PAT)
+
+Once your Github Pages are set up, you'll have to generate a personal access token in order for the Github Actions workflow to work. Here are the steps:
+
+1. Go to this URL: [https://github.com/settings/tokens](https://github.com/settings/tokens)
+2. Select "Generate new token".
+3. Select "Generate new token (classic)".
+4. **Note**: "GCWeb dev for Github Pages"
+5. Select the `repo` checkbox.
+6. Select "Generate new token".
+7. Copy the token.
+
+### 2. Create your environment
+
+You'll now have to add the token you created to the dev environment:
+
+1. In your GCWeb fork, go to the Settings tab.
+2. In the Settings page, go to the "Enviromnents" tab.
+3. **Name**: dev
+4. Select "Configure environment".
+5. Under "Environment secrets", select "Add environment secret":
+
+* **Name**: my_secret
+* **Value**: [Paste the token you copied in step 1.7]
+
+### 3. Setup Github Pages
+
+To be able to view GCWeb through Github, you'll have to setup your repo to use Github pages. Here's how to do so:
+
+1. In your GCWeb fork, go to the Settings tab.
+2. In the Settings page, go to the Pages tab.
+3. **Source**: deploy from a branch
+4. **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+5. You are now set up to start developing.
+
+### 4. Develop using the Github Pages workflow
+
+You are now set up to start developing. Here's the process to do so:
+
+1. Make your changes in your `dev` local branch.
+2. Run `git add .`
+3. Run `git commit "[Your commit message]"`. For ulterior changes, run `git commit --amend --no-edit`.
+4. Run `git push -f origin dev`.
+5. Repeat step 2 to 4 everytime you are ready to test your changes.
+
+</div>
 
 ## Contribuer à GCWeb
 
