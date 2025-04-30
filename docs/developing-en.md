@@ -133,10 +133,11 @@ Once your Github Pages are set up, you'll have to generate a personal access tok
 1. Go to this URL: [https://github.com/settings/tokens](https://github.com/settings/tokens)
 2. Select "Generate new token".
 3. Select "Generate new token (classic)".
-4. **Note**: "GCWeb dev for Github Pages"
-5. Select the `repo` checkbox.
-6. Select "Generate new token".
-7. Copy the token.
+    * **Note**: "GCWeb dev for Github Pages"
+    * **Expiration**: Set it to a year from creation.
+4. Select the `repo` checkbox.
+5. Select "Generate new token".
+6. Copy the token.
 
 ### 2. Create your environment
 
@@ -147,9 +148,8 @@ You'll now have to add the token you created to the dev environment:
 3. **Name**: dev
 4. Select "Configure environment".
 5. Under "Environment secrets", select "Add environment secret":
-
-* **Name**: my_secret
-* **Value**: [Paste the token you copied in step 1.7]
+    * **Name**: MY_TOKEN
+    * **Value**: [Paste the token you copied in step 1.7]
 
 ### 3. Setup Github Pages
 
@@ -157,9 +157,9 @@ To be able to view GCWeb through Github, you'll have to setup your repo to use G
 
 1. In your GCWeb fork, go to the Settings tab.
 2. In the Settings page, go to the Pages tab.
-3. **Source**: deploy from a branch
-4. **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
-5. You are now set up to start developing.
+    * **Source**: deploy from a branch
+    * **Branch**: gh-pages /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+3. You are now set up to start developing.
 
 ### 4. Develop using the Github Pages workflow
 
