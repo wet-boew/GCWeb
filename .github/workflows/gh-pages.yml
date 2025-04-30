@@ -1,0 +1,60 @@
+name: Build for Github Pages
+
+on:
+  push:
+    branches: dev
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    environment: dev
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use NodeJS ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm i -g bower grunt-cli
+          npm ci
+
+      # Related to GCWeb#1737 about wet-boew#cc340a6 commit
+      - name: Copy the missing _sprite_share.scss file
+        run: |
+          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/86e7a0b15ad6a695754599e9793e986b460bf514/_sprites_share.scss >> _sprites_share.scss
+          mv _sprites_share.scss node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
+
+      - name: Build GCWeb
+        run: grunt build-gh-pages
+
+      # Overwrite all layout and includes and remove dist from .gitignore
+      - name: Update GCWeb Jekyll theme files
+        run: |
+          cp -R ~jekyll-dist/_includes/* _includes/
+          cp -R ~jekyll-dist/_layouts/* _layouts/
+          sed -i '/^dist\/$/s/^/#/' .gitignore
+
+      - name: Commit all changes
+        run: |
+          git config --global user.name "${{ github.repository_owner}}"
+          git config --global user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "${{ github.run_id }}: Deploy to gh-pages" --allow-empty
+
+      - name: Push to gh-pages
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          branch: gh-pages
+          force: true
+          github_token: ${{ secrets.my_token }}
+

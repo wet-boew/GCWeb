@@ -64,6 +64,17 @@ module.exports = (grunt) ->
 	)
 
 	@registerTask(
+		"build-gh-pages"
+		"Build a gh-pages working copy without dependencies check"
+		[
+			"jekyll-theme"
+			"jekyll-theme-runGHPages"
+			"core-dist-DEBUG"
+			"site-contents"
+		]
+	)
+
+	@registerTask(
 		"demo"
 		"Build a demo ready version of the site"
 		[
@@ -150,6 +161,15 @@ module.exports = (grunt) ->
 		"DEBUG - Jekyll theme but with the run local variant"
 		[
 			"usebanner:jekyllRunLocal"
+			"copy:jekyllRunLocal"
+		]
+	)
+
+	@registerTask(
+		"jekyll-theme-runGHPages"
+		"DEBUG - Jekyll theme but with the run local variant"
+		[
+			"usebanner:jekyllRunGHPages"
 			"copy:jekyllRunLocal"
 		]
 	)
@@ -671,6 +691,11 @@ module.exports = (grunt) ->
 			jekyllRunDemo:
 				options:
 					banner: """{%- assign setting-resourcesBasePathTheme = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/wet-boew-demos/""" + grunt.option('branch') + """/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/wet-boew-demos/""" + grunt.option('branch') + """/" -%}"""
+					position: "bottom"
+				src: "<%= jekyllDist %>/_includes/settings.liquid"
+			jekyllRunGHPages:
+				options:
+					banner: """{%- assign setting-resourcesBasePathTheme = "/GCWeb/<%= distFolder %>/GCWeb" -%}{%- assign setting-resourcesBasePathWetboew = "/GCWeb/<%= distFolder %>/wet-boew" -%}{%- assign setting-siteBasePath = "/GCWeb/" -%}"""
 					position: "bottom"
 				src: "<%= jekyllDist %>/_includes/settings.liquid"
 			jekyllRunUnminified:
