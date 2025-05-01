@@ -9,6 +9,8 @@ css:
   integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
+{%- include variable-core.liquid -%}
+
 <p>Les fonctionnalités expérimentales sont des fonctionnalités réutilisables qui se trouvent dans un état préliminaire d’expérimentation, regroupées dans des compilations méli-mélo à durée limitée. Ces fonctionnalités sont construites à partir de code CSS et/ou JavaScript personnalisé. Une fois qu'une fonctionnalité est développée et que les exigences minimales sont satisfaites, elle est regroupée dans une compilation méli-mélo qui peut être déployée et prête à être utilisée dans un délai d'une à deux semaines sur Canada.ca. Découvrez les <a href="#mli-mlo-list">fonctionnalités expérimentales existantes</a> qui sont actuellement regroupées dans des compilations méli-mélo actives.</p>
 
 <div class="alert alert-info">
@@ -41,7 +43,7 @@ css:
 				<ul class="mrgn-bttm-lg mrgn-lft-md">
 				{% for pack in item.libs %}
 					{% assign indexPage = site.data[ "mli-mlo" ].subProjects | where: "nom", pack | first %}
-					<li><a href="/gcweb-compiled-demos/méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
+					<li><a href="{{ setting-demosBasePath }}méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
 				{% endfor %}
 			</ul>
 		</div>
