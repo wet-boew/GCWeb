@@ -1,10 +1,10 @@
 ---
 {
-	"title": "Developing for GCWeb",
-	"language": "en",
-	"description": "Instructions on how to develop for the Canada.ca theme.",
-	"altLangPage": "developing-fr.html",
-	"dateModified": "2022-04-12"
+  "title": "Developing for GCWeb",
+  "language": "en",
+  "description": "Instructions on how to develop for the Canada.ca theme.",
+  "altLangPage": "developing-fr.html",
+  "dateModified": "2022-04-12"
 }
 ---
 
