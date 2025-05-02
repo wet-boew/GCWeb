@@ -63,7 +63,7 @@
                     // Build list item without a submenu
                     let href = anchor.getAttribute('href');
                     let linkText = anchor.textContent;
-                    megamenuHTML += `<li><a href="${href}">${linkText}</a></li>`;
+                    megamenuHTML += `<li role="none"><a href="${href}">${linkText}</a></li>`;
                 });
 
                 // Get GCWeb h2
@@ -80,9 +80,9 @@
                 // Wrap menu HTML with the megamenu wrapper
                 // NOTE: Removed role="navigation" (redundant) and typeof="SiteNavigationElement" (not required)
                 megamenuHTML = `
-                <nav id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg ${megamenuColorClass}" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
+                <nav aria-labelledby="megaMenu" id="wb-sm" class="campaign-menu wb-menu visible-md visible-lg ${megamenuColorClass}" data-trgt="mb-pnl" data-ajax-replace="${megamenuAjaxReplace}">
                     <div class="pnl-strt nvbar">
-                        <h2>${gcwebMenuH2.textContent}</h2>
+                        <h2 id="megaMenu">${gcwebMenuH2.textContent}</h2>
                         <ul role="menubar" class="list-inline menu">
                             ${megamenuHTML}
                         </ul>
