@@ -1,0 +1,268 @@
+---
+{
+	"title": "Contenu de groupement - Échafaudage",
+	"language": "fr",
+	"altLangPage": "grouping-en.html",
+	"dateModified": "2025-04-15"
+}
+---
+
+<div class="wb-prettify all-pre"></div>
+
+<div class="alert alert-info">
+<p>Le but de cette page est de tester tous les éléments liés au regroupement de contenu natif, s'ils sont alignés avec notre conception et sont conformes à nos directives d'accessibilité lorsqu'ils sont utilisés tels quels sans aucune personnalisation particulière. Ce qui suit inclut tous les éléments de regroupement de contenu dans la spécification HTML5 et quelques exemples ont été inspirés par le <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#grouping-content" hreflang="en">WHATWG section 4.4</a> en date d'avril 2025. Cette page peut ne pas contenir toutes les combinaisons possibles d'éléments de contenu de regroupement.</p>
+</div>
+
+<h2>L'élément <code>p</code></h2>
+<p>Ceci est du texte dans un paragraphe.</p>
+<pre><code>&lt;p> ... &lt;/p></code></pre>
+
+<h2>L'élément <code>hr</code> </h2>
+<hr>
+<pre><code>&lt;hr></code></pre>
+
+<h2>L'élément <code>pre</code></h2>
+<pre>Voici du texte préformaté</pre>
+<pre><code>&lt;pre> ... &lt;/pre></code></pre>
+
+<h2>L'élément <code>blockquote</code></h2>
+<blockquote>
+	<p>Ceci est un exemple de citation en bloc</p>
+</blockquote>
+<pre><code>&lt;blockquote&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+
+<h3 id="bqWithAuthor">Exemple avec auteur</h3>
+<figure>
+	<blockquote>
+		<p>«&nbsp;On ne se baigne jamais deux fois dans le même fleuve&nbsp;»</p>
+	</blockquote>
+	<figcaption>Héraclite, <cite>Fragments</cite></figcaption>
+</figure>
+<pre><code>&lt;figure>
+	&lt;blockquote>
+		&lt;p>«&nbsp;On ne se baigne jamais deux fois dans le même fleuve&nbsp;»&lt;/p>
+	&lt;/blockquote>
+	&lt;figcaption>Héraclite, &lt;cite>Fragments&lt;/cite>&lt;/figcaption>
+&lt;/figure></code></pre>
+
+<h3>Exemple non-conforme</h3>
+<p>2025-04 - Le modèle de conception suivant était visible dans la page de contenu générique, mais contenait du code HTML non valide. Veuillez utiliser le <a href="#bqWithAuthor">code ci-dessus</a> à la place.</p>
+<pre><code><del>&lt;blockquote>
+	&lt;p>"&lt;code>blockquote&lt;/code>"&lt;/p>
+	&lt;footer>&lt;code>footer&lt;/code> &lt;cite>&lt;code>cite&lt;/code>&lt;/cite>&lt;/footer>
+&lt;/blockquote>
+</del></code></pre>
+
+<h2>L'élément <code>ol</code></h2>
+<ol>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+	<li>Norway</li>
+</ol>
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<h2>L'élément <code>ul</code></h2>
+<ul>
+	<li>Norway</li>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+</ul>
+<pre><code>&lt;ul&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<h2>L'élément <code>menu</code></h2>
+<menu>
+	<li><button>Copie</button></li>
+	<li><button>Couper</button></li>
+	<li><button>Pâte</button></li>
+	<li>Élément de liste</li>
+	<li><a href="#">Ancre</a></li>
+</menu>
+<pre><code>&lt;menu&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/menu&gt;</code></pre>
+
+<h2>Les éléments <code>dl</code>, <code>dd</code> et <code>dt</code></h2>
+<dl>
+	<dt>Terme 1</dt>
+	<dd>la description 1</dd>
+	<dt>Terme 2</dt>
+	<dd>la description 2</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>Terme 1&lt;/dt>
+	&lt;dd>la description 1&lt;/dd>
+	&lt;dt>Terme 2&lt;/dt>
+	&lt;dd>la description 2&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>Avec deux descriptions consécutives</h3>
+<dl>
+	<dt>Auteurs</dt>
+	<dd>Jean</dd>
+	<dd>Luc</dd>
+	<dt>Editeur</dt>
+	<dd>Franck</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>Auteurs&lt;/dt>
+	&lt;dd>Jean&lt;/dd>
+	&lt;dd>Luc&lt;/dd>
+	&lt;dt>Editeur&lt;/dt>
+	&lt;dd>Franck&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>Avec deux termes consécutifs</h3>
+<dl>
+	<dt lang="en-US">color</dt>
+	<dt lang="en-GB">colour</dt>
+	<dd>Une sensation qui (chez les humains) dérive de la capacité de
+	la structure fine de l'œil pour en distinguer trois différemment
+	analyses filtrées d’une vue.</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt lang="en-US">color&lt;/dt>
+	&lt;dt lang="en-GB">colour&lt;/dt>
+	&lt;dd>Une sensation qui (chez les humains) dérive de la capacité de
+	la structure fine de l'œil pour en distinguer trois différemment
+	analyses filtrées d’une vue.&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>Avec regroupement par <code>&lt;div></code></h3>
+<dl>
+	<div>
+		<dt>Heure de la dernière modification</dt>
+		<dd>2004-12-23T23:33Z</dd>
+	</div>
+	<div>
+		<dt>Intervalle de mise à jour recommandé</dt>
+		<dd>années 60</dd>
+	</div>
+	<div>
+		<dt>Auteurs</dt>
+		<dt>Editeurs</dt>
+		<dd>Robert Rothman</dd>
+		<dd>Daniel Jackson</dd>
+	</div>
+</dl>
+<pre><code>&lt;dl>
+	&lt;div>
+		&lt;dt>Heure de la dernière modification&lt;/dt>
+		&lt;dd>2004-12-23T23:33Z&lt;/dd>
+	&lt;/div>
+	&lt;div>
+		&lt;dt>Intervalle de mise à jour recommandé&lt;/dt>
+		&lt;dd>années 60&lt;/dd>
+	&lt;/div>
+	&lt;div>
+		&lt;dt>Auteurs&lt;/dt>
+		&lt;dt>Editeurs&lt;/dt>
+		&lt;dd>Robert Rothman&lt;/dd>
+		&lt;dd>Daniel Jackson&lt;/dd>
+	&lt;/div>
+&lt;/dl></code></pre>
+
+<h3>Comme glossaire avec définition du terme <code>&lt;dfn></code></h3>
+<dl>
+	<dt><dfn>Appartement</dfn>, n.</dt>
+	<dd>Un contexte d'exécution regroupant un ou plusieurs threads avec un ou
+	plus d'objets COM.</dd>
+	<dt><dfn>Plat</dfn>, n.</dt>
+	<dd>Un pneu dégonflé.</dd>
+	<dt><dfn>Accueil</dfn>, n.</dt>
+	<dd>Le répertoire de connexion de l'utilisateur.</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>&lt;dfn>Appartement&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>Un contexte d'exécution regroupant un ou plusieurs threads avec un ou
+	plus d'objets COM.&lt;/dd>
+	&lt;dt>&lt;dfn>Plat&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>Un pneu dégonflé.&lt;/dd>
+	&lt;dt>&lt;dfn>Accueil&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>Le répertoire de connexion de l'utilisateur.&lt;/dd>
+&lt;/dl></code></pre>
+
+<h2>Les éléments <code>figure</code> et <code>figcaption</code></h2>
+<h3>Exemple avec légende après le contenu figuratif groupé</h3>
+<figure>
+	<p>'C'était génial, et les toves glissants<br>
+	J'ai tourné et gimble dans le wabe ;<br>
+	Tous les mimsy étaient les borogoves,<br>
+	Et la maman est plutôt dépassée.</p>
+	<figcaption><cite>Jabberwocky</cite> (premier couplet). Lewis Carroll, 1832-98</figcaption>
+</figure>
+
+<h3>Exemple avec légende avant le contenu figuratif groupé</h3>
+<figure>
+	<figcaption><cite>Jabberwocky</cite> (premier couplet). Lewis Carroll, 1832-98</figcaption>
+	<p>'C'était génial, et les toves glissants<br>
+	J'ai tourné et gimble dans le wabe ;<br>
+	Tous les mimsy étaient les borogoves,<br>
+	Et la maman est plutôt dépassée.</p>
+</figure>
+<pre><code>&lt;figure&gt;
+	&lt;p&gt;...&lt;p&gt;
+	&lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+<h2>L'élément <code>search</code></h2>
+<search>
+	<form action="#">
+		<label for="query">Trouver un article</label>
+		<input id="query" name="q" type="search">
+		<button type="submit">Aller!</button>
+	</form>
+</search>
+<pre><code>&lt;search&gt;
+	&lt;form&gt;
+		...
+	&lt;/form&gt;
+&lt;/search&gt;</code></pre>
+
+<h2>L'élément <code>div</code></h2>
+<h3>Plusieurs <code>&lt;div></code></h3>
+<div>
+	<div>
+		<div>
+			<h4>Ceci est un titre dans un élément div</h4>
+		</div>
+		<div>
+			<p>Ceci est du texte dans un élément div.</p>
+		</div>
+	</div>
+</div>
+<pre><code>&lt;div>
+	&lt;div>
+		&lt;div>
+			&lt;h4>Ceci est un titre dans un élément div&lt;/h4>
+		&lt;/div>
+		&lt;div>
+			&lt;p>Ceci est du texte dans un élément div.&lt;/p>
+		&lt;/div>
+	&lt;/div>
+&lt;/div></code></pre>
+
+<h3><code>&lt;div></code> vide</h3>
+<div></div>
+<pre><code>&lt;div>&lt;/div></code></pre>
+
+<h2>L'élément <code>main</code></h2>
+<p>Cette page utilise l'élément <code>&lt;main></code>.</p>
+<pre><code>&lt;body>
+	&lt;main>
+		...
+	&lt;/main>
+&lt;/body></code></pre>

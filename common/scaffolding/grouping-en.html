@@ -1,0 +1,268 @@
+---
+{
+	"title": "Grouping Content - Scaffolding",
+	"language": "en",
+	"altLangPage": "grouping-fr.html",
+	"dateModified": "2025-04-15"
+}
+---
+
+<div class="wb-prettify all-pre"></div>
+
+<div class="alert alert-info">
+<p>The purpose of this page is to test all native content grouping related elements, if they are aligned with our design and are compliant to our accessibility guideline when used as is without any special customization. The following include all content grouping elements in the HTML5 specification and a few examples was inspired by the <a href="https://html.spec.whatwg.org/multipage/grouping-content.html#grouping-content">WHATWG section 4.4</a> as of April 2025. This page may not contain all the possible grouping content element combination.</p>
+</div>
+
+<h2>The <code>p</code> element</h2>
+<p>This is some text in a paragraph.</p>
+<pre><code>&lt;p> ... &lt;/p></code></pre>
+
+<h2>The <code>hr</code> element</h2>
+<hr>
+<pre><code>&lt;hr></code></pre>
+
+<h2>The <code>pre</code> element</h2>
+<pre>Here is some pre formatted text</pre>
+<pre><code>&lt;pre> ... &lt;/pre></code></pre>
+
+<h2>The <code>blockquote</code> element</h2>
+<blockquote>
+	<p>This is a blockquote example</p>
+</blockquote>
+<pre><code>&lt;blockquote&gt;
+	&lt;p&gt; ... &lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+
+<h3 id="bqWithAuthor">Example with author</h3>
+<figure>
+	<blockquote>
+		<p>"No man ever steps in the same river twice, for it's not the same river and he's not the same man."</p>
+	</blockquote>
+	<figcaption>Heraclitus, <cite>Fragments</cite></figcaption>
+</figure>
+<pre><code>&lt;figure>
+	&lt;blockquote>
+		&lt;p>"No man ever steps in the same river twice, for it's not the same river and he's not the same man."&lt;/p>
+	&lt;/blockquote>
+	&lt;figcaption>Heraclitus, &lt;cite>Fragments&lt;/cite>&lt;/figcaption>
+&lt;/figure></code></pre>
+
+<h3>Invalid example</h3>
+<p>2025-04 - The following design pattern was visible in the generic content page, but contained invalid HTML. Please use the <a href="#bqWithAuthor">above code</a> instead.</p>
+<pre><code><del>&lt;blockquote>
+	&lt;p>"&lt;code>blockquote&lt;/code>"&lt;/p>
+	&lt;footer>&lt;code>footer&lt;/code> &lt;cite>&lt;code>cite&lt;/code>&lt;/cite>&lt;/footer>
+&lt;/blockquote>
+</del></code></pre>
+
+<h2>The <code>ol</code> and <code>li</code> elements</h2>
+<ol>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+	<li>Norway</li>
+</ol>
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<h2>The <code>ul</code> and <code>li</code> element.</h2>
+<ul>
+	<li>Norway</li>
+	<li>Switzerland</li>
+	<li>United Kingdom</li>
+	<li>United States</li>
+</ul>
+<pre><code>&lt;ul&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<h2>The <code>menu</code> and <code>li</code> elements</h2>
+<menu>
+	<li><button>Copy</button></li>
+	<li><button>Cut</button></li>
+	<li><button>Paste</button></li>
+	<li>List item</li>
+	<li><a href="#">Anchor</a></li>
+</menu>
+<pre><code>&lt;menu&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/menu&gt;</code></pre>
+
+<h2>The <code>dl</code>, <code>dd</code>, and <code>dt</code> elements</h2>
+<dl>
+	<dt>Term 1</dt>
+	<dd>Description 1</dd>
+	<dt>Term 2</dt>
+	<dd>Description 2</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>Term 1&lt;/dt>
+	&lt;dd>Description 1&lt;/dd>
+	&lt;dt>Term 2&lt;/dt>
+	&lt;dd>Description 2&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>With two consecutive description </h3>
+<dl>
+	<dt>Authors</dt>
+	<dd>John</dd>
+	<dd>Luke</dd>
+	<dt>Editor</dt>
+	<dd>Frank</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>Authors&lt;/dt>
+	&lt;dd>John&lt;/dd>
+	&lt;dd>Luke&lt;/dd>
+	&lt;dt>Editor&lt;/dt>
+	&lt;dd>Frank&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>With two consecutive terms</h3>
+<dl>
+	<dt lang="en-US">color</dt>
+	<dt lang="en-GB">colour</dt>
+	<dd>A sensation which (in humans) derives from the ability of
+	the fine structure of the eye to distinguish three differently
+	filtered analyses of a view.</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt lang="en-US">color&lt;/dt>
+	&lt;dt lang="en-GB">colour&lt;/dt>
+	&lt;dd>A sensation which (in humans) derives from the ability of
+	the fine structure of the eye to distinguish three differently
+	filtered analyses of a view.&lt;/dd>
+&lt;/dl></code></pre>
+
+<h3>With grouping division <code>&lt;div></code></h3>
+<dl>
+	<div>
+		<dt>Last modified time</dt>
+		<dd>2004-12-23T23:33Z</dd>
+	</div>
+	<div>
+		<dt>Recommended update interval</dt>
+		<dd>60s</dd>
+	</div>
+	<div>
+		<dt>Authors</dt>
+		<dt>Editors</dt>
+		<dd>Robert Rothman</dd>
+		<dd>Daniel Jackson</dd>
+	</div>
+</dl>
+<pre><code>&lt;dl>
+	&lt;div>
+		&lt;dt>Last modified time&lt;/dt>
+		&lt;dd>2004-12-23T23:33Z&lt;/dd>
+	&lt;/div>
+	&lt;div>
+		&lt;dt>Recommended update interval&lt;/dt>
+		&lt;dd>60s&lt;/dd>
+	&lt;/div>
+	&lt;div>
+		&lt;dt>Authors&lt;/dt>
+		&lt;dt>Editors&lt;/dt>
+		&lt;dd>Robert Rothman&lt;/dd>
+		&lt;dd>Daniel Jackson&lt;/dd>
+	&lt;/div>
+&lt;/dl></code></pre>
+
+<h3>As glossary with term definition <code>&lt;dfn></code></h3>
+<dl>
+	<dt><dfn>Apartment</dfn>, n.</dt>
+	<dd>An execution context grouping one or more threads with one or
+	more COM objects.</dd>
+	<dt><dfn>Flat</dfn>, n.</dt>
+	<dd>A deflated tire.</dd>
+	<dt><dfn>Home</dfn>, n.</dt>
+	<dd>The user's login directory.</dd>
+</dl>
+<pre><code>&lt;dl>
+	&lt;dt>&lt;dfn>Apartment&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>An execution context grouping one or more threads with one or
+	more COM objects.&lt;/dd>
+	&lt;dt>&lt;dfn>Flat&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>A deflated tire.&lt;/dd>
+	&lt;dt>&lt;dfn>Home&lt;/dfn>, n.&lt;/dt>
+	&lt;dd>The user's login directory.&lt;/dd>
+&lt;/dl></code></pre>
+
+<h2>The <code>figure</code> and <code>figcaption</code> element</h2>
+<h3>Example with caption after the figurative grouped content</h3>
+<figure>
+	<p>'Twas brillig, and the slithy toves<br>
+	Did gyre and gimble in the wabe;<br>
+	All mimsy were the borogoves,<br>
+	And the mome raths outgrabe.</p>
+	<figcaption><cite>Jabberwocky</cite> (first verse). Lewis Carroll, 1832-98</figcaption>
+</figure>
+
+<h3>Example with caption before the figurative grouped content</h3>
+<figure>
+	<figcaption><cite>Jabberwocky</cite> (first verse). Lewis Carroll, 1832-98</figcaption>
+	<p>'Twas brillig, and the slithy toves<br>
+	Did gyre and gimble in the wabe;<br>
+	All mimsy were the borogoves,<br>
+	And the mome raths outgrabe.</p>
+</figure>
+<pre><code>&lt;figure&gt;
+	&lt;p&gt;...&lt;p&gt;
+	&lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+<h2>The <code>search</code> element</h2>
+<search>
+	<form action="#">
+		<label for="query">Find an article</label>
+		<input id="query" name="q" type="search">
+		<button type="submit">Go!</button>
+	</form>
+</search>
+<pre><code>&lt;search&gt;
+	&lt;form&gt;
+		...
+	&lt;/form&gt;
+&lt;/search&gt;</code></pre>
+
+<h2>The <code>div</code> element</h2>
+<h3>Multiple div's</h3>
+<div>
+	<div>
+		<div>
+			<h4>This is a heading in a div element</h4>
+		</div>
+		<div>
+			<p>This is some text in a div element.</p>
+		</div>
+	</div>
+</div>
+<pre><code>&lt;div>
+	&lt;div>
+		&lt;div>
+			&lt;h4>This is a heading in a div element&lt;/h4>
+		&lt;/div>
+		&lt;div>
+			&lt;p>This is some text in a div element.&lt;/p>
+		&lt;/div>
+	&lt;/div>
+&lt;/div></code></pre>
+
+<h3>Empty div</h3>
+<div></div>
+<pre><code>&lt;div>&lt;/div></code></pre>
+
+<h2>The <code>main</code> element</h2>
+<p>The current page leverages the <code>&lt;main></code> element.</p>
+<pre><code>&lt;body>
+	&lt;main>
+		...
+	&lt;/main>
+&lt;/body></code></pre>
