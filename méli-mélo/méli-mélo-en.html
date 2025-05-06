@@ -9,6 +9,8 @@ css:
   integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
+{%- include variable-core.liquid -%}
+
 <p>Experimental features are reusable features that are in a preliminary state of experimentation packaged in time-limited méli-mélo compilation package. Those features are built from custom CSS and/or JavaScript code. Once a feature is developed and minimum requirements are met, it is packaged in a méli-mélo compilation which can be deployed and ready for use within one to two weeks on Canada.ca. Check out <a href="#mli-mlo-list">existing experimental features</a> that are currently packaged in active méli-mélo compilations.</p>
 
 <div class="alert alert-info">
@@ -41,7 +43,7 @@ css:
 				<ul class="mrgn-bttm-lg mrgn-lft-md">
 				{% for pack in item.libs %}
 					{% assign indexPage = site.data[ "mli-mlo" ].subProjects | where: "nom", pack | first %}
-					<li><a href="/gcweb-compiled-demos/méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
+					<li><a href="{{ setting-demosBasePath }}méli-mélo-demos/{{ item.nom }}/{{ pack }}/{{ indexPage.mainpage }}">{{ pack }}</a></li>
 				{% endfor %}
 				</ul>
 			</div>

@@ -43,6 +43,9 @@ jobs:
           cp -R ~jekyll-dist/_includes/* _includes/
           cp -R ~jekyll-dist/_layouts/* _layouts/
           sed -i '/^dist\/$/s/^/#/' .gitignore
+          sed -i '/^_wetboew-demos\/$/s/^/#/' .gitignore
+          sed -i '/^méli-mélo-demos\/$/s/^/#/' .gitignore
+          mv _wetboew-demos wetboew-demos
 
       - name: Commit all changes
         run: |

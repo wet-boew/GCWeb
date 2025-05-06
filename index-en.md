@@ -12,6 +12,8 @@ css:
   integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
+{%- include variable-core.liquid -%}
+
 {::nomarkdown}
 <div class="container">
   <h1 id="wb-cont" property="name">GCWeb, the WET-BOEW Canada.ca theme</h1>
@@ -611,6 +613,8 @@ css:
               {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
           {% elsif mainExamples.url %}
             <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+          {% elsif mainExamples.wetboew %}
+            <a href="{{ setting-demosBasePath }}wetboew-demos/{{ mainExamples.wetboew }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
           {% else %}
           <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
           {% endif %}
@@ -655,6 +659,8 @@ css:
                     {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
                 {% elsif example.url %}
                   <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                {% elsif example.wetboew %}
+                  <li><a href="{{ setting-demosBasePath }}wetboew-demos/{{ example.wetboew }}">{{ example.title }}</a></li>
                 {% else %}
                   <li>{{ example.title }}</li>
                 {% endif %}
