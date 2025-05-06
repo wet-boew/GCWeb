@@ -9,7 +9,7 @@ contextualFooter:
     text: Lien contextuel 2
   - url: http://canada.ca/fr
     text: Lien contextuel 3
-dateModified: 2024-11-20
+dateModified: 2025-04-28
 includes:
   footer: edge
 language:	fr
@@ -31,10 +31,11 @@ Consultez le système de conception de Canada.ca pour savoir quels éléments de
 
 ## Changements récents
 
-### Version 8.0
+### Version 8.1
 
 Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
 
+* Version 8.1 : Ajout d'un nouveau lien "Gérer les événements de la vie".
 * Version 8.0 : Pluriel de "finance" dans "Argent et finance", mise en majuscule de "peoples" dans "<span lang="en">Indigenous peoples</span>" dans la version anglaise.
 * Version 7.0 : Ajout de "www." à l'URL de "Canada et le monde".
 * Version 6.0 : Changé l'URL du lien "Vétérans et militaires".
