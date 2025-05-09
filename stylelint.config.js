@@ -93,7 +93,15 @@ module.exports = {
 			extends: [
 				"stylelint-config-standard-scss"
 			],
+			plugins: [
+				"stylelint-order"
+			],
 			rules: {
+
+				// Additional rules for replacing sass-lint
+				"order/properties-alphabetical-order": true,
+
+				// Suppress stylelint-config-standard errors
 				"at-rule-empty-line-before": null,
 				"color-hex-length": null,
 				"comment-empty-line-before": null,
