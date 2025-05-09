@@ -27,7 +27,7 @@ css:
 </div>
 <div class="container-fluid wb-inview show-none" data-inview="nav-menu">
   <div class="row">
-    <nav class="well well-lg mrgn-tp-md">
+    <nav class="bg-light py-4 mb-3 mrgn-tp-md">
       <div class="container">
         <h2 class="mrgn-tp-0">Get started</h2>
         <ul class="list-unstyled colcount-md-3">
@@ -369,7 +369,7 @@ css:
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="well well-lg mrgn-tp-md bg-gctheme text-white">
+    <div class="py-4 mb-3 mrgn-tp-md bg-gctheme text-white">
       <div class="container mrgn-bttm-lg">
         <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
           <div class="row">
