@@ -3,8 +3,7 @@
 */
 
 // Make sure the component is not inside a container
-main:not(.container) .gc-most-requested,
-div:not(.container) .gc-most-requested {
+.gc-most-requested {
 	background-color: #f5f5f5;
 	margin-bottom: 20px;
 	padding: 24px 0 12px;
@@ -22,6 +21,11 @@ div:not(.container) .gc-most-requested {
 			line-height: 1.8em;
 		}
 	}
+}
+
+// Styles to slightly break the layout for bad implementation
+.container .gc-most-requested {
+	background: transparent;
 }
 
 // To be removed when ILP version 1 is deprecated
