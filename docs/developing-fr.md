@@ -8,7 +8,8 @@
 }
 ---
 
-<div lang="en">
+<div lang="en" markdown="1">
+
 [Needs translation]
 
 Install NodeJS
@@ -129,42 +130,19 @@ Note: A manual update is required if you have specified a version for your jekyl
 
 ## Develop using Github Pages
 
-### 1. Create Personal Access Token (PAT)
-
-Once your Github Pages are set up, you'll have to generate a personal access token in order for the Github Actions workflow to work. Here are the steps:
-
-1. Go to this URL: [https://github.com/settings/tokens](https://github.com/settings/tokens)
-2. Select "Generate new token".
-3. Select "Generate new token (classic)".
-    * **Note**: "GCWeb dev for Github Pages"
-    * **Expiration**: Set it to a year from creation.
-4. Select the `repo` checkbox.
-5. Select "Generate new token".
-6. Copy the token.
-
-### 2. Create your environment
-
-You'll now have to add the token you created to the dev environment:
-
-1. In your GCWeb fork, go to the Settings tab.
-2. In the Settings page, go to the "Enviromnents" tab.
-3. **Name**: dev
-4. Select "Configure environment".
-5. Under "Environment secrets", select "Add environment secret":
-    * **Name**: MY_TOKEN
-    * **Value**: [Paste the token you copied in step 1.7]
-
-### 3. Setup Github Pages
+### 1. Setup Github Pages
 
 To be able to view GCWeb through Github, you'll have to setup your repo to use Github pages. Here's how to do so:
 
 1. In your GCWeb fork, go to the Settings tab.
 2. In the Settings page, go to the Pages tab.
     * **Source**: deploy from a branch
-    * **Branch**: gh-pages /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
-3. You are now set up to start developing.
+    * **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+3. Still in the Settings pages, go to the Environments tab.
+4. Select "github-pages" environment.
+5. Under "Deployment branches and tags", if it is not already there, add the branch `dev`.
 
-### 4. Develop using the Github Pages workflow
+### 2. Develop using the Github Pages workflow
 
 You are now set up to start developing. Here's the process to do so:
 
