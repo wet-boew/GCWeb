@@ -8,6 +8,14 @@ module.exports = {
 		"color-function-notation": "legacy",
 
 		// Suppress stylelint-config-recommended errors
+		"declaration-property-value-keyword-no-deprecated": [
+			true,
+			{
+				ignoreKeywords: [
+					"break-word" // word-break: break-word; is depreciated but used upstream as well
+				]
+			}
+		],
 		"font-family-no-duplicate-names": [
 			true,
 			{
