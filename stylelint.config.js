@@ -53,6 +53,8 @@ module.exports = {
 			rules: {
 				"at-rule-empty-line-before": null,
 				"at-rule-no-vendor-prefix": null,
+				"at-rule-prelude-no-invalid": null,
+				"color-function-alias-notation": null,
 				"color-hex-length": null,
 				"comment-empty-line-before": null,
 				"comment-whitespace-inside": null,
@@ -125,6 +127,7 @@ module.exports = {
 	ignoreFiles: [
 		"**/*.min.css",
 		"méli-mélo/compilation-gelé/**",
+		"méli-mélo/deprecated/**",
 		"node_modules/**",
 		"~sites/**",
 		"dist/**"
