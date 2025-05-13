@@ -7,8 +7,8 @@ layout: without-h1
 title: "Titre principal superposé dans une div alignée à droite"
 index_json: index.json-ld
 breadcrumbs: [
-		{ "title": "Titre principal - Documentation", "link": "sites/main-page-title/main-page-title-fr.html" }
-	]
+    { "title": "Titre principal - Documentation", "link": "sites/main-page-title/main-page-title-fr.html" }
+  ]
 ---
 <div dir="rtl">
   <hgroup id="wb-cont">
