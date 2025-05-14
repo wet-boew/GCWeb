@@ -22,5 +22,12 @@ pages:
 sponsor: PCH - Nick Frenette, PCO/DTO - Mary Beth Baker
 note: >
   The Choose Canada banner is sponsored by PCO. The Choose Canada cards are sponsored by DTO.
+
+changes:
+  - date: 2025-05-14
+    description: Card-based layout for Choose Canada campaign that organizes content into visually distinct panels grouping related information (title, description) using modern design patterns and Gestalt principles to enhance clarity and improve user engagement.
+    departmentImpact: Provides standardized, reusable layout improving consistency across Canada.ca campaigns, simplifying content management, increasing conversion rates on key tasks, and aligning with modern web practices.
+    publicImpact: Enhances users' ability to quickly find information, improves task completion rates with clearly defined actions and supports intuitive navigation on mobile and desktop.
+
 output: false
 ---
