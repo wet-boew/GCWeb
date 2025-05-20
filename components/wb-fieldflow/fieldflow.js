@@ -150,10 +150,10 @@ var componentName = "wb-fieldflow",
 				$( formElm.parentElement ).addClass( formComponent );
 			} else if ( config.inline && !config.renderas ) {
 				stdOut = "<div class='wb-frmvld mrgn-bttm-md " + formComponent + "'><form><div class='input-group'><div id='" + bodyID + "'>";
-				stdOut = stdOut + "</div><span class='input-group-btn" + ( showLabel ? " align-bottom" : "" ) + "'><input type=\"submit\" value=\"" + wb.escapeAttribute( i18n.btn ) + "\" class=\"btn btn-" + btnStyle + "\" /></span></div> </form></div>";
+				stdOut = stdOut + "</div><span class='input-group-btn" + ( showLabel ? " align-bottom" : "" ) + "'><input type=\"submit\" value=\"" + wb.escapeAttribute( i18n.btn ) + "\" class=\"btn btn-" + btnStyle + "\"></span></div> </form></div>";
 			} else {
 				stdOut = "<div class='wb-frmvld " + formComponent + "'><form><div id='" + bodyID + "'>";
-				stdOut = stdOut + "</div><input type=\"submit\" value=\"" + wb.escapeAttribute( i18n.btn ) + "\" class=\"btn btn-primary mrgn-bttm-md\" /> </form></div>";
+				stdOut = stdOut + "</div><input type=\"submit\" value=\"" + wb.escapeAttribute( i18n.btn ) + "\" class=\"btn btn-primary mrgn-bttm-md\"> </form></div>";
 			}
 			$elm.addClass( "hidden" );
 			stdOut = $( stdOut );
@@ -889,7 +889,7 @@ var componentName = "wb-fieldflow",
 		if ( isReq ) {
 			input += " required='required'";
 		}
-		input += " />";
+		input += " >";
 
 		if ( isInline ) {
 			out += " label-inline";

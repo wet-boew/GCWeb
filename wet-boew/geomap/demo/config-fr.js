@@ -52,19 +52,19 @@ var wet_boew_geomap = {
 				//legendGraphicUrl: "http://geo.weather.gc.ca/geomet/?Lang=E&LAYERS=GDPS.ETA_PR&VERSION=1.1.1&FORMAT=image%2Fpng&SERVICE=WMS&REQUEST=GetLegendGraphic&STYLE=PRECIPMM"
 				legendHTML: "<small>GeoMet Precipitation (mm)</small>" +
 						"<ul class='list-unstyled'>" +
-						"<li><span style='background-color:#800000;display:inline-block;height:20px;width:20px'/> <small>100.0</small></li>" +
-						"<li><span style='background-color:#FF0000;display:inline-block;height:20px;width:20px'/> <small>50.0</small></li>" +
-						"<li><span style='background-color:#FF4500;display:inline-block;height:20px;width:20px'/> <small>25.0</small></li>" +
-						"<li><span style='background-color:#FFA500;display:inline-block;height:20px;width:20px'/> <small>20.0</small></li>" +
-						"<li><span style='background-color:#FFD700;display:inline-block;height:20px;width:20px'/> <small>15.0</small></li>" +
-						"<li><span style='background-color:#E5E500;display:inline-block;height:20px;width:20px'/> <small>10.0</small></li>" +
-						"<li><span style='background-color:#7FFF00;display:inline-block;height:20px;width:20px'/> <small>7.5</small></li>" +
-						"<li><span style='background-color:#7FFFD4;display:inline-block;height:20px;width:20px'/> <small>5.0</small></li>" +
-						"<li><span style='background-color:#00FFFF;display:inline-block;height:20px;width:20px'/> <small>2.5</small></li>" +
-						"<li><span style='background-color:#87CEFA;display:inline-block;height:20px;width:20px'/> <small>1.0</small></li>" +
-						"<li><span style='background-color:#1E90FF;display:inline-block;height:20px;width:20px'/> <small>0.5</small></li>" +
-						"<li><span style='background-color:#0000CD;display:inline-block;height:20px;width:20px'/> <small>0.25</small></li>" +
-						"<li><span style='background-color:#000080;display:inline-block;height:20px;width:20px'/> <small>0.10</small></li>" +
+						"<li><span style='background-color:#800000;display:inline-block;height:20px;width:20px'> <small>100.0</small></li>" +
+						"<li><span style='background-color:#FF0000;display:inline-block;height:20px;width:20px'> <small>50.0</small></li>" +
+						"<li><span style='background-color:#FF4500;display:inline-block;height:20px;width:20px'> <small>25.0</small></li>" +
+						"<li><span style='background-color:#FFA500;display:inline-block;height:20px;width:20px'> <small>20.0</small></li>" +
+						"<li><span style='background-color:#FFD700;display:inline-block;height:20px;width:20px'> <small>15.0</small></li>" +
+						"<li><span style='background-color:#E5E500;display:inline-block;height:20px;width:20px'> <small>10.0</small></li>" +
+						"<li><span style='background-color:#7FFF00;display:inline-block;height:20px;width:20px'> <small>7.5</small></li>" +
+						"<li><span style='background-color:#7FFFD4;display:inline-block;height:20px;width:20px'> <small>5.0</small></li>" +
+						"<li><span style='background-color:#00FFFF;display:inline-block;height:20px;width:20px'> <small>2.5</small></li>" +
+						"<li><span style='background-color:#87CEFA;display:inline-block;height:20px;width:20px'> <small>1.0</small></li>" +
+						"<li><span style='background-color:#1E90FF;display:inline-block;height:20px;width:20px'> <small>0.5</small></li>" +
+						"<li><span style='background-color:#0000CD;display:inline-block;height:20px;width:20px'> <small>0.25</small></li>" +
+						"<li><span style='background-color:#000080;display:inline-block;height:20px;width:20px'> <small>0.10</small></li>" +
 						"</ul>"
 			}
 		},

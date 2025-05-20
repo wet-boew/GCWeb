@@ -378,7 +378,7 @@
                 inlineBtn = " class=\"" + inlineBtnClass + "\"";
             }
             // Create the copy button
-            btnStr = "<" + containTag + " class=\"" + btnAlign + inlineElmCls + "\"/><button" + inlineBtn + " type=\"button\" aria-live=\"polite\" id=\"" + buttonId + "\" data-wb-clipboard='{\"copyAreaId\": \"" + elm.id + "\"}'></button></" + containTag + ">";
+            btnStr = "<" + containTag + " class=\"" + btnAlign + inlineElmCls + "\"><button" + inlineBtn + " type=\"button\" aria-live=\"polite\" id=\"" + buttonId + "\" data-wb-clipboard='{\"copyAreaId\": \"" + elm.id + "\"}'></button></" + containTag + ">";
             if ( checkTextInputElm( elm ) === true ) {
                 $elm.after( btnStr );
             } else {

@@ -22,7 +22,7 @@ var componentName = "wb-combobox",
 	defaults = {
 		template: "<div class=\"combobox-wrapper\">" +
 		"<div role=\"combobox\" aria-expanded=\"false\" aria-haspopup=\"listbox\" data-wb5-bind=\"aria-owns@popupId\">" +
-			"<input autocomplete=\"off\" data-rule-fromListbox=\"true\" data-wb5-bind=\"id@fieldId, aria-controls@popupId, value@filter\" aria-autocomplete=\"list\" aria-activedescendant=\"\" />" +
+			"<input autocomplete=\"off\" data-rule-fromListbox=\"true\" data-wb5-bind=\"id@fieldId, aria-controls@popupId, value@filter\" aria-autocomplete=\"list\" aria-activedescendant=\"\" >" +
 		"</div>" +
 		"<div data-wb5-bind=\"id@popupId\" role=\"listbox\" class=\"hidden\">" +
 			"<template data-slot-elm=\"\" data-wb5-template=\"sub-template-listbox\">" +

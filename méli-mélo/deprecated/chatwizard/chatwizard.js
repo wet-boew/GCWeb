@@ -602,7 +602,7 @@ var componentName = "wb-chtwzrd",
 
 			$.each( value.choices, function( index, ivalue ) {
 				randID = wb.getId();
-				$( "ul", $thisQ ).append( "<li><label><input type='" + value.input + "' value='" + ivalue.value + "' id ='" + randID + "' name='" + value.name + "' data-value='" + ivalue.content + "' /> <span>" + ivalue.content + "</span>" );
+				$( "ul", $thisQ ).append( "<li><label><input type='" + value.input + "' value='" + ivalue.value + "' id ='" + randID + "' name='" + value.name + "' data-value='" + ivalue.content + "' > <span>" + ivalue.content + "</span>" );
 				$( "#" + randID, $thisQ ).attr( "data-" + componentName + "-next", ivalue.next );
 				if ( typeof ivalue.url !== undefined && ivalue.url ) {
 					$( "#" + randID, $thisQ ).attr( "data-" + componentName + "-url", ivalue.url );
@@ -613,7 +613,7 @@ var componentName = "wb-chtwzrd",
 		if ( typeof data.header.form.sendButton !== undefined ) {
 			btn = " data-" + replacement + "='" + data.header.sendButton + "'>" + data.header.form.sendButton + "</button>";
 		}
-		$basicForm.append( "<p class='wb-chtwzrd-farewell wb-inv'>" + data.header.farewell + "</p><br/><button type='submit' class='btn btn-sm btn-primary'" + btn );
+		$basicForm.append( "<p class='wb-chtwzrd-farewell wb-inv'>" + data.header.farewell + "</p><br><button type='submit' class='btn btn-sm btn-primary'" + btn );
 
 		if ( typeof datainput.header.first === "undefined" || !datainput.header.first ) {
 			datainput.header.first = $( "fieldset", $basicForm ).first().attr( "id" );
@@ -720,7 +720,7 @@ var componentName = "wb-chtwzrd",
 					$inputsSpot.append( "<fieldset><legend class='wb-inv'>" + current.label + "</legend><div class='row'><div class='col-xs-12'><ul class='list-unstyled mrgn-tp-sm choices'></ul></div></div></fieldset>" );
 					for ( var i = 0; i < current.choices.length; i++ ) {
 						var iQuestion = current.choices[ i ];
-						$( ".choices", $inputsSpot ).append( "<li><label><input type='" + current.input + "' value='" + iQuestion.value + "' name='" + current.name + "' data-" + componentName + "-next='" + iQuestion.next + "'" + ( typeof iQuestion.url === "undefined" ? "" : " data-" + componentName + "-url='" + iQuestion.url + "'" ) + ( !i ? "checked " : "" ) + "/> <span>" + iQuestion.content + "</span></label></li>" );
+						$( ".choices", $inputsSpot ).append( "<li><label><input type='" + current.input + "' value='" + iQuestion.value + "' name='" + current.name + "' data-" + componentName + "-next='" + iQuestion.next + "'" + ( typeof iQuestion.url === "undefined" ? "" : " data-" + componentName + "-url='" + iQuestion.url + "'" ) + ( !i ? "checked " : "" ) + "> <span>" + iQuestion.content + "</span></label></li>" );
 					}
 					$btnnext.prop( "disabled", false );
 
@@ -751,7 +751,7 @@ var componentName = "wb-chtwzrd",
 		$dropSpot.append( "<div class='row mrgn-bttm-md'><div class='col-xs-9 col-xs-offset-3'><div class='message text-right pull-right' id='" + randID + "'><p class='mrgn-bttm-0'><span class='wb-inv'>" + i18nDict.answer + " </span>" + answerObj.value + "</p></div></div></div>" );
 
 		// Append hidden input for information to carry over on submit
-		$( ".form-params", $selector ).append( "<input type='hidden' name='" + answerObj.name + "' value='" + answerObj.val + "' data-value='" + answerObj.value + "' />" );
+		$( ".form-params", $selector ).append( "<input type='hidden' name='" + answerObj.name + "' value='" + answerObj.val + "' data-value='" + answerObj.value + "' >" );
 
 		waitingForAnswer = false;
 		if ( answerObj.url !== "" ) {
