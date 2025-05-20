@@ -22,7 +22,6 @@ module.exports = (grunt) ->
 			"eslint:all"
 			"jsonlint:all"
 			"stylelint"
-			"sasslint:all"
 			"lintspaces:all"
 		]
 	)
@@ -257,14 +256,6 @@ module.exports = (grunt) ->
 				homepage: "https://github.com/wet-boew/" + addToRepo + "#readme"
 			};
 			grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
-	)
-
-	@registerTask(
-		"linting"
-		"Initial build setup"
-		[
-			"sasslint"
-		]
 	)
 
 	@registerMultiTask(
@@ -1074,16 +1065,7 @@ module.exports = (grunt) ->
 				options: {
 					indent: "\t"
 				}
-		sasslint:
-			options:
-				configFile: ".sass-lint.yml"
-			all:
-				expand: true
-				src: [
-						"{sites,common,components,templates,design-patterns,wet-boew}/**/*.scss"
-						"!*-jekyll.scss"
-						"!node_modules"
-					]
+
 		lintspaces:
 			all:
 				src: [
