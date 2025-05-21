@@ -8,66 +8,66 @@ modified: 2023-08-28
 <h2 id="sites">All components</h2>
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>Technical name</th>
-      <!-- <th>Latest <abbr title="Accessibility Conformance Report">ACR</abbr></th> -->
-      <th>Assessment (All)</th>
-      <th>ACR (All)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for component in site.data.a11yComponents %}
-      <tr>
-        <th>{{ component.name }}</th>
-        <!-- <td>None</td> -->
-        <td>
-          <ul>
-            {% for assessment in component.a11y %}
-              <li>
-                <a href="../{{ assessment.link }}">
-                  {{ assessment.date }} - {{ assessment.state }}
-                  {% if assessment.isPartial %}
-                    ( Partial )
-                  {% endif %}
-                </a>
-              </li>
-            {% else %}
-              <li>None</li>
-            {% endfor %}
-          </ul>
-        </td>
-         <td>
-          <ul>
-            {% for acr in component.acr %}
-              <li>
-                <a href="../{{ acr.link }}">
-		  {% if acr.expiredOn %}
-		    {{ acr.expiredOn }}
-		  {% elsif acr.issuedOn %}
-		    {{ acr.issuedOn }}
-		  {% elsif acr.modifiedOn %}
-		    {{ acr.modifiedOn }}
-		  {% elsif acr.createdOn %}
-		    {{ acr.createdOn }}
-		  {% else %}
-		    No date
-		  {% endif %}
-                   -
-		  {% if acr.isPartial %}
-                    <strong>Partial</strong>:
-                  {% endif %}
-		  {{ acr.state }}
-                </a>
-              </li>
-            {% else %}
-              <li>None</li>
-            {% endfor %}
-          </ul>
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
+	<thead>
+		<tr>
+			<th>Technical name</th>
+			<!-- <th>Latest <abbr title="Accessibility Conformance Report">ACR</abbr></th> -->
+			<th>Assessment (All)</th>
+			<th>ACR (All)</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for component in site.data.a11yComponents %}
+			<tr>
+				<th>{{ component.name }}</th>
+				<!-- <td>None</td> -->
+				<td>
+					<ul>
+						{% for assessment in component.a11y %}
+							<li>
+								<a href="../{{ assessment.link }}">
+									{{ assessment.date }} - {{ assessment.state }}
+									{% if assessment.isPartial %}
+										( Partial )
+									{% endif %}
+								</a>
+							</li>
+						{% else %}
+							<li>None</li>
+						{% endfor %}
+					</ul>
+				</td>
+				<td>
+					<ul>
+						{% for acr in component.acr %}
+							<li>
+								<a href="../{{ acr.link }}">
+									{% if acr.expiredOn %}
+										{{ acr.expiredOn }}
+									{% elsif acr.issuedOn %}
+										{{ acr.issuedOn }}
+									{% elsif acr.modifiedOn %}
+										{{ acr.modifiedOn }}
+									{% elsif acr.createdOn %}
+										{{ acr.createdOn }}
+									{% else %}
+										No date
+									{% endif %}
+										-
+									{% if acr.isPartial %}
+										<strong>Partial</strong>:
+									{% endif %}
+									{{ acr.state }}
+								</a>
+							</li>
+						{% else %}
+							<li>None</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
 </table>
 
 
@@ -102,38 +102,38 @@ modified: 2023-08-28
 	<summary>Filtering by components option</summary>
 <ul class="list-unstyled">
 {% for component in site.data.acrConformity.allComponents %}
-  <li class="checkbox">
-    <label>
+	<li class="checkbox">
+		<label>
 				<input type="checkbox" name="component" class="wb-tagfilter-ctrl" value="{{ component }}">{{ component }}
 		</label>
-  </li>
+	</li>
 {% endfor %}
 </ul>
 </details>
 
 <dl class="dl-horizontal dt-max_deactivate_ wb-tagfilter-items">
-  {% for conformity in site.data.acrConformity.list %}
-    <dt>{{ conformity.id }}</dt>
-    {% for component in conformity.components %}
-      <dd data-wb-tags="{{ component.name }}">
-        <section>
-          <h3 class="h5">{{ component.name }}</h3>
-          <ul>
-            {% for acr in component.acr %}
-              <!-- <li data-wb-tags="{{ acr.conformance }}"> -->
-              <li><a href="../{{ acr.link }}">{{ acr.date }} - {{ acr.conformance }}</a></li>
-            {% else %}
-              <li>None</li>
-            {% endfor %}
-          </ul>
-        </section>
-      </dd>
-    {% endfor %}
-  {% endfor %}
+	{% for conformity in site.data.acrConformity.list %}
+		<dt>{{ conformity.id }}</dt>
+		{% for component in conformity.components %}
+			<dd data-wb-tags="{{ component.name }}">
+				<section>
+					<h3 class="h5">{{ component.name }}</h3>
+					<ul>
+						{% for acr in component.acr %}
+							<!-- <li data-wb-tags="{{ acr.conformance }}"> -->
+							<li><a href="../{{ acr.link }}">{{ acr.date }} - {{ acr.conformance }}</a></li>
+						{% else %}
+							<li>None</li>
+						{% endfor %}
+					</ul>
+				</section>
+			</dd>
+		{% endfor %}
+	{% endfor %}
 </dl>
 
 
-  </section>
+	</section>
 
 <section class="wb-tagfilter provisional">
 <h2 id="testReq">Assessment test requirement summary</h2>
@@ -141,20 +141,20 @@ modified: 2023-08-28
 <!-- Tag filter for each Component
 
 {
-  allComponents: [ "" ],
-  list = [
-    {
-      id: "Test Requirement ID",
-      component: [
-        {
-          name: "Component Name"
-          a11y: [
-            { date: "date", link: "link", outcome: "outcome" }
-          ]
-        }
-      ]
-    }
-  ]
+	allComponents: [ "" ],
+	list = [
+		{
+			id: "Test Requirement ID",
+			component: [
+				{
+					name: "Component Name"
+					a11y: [
+						{ date: "date", link: "link", outcome: "outcome" }
+					]
+				}
+			]
+		}
+	]
 
 -->
 
@@ -204,46 +204,46 @@ modified: 2023-08-28
 	<summary>Filtering by components option</summary>
 <ul class="list-unstyled">
 {% for component in site.data.a11yTestRequirement.allComponents %}
-  <li class="checkbox">
-    <label>
+	<li class="checkbox">
+		<label>
 				<input type="checkbox" name="component" class="wb-tagfilter-ctrl" value="{{ component }}">{{ component }}
 		</label>
-  </li>
+	</li>
 {% endfor %}
 </ul>
 </details>
 
 <dl class="dl-horizontal dt-max_deactivate_ wb-tagfilter-items">
-  {% for testRequirement in site.data.a11yTestRequirement.list %}
-    <dt>{{ testRequirement.id }}</dt>
-    {% for component in testRequirement.components %}
-      <dd data-wb-tags="{{ component.name }}">
-        <section>
-          <h3 class="h5">{{ component.name }}</h3>
-          <ul>
-            {% for assessment in component.a11y %}
-	      <!-- <li data-wb-tags="{{ assessment.outcome }} {{% if assessment.isApplicable -%}}isApplicable{{%- endif -%}}"> -->
-              <li><a href="../{{ assessment.link }}">{{ assessment.date }} - {{ assessment.outcome }}</a></li>
-            {% else %}
-              <li>None</li>
-            {% endfor %}
-          </ul>
-        </section>
-      </dd>
-    {% endfor %}
-    <dd>
+	{% for testRequirement in site.data.a11yTestRequirement.list %}
+		<dt>{{ testRequirement.id }}</dt>
+		{% for component in testRequirement.components %}
+			<dd data-wb-tags="{{ component.name }}">
+				<section>
+					<h3 class="h5">{{ component.name }}</h3>
+					<ul>
+						{% for assessment in component.a11y %}
+							<!-- <li data-wb-tags="{{ assessment.outcome }} {{% if assessment.isApplicable -%}}isApplicable{{%- endif -%}}"> -->
+							<li><a href="../{{ assessment.link }}">{{ assessment.date }} - {{ assessment.outcome }}</a></li>
+						{% else %}
+							<li>None</li>
+						{% endfor %}
+					</ul>
+				</section>
+			</dd>
+		{% endfor %}
+		<dd>
 	<details>
-	  <summary>Totals</summary>
-    <ul>
-      <li>Passed: {{ testRequirement.nbPassed }}</li>
-      <li>Failed: {{ testRequirement.nbFailed }}</li>
-      <li>Can't tell: {{ testRequirement.nbCantTell }}</li>
-      <li>Not applicable: {{ testRequirement.nbInapplicable }}</li>
-      <li>Not tested: {{ testRequirement.nbUntested }}</li>
-    </ul>
+		<summary>Totals</summary>
+		<ul>
+			<li>Passed: {{ testRequirement.nbPassed }}</li>
+			<li>Failed: {{ testRequirement.nbFailed }}</li>
+			<li>Can't tell: {{ testRequirement.nbCantTell }}</li>
+			<li>Not applicable: {{ testRequirement.nbInapplicable }}</li>
+			<li>Not tested: {{ testRequirement.nbUntested }}</li>
+		</ul>
 	</details>
-    </dd>
-  {% endfor %}
+		</dd>
+	{% endfor %}
 </dl>
 
 </section>
