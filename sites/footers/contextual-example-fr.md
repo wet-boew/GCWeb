@@ -11,7 +11,7 @@ contextualFooter:
   - url: ?abc=123#ancre
     text: Paramètre de lien et ancre
   - url: ../../
-    text: Deux dossiers parent 
+    text: Deux dossiers parent
   - url: tel:555-0123
     text: Numéro de téléphone 555-0123
 dateModified: 2023-03-28
