@@ -191,7 +191,7 @@ $( document ).on( "keypress click", "[data-wb5-debug]", function( evnt ) {
 	var $elm = $( this ),
 		functions = $elm.attr( "data-wb5-debug" ).split( "," );
 	for ( var i = functions.length - 1; i >= 0; i-- ) {
-		console.log( $elm[ functions[ i ] ]() ); // eslint-disable-line no-console
+		console.log( $elm[ functions[ i ] ]() );
 	}
 } );
 
