@@ -1,7 +1,15 @@
+{%- capture sitemenuPath -%}
+	{%- if page.sitemenuPath -%}
+		{{ page.sitemenuPath }}
+	{%- elsif site.global.sitemenuPath and site.global.sitemenuPath.first -%}
+		{{ site.global.sitemenuPath[ i18nText-lang ] }}
+	{%- endif -%}
+{%- endcapture -%}
+
 <nav class="gcweb-menu" typeof="SiteNavigationElement">
 	<h2 class="wb-inv">{{ i18nText-menu }}</h2>
 	<button type="button" aria-haspopup="true" aria-expanded="false">{{ i18nText-menuBtn }} <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
-	<ul role="menu" aria-orientation="vertical" data-ajax-replace="{{ i18nText-menuAjax }}">
+	<ul role="menu" aria-orientation="vertical" data-ajax-replace="{{ sitemenuPath }}">
 {%- if i18nText-lang == "fr" -%}
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/emplois.html">Emplois et milieu de travail</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/immigration-citoyennete.html">Immigration et citoyenneté</a></li>
@@ -18,6 +26,7 @@
 		<li role="presentation"><a role="menuitem" href="https://www.international.gc.ca/world-monde/index.aspx?lang=fra">Canada et le monde</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/finance.html">Argent et finances</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/science.html">Science et innovation</a></li>
+		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/fr/services/evenements-vie.html">Gérer les événements de la vie</a></li>
 {%- elsif i18nText-lang == "en" -%}
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration and citizenship</a></li>
@@ -34,6 +43,7 @@
 		<li role="presentation"><a role="menuitem" href="https://www.international.gc.ca/world-monde/index.aspx?lang=eng">Canada and the world</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance.html">Money and finances</a></li>
 		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/science.html">Science and innovation</a></li>
+		<li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/life-events.html">Manage life events</a></li>
 {%- endif -%}
 	</ul>
 </nav>
