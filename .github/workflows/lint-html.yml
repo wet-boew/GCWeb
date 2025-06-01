@@ -51,11 +51,26 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
+      - name: Build GCWeb
+        run: grunt build-gh-pages
+
+      # Overwrite all layout and includes and remove dist from .gitignore
+      - name: Update GCWeb Jekyll theme files
+        run: |
+          cp -R ~jekyll-dist/_includes/* _includes/
+          cp -R ~jekyll-dist/_layouts/* _layouts/
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # Generate all the Jekyll files and push to ./_site
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - name: HTMLlint
         run: grunt htmllint
-
-      - name: Jekyll Build
-        run: bundle exec jekyll build
 
       - name: HTMLProofer
         run: bundle exec rake
