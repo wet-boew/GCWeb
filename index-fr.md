@@ -12,6 +12,8 @@ css:
   integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
+{%- include variable-core.liquid -%}
+
 {::nomarkdown}
 <div class="container">
   <h1 id="wb-cont" property="name">GCWeb, le thème WET-BOEW de Canada.ca</h1>
@@ -608,11 +610,13 @@ css:
                 {%- if wetboew.componentName -%}
                   {{ wetboew.componentName }}/
                 {%- endif -%}
-              {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+              {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
           {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example</a>
+            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+          {% elsif mainExamples.wetboew %}
+            <a href="{{ setting-demosBasePath }}wetboew-demos/{{ mainExamples.wetboew }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
           {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Working example
+            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
           {% endif %}
           {% endif %}
           <!--
@@ -631,7 +635,7 @@ css:
                 {% endif %}
              {% endfor %}
           {% endif %}
-              <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Source code</a></li>
+              <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
           </ul>
           <!--
           > All examples and info
@@ -639,7 +643,7 @@ css:
           * Documentation
           * Spec
           -->
-          <details class="mrgn-tp-lg"><summary>All examples and info</summary>
+          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
           <ul class="list-unstyled">
           {% for pgGroup in list-pages %}
             {% assign grpkey = pgGroup[0] %}
@@ -655,6 +659,8 @@ css:
                     {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
                 {% elsif example.url %}
                   <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                {% elsif example.wetboew %}
+                  <li><a href="{{ setting-demosBasePath }}wetboew-demos/{{ example.wetboew }}">{{ example.title }}</a></li>
                 {% else %}
                   <li>{{ example.title }}</li>
                 {% endif %}
