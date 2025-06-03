@@ -6,6 +6,7 @@
  */
 ( function( $, window, wb ) {
 "use strict";
+
 /*
  * Définition de variable et de fonction.
  * Ceux-ci sont généraux au plugiciel - cela veux dire qu'ils seront initialisé une fois par page,
@@ -17,11 +18,13 @@ var nomComposant = "wb-bonjour",
 	initEvenement = "wb-init" + selecteur,
 	$document = wb.doc,
 	defauts = {},
+
 	/**
 	 * @method init
 	 * @param {jQuery Evenement} Evenement L'object événement lors du déclenchement de la fonction
 	 */
 	init = function( Evenement ) {
+
 		// Début de l'initialisation
 		// retourne un objet DOM = procéder avec l'initialisation
 		// retourne undefined = ne pas procéder avec l'initialisation (ex., il est déjà initialisé)
@@ -30,6 +33,7 @@ var nomComposant = "wb-bonjour",
 			parametres;
 		if ( elm ) {
 			$elm = $( elm );
+
 			// ... Faire l'initialisation du plugiciel
 			// Obtenir les paramètres JSON du plugiciel tel que définie par l'attribut data-wb-bonjour
 			parametres = $.extend(
@@ -39,12 +43,15 @@ var nomComposant = "wb-bonjour",
 				window[ nomComposant ],
 				wb.getData( $elm, nomComposant )
 			);
+
 			// Appel d'un événement personnalisé
 			$elm.trigger( "nom.de.votre.evenement", parametres );
+
 			// Annonce que l'initialisation de l'instance a été complété
 			wb.ready( $elm, nomComposant );
 		}
 	};
+
 // Ajouter votre code pour gérer les événement de votre plugiciel
 $document.on( "nom.de.votre.evenement", selecteur, function( evenenment, donnee ) {
 	var elm = evenenment.currentTarget,
@@ -54,8 +61,10 @@ $document.on( "nom.de.votre.evenement", selecteur, function( evenenment, donnee 
 		$elm.prepend( "Surpasse toi" );
 	}
 } );
+
 // Liaison à l'événement init du plugiciel
 $document.on( "timerpoke.wb " + initEvenement, selecteur, init );
+
 // Ajouter notre poke pour que l'initialisation des instances
 wb.add( selecteur );
 } )( jQuery, window, wb );
