@@ -22,6 +22,7 @@ export default defineConfig( [ globalIgnores( [
 	"**/méli-mélo-demos/",
 	"**/_wetboew-demos/",
 	"**/~jekyll-dist/",
+	"**/~sites/*",
 	"components/wb-chtwzrd/chatwizard.js",
 	"méli-mélo/2023-09-menu/campaign-menu.js",
 	"méli-mélo/2023-10-clipboard/js/clipboard.js",
