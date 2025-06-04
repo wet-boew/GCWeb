@@ -26,8 +26,7 @@ jobs:
       # Related to GCWeb#1737 about wet-boew#cc340a6 commit
       - name: Copy the missing _sprite_share.scss file
         run: |
-          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/86e7a0b15ad6a695754599e9793e986b460bf514/_sprites_share.scss >> _sprites_share.scss
-          mv _sprites_share.scss node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
+          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/86e7a0b15ad6a695754599e9793e986b460bf514/_sprites_share.scss -o node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
 
       - name: Build GCWeb
         run: grunt build-gh-pages
