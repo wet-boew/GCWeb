@@ -7,8 +7,8 @@ layout: without-h1
 title: "Stacked main page title aligned on the right"
 index_json: index.json-ld
 breadcrumbs: [
-		{ "title": "Main page title - Documentation", "link": "sites/main-page-title/main-page-title-en.html" }
-	]
+    { "title": "Main page title - Documentation", "link": "sites/main-page-title/main-page-title-en.html" }
+  ]
 ---
 
 <hgroup id="wb-cont" dir="rtl">

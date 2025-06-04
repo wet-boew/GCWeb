@@ -575,7 +575,7 @@ css:
     </li>
   {% endfor %}
   </ul>
-   <!-- The new added section of wet-boew -->
+  <!-- The new added section of wet-boew -->
   <h2 id="wetboew" class="mrgn-bttm-lg">Wet-boew</h2>
   <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
   {% for wetboew in site.data[ "wet-boew" ] %}
@@ -633,7 +633,7 @@ css:
                 {% if doc.url %}
             <li><a href="{{ doc.url }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
                 {% endif %}
-             {% endfor %}
+            {% endfor %}
           {% endif %}
               <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
           </ul>

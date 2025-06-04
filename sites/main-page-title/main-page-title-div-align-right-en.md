@@ -7,8 +7,8 @@ layout: without-h1
 title: "Main page title in a div aligned on the right"
 index_json: index.json-ld
 breadcrumbs: [
-		{ "title": "Main page title - Documentation", "link": "sites/main-page-title/main-page-title-en.html" }
-	]
+    { "title": "Main page title - Documentation", "link": "sites/main-page-title/main-page-title-en.html" }
+  ]
 ---
 
 <div dir="rtl">
