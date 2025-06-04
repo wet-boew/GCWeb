@@ -126,7 +126,6 @@ module.exports = {
 				"scss/no-global-function-names": null, // Fixable, need to run sass migrator
 				"selector-class-pattern": null,
 				"selector-id-pattern": null,
-				"selector-not-notation": null,
 				"selector-pseudo-element-colon-notation": null,
 				"value-keyword-case": null
 			}
