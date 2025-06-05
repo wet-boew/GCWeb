@@ -1051,13 +1051,15 @@ module.exports = (grunt) ->
 				tasks: "js"
 
 		eslint:
-			options:
-				configFile: if process.env.CI == "true" then "node_modules/wet-boew/.eslintrc.ci.json" else "node_modules/wet-boew/.eslintrc.json"
-				quiet: true
 			all:
+				options:
+					warnIgnored: false # rely on the ignores in the ESLint globalIgnores section
 				src: [
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.js"
+					"**/*.js"
+					"**/*.mjs"
+					"!node_modules/**"
 				]
+
 		jsonlint:
 			all:
 				src: [

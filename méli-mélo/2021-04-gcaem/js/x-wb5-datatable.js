@@ -147,9 +147,9 @@ $( document ).on( "wb-ready.wb-tables", "[data-wbtbl-tag=enable]", function() {
 		$wrapper = $elm.closest( ".dataTables_wrapper" );
 
 	$wrapper
-	.addClass( "tagcloud" )
-	.find( ".top" )
-	.append( "<div data-wbtbl-tagcloud='active' aria-live='polite'></div>" );
+		.addClass( "tagcloud" )
+		.find( ".top" )
+		.append( "<div data-wbtbl-tagcloud='active' aria-live='polite'></div>" );
 
 	$elm.related( $wrapper.find( "[data-wbtbl-tagcloud]" ).eq( 0 ), true );
 
@@ -206,14 +206,14 @@ $( document ).on( "keypress click", "[data-wbtbl-highlight]", function( evt ) {
 		$table = $elm.relatives().DataTable();
 
 	$elm
-	.relatives()
-	.removeClass( "wbtbl-silent" )
-	.addClass( "wbtbl-silent" );
+		.relatives()
+		.removeClass( "wbtbl-silent" )
+		.addClass( "wbtbl-silent" );
 
 	$table
-	.column( action.selector )
-	.search( action.options, false, false, true )
-	.draw();
+		.column( action.selector )
+		.search( action.options, false, false, true )
+		.draw();
 } );
 
 /**
@@ -235,13 +235,13 @@ $( document ).on( "keypress click", "[data-wbtbl-search]", function( evt ) {
 	$elm.relatives().removeClass( "wbtbl-silent" );
 
 	$table
-	.search( "" )
-	.columns()
-	.search( "" );
+		.search( "" )
+		.columns()
+		.search( "" );
 	$table
-	.column( action.selector )
-	.search( action.options, false, false, true )
-	.draw();
+		.column( action.selector )
+		.search( action.options, false, false, true )
+		.draw();
 } );
 
 /**
@@ -260,17 +260,17 @@ $( document ).on( "submit", "[data-wbtbl-submit]", function() {
 	$elm.relatives();
 
 	$table
-	.search( "" )
-	.columns()
-	.search( "" );
+		.search( "" )
+		.columns()
+		.search( "" );
 
 	if ( actionSelector ) {
 		$table = $table.column( actionSelector );
 	}
 
 	$table
-	.search( $elm.find( "input" ).val(), false, ( actionOption && actionOption === "smart" ), true )
-	.draw();
+		.search( $elm.find( "input" ).val(), false, ( actionOption && actionOption === "smart" ), true )
+		.draw();
 
 	return false;
 } );
@@ -297,8 +297,8 @@ $( document ).on( "keypress click", "[data-wbtbl-tagcloud] li button", function(
 	}
 
 	$table
-	.search( "", false, false, true )
-	.draw();
+		.search( "", false, false, true )
+		.draw();
 
 	$item.remove();
 
@@ -411,7 +411,7 @@ function applySearchFilter() {
 			var multiple = xOr[ x ].split( "@" );
 
 			// Ensure each filter in "xor" group have their own labels.
-			if ( !stmt.hasOwnProperty( multiple[ 0 ] ) ) {
+			if ( !Object.prototype.hasOwnProperty.call( stmt, multiple[ 0 ] ) ) {
 				stmt[ multiple[ 0 ] ] = [];
 			}
 			stmt[ multiple[ 0 ] ].push( "(" + multiple[ 1 ] + ")" );
