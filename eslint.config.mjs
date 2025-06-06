@@ -17,17 +17,12 @@ export default defineConfig( [ globalIgnores( [
 	"**/node_modules/",
 	"**/dist/",
 	"**/*.min.js",
-	"méli-mélo/compilation-gelé/",
-	"méli-mélo/deprecated/",
+	"méli-mélo/**/*.js",
 	"**/méli-mélo-demos/",
 	"**/_wetboew-demos/",
 	"**/~jekyll-dist/",
 	"**/~sites/*",
-	"components/wb-chtwzrd/chatwizard.js",
-	"méli-mélo/2023-09-menu/campaign-menu.js",
-	"méli-mélo/2023-10-clipboard/js/clipboard.js",
-	"méli-mélo/2024-02-charts/js/charts.js",
-	"méli-mélo/2024-10-datatable-utilities/js/wb-pspc-datatable-utility.js"
+	"components/wb-chtwzrd/chatwizard.js"
 ] ), {
 	extends: compat.extends( "eslint:recommended", "jquery" ),
 
