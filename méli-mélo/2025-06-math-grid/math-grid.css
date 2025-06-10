@@ -10,21 +10,15 @@
       line-height: 1.2em;
       padding: 0px;
     }
-    div.mg-row {
+   .wb-math-grid div.mg-row {
       display: table-row;
     }
-    div.mg-cell {
+    .wb-math-grid div.mg-row > div.mg-cell {
       display: table-cell;
       padding: 0px 3px 0px 3px;
     }
-    div.mg-cell:before {
+  .wb-math-grid div.mg-row >  div.mg-cell:before {
       content: " ";
-    }
-    div.mg-cell.pl-0 {
-      padding-left: 0px;
-    }
-    div.mg-cell.pr-0 {
-      padding-right: 0px;
     }
     .mg-scroll {
       overflow-x: auto;
@@ -53,6 +47,6 @@
       border: 3px solid #333;
     }
     /* hides anything not assigned to the cell */
-    .mg-row > :not(.mg-cell) {
+  .wb-math-grid  div.mg-row > :not(.mg-cell) {
       display: none;
     }
