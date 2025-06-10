@@ -74,7 +74,6 @@ module.exports = {
 				"font-family-no-missing-generic-family-keyword": null,
 				"function-no-unknown": null,
 				"function-url-quotes": null,
-				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
 				"length-zero-no-unit": null,
 				"media-feature-name-no-unknown": null,
@@ -114,7 +113,6 @@ module.exports = {
 				// Suppress stylelint-config-standard errors
 				"at-rule-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
-				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
 				"no-descending-specificity": null, // Extremely slow
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
