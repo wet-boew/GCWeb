@@ -972,22 +972,22 @@
 		],
 		"examples": [
 			{
-				"title": "Page feedback tool",
+				"title": "GC feedback component",
 				"language": "en",
 				"path": "page-feedback-en.html"
 			},
 			{
-				"title": "Outil de rétroaction sur la page",
+				"title": "Composante rétroaction GC",
 				"language": "fr",
 				"path": "page-feedback-fr.html"
 			},
 			{
-				"title": "Page feedback tool with contact link",
+				"title": "GC feedback component with contact link",
 				"language": "en",
 				"path": "page-feedback-contact-en.html"
 			},
 			{
-				"title": "Outil de rétroaction sur la page avec lien de contact",
+				"title": "Composante rétroaction GC avec lien de contact",
 				"language": "fr",
 				"path": "page-feedback-contact-fr.html"
 			},
@@ -1067,23 +1067,23 @@
 	"variations": [
 		{
 			"name": {
-				"en": "Page feedback tool (PFT) - default",
-				"fr": "Outil de rétroaction sur la page (ORP) - par défaut"
+				"en": "GC feedback component - default",
+				"fr": "Composante rétroaction GC - par défaut"
 			},
 			"status": "stable",
 			"description": {
-				"en": "The Page feedback tool variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"en": "The GC feedback variation replaces the “Report a problem” pattern while actively collecting user feedback",
+				"fr": "La variante de la composante rétroaction GC remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_GC_Feedback_1",
 			"example": [
 				{
-					"en": { "href": "page-feedback-en.html", "text": "Page feedback tool" },
-					"fr": { "href": "page-feedback-fr.html", "text": "Outil de rétroaction sur la page" }
+					"en": { "href": "page-feedback-en.html", "text": "GC feedback" },
+					"fr": { "href": "page-feedback-fr.html", "text": "Rétroaction GC" }
 				}
 			],
 			"implementation": [
@@ -1105,13 +1105,13 @@
 		},
 		{
 			"name": {
-				"en": "Page feedback tool with contact link",
-				"fr": "Outil de rétroaction sur la page avec lien de contact"
+				"en": "GC feedback component with contact link",
+				"fr": "Composante rétroaction GC avec lien de contact"
 			},
 			"status": "stable",
 			"description": {
-				"en": "The Page feedback tool with contact link variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"en": "The GC feedback component with contact link variation replaces the “Report a problem” pattern while actively collecting user feedback",
+				"fr": "La variante de la composante rétroaction GC avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
@@ -1120,8 +1120,8 @@
 			"iteration": "_:iteration_pft_2",
 			"example": [
 				{
-					"en": { "href": "page-feedback-contact-en.html", "text": "Page feedback tool with contact link" },
-					"fr": { "href": "page-feedback-contact-fr.html", "text": "Outil de rétroaction sur la page avec lien de contact" }
+					"en": { "href": "page-feedback-contact-en.html", "text": "GC feedback component with contact link" },
+					"fr": { "href": "page-feedback-contact-fr.html", "text": "Composante rétroaction GC avec lien de contact" }
 				}
 			],
 			"implementation": [
@@ -1356,13 +1356,11 @@
 			},
 			"notes": {
 				"en": [
-					"In order for your PFT to benefit from the personal information screening tool, you have to make sure your version of WET-BOEW is at 4.0.84 or higher.",
-					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
+					"To upgrade from the RAP to the GC feedback component, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
-					"Pour que votre ORP puisse bénéficier de l'outil de filtrage des informations personnelles, vous devez vous assurer que votre version de WET-BOEW est supérieure ou égalse à 4.0.84.",
-					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
+					"Pour passer du SUP au composante de rétroaction GC, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -1449,17 +1447,17 @@
 				"fr": "Mise à jour à partir de SUP"
 			},
 			"introduction": {
-				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new PFT.",
-				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers le nouvel ORP."
+				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new GC feedback component.",
+				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers la nouvelle composante rétroaction GC."
 			},
 			"instructions": {
 				"en": [
 					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 3.0</a>.",
-					"Follow the implementation instructions for the new PFT implementation."
+					"Follow the implementation instructions for the new GC feedback component implementation."
 				],
 				"fr": [
 					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 3.0</a>.",
-					"Suivez les instructions d'implémentation pour la nouvelle implémentation du ORP."
+					"Suivez les instructions d'implémentation pour la nouvelle implémentation de la composante rétroaction GC."
 				]
 			}
 		},
@@ -1476,16 +1474,16 @@
 			},
 			"instructions": {
 				"en": [
-					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before adding the Page feedback tool on your pages.",
+					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before adding the GC feedback component on your pages.",
 					"If you are configuring the section, please follow the <a href=\"https://design.canada.ca/feedback/index.html\">additional design system guidance</a>.",
-					"You can configure the Page feedback tool via the page properties by adjusting the optional configurations (contact info and section). The value for the theme configuration is automatically set by MWS.",
-					"For additional guidance on how to implement the Page feedback tool, you can consult the guide on GCPedia along with the other documentation for MWS."
+					"You can configure the GC feedback component via the page properties by adjusting the optional configurations (contact info and section). The value for the theme configuration is automatically set by MWS.",
+					"For additional guidance on how to implement the GC feedback component, you can consult the guide on GCPedia along with the other documentation for MWS."
 				],
 				"fr": [
-					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter l'Outil de rétroaction sur la page à vos pages.",
+					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter la composante rétroaction GC à vos pages.",
 					"Si vous configurez la section, veuillez suivre les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes supplémentaires du système de conception</a>.",
-					"Vous pouvez configurer l'Outil de rétroaction sur la page via les propriétés de la page en ajustant les configurations facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
-					"Pour des conseils supplémentaires sur la mise en œuvre de l'Outil de rétroaction sur la page, vous pouvez consulter le guide sur GCPedia avec les autres documents du SWG."
+					"Vous pouvez configurer la composante rétroaction GC via les propriétés de la page en ajustant les configurations facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
+					"Pour des conseils supplémentaires sur la mise en œuvre de la composante rétroaction GC, vous pouvez consulter le guide sur GCPedia avec les autres documents du SWG."
 				]
 			}
 		},
@@ -1516,11 +1514,11 @@
 			},
 			"notes": {
 				"en": [
-					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
+					"To upgrade from the RAP to the GC feedback component, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
-					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
+					"Pour passer du SUP à la composante rétroaction GC, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -1605,7 +1603,7 @@
 	"changesets": [
 		{
 			"@id": "_:cs_pft_container",
-			"name": "Page feedback tool with AJAX",
+			"name": "GC feedback component with AJAX",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_pft_2",
 			"detectableBy": ".pagedetails .wb-disable-allow[data-ajax-replace*=feedback]",
@@ -1634,8 +1632,8 @@
 				"Mandatory: URL of the file being AJAXed",
 				"Optional: data-feedback-section attribute",
 				"Optional: data-feedback-theme attribute",
-				"Mandatory for Page feedback tool with contact link variation: data-feedback-link attribute",
-				"Mandatory for Page feedback tool with contact link variation: data-feedback-url attribute"
+				"Mandatory for GC feedback component with contact link variation: data-feedback-link attribute",
+				"Mandatory for GC feedback component with contact link variation: data-feedback-url attribute"
 			],
 			"static": "Not applicable",
 			"schema": [
@@ -1647,13 +1645,13 @@
 			],
 			"dependency": [
 				"Page details, version 2, incompatible with version 1",
-				"PFT AJAX content as described by the changeset _:cs_pft_ajax"
+				"GC feedback component AJAX content as described by the changeset _:cs_pft_ajax"
 			],
 			"file": "Not applicable"
 		},
 		{
 			"@id": "_:cs_pft_ajax",
-			"name": "Page feedback tool AJAX file",
+			"name": "GC feedback AJAX file",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_pft_2",
 			"dependOnChangeSet": "_:cs_pft_container",
@@ -1679,7 +1677,7 @@
 			],
 			"include": {
 				"@type": "source-code",
-				"description": "HTML fragment which is inserted into the PFT container",
+				"description": "HTML fragment which is inserted into the GC feedback component container",
 				"collapsed": true,
 				"code": {
 					"@type": [ "@id", "rdf:HTML" ],
@@ -1692,7 +1690,7 @@
 				"When user selects \"Yes\", a success message replaces the question and primary buttons"
 			],
 			"guidance": "Not applicable",
-			"context": "To be used by PFT",
+			"context": "To be used by GC feedback component",
 			"configuration": "Not applicable",
 			"static": [
 				"Heading 3: Give feedback about this page - Donnez votre rétroaction sur cette page",
@@ -1952,16 +1950,10 @@
 	],
 	"iteration": [
 		{
-			"@id": "_:iteration_pft_2",
-			"name": "Page feedback tool - Iteration 2",
-			"date": "2025-01",
-			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
-			"fixes": [
-				"AJAX fragment: Added <code>pageData</code> to the French variant",
-				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
-				"AJAX fragment: Added PII scrub of the comment field."
-			],
-			"predecessor": "_:iteration_pft_1",
+			"@id": "_:iteration_pft_1",
+			"name": "GC feedback component - Iteration 1",
+			"date": "2023-08",
+			"detectableBy": ".gc-pft",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -3210,12 +3202,12 @@
 				"path": "page-details-default-fr.html"
 			},
 			{
-				"title": "Page details with Page feedback tool",
+				"title": "Page details with the GC feedback component",
 				"language": "en",
 				"path": "page-details-pft-en.html"
 			},
 			{
-				"title": "Détails de la page avec Outil de rétroaction sur la page",
+				"title": "Détails de la page avec la composante rétroaction GC",
 				"language": "fr",
 				"path": "page-details-pft-fr.html"
 			}
@@ -3264,8 +3256,8 @@
 			},
 			"status": "stable",
 			"description": {
-				"en": "This component may contain the following components: Page feedback tool and Date modified.",
-				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Outil de rétroaction sur la page et Date de modification."
+				"en": "This component may contain the following components: GC feedback and Date modified.",
+				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Rétroaction GC et Date de modification."
 			},
 			"iteration": "_:iteration_pd_3",
 			"example": [
@@ -3274,8 +3266,8 @@
 					"fr": { "href": "page-details-default-fr.html", "text": "Détails de la page par défaut" }
 				},
 				{
-					"en": { "href": "page-details-pft-en.html", "text": "Page details with Page feedback tool" },
-					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec Outil de rétroaction sur la page" }
+					"en": { "href": "page-details-pft-en.html", "text": "Page details with GC feedback component" },
+					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec la composante rétroaction GC" }
 				},
 				{
 					"en": { "href": "page-details-contributors-en.html", "text": "Page details with Contributors" },
@@ -3343,12 +3335,12 @@
 			"instructions": {
 				"en": [
 					"The Page details component must include the Date modified component. It can also contain the Page feedback component and Contributors component. See below the code sample for each scenario.",
-					"For more information about Page feedback tool component, please visit <a href=\"../../sites/feedback/feedback-docs-en.html\">Page feedback area</a> page.",
+					"For more information about GC feedback component, please visit <a href=\"../../sites/feedback/feedback-docs-en.html\">Page feedback area</a> page.",
 					"For more information about Contributors component, please visit <a href=\"../../sites/contributors/contributors-doc-en.html\">Contributors</a> page."
 				],
 				"fr": [
-					"Le composant Détails de la page doit inclure la composante Date de modification. Il peut également contenir la composante Outil de rétroaction sur la page et la composante Contributeurs. Voir ci-dessous l'exemple de code pour chaque scénario.",
-					"Pour plus d'informations sur la composante Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../../sites/feedback/feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
+					"Le composant Détails de la page doit inclure la composante Date de modification. Il peut également contenir la composante rétroaction GC et la composante Contributeurs. Voir ci-dessous l'exemple de code pour chaque scénario.",
+					"Pour plus d'informations sur la composante rétroaction GC, veuillez visiter la page <a href=\"../../sites/feedback/feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
 					"Pour plus d'informations sur la composante de Contributeurs, veuillez visiter la page <a href=\"../../sites/contributors/contributors-doc-fr.html\">Contributeurs</a>."
 				]
 			},
@@ -3364,7 +3356,7 @@
 					},
 					{
 						"@type": "source-code",
-						"description": "Page details with Page feedback tool:",
+						"description": "Page details with GC feedback component:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "samples/page-details-3.3-en.html#pft"
@@ -3390,7 +3382,7 @@
 					},
 					{
 						"@type": "source-code",
-						"description": "Détails de la page avec Outil de rétroaction sur la page :",
+						"description": "Détails de la page avec la composante rétroaction GC :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "samples/page-details-3.3-fr.html#pft"
@@ -3420,11 +3412,11 @@
 			},
 			"instructions": {
 				"en": [
-					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
+					"To show the \"GC feedback component\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
 					"To show the page's contributors, in the page's front-matter, set the property <code>contributors</code> to an array of objects containing the following properties: <code>name</code> and <code>url</code>."
 				],
 				"fr": [
-					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
+					"Pour afficher la \"composante rétroaction GC\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
 					"Pour afficher les contributeurs de la page, dans l'en-tête de la page, définissez la propriété <code>contributors</code> à un tableau d'objets contenant les propriétés suivantes&nbsp;: <code>name</code> et <code>url</code>."
 				]
 			},
@@ -3524,7 +3516,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback component",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.3-en.html#pft"
@@ -3533,7 +3525,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec la composante rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.3-fr.html#pft"
@@ -3591,7 +3583,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback component",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.2-en.html#pft"
@@ -3600,7 +3592,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec la composante rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.2-fr.html#pft"
@@ -3640,7 +3632,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback component",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.1-en.html#pft"
@@ -3649,7 +3641,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec la composante rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.1-fr.html#pft"
@@ -3689,7 +3681,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Default Page details with Page feedback tool",
+					"description": "Default Page details with GC feedback component",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-en.html#pft"
@@ -3698,7 +3690,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec la composante rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-fr.html#pft"
@@ -3725,7 +3717,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool and Share this page",
+					"description": "Page details with GC feedback component and Share this page",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-en.html#pftShare"
@@ -3734,7 +3726,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page et Partagez cette page",
+					"description": "Détails de la page avec la composante rétroaction GC et Partagez cette page",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-fr.html#pftShare"
@@ -3815,14 +3807,14 @@
 			"detectableBy": "section.pagedetails",
 			"layout": [
 				"Contributors (if included) on the top row",
-				"Page feedback tool (if included) on the top left",
+				"GC feedback component (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Contributors (optional) -->\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Contributors (optional) -->\n\t<!-- GC feedback (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3853,14 +3845,14 @@
 			"baseOnIteration": "_:iteration_pd_5",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback component (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback component (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3891,14 +3883,14 @@
 			"baseOnIteration": "_:iteration_pd_4",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback component (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback component (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3924,12 +3916,12 @@
 		},
 		{
 			"@id": "_:cs_pd_3",
-			"name": "Page details - Compatible with PFT + Accessibility fix (version 3.0)",
+			"name": "Page details - Compatible with GC feedback component + Accessibility fix (version 3.0)",
 			"status": "deprecated",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback component (if included) on the top left",
 				"Share this page button (if included) on the top right",
 				"Date modified on bottom left"
 			],
@@ -3937,7 +3929,7 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback component (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3950,7 +3942,7 @@
 			},
 			"logic": "Not applicable",
 			"behaviour": [
-				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+				"If the Share this page button is visible and the GC feedback component is not, the Date modified will be moved to the left."
 			],
 			"guidance": "Not applicable",
 			"context": "Not applicable",
@@ -3966,13 +3958,13 @@
 		},
 		{
 			"@id": "_:cs_pd_2",
-			"name": "Page details - Compatible with PFT + Accessibility fix",
+			"name": "Page details - Compatible with GC feedback component + Accessibility fix",
 			"status": "deprecated",
 			"schema:expires": "2024-12",
 			"baseOnIteration": "_:iteration_pd_2",
 			"detectableBy": "footer.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback component (if included) on the top left",
 				"Share this page button (if included) on the top right",
 				"Date modified on bottom left"
 			],
@@ -3980,7 +3972,7 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</footer>"
+				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback component (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</footer>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3993,7 +3985,7 @@
 			},
 			"logic": "Not applicable",
 			"behaviour": [
-				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+				"If the Share this page button is visible and the GC feedback component is not, the Date modified will be moved to the left."
 			],
 			"guidance": "Not applicable",
 			"context": "Not applicable",
