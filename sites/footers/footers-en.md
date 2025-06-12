@@ -9,7 +9,7 @@ contextualFooter:
     text: Contextual link 2
   - url: http://canada.ca/en
     text: Contextual link 3
-dateModified: 2025-04-28
+dateModified: 2025-06-12
 includes:
   footer: edge
 language: en
@@ -31,10 +31,11 @@ Consult the Canada.ca Design System for guidance on which footer elements or cus
 
 ## Latest changes
 
-### Version 8.1
+### Version 9.0
 
 The following changes have been made since **version 4.0**:
 
+* Version 9.0 : Updated "Manage life events" URL.
 * Version 8.1 : Added new link "Manage life events".
 * Version 8.0 : Pluralized "finance" in "Money and finance", capitalized "peoples" in "Indigenous peoples".
 * Version 7.0 : Added "www." to the "Canada and the world" URL.
