@@ -1,25 +1,23 @@
-name: Markdown Linting
+name: Space Linting
 on:
   push:
     branches-ignore:
       - "dependabot/**"
     paths:
-      - "package*.json"
-      - "Gruntfile.coffee"
-      - ".markdownlint.json*"
-      - "**/*.md"
-      - ".github/workflows/lint-md.yml"
+      - "**"
+      - "!**/*.{ico,jpg,png}"
+      - "!**/*.{eot,svg,ttf,woff}"
+      - ".github/workflows/lint-spaces.yml"
 
   pull_request:
     paths:
-      - "package*.json"
-      - "Gruntfile.coffee"
-      - ".markdownlint.json*"
-      - "**/*.md"
-      - ".github/workflows/lint-md.yml"
+      - "**"
+      - "!**/*.{ico,jpg,png}"
+      - "!**/*.{eot,svg,ttf,woff}"
+      - ".github/workflows/lint-spaces.yml"
 
 jobs:
-  lint-md:
+  lint-spaces:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +33,7 @@ jobs:
         run: npm i -g grunt-cli --force
 
       - name: Install npm dependencies
-        run: npm ci --ignore-scripts
+        run: npm ci
 
-      - name: Markdownlint
-        run: grunt markdownlint
+      - name: Lintspaces
+        run: grunt lintspaces
