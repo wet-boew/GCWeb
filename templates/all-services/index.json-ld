@@ -14,7 +14,7 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-01-09",
+	"modified": "2025-06-20",
 	"componentName": "all-services",
 	"status": "stable",
 	"version": "1.1",
@@ -61,7 +61,7 @@
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
 					"fr": { "href": "all-services-fr.html", "text": "Tous les services" }
-				}
+				}	
 			],
 			"implementation": [
 				"_:implement_allservices"
@@ -77,7 +77,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_2",
+			"iteration": "_:iteration_allservices_3",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -103,11 +103,18 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_allservices_3",
+			"name": "All services page - Iteration 3",
+			"date": "2025-06",
+			"additions": [ "Removing expand/collapse all buttons." ],
+			"detectableBy": "Three navigation bands followed by a section titled "Access services by topic" to reflect exactly the live page available on Canada.ca."
+		},
+		{
 			"@id": "_:iteration_allservices_2",
 			"name": "All services page - Iteration 2",
 			"date": "2025-01",
 			"additions": [ "Adding expand/collapse all buttons." ],
-			"detectableBy": "Three navigation bands followed by an expand all and a collapse all button followed by a series of <details> elements for all goc themes and topics."
+			"detectableBy": "Three navigation bands followed by an expand all and a collapse all button followed by a series of <details> elements for all gov themes and topics."
 		},
 		{
 			"@id": "_:iteration_allservices_1",
@@ -117,6 +124,24 @@
 		}
 	],
 	"changesets": [
+		{
+			"@id": "_:cs_allservices",
+			"name": "All services page",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_allservices_3",
+			"detectableBy": "By the sequence of elements.",
+			"semantic": "h1 + h2*3 + h1 + h3*n + h2 + h3*3",
+			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
+			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
+			"layout": [
+				"Top searches navigation band",
+				"Most requested services navigation band",
+				"Manage life events navigation band",
+				"Most requested - version 1 (optional)",
+				"Access services by topic navigation band",
+				"Focus On navigation band"
+			]
+		},
 		{
 			"@id": "_:cs_allservices",
 			"name": "All services page",
