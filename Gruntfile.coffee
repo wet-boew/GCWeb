@@ -1063,12 +1063,21 @@ module.exports = (grunt) ->
 		jsonlint:
 			all:
 				src: [
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json",
-					"{sites,common,components,templates,design-patterns,wet-boew}/**/*.json-ld"
+					"**/*.json",
+					"**/*.json-ld"
+					"!package*.json",
+					"!**/**/bad-json-content*.json"
+					"!node_modules/**/*.json"
 				]
-				options: {
+				options:
 					indent: "\t"
-				}
+
+			fix:
+				src: "<%= jsonlint.all.src %>"
+				options:
+					format: true
+					prettyPrint: true
+					indent: "\t"
 
 		lintspaces:
 			all:
@@ -1081,8 +1090,7 @@ module.exports = (grunt) ->
 						"Gemfile*"
 						"Gruntfile.coffee"
 						"Licen?e-*.txt"
-						"*.json"
-						# "*.json-ld"
+						"<%= jsonlint.all.src %>"
 						"Rakefile"
 
 						# Folders
