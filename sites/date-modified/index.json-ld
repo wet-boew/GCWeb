@@ -1,9 +1,15 @@
 {
 	"@context": {
-		"@version": 2.0,
+		"@version": 2,
 		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
+		"title": {
+			"@id": "dct:title",
+			"@container": "@language"
+		},
+		"description": {
+			"@id": "dct:description",
+			"@container": "@language"
+		},
 		"modified": "dct:modified"
 	},
 	"title": {
@@ -34,10 +40,18 @@
 	},
 	"dependencies": {
 		"en": [
-			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" }
+			{
+				"title": "Page details",
+				"url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html",
+				"component": "page-details"
+			}
 		],
 		"fr": [
-			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" }
+			{
+				"title": "Détails de la page",
+				"url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html",
+				"component": "page-details"
+			}
 		]
 	},
 	"a11yGuidance": "no accessibility guidance",
@@ -59,8 +73,14 @@
 			"iteration": "_:iteration_dtmd_1",
 			"example": [
 				{
-					"en": { "href": "../../content-page/content-en.html", "text": "Content page (date modified at bottom of page)" },
-					"fr": { "href": "../../content-page/content-fr.html", "text": "Page de contenu (date de modification au bas de la page)" }
+					"en": {
+						"href": "../../content-page/content-en.html",
+						"text": "Content page (date modified at bottom of page)"
+					},
+					"fr": {
+						"href": "../../content-page/content-fr.html",
+						"text": "Page de contenu (date de modification au bas de la page)"
+					}
 				}
 			],
 			"implementation": [
@@ -157,7 +177,10 @@
 				"collapsed": true,
 				"description": "Include with logic in Liquid.",
 				"code": {
-					"@type": [ "@id", "rdf:HTML" ],
+					"@type": [
+						"@id",
+						"rdf:HTML"
+					],
 					"@value": "includes/date-modified.html"
 				}
 			}
