@@ -1,2076 +1,2333 @@
-[{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Advanced Service - Probably deprecated",
-		"fr": "Service avancé - Probablement désuet"
-	},
-	"description": {
-		"en": "Probably deprecated - template for advanced service",
-		"fr": "Gabarit du service avancé - probablement désuet"
-	},
-	"modified": "2017-04-07",
-	"componentName": "advancedservice",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Service name] - 1. [Step / section page name]",
-				"language": "en",
-				"path": "index-en.html"
+[
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			{
-				"title": "[Nom du service] - 1. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "index-fr.html"
-			},
-			{
-				"title": "[Service name] - 2. [Step / section page name]",
-				"language": "en",
-				"path": "page2-en.html"
-			},
-			{
-				"title": "[Nom du service] - 2. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "page2-fr.html"
-			},
-			{
-				"title": "[Service name] - 3. [Step / section page name]",
-				"language": "en",
-				"path": "page3-en.html"
-			},
-			{
-				"title": "[Nom du service] - 3. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "page3-fr.html"
-			},
-			{
-				"title": "[Service name] - 4. [Step / section page name]",
-				"language": "en",
-				"path": "page4-en.html"
-			},
-			{
-				"title": "[Nom du service] - 4. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "page4-fr.html"
-			},
-			{
-				"title": "[Service name] - 5. [Step / section page name]",
-				"language": "en",
-				"path": "page5-en.html"
-			},
-			{
-				"title": "[Nom du service] - 5. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "page5-fr.html"
-			},
-			{
-				"title": "[Service name] - 6. [Step / section page name]",
-				"language": "en",
-				"path": "page6-en.html"
-			},
-			{
-				"title": "[Nom du service] - 6. [Nom de la page de la section ou de l’étape]",
-				"language": "fr",
-				"path": "page6-fr.html"
-			}
-
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "All services",
-		"fr": "Tous les services"
-	},
-	"description": {
-		"en": "All services page template.",
-		"fr": "Gabarit de page pour tous les services."
-	},
-	"modified": "2025-01-09",
-	"componentName": "all-services",
-	"status": "stable",
-	"version": "1.1",
-	"pages": {
-		"examples": [
-			{
-				"title": "All services",
-				"language": "en",
-				"path": "all-services-en.html"
-			},
-			{
-				"title": "Tous les services",
-				"language": "fr",
-				"path": "all-services-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "All services",
-				"language": "en",
-				"path": "all-services-doc-en.html"
-			},
-			{
-				"title": "Tous les services",
-				"language": "fr",
-				"path": "all-services-doc-fr.html"
-			}
-		]
-	},
-	"a11yGuidance": "No accessibility guidance.",
-	"variations": [
-		{
-			"name": {
-				"en": "All services",
-				"fr": "Tous les services"
-			},
-			"status": "stable",
 			"description": {
-				"en": "All services page template.",
-				"fr": "Gabarit de page pour tous les services."
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			"iteration": "_:iteration_allservices_2",
-			"example": [
-				{
-					"en": { "href": "all-services-en.html", "text": "All services" },
-					"fr": { "href": "all-services-fr.html", "text": "Tous les services" }
-				}
-			],
-			"implementation": [
-				"_:implement_allservices"
-			],
-			"history": [
-				{
-					"en": "November 2024 - Initial implementation of the page template.",
-					"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
-				}
-			]
-		}
-	],
-	"implementation": [
-		{
-			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_2",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-
-			},
-			"instructions": {
-				"en": [
-					"Refer to the working example and guidance for more information on how to implement this page template."
-				],
-				"fr": [
-					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"ajaxSourceCode": {
-				"en": "all-services-en.html main > *:not(.pagedetails)",
-				"fr": "all-services-fr.html main > *:not(.pagedetails)"
-			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_allservices_2",
-			"name": "All services page - Iteration 2",
-			"date": "2025-01",
-			"additions": [ "Adding expand/collapse all buttons." ],
-			"detectableBy": "Three navigation bands followed by an expand all and a collapse all button followed by a series of <details> elements for all goc themes and topics."
+			"modified": "dct:modified"
 		},
-		{
-			"@id": "_:iteration_allservices_1",
-			"name": "All services page - Iteration 1",
-			"date": "2024-11",
-			"detectableBy": "Three navigation bands followed by a series of <details> elements for all goc themes and topics."
-		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_allservices",
-			"name": "All services page",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_allservices_2",
-			"detectableBy": "By the sequence of elements.",
-			"semantic": "h1 + h2*3 + h1 + h2*n",
-			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
-			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
-			"layout": [
-				"Top searches navigation band",
-				"Most requested services navigation band",
-				"Supporting through life's transitions navigation band",
-				"Most requested - version 1 (optional)",
-				"Series of <details> elements for all goc themes and topics"
-			]
-		}
-	]
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Application",
-		"fr": "Application"
-	},
-	"description": {
-		"en": "Application templates samples.",
-		"fr": "Exemples de pages d'application."
-	},
-	"modified": "2023-10-13",
-	"componentName": "application",
-	"status": "stable",
-	"pages": {
-		"docs": [
-			{
-				"title": "Application template documentation",
-				"language": "en",
-				"path": "application-docs-en.html"
-			},
-			{
-				"title": "Documentation du gabarit de page d'application",
-				"language": "fr",
-				"path": "application-docs-fr.html"
-			}
-		],
-		"examples": [
-			{
-				"title": "Default application page",
-				"language": "en",
-				"path": "default-application-en.html"
-			},
-			{
-				"title": "Page d'application par défaut",
-				"language": "fr",
-				"path": "default-application-fr.html"
-			},
-			{
-				"title": "Application page with informational banner",
-				"language": "en",
-				"path": "application-with-banner-en.html"
-			},
-			{
-				"title": "Page d'application avec bannière informative",
-				"language": "fr",
-				"path": "application-with-banner-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Campaign name",
-		"fr": "Bêta - Message d'erreur serveur"
-	},
-	"description": {
-		"en": "Campaign name templates samples",
-		"fr": "Exemple de page d'erreur serveur."
-	},
-	"modified": "2020-04-16",
-	"componentName": "campaign",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Campaign name",
-				"language": "en",
-				"path": "campaign-en.html"
-			},
-			{
-				"title": "Nom de la campagne",
-				"language": "fr",
-				"path": "campaign-fr.html"
-			},
-
-			{
-				"title": "Campaign name 2",
-				"language": "en",
-				"path": "campaign2-en.html"
-			},
-			{
-				"title": "Nom de la campagne 2",
-				"language": "fr",
-				"path": "campaign2-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "API documentations",
-				"language": "en",
-				"path": "api.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
 		"title": {
-		"en": "Content page",
-		"fr": "Page de contenu"
-	},
-	"description": {
-		"en": "Blank content pages with text sample.",
-		"fr": "Pages de contenu vides avec exemple de texte."
-	},
-	"modified": "2023-08-24",
-	"componentName": "content-page",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Content page",
-				"language": "en",
-				"type": "general",
-				"path": "content-en.html"
-			},
-			{
-				"title": "Page de contenu",
-				"language": "fr",
-				"path": "content-fr.html"
-			},
-
-			{
-				"title": "Fluid content page",
-				"language": "en",
-				"path": "content-fluid-en.html"
-			},
-			{
-				"title": "Page de contenu fluide",
-				"language": "fr",
-				"path": "content-fluid-fr.html"
-			},
-
-			{
-				"title": "Content page - Limited width content",
-				"language": "en",
-				"path": "content-limit-en.html"
-			},
-			{
-				"title": "Page de contenu - Largeur de contenu limitée",
-				"language": "fr",
-				"path": "content-limit-fr.html"
-			},
-
-			{
-				"title": "Content page - GCWeb 4.0.29 font stylee",
-				"language": "en",
-				"path": "content-gcweb-4-0-29-font-style-en.html"
-			},
-			{
-				"title": "Page de contenu - Police de caractère de GCWeb 4.0.29",
-				"language": "fr",
-				"path": "content-gcweb-4-0-29-font-style-fr.html"
-			}
-		]
+			"en": "Advanced Service - Probably deprecated",
+			"fr": "Service avancé - Probablement désuet"
+		},
+		"description": {
+			"en": "Probably deprecated - template for advanced service",
+			"fr": "Gabarit du service avancé - probablement désuet"
+		},
+		"modified": "2017-04-07",
+		"componentName": "advancedservice",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "[Service name] - 1. [Step / section page name]",
+					"language": "en",
+					"path": "index-en.html"
+				},
+				{
+					"title": "[Nom du service] - 1. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "index-fr.html"
+				},
+				{
+					"title": "[Service name] - 2. [Step / section page name]",
+					"language": "en",
+					"path": "page2-en.html"
+				},
+				{
+					"title": "[Nom du service] - 2. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "page2-fr.html"
+				},
+				{
+					"title": "[Service name] - 3. [Step / section page name]",
+					"language": "en",
+					"path": "page3-en.html"
+				},
+				{
+					"title": "[Nom du service] - 3. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "page3-fr.html"
+				},
+				{
+					"title": "[Service name] - 4. [Step / section page name]",
+					"language": "en",
+					"path": "page4-en.html"
+				},
+				{
+					"title": "[Nom du service] - 4. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "page4-fr.html"
+				},
+				{
+					"title": "[Service name] - 5. [Step / section page name]",
+					"language": "en",
+					"path": "page5-en.html"
+				},
+				{
+					"title": "[Nom du service] - 5. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "page5-fr.html"
+				},
+				{
+					"title": "[Service name] - 6. [Step / section page name]",
+					"language": "en",
+					"path": "page6-en.html"
+				},
+				{
+					"title": "[Nom du service] - 6. [Nom de la page de la section ou de l’étape]",
+					"language": "fr",
+					"path": "page6-fr.html"
+				}
+			]
 		}
-		}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
 	},
-	"title": {
-		"en": "Home",
-		"fr": "Accueil"
-	},
-	"description": {
-		"en": "Home templates",
-		"fr": "Gabarit de la page d'accueil"
-	},
-	"modified": "2020-06-25",
-	"componentName": "home",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Home - Canada.ca",
-				"language": "en",
-				"path": "home-en.html"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			{
-				"title": "Accueil - Canada.ca",
-				"language": "fr",
-				"path": "home-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "API documentations",
-				"language": "en",
-				"path": "api-en.html"
-			},
-			{
-				"title": "Documentation API",
-				"language": "fr",
-				"path": "api-fr.html"
-			}
-		],
-		"reports": [
-			{
-				"title": "Pre-accessibility assessment #1",
-				"language": "en",
-				"path": "reports/pre-a11y-1-en.html"
-			},
-			{
-				"title": "Évaluation de pré-accessibilité #1",
-				"language": "fr",
-				"path": "reports/pre-a11y-1-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Other template",
-		"fr": "Autre gabarit"
-	},
-	"description": {
-		"en": "Template included but need to move in its own folder.",
-		"fr": "Gabarit inclus mais qu'il nécessite qu'ils soit déplacé dans son propre dossier."
-	},
-	"modified": "2021-12-09",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Stay connected",
-				"language": "en",
-				"path": "widgets-en.html"
-			},
-			{
-				"title": "Restez branché",
-				"language": "fr",
-				"path": "widgets-fr.html"
-			},
-			{
-				"title": "[Theme title]",
-				"language": "en",
-				"type": "content-type",
-				"path": "theme-en.html"
-			},
-			{
-				"title": "[Titre du thème]",
-				"language": "fr",
-				"path": "theme-fr.html"
-			},
-
-			{
-				"title": "Departments and agencies",
-				"language": "en",
-				"type": "site-wide",
-				"path": "dept-en.html"
-			},
-			{
-				"title": "Ministères et organismes",
-				"language": "fr",
-				"path": "dept-fr.html"
-			},
-
-			{
-				"title": "Promotional events page (Campaign?)",
-				"language": "en",
-				"path": "event-en.html"
-			},
-			{
-				"title": "Activité promotionnel (Campagne?)",
-				"language": "fr",
-				"path": "event-fr.html"
-			},
-
-			{
-				"title": "Feedback form",
-				"type": "specialized",
-				"language": "en",
-				"path": "feedback-en.html"
-			},
-			{
-				"title": "Formulaire de rétroaction",
-				"language": "fr",
-				"path": "feedback-fr.html"
-			},
-
-			{
-				"title": "[Audience name]",
-				"language": "en",
-				"path": "gc-audience-en.html"
-			},
-			{
-				"title": "[Public cible]",
-				"language": "fr",
-				"path": "gc-audience-fr.html"
-			},
-
-			{
-				"title": "Service initiation - Might deprecated",
-				"language": "en",
-				"path": "service-en.html"
-			},
-			{
-				"title": "Initiation de service - Probablement désuet",
-				"language": "fr",
-				"path": "service-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Index",
-		"fr": "Index"
-	},
-	"description": {
-		"en": "Index templates",
-		"fr": "Gabarit d'index"
-	},
-	"modified": "2018-07-12",
-	"componentName": "index",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Long index page]",
-				"language": "en",
-				"path": "longindex-en.html"
-			},
-			{
-				"title": "[Page d’index long]",
-				"language": "fr",
-				"path": "longindex-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "API documentations",
-				"language": "en",
-				"path": "api.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Institutional landing page",
-		"fr": "Page d'accueil institutionnelle"
-	},
-	"description": {
-		"en": "Institutional landing page template documentation and working example.",
-		"fr": "Documentation et exemple pratique de la page d'accueil institutionnelle"
-	},
-	"modified": "2024-04-16",
-	"componentName": "institutional-landing",
-	"status": "stable",
-	"version": "2.0.0",
-	"pages": {
-		"docs": [
-			{
-				"title": "Institutional landing page",
-				"language": "en",
-				"path": "institutional-landing-doc-en.html"
-			},
-			{
-				"title": "Page d'accueil institutionnelle",
-				"language": "fr",
-				"path": "institutional-landing-doc-fr.html"
-			}
-		],
-		"examples": [
-			{
-				"title": "Institutional landing page",
-				"language": "en",
-				"path": "institutional-landing-en.html"
-			},
-			{
-				"title": "Page d'accueil institutionnelle",
-				"language": "fr",
-				"path": "institutional-landing-fr.html"
-			}
-		],
-		"reports": [
-			{
-				"title": "Accessibility assessment #1 - Institutional template",
-				"language": "en",
-				"path": "reports/a11y-1-en.html"
-			},
-			{
-				"title": "Évaluation d'accessibilité #1 - Modèle institutionnel",
-				"language": "fr",
-				"path": "reports/a11y-1-fr.html"
-			},
-			{
-				"title": "Accessibility assessment #2 - Institutional template",
-				"language": "en",
-				"path": "reports/a11y-2-en.html"
-			},
-			{
-				"title": "Évaluation d'accessibilité #2 - Modèle institutionnel",
-				"language": "fr",
-				"path": "reports/a11y-2-fr.html"
-			}
-		]
-	},
-	"dependencies": {
-		"en": [
-			{ "title": "Intro block", "url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-en.html", "component": "gc-intro" },
-			{ "title": "Featured link", "url": "https://wet-boew.github.io/GCWeb/components/gc-featured-link/gc-featured-link-doc-en.html", "component": "gc-featured-link" },
-			{ "title": "Most requested", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html", "component": "gc-most-requested" },
-			{ "title": "Services and information", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html", "component": "gc-srvinfo" },
-			{ "title": "Social media channels", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-en.html", "component": "gc-follow-us" },
-			{ "title": "Minister or institutional head", "url": "https://wet-boew.github.io/GCWeb/components/gc-minister/gc-minister-doc-en.html", "component": "gc-minister" }
-		],
-		"fr": [
-			{ "title": "Bloc d'introduction", "url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-fr.html", "component": "gc-intro" },
-			{ "title": "Lien en vedette", "url": "https://wet-boew.github.io/GCWeb/components/gc-featured-link/gc-featured-link-doc-fr.html", "component": "gc-featured-link" },
-			{ "title": "En demande", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html", "component": "gc-most-requested" },
-			{ "title": "Services et renseignements", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html", "component": "gc-srvinfo" },
-			{ "title": "Bloc des réseaux de médias sociaux", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-fr.html", "component": "gc-follow-us" },
-			{ "title": "Ministre ou chef d’institution", "url": "https://wet-boew.github.io/GCWeb/components/gc-minister/gc-minister-doc-fr.html", "component": "gc-minister" }
-		]
-	},
-	"a11yGuidance": "No accessibility guidance.",
-	"variations": [
-		{
-			"name": {
-				"en": "Institutional landing page",
-				"fr": "Pages d'accueil institutionnelle"
-			},
-			"status": "stable",
 			"description": {
-				"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
-				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			"guidance": {
-				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
-				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
-			},
-			"iteration": "_:iteration_ilp_3",
-			"example": [
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "All services",
+			"fr": "Tous les services"
+		},
+		"description": {
+			"en": "All services page template.",
+			"fr": "Gabarit de page pour tous les services."
+		},
+		"modified": "2025-01-09",
+		"componentName": "all-services",
+		"status": "stable",
+		"version": "1.1",
+		"pages": {
+			"examples": [
 				{
-					"en": { "href": "institutional-landing-en.html", "text": "Institutional landing page" },
-					"fr": { "href": "institutional-landing-fr.html", "text": "Pages d'accueil institutionnelle" }
-				}
-			],
-			"implementation": [
-				"_:implement_ilp",
-				"_:implement_ilp_aem"
-			],
-			"history": [
-				{
-					"en": "March 2024 - Stabilization of the version 2 of the page template.",
-					"fr": "Mars 2024 - Stabilisation de la version 2 du gabarit de page."
+					"title": "All services",
+					"language": "en",
+					"path": "all-services-en.html"
 				},
 				{
-					"en": "June 2021 - Provisional implementation of the version 2 of the page template.",
-					"fr": "Juin 2021 - Implémentation provisoire de la version 2 du gabarit de page."
+					"title": "Tous les services",
+					"language": "fr",
+					"path": "all-services-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "All services",
+					"language": "en",
+					"path": "all-services-doc-en.html"
 				},
 				{
-					"en": "April 2014 - Implementation of the version 1 of the page template.",
-					"fr": "Avril 2014 - Implémentation de la version 1 du gabarit de page."
+					"title": "Tous les services",
+					"language": "fr",
+					"path": "all-services-doc-fr.html"
 				}
 			]
-		}
-	],
-	"implementation": [
-		{
-			"@id": "_:implement_ilp",
-			"iteration": "_:iteration_ilp_3",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
-			},
-			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the template manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
-			},
-			"instructions": {
-				"en": [
-					"Add the CSS class <code>.page-type-ilp</code> to the page's <code>&lt;body></code> element.",
-					"Refer to the working example for a code sample.",
-					"Refer to the working example and guidance for more information on how to implement this page template."
-				],
-				"fr": [
-					"Ajoutez la classe CSS <code>.page-type-ilp</code> sur l'élément <code>&lt;body></code> de la page.",
-					"Reportez-vous à l'exemple pratique pour un exemple de code.",
-					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"notes": {
-				"en": [
-					"Not adding the required CSS class (<code>.page-type-ilp</code>) will result in the styles specific to this template not being applied. We did implement a temporary workaround as a transition to this new template. The workaround is going to be removed at the same time as the demoted/deprecated ILP version 1."
-				],
-				"fr": [
-					"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-ilp</code>), les styles spécifiques à ce gabarit ne seront pas appliqués. Nous avons mis en œuvre une solution de contournement temporaire en guise de transition vers ce nouveau modèle. La solution de contournement sera supprimée en même temps que la version 1 de la PAI rétrogradée/obsolète."
-				]
-			}
 		},
-		{
-			"@id": "_:implement_ilp_aem",
-			"iteration": "_:iteration_ilp_3",
-			"name": {
-				"en": "AEM users",
-				"fr": "Utilisateurs AEM"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-			},
-			"instructions": {
-				"en": [
-					"Create a page with the <strong>Generic template</strong>",
-					"Applying Content type (navigation page – institutional profile) via the page <strong>Properties</strong> -> <strong>Basic tab</strong> -> <strong>Content type</strong>, set the value to “<strong>navigation page – institutional profile</strong>”.",
-					"Configure Page container manually via the page <strong>Properties</strong> -> <strong>Template options</strong> tab -> <strong>Advanced</strong>, check “<strong>Page container: Configure manually</strong>”.",
-					"Configure your ILP page. The ILP page contains several GCWeb components. Each component has its own configuration which you can adapt as per your institutional needs. Please see individual component for more details about their configurable options.",
-					"Remove the <strong>H1 Title</strong>.",
-					"Add the ILP HTML code with a <strong>Generic HTML component</strong> component.",
-					"Edit the ILP HTML code"
-				],
-				"fr": [
-					"Créez une page avec le gabarit de <strong>Page générique</strong>.",
-					"En appliquant Type de contenu (page de navigation – profil institutionnel) via les <strong>Propriétés</strong> de la page -> Onglet <strong>De base</strong> -> <strong>Type de contenu</strong>, définissez la valeur sur «&nbsp;<strong>page de navigation – profil institutionnel</strong>&nbsp;».",
-					"Configurez manuellement le conteneur de pages dans les <strong>Propriétés</strong> via l'onglet  -> <strong>Options du gabarit</strong> -> <strong>Avancé</strong>, cochez «&nbsp;<strong>Conteneur de page&nbsp;: configurer manuellement</strong>&nbsp;».",
-					"Configurez votre page PAI. La page PAI contient plusieurs composants GCWeb. Chaque composant a sa propre configuration que vous pouvez adapter selon vos besoins institutionnels. Veuillez consulter chaque composant pour plus de détails sur leurs options configurables.",
-					"Supprimez le <strong>Titre H1</strong>.",
-					"Ajoutez le code HTML PAI avec un composant <strong>Composant HTML générique</strong>.",
-					"Modifiez le code HTML de la PAI"
-				]
-			},
-			"notes": {
-				"en": [
-					"For a more detailed implementation guide, a document has been created on the <a href='https://www.gcpedia.gc.ca/wiki/AEM_GC-specific_Documentation_6.5'>AEM learning material on GCPedia</a>, which includes screenshots and detailed step by step instructions."
-				],
-				"fr": [
-					"Pour un guide de mise en œuvre plus détaillé, un document a été créé dans la section du <a href='https://www.gcpedia.gc.ca/wiki/Documentation_d%27AEM_sp%C3%A9cifique_au_GC_6.5'>matériel d'apprentissage d'AEM sur GCPedia</a>, qui comprend des captures d'écran et des instructions détaillées étape par étape."
-				]
-			},
-			"ajaxSourceCode": {
-				"en": "institutional-landing-en.html main > *:not(.pagedetails)",
-				"fr": "institutional-landing-fr.html main > *:not(.pagedetails)"
-			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_ilp_3",
-			"name": "Institutional landing page - Iteration 3",
-			"date": "2024-03",
-			"breaking": [
-				"Stabilization of the page template."
-			],
-			"detectableBy": ".page-type-ilp"
-		},
-		{
-			"@id": "_:iteration_ilp_2",
-			"name": "Institutional landing page - Iteration 2",
-			"date": "2021-06",
-			"detectableBy": "Social media channels have the horizontal layout. About the institution and social media channels are on a white background.",
-			"example": {
-				"en": [
+		"a11yGuidance": "No accessibility guidance.",
+		"variations": [
+			{
+				"name": {
+					"en": "All services",
+					"fr": "Tous les services"
+				},
+				"status": "stable",
+				"description": {
+					"en": "All services page template.",
+					"fr": "Gabarit de page pour tous les services."
+				},
+				"iteration": "_:iteration_allservices_2",
+				"example": [
 					{
-						"href": "deprecated/institution-landing-en.html",
-						"text": "Institutional landing page version 2 (beta)"
+						"en": {
+							"href": "all-services-en.html",
+							"text": "All services"
+						},
+						"fr": {
+							"href": "all-services-fr.html",
+							"text": "Tous les services"
+						}
 					}
 				],
-				"fr": [
+				"implementation": [
+					"_:implement_allservices"
+				],
+				"history": [
 					{
-						"href": "deprecated/institution-landing-fr.html",
-						"text": "Page d'accueil institutionnelle version 2 (bêta)"
+						"en": "November 2024 - Initial implementation of the page template.",
+						"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
 					}
 				]
 			}
-		},
-		{
-			"@id": "_:iteration_ilp_1",
-			"name": "Institutional landing page - Iteration 1",
-			"date": "2014-04",
-			"detectableBy": "Social media channels at top right. Latest news directly under intro block.",
-			"example": {
-				"en": [
-					{
-						"href": "deprecated/institution-en.html",
-						"text": "Institutional landing page version 1"
-					}
+		],
+		"implementation": [
+			{
+				"@id": "_:implement_allservices",
+				"iteration": "_:iteration_allservices_2",
+				"name": {
+					"en": "Standard",
+					"fr": "Standard"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"Refer to the working example and guidance for more information on how to implement this page template."
+					],
+					"fr": [
+						"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+					]
+				},
+				"ajaxSourceCode": {
+					"en": "all-services-en.html main > *:not(.pagedetails)",
+					"fr": "all-services-fr.html main > *:not(.pagedetails)"
+				}
+			}
+		],
+		"iteration": [
+			{
+				"@id": "_:iteration_allservices_2",
+				"name": "All services page - Iteration 2",
+				"date": "2025-01",
+				"additions": [
+					"Adding expand/collapse all buttons."
 				],
-				"fr": [
-					{
-						"href": "deprecated/institution-fr.html",
-						"text": "Page d'accueil institutionnelle version 1"
-					}
+				"detectableBy": "Three navigation bands followed by an expand all and a collapse all button followed by a series of <details> elements for all goc themes and topics."
+			},
+			{
+				"@id": "_:iteration_allservices_1",
+				"name": "All services page - Iteration 1",
+				"date": "2024-11",
+				"detectableBy": "Three navigation bands followed by a series of <details> elements for all goc themes and topics."
+			}
+		],
+		"changesets": [
+			{
+				"@id": "_:cs_allservices",
+				"name": "All services page",
+				"status": "stable",
+				"baseOnIteration": "_:iteration_allservices_2",
+				"detectableBy": "By the sequence of elements.",
+				"semantic": "h1 + h2*3 + h1 + h2*n",
+				"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
+				"context": "This page template is strictly limited to the All services page located on Canada.ca.",
+				"layout": [
+					"Top searches navigation band",
+					"Most requested services navigation band",
+					"Supporting through life's transitions navigation band",
+					"Most requested - version 1 (optional)",
+					"Series of <details> elements for all goc themes and topics"
 				]
 			}
-		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_ilp_2",
-			"name": "Institutional landing page",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_ilp_3",
-			"detectableBy": ".page-type-ilp",
-			"layout": [
-				"Intro block",
-				"Featured link - version 1",
-				"Most requested - version 1",
-				"Services and information - version 3",
-				"[Contact us static title with links distributed over 3 columns in well-sm]",
-				"About the institution [.col-md-8] + Social media channels - version 1 [.col-md-4]",
-				"Minister - version 1",
-				"News feed - version 1.1 [.col-md-4] + Context-specific features two-tiles right-aligned - version 5 [.col-md-8]"
-			],
-			"test": [
-				"<a href=\"institutional-landing-bad.html\">Implementation of ILP without template class</a>"
-			]
-		}
-	]
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Institutional profile",
-		"fr": "Profil institutionnel"
-	},
-	"description": {
-		"en": "Institutional profile templates",
-		"fr": "Gabarit à propos de page de profil institutionnel"
-	},
-	"modified": "2024-03-30",
-	"componentName": "institutional",
-	"status": "stable",
-	"version": "1.0.0",
-	"pages": {
-		"examples": [
-			{
-				"title": "Contact [Institution name]",
-				"language": "en",
-				"path": "institution-contact-en.html"
-			},
-			{
-				"title": "Coordonnées [nom de l’institution]",
-				"language": "fr",
-				"path": "institution-contact-fr.html"
-			},
-			{
-				"title": "[Institution] service performance reporting for fiscal year 2015 to 2016",
-				"language": "en",
-				"path": "institutional-service-performance-en.html"
-			},
-			{
-				"title": "Compte rendu du rendement des services de [Nom de l’institution] pour l’exercice financier de 2015 à 2016",
-				"language": "fr",
-				"path": "institutional-service-performance-fr.html"
-			},
-			{
-				"title": "arm’s length - [Institution Name]",
-				"language": "en",
-				"path": "institution-arms-en.html"
-			},
-			{
-				"title": "organisme indépendamment - [Nom de l’institution]",
-				"language": "fr",
-				"path": "institution-arms-fr.html"
-			}
-		],
-		"related": [
-			{
-				"title": "GCWU theme - English institution template",
-				"language": "en",
-				"url": "https://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-en.html"
-			},
-			{
-				"title": "Thème FEGC - Français - Gabarit de profil institutionnel",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Laws and regulations pages",
-		"fr": "Pages des lois et des règlements"
-	},
-	"description": {
-		"en": "The laws and regulations collection provides access to Government of Canada acts and regulations through their individual profiles.",
-		"fr": "La collection des lois et règlements donne accès aux lois et règlements du gouvernement du Canada par l’intermédiaire de leur profil respectif."
-	},
-	"modified": "2021-04-11",
-	"componentName": "legislation",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Act name] <small>([NN-XX])</small>",
-				"language": "en",
-				"path": "act-en.html"
-			},
-			{
-				"title": "[Titre de la loi] <small>([NN-XX])</small>",
-				"language": "fr",
-				"path": "act-fr.html"
-			},
-			{
-				"title": "[Regulation name] <small>([NN-XX])</small>",
-				"language": "en",
-				"path": "regulations-en.html"
-			},
-			{
-				"title": "[Nom du règlement] <small>([NN-XX])</small>",
-				"language": "fr",
-				"path": "regulations-fr.html"
-			}
-		],
-		"spec": [
-			{
-				"title": "Pages des lois et des règlements - Modèle de Canada.ca",
-				"language": "fr",
-				"url": "https://conception.canada.ca/modeles-recommandes/pages-lois-reglements.html"
-			},
-			{
-				"title": "Laws and regulations pages - Canada.ca template",
-				"language": "en",
-				"url": "https://design.canada.ca/recommended-templates/laws-regulations-pages.html"
-			}
-
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Ministerial profile",
-		"fr": "Profile ministériel"
-	},
-	"description": {
-		"en": "Ministerial profile templates documentation and example",
-		"fr": "Documentation et exemple de page Profile ministériel."
-	},
-	"modified": "2021-12-02",
-	"componentName": "ministerial",
-	"status": "stable",
-	"pages": {
-		"docs": [
-
-			{
-				"title": "Ministerial profile page",
-				"language": "en",
-				"path": "ministerial-doc-en.html"
-			},
-			{
-				"title": "Page de Profile ministériel",
-				"language": "fr",
-				"path": "ministerial-doc-fr.html"
-			}
-		],
-		"examples": [
-
-			{
-				"title": "Ministerial profile",
-				"language": "en",
-				"path": "ministerial-en.html"
-			},
-			{
-				"title": "Profile ministériel",
-				"language": "fr",
-				"path": "ministerial-fr.html"
-			},
-			{
-				"title": "Ministerial profile - swearing-in day",
-				"language": "en",
-				"path": "ministerial-reduced-en.html"
-			},
-			{
-				"title": "Profile ministériel - jour d'assermentation",
-				"language": "fr",
-				"path": "ministerial-reduced-fr.html"
-			},
-			{
-				"title": "Parliamentary secretaries profile - swearing-in day",
-				"language": "en",
-				"path": "parliamentary-secretaries-reduced-en.html"
-			},
-			{
-				"title": "Profile des secrétaires parlementaires - jour d'assermentation",
-				"language": "fr",
-				"path": "parliamentary-secretaries-reduced-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "News",
-		"fr": "Nouvelles"
-	},
-	"description": {
-		"en": "News templates samples",
-		"fr": "Exemple de page générique."
-	},
-	"modified": "2025-04-16",
-	"componentName": "news",
-	"status": "stable",
-	"pages": {
-		"docs": [
-
-			{
-				"title": "News page",
-				"language": "en",
-				"path": "news-doc-en.html"
-			},
-			{
-				"title": "Page de nouvelles",
-				"language": "fr",
-				"path": "news-doc-fr.html"
-			}
-		],
-		"examples": [
-			{
-				"title": "News",
-				"language": "en",
-				"path": "news-en.html"
-			},
-			{
-				"title": "Page de contenu",
-				"language": "fr",
-				"path": "news-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Organizational profile",
-		"fr": "Profil organisationnel"
-	},
-	"description": {
-		"en": "Organizational profile templates",
-		"fr": "Gabarit à propos de page de profil organisationnel"
-	},
-	"modified": "2017-12-05",
-	"componentName": "organizational",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Organization Name]",
-				"language": "en",
-				"path": "organizational-en.html"
-			},
-			{
-				"title": "[Nom de l’organisme]",
-				"language": "fr",
-				"path": "organizational-fr.html"
-			},
-			{
-				"title": "arm’s length - [Organization Name]",
-				"language": "en",
-				"path": "organizational-arms-en.html"
-			},
-			{
-				"title": "organisme indépendamment - [Nom de l’organisme]",
-				"language": "fr",
-				"path": "organizational-arms-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Search results",
-		"fr": "Résultats de la recherche"
-	},
-	"description": {
-		"en": "Search templates",
-		"fr": "Gabarit pour les pages de recherche"
-	},
-	"modified": "2022-07-06",
-	"componentName": "search",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Search results",
-				"language": "en",
-				"path": "results-en.html"
-			},
-			{
-				"title": "Résultats de la recherche",
-				"language": "fr",
-				"path": "results-fr.html"
-			},
-
-			{
-				"title": "Search facets/filters results",
-				"language": "en",
-				"path": "results-filters-en.html"
-			},
-			{
-				"title": "avec filtre",
-				"language": "fr",
-				"path": "results-filters-fr.html"
-			},
-
-			{
-				"title": "Contextual",
-				"language": "en",
-				"path": "results-contextual-en.html"
-			},
-			{
-				"title": "Contextuel",
-				"language": "fr",
-				"path": "results-contextual-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "API documentations",
-				"language": "en",
-				"path": "api-en.html"
-			}
-		],
-		"impl-ref": [
-			{
-				"title": "Pagination for search templates",
-				"language": "en",
-				"path": "test-pagination.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Server error message",
-		"fr": "Message d'erreur serveur"
-	},
-	"description": {
-		"en": "Error server page",
-		"fr": "Exemple de page d'erreur serveur."
-	},
-	"modified": "2020-06-04",
-	"componentName": "servermessage",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme",
-				"language": "en",
-				"path": "404-en.html"
-			},
-			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
-				"language": "fr",
-				"path": "404-fr.html"
-			},
-			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme / Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
-				"language": "en",
-				"path": "404-en-fr.html"
-			},
-			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / We couldn't find that Web page (Error 404) - Canada.ca theme",
-				"language": "fr",
-				"path": "404-fr-en.html"
-			},
-
-
-			{
-				"title": "Message title - Canada.ca theme",
-				"language": "en",
-				"path": "servermessage-en.html"
-			},
-			{
-				"title": "Titre du message - Thème Canada.ca",
-				"language": "fr",
-				"path": "servermessage-fr.html"
-			},
-			{
-				"title": "Message title - Canada.ca theme / Titre du message - Thème Canada.ca",
-				"language": "en",
-				"path": "servermessage-en-fr.html"
-			},
-			{
-				"title": "Titre du message - Thème Canada.ca / Message title - Canada.ca theme",
-				"language": "fr",
-				"path": "servermessage-fr-en.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Splash page - Canada.ca",
-		"fr": "Écran d'accueil - Canada.ca"
-	},
-	"description": {
-		"en": "Splash page example",
-		"fr": "Exemple d'écran d'accueil"
-	},
-	"modified": "2022-09-28",
-	"componentName": "splash",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Splash page example",
-				"language": "en",
-				"path": "splashpage-en.html"
-			},
-			{
-				"title": "Exemple d'écran d'accueil",
-				"language": "fr",
-				"path": "splashpage-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Splash page",
-				"language": "en",
-				"path": "api-en.html"
-			},
-			{
-				"title": "Écran d'accueil",
-				"language": "fr",
-				"path": "api-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Thematic",
-		"fr": "Thématique"
-	},
-	"description": {
-		"en": "Site variant where a thematic is applied",
-		"fr": "Variante de site afin d'appliquer une thématique"
-	},
-	"modified": "2017-12-05",
-	"componentName": "thematic",
-	"status": "provisional",
-	"pages": {
-		"docs": [
-			{
-				"title": "Pink Day - Deprecated as of GCWeb v16.0.0",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/pinkday/docs-en.html"
-			},
-			{
-				"title": "Journée rose - Obsolète à partir de GCWeb v16.0.0",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/pinkday/docs-fr.html"
-			}
-		],
-		"examples": [
-			{
-				"title": "Pink Day - Deprecated as of GCWeb v16.0.0",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/pinkday/pink-day-en.html"
-			},
-			{
-				"title": "Journée rose - Obsolète à partir de GCWeb v16.0.0",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/pinkday/pink-day-fr.html"
-			},
-			{
-				"title": "Pink Day - Home - Deprecated as of GCWeb v16.0.0",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/pinkday/pink-day-home-en.html"
-			},
-			{
-				"title": "Journée rose - Accueil - Obsolète à partir de GCWeb v16.0.0",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/pinkday/pink-day-home-fr.html"
-			},
-			{
-				"title": "Dark theme",
-				"language": "en",
-				"path": "dark-theme-en.html"
-			},
-			{
-				"title": "Thème sombre",
-				"language": "fr",
-				"path": "dark-theme-fr.html"
-			},
-			{
-				"title": "Dark theme - Home",
-				"language": "en",
-				"path": "dark-theme-home-en.html"
-			},
-			{
-				"title": "Thème sombre - Accueil",
-				"language": "fr",
-				"path": "dark-theme-home-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Theme",
-		"fr": "Thème"
-	},
-	"description": {
-		"en": "Theme page template",
-		"fr": "Gabarit de page thème"
-	},
-	"modified": "2020-02-12",
-	"componentName": "theme",
-	"status": "stable",
-	"version": "2.0",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Theme]",
-				"language": "en",
-				"path": "theme-en.html"
-			},
-			{
-				"title": "[Thème]",
-				"language": "fr",
-				"path": "theme-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Theme page",
-				"language": "en",
-				"path": "theme-doc-en.html"
-			},
-			{
-				"title": "Page de thème",
-				"language": "fr",
-				"path": "theme-doc-fr.html"
-			}
-		],
-		"reports": [
-			{
-				"title": "Accessibility assessment #1 - GC theme template",
-				"language": "en",
-				"path": "reports/a11y-1-en.html"
-			},
-			{
-				"title": "Évaluation d'accessibilité #1 - Modèle de thème GC",
-				"language": "fr",
-				"path": "reports/a11y-1-fr.html"
-			}
 		]
 	},
-	"dependencies": {
-		"en": [
-			{ "title": "Most requested", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html", "component": "gc-most-requested" },
-			{ "title": "Services and information", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html", "component": "gc-srvinfo" }
-		],
-		"fr": [
-			{ "title": "En demande", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html", "component": "gc-most-requested" },
-			{ "title": "Services et renseignements", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html", "component": "gc-srvinfo" }
-		]
-	},
-	"a11yGuidance": "No accessibility guidance.",
-	"variations": [
-		{
-			"name": {
-				"en": "Theme page",
-				"fr": "Page de thème"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			"status": "stable",
 			"description": {
-				"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
-				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			"guidance": {
-				"en": "https://design.canada.ca/mandatory-templates/theme.html",
-				"fr": "https://conception.canada.ca/modeles-obligatoire/theme.html"
-			},
-			"iteration": "_:iteration_theme_1",
-			"example": [
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Application",
+			"fr": "Application"
+		},
+		"description": {
+			"en": "Application templates samples.",
+			"fr": "Exemples de pages d'application."
+		},
+		"modified": "2023-10-13",
+		"componentName": "application",
+		"status": "stable",
+		"pages": {
+			"docs": [
 				{
-					"en": { "href": "theme-en.html", "text": "Theme page" },
-					"fr": { "href": "theme-fr.html", "text": "Pages de thème" }
-				}
-			],
-			"implementation": [
-				"_:implement_theme",
-				"_:implement_theme_aem"
-			],
-			"history": [
-				{
-					"en": "May 2025 - Introduction of the new theme template",
-					"fr": "Mai 2025 - Introduction du nouveau gabarit de page thème."
+					"title": "Application template documentation",
+					"language": "en",
+					"path": "application-docs-en.html"
 				},
 				{
-					"en": "July 2024 - Initial draft - Introduction of the new theme template.",
-					"fr": "Juillet 2024 - Première ébauche - Introduction du nouveau gabarit de page thème."
+					"title": "Documentation du gabarit de page d'application",
+					"language": "fr",
+					"path": "application-docs-fr.html"
+				}
+			],
+			"examples": [
+				{
+					"title": "Default application page",
+					"language": "en",
+					"path": "default-application-en.html"
+				},
+				{
+					"title": "Page d'application par défaut",
+					"language": "fr",
+					"path": "default-application-fr.html"
+				},
+				{
+					"title": "Application page with informational banner",
+					"language": "en",
+					"path": "application-with-banner-en.html"
+				},
+				{
+					"title": "Page d'application avec bannière informative",
+					"language": "fr",
+					"path": "application-with-banner-fr.html"
 				}
 			]
 		}
-	],
-	"implementation": [
-		{
-			"@id": "_:implement_theme",
-			"iteration": "_:iteration_theme_1",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the template manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			"instructions": {
-				"en": [
-					"Add the CSS class <code>.page-type-theme</code> to the page's <code>&lt;body></code> element.",
-					"The CSS class <code>.active</code> must be added to the current page's <code>&lt;li></code>.",
-					"Refer to the working example for a code sample.",
-					"Refer to the working example and guidance for more information on how to implement this page template."
-				],
-				"fr": [
-					"Ajoutez la classe CSS <code>.page-type-theme</code> sur l'élément <code>&lt;body></code> de la page.",
-					"La classe CSS <code>.active</code> doit être ajoutée au <code>&lt;li></code> de la page courante.",
-					"Reportez-vous à l'exemple pratique pour un exemple de code.",
-					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"notes": {
-				"en": [
-					"The version 2.0 of this template is a complete rewrite of the version 1.0.",
-					"Not adding the required CSS class (<code>.page-type-theme</code>) will result in the styles specific to this template not being applied."
-				],
-				"fr": [
-					"La version 2.0 de ce gabarit est une réécriture entière de la version 1.0.",
-					"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-theme</code>), les styles spécifiques à ce gabarit ne seront pas appliqués."
-				]
-			}
+			"modified": "dct:modified"
 		},
-		{
-			"@id": "_:implement_theme_aem",
-			"iteration": "_:iteration_theme_1",
-			"name": {
-				"en": "AEM users",
-				"fr": "Utilisateurs AEM"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-			},
-			"instructions": {
-				"en": [
-					"TBD"
-				],
-				"fr": [
-					"TBD"
-				]
-			},
-			"notes": {
-				"en": [
-					"For a more detailed implementation guide, a document has been created on the <a href='https://www.gcpedia.gc.ca/wiki/AEM_GC-specific_Documentation_6.5'>AEM learning material on GCPedia</a>, which includes screenshots and detailed step by step instructions."
-				],
-				"fr": [
-					"Pour un guide de mise en œuvre plus détaillé, un document a été créé dans la section du <a href='https://www.gcpedia.gc.ca/wiki/Documentation_d%27AEM_sp%C3%A9cifique_au_GC_6.5'>matériel d'apprentissage d'AEM sur GCPedia</a>, qui comprend des captures d'écran et des instructions détaillées étape par étape."
-				]
-			},
-			"ajaxSourceCode": {
-				"en": "theme-en.html main > *:not(.pagedetails)",
-				"fr": "theme-fr.html main > *:not(.pagedetails)"
-			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_theme_1",
-			"name": "Theme page - Iteration 1",
-			"date": "2024-07",
-			"breaking": [
-				"Introduction of the page template."
+		"title": {
+			"en": "Campaign name",
+			"fr": "Bêta - Message d'erreur serveur"
+		},
+		"description": {
+			"en": "Campaign name templates samples",
+			"fr": "Exemple de page d'erreur serveur."
+		},
+		"modified": "2020-04-16",
+		"componentName": "campaign",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Campaign name",
+					"language": "en",
+					"path": "campaign-en.html"
+				},
+				{
+					"title": "Nom de la campagne",
+					"language": "fr",
+					"path": "campaign-fr.html"
+				},
+				{
+					"title": "Campaign name 2",
+					"language": "en",
+					"path": "campaign2-en.html"
+				},
+				{
+					"title": "Nom de la campagne 2",
+					"language": "fr",
+					"path": "campaign2-fr.html"
+				}
 			],
-			"detectableBy": ".page-type-theme",
-			"notes": [
-				"The H1 is exempt from the default styling (bottom red line). Confirmed by DTO on July 17th, 2024.",
-				"The breadcrumbs has specific styling <strong>only</strong> for Theme pages. Confirmed by DTO on July 8th, 2024."
+			"docs": [
+				{
+					"title": "API documentations",
+					"language": "en",
+					"path": "api.html"
+				}
 			]
 		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_theme",
-			"name": "Theme page",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_theme_1",
-			"detectableBy": ".page-type-theme",
-			"layout": [
-				"On larger screens, navigation on the left and page content on the right.",
-				"In the page content section, from top to bottom: page title, most requested, services and information."
-			],
-			"style": [
-				"The breadcrumbs first element has a left dark blue border.",
-				"The left navigation's active page has a dark-blue background and white text.",
-				"A vertical blue bar separates the left navigation from the content on the right.",
-				"On larger screens, the most requested component's heading is above the list rather than to the left."
-			],
-			"semantic": "h2 + (ul > li)",
-			"behaviour": "On smaller screens, the navigation is hidden by default and is replaced by a \"Menu\" button which can be clicked to toggle the visibility of the navigation.",
-			"basic": "On smaller screens the navigation is always visible and the button to toggle the navigation is hidden.",
-			"context": "This template is only meant for Theme pages.",
-			"static": [
-				"Menu",
-				"Toggle Menu",
-				"Basculer le menu"
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Content page",
+			"fr": "Page de contenu"
+		},
+		"description": {
+			"en": "Blank content pages with text sample.",
+			"fr": "Pages de contenu vides avec exemple de texte."
+		},
+		"modified": "2023-08-24",
+		"componentName": "content-page",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Content page",
+					"language": "en",
+					"type": "general",
+					"path": "content-en.html"
+				},
+				{
+					"title": "Page de contenu",
+					"language": "fr",
+					"path": "content-fr.html"
+				},
+				{
+					"title": "Fluid content page",
+					"language": "en",
+					"path": "content-fluid-en.html"
+				},
+				{
+					"title": "Page de contenu fluide",
+					"language": "fr",
+					"path": "content-fluid-fr.html"
+				},
+				{
+					"title": "Content page - Limited width content",
+					"language": "en",
+					"path": "content-limit-en.html"
+				},
+				{
+					"title": "Page de contenu - Largeur de contenu limitée",
+					"language": "fr",
+					"path": "content-limit-fr.html"
+				},
+				{
+					"title": "Content page - GCWeb 4.0.29 font stylee",
+					"language": "en",
+					"path": "content-gcweb-4-0-29-font-style-en.html"
+				},
+				{
+					"title": "Page de contenu - Police de caractère de GCWeb 4.0.29",
+					"language": "fr",
+					"path": "content-gcweb-4-0-29-font-style-fr.html"
+				}
 			]
 		}
-	]
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
 	},
-	"title": {
-		"en": "Topic",
-		"fr": "Sujet"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Home",
+			"fr": "Accueil"
+		},
+		"description": {
+			"en": "Home templates",
+			"fr": "Gabarit de la page d'accueil"
+		},
+		"modified": "2020-06-25",
+		"componentName": "home",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Home - Canada.ca",
+					"language": "en",
+					"path": "home-en.html"
+				},
+				{
+					"title": "Accueil - Canada.ca",
+					"language": "fr",
+					"path": "home-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "API documentations",
+					"language": "en",
+					"path": "api-en.html"
+				},
+				{
+					"title": "Documentation API",
+					"language": "fr",
+					"path": "api-fr.html"
+				}
+			],
+			"reports": [
+				{
+					"title": "Pre-accessibility assessment #1",
+					"language": "en",
+					"path": "reports/pre-a11y-1-en.html"
+				},
+				{
+					"title": "Évaluation de pré-accessibilité #1",
+					"language": "fr",
+					"path": "reports/pre-a11y-1-fr.html"
+				}
+			]
+		}
 	},
-	"description": {
-		"en": "Topic template examples",
-		"fr": "Exemples de page de sujets"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Other template",
+			"fr": "Autre gabarit"
+		},
+		"description": {
+			"en": "Template included but need to move in its own folder.",
+			"fr": "Gabarit inclus mais qu'il nécessite qu'ils soit déplacé dans son propre dossier."
+		},
+		"modified": "2021-12-09",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Stay connected",
+					"language": "en",
+					"path": "widgets-en.html"
+				},
+				{
+					"title": "Restez branché",
+					"language": "fr",
+					"path": "widgets-fr.html"
+				},
+				{
+					"title": "[Theme title]",
+					"language": "en",
+					"type": "content-type",
+					"path": "theme-en.html"
+				},
+				{
+					"title": "[Titre du thème]",
+					"language": "fr",
+					"path": "theme-fr.html"
+				},
+				{
+					"title": "Departments and agencies",
+					"language": "en",
+					"type": "site-wide",
+					"path": "dept-en.html"
+				},
+				{
+					"title": "Ministères et organismes",
+					"language": "fr",
+					"path": "dept-fr.html"
+				},
+				{
+					"title": "Promotional events page (Campaign?)",
+					"language": "en",
+					"path": "event-en.html"
+				},
+				{
+					"title": "Activité promotionnel (Campagne?)",
+					"language": "fr",
+					"path": "event-fr.html"
+				},
+				{
+					"title": "Feedback form",
+					"type": "specialized",
+					"language": "en",
+					"path": "feedback-en.html"
+				},
+				{
+					"title": "Formulaire de rétroaction",
+					"language": "fr",
+					"path": "feedback-fr.html"
+				},
+				{
+					"title": "[Audience name]",
+					"language": "en",
+					"path": "gc-audience-en.html"
+				},
+				{
+					"title": "[Public cible]",
+					"language": "fr",
+					"path": "gc-audience-fr.html"
+				},
+				{
+					"title": "Service initiation - Might deprecated",
+					"language": "en",
+					"path": "service-en.html"
+				},
+				{
+					"title": "Initiation de service - Probablement désuet",
+					"language": "fr",
+					"path": "service-fr.html"
+				}
+			]
+		}
 	},
-	"modified": "2024-08-27",
-	"componentName": "topic",
-	"status": "stable",
-	"version": "2.2",
-	"pages": {
-		"examples": [
-			{
-				"title": "[Topic title]",
-				"language": "en",
-				"path": "topic-en.html"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			{
-				"title": "[Titre du sujet]",
-				"language": "fr",
-				"path": "topic-fr.html"
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			{
-				"title": "[Topic title with stacked header]",
-				"language": "en",
-				"path": "topic-stackedheader-en.html"
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Index",
+			"fr": "Index"
+		},
+		"description": {
+			"en": "Index templates",
+			"fr": "Gabarit d'index"
+		},
+		"modified": "2018-07-12",
+		"componentName": "index",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "[Long index page]",
+					"language": "en",
+					"path": "longindex-en.html"
+				},
+				{
+					"title": "[Page d’index long]",
+					"language": "fr",
+					"path": "longindex-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "API documentations",
+					"language": "en",
+					"path": "api.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			{
-				"title": "[Titre du sujet avec en-tête superposé]",
-				"language": "fr",
-				"path": "topic-stackedheader-fr.html"
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
 			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Institutional landing page",
+			"fr": "Page d'accueil institutionnelle"
+		},
+		"description": {
+			"en": "Institutional landing page template documentation and working example.",
+			"fr": "Documentation et exemple pratique de la page d'accueil institutionnelle"
+		},
+		"modified": "2024-04-16",
+		"componentName": "institutional-landing",
+		"status": "stable",
+		"version": "2.0.0",
+		"pages": {
+			"docs": [
+				{
+					"title": "Institutional landing page",
+					"language": "en",
+					"path": "institutional-landing-doc-en.html"
+				},
+				{
+					"title": "Page d'accueil institutionnelle",
+					"language": "fr",
+					"path": "institutional-landing-doc-fr.html"
+				}
+			],
+			"examples": [
+				{
+					"title": "Institutional landing page",
+					"language": "en",
+					"path": "institutional-landing-en.html"
+				},
+				{
+					"title": "Page d'accueil institutionnelle",
+					"language": "fr",
+					"path": "institutional-landing-fr.html"
+				}
+			],
+			"reports": [
+				{
+					"title": "Accessibility assessment #1 - Institutional template",
+					"language": "en",
+					"path": "reports/a11y-1-en.html"
+				},
+				{
+					"title": "Évaluation d'accessibilité #1 - Modèle institutionnel",
+					"language": "fr",
+					"path": "reports/a11y-1-fr.html"
+				},
+				{
+					"title": "Accessibility assessment #2 - Institutional template",
+					"language": "en",
+					"path": "reports/a11y-2-en.html"
+				},
+				{
+					"title": "Évaluation d'accessibilité #2 - Modèle institutionnel",
+					"language": "fr",
+					"path": "reports/a11y-2-fr.html"
+				}
+			]
+		},
+		"dependencies": {
+			"en": [
+				{
+					"title": "Intro block",
+					"url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-en.html",
+					"component": "gc-intro"
+				},
+				{
+					"title": "Featured link",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-featured-link/gc-featured-link-doc-en.html",
+					"component": "gc-featured-link"
+				},
+				{
+					"title": "Most requested",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html",
+					"component": "gc-most-requested"
+				},
+				{
+					"title": "Services and information",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html",
+					"component": "gc-srvinfo"
+				},
+				{
+					"title": "Social media channels",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-en.html",
+					"component": "gc-follow-us"
+				},
+				{
+					"title": "Minister or institutional head",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-minister/gc-minister-doc-en.html",
+					"component": "gc-minister"
+				}
+			],
+			"fr": [
+				{
+					"title": "Bloc d'introduction",
+					"url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-fr.html",
+					"component": "gc-intro"
+				},
+				{
+					"title": "Lien en vedette",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-featured-link/gc-featured-link-doc-fr.html",
+					"component": "gc-featured-link"
+				},
+				{
+					"title": "En demande",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html",
+					"component": "gc-most-requested"
+				},
+				{
+					"title": "Services et renseignements",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html",
+					"component": "gc-srvinfo"
+				},
+				{
+					"title": "Bloc des réseaux de médias sociaux",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-fr.html",
+					"component": "gc-follow-us"
+				},
+				{
+					"title": "Ministre ou chef d’institution",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-minister/gc-minister-doc-fr.html",
+					"component": "gc-minister"
+				}
+			]
+		},
+		"a11yGuidance": "No accessibility guidance.",
+		"variations": [
 			{
-				"title": "Theme/Topic page - Deprecated as of GCWeb v16.0.0",
-				"language": "en",
-				"path": "deprecated/theme-topic-en.html"
-			},
-			{
-				"title": "Page de sujet/thème - Obsolète à partir de GCWeb v16.0.0",
-				"language": "fr",
-				"path": "deprecated/theme-topic-fr.html"
-			},
-			{
-				"title": "Lowest topic (with secondary navigation) - Deprecated as of GCWeb v16.0.0",
-				"language": "en",
-				"path": "../lowest-topic/index-en.html"
-			},
-			{
-				"title": "Sujet de plus bas niveau (avec une navigation secondaire) - Obsolète à partir de GCWeb v16.0.0",
-				"language": "fr",
-				"path": "../lowest-topic/index-fr.html"
+				"name": {
+					"en": "Institutional landing page",
+					"fr": "Pages d'accueil institutionnelle"
+				},
+				"status": "stable",
+				"description": {
+					"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
+					"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+				},
+				"guidance": {
+					"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+					"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+				},
+				"iteration": "_:iteration_ilp_3",
+				"example": [
+					{
+						"en": {
+							"href": "institutional-landing-en.html",
+							"text": "Institutional landing page"
+						},
+						"fr": {
+							"href": "institutional-landing-fr.html",
+							"text": "Pages d'accueil institutionnelle"
+						}
+					}
+				],
+				"implementation": [
+					"_:implement_ilp",
+					"_:implement_ilp_aem"
+				],
+				"history": [
+					{
+						"en": "March 2024 - Stabilization of the version 2 of the page template.",
+						"fr": "Mars 2024 - Stabilisation de la version 2 du gabarit de page."
+					},
+					{
+						"en": "June 2021 - Provisional implementation of the version 2 of the page template.",
+						"fr": "Juin 2021 - Implémentation provisoire de la version 2 du gabarit de page."
+					},
+					{
+						"en": "April 2014 - Implementation of the version 1 of the page template.",
+						"fr": "Avril 2014 - Implémentation de la version 1 du gabarit de page."
+					}
+				]
 			}
 		],
-		"docs": [
+		"implementation": [
 			{
-				"title": "Topic page template",
-				"language": "en",
-				"path": "topic-doc-en.html"
+				"@id": "_:implement_ilp",
+				"iteration": "_:iteration_ilp_3",
+				"name": {
+					"en": "Standard",
+					"fr": "Standard"
+				},
+				"introduction": {
+					"en": "This implementation is meant for developers/publishers adding the template manually.",
+					"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+				},
+				"instructions": {
+					"en": [
+						"Add the CSS class <code>.page-type-ilp</code> to the page's <code>&lt;body></code> element.",
+						"Refer to the working example for a code sample.",
+						"Refer to the working example and guidance for more information on how to implement this page template."
+					],
+					"fr": [
+						"Ajoutez la classe CSS <code>.page-type-ilp</code> sur l'élément <code>&lt;body></code> de la page.",
+						"Reportez-vous à l'exemple pratique pour un exemple de code.",
+						"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+					]
+				},
+				"notes": {
+					"en": [
+						"Not adding the required CSS class (<code>.page-type-ilp</code>) will result in the styles specific to this template not being applied. We did implement a temporary workaround as a transition to this new template. The workaround is going to be removed at the same time as the demoted/deprecated ILP version 1."
+					],
+					"fr": [
+						"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-ilp</code>), les styles spécifiques à ce gabarit ne seront pas appliqués. Nous avons mis en œuvre une solution de contournement temporaire en guise de transition vers ce nouveau modèle. La solution de contournement sera supprimée en même temps que la version 1 de la PAI rétrogradée/obsolète."
+					]
+				}
 			},
 			{
-				"title": "Gabarit de page de sujet",
-				"language": "fr",
-				"path": "topic-doc-fr.html"
+				"@id": "_:implement_ilp_aem",
+				"iteration": "_:iteration_ilp_3",
+				"name": {
+					"en": "AEM users",
+					"fr": "Utilisateurs AEM"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"Create a page with the <strong>Generic template</strong>",
+						"Applying Content type (navigation page – institutional profile) via the page <strong>Properties</strong> -> <strong>Basic tab</strong> -> <strong>Content type</strong>, set the value to “<strong>navigation page – institutional profile</strong>”.",
+						"Configure Page container manually via the page <strong>Properties</strong> -> <strong>Template options</strong> tab -> <strong>Advanced</strong>, check “<strong>Page container: Configure manually</strong>”.",
+						"Configure your ILP page. The ILP page contains several GCWeb components. Each component has its own configuration which you can adapt as per your institutional needs. Please see individual component for more details about their configurable options.",
+						"Remove the <strong>H1 Title</strong>.",
+						"Add the ILP HTML code with a <strong>Generic HTML component</strong> component.",
+						"Edit the ILP HTML code"
+					],
+					"fr": [
+						"Créez une page avec le gabarit de <strong>Page générique</strong>.",
+						"En appliquant Type de contenu (page de navigation – profil institutionnel) via les <strong>Propriétés</strong> de la page -> Onglet <strong>De base</strong> -> <strong>Type de contenu</strong>, définissez la valeur sur «&nbsp;<strong>page de navigation – profil institutionnel</strong>&nbsp;».",
+						"Configurez manuellement le conteneur de pages dans les <strong>Propriétés</strong> via l'onglet  -> <strong>Options du gabarit</strong> -> <strong>Avancé</strong>, cochez «&nbsp;<strong>Conteneur de page&nbsp;: configurer manuellement</strong>&nbsp;».",
+						"Configurez votre page PAI. La page PAI contient plusieurs composants GCWeb. Chaque composant a sa propre configuration que vous pouvez adapter selon vos besoins institutionnels. Veuillez consulter chaque composant pour plus de détails sur leurs options configurables.",
+						"Supprimez le <strong>Titre H1</strong>.",
+						"Ajoutez le code HTML PAI avec un composant <strong>Composant HTML générique</strong>.",
+						"Modifiez le code HTML de la PAI"
+					]
+				},
+				"notes": {
+					"en": [
+						"For a more detailed implementation guide, a document has been created on the <a href='https://www.gcpedia.gc.ca/wiki/AEM_GC-specific_Documentation_6.5'>AEM learning material on GCPedia</a>, which includes screenshots and detailed step by step instructions."
+					],
+					"fr": [
+						"Pour un guide de mise en œuvre plus détaillé, un document a été créé dans la section du <a href='https://www.gcpedia.gc.ca/wiki/Documentation_d%27AEM_sp%C3%A9cifique_au_GC_6.5'>matériel d'apprentissage d'AEM sur GCPedia</a>, qui comprend des captures d'écran et des instructions détaillées étape par étape."
+					]
+				},
+				"ajaxSourceCode": {
+					"en": "institutional-landing-en.html main > *:not(.pagedetails)",
+					"fr": "institutional-landing-fr.html main > *:not(.pagedetails)"
+				}
 			}
 		],
-		"reports": [
+		"iteration": [
 			{
-				"title": "Accessibility assessment #1 - GC topic template",
-				"language": "en",
-				"path": "reports/a11y-1-en.html"
+				"@id": "_:iteration_ilp_3",
+				"name": "Institutional landing page - Iteration 3",
+				"date": "2024-03",
+				"breaking": [
+					"Stabilization of the page template."
+				],
+				"detectableBy": ".page-type-ilp"
 			},
 			{
-				"title": "Évaluation d'accessibilité #1 - Gabarits de page de sujet GC",
-				"language": "fr",
-				"path": "reports/a11y-1-fr.html"
+				"@id": "_:iteration_ilp_2",
+				"name": "Institutional landing page - Iteration 2",
+				"date": "2021-06",
+				"detectableBy": "Social media channels have the horizontal layout. About the institution and social media channels are on a white background.",
+				"example": {
+					"en": [
+						{
+							"href": "deprecated/institution-landing-en.html",
+							"text": "Institutional landing page version 2 (beta)"
+						}
+					],
+					"fr": [
+						{
+							"href": "deprecated/institution-landing-fr.html",
+							"text": "Page d'accueil institutionnelle version 2 (bêta)"
+						}
+					]
+				}
+			},
+			{
+				"@id": "_:iteration_ilp_1",
+				"name": "Institutional landing page - Iteration 1",
+				"date": "2014-04",
+				"detectableBy": "Social media channels at top right. Latest news directly under intro block.",
+				"example": {
+					"en": [
+						{
+							"href": "deprecated/institution-en.html",
+							"text": "Institutional landing page version 1"
+						}
+					],
+					"fr": [
+						{
+							"href": "deprecated/institution-fr.html",
+							"text": "Page d'accueil institutionnelle version 1"
+						}
+					]
+				}
+			}
+		],
+		"changesets": [
+			{
+				"@id": "_:cs_ilp_2",
+				"name": "Institutional landing page",
+				"status": "stable",
+				"baseOnIteration": "_:iteration_ilp_3",
+				"detectableBy": ".page-type-ilp",
+				"layout": [
+					"Intro block",
+					"Featured link - version 1",
+					"Most requested - version 1",
+					"Services and information - version 3",
+					"[Contact us static title with links distributed over 3 columns in well-sm]",
+					"About the institution [.col-md-8] + Social media channels - version 1 [.col-md-4]",
+					"Minister - version 1",
+					"News feed - version 1.1 [.col-md-4] + Context-specific features two-tiles right-aligned - version 5 [.col-md-8]"
+				],
+				"test": [
+					"<a href=\"institutional-landing-bad.html\">Implementation of ILP without template class</a>"
+				]
 			}
 		]
 	},
-	"dependencies": {
-		"en": [
-			{ "title": "Intro block", "url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-en.html", "component": "gc-intro" },
-			{ "title": "Most requested", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html", "component": "gc-most-requested" },
-			{ "title": "Services and information", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html", "component": "gc-srvinfo" },
-			{ "title": "Context-specific features", "url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-en.html", "component": "gc-features" },
-			{ "title": "Social media channels", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-en.html", "component": "gc-follow-us" },
-			{ "title": "Contributors", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-en.html", "component": "gc-contributors" }
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Institutional profile",
+			"fr": "Profil institutionnel"
+		},
+		"description": {
+			"en": "Institutional profile templates",
+			"fr": "Gabarit à propos de page de profil institutionnel"
+		},
+		"modified": "2024-03-30",
+		"componentName": "institutional",
+		"status": "stable",
+		"version": "1.0.0",
+		"pages": {
+			"examples": [
+				{
+					"title": "Contact [Institution name]",
+					"language": "en",
+					"path": "institution-contact-en.html"
+				},
+				{
+					"title": "Coordonnées [nom de l’institution]",
+					"language": "fr",
+					"path": "institution-contact-fr.html"
+				},
+				{
+					"title": "[Institution] service performance reporting for fiscal year 2015 to 2016",
+					"language": "en",
+					"path": "institutional-service-performance-en.html"
+				},
+				{
+					"title": "Compte rendu du rendement des services de [Nom de l’institution] pour l’exercice financier de 2015 à 2016",
+					"language": "fr",
+					"path": "institutional-service-performance-fr.html"
+				},
+				{
+					"title": "arm’s length - [Institution Name]",
+					"language": "en",
+					"path": "institution-arms-en.html"
+				},
+				{
+					"title": "organisme indépendamment - [Nom de l’institution]",
+					"language": "fr",
+					"path": "institution-arms-fr.html"
+				}
+			],
+			"related": [
+				{
+					"title": "GCWU theme - English institution template",
+					"language": "en",
+					"url": "https://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-en.html"
+				},
+				{
+					"title": "Thème FEGC - Français - Gabarit de profil institutionnel",
+					"language": "fr",
+					"url": "https://wet-boew.github.io/themes-dist/theme-gcwu-fegc/institution-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Laws and regulations pages",
+			"fr": "Pages des lois et des règlements"
+		},
+		"description": {
+			"en": "The laws and regulations collection provides access to Government of Canada acts and regulations through their individual profiles.",
+			"fr": "La collection des lois et règlements donne accès aux lois et règlements du gouvernement du Canada par l’intermédiaire de leur profil respectif."
+		},
+		"modified": "2021-04-11",
+		"componentName": "legislation",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "[Act name] <small>([NN-XX])</small>",
+					"language": "en",
+					"path": "act-en.html"
+				},
+				{
+					"title": "[Titre de la loi] <small>([NN-XX])</small>",
+					"language": "fr",
+					"path": "act-fr.html"
+				},
+				{
+					"title": "[Regulation name] <small>([NN-XX])</small>",
+					"language": "en",
+					"path": "regulations-en.html"
+				},
+				{
+					"title": "[Nom du règlement] <small>([NN-XX])</small>",
+					"language": "fr",
+					"path": "regulations-fr.html"
+				}
+			],
+			"spec": [
+				{
+					"title": "Pages des lois et des règlements - Modèle de Canada.ca",
+					"language": "fr",
+					"url": "https://conception.canada.ca/modeles-recommandes/pages-lois-reglements.html"
+				},
+				{
+					"title": "Laws and regulations pages - Canada.ca template",
+					"language": "en",
+					"url": "https://design.canada.ca/recommended-templates/laws-regulations-pages.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Ministerial profile",
+			"fr": "Profile ministériel"
+		},
+		"description": {
+			"en": "Ministerial profile templates documentation and example",
+			"fr": "Documentation et exemple de page Profile ministériel."
+		},
+		"modified": "2021-12-02",
+		"componentName": "ministerial",
+		"status": "stable",
+		"pages": {
+			"docs": [
+				{
+					"title": "Ministerial profile page",
+					"language": "en",
+					"path": "ministerial-doc-en.html"
+				},
+				{
+					"title": "Page de Profile ministériel",
+					"language": "fr",
+					"path": "ministerial-doc-fr.html"
+				}
+			],
+			"examples": [
+				{
+					"title": "Ministerial profile",
+					"language": "en",
+					"path": "ministerial-en.html"
+				},
+				{
+					"title": "Profile ministériel",
+					"language": "fr",
+					"path": "ministerial-fr.html"
+				},
+				{
+					"title": "Ministerial profile - swearing-in day",
+					"language": "en",
+					"path": "ministerial-reduced-en.html"
+				},
+				{
+					"title": "Profile ministériel - jour d'assermentation",
+					"language": "fr",
+					"path": "ministerial-reduced-fr.html"
+				},
+				{
+					"title": "Parliamentary secretaries profile - swearing-in day",
+					"language": "en",
+					"path": "parliamentary-secretaries-reduced-en.html"
+				},
+				{
+					"title": "Profile des secrétaires parlementaires - jour d'assermentation",
+					"language": "fr",
+					"path": "parliamentary-secretaries-reduced-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "News",
+			"fr": "Nouvelles"
+		},
+		"description": {
+			"en": "News templates samples",
+			"fr": "Exemple de page générique."
+		},
+		"modified": "2025-04-16",
+		"componentName": "news",
+		"status": "stable",
+		"pages": {
+			"docs": [
+				{
+					"title": "News page",
+					"language": "en",
+					"path": "news-doc-en.html"
+				},
+				{
+					"title": "Page de nouvelles",
+					"language": "fr",
+					"path": "news-doc-fr.html"
+				}
+			],
+			"examples": [
+				{
+					"title": "News",
+					"language": "en",
+					"path": "news-en.html"
+				},
+				{
+					"title": "Page de contenu",
+					"language": "fr",
+					"path": "news-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Organizational profile",
+			"fr": "Profil organisationnel"
+		},
+		"description": {
+			"en": "Organizational profile templates",
+			"fr": "Gabarit à propos de page de profil organisationnel"
+		},
+		"modified": "2017-12-05",
+		"componentName": "organizational",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "[Organization Name]",
+					"language": "en",
+					"path": "organizational-en.html"
+				},
+				{
+					"title": "[Nom de l’organisme]",
+					"language": "fr",
+					"path": "organizational-fr.html"
+				},
+				{
+					"title": "arm’s length - [Organization Name]",
+					"language": "en",
+					"path": "organizational-arms-en.html"
+				},
+				{
+					"title": "organisme indépendamment - [Nom de l’organisme]",
+					"language": "fr",
+					"path": "organizational-arms-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Search results",
+			"fr": "Résultats de la recherche"
+		},
+		"description": {
+			"en": "Search templates",
+			"fr": "Gabarit pour les pages de recherche"
+		},
+		"modified": "2022-07-06",
+		"componentName": "search",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Search results",
+					"language": "en",
+					"path": "results-en.html"
+				},
+				{
+					"title": "Résultats de la recherche",
+					"language": "fr",
+					"path": "results-fr.html"
+				},
+				{
+					"title": "Search facets/filters results",
+					"language": "en",
+					"path": "results-filters-en.html"
+				},
+				{
+					"title": "avec filtre",
+					"language": "fr",
+					"path": "results-filters-fr.html"
+				},
+				{
+					"title": "Contextual",
+					"language": "en",
+					"path": "results-contextual-en.html"
+				},
+				{
+					"title": "Contextuel",
+					"language": "fr",
+					"path": "results-contextual-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "API documentations",
+					"language": "en",
+					"path": "api-en.html"
+				}
+			],
+			"impl-ref": [
+				{
+					"title": "Pagination for search templates",
+					"language": "en",
+					"path": "test-pagination.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Server error message",
+			"fr": "Message d'erreur serveur"
+		},
+		"description": {
+			"en": "Error server page",
+			"fr": "Exemple de page d'erreur serveur."
+		},
+		"modified": "2020-06-04",
+		"componentName": "servermessage",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "We couldn't find that Web page (Error 404) - Canada.ca theme",
+					"language": "en",
+					"path": "404-en.html"
+				},
+				{
+					"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+					"language": "fr",
+					"path": "404-fr.html"
+				},
+				{
+					"title": "We couldn't find that Web page (Error 404) - Canada.ca theme / Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+					"language": "en",
+					"path": "404-en-fr.html"
+				},
+				{
+					"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / We couldn't find that Web page (Error 404) - Canada.ca theme",
+					"language": "fr",
+					"path": "404-fr-en.html"
+				},
+				{
+					"title": "Message title - Canada.ca theme",
+					"language": "en",
+					"path": "servermessage-en.html"
+				},
+				{
+					"title": "Titre du message - Thème Canada.ca",
+					"language": "fr",
+					"path": "servermessage-fr.html"
+				},
+				{
+					"title": "Message title - Canada.ca theme / Titre du message - Thème Canada.ca",
+					"language": "en",
+					"path": "servermessage-en-fr.html"
+				},
+				{
+					"title": "Titre du message - Thème Canada.ca / Message title - Canada.ca theme",
+					"language": "fr",
+					"path": "servermessage-fr-en.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Splash page - Canada.ca",
+			"fr": "Écran d'accueil - Canada.ca"
+		},
+		"description": {
+			"en": "Splash page example",
+			"fr": "Exemple d'écran d'accueil"
+		},
+		"modified": "2022-09-28",
+		"componentName": "splash",
+		"status": "stable",
+		"pages": {
+			"examples": [
+				{
+					"title": "Splash page example",
+					"language": "en",
+					"path": "splashpage-en.html"
+				},
+				{
+					"title": "Exemple d'écran d'accueil",
+					"language": "fr",
+					"path": "splashpage-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "Splash page",
+					"language": "en",
+					"path": "api-en.html"
+				},
+				{
+					"title": "Écran d'accueil",
+					"language": "fr",
+					"path": "api-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Thematic",
+			"fr": "Thématique"
+		},
+		"description": {
+			"en": "Site variant where a thematic is applied",
+			"fr": "Variante de site afin d'appliquer une thématique"
+		},
+		"modified": "2017-12-05",
+		"componentName": "thematic",
+		"status": "provisional",
+		"pages": {
+			"docs": [
+				{
+					"title": "Pink Day - Deprecated as of GCWeb v16.0.0",
+					"language": "en",
+					"path": "../../méli-mélo/deprecated/pinkday/docs-en.html"
+				},
+				{
+					"title": "Journée rose - Obsolète à partir de GCWeb v16.0.0",
+					"language": "fr",
+					"path": "../../méli-mélo/deprecated/pinkday/docs-fr.html"
+				}
+			],
+			"examples": [
+				{
+					"title": "Pink Day - Deprecated as of GCWeb v16.0.0",
+					"language": "en",
+					"path": "../../méli-mélo/deprecated/pinkday/pink-day-en.html"
+				},
+				{
+					"title": "Journée rose - Obsolète à partir de GCWeb v16.0.0",
+					"language": "fr",
+					"path": "../../méli-mélo/deprecated/pinkday/pink-day-fr.html"
+				},
+				{
+					"title": "Pink Day - Home - Deprecated as of GCWeb v16.0.0",
+					"language": "en",
+					"path": "../../méli-mélo/deprecated/pinkday/pink-day-home-en.html"
+				},
+				{
+					"title": "Journée rose - Accueil - Obsolète à partir de GCWeb v16.0.0",
+					"language": "fr",
+					"path": "../../méli-mélo/deprecated/pinkday/pink-day-home-fr.html"
+				},
+				{
+					"title": "Dark theme",
+					"language": "en",
+					"path": "dark-theme-en.html"
+				},
+				{
+					"title": "Thème sombre",
+					"language": "fr",
+					"path": "dark-theme-fr.html"
+				},
+				{
+					"title": "Dark theme - Home",
+					"language": "en",
+					"path": "dark-theme-home-en.html"
+				},
+				{
+					"title": "Thème sombre - Accueil",
+					"language": "fr",
+					"path": "dark-theme-home-fr.html"
+				}
+			]
+		}
+	},
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
+			},
+			"description": {
+				"@id": "dct:description",
+				"@container": "@language"
+			},
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Theme",
+			"fr": "Thème"
+		},
+		"description": {
+			"en": "Theme page template",
+			"fr": "Gabarit de page thème"
+		},
+		"modified": "2020-02-12",
+		"componentName": "theme",
+		"status": "stable",
+		"version": "2.0",
+		"pages": {
+			"examples": [
+				{
+					"title": "[Theme]",
+					"language": "en",
+					"path": "theme-en.html"
+				},
+				{
+					"title": "[Thème]",
+					"language": "fr",
+					"path": "theme-fr.html"
+				}
+			],
+			"docs": [
+				{
+					"title": "Theme page",
+					"language": "en",
+					"path": "theme-doc-en.html"
+				},
+				{
+					"title": "Page de thème",
+					"language": "fr",
+					"path": "theme-doc-fr.html"
+				}
+			],
+			"reports": [
+				{
+					"title": "Accessibility assessment #1 - GC theme template",
+					"language": "en",
+					"path": "reports/a11y-1-en.html"
+				},
+				{
+					"title": "Évaluation d'accessibilité #1 - Modèle de thème GC",
+					"language": "fr",
+					"path": "reports/a11y-1-fr.html"
+				}
+			]
+		},
+		"dependencies": {
+			"en": [
+				{
+					"title": "Most requested",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html",
+					"component": "gc-most-requested"
+				},
+				{
+					"title": "Services and information",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html",
+					"component": "gc-srvinfo"
+				}
+			],
+			"fr": [
+				{
+					"title": "En demande",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html",
+					"component": "gc-most-requested"
+				},
+				{
+					"title": "Services et renseignements",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html",
+					"component": "gc-srvinfo"
+				}
+			]
+		},
+		"a11yGuidance": "No accessibility guidance.",
+		"variations": [
+			{
+				"name": {
+					"en": "Theme page",
+					"fr": "Page de thème"
+				},
+				"status": "stable",
+				"description": {
+					"en": "Use this template as the landing page for Government of Canada institutions and organizations.",
+					"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada."
+				},
+				"guidance": {
+					"en": "https://design.canada.ca/mandatory-templates/theme.html",
+					"fr": "https://conception.canada.ca/modeles-obligatoire/theme.html"
+				},
+				"iteration": "_:iteration_theme_1",
+				"example": [
+					{
+						"en": {
+							"href": "theme-en.html",
+							"text": "Theme page"
+						},
+						"fr": {
+							"href": "theme-fr.html",
+							"text": "Pages de thème"
+						}
+					}
+				],
+				"implementation": [
+					"_:implement_theme",
+					"_:implement_theme_aem"
+				],
+				"history": [
+					{
+						"en": "May 2025 - Introduction of the new theme template",
+						"fr": "Mai 2025 - Introduction du nouveau gabarit de page thème."
+					},
+					{
+						"en": "July 2024 - Initial draft - Introduction of the new theme template.",
+						"fr": "Juillet 2024 - Première ébauche - Introduction du nouveau gabarit de page thème."
+					}
+				]
+			}
 		],
-		"fr": [
-			{ "title": "Bloc d'introduction", "url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-fr.html", "component": "gc-intro" },
-			{ "title": "En demande", "url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html", "component": "gc-most-requested" },
-			{ "title": "Services et renseignements", "url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html", "component": "gc-srvinfo" },
-			{ "title": "Promotions contextuelles", "url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-fr.html", "component": "gc-features" },
-			{ "title": "Bloc des réseaux de médias sociaux", "url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-fr.html", "component": "gc-follow-us" },
-			{ "title": "Collaborateurs", "url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-fr.html", "component": "gc-contributors" }
+		"implementation": [
+			{
+				"@id": "_:implement_theme",
+				"iteration": "_:iteration_theme_1",
+				"name": {
+					"en": "Standard",
+					"fr": "Standard"
+				},
+				"introduction": {
+					"en": "This implementation is meant for developers/publishers adding the template manually.",
+					"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+				},
+				"instructions": {
+					"en": [
+						"Add the CSS class <code>.page-type-theme</code> to the page's <code>&lt;body></code> element.",
+						"The CSS class <code>.active</code> must be added to the current page's <code>&lt;li></code>.",
+						"Refer to the working example for a code sample.",
+						"Refer to the working example and guidance for more information on how to implement this page template."
+					],
+					"fr": [
+						"Ajoutez la classe CSS <code>.page-type-theme</code> sur l'élément <code>&lt;body></code> de la page.",
+						"La classe CSS <code>.active</code> doit être ajoutée au <code>&lt;li></code> de la page courante.",
+						"Reportez-vous à l'exemple pratique pour un exemple de code.",
+						"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+					]
+				},
+				"notes": {
+					"en": [
+						"The version 2.0 of this template is a complete rewrite of the version 1.0.",
+						"Not adding the required CSS class (<code>.page-type-theme</code>) will result in the styles specific to this template not being applied."
+					],
+					"fr": [
+						"La version 2.0 de ce gabarit est une réécriture entière de la version 1.0.",
+						"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-theme</code>), les styles spécifiques à ce gabarit ne seront pas appliqués."
+					]
+				}
+			},
+			{
+				"@id": "_:implement_theme_aem",
+				"iteration": "_:iteration_theme_1",
+				"name": {
+					"en": "AEM users",
+					"fr": "Utilisateurs AEM"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"TBD"
+					],
+					"fr": [
+						"TBD"
+					]
+				},
+				"notes": {
+					"en": [
+						"For a more detailed implementation guide, a document has been created on the <a href='https://www.gcpedia.gc.ca/wiki/AEM_GC-specific_Documentation_6.5'>AEM learning material on GCPedia</a>, which includes screenshots and detailed step by step instructions."
+					],
+					"fr": [
+						"Pour un guide de mise en œuvre plus détaillé, un document a été créé dans la section du <a href='https://www.gcpedia.gc.ca/wiki/Documentation_d%27AEM_sp%C3%A9cifique_au_GC_6.5'>matériel d'apprentissage d'AEM sur GCPedia</a>, qui comprend des captures d'écran et des instructions détaillées étape par étape."
+					]
+				},
+				"ajaxSourceCode": {
+					"en": "theme-en.html main > *:not(.pagedetails)",
+					"fr": "theme-fr.html main > *:not(.pagedetails)"
+				}
+			}
+		],
+		"iteration": [
+			{
+				"@id": "_:iteration_theme_1",
+				"name": "Theme page - Iteration 1",
+				"date": "2024-07",
+				"breaking": [
+					"Introduction of the page template."
+				],
+				"detectableBy": ".page-type-theme",
+				"notes": [
+					"The H1 is exempt from the default styling (bottom red line). Confirmed by DTO on July 17th, 2024.",
+					"The breadcrumbs has specific styling <strong>only</strong> for Theme pages. Confirmed by DTO on July 8th, 2024."
+				]
+			}
+		],
+		"changesets": [
+			{
+				"@id": "_:cs_theme",
+				"name": "Theme page",
+				"status": "stable",
+				"baseOnIteration": "_:iteration_theme_1",
+				"detectableBy": ".page-type-theme",
+				"layout": [
+					"On larger screens, navigation on the left and page content on the right.",
+					"In the page content section, from top to bottom: page title, most requested, services and information."
+				],
+				"style": [
+					"The breadcrumbs first element has a left dark blue border.",
+					"The left navigation's active page has a dark-blue background and white text.",
+					"A vertical blue bar separates the left navigation from the content on the right.",
+					"On larger screens, the most requested component's heading is above the list rather than to the left."
+				],
+				"semantic": "h2 + (ul > li)",
+				"behaviour": "On smaller screens, the navigation is hidden by default and is replaced by a \"Menu\" button which can be clicked to toggle the visibility of the navigation.",
+				"basic": "On smaller screens the navigation is always visible and the button to toggle the navigation is hidden.",
+				"context": "This template is only meant for Theme pages.",
+				"static": [
+					"Menu",
+					"Toggle Menu",
+					"Basculer le menu"
+				]
+			}
 		]
 	},
-	"a11yGuidance": "No accessibility guidance.",
-	"variations": [
-		{
-			"name": {
-				"en": "Topic page",
-				"fr": "Page de sujet"
+	{
+		"@context": {
+			"@version": 1.1,
+			"dct": "http://purl.org/dc/terms/",
+			"title": {
+				"@id": "dct:title",
+				"@container": "@language"
 			},
-			"status": "stable",
 			"description": {
-				"en": "Topic pages provide access to topics and destination pages that support task completion.",
-				"fr": "Les pages de sujet fournissent un accès aux sujets et aux pages de destination qui appuient l’achèvement des tâches."
+				"@id": "dct:description",
+				"@container": "@language"
 			},
-			"guidance": {
-				"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
-				"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
-			},
-			"iteration": "_:iteration_topic_4",
-			"example": [
+			"modified": "dct:modified"
+		},
+		"title": {
+			"en": "Topic",
+			"fr": "Sujet"
+		},
+		"description": {
+			"en": "Topic template examples",
+			"fr": "Exemples de page de sujets"
+		},
+		"modified": "2024-08-27",
+		"componentName": "topic",
+		"status": "stable",
+		"version": "2.2",
+		"pages": {
+			"examples": [
 				{
-					"en": { "href": "topic-en.html", "text": "Topic page" },
-					"fr": { "href": "topic-fr.html", "text": "Page de sujet" }
+					"title": "[Topic title]",
+					"language": "en",
+					"path": "topic-en.html"
 				},
 				{
-					"en": { "href": "demoted/topic_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page version 2" },
-					"fr": { "href": "demoted/topic_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet version 2" }
+					"title": "[Titre du sujet]",
+					"language": "fr",
+					"path": "topic-fr.html"
+				},
+				{
+					"title": "[Topic title with stacked header]",
+					"language": "en",
+					"path": "topic-stackedheader-en.html"
+				},
+				{
+					"title": "[Titre du sujet avec en-tête superposé]",
+					"language": "fr",
+					"path": "topic-stackedheader-fr.html"
+				},
+				{
+					"title": "Theme/Topic page - Deprecated as of GCWeb v16.0.0",
+					"language": "en",
+					"path": "deprecated/theme-topic-en.html"
+				},
+				{
+					"title": "Page de sujet/thème - Obsolète à partir de GCWeb v16.0.0",
+					"language": "fr",
+					"path": "deprecated/theme-topic-fr.html"
+				},
+				{
+					"title": "Lowest topic (with secondary navigation) - Deprecated as of GCWeb v16.0.0",
+					"language": "en",
+					"path": "../lowest-topic/index-en.html"
+				},
+				{
+					"title": "Sujet de plus bas niveau (avec une navigation secondaire) - Obsolète à partir de GCWeb v16.0.0",
+					"language": "fr",
+					"path": "../lowest-topic/index-fr.html"
 				}
 			],
-			"implementation": [
-				"_:implement_topic",
-				"_:implement_topic_aem",
-				"_:implement_topic_1_to_2",
-				"_:implement_topic_2_to_2.1"
+			"docs": [
+				{
+					"title": "Topic page template",
+					"language": "en",
+					"path": "topic-doc-en.html"
+				},
+				{
+					"title": "Gabarit de page de sujet",
+					"language": "fr",
+					"path": "topic-doc-fr.html"
+				}
 			],
-			"history": [
+			"reports": [
 				{
-					"en": "December 2024 - Contributors component moved to the page details section.",
-					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+					"title": "Accessibility assessment #1 - GC topic template",
+					"language": "en",
+					"path": "reports/a11y-1-en.html"
 				},
 				{
-					"en": "June 2024 - Stabilization of the version 2 of the page template.",
-					"fr": "Juin 2024 - Stabilisation de la version 2 du gabarit de page."
-				},
-				{
-					"en": "January 2021 - Provisional implementation of the version 2 of the page template.",
-					"fr": "Janvier 2021 - Implémentation provisoire de la version 2 du gabarit de page."
-				},
-				{
-					"en": "As per January 2018's template - Implementation of the version 1 of the page template.",
-					"fr": "Selon le gabarit en date de Janvier 2018 - Implémentation de la version 1 du gabarit de page."
+					"title": "Évaluation d'accessibilité #1 - Gabarits de page de sujet GC",
+					"language": "fr",
+					"path": "reports/a11y-1-fr.html"
 				}
 			]
 		},
-		{
-			"name": {
-				"en": "Topic page with stacked header",
-				"fr": "Page de sujet avec en-tête superposé"
-			},
-			"status": "stable",
-			"description": {
-				"en": "Use the stacked main page title to display the page's section title as well as the page title.",
-				"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
-			},
-			"guidance": "no guidance defined.",
-			"iteration": "_:iteration_topic_4",
-			"example": [
+		"dependencies": {
+			"en": [
 				{
-					"en": { "href": "topic-stackedheader-en.html", "text": "Topic page with stacked header" },
-					"fr": { "href": "topic-stackedheader-fr.html", "text": "Page de sujet avec en-tête superposé" }
+					"title": "Intro block",
+					"url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-en.html",
+					"component": "gc-intro"
 				},
 				{
-					"en": { "href": "demoted/topic-stackedheader_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page with stacked header version 2" },
-					"fr": { "href": "demoted/topic-stackedheader_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet avec en-tête superposé version 2" }
-				}
-			],
-			"implementation": [
-				"_:implement_topic_stackedheader",
-				"_:implement_topic_stackedheader_aem",
-				"_:implement_topic_1_to_2"
-			],
-			"history": [
-				{
-					"en": "December 2024 - Contributors component moved to the page details section.",
-					"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+					"title": "Most requested",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-en.html",
+					"component": "gc-most-requested"
 				},
 				{
-					"en": "August 2024 - Version 1 of the stacked header variant.",
-					"fr": "août 2024 - Version 1 de la variante d'en-tête superposé."
+					"title": "Services and information",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-en.html",
+					"component": "gc-srvinfo"
+				},
+				{
+					"title": "Context-specific features",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-en.html",
+					"component": "gc-features"
+				},
+				{
+					"title": "Social media channels",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-en.html",
+					"component": "gc-follow-us"
+				},
+				{
+					"title": "Contributors",
+					"url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-en.html",
+					"component": "gc-contributors"
+				}
+			],
+			"fr": [
+				{
+					"title": "Bloc d'introduction",
+					"url": "https://wet-boew.github.io/GCWeb/design-patterns/gc-intro/gc-intro-doc-fr.html",
+					"component": "gc-intro"
+				},
+				{
+					"title": "En demande",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-most-requested/gc-most-requested-doc-fr.html",
+					"component": "gc-most-requested"
+				},
+				{
+					"title": "Services et renseignements",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-srvinfo/gc-srvinfo-doc-fr.html",
+					"component": "gc-srvinfo"
+				},
+				{
+					"title": "Promotions contextuelles",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-features/gc-features-doc-fr.html",
+					"component": "gc-features"
+				},
+				{
+					"title": "Bloc des réseaux de médias sociaux",
+					"url": "https://wet-boew.github.io/GCWeb/components/gc-follow-us/gc-follow-us-doc-fr.html",
+					"component": "gc-follow-us"
+				},
+				{
+					"title": "Collaborateurs",
+					"url": "https://wet-boew.github.io/GCWeb/sites/contributors/contributors-doc-fr.html",
+					"component": "gc-contributors"
 				}
 			]
-		}
-	],
-	"implementation": [
-		{
-			"@id": "_:implement_topic",
-			"iteration": "_:iteration_topic_4",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-
-			},
-			"instructions": {
-				"en": [
-					"Refer to the working example and guidance for more information on how to implement this page template."
-				],
-				"fr": [
-					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"notes": {
-				"en": [
-					"The Contributors component has been moved inside the Page details component."
-				],
-				"fr": [
-					"La composante Contributeurs a été déplacée à l'intérieur de la composante Détails de la page."
-				]
-			},
-			"ajaxSourceCode": {
-				"en": "topic-en.html main > *:not(.pagedetails)",
-				"fr": "topic-fr.html main > *:not(.pagedetails)"
-			}
 		},
-		{
-			"@id": "_:implement_topic_aem",
-			"iteration": "_:iteration_topic_4",
-			"name": {
-				"en": "AEM users",
-				"fr": "Utilisateurs AEM"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-			},
-			"instructions": {
-				"en": [
-					"Please refer to the documentation on GCPedia."
-				],
-				"fr": [
-					"Veuillez vous référer à la documentation dans GCPedia."
-				]
-			}
-		},
-		{
-			"@id": "_:implement_topic_1_to_2",
-			"iteration": "_:iteration_topic_3",
-			"name": {
-				"en": "Migrate from version 1 to version 2",
-				"fr": "Migration de la version 1 vers la version 2"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2 of the topic page template.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui tentent de migrer leur page de sujet actuelle vers la version 2 du modèle de page de sujet."
-			},
-			"instructions": {
-				"en": [
-					"A full content review needs to be performed. This change cannot be automated.",
-					"Follow the implementation instructions under the \"Standard\" tab."
-				],
-				"fr": [
-					"Un examen complet du contenu doit être effectué. Ce changement ne peut pas être automatisé.",
-					"Veuillez suivre les instructions d'implémentation sous l'onglet «&nbsp;Standard&nbsp;»\"."
-				]
-			}
-		},
-		{
-			"@id": "_:implement_topic_2_to_2.1",
-			"iteration": "_:iteration_topic_4",
-			"name": {
-				"en": "Migrate from version 2 to version 2.1",
-				"fr": "Migration de la version 2 vers la version 2.1"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2.1 of the topic page template.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui tentent de migrer leur page de sujet actuelle vers la version 2.1 du modèle de page de sujet."
-			},
-			"instructions": {
-				"en": [
-					"Move the \"Contributors\" component directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code>.",
-					"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
-				],
-				"fr": [
-					"Déplacez la composante «&nbsp;Contributeurs&nbsp;» directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code>.",
-					"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
-				]
-			}
-		},
-		{
-			"@id": "_:implement_topic_stackedheader",
-			"iteration": "_:iteration_topic_4",
-			"name": {
-				"en": "Standard",
-				"fr": "Standard"
-			},
-			"introduction": {
-				"en": "This implementation is meant for developers/publishers adding the template manually.",
-				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
-			},
-			"instructions": {
-				"en": [
-					"Refer to the working example and guidance for more information on how to implement this page template."
-				],
-				"fr": [
-					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"ajaxSourceCode": {
-				"en": "topic-stackedheader-en.html main > *:not(.pagedetails)",
-				"fr": "topic-stackedheader-fr.html main > *:not(.pagedetails)"
-			}
-		},
-		{
-			"@id": "_:implement_topic_stackedheader_aem",
-			"iteration": "_:iteration_topic_4",
-			"name": {
-				"en": "AEM users",
-				"fr": "Utilisateurs AEM"
-			},
-			"introduction": {
-				"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
-				"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
-			},
-			"instructions": {
-				"en": [
-					"Use the stacked main page title to display the page's section title as well as the page title.",
-					"Please refer to the documentation on GCPedia."
-				],
-				"fr": [
-					"Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page.",
-					"Veuillez vous référer à la documentation dans GCPedia."
-				]
-			}
-		}
-	],
-	"iteration": [
-		{
-			"@id": "_:iteration_topic_4",
-			"name": "Topic page - Iteration 4",
-			"date": "2024-12",
-			"breaking": [
-				"Contributors component moved to the page details section."
-			],
-			"detectableBy": ".page-type-topic"
-		},
-		{
-			"@id": "_:iteration_topic_3",
-			"name": "Topic page - Iteration 3",
-			"date": "2024-06",
-			"breaking": [
-				"Stabilization of the topic page template."
-			],
-			"detectableBy": ".page-type-topic"
-		},
-		{
-			"@id": "_:iteration_topic_2",
-			"name": "Theme / Topic page (Beta) - Iteration 2",
-			"date": "2021-01",
-			"detectableBy": "Half-width image introduction block. Full width most requested (provisional). Social media channels at bottom right",
-			"example": {
-				"en": [
+		"a11yGuidance": "No accessibility guidance.",
+		"variations": [
+			{
+				"name": {
+					"en": "Topic page",
+					"fr": "Page de sujet"
+				},
+				"status": "stable",
+				"description": {
+					"en": "Topic pages provide access to topics and destination pages that support task completion.",
+					"fr": "Les pages de sujet fournissent un accès aux sujets et aux pages de destination qui appuient l’achèvement des tâches."
+				},
+				"guidance": {
+					"en": "https://design.canada.ca/mandatory-templates/theme-topic.html",
+					"fr": "https://conception.canada.ca/modeles-obligatoire/theme-sujet.html"
+				},
+				"iteration": "_:iteration_topic_4",
+				"example": [
 					{
-						"href": "deprecated/theme-topic-en.html",
-						"text": "Theme - Topic page version 2 (beta) - Deprecated as of GCWeb v16.0.0"
+						"en": {
+							"href": "topic-en.html",
+							"text": "Topic page"
+						},
+						"fr": {
+							"href": "topic-fr.html",
+							"text": "Page de sujet"
+						}
+					},
+					{
+						"en": {
+							"href": "demoted/topic_v2-en.html",
+							"text": "Demoted as of GCWeb v16.2.0 - Topic page version 2"
+						},
+						"fr": {
+							"href": "demoted/topic_v2-fr.html",
+							"text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet version 2"
+						}
 					}
 				],
-				"fr": [
+				"implementation": [
+					"_:implement_topic",
+					"_:implement_topic_aem",
+					"_:implement_topic_1_to_2",
+					"_:implement_topic_2_to_2.1"
+				],
+				"history": [
 					{
-						"href": "deprecated/theme-topic-fr.html",
-						"text": "Page the thème ou de sujet version 2 (bêta) - Obsolète à partir de GCWeb v16.0.0"
+						"en": "December 2024 - Contributors component moved to the page details section.",
+						"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+					},
+					{
+						"en": "June 2024 - Stabilization of the version 2 of the page template.",
+						"fr": "Juin 2024 - Stabilisation de la version 2 du gabarit de page."
+					},
+					{
+						"en": "January 2021 - Provisional implementation of the version 2 of the page template.",
+						"fr": "Janvier 2021 - Implémentation provisoire de la version 2 du gabarit de page."
+					},
+					{
+						"en": "As per January 2018's template - Implementation of the version 1 of the page template.",
+						"fr": "Selon le gabarit en date de Janvier 2018 - Implémentation de la version 1 du gabarit de page."
+					}
+				]
+			},
+			{
+				"name": {
+					"en": "Topic page with stacked header",
+					"fr": "Page de sujet avec en-tête superposé"
+				},
+				"status": "stable",
+				"description": {
+					"en": "Use the stacked main page title to display the page's section title as well as the page title.",
+					"fr": "Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page."
+				},
+				"guidance": "no guidance defined.",
+				"iteration": "_:iteration_topic_4",
+				"example": [
+					{
+						"en": {
+							"href": "topic-stackedheader-en.html",
+							"text": "Topic page with stacked header"
+						},
+						"fr": {
+							"href": "topic-stackedheader-fr.html",
+							"text": "Page de sujet avec en-tête superposé"
+						}
+					},
+					{
+						"en": {
+							"href": "demoted/topic-stackedheader_v2-en.html",
+							"text": "Demoted as of GCWeb v16.2.0 - Topic page with stacked header version 2"
+						},
+						"fr": {
+							"href": "demoted/topic-stackedheader_v2-fr.html",
+							"text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet avec en-tête superposé version 2"
+						}
+					}
+				],
+				"implementation": [
+					"_:implement_topic_stackedheader",
+					"_:implement_topic_stackedheader_aem",
+					"_:implement_topic_1_to_2"
+				],
+				"history": [
+					{
+						"en": "December 2024 - Contributors component moved to the page details section.",
+						"fr": "Décembre 2024 - La composante Contributeurs a été déplacée vers la section détails de la page."
+					},
+					{
+						"en": "August 2024 - Version 1 of the stacked header variant.",
+						"fr": "août 2024 - Version 1 de la variante d'en-tête superposé."
 					}
 				]
 			}
-		},
-		{
-			"@id": "_:iteration_topic_1",
-			"name": "Topic page - Iteration 1",
-			"date": "2018-01",
-			"detectableBy": "Social media channels at top left. Most requested, Contributors and More information on the right.",
-			"example": {
-				"en": [
-					{
-						"href": "deprecated/topic-en.html",
-						"text": "Topic page version 1 - Deprecated as of GCWeb v16.0.0"
-					}
+		],
+		"implementation": [
+			{
+				"@id": "_:implement_topic",
+				"iteration": "_:iteration_topic_4",
+				"name": {
+					"en": "Standard",
+					"fr": "Standard"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"Refer to the working example and guidance for more information on how to implement this page template."
+					],
+					"fr": [
+						"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+					]
+				},
+				"notes": {
+					"en": [
+						"The Contributors component has been moved inside the Page details component."
+					],
+					"fr": [
+						"La composante Contributeurs a été déplacée à l'intérieur de la composante Détails de la page."
+					]
+				},
+				"ajaxSourceCode": {
+					"en": "topic-en.html main > *:not(.pagedetails)",
+					"fr": "topic-fr.html main > *:not(.pagedetails)"
+				}
+			},
+			{
+				"@id": "_:implement_topic_aem",
+				"iteration": "_:iteration_topic_4",
+				"name": {
+					"en": "AEM users",
+					"fr": "Utilisateurs AEM"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"Please refer to the documentation on GCPedia."
+					],
+					"fr": [
+						"Veuillez vous référer à la documentation dans GCPedia."
+					]
+				}
+			},
+			{
+				"@id": "_:implement_topic_1_to_2",
+				"iteration": "_:iteration_topic_3",
+				"name": {
+					"en": "Migrate from version 1 to version 2",
+					"fr": "Migration de la version 1 vers la version 2"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2 of the topic page template.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui tentent de migrer leur page de sujet actuelle vers la version 2 du modèle de page de sujet."
+				},
+				"instructions": {
+					"en": [
+						"A full content review needs to be performed. This change cannot be automated.",
+						"Follow the implementation instructions under the \"Standard\" tab."
+					],
+					"fr": [
+						"Un examen complet du contenu doit être effectué. Ce changement ne peut pas être automatisé.",
+						"Veuillez suivre les instructions d'implémentation sous l'onglet «&nbsp;Standard&nbsp;»\"."
+					]
+				}
+			},
+			{
+				"@id": "_:implement_topic_2_to_2.1",
+				"iteration": "_:iteration_topic_4",
+				"name": {
+					"en": "Migrate from version 2 to version 2.1",
+					"fr": "Migration de la version 2 vers la version 2.1"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers attempting to migrate their current topic page to the version 2.1 of the topic page template.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui tentent de migrer leur page de sujet actuelle vers la version 2.1 du modèle de page de sujet."
+				},
+				"instructions": {
+					"en": [
+						"Move the \"Contributors\" component directly after the <code>&lt;h2 class=\"wb-inv\"&gt;Page details&lt;/h2&gt;</code>.",
+						"Change the <code>&lt;h2&gt;From:&lt;/h2&gt;</code> to an <code>&lt;<strong>h3</strong>&gt;From:&lt;/<strong>h3</strong>&gt;</code>."
+					],
+					"fr": [
+						"Déplacez la composante «&nbsp;Contributeurs&nbsp;» directement après le <code>&lt;h2 class=\"wb-inv\"&gt;Détails de la page&lt;/h2&gt;</code>.",
+						"Changez le <code>&lt;h2&gt;De&nbsp;:&lt;/h2&gt;</code> à un <code>&lt;<strong>h3</strong>&gt;De&nbsp;:&lt;/<strong>h3</strong>&gt;</code>."
+					]
+				}
+			},
+			{
+				"@id": "_:implement_topic_stackedheader",
+				"iteration": "_:iteration_topic_4",
+				"name": {
+					"en": "Standard",
+					"fr": "Standard"
+				},
+				"introduction": {
+					"en": "This implementation is meant for developers/publishers adding the template manually.",
+					"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement."
+				},
+				"instructions": {
+					"en": [
+						"Refer to the working example and guidance for more information on how to implement this page template."
+					],
+					"fr": [
+						"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+					]
+				},
+				"ajaxSourceCode": {
+					"en": "topic-stackedheader-en.html main > *:not(.pagedetails)",
+					"fr": "topic-stackedheader-fr.html main > *:not(.pagedetails)"
+				}
+			},
+			{
+				"@id": "_:implement_topic_stackedheader_aem",
+				"iteration": "_:iteration_topic_4",
+				"name": {
+					"en": "AEM users",
+					"fr": "Utilisateurs AEM"
+				},
+				"introduction": {
+					"en": "This implementation is meant for publishers adding the template manually into an AEM page.",
+					"fr": "Cette implémentation est destinée aux éditeurs qui ajoutent le gabarit manuellement à une page d'AEM."
+				},
+				"instructions": {
+					"en": [
+						"Use the stacked main page title to display the page's section title as well as the page title.",
+						"Please refer to the documentation on GCPedia."
+					],
+					"fr": [
+						"Utilisez le titre de la page principale superposé pour afficher le titre de la section de la page ainsi que le titre de la page.",
+						"Veuillez vous référer à la documentation dans GCPedia."
+					]
+				}
+			}
+		],
+		"iteration": [
+			{
+				"@id": "_:iteration_topic_4",
+				"name": "Topic page - Iteration 4",
+				"date": "2024-12",
+				"breaking": [
+					"Contributors component moved to the page details section."
 				],
-				"fr": [
-					{
-						"href": "deprecated/topic-fr.html",
-						"text": "Page de sujet version 1 - Obsolète à partir de GCWeb v16.0.0"
-					}
+				"detectableBy": ".page-type-topic"
+			},
+			{
+				"@id": "_:iteration_topic_3",
+				"name": "Topic page - Iteration 3",
+				"date": "2024-06",
+				"breaking": [
+					"Stabilization of the topic page template."
+				],
+				"detectableBy": ".page-type-topic"
+			},
+			{
+				"@id": "_:iteration_topic_2",
+				"name": "Theme / Topic page (Beta) - Iteration 2",
+				"date": "2021-01",
+				"detectableBy": "Half-width image introduction block. Full width most requested (provisional). Social media channels at bottom right",
+				"example": {
+					"en": [
+						{
+							"href": "deprecated/theme-topic-en.html",
+							"text": "Theme - Topic page version 2 (beta) - Deprecated as of GCWeb v16.0.0"
+						}
+					],
+					"fr": [
+						{
+							"href": "deprecated/theme-topic-fr.html",
+							"text": "Page the thème ou de sujet version 2 (bêta) - Obsolète à partir de GCWeb v16.0.0"
+						}
+					]
+				}
+			},
+			{
+				"@id": "_:iteration_topic_1",
+				"name": "Topic page - Iteration 1",
+				"date": "2018-01",
+				"detectableBy": "Social media channels at top left. Most requested, Contributors and More information on the right.",
+				"example": {
+					"en": [
+						{
+							"href": "deprecated/topic-en.html",
+							"text": "Topic page version 1 - Deprecated as of GCWeb v16.0.0"
+						}
+					],
+					"fr": [
+						{
+							"href": "deprecated/topic-fr.html",
+							"text": "Page de sujet version 1 - Obsolète à partir de GCWeb v16.0.0"
+						}
+					]
+				}
+			}
+		],
+		"changesets": [
+			{
+				"@id": "_:cs_topic_3",
+				"name": "Topic page - Version 2.2",
+				"status": "stable",
+				"baseOnIteration": "_:iteration_topic_4",
+				"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
+				"layout": [
+					"Intro block (mandatory)",
+					"Most requested - version 1 (optional)",
+					"Services and information - version 3 (mandatory)",
+					"Context-specific features - version 5.0 [.col-md-8] (optional) + Social media channels - version 2.1 [.col-md-4] (optional)",
+					"Contributors - version 1.1 (optional)"
+				]
+			},
+			{
+				"@id": "_:cs_topic_2",
+				"name": "Topic page - Version 2",
+				"status": "demoted",
+				"baseOnIteration": "_:iteration_topic_2",
+				"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
+				"layout": [
+					"Intro block (mandatory)",
+					"Most requested - version 1 (optional)",
+					"Services and information - version 3 (mandatory)",
+					"Context-specific features - version 5.0 [.col-md-8] (optional) + Social media channels - version 2.1 [.col-md-4] (optional)",
+					"Contributors - version 1.0 (optional)"
 				]
 			}
-		}
-	],
-	"changesets": [
-		{
-			"@id": "_:cs_topic_3",
-			"name": "Topic page - Version 2.2",
-			"status": "stable",
-			"baseOnIteration": "_:iteration_topic_4",
-			"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
-			"layout": [
-				"Intro block (mandatory)",
-				"Most requested - version 1 (optional)",
-				"Services and information - version 3 (mandatory)",
-				"Context-specific features - version 5.0 [.col-md-8] (optional) + Social media channels - version 2.1 [.col-md-4] (optional)",
-				"Contributors - version 1.1 (optional)"
-			]
-		},
-		{
-			"@id": "_:cs_topic_2",
-			"name": "Topic page - Version 2",
-			"status": "demoted",
-			"baseOnIteration": "_:iteration_topic_2",
-			"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
-			"layout": [
-				"Intro block (mandatory)",
-				"Most requested - version 1 (optional)",
-				"Services and information - version 3 (mandatory)",
-				"Context-specific features - version 5.0 [.col-md-8] (optional) + Social media channels - version 2.1 [.col-md-4] (optional)",
-				"Contributors - version 1.0 (optional)"
-			]
-		}
-	]
-}
+		]
+	}
 ]
