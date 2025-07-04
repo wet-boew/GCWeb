@@ -1,0 +1,176 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "GCDS card",
+		"fr": "Carte GCDS"
+	},
+	"description": {
+		"en": "Co-existence pilot of the GCDSs card in GCWeb.",
+		"fr": "Pilote de co-existance des cartes GCDS dans GCWeb."
+	},
+	"modified": "2025-07-04",
+	"componentName": "gcds-card",
+	"status": "provisional",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GCDS card",
+				"language": "en",
+				"path": "card-en.html"
+			},
+			{
+				"title": "Carte GCDS",
+				"language": "fr",
+				"path": "card-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GCDS card",
+				"language": "en",
+				"path": "card-doc-en.html"
+			},
+			{
+				"title": "Carte GCDS",
+				"language": "fr",
+				"path": "card-doc-fr.html"
+			}
+		],
+		"test": [
+			{
+				"title": "GCDS Card with images",
+				"language": "en",
+				"path": "withimg-en.html"
+			},
+			{
+				"title": "Carte GCDS avec images",
+				"language": "fr",
+				"path": "withimg-fr.html"
+			},
+			{
+				"title": "GCDS Card as implemented in MWS",
+				"language": "en",
+				"path": "mws-en.html"
+			},
+			{
+				"title": "Carte GCDS tel que l'implémentation dans le système web géré",
+				"language": "fr",
+				"path": "mws-fr.html"
+			},
+			{
+				"title": "GCDS Card like as implemented in MWS (without workaround)",
+				"language": "en",
+				"path": "mws-no-workaround-en.html"
+			},
+			{
+				"title": "Carte GCDS similaire à l'implémentation dans le système web géré (sans contournement)",
+				"language": "fr",
+				"path": "mws-no-workaround-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "GCDS Card - default",
+				"fr": "Carte GCDS - par défaut"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "Co-existence pilot of the GCDS card in GCWeb.",
+				"fr": "Pilote de co-existance de la carte GCDS dans GCWeb."
+			},
+			"iteration": "_:implement_card",
+			"example": [
+				{
+					"en": { "href": "card-en.html", "text": "GCDS Card" },
+					"fr": { "href": "card-fr.html", "text": "Carte GCDS" }
+				}
+			],
+			"implementation": [
+				"_:implement_card"
+			],
+			"history": [
+				{
+					"en": "July 2025 - Initial implementation of the component co-existing with GCWeb.",
+					"fr": "Juillet 2025 - Implémentation initiale de la composante co-existant avec GCWeb."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_card",
+			"iteration": "_:iteration_card_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually and want to participate to the Principal Publisher pilot.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement et qui veulent participer au pilote avec l'Éditeur Principal."
+			},
+			"instructions": {
+				"en": [
+					"Add the GCDS loader into your page, distributed here <code>&lt;script blocking=\"render\" src=\"dist/GCWeb/js/gcdsloader.min.js\">&lt;/script></code>",
+					"Add your <code>gcds-card</code> inside a <code>gcds-grid</code> and then you can configure according to GCDS documentation"
+				],
+				"fr": [
+					"Ajoutez le chargeur de GCDS dans votre page, ce dernier est distribué ici <code>&lt;script blocking=\"render\" src=\"dist/GCWeb/js/gcdsloader.min.js\">&lt;/script></code>",
+					"Ajoutez vos <code>gcds-card</code> à l'intérieur d'une <code>gcds-grid</code> et après vous pouvez faire votre configuration tel que la documenation de GCDS."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_card_1",
+			"name": "GCDS card - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".wb-enable gcds-card",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_card_1",
+			"name": "GCDS card",
+			"status": "provisional",
+			"detectableBy": ".wb-enable gcds-card",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Tested when used with the gcds-grid."
+		}
+	]
+}
