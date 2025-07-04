@@ -10,7 +10,9 @@
 <!-- GC Design System -->
 <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.css">
 <script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.esm.js"></script>
-<script nomodule src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.js"></script>
+{% endif %}
+{%- if page.loadGCDS -%}
+<script blocking="render" src="{{ setting-resourcesBasePathTheme }}/js/gcdsloader{{ setting-minifiedSuffix }}.js"></script>
 {% endif %}
 
 <link href="{{ setting-resourcesBasePathTheme }}/assets/favicon.ico" rel="icon" type="image/x-icon" />
