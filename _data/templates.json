@@ -640,6 +640,16 @@
 				"title": "Page d'accueil institutionnelle",
 				"language": "fr",
 				"path": "institutional-landing-fr.html"
+			},
+			{
+				"title": "Institutional landing page - multiple with pictures",
+				"language": "en",
+				"path": "institutional-landing-multiple-en.html"
+			},
+			{
+				"title": "Page d'accueil institutionnelle - plusieurs avec des images",
+				"language": "fr",
+				"path": "institutional-landing-multiple-fr.html"
 			}
 		],
 		"reports": [
@@ -724,6 +734,37 @@
 					"fr": "Avril 2014 - Implémentation de la version 1 du gabarit de page."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Institutional landing page - multiple with pictures",
+				"fr": "Pages d'accueil institutionnelle - plusieurs avec des images"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use this template as the landing page for Government of Canada institutions and organizations with multiple ministers or institutional heads.",
+				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada lorsqu'il y a plusieurs ministres."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+			},
+			"iteration": "_:iteration_ilp_4",
+			"example": [
+				{
+					"en": { "href": "institutional-landing-multiple-en.html", "text": "Institutional landing page - multiple" },
+					"fr": { "href": "institutional-landing-multiple-fr.html", "text": "Pages d'accueil institutionnelle - plusieurs" }
+				}
+			],
+			"implementation": [
+				"_:implement_ilp_multiple"
+			],
+			"history": [
+				{
+					"en": "July 2025 - implementation of the version 4 of the page template.",
+					"fr": "Juillet 2024 - Implémentation provisoire de la version 4 du gabarit de page."
+				}
+			]
 		}
 	],
 	"implementation": [
@@ -794,9 +835,51 @@
 				"en": "institutional-landing-en.html main > *:not(.pagedetails)",
 				"fr": "institutional-landing-fr.html main > *:not(.pagedetails)"
 			}
+		},
+		{
+			"@id": "_:implement_ilp_multiple",
+			"iteration": "_:iteration_ilp_4",
+			"name": {
+				"en": "Multiple",
+				"fr": "Plusieurs"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the multiple pictures component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant de plusieurs images manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example for a code sample.",
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Reportez-vous à l'exemple pratique pour un exemple de code.",
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_ilp_4",
+			"name": "Institutional landing page - Iteration 4 (multiple)",
+			"date": "2025-07",
+			"detectableBy": "Multiple pictures for minister or insitutional head.",
+			"example": {
+				"en": [
+					{
+						"href": "institutional-landing-multiple-en.html",
+						"text": "Institutional landing page version 4 (multiple)"
+					}
+				],
+				"fr": [
+					{
+						"href": "institutional-landing-multiple-fr.html",
+						"text": "Page d'accueil institutionnelle version 4 (plusieurs)"
+					}
+				]
+			}
+		},
 		{
 			"@id": "_:iteration_ilp_3",
 			"name": "Institutional landing page - Iteration 3",
