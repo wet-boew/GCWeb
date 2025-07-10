@@ -220,6 +220,8 @@ module.exports = (grunt) ->
 			"copy:fonts"
 			"copy:wetboew"
 			"copy:depsJS_custom"
+			"copy:gcdsLoader"
+			"usebanner:gcdsLoader"
 		]
 	)
 
@@ -583,6 +585,7 @@ module.exports = (grunt) ->
 					"!{sites,common,components,templates,design-patterns,wet-boew}/**/assets"
 					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demo"
 					"!{sites,common,components,templates,design-patterns,wet-boew}/**/demos"
+					"!sites/gcdsloader.js"
 				]
 				dest: "<%= themeDist %>/js/theme.js"
 			common:
@@ -666,6 +669,22 @@ module.exports = (grunt) ->
 						"<%= themeDist %>/css/*.*",
 						"<%= themeDist %>/méli-mélo/*.css"
 					]
+
+			gcdsLoader:
+				options:
+					position: "replace"
+					props:
+						ver: "<%= pkg.peerDependencies[ '@cdssnc/gcds-components' ] %>"
+						srijs: "<%= pkg[ 'io.github.wet-boew' ].gcdsSriJs %>"
+						sricss: "<%= pkg[ 'io.github.wet-boew' ].gcdsSriCss %>"
+					replace: (fileContents, newBanner, insertPositionMarker, src, options) ->
+						# Replace GCDS version and SRIs in the source file
+						return fileContents
+						.replace( "@gcdsComponentVersion@", options.props.ver )
+						.replace( "@gcdsSriJs@", options.props.srijs )
+						.replace( "@gcdsSriCss@", options.props.sricss )
+				src: "<%= themeDist %>/js/gcdsloader.js"
+
 			#
 			# Use the name in the package.json as packageName in the theme
 			# used to build the URL and to ease the reuse of this build script for derivative themes
@@ -839,6 +858,11 @@ module.exports = (grunt) ->
 				cwd: "<%= themeDist %>/deps-js"
 				src: "**/*.*"
 				dest: "dist/wet-boew/js/deps"
+			gcdsLoader:
+				expand: true
+				flatten: true
+				src: "sites/gcdsloader.js"
+				dest: "<%= themeDist %>/js"
 
 			wetboew_demos:
 				expand: true
