@@ -1,0 +1,82 @@
+name: HTML Linting
+on:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+    paths:
+      - "package*.json"
+      - "Gruntfile.coffee"
+      - "Rakefile"
+      - "**/*.hbs"
+      - "**/*.html"
+      - ".github/workflows/lint-html.yml"
+
+  pull_request:
+    paths:
+      - "package*.json"
+      - "Gruntfile.coffee"
+      - "Rakefile"
+      - "**/*.hbs"
+      - "**/*.html"
+      - ".github/workflows/lint-html.yml"
+
+jobs:
+  lint-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: "temurin"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: "3.3"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+
+      - name: Install Grunt
+        run: npm i -g grunt-cli --force
+
+      - name: Install npm dependencies
+        run: npm ci
+
+              # Related to GCWeb#1737 about wet-boew#cc340a6 commit
+      - name: Copy the missing _sprite_share.scss file
+        run: |
+          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/86e7a0b15ad6a695754599e9793e986b460bf514/_sprites_share.scss >> _sprites_share.scss
+          mv _sprites_share.scss node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
+
+      - name: Build GCWeb
+        run: grunt build-gh-pages
+
+      # Overwrite all layout and includes and remove dist from .gitignore
+      - name: Update GCWeb Jekyll theme files
+        run: |
+          cp -R ~jekyll-dist/_includes/* _includes/
+          cp -R ~jekyll-dist/_layouts/* _layouts/
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # Generate all the Jekyll files and push to ./_site
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: HTMLlint
+        run: grunt htmllint
+
+      - name: HTMLProofer
+        run: bundle exec rake
