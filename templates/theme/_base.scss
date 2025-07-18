@@ -21,7 +21,7 @@
 	}
 
 	#gridContainer {
-		> nav {
+		> *:first-child {
 			#menuBtn {
 				border-radius: 0;
 				display: block;
@@ -57,35 +57,33 @@
 						color: $button-blue;
 						text-decoration: underline;
 					}
-				}
 
-				&.active {
-					a, a:hover {
+					&.wb-navcurr, &.wb-navcurr:hover {
 						background-color: #26374a;
 						color: #fff;
 					}
 
-					a:focus {
+					&.wb-navcurr:focus {
 						outline: 5px auto #fff;
 						outline-offset: -5px;
 					}
 				}
 			}
+		}
 
-			& + section {
-				h1#wb-cont {
-					border: none;
-					font-size: 1.2em;
-					line-height: 1.1;
-					margin: 10px 0 11.5px;
-				}
+		> *:last-child {
+			h1#wb-cont {
+				border: none;
+				font-size: 1.2em;
+				line-height: 1.1;
+				margin: 10px 0 11.5px;
+			}
 
-				.gc-most-requested {
-					h2 {
-						float: none;
-						font-size: 1em;
-						width: auto;
-					}
+			.gc-most-requested {
+				h2 {
+					float: none;
+					font-size: 1em;
+					width: auto;
 				}
 			}
 		}

@@ -27,11 +27,13 @@ var $document = wb.doc,
 
 			let themeMenuBtn = document.querySelector( "#menuBtn" ),
 				themeMenuIcon = themeMenuBtn.querySelector( ".glyphicon" ),
-				themeNavUL = document.querySelector( "#gridContainer > nav ul" ),
-				activePageLink = themeNavUL.querySelector( ".active a" );
+				$themeNav = $( "#gridContainer > nav, #gridContainer > div:first-child nav" ),
+				themeNavUL = document.querySelector( "#gridContainer > nav ul, #gridContainer > div:first-child nav ul" );
+
 
 			themeNavUL.id = themeNavUL.id || wb.getId();
-			activePageLink.setAttribute( "aria-current", "page" );
+			$themeNav.trigger( "navcurr.wb" ); // Highlight the current page in the menu
+			themeNavUL.querySelector( ".wb-navcurr" ).setAttribute( "aria-current", "page" );
 			themeMenuBtn.setAttribute( "aria-controls", themeNavUL.id );
 			themeMenuBtn.setAttribute( "aria-expanded", "false" );
 			themeMenuIcon.setAttribute( "aria-hidden", "true" );
