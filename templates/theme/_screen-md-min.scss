@@ -13,8 +13,7 @@
 		padding: 0 15px;
 		width: $container-md;
 
-		> nav {
-			border-right: 5px solid #26374a;
+		> *:first-child {
 			flex: 0 0 300px;
 
 			.wb-sl {
@@ -32,31 +31,32 @@
 			#menuBtn {
 				display: none;
 			}
+		}
 
-			& + section {
-				flex: 1 0 0%;
+		> *:last-child {
+			border-left: 5px solid #26374a;
+			flex: 1 0 0%;
 
-				.container {
-					padding-left: 35px;
-					width: auto;
+			.container {
+				padding-left: 35px;
+				width: auto;
+			}
+
+			.gc-most-requested {
+				position: relative;
+
+				&::after {
+					background-color: #f5f5f5;
+					bottom: 0;
+					content: "";
+					left: calc(100% - 1px);
+					position: absolute;
+					top: 0;
+					width: 9999px;
 				}
 
-				.gc-most-requested {
-					position: relative;
-
-					&::after {
-						background-color: #f5f5f5;
-						bottom: 0;
-						content: "";
-						left: calc(100% - 1px);
-						position: absolute;
-						top: 0;
-						width: 9999px;
-					}
-
-					ul li::after {
-						width: 240px
-					}
+				ul li::after {
+					width: 240px
 				}
 			}
 		}
