@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"@version": 1.2,
+		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -14,7 +14,7 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-07-04",
+	"modified": "2025-07-24",
 	"componentName": "all-services",
 	"status": "stable",
 	"version": "1.2",
@@ -69,7 +69,9 @@
 			"history": [
 				{
 					"en": "July 2025 - Remove expand and collapse All buttons.",
-					"fr": "Juillet 2025 - Suppression des boutons « Développer » et « Réduire ».",
+					"fr": "Juillet 2025 - Suppression des boutons « Développer » et « Réduire »."
+				},
+				{
 					"en": "November 2024 - Initial implementation of the page template.",
 					"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
 				}
@@ -109,7 +111,9 @@
 			"name": "All services page - Iteration 3",
 			"date": "2025-07",
 			"additions": [ "Removing expand/collapse all buttons." ],
-			"detectableBy": "Three navigation bands followed by a Services and Information component containing a list of all themes and topics."
+			"detectableBy": "Three navigation bands followed by a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_2",
+			"successor": "_:iteration_allservices_3"
 		},
 		{
 			"@id": "_:iteration_allservices_2",
@@ -133,6 +137,7 @@
 			"baseOnIteration": "_:iteration_allservices_3",
 			"detectableBy": "By the sequence of elements.",
 			"semantic": "h1 + h2*3 + h1 + h3*n + h2 + h3*3",
+			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
 			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
 			"layout": [
 				"Top searches navigation band",
@@ -144,7 +149,7 @@
 		},
 		{
 			"@id": "_:cs_allservices",
-			"name": "All services page",
+			"name": "All services page - expand and collapse",
 			"status": "demoted",
 			"baseOnIteration": "_:iteration_allservices_2",
 			"detectableBy": "By the sequence of elements.",
