@@ -25,18 +25,21 @@ var $document = wb.doc,
 
 		if ( elm && event.currentTarget === event.target ) {
 
-			let themeMenuBtn = document.querySelector( "#menuBtn" ),
+			let themeMenuBtn = document.querySelector( "#menu-btn" ),
 				themeMenuIcon = themeMenuBtn.querySelector( ".glyphicon" ),
-				$themeNav = $( "#gridContainer > nav, #gridContainer > div:first-child nav" ),
-				themeNavUL = document.querySelector( "#gridContainer > nav ul, #gridContainer > div:first-child nav ul" );
+				$themeNav = $( "#theme-nav" ),
+				themeNavUL = document.querySelector( "#theme-nav ul" );
 
 
 			themeNavUL.id = themeNavUL.id || wb.getId();
 			$themeNav.trigger( "navcurr.wb" ); // Highlight the current page in the menu
-			themeNavUL.querySelector( ".wb-navcurr" ).setAttribute( "aria-current", "page" );
 			themeMenuBtn.setAttribute( "aria-controls", themeNavUL.id );
 			themeMenuBtn.setAttribute( "aria-expanded", "false" );
 			themeMenuIcon.setAttribute( "aria-hidden", "true" );
+
+			if ( themeNavUL.querySelector( ".wb-navcurr" ) ) {
+				themeNavUL.querySelector( ".wb-navcurr" ).setAttribute( "aria-current", "page" );
+			}
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );
