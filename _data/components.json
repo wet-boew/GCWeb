@@ -377,6 +377,183 @@
 }
 ,{
 	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Conjunctions (and/or)",
+		"fr": "Conjonction (et/ou)"
+	},
+	"description": {
+		"en": "Conjunctions for stacked or side by side decision points, and/or",
+		"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+	},
+	"modified": "2025-07-14",
+	"componentName": "conjunctions",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "Conjunctions (and/or) - working example",
+				"language": "en",
+				"path": "conjunction.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - example pratique",
+				"language": "fr",
+				"path": "conjunction-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Conjunctions (and/or)",
+				"language": "en",
+				"path": "conjunction-guidance-en.html"
+			},
+			{
+				"title": "Conjonction (et/ou)",
+				"language": "fr",
+				"path": "conjunction-guidance-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Conjunctions (and/or)",
+				"fr": "Conjonction (et/ou)"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Conjunctions for stacked or side by side decision points, and/or",
+				"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+			},
+			"iteration": "_:iteration_conjunction_1",
+			"example": [
+				{
+					"en": { "href": "conjunction.html", "text": "Conjunctions (and/or)" },
+					"fr": { "href": "conjunction-fr.html", "text": "Conjonction (et/ou)" }
+				}
+			],
+			"implementation": [
+				"_:implement_conjunction"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased minimum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Modification de la bordure pour un contraste élevé. Modification de la taille de police du texte généré par CSS : la valeur em permet une meilleure évolutivité entre les tailles de police parentes. Augmentation de la hauteur minimale du motif côte à côte pour créer une bordure cohérente au-dessus et en dessous du texte CSS. Mise à jour de la gouvernance pour une meilleure stabilisation."
+				},
+				{
+					"en": "August 2024 - Change was to remove the side-by-side line separator in Firefox (but keep the shape and text) when in High contrast mode. The previous pattern had the line separator \"cut\" through the words (and/or) which could make it slightly illegible.",
+					"fr": "Août 2024 - La modification a consisté à supprimer le séparateur de lignes côte à côte dans Firefox (tout en conservant la forme et le texte) en mode Contraste élevé. Auparavant, le séparateur de lignes « coupait » les mots (et/ou), ce qui pouvait le rendre légèrement illisible."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_conjunction",
+			"iteration": "_:iteration_conjunction_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List element example (or):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List element example (and):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (or) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t..\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (and) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_conjunction_1",
+			"name": "Conjunctions (and/or) - Iteration 1",
+			"date": "2024-08",
+			"detectableBy": ".cnjnctn-col",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p>Lead in statement</p><ul class=\"cnjnctn-type-or\"><li class=\"cnjnctn-col\">...</li><li class=\"cnjnctn-col\">...</li></ul>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_conjunction_1",
+			"name": "Conjunctions (and/or)",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_conjunction_1",
+			"detectableBy": ".cnjnctn-col",
+			"layout": "Not applicable",
+			"style": "Design to clearly demonstrate that there are options or that there are content blocks that are complementary or associated",
+			"semantic": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
@@ -2395,6 +2572,217 @@
 			}
 		]
 	}
+}
+,{
+	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "List steps",
+		"fr": "Liste d'étape"
+	},
+	"description": {
+		"en": "Style ordered list and divs with steps number in circles.",
+		"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+	},
+	"modified": "2025-07-29",
+	"componentName": "list-steps",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "List steps - working example",
+				"language": "en",
+				"path": "list-steps-en.html"
+			},
+			{
+				"title": "Liste d'étape - example pratique",
+				"language": "fr",
+				"path": "list-steps-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "List steps",
+				"language": "en",
+				"path": "list-steps-guidance-en.html"
+			},
+			{
+				"title": "Liste d'étape",
+				"language": "fr",
+				"path": "list-steps-guidance-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "List steps",
+				"fr": "Liste d'étape"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Style ordered list and divs with steps number in circles.",
+				"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+			},
+			"iteration": "_:iteration_list_steps_1",
+			"example": [
+				{
+					"en": { "href": "list-steps-en.html", "text": "List steps" },
+					"fr": { "href": "list-steps-fr.html", "text": "Liste d'étape" }
+				}
+			],
+			"implementation": [
+				"_:implement_list_steps"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Réduction de l'espacement excessif pour les petites quantités de contenu. Suppression de la couleur d'arrière-plan du numéro d'étape par défaut de la liste (sauf en mode rayé), car il ne s'affichait pas correctement en mode contraste élevé. Mise à jour de la gouvernance pour la stabilisation."
+				},
+				{
+					"en": "August 2024 - Fixed issue with printing pages as some text would be cut off.",
+					"fr": "Août 2024 - Correction d'un problème d'impression de pages car certains textes étaient coupés."
+				},
+				{
+					"en": "October 2024 - Added customized option to use start attribute for items 2 to 10.",
+					"fr": "Octobre 2024 - Ajout d'une option personnalisée pour utiliser l'attribut de démarrage pour les éléments 2 à 10."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_list_steps",
+			"iteration": "_:iteration_list_steps_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List steps (default):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (sub nested):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (start attribute):",
+						"code": "<ol class=\"lst-stps start=\"2\"\">"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (défaut):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (sous-listes imbriquées):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (Attribut de début):",
+						"code": "<ol class=\"lst-stps start=\"2\"\">"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_list_steps_1",
+			"name": "List steps - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".lst-stps",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_list_steps_1",
+			"name": "List steps",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_list_steps_1",
+			"detectableBy": ".lst-stps",
+			"layout": "Not applicable",
+			"style": "Style ordered list and divs with steps number in circles.",
+			"semantic": "Not applicable"
+		}
+	]
 }
 ,{
 	"@context": {
