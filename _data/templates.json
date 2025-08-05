@@ -99,10 +99,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-01-09",
+	"modified": "2025-07-24",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.1",
+	"version": "1.2",
 	"pages": {
 		"examples": [
 			{
@@ -141,7 +141,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_2",
+			"iteration": "_:iteration_allservices_3",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -153,6 +153,10 @@
 			],
 			"history": [
 				{
+					"en": "July 2025 - Remove expand and collapse All buttons.",
+					"fr": "Juillet 2025 - Suppression des boutons « Développer » et « Réduire »."
+				},
+				{
 					"en": "November 2024 - Initial implementation of the page template.",
 					"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
 				}
@@ -162,7 +166,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_2",
+			"iteration": "_:iteration_allservices_3",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -188,6 +192,15 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_allservices_3",
+			"name": "All services page - Iteration 3",
+			"date": "2025-07",
+			"additions": [ "Removing expand/collapse all buttons." ],
+			"detectableBy": "Three navigation bands followed by a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_2",
+			"successor": "_:iteration_allservices_3"
+		},
+		{
 			"@id": "_:iteration_allservices_2",
 			"name": "All services page - Iteration 2",
 			"date": "2025-01",
@@ -203,9 +216,26 @@
 	],
 	"changesets": [
 		{
-			"@id": "_:cs_allservices",
+			"@id": "_:cs_allservices_2",
 			"name": "All services page",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_allservices_3",
+			"detectableBy": "By the sequence of elements.",
+			"semantic": "h1 + h2*3 + h1 + h3*n + h2 + h3*3",
+			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
+			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
+			"layout": [
+				"Top searches navigation band",
+				"Most requested services navigation band",
+				"Manage life events navigation band",
+				"Access services by topic navigation band",
+				"Focus On navigation band"
+			]
+		},
+		{
+			"@id": "_:cs_allservices",
+			"name": "All services page - expand and collapse",
+			"status": "demoted",
 			"baseOnIteration": "_:iteration_allservices_2",
 			"detectableBy": "By the sequence of elements.",
 			"semantic": "h1 + h2*3 + h1 + h2*n",
