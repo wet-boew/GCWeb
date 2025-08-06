@@ -3,7 +3,17 @@
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
+		"description": {
+			"@id": "dct:description",
+			"notes": {
+				"en": [
+					"The recommended image size is 200px by 200px."
+				],
+				"fr": [
+					"La taille d'image recommandée est de 200px par 200px."
+				]
+			},
+			"sample": {@container": "@language" },
 		"modified": "dct:modified"
 	},
 	"title": {
@@ -110,6 +120,10 @@
 				"_:implement_minister_v1_to_v1.1"
 			],
 			"history": [
+				{
+					"en": "August 2025 - Updated recommended image dimensions from 200x250px to 200x200px for better visual consistency.",
+					"fr": "Août 2025 - Mise à jour des dimensions d'image recommandées de 200x250px à 200x200px pour une meilleure cohérence visuelle."
+				},
 				{	"en": "April 2025 - Fixed issue where links were not clickable in mobile view.",
 					"fr": "Avril 2025 - Problème résolu où les liens n'étaient pas cliquables dans la vue mobile."
 				},
@@ -239,10 +253,10 @@
 			},
 			"notes": {
 				"en": [
-					"The recommended image size is 200px by 250px."
+					"The recommended image size is 200px by 200px."
 				],
 				"fr": [
-					"La taille d'image recommandée est de 200px par 250px."
+					"La taille d'image recommandée est de 200px par 200px."
 				]
 			},
 			"sample": {
@@ -362,7 +376,7 @@
 				"Ministers > Briefing book text (type: STRING)",
 				"Ministers > Briefing book URL (type: STRING)"
 			],
-			"mediaConsiderations": "Recommended image size: 200x250px."
+			"mediaConsiderations": "Recommended image size: 200x200px."
 		},
 		{
 			"@id": "_:cs_minister",
