@@ -7,14 +7,16 @@ layout: no-container
 language: en
 overwriteBreadcrumbs: true
 feedback: true
+loadGCDS: true
 css:
-- href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
-  integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
+  - href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
+    integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
 {%- include variable-core.liquid -%}
 
 {::nomarkdown}
+
 <div class="container">
   <h1 id="wb-cont" property="name">GCWeb, the WET-BOEW Canada.ca theme</h1>
   <div class="row">
@@ -27,26 +29,7 @@ css:
     </div>
   </div>
 </div>
-<div class="container-fluid wb-inview show-none" data-inview="nav-menu">
-  <div class="row">
-    <nav class="bg-light py-4 mb-3 mrgn-tp-md">
-      <div class="container">
-        <h2 class="mrgn-tp-0">Get started</h2>
-        <ul class="list-unstyled colcount-md-3">
-          <li><a href="#components"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Components</a></li>
-          <li><a href="#templates"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Templates</a></li>
-          <li><a href="#designPatterns"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-md"></span>Design patterns</a></li>
-          <li><a href="#experiment"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Experimentation and thematics</a></li>
-          <li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Sites and global functionality</a></li>
-          <li><a href="#wetboew"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Wet-boew</a></li>
-          <li><a href="#other"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Other documentation</a></li>
-          <li><a href="#implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</div>
-<nav id="nav-menu" class="wb-overlay modal-content overlay-def wb-bar-t hidden-xs" aria-hidden="true">
+<!-- <nav id="nav-menu" class="wb-overlay modal-content overlay-def wb-bar-t hidden-xs" aria-hidden="true">
   <header class="pull-left">
     <h2 class="modal-title">Get started</h2>
   </header>
@@ -75,9 +58,9 @@ css:
       <a href="#implementing-developing" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-sm"></span>Implementing&nbsp;/ Developing</a>
     </li>
   </ul>
-</nav>
+</nav> -->
 <div class="container">
-  <p><small>Found an C&amp;IA implementation issue or you want to contribute at their development, let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
+  <p><small>Found a C&amp;IA implementation issue or you want to contribute at their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
   <details class="mrgn-tp-lg">
@@ -111,25 +94,30 @@ css:
   </details>
   <h2 id="components" class="mrgn-bttm-lg">Components</h2>
   <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
-  {% for component in site.data.components %}
-    {% assign list-pages = component.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }}
-        {% if component.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
-        {% endif %}
-        </h3>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ component.description[ page.language ] | default: "[Short description of the component]" }}</p>
+    <gcds-grid tag="li" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+      {% for component in site.data.components %}
+      {% assign list-pages = component.pages %}
+      <!-- Overlay Start -->
+      <section id="details-overlay" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+          <h2 class="modal-title">{{ component.title[ page.language ] }}
+          <!-- Status Tags -->
+          {% if component.status == "stable" %}
+          <span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
+          {% elsif component.status == "provisional" %}
+          <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
+          {% elsif component.status == "deprecated" %}
+          <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
+          {% elsif component.status == "demoted" %}
+          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ component.status ] }}</span>
+          {% else %}
+          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
+          {% endif %}
+          <!-- Status Tags End -->
+          </h2>
+        </header>
+        <div class="modal-body">
+          <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
           <!--
 					Main working example
 					- First working example in the example list where the language match
@@ -195,8 +183,18 @@ css:
           </ul>
           </details>
         </div>
-      </div>
-    </li>
+        </div>
+      </section>
+      <!-- Overlay End -->
+      <gcds-card
+      class="wb-lbx" 
+      card-title="{{ component.title[ page.language ] }}" 
+      href="#details-overlay" 
+      badge="Component" 
+      description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}"
+      aria-controls="details-overlay">
+      </gcds-card>
+    </gcds-grid>
   {% endfor %}
   </ul>
   <hr>
