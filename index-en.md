@@ -94,11 +94,11 @@ css:
   </details>
   <h2 id="components" class="mrgn-bttm-lg">Components</h2>
   <!-- <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'> -->
-    <gcds-grid class='list-unstyled' tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+    <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
       {% for component in site.data.components %}
         {% assign list-pages = component.pages %}
         {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
-        <li>
+        <li style="list-style-type: none;">
           <!-- Overlay Start -->
           <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
             <header class="modal-header">
@@ -189,14 +189,16 @@ css:
             </div>
           </section>
           <!-- Overlay End -->
-          <gcds-card
-          class="wb-lbx" 
-          card-title="{{ component.title[ page.language ] }}" 
-          href="#{{ overlay_id }}" 
-          badge="Component" 
-          description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}"
-          aria-controls="{{ overlay_id }}">
-          </gcds-card>
+          <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal" role="button">
+            <gcds-card
+            class="wb-lbx" 
+            card-title="{{ component.title[ page.language ] }}" 
+            href="#{{ overlay_id }}" 
+            badge="Component" 
+            description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}"
+            aria-controls="{{ overlay_id }}">
+            </gcds-card>
+          </a>
         </li>
         {% endfor %}
     </gcds-grid>
