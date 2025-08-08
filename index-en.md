@@ -29,41 +29,11 @@ css:
     </div>
   </div>
 </div>
-<!-- <nav id="nav-menu" class="wb-overlay modal-content overlay-def wb-bar-t hidden-xs" aria-hidden="true">
-  <header class="pull-left">
-    <h2 class="modal-title">Get started</h2>
-  </header>
-  <ul class="pull-left list-inline mrgn-lft-md mrgn-tp-sm">
-    <li>
-      <a href="#components" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Components</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#templates" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-sm"></span>Templates</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#designPatterns" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-sm"></span>Design patterns</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#experiment" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Experimentation and thematics</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-sm"></span>Sites and global</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#wetboew" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Wet-boew</a>
-    </li>
-      <a href="#other" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-sm"></span>Other</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#implementing-developing" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-sm"></span>Implementing&nbsp;/ Developing</a>
-    </li>
-  </ul>
-</nav> -->
 <div class="container">
   <p><small>Found a C&amp;IA implementation issue or you want to contribute at their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg">
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
     <summary>Meaning of statuses</summary>
     <dl class="dl-horizontal mrgn-bttm-0">
       <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
@@ -94,7 +64,6 @@ css:
   </details>
 
   <!-- Components -->
-  <h2 id="components" class="mrgn-bttm-lg">Components</h2>
   <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
@@ -224,7 +193,6 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-              <p>{{ template.description[ page.language ] | default: "[Short description of the template]" }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -316,7 +284,6 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-              <p>{{ designPattern.description[ page.language ] | default: "[Short description of the design pattern]" }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -422,7 +389,6 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-            <p>{{ item.description[ page.language ] | default: "[Short description of the site global functionality]" }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
@@ -526,7 +492,6 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-              <p>{{ item.description[ page.language ] | default: "[Short description of the common component]" }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -630,7 +595,6 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-            <p>{{ wetboew.description[ page.language ] | default: "[Short description of the wetboew]" }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
@@ -714,7 +678,7 @@ css:
           class="wb-lbx" 
           card-title="{{ wetboew.title[ page.language ] }}" 
           href="#{{ overlay_id }}" 
-          badge="Wetboew" 
+          badge="Wet-boew" 
           description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}"
           aria-controls="{{ overlay_id }}">
           </gcds-card>

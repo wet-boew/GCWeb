@@ -7,14 +7,16 @@ layout: no-container
 language: fr
 overwriteBreadcrumbs: true
 feedback: true
+loadGCDS: true
 css:
-- href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
-  integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
+  - href: https://use.fontawesome.com/releases/v5.8.1/css/all.css
+    integrity: sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf
 ---
 
 {%- include variable-core.liquid -%}
 
 {::nomarkdown}
+
 <div class="container">
   <h1 id="wb-cont" property="name">GCWeb, le thème WET-BOEW de Canada.ca</h1>
   <div class="row">
@@ -27,60 +29,11 @@ css:
     </div>
   </div>
 </div>
-<div class="container-fluid wb-inview show-none" data-inview="nav-menu">
-  <div class="row">
-    <nav class="bg-light py-4 mb-3 mrgn-tp-md">
-      <div class="container">
-        <h2 class="mrgn-tp-0">Débuter</h2>
-        <ul class="list-unstyled colcount-md-3">
-          <li><a href="#composantes"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Composantes</a></li>
-          <li><a href="#gabarits"><span aria-hidden="true" class="fas fa-table mrgn-rght-md"></span>Gabarits</a></li>
-          <li><a href="#modeles"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-md"></span>Configurations de conception</a></li>
-          <li><a href="#experimentation"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-md"></span>Expérimentation et thématiques</a></li>
-          <li><a href="#sitesglobal"><span aria-hidden="true" class="fas fa-globe mrgn-rght-md"></span>Fonctionnalités globales et de sites</a></li>
-          <li><a href="#wetboew"><span aria-hidden="true" class="fas fa-cube mrgn-rght-md"></span>Wet-boew</a></li>
-          <li><a href="#autre"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-md"></span>Autre documentation</a></li>
-          <li><a href="#implementer-developper"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implémenter&nbsp;/ Développer</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</div>
-<nav id="nav-menu" class="wb-overlay modal-content overlay-def wb-bar-t hidden-xs" aria-hidden="true">
-  <header class="pull-left">
-    <h2 class="modal-title">Débuter</h2>
-  </header>
-  <ul class="pull-left list-inline mrgn-lft-md mrgn-tp-sm">
-    <li>
-      <a href="#composantes" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Composantes</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#gabarits" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-table mrgn-rght-sm"></span>Gabarits</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#modeles" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-th-large mrgn-rght-sm"></span>Configurations de conception</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#experimentation" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-puzzle-piece mrgn-rght-sm"></span>Expérimentation et thématiques</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#sitesglobal" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-globe mrgn-rght-sm"></span>Global et de sites</a>
-    </li>
-      <a href="#wetboew" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-cube mrgn-rght-sm"></span>Wet-boew</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#autre" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-info-circle mrgn-rght-sm"></span>Autre</a>
-    </li>
-    <li class="mrgn-lft-md">
-      <a href="#implementer-developper" class="btn btn-link text-white"><span aria-hidden="true" class="fas fa-code mrgn-rght-sm"></span>Implémenter&nbsp;/ Développer</a>
-    </li>
-  </ul>
-</nav>
 <div class="container">
   <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg">
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
     <summary>Définition des états</summary>
     <dl class="dl-horizontal mrgn-bttm-0">
       <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
@@ -109,266 +62,638 @@ css:
       <dd>Incomplet car il ne se conforme pas complètement à toute les exigences de la spécification. Nécessite encore des travaux de développement.</dd>-->
     </dl>
   </details>
-  <h2 id="composantes" class="mrgn-bttm-lg">Composantes</h2>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
-  {% for component in site.data.components %}
-    {% assign list-pages = component.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ component.title[ page.language ] }}
-        {% if component.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-        {% elsif component.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-        {% endif %}
-        </h3>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ component.description[ page.language ] | default: "[Courte description de la composante]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="components/
-                {%- if component.componentName -%}
-                  {{ component.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          {% for doc in docs %}
-            <li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-          {% endfor %}
-          {% endif %}
-          <li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-            <ul class="list-unstyled">
-            {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-              <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-                <ul>
-                {% assign examples = pgGroup[1] %}
-                {% for example in examples %}
-                  {% if example.path %}
-                  <li><a href="components/
-                        {%- if component.componentName -%}
-                          {{ component.componentName }}/
-                        {%- endif -%}
-                      {{ example.path }}" {% if example.language != page.language %}hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                  {% elsif example.url %}
-                    <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                  {% else %}
-                    <li>{{ example.title }}</li>
-                  {% endif %}
+
+  <!-- Components -->
+  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+    {% for component in site.data.components %}
+      {% assign list-pages = component.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
+      <li style="list-style-type: none;">
+        <!-- Overlay -->
+        <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <h2 class="modal-title">{{ component.title[ page.language ] }}
+              {% if component.status == "stable" %}
+              <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+              {% elsif component.status == "provisional" %}
+              <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+              {% elsif component.status == "deprecated" %}
+              <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+              {% elsif component.status == "demoted" %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+              {% else %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+              {% endif %}
+            </h2>
+          </header>
+          <div class="modal-body">
+            <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+              <!--
+              Main working example
+              - First working example in the example list where the language match
+              -->
+              {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+              <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+              {% if mainExamples %}
+              <li>
+              {% if mainExamples.path %}
+              <a href="components/
+                    {%- if component.componentName -%}
+                      {{ component.componentName }}/
+                    {%- endif -%}
+                  {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% elsif mainExamples.url %}
+                <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% else %}
+                <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+              {% endif %}
+              {% endif %}
+              <!--
+              Documentation
+              - Link to the documentations if any
+              -->
+              {% if list-pages.docs %}
+              <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+              {% assign docs = list-pages.docs | where: "language", page.language %}
+              {% for doc in docs %}
+                <li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+              {% endfor %}
+              {% endif %}
+              <li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
+              </ul>
+              <!--
+              * All examples and info
+              * Example
+              * Documentation
+              * Spec
+              -->
+              <details class="mrgn-tp-lg">
+                <summary>Tous les exemples et info</summary>
+                <ul class="list-unstyled">
+                {% for pgGroup in list-pages %}
+                  {% assign grpkey = pgGroup[0] %}
+                  <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                    <ul>
+                    {% assign examples = pgGroup[1] %}
+                    {% for example in examples %}
+                      {% if example.path %}
+                      <li><a href="components/
+                            {%- if component.componentName -%}
+                              {{ component.componentName }}/
+                            {%- endif -%}
+                          {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                      {% elsif example.url %}
+                        <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                      {% else %}
+                        <li>{{ example.title }}</li>
+                      {% endif %}
+                    {% endfor %}
+                    </ul>
+                  </li>
                 {% endfor %}
                 </ul>
-              </li>
-            {% endfor %}
-            </ul>
-          </details>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-  <hr>
-  <h2 id="gabarits" class="mrgn-bttm-lg pt-4">Gabarits</h2>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
-  {% for template in site.data.templates %}
-    {% assign list-pages = template.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ template.title[ page.language ] }}
-        {% if template.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-        {% elsif template.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-        {% elsif template.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-        {% elsif template.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-        {% endif %}
-        </h3>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="templates/
-                {%- if template.componentName -%}
-                  {{ template.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          {% for doc in docs %}
-            <li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-          {% endfor %}
-          {% endif %}
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-            <ul class="mrgn-tp-md">
-              {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-              <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-                <ul>
-                {% assign examples = pgGroup[1] %}
-                {% for example in examples %}
-                  {% if example.path %}
-                  <li><a href="templates/
-                        {%- if template.componentName -%}
-                          {{ template.componentName }}/
-                        {%- endif -%}
-                      {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                  {% elsif example.url %}
-                    <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                  {% else %}
-                    <li>{{ example.title }}</li>
-                  {% endif %}
+              </details>
+            </div>
+          </div>
+        </section>
+        <!-- Overlay End -->
+        <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+          <gcds-card
+          class="wb-lbx" 
+          card-title="{{ component.title[ page.language ] }}" 
+          href="#{{ overlay_id }}" 
+          badge="Composante" 
+          description="{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}"
+          aria-controls="{{ overlay_id }}">
+          </gcds-card>
+        </a>
+      </li>
+    {% endfor %}
+    <!-- Templates -->
+    {% for template in site.data.templates %}
+      {% assign list-pages = template.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: template.componentName %}
+      <li style="list-style-type: none;">
+        <!-- Overlay -->
+        <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <h2 class="modal-title">{{ template.title[ page.language ] }}
+            {% if template.status == "stable" %}
+            <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+            {% elsif template.status == "provisional" %}
+            <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+            {% elsif template.status == "deprecated" %}
+            <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+            {% elsif template.status == "demoted" %}
+            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+            {% else %}
+            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+            {% endif %}
+            </h2>
+          </header>
+          <div class="modal-body">
+            <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+              <!-- <p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p> -->
+              <!--
+              Main working example
+              - First working example in the example list where the language match
+              -->
+              {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+              <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+              {% if mainExamples %}
+              <li>
+              {% if mainExamples.path %}
+              <a href="templates/
+                    {%- if template.componentName -%}
+                      {{ template.componentName }}/
+                    {%- endif -%}
+                  {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% elsif mainExamples.url %}
+                <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% else %}
+                <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+              {% endif %}
+              {% endif %}
+              <!--
+              Documentation
+              - Link to the documentations if any
+              -->
+              {% if list-pages.docs %}
+              <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+              {% assign docs = list-pages.docs | where: "language", page.language %}
+              {% for doc in docs %}
+                <li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+              {% endfor %}
+              {% endif %}
+              </ul>
+              <!--
+              * All examples and info
+              * Example
+              * Documentation
+              * Spec
+              -->
+              <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+                <ul class="mrgn-tp-md">
+                  {% for pgGroup in list-pages %}
+                  {% assign grpkey = pgGroup[0] %}
+                  <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                    <ul>
+                    {% assign examples = pgGroup[1] %}
+                    {% for example in examples %}
+                      {% if example.path %}
+                      <li><a href="templates/
+                            {%- if template.componentName -%}
+                              {{ template.componentName }}/
+                            {%- endif -%}
+                          {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                      {% elsif example.url %}
+                        <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                      {% else %}
+                        <li>{{ example.title }}</li>
+                      {% endif %}
+                    {% endfor %}
+                    </ul>
+                  </li>
                 {% endfor %}
                 </ul>
-              </li>
+              </details>
+            </div>
+          </div>
+        </section>
+        <!-- Overlay End -->
+        <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+          <gcds-card
+          class="wb-lbx" 
+          card-title="{{ template.title[ page.language ] }}" 
+          href="#{{ overlay_id }}" 
+          badge="Gabarit" 
+          description="{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}"
+          aria-controls="{{ overlay_id }}">
+          </gcds-card>
+        </a>
+      </li>
+    {% endfor %}
+    <!-- Design Patterns -->
+    {% for designPattern in site.data.design-patterns %}
+      {% assign list-pages = designPattern.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
+      <li style="list-style-type: none;">
+      <!-- Overlay -->
+        <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <h2 class="modal-title">{{ designPattern.title[ page.language ] }}</h2>
+          </header>
+          <div class="modal-body">
+            <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+              <!-- <p>{{ designPattern.description[ page.language ] | default: "[Courte description des configurations de conception]" }}</p> -->
+              <!--
+              Main working example
+              - First working example in the example list where the language match
+              -->
+              {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+              <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+              {% if mainExamples %}
+              <li>
+              {% if mainExamples.path %}
+              <a href="design-patterns/
+                    {%- if designPattern.componentName -%}
+                      {{ designPattern.componentName }}/
+                    {%- endif -%}
+                  {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% elsif mainExamples.url %}
+                <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% else %}
+                <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+              {% endif %}
+              {% endif %}
+              <!--
+              Documentation
+              - Link to the documentations if any
+              -->
+              {% if list-pages.docs %}
+              <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+              {% assign docs = list-pages.docs | where: "language", page.language %}
+              {% for doc in docs %}
+                <li><a href="design-patterns/{{ designPattern.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+              {% endfor %}
+              {% endif %}
+              <li><a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
+              </ul>
+              <!--
+              * All examples and info
+              * Example
+              * Documentation
+              * Spec
+              -->
+              <details class="mrgn-tp-lg">
+                <summary>Tous les exemples et info</summary>
+                <ul class="list-unstyled">
+                {% for pgGroup in list-pages %}
+                  {% assign grpkey = pgGroup[0] %}
+                  <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                    <ul>
+                    {% assign examples = pgGroup[1] %}
+                    {% for example in examples %}
+                      {% if example.path %}
+                      <li><a href="design-patterns/
+                            {%- if designPattern.componentName -%}
+                              {{ designPattern.componentName }}/
+                            {%- endif -%}
+                          {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                      {% elsif example.url %}
+                        <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                      {% else %}
+                        <li>{{ example.title }}</li>
+                      {% endif %}
+                    {% endfor %}
+                    </ul>
+                  </li>
+                {% endfor %}
+                </ul>
+              </details>
+            </div>
+          </div>
+        </section>
+        <!-- Overlay End -->
+          <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+            <gcds-card
+            class="wb-lbx" 
+            card-title="{{ designPattern.title[ page.language ] }}" 
+            href="#{{ overlay_id }}" 
+            badge="Configurations de conception" 
+            description="{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}"
+            aria-controls="{{ overlay_id }}">
+            </gcds-card>
+          </a>
+      </li>
+    {% endfor %}
+    <!-- Core components for the Canada.ca theme  -->
+    {% for item in site.data.sites %}
+      {% assign list-pages = item.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
+      <li style="list-style-type: none;">
+      <!-- Overlay -->
+      <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+        <header class="modal-header">
+          <h2 class="modal-title">{{ item.title[ page.language ] }}
+            {% if item.status == "stable" %}
+            <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+            {% elsif item.status == "provisional" %}
+            <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+            {% elsif item.status == "deprecated" %}
+            <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+            {% elsif item.status == "demoted" %}
+            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+            {% else %}
+            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+            {% endif %}
+          </h2>
+        </header>
+        <div class="modal-body">
+          <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <!-- <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p> -->
+            <!--
+            Main working example
+            - First working example in the example list where the language match
+            -->
+            {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+            <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+            {% if mainExamples %}
+            <li>
+            {% if mainExamples.path %}
+            <a href="sites/
+                  {%- if item.componentName -%}
+                    {{ item.componentName }}/
+                  {%- endif -%}
+                {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+            {% elsif mainExamples.url %}
+              <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+            {% else %}
+              <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+            {% endif %}
+            {% endif %}
+            <!--
+            Documentation
+            - Link to the documentations if any
+            -->
+            {% if list-pages.docs %}
+            <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+            {% assign docs = list-pages.docs | where: "language", page.language %}
+            {% for doc in docs %}
+              <li><a href="sites/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
             {% endfor %}
+            {% endif %}
             </ul>
-          </details>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-  <hr>
-  <h2 id="modeles" class="mrgn-bttm-lg pt-4">Configurations de conception</h2>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
-  {% for designPattern in site.data.design-patterns %}
-    {% assign list-pages = designPattern.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ designPattern.title[ page.language ] }}</h3>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ designPattern.description[ page.language ] | default: "[Short description of the design pattern]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="design-patterns/
-                {%- if designPattern.componentName -%}
-                  {{ designPattern.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          {% for doc in docs %}
-            <li><a href="design-patterns/{{ designPattern.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-          {% endfor %}
-          {% endif %}
-          <li><a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-          <ul class="list-unstyled">
-          {% for pgGroup in list-pages %}
-            {% assign grpkey = pgGroup[0] %}
-            <li>{{ page_group[ grpkey ] | default: "Unknown group" }}
-              <ul>
-              {% assign examples = pgGroup[1] %}
-              {% for example in examples %}
-                {% if example.path %}
-                <li><a href="design-patterns/
-                      {%- if designPattern.componentName -%}
-                        {{ designPattern.componentName }}/
-                      {%- endif -%}
-                    {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                {% elsif example.url %}
-                  <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                {% else %}
-                  <li>{{ example.title }}</li>
-                {% endif %}
+            <!--
+            * All examples and info
+            * Example
+            * Documentation
+            * Spec
+            -->
+            <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+              <ul class="mrgn-tp-md">
+                {% for pgGroup in list-pages %}
+                {% assign grpkey = pgGroup[0] %}
+                <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                  <ul>
+                  {% assign examples = pgGroup[1] %}
+                  {% for example in examples %}
+                    {% if example.path %}
+                    <li><a href="sites/
+                          {%- if item.componentName -%}
+                            {{ item.componentName }}/
+                          {%- endif -%}
+                        {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                    {% elsif example.url %}
+                      <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                    {% else %}
+                      <li>{{ example.title }}</li>
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
               {% endfor %}
               </ul>
-            </li>
-          {% endfor %}
-          </ul>
-          </details>
+            </details>
+          </div>
         </div>
-      </div>
+      </section>
+      <!-- Overlay End -->
+      <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+        <gcds-card
+        class="wb-lbx" 
+        card-title="{{ item.title[ page.language ] }}" 
+        href="#{{ overlay_id }}" 
+        badge="Composante primaire" 
+        description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité globale]' }}"
+        aria-controls="{{ overlay_id }}">
+        </gcds-card>
+      </a>
     </li>
-  {% endfor %}
-  </ul>
+    {% endfor %}
+    <!-- Common Components -->
+    {% for item in site.data.common %}
+      {% assign list-pages = item.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
+      <li style="list-style-type: none;">
+        <!-- Overlay -->
+        <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+          <header class="modal-header">
+            <h2 class="modal-title">{{ item.title[ page.language ] }}
+              {% if item.status == "stable" %}
+              <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+              {% elsif item.status == "provisional" %}
+              <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+              {% elsif item.status == "deprecated" %}
+              <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+              {% elsif item.status == "demoted" %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+              {% else %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+              {% endif %}
+            </h2>
+          </header>
+          <div class="modal-body">
+            <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+              <!-- <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p> -->
+              <!--
+              Main working example
+              - First working example in the example list where the language match
+              -->
+              {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+              <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+              {% if mainExamples %}
+              <li>
+              {% if mainExamples.path %}
+              <a href="common/
+                    {%- if item.componentName -%}
+                      {{ item.componentName }}/
+                    {%- endif -%}
+                  {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% elsif mainExamples.url %}
+                <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+              {% else %}
+                <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+              {% endif %}
+              {% endif %}
+              <!--
+              Documentation
+              - Link to the documentations if any
+              -->
+              {% if list-pages.docs %}
+              <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+              {% assign docs = list-pages.docs | where: "language", page.language %}
+              {% for doc in docs %}
+                <li><a href="common/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+              {% endfor %}
+              {% endif %}
+              </ul>
+              <!--
+              * All examples and info
+              * Example
+              * Documentation
+              * Spec
+              -->
+              <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+                <ul class="mrgn-tp-md">
+                  {% for pgGroup in list-pages %}
+                  {% assign grpkey = pgGroup[0] %}
+                  <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                    <ul>
+                    {% assign examples = pgGroup[1] %}
+                    {% for example in examples %}
+                      {% if example.path %}
+                      <li><a href="common/
+                            {%- if item.componentName -%}
+                              {{ item.componentName }}/
+                            {%- endif -%}
+                          {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                      {% elsif example.url %}
+                        <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                      {% else %}
+                        <li>{{ example.title }}</li>
+                      {% endif %}
+                    {% endfor %}
+                    </ul>
+                  </li>
+                {% endfor %}
+                </ul>
+              </details>
+            </div>
+          </div>
+        </section>
+        <!-- Overlay End -->
+        <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+          <gcds-card
+          class="wb-lbx" 
+          card-title="{{ item.title[ page.language ] }}" 
+          href="#{{ overlay_id }}" 
+          badge="Composante commune" 
+          description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité commune]' }}"
+          aria-controls="{{ overlay_id }}">
+          </gcds-card>
+        </a>
+      </li>
+    {% endfor %}
+    <!-- Wet-boew (New) -->
+    {% for wetboew in site.data[ "wet-boew" ] %}
+      {% assign list-pages = wetboew.pages %}
+      {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
+      <li style="list-style-type: none;">
+      <!-- Overlay -->
+      <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+        <header class="modal-header">
+            <h2 class="modal-title">{{ wetboew.title[ page.language ] }}
+              {% if wetboew.status == "stable" %}
+              <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ wetboew.status ] }}</span>
+              {% elsif wetboew.status == "provisional" %}
+              <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ wetboew.status ] }}</span>
+              {% elsif wetboew.status == "deprecated" %}
+              <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ wetboew.status ] }}</span>
+              {% elsif wetboew.status == "demoted" %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ wetboew.status ] }}</span>
+              {% else %}
+              <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+              {% endif %}
+            </h2>
+        </header>
+        <div class="modal-body">
+          <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <!-- <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p> -->
+            <!--
+            Main working example
+            - First working example in the example list where the language match
+            -->
+            {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+            <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
+            {% if mainExamples %}
+            <li>
+            {% if mainExamples.path %}
+            <a href="wet-boew/
+                  {%- if wetboew.componentName -%}
+                    {{ wetboew.componentName }}/
+                  {%- endif -%}
+                {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+            {% elsif mainExamples.url %}
+              <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+            {% elsif mainExamples.wetboew %}
+              <a href="{{ setting-demosBasePath }}wetboew-demos/{{ mainExamples.wetboew }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
+            {% else %}
+            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
+            {% endif %}
+            {% endif %}
+            <!--
+            Documentation
+            - Link to the documentations if any
+            -->
+            {% if list-pages.docs %}
+            <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+            {% assign docs = list-pages.docs | where: "language", page.language %}
+            <!--
+            Documentation in GCWeb repo
+            -->
+              {% for doc in docs %}
+                  {% if doc.url %}
+              <li><a href="{{ doc.url }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
+                  {% endif %}
+              {% endfor %}
+            {% endif %}
+                <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
+            </ul>
+            <!--
+            * All examples and info
+            * Example
+            * Documentation
+            * Spec
+            -->
+            <details class="mrgn-tp-lg">
+              <summary>Tous les exemples et info</summary>
+              <ul class="list-unstyled">
+              {% for pgGroup in list-pages %}
+                {% assign grpkey = pgGroup[0] %}
+                <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
+                  <ul>
+                  {% assign examples = pgGroup[1] %}
+                  {% for example in examples %}
+                    {% if example.path %}
+                    <li><a href="wet-boew/
+                          {%- if wetboew.componentName -%}
+                            {{ wetboew.componentName }}/
+                          {%- endif -%}
+                        {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+                    {% elsif example.url %}
+                      <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+                    {% elsif example.wetboew %}
+                      <li><a href="{{ setting-demosBasePath }}wetboew-demos/{{ example.wetboew }}">{{ example.title }}</a></li>
+                    {% else %}
+                      <li>{{ example.title }}</li>
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
+              </ul>
+            </details>
+          </div>
+        </div>
+      </section>
+      <!-- Overlay End -->
+        <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+          <gcds-card
+          class="wb-lbx" 
+          card-title="{{ wetboew.title[ page.language ] }}" 
+          href="#{{ overlay_id }}" 
+          badge="Wet-boew" 
+          description="{{ wetboew.description[ page.language ] | default: '[Courte description de wetboew]' }}"
+          aria-controls="{{ overlay_id }}">
+          </gcds-card>
+        </a>
+      </li>
+    {% endfor %}
+  </gcds-grid>
 </div>
+
+<!-- Special Features -->
 <div class="container-fluid">
   <div class="row">
     <div class="py-4 mb-3 mrgn-tp-md bg-gctheme text-white">
@@ -389,294 +714,18 @@ css:
         </div>
     </div>
 </div>
+<!-- Special Features End -->
+
 <div class="container">
-  <h2 id="sitesglobal">Fonctionnalités globales et de sites</h2>
+  <!-- <h2 id="sitesglobal">Fonctionnalités globales et de sites</h2>
   <ul>
     <li><a href="#Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</a></li>
     <li><a href="#Composantes-communes">Composantes communes</a></li>
   </ul>
+  <hr> -->
 
-  <h3 id="Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</h3>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
-  {% for item in site.data.sites %}
-    {% assign list-pages = item.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
-        {% if item.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-        {% endif %}
-        </h4>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="sites/
-                {%- if item.componentName -%}
-                  {{ item.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          {% for doc in docs %}
-            <li><a href="sites/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-          {% endfor %}
-          {% endif %}
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-            <ul class="mrgn-tp-md">
-              {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-              <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-                <ul>
-                {% assign examples = pgGroup[1] %}
-                {% for example in examples %}
-                  {% if example.path %}
-                  <li><a href="sites/
-                        {%- if item.componentName -%}
-                          {{ item.componentName }}/
-                        {%- endif -%}
-                      {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                  {% elsif example.url %}
-                    <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                  {% else %}
-                    <li>{{ example.title }}</li>
-                  {% endif %}
-                {% endfor %}
-                </ul>
-              </li>
-            {% endfor %}
-            </ul>
-          </details>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-
-  <h3 id="composantes-communes">Composantes communes</h3>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md" data-wb-filter='{ "selector": ">li" }'>
-  {% for item in site.data.common %}
-    {% assign list-pages = item.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h4 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ item.title[ page.language ] }}
-        {% if item.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% elsif item.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-        {% endif %}
-        </h4>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="common/
-                {%- if item.componentName -%}
-                  {{ item.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" {% if mainExamples.language != page.language %}lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"{% endif %}><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          {% for doc in docs %}
-            <li><a href="common/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-          {% endfor %}
-          {% endif %}
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-            <ul class="mrgn-tp-md">
-              {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-              <li>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}
-                <ul>
-                {% assign examples = pgGroup[1] %}
-                {% for example in examples %}
-                  {% if example.path %}
-                  <li><a href="common/
-                        {%- if item.componentName -%}
-                          {{ item.componentName }}/
-                        {%- endif -%}
-                      {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                  {% elsif example.url %}
-                    <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                  {% else %}
-                    <li>{{ example.title }}</li>
-                  {% endif %}
-                {% endfor %}
-                </ul>
-              </li>
-            {% endfor %}
-            </ul>
-          </details>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-   <!-- The new added section of wet-boew -->
-  <h2 id="wetboew" class="mrgn-bttm-lg">Wet-boew</h2>
-  <ul class="row list-unstyled wb-eqht-grd wb-filter mrgn-tp-md pb-4" data-wb-filter='{ "selector": ">li" }'>
-  {% for wetboew in site.data[ "wet-boew" ] %}
-    {% assign list-pages = wetboew.pages %}
-    <li class="col-xs-12 col-md-6 mrgn-tp-md mrgn-bttm-md">
-      <div class="brdr-tp brdr-rght brdr-bttm brdr-lft hght-inhrt">
-        <h3 class="mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md">{{ wetboew.title[ page.language ] }}
-        {% if wetboew.status == "stable" %}
-        <span class="label label-success mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
-        {% elsif wetboew.status == "provisional" %}
-        <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
-        {% elsif wetboew.status == "deprecated" %}
-        <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
-        {% elsif wetboew.status == "demoted" %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>{{ comp_status[ wetboew.status ] }}</span>
-        {% else %}
-        <span class="label label-default mrgn-lft-sm"><span class="wb-inv">State: </span>Undefined</span>
-        {% endif %}
-        </h3>
-        <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p>
-          <!--
-          Main working example
-          - First working example in the example list where the language match
-          -->
-          {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
-          <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
-          {% if mainExamples %}
-          <li>
-          {% if mainExamples.path %}
-          <a href="wet-boew/
-                {%- if wetboew.componentName -%}
-                  {{ wetboew.componentName }}/
-                {%- endif -%}
-              {{ mainExamples.path }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.url %}
-            <a href="{{ mainExamples.url }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% elsif mainExamples.wetboew %}
-            <a href="{{ setting-demosBasePath }}wetboew-demos/{{ mainExamples.wetboew }}" lang="{{ mainExamples.language }}" hreflang="{{ mainExamples.language }}"><span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique</a>
-          {% else %}
-            <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
-          {% endif %}
-          {% endif %}
-          <!--
-          Documentation
-          - Link to the documentations if any
-          -->
-          {% if list-pages.docs %}
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          {% assign docs = list-pages.docs | where: "language", page.language %}
-          <!--
-          Documentation in GCWeb repo
-          -->
-            {% for doc in docs %}
-                {% if doc.url %}
-            <li><a href="{{ doc.url }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
-                {% endif %}
-             {% endfor %}
-          {% endif %}
-              <li><a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{  wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
-          </ul>
-          <!--
-          > All examples and info
-          * Example
-          * Documentation
-          * Spec
-          -->
-          <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
-          <ul class="list-unstyled">
-          {% for pgGroup in list-pages %}
-            {% assign grpkey = pgGroup[0] %}
-            <li>{{ page_group[ grpkey ] | default: "Unknown group" }}
-              <ul>
-              {% assign examples = pgGroup[1] %}
-              {% for example in examples %}
-                {% if example.path %}
-                <li><a href="wet-boew/
-                      {%- if wetboew.componentName -%}
-                        {{ wetboew.componentName }}/
-                      {%- endif -%}
-                    {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-                {% elsif example.url %}
-                  <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-                {% elsif example.wetboew %}
-                  <li><a href="{{ setting-demosBasePath }}wetboew-demos/{{ example.wetboew }}">{{ example.title }}</a></li>
-                {% else %}
-                  <li>{{ example.title }}</li>
-                {% endif %}
-              {% endfor %}
-              </ul>
-            </li>
-          {% endfor %}
-          </ul>
-          </details>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-  </ul>
-  <hr>
-  <h2 id="autre">Autre documentation</h2>
+  <!-- Other documentation -->
+<h2 id="autre">Autre documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
       <section class="row d-flex">
