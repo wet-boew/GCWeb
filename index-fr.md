@@ -360,7 +360,7 @@ css:
             class="wb-lbx" 
             card-title="{{ designPattern.title[ page.language ] }}" 
             href="#{{ overlay_id }}" 
-            badge="Configurations de conception" 
+            badge="Modèle de conception" 
             description="{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}"
             aria-controls="{{ overlay_id }}">
             </gcds-card>
