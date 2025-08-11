@@ -62,12 +62,65 @@ css:
       <dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
     </dl>
   </details>
-  <!-- Components -->
-  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" class="wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or" }' equal-row-height>
+
+  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or", "uiTemplate": "#filterSearchUI" }' >
+    <div id="filterSearch">
+      <div class="form-group full-width">
+        <label for="filterSearchUI">Search</label>
+        <input type="search" class="form-control" placeholder="Search" id="filterSearchUI">
+      </div>
+      <!-- <p class="wb-fltr-info"><span data-nbitem></span> / <span data-total></span> provinces</p> -->
+      <div>
+        <div class="form-group mrgn-bttm-0">
+          <fieldset class="p-0">
+            <legend class="h5 mrgn-bttm-0"><span class="field-name">Type</span></legend>
+            <ul class="list-unstyled list-inline">
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
+                </label>
+              </li>
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
+                </label>
+              </li>
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
+                </label>
+              </li>
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-component"> Core Component
+                </label>
+              </li>
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="common-component"> Common Component
+                </label>
+              </li>
+              <li class="checkbox">
+                <label>
+                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+		  </div>
+    </div>
+    <gcds-grid 
+    tag="ul" 
+    class="wb-tagfilter-items"
+    columns-desktop="1fr 1fr 1fr" 
+    columns-tablet="1fr 1fr" 
+    columns="1fr" 
+    equal-row-height>
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
       {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="component" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -171,7 +224,7 @@ css:
     {% for template in site.data.templates %}
       {% assign list-pages = template.pages %}
       {% assign overlay_id = 'details-overlay-' | append: template.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="template" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -273,7 +326,7 @@ css:
     {% for designPattern in site.data.design-patterns %}
       {% assign list-pages = designPattern.pages %}
       {% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="design-pattern" style="list-style-type: none;">
       <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -365,7 +418,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="core-component" style="list-style-type: none;">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -467,7 +520,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="common-component" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -569,7 +622,7 @@ css:
     {% for wetboew in site.data[ "wet-boew" ] %}
       {% assign list-pages = wetboew.pages %}
       {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-      <li class="grid-item" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="wetboew" style="list-style-type: none;">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -678,7 +731,9 @@ css:
         </a>
       </li>
     {% endfor %}
-  </gcds-grid>
+    </gcds-grid>
+  </div>
+  <!-- Components -->
 </div>
 
 <!-- Special Features -->
