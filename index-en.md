@@ -63,11 +63,11 @@ css:
     </dl>
   </details>
 
-  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or", "uiTemplate": "#filterSearchUI" }' >
-    <div id="filterSearch">
-      <div class="form-group full-width">
-        <label for="filterSearchUI">Search</label>
-        <input type="search" class="form-control" placeholder="Search" id="filterSearchUI">
+  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or", "uiTemplate": "#filterSearchTemplate" }'>
+    <div id="filterSearchTemplate" class="d-flex align-items-center mb-2">
+      <div class="form-group mb-0">
+        <label for="filterSearch">Search</label>
+        <input type="search" class="form-control" placeholder="Search" id="filterSearch">
       </div>
       <!-- <p class="wb-fltr-info"><span data-nbitem></span> / <span data-total></span> provinces</p> -->
       <div>
@@ -112,7 +112,7 @@ css:
     </div>
     <gcds-grid 
     tag="ul" 
-    class="wb-tagfilter-items"
+    class="wb-tagfilter-items" 
     columns-desktop="1fr 1fr 1fr" 
     columns-tablet="1fr 1fr" 
     columns="1fr" 
