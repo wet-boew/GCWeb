@@ -63,9 +63,9 @@ css:
     </dl>
   </details>
 
-  <div class="wb-filter">
+  <div>
     <!-- Components -->
-    <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+    <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" class="wb-filter" equal-row-height>
       {% for component in site.data.components %}
         {% assign list-pages = component.pages %}
         {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
@@ -160,12 +160,11 @@ css:
           <!-- Overlay End -->
           <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
             <gcds-card
-            class="wb-lbx" 
+            class="h-100"
             card-title="{{ component.title[ page.language ] }}" 
             href="#{{ overlay_id }}" 
             badge="Component" 
-            description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}"
-            aria-controls="{{ overlay_id }}">
+            description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}">
             </gcds-card>
           </a>
         </li>
@@ -263,12 +262,11 @@ css:
           <!-- Overlay End -->
           <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
             <gcds-card
-            class="wb-lbx" 
-            card-title="{{ template.title[ page.language ] }}" 
-            href="#{{ overlay_id }}" 
+            class="h-100"
+            card-title="{{ template.title[ page.language ] }}"
+            href="#{{ overlay_id }}"
             badge="Template" 
-            description="{{ template.description[ page.language ] | default: '[Short description of the template]' }}"
-            aria-controls="{{ overlay_id }}">
+            description="{{ template.description[ page.language ] | default: '[Short description of the template]' }}">
             </gcds-card>
           </a>
         </li>
@@ -356,12 +354,11 @@ css:
           <!-- Overlay End -->
             <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
               <gcds-card
-              class="wb-lbx" 
-              card-title="{{ designPattern.title[ page.language ] }}" 
-              href="#{{ overlay_id }}" 
+              class="h-100"
+              card-title="{{ designPattern.title[ page.language ] }}"
+              href="#{{ overlay_id }}"
               badge="Design Pattern" 
-              description="{{ designPattern.description[ page.language ] | default: '[Short description of the design pattern]' }}"
-              aria-controls="{{ overlay_id }}">
+              description="{{ designPattern.description[ page.language ] | default: '[Short description of the design pattern]' }}">
               </gcds-card>
             </a>
         </li>
@@ -459,12 +456,11 @@ css:
         <!-- Overlay End -->
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
-          class="wb-lbx" 
+          class="h-100"
           card-title="{{ item.title[ page.language ] }}" 
           href="#{{ overlay_id }}" 
           badge="Core Component" 
-          description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}"
-          aria-controls="{{ overlay_id }}">
+          description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
           </gcds-card>
         </a>
       </li>
@@ -562,12 +558,11 @@ css:
           <!-- Overlay End -->
           <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
             <gcds-card
-            class="wb-lbx" 
-            card-title="{{ item.title[ page.language ] }}" 
-            href="#{{ overlay_id }}" 
+            class="h-100"
+            card-title="{{ item.title[ page.language ] }}"
+            href="#{{ overlay_id }}"  
             badge="Common Component" 
-            description="{{ item.description[ page.language ] | default: '[Short description of the common component]' }}"
-            aria-controls="{{ overlay_id }}">
+            description="{{ item.description[ page.language ] | default: '[Short description of the common component]' }}">
             </gcds-card>
           </a>
         </li>
@@ -676,12 +671,11 @@ css:
         <!-- Overlay End -->
           <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
             <gcds-card
-            class="wb-lbx" 
-            card-title="{{ wetboew.title[ page.language ] }}" 
+            class="h-100"
+            card-title="{{ wetboew.title[ page.language ] }}"
             href="#{{ overlay_id }}" 
             badge="Wet-boew" 
-            description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}"
-            aria-controls="{{ overlay_id }}">
+            description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}">
             </gcds-card>
           </a>
         </li>

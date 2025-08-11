@@ -64,7 +64,7 @@ css:
   </details>
 
   <!-- Components -->
-  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" equal-row-height>
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
       {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
@@ -159,12 +159,11 @@ css:
         <!-- Overlay End -->
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
-          class="wb-lbx" 
-          card-title="{{ component.title[ page.language ] }}" 
+          class="h-100"
+          card-title="{{ component.title[ page.language ] }}"
           href="#{{ overlay_id }}" 
           badge="Composante" 
-          description="{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}"
-          aria-controls="{{ overlay_id }}">
+          description="{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}">
           </gcds-card>
         </a>
       </li>
@@ -263,12 +262,11 @@ css:
         <!-- Overlay End -->
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
-          class="wb-lbx" 
+          class="h-100"
           card-title="{{ template.title[ page.language ] }}" 
           href="#{{ overlay_id }}" 
           badge="Gabarit" 
-          description="{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}"
-          aria-controls="{{ overlay_id }}">
+          description="{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}">
           </gcds-card>
         </a>
       </li>
@@ -357,12 +355,11 @@ css:
         <!-- Overlay End -->
           <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
             <gcds-card
-            class="wb-lbx" 
-            card-title="{{ designPattern.title[ page.language ] }}" 
+            class="h-100" 
+            card-title="{{ designPattern.title[ page.language ] }}"
             href="#{{ overlay_id }}" 
             badge="Modèle de conception" 
-            description="{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}"
-            aria-controls="{{ overlay_id }}">
+            description="{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}">
             </gcds-card>
           </a>
       </li>
@@ -461,12 +458,11 @@ css:
       <!-- Overlay End -->
       <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
         <gcds-card
-        class="wb-lbx" 
-        card-title="{{ item.title[ page.language ] }}" 
+        class="h-100"
+        card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}" 
         badge="Composante primaire" 
-        description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité globale]' }}"
-        aria-controls="{{ overlay_id }}">
+        description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité globale]' }}">
         </gcds-card>
       </a>
     </li>
@@ -565,12 +561,11 @@ css:
         <!-- Overlay End -->
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
-          class="wb-lbx" 
-          card-title="{{ item.title[ page.language ] }}" 
+          class="h-100" 
+          card-title="{{ item.title[ page.language ] }}"
           href="#{{ overlay_id }}" 
           badge="Composante commune" 
-          description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité commune]' }}"
-          aria-controls="{{ overlay_id }}">
+          description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité commune]' }}">
           </gcds-card>
         </a>
       </li>
@@ -680,12 +675,11 @@ css:
       <!-- Overlay End -->
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
-          class="wb-lbx" 
-          card-title="{{ wetboew.title[ page.language ] }}" 
+          class="h-100" 
+          card-title="{{ wetboew.title[ page.language ] }}"
           href="#{{ overlay_id }}" 
           badge="Wet-boew" 
-          description="{{ wetboew.description[ page.language ] | default: '[Courte description de wetboew]' }}"
-          aria-controls="{{ overlay_id }}">
+          description="{{ wetboew.description[ page.language ] | default: '[Courte description de wetboew]' }}">
           </gcds-card>
         </a>
       </li>
