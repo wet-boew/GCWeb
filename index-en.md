@@ -65,7 +65,8 @@ css:
 
   <div>
     <!-- Components -->
-    <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" class="wb-filter" equal-row-height>
+    <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" class="wb-filter" data-wb-filter="{ 'selector': 'gcds-card', 'filterType': 'or' }"
+ equal-row-height>
       {% for component in site.data.components %}
         {% assign list-pages = component.pages %}
         {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
