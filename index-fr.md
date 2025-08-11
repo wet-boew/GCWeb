@@ -64,11 +64,11 @@ css:
   </details>
 
   <!-- Components -->
-  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" equal-row-height>
+  <gcds-grid tag="ul" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr" class="wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or" }' equal-row-height>
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
       {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -172,7 +172,7 @@ css:
     {% for template in site.data.templates %}
       {% assign list-pages = template.pages %}
       {% assign overlay_id = 'details-overlay-' | append: template.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -275,7 +275,7 @@ css:
     {% for designPattern in site.data.design-patterns %}
       {% assign list-pages = designPattern.pages %}
       {% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
       <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -368,7 +368,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -471,7 +471,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -574,7 +574,7 @@ css:
     {% for wetboew in site.data[ "wet-boew" ] %}
       {% assign list-pages = wetboew.pages %}
       {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-      <li style="list-style-type: none;">
+      <li class="grid-item" style="list-style-type: none;">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
