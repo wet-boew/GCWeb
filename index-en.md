@@ -65,51 +65,49 @@ css:
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "filterType": "or", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-2" style="justify-content: space-between;">
-      <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1">
+      <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1;">
         <label for="searchFilter">Search</label>
-        <input type="search" class="form-control" placeholder="Search" id="searchFilter">
+        <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
-      <!-- <p class="wb-fltr-info"><span data-nbitem></span> / <span data-total></span> provinces</p> -->
-      <div>
-        <div class="form-group mrgn-bttm-0 mr-3">
-          <fieldset class="p-0">
-            <legend class="h5 mrgn-bttm-0"><span class="field-name">Type</span></legend>
-            <ul class="list-unstyled list-inline">
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
-                </label>
-              </li>
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
-                </label>
-              </li>
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
-                </label>
-              </li>
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-component"> Core Component
-                </label>
-              </li>
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="common-component"> Common Component
-                </label>
-              </li>
-              <li class="checkbox">
-                <label>
-                  <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
-                </label>
-              </li>
-            </ul>
-          </fieldset>
-        </div>
-		  </div>
+      <div class="form-group mrgn-bttm-0 mr-3">
+        <fieldset class="p-0">
+          <legend class="h5 mrgn-bttm-0"><span class="field-name">Category</span></legend>
+          <ul class="list-unstyled list-inline">
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-component"> Core Component
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="common-component"> Common Component
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+      </div>
     </div>
+    <!-- Components -->
     <gcds-grid 
     tag="ul" 
     class="wb-tagfilter-items" 
@@ -414,7 +412,7 @@ css:
           </a>
       </li>
     {% endfor %}
-  <!-- Core components for the Canada.ca theme  -->
+    <!-- Core components for the Canada.ca theme  -->
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
@@ -733,7 +731,6 @@ css:
     {% endfor %}
     </gcds-grid>
   </div>
-  <!-- Components -->
 </div>
 
 <!-- Special Features -->
@@ -751,11 +748,11 @@ css:
               <div class="col-md-6">
             <h3 id="thematics">Promotional thematics</h3><p>Do you have a set of pages that use an original look related to a specific promotion? Try this special hub for promotional thematics instead.</p>
             <p class="mrgn-tp-lg"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html" class="btn btn-default btn-lg">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
-        </div>
-      </div>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- Special Features End -->
 
