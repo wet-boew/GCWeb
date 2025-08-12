@@ -73,27 +73,27 @@ css:
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-0"><span class="field-name">Category</span></legend>
           <ul class="list-unstyled list-inline mb-0">
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
               </label>
@@ -133,6 +133,7 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ component.description[ page.language ] | default: '[Short description of the component]' }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -237,6 +238,7 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ template.description[ page.language ] | default: '[Short description of the template]' }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -327,6 +329,7 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ designPattern.description[ page.language ] | default: '[Short description of the design pattern]' }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -431,6 +434,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+          <p>{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
@@ -533,6 +537,7 @@ css:
           </header>
           <div class="modal-body">
             <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ item.description[ page.language ] | default: '[Short description of the common component]' }}</p>
               <!--
               Main working example
               - First working example in the example list where the language match
@@ -635,6 +640,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+          <p>{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match

@@ -72,27 +72,27 @@ css:
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-0"><span class="field-name">Catégorie</span></legend>
           <ul class="list-unstyled list-inline mb-0">
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Composante
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Gabarit
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Modèle de conception
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Global et de sites
               </label>
             </li>
-            <li class="checkbox">
+            <li class="checkbox mb-0">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
               </label>
@@ -132,6 +132,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
@@ -236,6 +237,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}</p>
             <!-- <p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p> -->
             <!--
             Main working example
@@ -327,6 +329,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
+            <p>{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}</p>
             <!-- <p>{{ designPattern.description[ page.language ] | default: "[Courte description des configurations de conception]" }}</p> -->
             <!--
             Main working example
@@ -432,7 +435,7 @@ css:
       </header>
       <div class="modal-body">
         <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-          <!-- <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p> -->
+          <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
           <!--
           Main working example
           - First working example in the example list where the language match
@@ -535,7 +538,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-            <!-- <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p> -->
+            <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
@@ -638,7 +641,7 @@ css:
         </header>
         <div class="modal-body">
           <div class="mrgn-rght-md mrgn-bttm-md mrgn-lft-md">
-            <!-- <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p> -->
+            <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p>
             <!--
             Main working example
             - First working example in the example list where the language match
