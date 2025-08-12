@@ -63,16 +63,16 @@ css:
     </dl>
   </details>
 
-  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "filterType": "or", "uiTemplate": "#searchFilterTemplate" }'>
-    <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-2" style="justify-content: space-between;">
+  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
+    <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-4" style="justify-content: space-between;">
       <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1;">
-        <label for="searchFilter" class="h6">Search</label>
+        <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
       <div class="form-group mrgn-bttm-0 mr-3">
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-0"><span class="field-name">Category</span></legend>
-          <ul class="list-unstyled list-inline">
+          <ul class="list-unstyled list-inline mb-0">
             <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
@@ -90,12 +90,7 @@ css:
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-component"> Core Component
-              </label>
-            </li>
-            <li class="checkbox">
-              <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="common-component"> Common Component
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global
               </label>
             </li>
             <li class="checkbox">
@@ -416,7 +411,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" data-wb-tags="core-component" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="sites-global" style="list-style-type: none;">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -518,7 +513,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" data-wb-tags="common-component" style="list-style-type: none;">
+      <li class="grid-item" data-wb-tags="sites-global" style="list-style-type: none;">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
