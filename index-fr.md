@@ -690,7 +690,7 @@ css:
 <!-- Special Features -->
 <div class="container-fluid">
   <div class="row">
-    <div class="py-4 mb-3 mrgn-tp-md bg-gctheme text-white">
+    <div class="py-4 my-5 bg-gctheme text-white">
       <div class="container mrgn-bttm-lg">
         <h2 id="experimentation" class="mrgn-tp-md mrgn-bttm-0">Fonctionnalités spéciales</h2>
           <div class="row">

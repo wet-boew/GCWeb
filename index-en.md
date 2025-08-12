@@ -63,15 +63,15 @@ css:
     </dl>
   </details>
 
-  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "filterType": "or", "uiTemplate": "#filterSearchTemplate" }'>
-    <div id="filterSearchTemplate" class="d-flex align-items-center mb-2">
-      <div class="form-group mb-0">
-        <label for="filterSearch">Search</label>
-        <input type="search" class="form-control" placeholder="Search" id="filterSearch">
+  <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "filterType": "or", "uiTemplate": "#searchFilterTemplate" }'>
+    <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-2" style="justify-content: space-between;">
+      <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1">
+        <label for="searchFilter">Search</label>
+        <input type="search" class="form-control" placeholder="Search" id="searchFilter">
       </div>
       <!-- <p class="wb-fltr-info"><span data-nbitem></span> / <span data-total></span> provinces</p> -->
       <div>
-        <div class="form-group mrgn-bttm-0">
+        <div class="form-group mrgn-bttm-0 mr-3">
           <fieldset class="p-0">
             <legend class="h5 mrgn-bttm-0"><span class="field-name">Type</span></legend>
             <ul class="list-unstyled list-inline">
@@ -739,7 +739,7 @@ css:
 <!-- Special Features -->
 <div class="container-fluid">
   <div class="row">
-    <div class="py-4 mb-3 mrgn-tp-md bg-gctheme text-white">
+    <div class="py-4 my-5 bg-gctheme text-white">
       <div class="container mrgn-bttm-lg">
         <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
           <div class="row">
