@@ -65,12 +65,12 @@ css:
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "filterType": "or", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-2" style="justify-content: space-between;">
       <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1;">
-        <label for="searchFilter">Rechercher</label>
+        <label for="searchFilter" class="h6">Rechercher</label>
         <input type="search" class="form-control full-width" placeholder="Entrez des mots-clés..." id="searchFilter">
       </div>
       <div class="form-group mrgn-bttm-0 mr-3">
         <fieldset class="p-0">
-          <legend class="h5 mrgn-bttm-0"><span class="field-name">Catégorie</span></legend>
+          <legend class="h6 mrgn-bttm-0"><span class="field-name">Catégorie</span></legend>
           <ul class="list-unstyled list-inline">
             <li class="checkbox">
               <label>
