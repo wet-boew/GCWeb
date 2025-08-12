@@ -64,8 +64,8 @@ css:
   </details>
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
-    <div id="searchFilterTemplate" class="d-sm-flex align-items-center mb-4" style="justify-content: space-between;">
-      <div class="form-group mb-0 mr-sm-3" style="flex-grow: 1;">
+    <div id="searchFilterTemplate" class="d-sm-flex mb-4">
+      <div class="form-group mb-0 mr-sm-3">
         <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
@@ -113,7 +113,7 @@ css:
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
       {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
-      <li class="grid-item" data-wb-tags="component" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="component">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -173,7 +173,7 @@ css:
               * Documentation
               * Spec
               -->
-              <details class="mrgn-tp-lg">
+              <!-- <details class="mrgn-tp-lg">
                 <summary>All examples and info</summary>
                 <ul class="list-unstyled">
                 {% for pgGroup in list-pages %}
@@ -198,7 +198,7 @@ css:
                   </li>
                 {% endfor %}
                 </ul>
-              </details>
+              </details> -->
             </div>
           </div>
         </section>
@@ -218,7 +218,7 @@ css:
     {% for template in site.data.templates %}
       {% assign list-pages = template.pages %}
       {% assign overlay_id = 'details-overlay-' | append: template.componentName %}
-      <li class="grid-item" data-wb-tags="template" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="template">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -277,7 +277,7 @@ css:
               * Documentation
               * Spec
               -->
-              <details class="mrgn-tp-lg"><summary>All examples and info</summary>
+              <!-- <details class="mrgn-tp-lg"><summary>All examples and info</summary>
                 <ul class="mrgn-tp-md">
                   {% for pgGroup in list-pages %}
                   {% assign grpkey = pgGroup[0] %}
@@ -301,7 +301,7 @@ css:
                   </li>
                 {% endfor %}
                 </ul>
-              </details>
+              </details> -->
             </div>
           </div>
         </section>
@@ -321,7 +321,7 @@ css:
     {% for designPattern in site.data.design-patterns %}
       {% assign list-pages = designPattern.pages %}
       {% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
-      <li class="grid-item" data-wb-tags="design-pattern" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="design-pattern">
       <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -369,7 +369,7 @@ css:
               * Documentation
               * Spec
               -->
-              <details class="mrgn-tp-lg">
+              <!-- <details class="mrgn-tp-lg">
                 <summary>All examples and info</summary>
                 <ul class="list-unstyled">
                 {% for pgGroup in list-pages %}
@@ -394,7 +394,7 @@ css:
                   </li>
                 {% endfor %}
                 </ul>
-              </details>
+              </details> -->
             </div>
           </div>
         </section>
@@ -414,7 +414,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" data-wb-tags="sites-global" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="sites-global" >
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -473,7 +473,7 @@ css:
             * Documentation
             * Spec
             -->
-            <details class="mrgn-tp-lg"><summary>All examples and info</summary>
+            <!-- <details class="mrgn-tp-lg"><summary>All examples and info</summary>
               <ul class="mrgn-tp-md">
                 {% for pgGroup in list-pages %}
                 {% assign grpkey = pgGroup[0] %}
@@ -497,7 +497,7 @@ css:
                 </li>
               {% endfor %}
               </ul>
-            </details>
+            </details> -->
           </div>
         </div>
       </section>
@@ -517,7 +517,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item" data-wb-tags="sites-global" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="sites-global">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -576,7 +576,7 @@ css:
               * Documentation
               * Spec
               -->
-              <details class="mrgn-tp-lg"><summary>All examples and info</summary>
+              <!-- <details class="mrgn-tp-lg"><summary>All examples and info</summary>
                 <ul class="mrgn-tp-md">
                   {% for pgGroup in list-pages %}
                   {% assign grpkey = pgGroup[0] %}
@@ -600,7 +600,7 @@ css:
                   </li>
                 {% endfor %}
                 </ul>
-              </details>
+              </details> -->
             </div>
           </div>
         </section>
@@ -620,7 +620,7 @@ css:
     {% for wetboew in site.data[ "wet-boew" ] %}
       {% assign list-pages = wetboew.pages %}
       {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-      <li class="grid-item" data-wb-tags="wetboew" style="list-style-type: none;">
+      <li class="grid-item list-unstyled" data-wb-tags="wetboew">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -687,7 +687,7 @@ css:
             * Documentation
             * Spec
             -->
-            <details class="mrgn-tp-lg">
+            <!-- <details class="mrgn-tp-lg">
               <summary>All examples and info</summary>
               <ul class="list-unstyled">
               {% for pgGroup in list-pages %}
@@ -714,7 +714,7 @@ css:
                 </li>
               {% endfor %}
               </ul>
-            </details>
+            </details> -->
           </div>
         </div>
       </section>
