@@ -65,11 +65,11 @@ css:
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
-      <div class="form-group col-md-4 pl-0 pr-sm-4 mb-0">
+      <div class="form-group col-md-3 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
-      <div class="form-group col-md-8 p-0 mb-0">
+      <div class="form-group col-md-9 p-0 mb-0">
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-sm"><span class="field-name">Category</span></legend>
           <ul class="list-unstyled list-inline mb-0">
@@ -90,7 +90,7 @@ css:
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global Functionality
               </label>
             </li>
             <li class="checkbox">
