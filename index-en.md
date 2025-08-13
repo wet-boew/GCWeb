@@ -103,12 +103,12 @@ css:
       </div>
     </div>
     <!-- Components -->
-    <gcds-grid 
-    tag="ul" 
-    class="wb-tagfilter-items" 
-    columns-desktop="1fr 1fr 1fr" 
-    columns-tablet="1fr 1fr" 
-    columns="1fr" 
+    <gcds-grid
+    tag="ul"
+    class="wb-tagfilter-items"
+    columns-desktop="1fr 1fr 1fr"
+    columns-tablet="1fr 1fr"
+    columns="1fr"
     equal-row-height>
     {% for component in site.data.components %}
       {% assign list-pages = component.pages %}
@@ -206,9 +206,9 @@ css:
         <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
           <gcds-card
           class="h-100"
-          card-title="{{ component.title[ page.language ] }}" 
-          href="#{{ overlay_id }}" 
-          badge="Component" 
+          card-title="{{ component.title[ page.language ] }}"
+          href="#{{ overlay_id }}"
+          badge="Component"
           description="{{ component.description[ page.language ] | default: '[Short description of the component]' }}">
           </gcds-card>
         </a>
@@ -311,7 +311,7 @@ css:
           class="h-100"
           card-title="{{ template.title[ page.language ] }}"
           href="#{{ overlay_id }}"
-          badge="Template" 
+          badge="Template"
           description="{{ template.description[ page.language ] | default: '[Short description of the template]' }}">
           </gcds-card>
         </a>
@@ -404,7 +404,7 @@ css:
             class="h-100"
             card-title="{{ designPattern.title[ page.language ] }}"
             href="#{{ overlay_id }}"
-            badge="Design Pattern" 
+            badge="Design Pattern"
             description="{{ designPattern.description[ page.language ] | default: '[Short description of the design pattern]' }}">
             </gcds-card>
           </a>
@@ -505,9 +505,9 @@ css:
       <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
         <gcds-card
         class="h-100"
-        card-title="{{ item.title[ page.language ] }}" 
-        href="#{{ overlay_id }}" 
-        badge="Core Component" 
+        card-title="{{ item.title[ page.language ] }}"
+        href="#{{ overlay_id }}"
+        badge="Core Component"
         description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
         </gcds-card>
       </a>
@@ -610,7 +610,7 @@ css:
           class="h-100"
           card-title="{{ item.title[ page.language ] }}"
           href="#{{ overlay_id }}"  
-          badge="Common Component" 
+          badge="Common Component"
           description="{{ item.description[ page.language ] | default: '[Short description of the common component]' }}">
           </gcds-card>
         </a>
@@ -723,8 +723,8 @@ css:
           <gcds-card
           class="h-100"
           card-title="{{ wetboew.title[ page.language ] }}"
-          href="#{{ overlay_id }}" 
-          badge="Wet-boew" 
+          href="#{{ overlay_id }}"
+          badge="Wet-boew"
           description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}">
           </gcds-card>
         </a>
