@@ -45,5 +45,8 @@ todos:
   - Finalize design
 
 changes:
+  - Change: Add separation to rows rather than padding of cells, and to fix override issue
+    How this affects design: Adds no visual difference, except when using borders, borders will now have better separation.
+
 output: false
 ---
