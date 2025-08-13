@@ -65,35 +65,35 @@ css:
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
-      <div class="form-group mb-0 mr-sm-3">
+      <div class="form-group col-md-4 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
-      <div class="form-group mrgn-bttm-0 mr-3">
+      <div class="form-group col-md-8 p-0 mb-0">
         <fieldset class="p-0">
-          <legend class="h6 mrgn-bttm-0"><span class="field-name">Category</span></legend>
+          <legend class="h6 mrgn-bttm-sm"><span class="field-name">Category</span></legend>
           <ul class="list-unstyled list-inline mb-0">
-            <li class="checkbox mb-0">
+            <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
               </label>
             </li>
-            <li class="checkbox mb-0">
+            <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
               </label>
             </li>
-            <li class="checkbox mb-0">
+            <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
               </label>
             </li>
-            <li class="checkbox mb-0">
+            <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global
               </label>
             </li>
-            <li class="checkbox mb-0">
+            <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
               </label>
@@ -739,7 +739,7 @@ css:
   <div class="row">
     <div class="py-4 my-5 bg-gctheme text-white">
       <div class="container mrgn-bttm-lg">
-        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
+        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0 pr-md">Special features</h2>
           <div class="row">
               <div class="col-md-6">
                 <h3 id="méli-mélo">Experimentation</h3>
