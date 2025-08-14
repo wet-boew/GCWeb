@@ -30,38 +30,29 @@ css:
   </div>
 </div>
 <div class="container">
+  <section>
+    <h2 class="h3 mrgn-bttm-sm">Get started</h2>
+    <ul class="list-unstyled row wb-eqht-grd">
+      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+        <a class="btn btn-primary" href="docs/developing-en.html">Start developing</a>
+      </li>
+      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+        <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
+      </li>
+      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+        <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Promotional thematics</a>
+      </li>
+      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+        <a class="btn btn-default" href="#other">Other documentation</a>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<div class="container">
   <p><small>Found a C&amp;IA implementation issue or you want to contribute at their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg mrgn-bttm-lg">
-    <summary>Meaning of statuses</summary>
-    <dl class="dl-horizontal mrgn-bttm-0">
-      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
-      <dd>Meet the latest published specification.</dd>
-      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
-      <dd>Relatively stable, yet experimental; use at your own risks.</dd>
-      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
-      <dd>Do not use because it's deprecated, but listed here for your information.</dd>
-      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
-      <dd>Not recommended as it's going to be deprecated in the next major version.</dd>
-      <dt><span class="label label-default">Undefined</span></dt>
-      <dd>Missing State in the component documentation.</dd>
-      <!--<dt><span class="label label-success">Up to spec</span></dt>
-      <dd>Meet the latest published C&amp;IA specification.</dd>
-      <dt><span class="label label-info">Informational</span></dt>
-      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
-      <dt><span class="label label-info">Need to revalidate</span></dt>
-      <dd>Was meeting the preceding published specification, but it need to be manually revalidated to ensure it continues to meet the latest published specification.</dd>
-      <dt><span class="label label-warning">Partial</span></dt>
-      <dd>Partially up to spec or partially stable in order to meet other core web standards such WCAG 2.0 Level AA.</dd>
-      <dt><span class="label label-warning">Outdated</span></dt>
-      <dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
-      <dt><span class="label label-default">Backlog</span></dt>
-      <dd>Need to be developed.</dd>
-      <dt><span class="label label-danger">Incomplete</span></dt>
-      <dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
-    </dl>
-  </details>
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
@@ -502,7 +493,7 @@ css:
         class="h-100"
         card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Core Template Element"
+        badge="Core Template"
         description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
         </gcds-card>
       </a>
@@ -727,28 +718,57 @@ css:
     {% endfor %}
     </gcds-grid>
   </div>
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Meaning of statuses</summary>
+    <dl class="dl-horizontal mrgn-bttm-0">
+      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
+      <dd>Meet the latest published specification.</dd>
+      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
+      <dd>Relatively stable, yet experimental; use at your own risks.</dd>
+      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
+      <dd>Do not use because it's deprecated, but listed here for your information.</dd>
+      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
+      <dd>Not recommended as it's going to be deprecated in the next major version.</dd>
+      <dt><span class="label label-default">Undefined</span></dt>
+      <dd>Missing State in the component documentation.</dd>
+      <!--<dt><span class="label label-success">Up to spec</span></dt>
+      <dd>Meet the latest published C&amp;IA specification.</dd>
+      <dt><span class="label label-info">Informational</span></dt>
+      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+      <dt><span class="label label-info">Need to revalidate</span></dt>
+      <dd>Was meeting the preceding published specification, but it need to be manually revalidated to ensure it continues to meet the latest published specification.</dd>
+      <dt><span class="label label-warning">Partial</span></dt>
+      <dd>Partially up to spec or partially stable in order to meet other core web standards such WCAG 2.0 Level AA.</dd>
+      <dt><span class="label label-warning">Outdated</span></dt>
+      <dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
+      <dt><span class="label label-default">Backlog</span></dt>
+      <dd>Need to be developed.</dd>
+      <dt><span class="label label-danger">Incomplete</span></dt>
+      <dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
+    </dl>
+  </details>
 </div>
 
 <!-- Special Features -->
 <div class="container-fluid">
   <div class="row">
-    <div class="py-4 my-5 bg-gctheme text-white">
+    <div class="py-4 mb-3 mrgn-tp-md bg-light">
       <div class="container mrgn-bttm-lg">
-        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0 pr-md">Special features</h2>
+        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
           <div class="row">
               <div class="col-md-6">
                 <h3 id="méli-mélo">Experimentation</h3>
-            <p>The experimentation hub you have been waiting for! The méli-mélo compilation which include experimental code allow you to bring in some awesome new code you would usually consider "custom" to the Canada.ca theme.</p>
-            <p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-en.html" class="btn btn-default btn-lg">Learn more<span class="wb-inv"> about experimentation</span></a></p>
+            <p>The experimentation hub (méli-mélo) includes experimental code that you would usually consider "custom" to the Canada.ca theme.</p>
+            <p class="small"><a href="méli-mélo/méli-mélo-en.html">Learn more<span class="wb-inv"> about experimentation</span></a></p>
               </div>
               <div class="col-md-6">
-            <h3 id="thematics">Promotional thematics</h3><p>Do you have a set of pages that use an original look related to a specific promotion? Try this special hub for promotional thematics instead.</p>
-            <p class="mrgn-tp-lg"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html" class="btn btn-default btn-lg">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
-          </div>
+            <h3 id="thematics">Promotional thematics</h3><p>Use this hub for special promotional thematics that use an original look related to a specific promotion.</p>
+            <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
         </div>
       </div>
+          </div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- Special Features End -->
 
