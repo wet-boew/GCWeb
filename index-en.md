@@ -65,11 +65,11 @@ css:
 
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
-      <div class="form-group col-md-3 pl-0 pr-sm-4 mb-0">
+      <div class="form-group col-md-5 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
-      <div class="form-group col-md-9 p-0 mb-0">
+      <div class="form-group col-md-7 p-0 mb-0">
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-sm"><span class="field-name">Category</span></legend>
           <ul class="list-unstyled list-inline mb-0">
@@ -85,17 +85,12 @@ css:
             </li>
             <li class="checkbox">
               <label>
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-element"> Core Template Element
+              </label>
+            </li>
+            <li class="checkbox">
+              <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
-              </label>
-            </li>
-            <li class="checkbox">
-              <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global Functionality
-              </label>
-            </li>
-            <li class="checkbox">
-              <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
               </label>
             </li>
           </ul>
@@ -414,7 +409,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="sites-global" >
+      <li class="grid-item list-unstyled" data-wb-tags="core-element" >
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -507,7 +502,7 @@ css:
         class="h-100"
         card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Core Component"
+        badge="Core Template Element"
         description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
         </gcds-card>
       </a>
@@ -517,7 +512,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="sites-global">
+      <li class="grid-item list-unstyled" data-wb-tags="component">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -610,7 +605,7 @@ css:
           class="h-100"
           card-title="{{ item.title[ page.language ] }}"
           href="#{{ overlay_id }}"  
-          badge="Common Component"
+          badge="Component"
           description="{{ item.description[ page.language ] | default: '[Short description of the common component]' }}">
           </gcds-card>
         </a>
@@ -620,7 +615,7 @@ css:
     {% for wetboew in site.data[ "wet-boew" ] %}
       {% assign list-pages = wetboew.pages %}
       {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="wetboew">
+      <li class="grid-item list-unstyled" data-wb-tags="component">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -724,7 +719,7 @@ css:
           class="h-100"
           card-title="{{ wetboew.title[ page.language ] }}"
           href="#{{ overlay_id }}"
-          badge="Wet-boew"
+          badge="Component"
           description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}">
           </gcds-card>
         </a>
