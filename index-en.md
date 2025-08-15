@@ -34,7 +34,7 @@ css:
     <h2 class="h3 mrgn-bttm-sm">Get started</h2>
     <ul class="list-unstyled row wb-eqht-grd">
       <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-        <a class="btn btn-primary" href="docs/developing-en.html">Start developing</a>
+        <a class="btn btn-default" href="docs/developing-en.html">Start developing</a>
       </li>
       <li class="col-sm-6 col-md-3 mrgn-bttm-md">
         <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
@@ -749,38 +749,49 @@ css:
   </details>
 </div>
 
-<!-- Special Features -->
+<!-- Implementation, Development and Special Features -->
 <div class="container-fluid">
+  <div class="row">
+    <div class="container">
+      <h2 id="implementing-developing">Implement and develop</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for WET / GCWeb</h3>
+          <p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
+          <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Start coding</a></p>
+        </div>
+        <div class="col-md-6">
+          <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implementing GCWeb on your site</h3>
+          <p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
+          <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
+        </div>
+      </div>
+    </div>
+    <div class=""></div>
+  </div>
   <div class="row">
     <div class="py-4 mb-3 mrgn-tp-md bg-light">
       <div class="container mrgn-bttm-lg">
         <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
-          <div class="row">
-              <div class="col-md-6">
-                <h3 id="méli-mélo">Experimentation</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Experimentation</h3>
             <p>The experimentation hub (méli-mélo) includes experimental code that you would usually consider "custom" to the Canada.ca theme.</p>
             <p class="small"><a href="méli-mélo/méli-mélo-en.html">Learn more<span class="wb-inv"> about experimentation</span></a></p>
-              </div>
-              <div class="col-md-6">
-            <h3 id="thematics">Promotional thematics</h3><p>Use this hub for special promotional thematics that use an original look related to a specific promotion.</p>
+          </div>
+          <div class="col-md-6">
+            <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
+            <p>Use this hub for special promotional thematics that use an original look related to a specific promotion.</p>
             <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
-        </div>
-      </div>
           </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-<!-- Special Features End -->
 
+<!-- Other Documentation -->
 <div class="container">
-  <!-- <h2 id="sitesglobal">Sites and global functionality</h2>
-  <ul>
-    <li><a href="#core-canadaca-theme">Core components for the Canada.ca theme</a></li>
-    <li><a href="#common-components">Common components</a></li>
-  </ul>
-  <hr> -->
-
-  <!-- Other documentation -->
   <h2 id="other">Other documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
@@ -795,28 +806,22 @@ css:
       </section>
     </div>
   </div>
-  <h3 id="gcweb-project-documentation">GCWeb project documentation</h3>
-  <ul>
-    <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
-    <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
-    <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
-    <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
-  </ul>
-  <h4>Evaluations and reports</h4>
-  <ul>
-    <li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
-    <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
-  </ul>
-  <div class="cnt-wdth-lmtd">
-    <h2 id="implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</h2>
-    <h3>Implementing GCWeb on your site</h3>
-    <p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
-    <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
-    <h3 id="developing-for-gcweb">Developing for WET / GCWeb</h3>
-    <p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
-    <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-call-to-action">Start coding</a></p>
-  </div>
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Project docs and reports</summary>
+    <h4>GCWeb project documentation</h4>
+    <ul>
+      <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
+      <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
+      <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
+      <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
+    </ul>
+    <h4>Evaluations and reports</h4>
+    <ul>
+      <li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
+      <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
+    </ul>
+  </details>
 </div>
 {:/}
