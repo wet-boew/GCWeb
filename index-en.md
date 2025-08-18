@@ -29,73 +29,60 @@ css:
     </div>
   </div>
 </div>
+
 <div class="container">
-  <p><small>Found a C&amp;IA implementation issue or you want to contribute at their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
+  <section>
+    <h2 class="h3 mrgn-bttm-sm">Get started</h2>
+    <nav aria-label="Getting started options">
+      <ul class="list-unstyled row wb-eqht-grd">
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="docs/developing-en.html">Start developing</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Promotional thematics</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="#other">Other documentation</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</div>
+
+<div class="container">
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg mrgn-bttm-lg">
-    <summary>Meaning of statuses</summary>
-    <dl class="dl-horizontal mrgn-bttm-0">
-      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
-      <dd>Meet the latest published specification.</dd>
-      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
-      <dd>Relatively stable, yet experimental; use at your own risks.</dd>
-      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
-      <dd>Do not use because it's deprecated, but listed here for your information.</dd>
-      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
-      <dd>Not recommended as it's going to be deprecated in the next major version.</dd>
-      <dt><span class="label label-default">Undefined</span></dt>
-      <dd>Missing State in the component documentation.</dd>
-      <!--<dt><span class="label label-success">Up to spec</span></dt>
-      <dd>Meet the latest published C&amp;IA specification.</dd>
-      <dt><span class="label label-info">Informational</span></dt>
-      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
-      <dt><span class="label label-info">Need to revalidate</span></dt>
-      <dd>Was meeting the preceding published specification, but it need to be manually revalidated to ensure it continues to meet the latest published specification.</dd>
-      <dt><span class="label label-warning">Partial</span></dt>
-      <dd>Partially up to spec or partially stable in order to meet other core web standards such WCAG 2.0 Level AA.</dd>
-      <dt><span class="label label-warning">Outdated</span></dt>
-      <dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
-      <dt><span class="label label-default">Backlog</span></dt>
-      <dd>Need to be developed.</dd>
-      <dt><span class="label label-danger">Incomplete</span></dt>
-      <dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
-    </dl>
-  </details>
-
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
-      <div class="form-group col-md-3 pl-0 pr-sm-4 mb-0">
+      <div class="form-group col-md-5 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Search</label>
         <input type="search" class="form-control full-width" placeholder="Enter keywords..." id="searchFilter">
       </div>
-      <div class="form-group col-md-9 p-0 mb-0">
+      <div class="form-group col-md-7 p-0 mb-0">
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-sm"><span class="field-name">Category</span></legend>
           <ul class="list-unstyled list-inline mb-0">
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Components
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Templates
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-element"> Core Template Elements
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Sites and Global Functionality
-              </label>
-            </li>
-            <li class="checkbox">
-              <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Patterns
               </label>
             </li>
           </ul>
@@ -414,7 +401,7 @@ css:
     {% for item in site.data.sites %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="sites-global" >
+      <li class="grid-item list-unstyled" data-wb-tags="core-element" >
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -507,7 +494,7 @@ css:
         class="h-100"
         card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Core Component"
+        badge="Core Element"
         description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
         </gcds-card>
       </a>
@@ -517,7 +504,7 @@ css:
     {% for item in site.data.common %}
       {% assign list-pages = item.pages %}
       {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="sites-global">
+      <li class="grid-item list-unstyled" data-wb-tags="component">
         <!-- Overlay -->
         <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
           <header class="modal-header">
@@ -610,7 +597,7 @@ css:
           class="h-100"
           card-title="{{ item.title[ page.language ] }}"
           href="#{{ overlay_id }}"  
-          badge="Common Component"
+          badge="Component"
           description="{{ item.description[ page.language ] | default: '[Short description of the common component]' }}">
           </gcds-card>
         </a>
@@ -620,7 +607,7 @@ css:
     {% for wetboew in site.data[ "wet-boew" ] %}
       {% assign list-pages = wetboew.pages %}
       {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-      <li class="grid-item list-unstyled" data-wb-tags="wetboew">
+      <li class="grid-item list-unstyled" data-wb-tags="component">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -724,7 +711,7 @@ css:
           class="h-100"
           card-title="{{ wetboew.title[ page.language ] }}"
           href="#{{ overlay_id }}"
-          badge="Wet-boew"
+          badge="Component"
           description="{{ wetboew.description[ page.language ] | default: '[Short description of the wetboew]' }}">
           </gcds-card>
         </a>
@@ -732,40 +719,79 @@ css:
     {% endfor %}
     </gcds-grid>
   </div>
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Meaning of statuses</summary>
+    <dl class="dl-horizontal mrgn-bttm-0">
+      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
+      <dd>Meet the latest published specification.</dd>
+      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
+      <dd>Relatively stable, yet experimental; use at your own risks.</dd>
+      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
+      <dd>Do not use because it's deprecated, but listed here for your information.</dd>
+      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
+      <dd>Not recommended as it's going to be deprecated in the next major version.</dd>
+      <dt><span class="label label-default">Undefined</span></dt>
+      <dd>Missing State in the component documentation.</dd>
+      <!--<dt><span class="label label-success">Up to spec</span></dt>
+      <dd>Meet the latest published C&amp;IA specification.</dd>
+      <dt><span class="label label-info">Informational</span></dt>
+      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+      <dt><span class="label label-info">Need to revalidate</span></dt>
+      <dd>Was meeting the preceding published specification, but it need to be manually revalidated to ensure it continues to meet the latest published specification.</dd>
+      <dt><span class="label label-warning">Partial</span></dt>
+      <dd>Partially up to spec or partially stable in order to meet other core web standards such WCAG 2.0 Level AA.</dd>
+      <dt><span class="label label-warning">Outdated</span></dt>
+      <dd>Don't meet the latest specification but met a previous version. It requires updates.</dd>
+      <dt><span class="label label-default">Backlog</span></dt>
+      <dd>Need to be developed.</dd>
+      <dt><span class="label label-danger">Incomplete</span></dt>
+      <dd>Incomplete because it don't fully meet all the specification yet. Still need development work.</dd>-->
+    </dl>
+  </details>
 </div>
 
-<!-- Special Features -->
+<!-- Implementation, Development and Special Features -->
 <div class="container-fluid">
   <div class="row">
-    <div class="py-4 my-5 bg-gctheme text-white">
+    <div class="container">
+      <h2 id="implementing-developing">Implement and develop</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for WET / GCWeb</h3>
+          <p class="mrgn-bttm-md">Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
+          <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Start coding</a></p>
+        </div>
+        <div class="col-md-6">
+          <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implementing GCWeb on your site</h3>
+          <p class="mrgn-bttm-md">Explore the implementation guide for the Canada.ca theme using the Web Experience Toolkit version 4.x. Integrate GCWeb into your projects.</p>
+          <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="py-4 mb-3 mrgn-tp-md bg-light">
       <div class="container mrgn-bttm-lg">
-        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0 pr-md">Special features</h2>
-          <div class="row">
-              <div class="col-md-6">
-                <h3 id="méli-mélo">Experimentation</h3>
-            <p>The experimentation hub you have been waiting for! The méli-mélo compilation which include experimental code allow you to bring in some awesome new code you would usually consider "custom" to the Canada.ca theme.</p>
-            <p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-en.html" class="btn btn-default btn-lg">Learn more<span class="wb-inv"> about experimentation</span></a></p>
-              </div>
-              <div class="col-md-6">
-            <h3 id="thematics">Promotional thematics</h3><p>Do you have a set of pages that use an original look related to a specific promotion? Try this special hub for promotional thematics instead.</p>
-            <p class="mrgn-tp-lg"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html" class="btn btn-default btn-lg">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
+        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Experimentation</h3>
+            <p>The experimentation hub (méli-mélo) includes experimental code that you would usually consider "custom" to the Canada.ca theme.</p>
+            <p class="small"><a href="méli-mélo/méli-mélo-en.html">Learn more<span class="wb-inv"> about experimentation</span></a></p>
+          </div>
+          <div class="col-md-6">
+            <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
+            <p>Highlight a specific promotion or campaign with an original look using the special promotional thematics hub.</p>
+            <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Special Features End -->
 
+<!-- Other Documentation -->
 <div class="container">
-  <!-- <h2 id="sitesglobal">Sites and global functionality</h2>
-  <ul>
-    <li><a href="#core-canadaca-theme">Core components for the Canada.ca theme</a></li>
-    <li><a href="#common-components">Common components</a></li>
-  </ul>
-  <hr> -->
-
-  <!-- Other documentation -->
   <h2 id="other">Other documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
@@ -780,28 +806,23 @@ css:
       </section>
     </div>
   </div>
-  <h3 id="gcweb-project-documentation">GCWeb project documentation</h3>
-  <ul>
-    <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
-    <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
-    <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
-    <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
-  </ul>
-  <h4>Evaluations and reports</h4>
-  <ul>
-    <li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
-    <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
-  </ul>
-  <div class="cnt-wdth-lmtd">
-    <h2 id="implementing-developing"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implementing&nbsp;/ Developing</h2>
-    <h3>Implementing GCWeb on your site</h3>
-    <p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
-    <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
-    <h3 id="developing-for-gcweb">Developing for WET / GCWeb</h3>
-    <p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
-    <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-call-to-action">Start coding</a></p>
-  </div>
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Project docs and reports</summary>
+    <h4>GCWeb project documentation</h4>
+    <ul>
+      <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
+      <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
+      <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
+      <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
+    </ul>
+    <h4>Evaluations and reports</h4>
+    <ul>
+      <li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
+      <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
+    </ul>
+  </details>
+  <p><small>Found a C&amp;IA implementation issue or want to contribute to its development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCWeb issue</a>, creating a <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
 </div>
 {:/}
