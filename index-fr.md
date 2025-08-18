@@ -777,7 +777,7 @@ css:
 
 <!-- Other Documentation -->
 <div class="container">
-  <h2 id="other">Autre documentation</h2>
+  <h2 id="other" class="mt-1">Autre documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
       <section class="row d-flex">
