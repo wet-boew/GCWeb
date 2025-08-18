@@ -765,7 +765,7 @@ css:
         </div>
         <div class="col-md-6">
           <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implémenter GCWeb sur votre site</h3>
-          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience web version 4.x. Intégrez GCWeb à vos projets</p>
+          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience. Intégrez GCWeb à vos projets</p>
           <p><a href="docs/implementing-fr.html" class="btn btn-lg btn-default">Guide rapide</a></p>
         </div>
       </div>
