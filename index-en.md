@@ -30,31 +30,30 @@ css:
   </div>
 </div>
 
-<div class="container">
-  <section>
-    <h2 class="h3 mrgn-bttm-sm">Get started</h2>
-    <nav aria-label="Getting started options">
-      <ul class="list-unstyled row wb-eqht-grd">
-        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-          <a class="btn btn-default" href="docs/developing-en.html">Start developing</a>
-        </li>
-        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-          <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
-        </li>
-        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-          <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Promotional thematics</a>
-        </li>
-        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-          <a class="btn btn-default" href="#other">Other documentation</a>
-        </li>
-      </ul>
-    </nav>
-  </section>
-</div>
+<!-- Implement and develop -->
+<div class="bg-light py-4 my-4">
+    <div class="container">
+      <h2 id="implementing-developing" class="m-0">Implement and develop</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for WET / GCWeb</h3>
+          <p class="mrgn-bttm-md">Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
+          <p class="mb-4 mb-md-0"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Start coding</a></p>
+        </div>
+        <div class="col-md-6">
+          <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implementing GCWeb on your site</h3>
+          <p class="mrgn-bttm-md">Explore the implementation guide for the Canada.ca theme using the Web Experience Toolkit version 4.x. Integrate GCWeb into your projects.</p>
+          <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+<!-- Search and tag filters -->
 <div class="container">
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
+  <h2 class="m-0">Components</h2>
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
       <div class="form-group col-md-5 pl-0 pr-sm-4 mb-0">
@@ -750,40 +749,21 @@ css:
   </details>
 </div>
 
-<!-- Implementation, Development and Special Features -->
-<div class="container-fluid">
-  <div class="row">
+<!-- Special Features -->
+<div class="bg-light my-4">
+  <div class="py-4">
     <div class="container">
-      <h2 id="implementing-developing">Implement and develop</h2>
+      <h2 id="experiment" class="m-0">Special features</h2>
       <div class="row">
         <div class="col-md-6">
-          <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for WET / GCWeb</h3>
-          <p class="mrgn-bttm-md">Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
-          <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Start coding</a></p>
+          <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Experimentation</h3>
+          <p>The experimentation hub (méli-mélo) includes experimental code that you would usually consider "custom" to the Canada.ca theme.</p>
+          <p class="small mb-4 mb-md-0"><a href="méli-mélo/méli-mélo-en.html">Learn more<span class="wb-inv"> about experimentation</span></a></p>
         </div>
         <div class="col-md-6">
-          <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implementing GCWeb on your site</h3>
-          <p class="mrgn-bttm-md">Explore the implementation guide for the Canada.ca theme using the Web Experience Toolkit version 4.x. Integrate GCWeb into your projects.</p>
-          <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="py-4 mb-3 mrgn-tp-md bg-light">
-      <div class="container mrgn-bttm-lg">
-        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Special features</h2>
-        <div class="row">
-          <div class="col-md-6">
-            <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Experimentation</h3>
-            <p>The experimentation hub (méli-mélo) includes experimental code that you would usually consider "custom" to the Canada.ca theme.</p>
-            <p class="small"><a href="méli-mélo/méli-mélo-en.html">Learn more<span class="wb-inv"> about experimentation</span></a></p>
-          </div>
-          <div class="col-md-6">
-            <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
-            <p>Highlight a specific promotion or campaign with an original look using the special promotional thematics hub.</p>
-            <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
-          </div>
+          <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
+          <p>Highlight a specific promotion or campaign with an original look using the special promotional thematics hub.</p>
+          <p class="small mb-4 mb-md-0"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
         </div>
       </div>
     </div>
@@ -792,7 +772,7 @@ css:
 
 <!-- Other Documentation -->
 <div class="container">
-  <h2 id="other">Other documentation</h2>
+  <h2 id="other" class="mt-1">Other documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
       <section class="row d-flex">
