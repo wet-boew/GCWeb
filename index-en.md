@@ -53,6 +53,8 @@ css:
 </div>
 
 <div class="container">
+  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
+  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
       <div class="form-group col-md-5 pl-0 pr-sm-4 mb-0">
@@ -717,8 +719,6 @@ css:
     {% endfor %}
     </gcds-grid>
   </div>
-  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
-  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
   <details class="mrgn-tp-lg mrgn-bttm-lg">
     <summary>Meaning of statuses</summary>
     <dl class="dl-horizontal mrgn-bttm-0">
