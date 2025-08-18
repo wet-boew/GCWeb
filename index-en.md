@@ -762,7 +762,7 @@ css:
         </div>
         <div class="col-md-6">
           <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
-          <p>Highlight a specific promotion or campaign with an original look using the special promotional thematics hub.</p>
+          <p>Highlight a specific promotion or campaign with an original look by using the special promotional thematics hub.</p>
           <p class="small mb-4 mb-md-0"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
         </div>
       </div>
