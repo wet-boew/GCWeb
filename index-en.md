@@ -29,31 +29,30 @@ css:
     </div>
   </div>
 </div>
+
 <div class="container">
   <section>
     <h2 class="h3 mrgn-bttm-sm">Get started</h2>
-    <ul class="list-unstyled row wb-eqht-grd">
-      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-        <a class="btn btn-default" href="docs/developing-en.html">Start developing</a>
-      </li>
-      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-        <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
-      </li>
-      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-        <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Promotional thematics</a>
-      </li>
-      <li class="col-sm-6 col-md-3 mrgn-bttm-md">
-        <a class="btn btn-default" href="#other">Other documentation</a>
-      </li>
-    </ul>
+    <nav aria-label="Getting started options">
+      <ul class="list-unstyled row wb-eqht-grd">
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="docs/developing-en.html">Start developing</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="méli-mélo/méli-mélo-en.html">Experimentation</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Promotional thematics</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="#other">Other documentation</a>
+        </li>
+      </ul>
+    </nav>
   </section>
 </div>
 
 <div class="container">
-  <p><small>Found a C&amp;IA implementation issue or you want to contribute at their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCweb issue</a>, sending <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
-  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
-  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
       <div class="form-group col-md-5 pl-0 pr-sm-4 mb-0">
@@ -66,22 +65,22 @@ css:
           <ul class="list-unstyled list-inline mb-0">
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Component
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Components
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Template
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Templates
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-element"> Core Template Element
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-element"> Core Template Elements
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Pattern
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Design Patterns
               </label>
             </li>
           </ul>
@@ -493,7 +492,7 @@ css:
         class="h-100"
         card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Core Template"
+        badge="Core Element"
         description="{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}">
         </gcds-card>
       </a>
@@ -718,6 +717,8 @@ css:
     {% endfor %}
     </gcds-grid>
   </div>
+  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
+  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
   <details class="mrgn-tp-lg mrgn-bttm-lg">
     <summary>Meaning of statuses</summary>
     <dl class="dl-horizontal mrgn-bttm-0">
@@ -757,17 +758,16 @@ css:
       <div class="row">
         <div class="col-md-6">
           <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Developing for WET / GCWeb</h3>
-          <p>Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
+          <p class="mrgn-bttm-md">Join the community and start creating, improving and fixing GCWeb, the Canada.ca theme. Learn how to set up your local environment.</p>
           <p class="mrgn-bttm-lg"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Start coding</a></p>
         </div>
         <div class="col-md-6">
           <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implementing GCWeb on your site</h3>
-          <p>Implementation guide for the Canada.ca theme with the Web Experience Toolkit version 4.x.</p>
+          <p class="mrgn-bttm-md">Explore the implementation guide for the Canada.ca theme using the Web Experience Toolkit version 4.x. Integrate GCWeb into your projects.</p>
           <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Quick guide</a></p>
         </div>
       </div>
     </div>
-    <div class=""></div>
   </div>
   <div class="row">
     <div class="py-4 mb-3 mrgn-tp-md bg-light">
@@ -781,7 +781,7 @@ css:
           </div>
           <div class="col-md-6">
             <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Promotional thematics</h3>
-            <p>Use this hub for special promotional thematics that use an original look related to a specific promotion.</p>
+            <p>Highlight a specific promotion or campaign with an original look using the special promotional thematics hub.</p>
             <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-en.html">Learn more<span class="wb-inv"> about promotional thematics</span></a></p>
           </div>
         </div>
@@ -823,5 +823,6 @@ css:
       <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
     </ul>
   </details>
+  <p><small>Found a C&amp;IA implementation issue or want to contribute to their development? Let us know by submitting <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20">GCWeb issue</a>, creating a <a href="https://github.com/wet-boew/GCWeb/pulls">pull request</a> or by participating at one of our weekly <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW">WET office hours</a> (formerly known as WET-BOEW code sprint) every Tuesday.</small></p>
 </div>
 {:/}

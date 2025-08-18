@@ -29,72 +29,58 @@ css:
     </div>
   </div>
 </div>
+
 <div class="container">
-  <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
-  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
-  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg mrgn-bttm-lg">
-    <summary>Définition des états</summary>
-    <dl class="dl-horizontal mrgn-bttm-0">
-      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
-      <dd>Rencontre les exigences d'une spécification.</dd>
-      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
-      <dd>Plutôt stable, mais expérimental; utilisez à vos risques et périls.</dd>
-      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
-      <dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
-      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
-      <dd>Utilisation non recommandée puisque ce sera obsolète à la prochaine version majeure.</dd>
-      <dt><span class="label label-default">Défaut</span></dt>
-      <dd>Manque le statut dans la documentation de la composante.</dd>
-      <!--<dt><span class="label label-success">Conforme</span></dt>
-      <dd>Conforme aux exigences définie par la dernière version publié des spécifications du C&amp;AI.</dd>
-      <dt><span class="label label-info">Information</span></dt>
-      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
-      <dt><span class="label label-info">Revalidation requise</span></dt>
-      <dd>Précédemment conforme, mais requière une nouvelle validation manuel afin de s'assurer qu'il continue à rencontrer les exigences tel que définie par la dernière version publié de sa spécification.</dd>
-      <dt><span class="label label-warning">Partiel</span></dt>
-      <dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
-      <dt><span class="label label-warning">Désuet</span></dt>
-      <dd>N'est pas conforme à la dernière spécification, mais il l'a précédemment été. Son rétablissement à la conformité nécessite des changements immédiat.</dd>
-      <dt><span class="label label-default">Arriéré</span></dt>
-      <dd>Nécessite du développement.</dd>
-      <dt><span class="label label-danger">Incomplet</span></dt>
-      <dd>Incomplet car il ne se conforme pas complètement à toute les exigences de la spécification. Nécessite encore des travaux de développement.</dd>-->
-    </dl>
-  </details>
+  <section>
+    <h2 class="h3 mrgn-bttm-sm">Débuter</h2>
+    <nav aria-label="Getting started options">
+      <ul class="list-unstyled row wb-eqht-grd">
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="docs/developing-fr.html">Commencer à programmer</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="méli-mélo/méli-mélo-fr.html">Expérimentation</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="th%C3%A9matique/gc-th%C3%A9matique-fr.html">Thématiques promotionnelles</a>
+        </li>
+        <li class="col-sm-6 col-md-3 mrgn-bttm-md">
+          <a class="btn btn-default" href="#other">Autre documentation</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</div>
+
+<div class="container">
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="d-sm-flex mb-4">
-      <div class="form-group col-md-3 pl-0 pr-sm-4 mb-0">
+      <div class="form-group col-md-4 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Rechercher</label>
         <input type="search" class="form-control full-width" placeholder="Entrez des mots-clés..." id="searchFilter">
       </div>
-      <div class="form-group col-md-9 p-0 mb-0">
+      <div class="form-group col-md-8 p-0 mb-0">
         <fieldset class="p-0">
           <legend class="h6 mrgn-bttm-sm"><span class="field-name">Catégorie</span></legend>
           <ul class="list-unstyled list-inline mb-0">
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Composante
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component"> Composantes
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Gabarit
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="template"> Gabarits
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Modèle de conception
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="core-element"> Éléments clés des gabarits
               </label>
             </li>
             <li class="checkbox">
               <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="sites-global"> Fonctionnalités globales et de sites
-              </label>
-            </li>
-            <li class="checkbox">
-              <label>
-                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="wetboew"> Wet-boew
+                <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="design-pattern"> Modèles de conception
               </label>
             </li>
           </ul>
@@ -415,7 +401,7 @@ css:
   {% for item in site.data.sites %}
     {% assign list-pages = item.pages %}
     {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="sites-global">
+    <li class="grid-item list-unstyled" data-wb-tags="core-element">
     <!-- Overlay -->
     <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
       <header class="modal-header">
@@ -508,7 +494,7 @@ css:
       class="h-100"
       card-title="{{ item.title[ page.language ] }}"
       href="#{{ overlay_id }}"
-      badge="Composante primaire"
+      badge="Élément clé"
       description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité globale]' }}">
       </gcds-card>
     </a>
@@ -518,7 +504,7 @@ css:
   {% for item in site.data.common %}
     {% assign list-pages = item.pages %}
     {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="sites-global">
+    <li class="grid-item list-unstyled" data-wb-tags="component">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -611,7 +597,7 @@ css:
         class="h-100"
         card-title="{{ item.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Composante commune"
+        badge="Composante"
         description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité commune]' }}">
         </gcds-card>
       </a>
@@ -621,7 +607,7 @@ css:
   {% for wetboew in site.data[ "wet-boew" ] %}
     {% assign list-pages = wetboew.pages %}
     {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="wetboew">
+    <li class="grid-item list-unstyled" data-wb-tags="component">
     <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
         <header class="modal-header">
@@ -725,7 +711,7 @@ css:
         class="h-100"
         card-title="{{ wetboew.title[ page.language ] }}"
         href="#{{ overlay_id }}"
-        badge="Wet-boew"
+        badge="Composante"
         description="{{ wetboew.description[ page.language ] | default: '[Courte description de wetboew]' }}">
         </gcds-card>
       </a>
@@ -733,41 +719,82 @@ css:
   {% endfor %}
     </gcds-grid>
   </div>
+  {% assign page_group = site.data.i18n.page_group[ page.language ] %}
+  {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Définition des états</summary>
+    <dl class="dl-horizontal mrgn-bttm-0">
+      <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
+      <dd>Rencontre les exigences d'une spécification.</dd>
+      <dt><span class="label label-warning">{{comp_status.provisional}}</span></dt>
+      <dd>Plutôt stable, mais expérimental; utilisez à vos risques et périls.</dd>
+      <dt><span class="label label-danger">{{comp_status.deprecated}}</span></dt>
+      <dd>Ne pas utilisé car c'est obsolète, mais disponible pour votre information.</dd>
+      <dt><span class="label label-default">{{comp_status.demoted}}</span></dt>
+      <dd>Utilisation non recommandée puisque ce sera obsolète à la prochaine version majeure.</dd>
+      <dt><span class="label label-default">Défaut</span></dt>
+      <dd>Manque le statut dans la documentation de la composante.</dd>
+      <!--<dt><span class="label label-success">Conforme</span></dt>
+      <dd>Conforme aux exigences définie par la dernière version publié des spécifications du C&amp;AI.</dd>
+      <dt><span class="label label-info">Information</span></dt>
+      <dd>It's for your information. It's complete and suggestive but not defined by and from a specification yet.</dd>
+      <dt><span class="label label-info">Revalidation requise</span></dt>
+      <dd>Précédemment conforme, mais requière une nouvelle validation manuel afin de s'assurer qu'il continue à rencontrer les exigences tel que définie par la dernière version publié de sa spécification.</dd>
+      <dt><span class="label label-warning">Partiel</span></dt>
+      <dd>Partiellement conforme au C&amp;AI ou partiellement stable car il inclus des modifications nécessaire afin d'obtenir une conformité aux norme web essentiel, tel que le WCAG 2.0 Niveau AA.</dd>
+      <dt><span class="label label-warning">Désuet</span></dt>
+      <dd>N'est pas conforme à la dernière spécification, mais il l'a précédemment été. Son rétablissement à la conformité nécessite des changements immédiat.</dd>
+      <dt><span class="label label-default">Arriéré</span></dt>
+      <dd>Nécessite du développement.</dd>
+      <dt><span class="label label-danger">Incomplet</span></dt>
+      <dd>Incomplet car il ne se conforme pas complètement à toute les exigences de la spécification. Nécessite encore des travaux de développement.</dd>-->
+    </dl>
+  </details>
 </div>
 
-<!-- Special Features -->
+<!-- Implementation, Development and Special Features -->
 <div class="container-fluid">
   <div class="row">
-    <div class="py-4 my-5 bg-gctheme text-white">
+    <div class="container">
+      <h2 id="implementing-developing">Implémenter et développer</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Développer pour GCWeb</h3>
+          <p class="mrgn-bttm-md">Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
+          <p class="mrgn-bttm-lg"><a href="docs/developing-fr.html" class="btn btn-lg btn-primary">Commencer à programmer</a></p>
+        </div>
+        <div class="col-md-6">
+          <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implémenter GCWeb sur votre site</h3>
+          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience web version 4.x. Intégrez GCWeb à vos projets</p>
+          <p><a href="docs/implementing-fr.html" class="btn btn-lg btn-default">Guide rapide</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="py-4 mb-3 mrgn-tp-md bg-light">
       <div class="container mrgn-bttm-lg">
-        <h2 id="experimentation" class="mrgn-tp-md mrgn-bttm-0">Fonctionnalités spéciales</h2>
-          <div class="row">
-              <div class="col-md-6">
-                <h3 id="méli-mélo">Expérimentation</h3>
-            <p>L'espace d'expérimentation que vous attendiez&nbsp;! Les compilation méli-mélos qui contenant le code expérimental permettent d'ajouter au thème de Canada.ca du nouveau code intéressant que vous considéreriez habituellement comme "personnalisé".</p>
-            <p class="mrgn-tp-lg"><a href="méli-mélo/méli-mélo-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
-              </div>
-              <div class="col-md-6">
-            <h3 id="thematiques">Thématiques promotionnelles</h3><p>Avez-vous un ensemble de pages qui arborent un look original relié à une promotion spécifique&nbsp;? Dans ce cas, essayez plutôt cet espace de thématiques promotionnelles.</p>
-            <p class="mrgn-tp-lg"><a href="th%C3%A9matique/gc-th%C3%A9matique-fr.html" class="btn btn-default btn-lg">En savoir plus<span class="wb-inv"> sur les thématiques promotionnelles</span></a></p>
+        <h2 id="experiment" class="mrgn-tp-md mrgn-bttm-0">Fonctionnalités spéciales</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Expérimentation</h3>
+            <p>Le centre d'expérimentation (mishmash) comprend du code expérimental que vous considérez généralement comme propre au thème Canada.ca.</p>
+            <p class="small"><a href="méli-mélo/méli-mélo-fr.html">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
+          </div>
+          <div class="col-md-6">
+            <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Thématiques promotionnelles</h3>
+            <p>Mettez en avant une promotion ou une campagne spécifique avec un look original grâce au hub thématique promotionnel spécial.</p>
+            <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-fr.html">En savoir plus<span class="wb-inv"> sur les thématiques promotionnelles</span></a></p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- Special Features End -->
 
+<!-- Other Documentation -->
 <div class="container">
-  <!-- <h2 id="sitesglobal">Fonctionnalités globales et de sites</h2>
-  <ul>
-    <li><a href="#Composantes-primaires-canadaca">Composantes primaires pour le thème de Canada.ca</a></li>
-    <li><a href="#Composantes-communes">Composantes communes</a></li>
-  </ul>
-  <hr> -->
-
-  <!-- Other documentation -->
-<h2 id="autre">Autre documentation</h2>
+  <h2 id="other">Autre documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
       <section class="row d-flex">
@@ -781,30 +808,23 @@ css:
       </section>
     </div>
   </div>
-  <h3 id="gcweb-projet-documentation">Documentation du projet GCWeb</h3>
-  <ul lang="en">
-    <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
-    <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
-    <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
-    <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
-    <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
-  </ul>
-  <h4>Évaluations et rapports</h4>
-  <ul>
-    <li><a href="docs/evaluation-report/1-accessibility.html" lang="en" hreflang="en">1 - Accessibility assessment as 2018-11-14</a></li>
-    <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html" lang="en" hreflang="en">2 - Regression user acceptance testing as 2018-11-16</a></li>
-  </ul>
-  <div class="row">
-    <div class="col-md-9">
-      <h2 id="implementer-developper"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Implémenter&nbsp;/ Développer</h2>
-      <h3>Implémenter GCWeb sur votre site</h3>
-      <p>Guide d'implémentation pour le thème de Canada.ca avec la Boîte à outils de l'expérience web version 4.x.</p>
-      <p><a href="docs/implementing-fr.html" class="btn btn-lg btn-default" hreflang="en">Guide rapide</a></p>
-      <h3 id="developper-pour-gcweb">Développer pour GCWeb</h3>
-      <p>Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
-      <p class="mrgn-bttm-lg"><a href="docs/developing-fr.html" class="btn btn-call-to-action" hreflang="en">Commencer à programmer</a></p>
-    </div>
-  </div>
+  <details class="mrgn-tp-lg mrgn-bttm-lg">
+    <summary>Documents et rapports du projet</summary>
+    <h4>Documentation du projet GCWeb</h4>
+    <ul>
+      <li><a href="docs/index.html">GCWeb theme - Meta information</a></li>
+      <li><a href="docs/v5-migration.html">Migration instruction - GCWeb theme V5</a></li>
+      <li><a href="docs/GCWeb-en.html">Archived - Documentation - GCWeb English</a></li>
+      <li><a href="docs/release/index-en.html">Archived - Releases English</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-3.html">Skeleton - Static header/footer - Bootstrap 3</a></li>
+      <li><a href="docs/static-header-footer/bootstrap-4.html">Prototype skeleton - Static header/footer - Bootstrap 4</a></li>
+    </ul>
+    <h4>Évaluations et rapports</h4>
+    <ul>
+      <li><a href="docs/evaluation-report/1-accessibility.html">1 - Accessibility assessment as 2018-11-14</a></li>
+      <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
+    </ul>
+  </details>
+  <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
 </div>
 {:/}
