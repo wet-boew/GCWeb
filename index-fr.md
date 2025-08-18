@@ -765,7 +765,7 @@ css:
         </div>
         <div class="col-md-6">
           <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implémenter GCWeb sur votre site</h3>
-          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience. Intégrez GCWeb à vos projets</p>
+          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience. Intégrez GCWeb à vos projets.</p>
           <p><a href="docs/implementing-fr.html" class="btn btn-lg btn-default">Guide rapide</a></p>
         </div>
       </div>
@@ -778,7 +778,7 @@ css:
         <div class="row">
           <div class="col-md-6">
             <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Expérimentation</h3>
-            <p>Le centre d'expérimentation (mishmash) comprend du code expérimental que vous considérez généralement comme propre au thème Canada.ca.</p>
+            <p>Le centre d'expérimentation (méli-mélo) comprend du code expérimental que vous considérez généralement comme propre au thème Canada.ca.</p>
             <p class="small"><a href="méli-mélo/méli-mélo-fr.html">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
           </div>
           <div class="col-md-6">
@@ -825,6 +825,6 @@ css:
       <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
     </ul>
   </details>
-  <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement, faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
+  <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement? Faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
 </div>
 {:/}
