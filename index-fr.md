@@ -31,18 +31,18 @@ css:
 </div>
 
 <!-- Implement and develop -->
-<div class="bg-light py-4 my-4">
+<div class="bg-light py-4 mt-4">
     <div class="container">
       <h2 id="implementing-developing" class="m-0">Implémenter et développer</h2>
       <div class="row">
         <div class="col-md-6">
           <h3 id="developing-for-gcweb"><span aria-hidden="true" class="fas fa-code mrgn-rght-md"></span>Développer pour GCWeb</h3>
-          <p class="mrgn-bttm-md">Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
+          <p>Rejoignez la communauté et commencez à créer, améliorer et réparer GCWeb, le thème de Canada.ca. Apprenez comment organiser votre environnement local.</p>
           <p class="mb-4 mb-md-0"><a href="docs/developing-en.html" class="btn btn-lg btn-primary">Commencer à programmer</a></p>
         </div>
         <div class="col-md-6">
           <h3><span class="fas fa-toolbox mrgn-rght-md" aria-hidden="true"></span>Implémenter GCWeb sur votre site</h3>
-          <p class="mrgn-bttm-md">Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience. Intégrez GCWeb à vos projets.</p>
+          <p>Consultez le guide d'implémentation du thème Canada.ca à l'aide de la version 4.x de la boîte à outils l'expérience. Intégrez GCWeb à vos projets.</p>
           <p><a href="docs/implementing-en.html" class="btn btn-lg btn-default">Guide rapide</a></p>
         </div>
       </div>
@@ -53,9 +53,9 @@ css:
 <div class="container">
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <h2 class="m-0">Composantes</h2>
+  <h2>Composantes</h2>
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
-    <div id="searchFilterTemplate" class="d-sm-flex mb-4">
+    <div id="searchFilterTemplate" class="row mb-4">
       <div class="form-group col-md-4 pl-0 pr-sm-4 mb-0">
         <label for="searchFilter" class="h6 mb-2">Rechercher</label>
         <input type="search" class="form-control full-width" placeholder="Entrez des mots-clés..." id="searchFilter">
@@ -754,7 +754,7 @@ css:
 </div>
 
 <!-- Special Features -->
-  <div class="bg-light my-4">
+  <div class="bg-light">
     <div class="py-4">
       <div class="container">
         <h2 id="experiment" class="m-0">Fonctionnalités spéciales</h2>
@@ -762,12 +762,12 @@ css:
           <div class="col-md-6">
             <h3 id="méli-mélo"><span class="fas fa-flask mrgn-rght-md" aria-hidden="true"></span>Expérimentation</h3>
             <p>Le centre d'expérimentation (méli-mélo) comprend du code expérimental que vous considérez généralement comme propre au thème Canada.ca.</p>
-            <p class="small"><a href="méli-mélo/méli-mélo-fr.html">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
+            <p><a href="méli-mélo/méli-mélo-fr.html">En savoir plus<span class="wb-inv"> sur les expérimentations</span></a></p>
           </div>
           <div class="col-md-6">
             <h3 id="thematics"><span class="fas fa-swatchbook mrgn-rght-md" aria-hidden="true"></span>Thématiques promotionnelles</h3>
             <p>Mettez en avant une promotion ou une campagne spécifique avec un look original grâce au hub thématique promotionnel spécial.</p>
-            <p class="small"><a href="th%C3%A9matique/gc-th%C3%A9matique-fr.html">En savoir plus<span class="wb-inv"> sur les thématiques promotionnelles</span></a></p>
+            <p><a href="th%C3%A9matique/gc-th%C3%A9matique-fr.html">En savoir plus<span class="wb-inv"> sur les thématiques promotionnelles</span></a></p>
           </div>
         </div>
       </div>
@@ -777,7 +777,7 @@ css:
 
 <!-- Other Documentation -->
 <div class="container">
-  <h2 id="other" class="mt-1">Autre documentation</h2>
+  <h2 id="other">Autre documentation</h2>
   <div class="row mrgn-tp-md">
     <div class="col-md-8">
       <section class="row d-flex">
@@ -791,7 +791,7 @@ css:
       </section>
     </div>
   </div>
-  <details class="mrgn-tp-lg mrgn-bttm-lg">
+  <details class="my-4">
     <summary>Documents et rapports du projet</summary>
     <h4>Documentation du projet GCWeb</h4>
     <ul>
