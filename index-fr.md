@@ -122,14 +122,17 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}</p>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
             <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
+              {% if examples.size == 0 %}
+                {% assign examples = pgGroup[1] | where: "language", "en" %}
+              {% endif %}
               {% for example in examples %}
-              {% if example.path %}
+                {% if example.path %}
               <li><a href="components/
                     {%- if component.componentName -%}
                       {{ component.componentName }}/
@@ -225,14 +228,17 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}</p>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
             <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
+              {% if examples.size == 0 %}
+                {% assign examples = pgGroup[1] | where: "language", "en" %}
+              {% endif %}
               {% for example in examples %}
-              {% if example.path %}
+                {% if example.path %}
               <li><a href="templates/
                     {%- if template.componentName -%}
                       {{ template.componentName }}/
@@ -315,14 +321,17 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}</p>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
               {% for pgGroup in list-pages %}
                 {% assign grpkey = pgGroup[0] %}
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
             <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
+              {% if examples.size == 0 %}
+                {% assign examples = pgGroup[1] | where: "language", "en" %}
+              {% endif %}
               {% for example in examples %}
-              {% if example.path %}
+                {% if example.path %}
               <li><a href="design-patterns/
                     {%- if designPattern.componentName -%}
                       {{ designPattern.componentName }}/
@@ -419,14 +428,17 @@ css:
       <div class="modal-body">
         <div class="mx-3">
           <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
+          <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-          <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
           <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
           <ul>
             {% assign examples = pgGroup[1] | where: "language", page.language %}
+            {% if examples.size == 0 %}
+              {% assign examples = pgGroup[1] | where: "language", "en" %}
+            {% endif %}
             {% for example in examples %}
-            {% if example.path %}
+              {% if example.path %}
             <li><a href="sites/
                   {%- if item.componentName -%}
                     {{ item.componentName }}/
@@ -520,14 +532,17 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
             <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
+              {% if examples.size == 0 %}
+                {% assign examples = pgGroup[1] | where: "language", "en" %}
+              {% endif %}
               {% for example in examples %}
-              {% if example.path %}
+                {% if example.path %}
               <li><a href="common/
                     {%- if item.componentName -%}
                       {{ item.componentName }}/
@@ -621,14 +636,17 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a>
             <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
             <ul>
-            {% assign examples = pgGroup[1] | where: "language", page.language %}
-            {% for example in examples %}
-              {% if example.path %}
+              {% assign examples = pgGroup[1] | where: "language", page.language %}
+              {% if examples.size == 0 %}
+                {% assign examples = pgGroup[1] | where: "language", "en" %}
+              {% endif %}
+              {% for example in examples %}
+                {% if example.path %}
               <li><a href="wet-boew/
                     {%- if wetboew.componentName -%}
                       {{ wetboew.componentName }}/
@@ -795,6 +813,5 @@ css:
       <li><a href="docs/evaluation-report/2-wetplugin-gcweb2.html">2 - Regression user acceptance testing as 2018-11-16</a></li>
     </ul>
   </details>
-  <p><small>Vous avez trouvé des problèmes d'implémentation par rapport au C&amp;AI ou vous désirez contribuer au développement? Faites nous le savoir en soumettant une <a href="https://github.com/wet-boew/GCWeb/issues/new?title=C&amp;IA%20implementation%20error:%20" hreflang="en">requête GCWeb</a>, en envoyant une <a href="https://github.com/wet-boew/GCWeb/pulls" hreflang="en" lang="en">pull request</a> ou en participant à un de nos <a href="https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW" hreflang="en">heures de service de la BOEW</a> (anciennement connu sous le nom de <span lang="en">WET-BOEW code sprint</span>) hebdomadaire à chaque mardi.</small></p>
 </div>
 {:/}
