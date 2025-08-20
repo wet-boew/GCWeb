@@ -57,14 +57,14 @@ css:
   <h2>Composantes</h2>
   <div class="wb-tagfilter provisional wb-filter" data-wb-filter='{ "selector": "li.grid-item", "section": ".wb-tagfilter-items", "uiTemplate": "#searchFilterTemplate" }'>
     <div id="searchFilterTemplate" class="row mb-4">
-      <div class="form-group col-md-4 mb-0">
+      <div class="col-md-3 col-lg-4">
         <label for="searchFilter" class="h6 mb-2">Rechercher</label>
         <input type="search" class="form-control full-width wb-fltr-inpt" placeholder="Entrez des mots-clés..." id="searchFilter" data-wbfltrid="wb-auto-4" aria-controls="wb-auto-4">
       </div>
-      <div class="form-group col-md-8 mb-0">
+      <div class="col-md-9 col-lg-8">
         <fieldset class="p-0">
-          <legend class="h6 mrgn-bttm-sm"><span class="field-name">Catégorie</span></legend>
-          <ul class="list-unstyled list-inline mb-0">
+          <legend class="h6 mb-1"><span class="field-name">Catégorie</span></legend>
+          <ul class="list-inline mb-0">
             <li class="checkbox">
               <label>
                 <input type="checkbox" name="type" class="wb-tagfilter-ctrl" value="component" aria-controls="wb-auto-123"> Composantes
@@ -125,7 +125,7 @@ css:
             <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
               {% if examples.size == 0 %}
@@ -231,7 +231,7 @@ css:
             <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
               {% if examples.size == 0 %}
@@ -324,7 +324,7 @@ css:
             <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
               {% for pgGroup in list-pages %}
                 {% assign grpkey = pgGroup[0] %}
-            <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
               {% if examples.size == 0 %}
@@ -431,7 +431,7 @@ css:
           <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-          <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+          <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
           <ul>
             {% assign examples = pgGroup[1] | where: "language", page.language %}
             {% if examples.size == 0 %}
@@ -535,7 +535,7 @@ css:
             <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
               {% if examples.size == 0 %}
@@ -639,7 +639,7 @@ css:
             <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
-            <h6>{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h6>
+            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
               {% if examples.size == 0 %}
@@ -730,7 +730,7 @@ css:
   </div>
   {% assign page_group = site.data.i18n.page_group[ page.language ] %}
   {% assign comp_status = site.data.i18n.component_status[ page.language ] %}
-  <details class="mrgn-tp-lg mrgn-bttm-lg">
+  <details class="my-4">
     <summary>Définition des états</summary>
     <dl class="dl-horizontal mrgn-bttm-0">
       <dt><span class="label label-success">{{comp_status.stable}}</span></dt>
