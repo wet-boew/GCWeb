@@ -89,68 +89,69 @@ css:
         </fieldset>
       </div>
     </div>
-    
-  <!-- Components -->    
-  <gcds-grid
+
+  <!-- Components -->
+
+<gcds-grid
   tag="ul"
   class="wb-tagfilter-items"
   columns-desktop="1fr 1fr 1fr"
   columns-tablet="1fr 1fr"
   columns="1fr"
   equal-row-height>
-  {% for component in site.data.components %}
-    {% assign list-pages = component.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: component.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="component ">
-      <!-- Overlay -->
-      <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
-        <header class="modal-header">
-          <h2 class="modal-title">{{ component.title[ page.language ] }}
-            {% if component.status == "stable" %}
-            <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-            {% elsif component.status == "provisional" %}
-            <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-            {% elsif component.status == "deprecated" %}
-            <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-            {% elsif component.status == "demoted" %}
-            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
-            {% else %}
-            <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-            {% endif %}
-          </h2>
-        </header>
-        <div class="modal-body">
-          <div class="mx-3">
-            <p>{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}</p>
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
-            {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
-            <ul>
-              {% assign examples = pgGroup[1] | where: "language", page.language %}
-              {% if examples.size == 0 %}
-                {% assign examples = pgGroup[1] | where: "language", "en" %}
-              {% endif %}
-              {% for example in examples %}
-                {% if example.path %}
-              <li><a href="components/
-                    {%- if component.componentName -%}
-                      {{ component.componentName }}/
-                    {%- endif -%}
-                  {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-              {% elsif example.url %}
-                <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-              {% else %}
-                <li>{{ example.title }}</li>
-              {% endif %}
-            {% endfor %}
-            </ul>
-          {% endfor %}
-            <!--
+{% for component in site.data.components %}
+{% assign list-pages = component.pages %}
+{% assign overlay_id = 'details-overlay-' | append: component.componentName %}
+<li class="grid-item list-unstyled" data-wb-tags="component ">
+<!-- Overlay -->
+<section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+<header class="modal-header">
+<h2 class="modal-title">{{ component.title[ page.language ] }}
+{% if component.status == "stable" %}
+<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+{% elsif component.status == "provisional" %}
+<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+{% elsif component.status == "deprecated" %}
+<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+{% elsif component.status == "demoted" %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ component.status ] }}</span>
+{% else %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+{% endif %}
+</h2>
+</header>
+<div class="modal-body">
+<div class="mx-3">
+<p>{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}</p>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+{% for pgGroup in list-pages %}
+{% assign grpkey = pgGroup[0] %}
+<h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
+<ul>
+{% assign examples = pgGroup[1] | where: "language", page.language %}
+{% if examples.size == 0 %}
+{% assign examples = pgGroup[1] | where: "language", "en" %}
+{% endif %}
+{% for example in examples %}
+{% if example.path %}
+<li><a href="components/
+{%- if component.componentName -%}
+{{ component.componentName }}/
+{%- endif -%}
+{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+{% elsif example.url %}
+<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+{% else %}
+<li>{{ example.title }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
+<!--
             Main working example
             - First working example in the example list where the language match
             -->
-            <!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+<!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
             <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
             {% if mainExamples %}
             <li>
@@ -166,98 +167,100 @@ css:
               <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
             {% endif %}
             {% endif %} -->
-            <!--
+<!--
             Documentation
             - Link to the documentations if any
             -->
-            <!-- {% if list-pages.docs %} -->
-            <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-            <!-- {% assign docs = list-pages.docs | where: "language", page.language %}
+<!-- {% if list-pages.docs %} -->
+<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+<!-- {% assign docs = list-pages.docs | where: "language", page.language %}
             {% for doc in docs %}
               <li><a href="components/{{ component.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
             {% endfor %}
             {% endif %}
             <li><a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
             </ul> -->
-            <!--
+<!--
             * All examples and info
             * Example
             * Documentation
             * Spec
             -->
-            <!-- <details class="mrgn-tp-lg">
+<!-- <details class="mrgn-tp-lg">
               <summary>Tous les exemples et info</summary>
             </details> -->
-          </div>
-        </div>
-      </section>
-      <!-- Overlay End -->
-      <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
-        <gcds-card
+</div>
+</div>
+</section>
+<!-- Overlay End -->
+<a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+<gcds-card
         class="h-100"
         card-title="{{ component.title[ page.language ] }}"
         href="#{{ overlay_id }}"
         badge="Composante"
         description="{{ component.description[ page.language ] | default: '[Courte description de la composante]' }}">
-        </gcds-card>
-      </a>
-    </li>
-  {% endfor %}
+</gcds-card>
+</a>
+</li>
+{% endfor %}
+
   <!-- Templates -->
-  {% for template in site.data.templates %}
-    {% assign list-pages = template.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: template.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="template">
-      <!-- Overlay -->
-      <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
-        <header class="modal-header">
-          <h2 class="modal-title">{{ template.title[ page.language ] }}
-          {% if template.status == "stable" %}
-          <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-          {% elsif template.status == "provisional" %}
-          <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-          {% elsif template.status == "deprecated" %}
-          <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-          {% elsif template.status == "demoted" %}
-          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
-          {% else %}
-          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-          {% endif %}
-          </h2>
-        </header>
-        <div class="modal-body">
-          <div class="mx-3">
-            <p>{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}</p>
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
-            {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
-            <ul>
-              {% assign examples = pgGroup[1] | where: "language", page.language %}
-              {% if examples.size == 0 %}
-                {% assign examples = pgGroup[1] | where: "language", "en" %}
-              {% endif %}
-              {% for example in examples %}
-                {% if example.path %}
-              <li><a href="templates/
-                    {%- if template.componentName -%}
-                      {{ template.componentName }}/
-                    {%- endif -%}
-                  {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-              {% elsif example.url %}
-                <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-              {% else %}
-                <li>{{ example.title }}</li>
-              {% endif %}
-            {% endfor %}
-            </ul>
-            {% endfor %}
-            <!-- <p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p> -->
-            <!--
+
+{% for template in site.data.templates %}
+{% assign list-pages = template.pages %}
+{% assign overlay_id = 'details-overlay-' | append: template.componentName %}
+<li class="grid-item list-unstyled" data-wb-tags="template">
+<!-- Overlay -->
+<section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+<header class="modal-header">
+<h2 class="modal-title">{{ template.title[ page.language ] }}
+{% if template.status == "stable" %}
+<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+{% elsif template.status == "provisional" %}
+<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+{% elsif template.status == "deprecated" %}
+<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+{% elsif template.status == "demoted" %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ template.status ] }}</span>
+{% else %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+{% endif %}
+</h2>
+</header>
+<div class="modal-body">
+<div class="mx-3">
+<p>{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}</p>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+{% for pgGroup in list-pages %}
+{% assign grpkey = pgGroup[0] %}
+<h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
+<ul>
+{% assign examples = pgGroup[1] | where: "language", page.language %}
+{% if examples.size == 0 %}
+{% assign examples = pgGroup[1] | where: "language", "en" %}
+{% endif %}
+{% for example in examples %}
+{% if example.path %}
+<li><a href="templates/
+{%- if template.componentName -%}
+{{ template.componentName }}/
+{%- endif -%}
+{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+{% elsif example.url %}
+<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+{% else %}
+<li>{{ example.title }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
+<!-- <p>{{ template.description[ page.language ] | default: "[Courte description du gabarit]" }}</p> -->
+<!--
             Main working example
             - First working example in the example list where the language match
             -->
-            <!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+<!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
             <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
             {% if mainExamples %}
             <li>
@@ -273,84 +276,86 @@ css:
               <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
             {% endif %}
             {% endif %} -->
-            <!--
+<!--
             Documentation
             - Link to the documentations if any
             -->
-            <!-- {% if list-pages.docs %} -->
-            <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-            <!-- {% assign docs = list-pages.docs | where: "language", page.language %}
+<!-- {% if list-pages.docs %} -->
+<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+<!-- {% assign docs = list-pages.docs | where: "language", page.language %}
             {% for doc in docs %}
               <li><a href="templates/{{ template.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
             {% endfor %}
             {% endif %}
             </ul> -->
-            <!--
+<!--
             * All examples and info
             * Example
             * Documentation
             * Spec
             -->
-            <!-- <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+<!-- <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
             </details> -->
-          </div>
-        </div>
-      </section>
-      <!-- Overlay End -->
-      <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
-        <gcds-card
+</div>
+</div>
+</section>
+<!-- Overlay End -->
+<a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+<gcds-card
         class="h-100"
         card-title="{{ template.title[ page.language ] }}"
         href="#{{ overlay_id }}"
         badge="Gabarit"
         description="{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}">
-        </gcds-card>
-      </a>
-    </li>
-  {% endfor %}
+</gcds-card>
+</a>
+</li>
+{% endfor %}
+
   <!-- Design Patterns -->
-  {% for designPattern in site.data.design-patterns %}
-    {% assign list-pages = designPattern.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="design-pattern">
-    <!-- Overlay -->
-      <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
-        <header class="modal-header">
-          <h2 class="modal-title">{{ designPattern.title[ page.language ] }}</h2>
-        </header>
-        <div class="modal-body">
-          <div class="mx-3">
-            <p>{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}</p>
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
-              {% for pgGroup in list-pages %}
-                {% assign grpkey = pgGroup[0] %}
-            <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
-            <ul>
-              {% assign examples = pgGroup[1] | where: "language", page.language %}
-              {% if examples.size == 0 %}
-                {% assign examples = pgGroup[1] | where: "language", "en" %}
-              {% endif %}
-              {% for example in examples %}
-                {% if example.path %}
-              <li><a href="design-patterns/
-                    {%- if designPattern.componentName -%}
-                      {{ designPattern.componentName }}/
-                    {%- endif -%}
-                  {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-              {% elsif example.url %}
-                <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-              {% else %}
-                <li>{{ example.title }}</li>
-              {% endif %}
-            {% endfor %}
-            </ul>
-            {% endfor %}
-            <!-- <p>{{ designPattern.description[ page.language ] | default: "[Courte description des configurations de conception]" }}</p> -->
-            <!--
+
+{% for designPattern in site.data.design-patterns %}
+{% assign list-pages = designPattern.pages %}
+{% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
+<li class="grid-item list-unstyled" data-wb-tags="design-pattern">
+<!-- Overlay -->
+<section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+<header class="modal-header">
+<h2 class="modal-title">{{ designPattern.title[ page.language ] }}</h2>
+</header>
+<div class="modal-body">
+<div class="mx-3">
+<p>{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}</p>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+{% for pgGroup in list-pages %}
+{% assign grpkey = pgGroup[0] %}
+<h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
+<ul>
+{% assign examples = pgGroup[1] | where: "language", page.language %}
+{% if examples.size == 0 %}
+{% assign examples = pgGroup[1] | where: "language", "en" %}
+{% endif %}
+{% for example in examples %}
+{% if example.path %}
+<li><a href="design-patterns/
+{%- if designPattern.componentName -%}
+{{ designPattern.componentName }}/
+{%- endif -%}
+{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+{% elsif example.url %}
+<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+{% else %}
+<li>{{ example.title }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
+<!-- <p>{{ designPattern.description[ page.language ] | default: "[Courte description des configurations de conception]" }}</p> -->
+<!--
             Main working example
             - First working example in the example list where the language match
             -->
-            <!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+<!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
             <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
             {% if mainExamples %}
             <li>
@@ -366,97 +371,99 @@ css:
               <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
             {% endif %}
             {% endif %} -->
-            <!--
+<!--
             Documentation
             - Link to the documentations if any
             -->
-            <!-- {% if list-pages.docs %} -->
-            <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-            <!-- {% assign docs = list-pages.docs | where: "language", page.language %}
+<!-- {% if list-pages.docs %} -->
+<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+<!-- {% assign docs = list-pages.docs | where: "language", page.language %}
             {% for doc in docs %}
               <li><a href="design-patterns/{{ designPattern.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
             {% endfor %}
             {% endif %}
             <li><a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Code source</a></li>
             </ul> -->
-            <!--
+<!--
             * All examples and info
             * Example
             * Documentation
             * Spec
             -->
-            <!-- <details class="mrgn-tp-lg">
+<!-- <details class="mrgn-tp-lg">
               <summary>Tous les exemples et info</summary>
             </details> -->
-          </div>
-        </div>
-      </section>
-      <!-- Overlay End -->
-        <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
-          <gcds-card
+</div>
+</div>
+</section>
+<!-- Overlay End -->
+<a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+<gcds-card
           class="h-100"
           card-title="{{ designPattern.title[ page.language ] }}"
           href="#{{ overlay_id }}"
           badge="Modèle de conception"
           description="{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}">
-          </gcds-card>
-        </a>
-    </li>
-  {% endfor %}
+</gcds-card>
+</a>
+</li>
+{% endfor %}
+
   <!-- Core components for the Canada.ca theme  -->
-  {% for item in site.data.sites %}
-    {% assign list-pages = item.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
-    <li class="grid-item list-unstyled" data-wb-tags="core-element">
-    <!-- Overlay -->
-    <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
-      <header class="modal-header">
-        <h2 class="modal-title">{{ item.title[ page.language ] }}
-          {% if item.status == "stable" %}
-          <span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-          {% elsif item.status == "provisional" %}
-          <span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-          {% elsif item.status == "deprecated" %}
-          <span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-          {% elsif item.status == "demoted" %}
-          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
-          {% else %}
-          <span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
-          {% endif %}
-        </h2>
-      </header>
-      <div class="modal-body">
-        <div class="mx-3">
-          <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
-          <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
-            {% for pgGroup in list-pages %}
-              {% assign grpkey = pgGroup[0] %}
-          <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
-          <ul>
-            {% assign examples = pgGroup[1] | where: "language", page.language %}
-            {% if examples.size == 0 %}
-              {% assign examples = pgGroup[1] | where: "language", "en" %}
-            {% endif %}
-            {% for example in examples %}
-              {% if example.path %}
-            <li><a href="sites/
-                  {%- if item.componentName -%}
-                    {{ item.componentName }}/
-                  {%- endif -%}
-                {{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
-            {% elsif example.url %}
-              <li><a href="{{ example.url }}">{{ example.title }}</a></li>
-            {% else %}
-              <li>{{ example.title }}</li>
-            {% endif %}
-          {% endfor %}
-          </ul>
-          {% endfor %}
-          <!--
+
+{% for item in site.data.sites %}
+{% assign list-pages = item.pages %}
+{% assign overlay_id = 'details-overlay-' | append: item.componentName %}
+<li class="grid-item list-unstyled" data-wb-tags="core-element">
+<!-- Overlay -->
+<section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
+<header class="modal-header">
+<h2 class="modal-title">{{ item.title[ page.language ] }}
+{% if item.status == "stable" %}
+<span class="label label-success mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+{% elsif item.status == "provisional" %}
+<span class="label label-warning mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+{% elsif item.status == "deprecated" %}
+<span class="label label-danger mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+{% elsif item.status == "demoted" %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>{{ comp_status[ item.status ] }}</span>
+{% else %}
+<span class="label label-default mrgn-lft-sm"><span class="wb-inv">État: </span>Non défini</span>
+{% endif %}
+</h2>
+</header>
+<div class="modal-body">
+<div class="mx-3">
+<p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+{% for pgGroup in list-pages %}
+{% assign grpkey = pgGroup[0] %}
+<h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
+<ul>
+{% assign examples = pgGroup[1] | where: "language", page.language %}
+{% if examples.size == 0 %}
+{% assign examples = pgGroup[1] | where: "language", "en" %}
+{% endif %}
+{% for example in examples %}
+{% if example.path %}
+<li><a href="sites/
+{%- if item.componentName -%}
+{{ item.componentName }}/
+{%- endif -%}
+{{ example.path }}" {% if example.language != page.language %}lang="{{ example.language }}" hreflang="{{ example.language }}"{% endif %}>{{ example.title }}</a></li>
+{% elsif example.url %}
+<li><a href="{{ example.url }}">{{ example.title }}</a></li>
+{% else %}
+<li>{{ example.title }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endfor %}
+<!--
           Main working example
           - First working example in the example list where the language match
           -->
-          <!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
+<!-- {% assign mainExamples = list-pages.examples | where: "language", page.language | first %}
           <ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">
           {% if mainExamples %}
           <li>
@@ -472,39 +479,40 @@ css:
             <span class="fas fa-eye small mrgn-rght-sm" aria-hidden="true"></span>Exemple pratique
           {% endif %}
           {% endif %} -->
-          <!--
+<!--
           Documentation
           - Link to the documentations if any
           -->
-          <!-- {% if list-pages.docs %} -->
-          <!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
-          <!-- {% assign docs = list-pages.docs | where: "language", page.language %}
+<!-- {% if list-pages.docs %} -->
+<!--<ul class="list-unstyled mrgn-bttm-lg mrgn-lft-md">-->
+<!-- {% assign docs = list-pages.docs | where: "language", page.language %}
           {% for doc in docs %}
             <li><a href="sites/{{ item.componentName }}/{{ doc.path }}"><span class="fas fa-info-circle small mrgn-rght-sm" aria-hidden="true"></span>Documentation</a></li>
           {% endfor %}
           {% endif %}
           </ul> -->
-          <!--
+<!--
           * All examples and info
           * Example
           * Documentation
           * Spec
           -->
-          <!-- <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
+<!-- <details class="mrgn-tp-lg"><summary>Tous les exemples et info</summary>
           </details> -->
-        </div>
-      </div>
-    </section>
-    <!-- Overlay End -->
-    <a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
-      <gcds-card
+</div>
+</div>
+</section>
+<!-- Overlay End -->
+<a href="#{{ overlay_id }}" aria-controls="{{ overlay_id }}" class="wb-lbx lbx-modal no-undrln" role="button">
+<gcds-card
       class="h-100"
       card-title="{{ item.title[ page.language ] }}"
       href="#{{ overlay_id }}"
       badge="Élément clé"
       description="{{ item.description[ page.language ] | default: '[Courte description de la fonctionnalité globale]' }}">
-      </gcds-card>
-    </a>
+</gcds-card>
+</a>
+
   </li>
   {% endfor %}
   <!-- Common Components -->
