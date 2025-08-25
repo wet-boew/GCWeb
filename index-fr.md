@@ -91,7 +91,6 @@ css:
     </div>
 
   <!-- Components -->
-
 <gcds-grid
   tag="ul"
   class="wb-tagfilter-items"
@@ -101,7 +100,7 @@ css:
   equal-row-height>
 {% for component in site.data.components %}
 {% assign list-pages = component.pages %}
-{% assign overlay_id = 'details-overlay-' | append: component.componentName %}
+{% assign overlay_id = 'details-overlay-component-' | append: component.componentName %}
 <li class="grid-item list-unstyled" data-wb-tags="component ">
 <!-- Overlay -->
 <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
@@ -209,7 +208,7 @@ css:
 
 {% for template in site.data.templates %}
 {% assign list-pages = template.pages %}
-{% assign overlay_id = 'details-overlay-' | append: template.componentName %}
+{% assign overlay_id = 'details-overlay-template-' | append: template.componentName %}
 <li class="grid-item list-unstyled" data-wb-tags="template">
 <!-- Overlay -->
 <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
@@ -313,10 +312,9 @@ css:
 {% endfor %}
 
   <!-- Design Patterns -->
-
 {% for designPattern in site.data.design-patterns %}
 {% assign list-pages = designPattern.pages %}
-{% assign overlay_id = 'details-overlay-' | append: designPattern.componentName %}
+{% assign overlay_id = 'details-overlay-design-pattern-' | append: designPattern.componentName %}
 <li class="grid-item list-unstyled" data-wb-tags="design-pattern">
 <!-- Overlay -->
 <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
@@ -410,10 +408,9 @@ css:
 {% endfor %}
 
   <!-- Core components for the Canada.ca theme  -->
-
 {% for item in site.data.sites %}
 {% assign list-pages = item.pages %}
-{% assign overlay_id = 'details-overlay-' | append: item.componentName %}
+{% assign overlay_id = 'details-overlay-core-' | append: item.componentName %}
 <li class="grid-item list-unstyled" data-wb-tags="core-element">
 <!-- Overlay -->
 <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
@@ -518,7 +515,7 @@ css:
   <!-- Common Components -->
   {% for item in site.data.common %}
     {% assign list-pages = item.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: item.componentName %}
+    {% assign overlay_id = 'details-overlay-common-' | append: item.componentName %}
     <li class="grid-item list-unstyled" data-wb-tags="component">
       <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
@@ -622,7 +619,7 @@ css:
   <!-- Wet-boew (New) -->
   {% for wetboew in site.data[ "wet-boew" ] %}
     {% assign list-pages = wetboew.pages %}
-    {% assign overlay_id = 'details-overlay-' | append: wetboew.componentName %}
+    {% assign overlay_id = 'details-overlay-wetboew-' | append: wetboew.componentName %}
     <li class="grid-item list-unstyled" data-wb-tags="component">
     <!-- Overlay -->
       <section id="{{ overlay_id }}" class="mfp-hide modal-dialog modal-content overlay-def" role="dialog" aria-modal="true">
