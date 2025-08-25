@@ -129,9 +129,9 @@ css:
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
 <ul>
 {% assign examples = pgGroup[1] | where: "language", page.language %}
-{% if examples.size == 0 %}
+<!-- {% if examples.size == 0 %}
 {% assign examples = pgGroup[1] | where: "language", "en" %}
-{% endif %}
+{% endif %} -->
 {% for example in examples %}
 {% if example.path %}
 <li><a href="components/
@@ -237,9 +237,9 @@ css:
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
 <ul>
 {% assign examples = pgGroup[1] | where: "language", page.language %}
-{% if examples.size == 0 %}
+<!-- {% if examples.size == 0 %}
 {% assign examples = pgGroup[1] | where: "language", "en" %}
-{% endif %}
+{% endif %} -->
 {% for example in examples %}
 {% if example.path %}
 <li><a href="templates/
@@ -332,9 +332,9 @@ css:
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
 <ul>
 {% assign examples = pgGroup[1] | where: "language", page.language %}
-{% if examples.size == 0 %}
+<!-- {% if examples.size == 0 %}
 {% assign examples = pgGroup[1] | where: "language", "en" %}
-{% endif %}
+{% endif %} -->
 {% for example in examples %}
 {% if example.path %}
 <li><a href="design-patterns/
@@ -441,9 +441,9 @@ css:
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
 <ul>
 {% assign examples = pgGroup[1] | where: "language", page.language %}
-{% if examples.size == 0 %}
+<!-- {% if examples.size == 0 %}
 {% assign examples = pgGroup[1] | where: "language", "en" %}
-{% endif %}
+{% endif %} -->
 {% for example in examples %}
 {% if example.path %}
 <li><a href="sites/
@@ -546,9 +546,9 @@ css:
             <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
-              {% if examples.size == 0 %}
+              <!-- {% if examples.size == 0 %}
                 {% assign examples = pgGroup[1] | where: "language", "en" %}
-              {% endif %}
+              {% endif %} -->
               {% for example in examples %}
                 {% if example.path %}
               <li><a href="common/
@@ -650,9 +650,9 @@ css:
             <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
             <ul>
               {% assign examples = pgGroup[1] | where: "language", page.language %}
-              {% if examples.size == 0 %}
+              <!-- {% if examples.size == 0 %}
                 {% assign examples = pgGroup[1] | where: "language", "en" %}
-              {% endif %}
+              {% endif %} -->
               {% for example in examples %}
                 {% if example.path %}
               <li><a href="wet-boew/
