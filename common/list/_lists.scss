@@ -56,6 +56,21 @@ ul[class*="list-col"] {
 	}
 }
 
+/* Display lists in columns using CSS columns
+ * Add this class to a ul or ol to distribute its items in columns vertically. Handles up to 4 columns.
+ * It has variants defined for some specific views:
+ * - _screen-sm-min
+ * - _screen-md-min
+ * - _screen-lg-min
+*/
+ul.list-col-vertical {
+	display: block;
+}
+
+ul.list-col-vertical > li {
+	break-inside: avoid;
+}
+
 /*
  * this code is fully compatible with the equivalent CSS
  * in the wet-boew code here: https://github.com/wet-boew/wet-boew/blob/master/src/base/lists/_base.scss
@@ -65,6 +80,11 @@ ul.list-col-xs-2 > li { flex-basis: 50% }
 ul.list-col-xs-3 > li { flex-basis: 33.33% }
 ul.list-col-xs-4 > li { flex-basis: 25% }
 
+// Column count for vertical lists
+ul.list-col-vertical.list-col-xs-1 { column-count: 1; }
+ul.list-col-vertical.list-col-xs-2 { column-count: 2; }
+ul.list-col-vertical.list-col-xs-3 { column-count: 3; }
+ul.list-col-vertical.list-col-xs-4 { column-count: 4; }
 
 div.lst-lwr-alph>ol,
 .lst-lwr-alph {
