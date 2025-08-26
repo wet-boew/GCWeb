@@ -453,23 +453,173 @@
 		"en": "Download link with custom styles.",
 		"fr": "Lien de téléchargement avec des styles personnalisés."
 	},
-	"modified": "2023-04-20",
+	"modified": "2025-08-20",
 	"componentName": "gc-dwnld",
 	"status": "stable",
+	"version": "2.0",
 	"pages": {
-		"examples": [
+		"docs": [
 			{
 				"title": "Download link",
 				"language": "en",
-				"path": "download_link-en.html"
+				"path": "gc-dwnld-doc-en.html"
 			},
 			{
 				"title": "Lien de téléchargement",
 				"language": "fr",
-				"path": "download_link-fr.html"
+				"path": "gc-dwnld-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Download link - Working examples",
+				"language": "en",
+				"path": "gc-dwnld-en.html"
+			},
+			{
+				"title": "Lien de téléchargement - Exemples pratiques",
+				"language": "fr",
+				"path": "gc-dwnld-fr.html"
 			}
 		]
-	}
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Download link",
+				"fr": "Lien de téléchargement"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Download links are used for referencing and linking to non-HTML files on Canada.ca web pages.",
+				"fr": "Les liens de téléchargement servent à renvoyer ou à lier à des fichiers de format autre que HTML sur les pages Web de Canada.ca."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/download-links.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/liens-telechargement.html"
+			},
+			"iteration": "_:iteration_gc_dwnld_2",
+			"example": [
+				{
+					"en": { "href": "gc-dwnld-en.html", "text": "Download link" },
+					"fr": { "href": "gc-dwnld-fr.html", "text": "Lien de téléchargement" }
+				}
+			],
+			"implementation": [
+				"_:implement_gc_dwnld"
+			],
+			"history": [
+				{
+					"en": "August 2025 - New pattern for the variant.",
+					"fr": "Août 2025 - Nouveau modèle pour la variante."
+				},
+				{
+					"en": "June 2014 - Initial implementation of the variation.",
+					"fr": "Juin 2014 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gc_dwnld",
+			"iteration": "_:iteration_gc_dwnld_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Follow the markup below to create a download link.",
+					"To display the image above the text, add the class <code>vertical</code> to your <code>&lt;a class=\"gc-dwnld\"></code> element.",
+					"To make the component span the full width of its container, add the class <code>full-width</code> to your <code>&lt;a class=\"gc-dwnld\"></code> element."
+				],
+				"fr": [
+					"Suivez le balisage ci-dessous pour créer un lien de téléchargement.",
+					"Pour afficher l'image au-dessus du texte, ajoutez la classe <code>vertical</code> à votre élément <code>&lt;a class=\"gc-dwnld\"></code>.",
+					"Pour que le composant s'étende sur toute la largeur de son conteneur, ajoutez la classe <code>full-width</code> à votre élément <code>&lt;a class=\"gc-dwnld\"></code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[image url]\" alt=\"\">\n\t<span>[Document Title]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloByte\">KB</abbr>)</span>\n</a>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[url de l'image]\" alt=\"\">\n\t<span>[Titre du document]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloOctet\">KB</abbr>)</span>\n</a>"
+					}
+				]
+			},
+			"notes": {
+				"en": [
+					"The image is optional.",
+					"Ensure that the <code>alt</code> attribute of the image is empty (<code>alt=\"\"</code>) to avoid screen readers announcing it.",
+					"Make sure to include the file type (e.g., PDF, DOCX) and size (e.g., 273 KB) in the link text for accessibility and user awareness."
+				],
+				"fr": [
+					"L'image est facultative.",
+					"Assurez-vous que l'attribut <code>alt</code> de l'image est vide (<code>alt=\"\"</code>) afin d'éviter que les lecteurs d'écran ne l'annoncent.",
+					"Veillez à inclure le type de fichier (p. ex., PDF, DOCX) et la taille (p. ex., 273 KB) dans le texte du lien pour des raisons d'accessibilité et de sensibilisation des utilisateurs."
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gc_dwnld_2",
+			"name": "Download link - Iteration 2",
+			"date": "2025-08",
+			"detectableBy": "a.gc-dwnld",
+			"predecesor": "_:iteration_gc_dwnld_1",
+			"status": "stable",
+			"breaking": [
+				"New HTML pattern with new CSS."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[image url]\" alt=\"\">\n\t<span>[Document Title]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloByte\">KB</abbr>)</span>\n</a>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_gc_dwnld_1",
+			"name": "Download link - Iteration 1 (demoted)",
+			"date": "2014-06",
+			"detectableBy": ".gc-dwnld-link .gc-dwnld",
+			"successor": "_:iteration_gc_dwnld_2",
+			"status": "demoted",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<a class=\"gc-dwnld-lnk\" href=\"#\">\n\t<div class=\"well gc-dwnld\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-4\">\n\t\t\t\t<p><img class=\"img-responsive thumbnail gc-dwnld-img\" src=\"[image url]\" alt=\"\" /></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t<p class=\"gc-dwnld-txt\">\n\t\t\t\t\t<span>[Document Title]</span>\n\t\t\t\t\t<abbr title=\"KiloByte\">KB</abbr>)</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</a>"
+				}
+			],
+			"example": {
+				"en": [
+					{ "href": "demoted/gc-dwnld_v1-en.html", "text": "Download link" }
+				],
+				"fr": [
+					{ "href": "demoted/gc-dwnld_v1-fr.html", "text": "Lien de téléchargement" }
+				]
+			}
+		}
+	]
 }
 ,{
 	"@context": {
@@ -2740,505 +2890,505 @@
 				"path": "provisional-fr.html"
 			},
 
-			{
-				"title": "Redacted text",
-				"language": "en",
-				"path": "redacted-en.html"
-			},
-			{
-				"title": "Texte caviardé",
-				"language": "fr",
-				"path": "redacted-fr.html"
-			},
+        {
+          "title": "Redacted text",
+          "language": "en",
+          "path": "redacted-en.html"
+        },
+        {
+          "title": "Texte caviardé",
+          "language": "fr",
+          "path": "redacted-fr.html"
+        },
 
-			{
-				"title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "en",
-				"path": "deprecated-en.html"
-			},
-			{
-				"title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "fr",
-				"path": "deprecated-fr.html"
-			},
+        {
+          "title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
+          "language": "en",
+          "path": "deprecated-en.html"
+        },
+        {
+          "title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
+          "language": "fr",
+          "path": "deprecated-fr.html"
+        },
 
-			{
-				"title": "Float column in a data table",
-				"language": "en",
-				"path": "tbl-floatcolumn-en.html"
-			},
-			{
-				"title": "Float column in a data table",
-				"language": "fr",
-				"path": "tbl-floatcolumn-fr.html"
-			},
+        {
+          "title": "Float column in a data table",
+          "language": "en",
+          "path": "tbl-floatcolumn-en.html"
+        },
+        {
+          "title": "Float column in a data table",
+          "language": "fr",
+          "path": "tbl-floatcolumn-fr.html"
+        },
 
-			{
-				"title": "Video example",
-				"language": "en",
-				"path": "video-en.html"
-			},
-			{
-				"title": "Exemple de vidéo",
-				"language": "fr",
-				"path": "video-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Labels",
-		"fr": "Étiquettes"
-	},
-	"description": {
-		"en": "Labels including all various states.",
-		"fr": "Étiquettes comprenant tous les différents états."
-	},
-	"modified": "2024-03-28",
-	"componentName": "labels",
-	"processing": "baseline",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Labels",
-				"language": "en",
-				"path": "labels-en.html"
-			},
-			{
-				"title": "Étiquettes",
-				"language": "fr",
-				"path": "labels-fr.html"
-			}
-		],
-		"reports": [
-			{
-				"title": "Accessibility assessment #8 - Labels",
-				"language": "en",
-				"path": "reports/a11y-8-en.html"
-			},
-			{
-				"title": "Assessment d'accessibilité #8 - Étiquettes",
-				"language": "fr",
-				"path": "reports/a11y-8-fr.html"
-			},
-			{
-				"title": "Accessibility assessment #9 - Labels",
-				"language": "en",
-				"path": "reports/a11y-9-en.html"
-			},
-			{
-				"title": "Assessment d'accessibilité #9 - Étiquettes",
-				"language": "fr",
-				"path": "reports/a11y-9-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "List - Additional style",
-		"fr": "Liste - Style additionnel"
-	},
-	"description": {
-		"en": "Additional style (double spaced)",
-		"fr": "Style additionnel (double interligne)"
-	},
-	"modified": "2018-11-07",
-	"componentName": "list",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "List - Additional style",
-				"language": "en",
-				"path": "list-en.html"
-			},
-			{
-				"title": "Liste - Style additionnel",
-				"language": "fr",
-				"path": "list-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Chat wizard",
-		"fr": "Conversation suggestive"
-	},
-	"description": {
-		"en": "Transforms a simple form into a conversation like experience used as a wizard.",
-		"fr": "Conversation suggestive"
-	},
-	"modified": "2024-12-05",
-	"componentName": "wb-chtwzrd",
-	"status": "deprecated",
-	"pages": {
-		"examples": [
-			{
-				"title": "Chat wizard",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/chatwizard/chatwizard-en.html"
-			},
-			{
-				"title": "Conversation suggestive",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/chatwizard/chatwizard-fr.html"
-			},
-			{
-				"title": "with JSON setting",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/chatwizard/chatwizard-json-en.html"
-			},
-			{
-				"title": "avec une configuration JSON",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/chatwizard/chatwizard-json-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Chat wizard",
-				"language": "en",
-				"path": "../../méli-mélo/deprecated/chatwizard/docs.html"
-			},
-		{
-				"title": "Chat wizard (en anglais seulement)",
-				"language": "fr",
-				"path": "../../méli-mélo/deprecated/chatwizard/docs.html"
-			}
-		],
-		"related": [
-			{
-				"title": "2019-15 Research documentation",
-				"language": "en",
-				"url": "https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html"
-			},
-		{
-				"title": "2019-15 Research documentation (en anglais seulement)",
-				"language": "fr",
-				"url": "https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Do action",
-		"fr": "Exécuter des actions"
-	},
-	"description": {
-		"en": "Execute action, like filter a table, based on pre-established set of configuration.",
-		"fr": "Exécute des actions, tel que filtrer un tableau, selon une configuration pré-établis."
-	},
-	"modified": "2019-1-12",
-	"componentName": "wb-doaction",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Table",
-				"language": "en",
-				"path": "tblfilter-en.html"
-			},
-			{
-				"title": "Filtrer un tableau",
-				"language": "fr",
-				"path": "tblfilter-fr.html"
-			},
-			{
-				"title": "JSON",
-				"language": "en",
-				"path": "json-en.html"
-			},
-			{
-				"title": "JSON",
-				"language": "fr",
-				"path": "json-fr.html"
-			},
-			{
-				"title": "JSON manager patches",
-				"language": "en",
-				"path": "../wb-jsonmanager/jsonmanager-doaction-en.html"
-			},
-			{
-				"title": "Gestionnaire JSON avec l'exécuteur d'action de patches",
-				"language": "fr",
-				"path": "../wb-jsonmanager/jsonmanager-doaction-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Do action",
-				"language": "en",
-				"path": "doaction-doc-en.html"
-			},
-			{
-				"title": "Exécuter des actions",
-				"language": "fr",
-				"path": "doaction-doc-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Fieldflow",
-		"fr": "Déroulement de champs"
-	},
-	"description": {
-		"en": "Provide an alternative user interface when a page contains a really long list",
-		"fr": "Offre une interface utilisateur alternative lorsqu'une page contient une très longue liste"
-	},
-	"modified": "2021-04-28",
-	"componentName": "wb-fieldflow",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Fieldflow",
-				"language": "en",
-				"path": "fieldflow-en.html"
-			},
-			{
-				"title": "Déroulement de champs",
-				"language": "fr",
-				"path": "fieldflow-fr.html"
-			},
-			{
-				"title": "Basic",
-				"language": "en",
-				"path": "basic-en.html"
-			},
-			{
-				"title": "Configurations de base",
-				"language": "fr",
-				"path": "basic-fr.html"
-			},
-			{
-				"title": "Advanced",
-				"language": "en",
-				"path": "advanced-en.html"
-			},
-			{
-				"title": "Avancé",
-				"language": "fr",
-				"path": "advanced-fr.html"
-			},
-			{
-				"title": "Alternatives",
-				"language": "en",
-				"path": "alternative-en.html"
-			},
-			{
-				"title": "Alternatives",
-				"language": "fr",
-				"path": "alternative-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "Fieldflow",
-				"language": "en",
-				"path": "fieldflow-doc-en.html"
-			},
-			{
-				"title": "Déroulement de champs",
-				"language": "fr",
-				"path": "fieldflow-doc-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "Datalist dynamic suggestion",
-		"fr": "Suggestion interactive avec un datalist"
-	},
-	"description": {
-		"en": "Load datalist suggestion from a JSON file",
-		"fr": "Chargement de suggestion pour un datalist avec un fichier JSON."
-	},
-	"modified": "2021-04-20",
-	"componentName": "wb-suggest",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Datalist dynamic suggestion",
-				"language": "en",
-				"path": "suggest-en.html"
-			},
-		{
-				"title": "Datalist dynamic suggestion (en anglais seulement)",
-				"language": "fr",
-				"path": "suggest-en.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "URL Mapping",
-		"fr": "Correspondance d'URL"
-	},
-	"description": {
-		"en": "Execute pre-configured ajax action based on url query string.",
-		"fr": "Exécute des requête ajax pré-établis selon la correspondance des paramètres de l'URL."
-	},
-	"modified": "2019-10-08",
-	"componentName": "wb-urlmapping",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Ajax",
-				"language": "en",
-				"path": "ajax-en.html"
-			},
-			{
-				"title": "Ajax",
-				"language": "fr",
-				"path": "ajax-fr.html"
-			},
-			{
-				"title": "Table filtering",
-				"language": "en",
-				"path": "tblfilter-en.html"
-			},
-			{
-				"title": "Filtrer un tableau",
-				"language": "fr",
-				"path": "tblfilter-fr.html"
-			},
-			{
-				"title": "Patching JSON",
-				"language": "en",
-				"path": "patches-en.html"
-			},
-			{
-				"title": "Appliquer des correctifs JSON",
-				"language": "fr",
-				"path": "patches-fr.html"
-			},
-			{
-				"title": "Select input",
-				"language": "en",
-				"path": "selectinput-en.html"
-			},
-			{
-				"title": "Sélectionner un champ de saisie",
-				"language": "fr",
-				"path": "selectinput-fr.html"
-			},
-			{
-				"title": "Geomap",
-				"language": "en",
-				"path": "geomap-en.html"
-			},
-			{
-				"title": "Filtrage d'une géomap",
-				"language": "fr",
-				"path": "geomap-fr.html"
-			}
-		],
-		"docs": [
-			{
-				"title": "URL mapping",
-				"language": "en",
-				"path": "urlmapping-doc-en.html"
-			},
-			{
-				"title": "Correspondance d'URL",
-				"language": "fr",
-				"path": "urlmapping-doc-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
-		"en": "wb5-click postback converter",
-		"fr": "Conversion du wb5-click postback"
-	},
-	"description": {
-		"en": "Convert deprecated wb5-click postback form syntax to wb-postback plugin",
-		"fr": "Convertie le code obsolète du wb5-click postback form vers le plugiciel wb-postback"
-	},
-	"modified": "2021-04-26",
-	"componentName": "wb5-click-postback",
-	"status": "deprecated",
-	"pages": {
-		"examples": [
-			{
-				"title": "wb5-click postback converter",
-				"language": "en",
-				"path": "wb5-click-postback-en.html"
-			},
-			{
-				"title": "conversion du wb5-click postback",
-				"language": "fr",
-				"path": "wb5-click-postback-fr.html"
-			}
-		]
-	}
-}
+        {
+          "title": "Video example",
+          "language": "en",
+          "path": "video-en.html"
+        },
+        {
+          "title": "Exemple de vidéo",
+          "language": "fr",
+          "path": "video-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "Labels",
+      "fr": "Étiquettes"
+    },
+    "description": {
+      "en": "Labels including all various states.",
+      "fr": "Étiquettes comprenant tous les différents états."
+    },
+    "modified": "2024-03-28",
+    "componentName": "labels",
+    "processing": "baseline",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "Labels",
+          "language": "en",
+          "path": "labels-en.html"
+        },
+        {
+          "title": "Étiquettes",
+          "language": "fr",
+          "path": "labels-fr.html"
+        }
+      ],
+      "reports": [
+        {
+          "title": "Accessibility assessment #8 - Labels",
+          "language": "en",
+          "path": "reports/a11y-8-en.html"
+        },
+        {
+          "title": "Assessment d'accessibilité #8 - Étiquettes",
+          "language": "fr",
+          "path": "reports/a11y-8-fr.html"
+        },
+        {
+          "title": "Accessibility assessment #9 - Labels",
+          "language": "en",
+          "path": "reports/a11y-9-en.html"
+        },
+        {
+          "title": "Assessment d'accessibilité #9 - Étiquettes",
+          "language": "fr",
+          "path": "reports/a11y-9-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "List - Additional style",
+      "fr": "Liste - Style additionnel"
+    },
+    "description": {
+      "en": "Additional style (double spaced)",
+      "fr": "Style additionnel (double interligne)"
+    },
+    "modified": "2018-11-07",
+    "componentName": "list",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "List - Additional style",
+          "language": "en",
+          "path": "list-en.html"
+        },
+        {
+          "title": "Liste - Style additionnel",
+          "language": "fr",
+          "path": "list-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "Chat wizard",
+      "fr": "Conversation suggestive"
+    },
+    "description": {
+      "en": "Transforms a simple form into a conversation like experience used as a wizard.",
+      "fr": "Conversation suggestive"
+    },
+    "modified": "2024-12-05",
+    "componentName": "wb-chtwzrd",
+    "status": "deprecated",
+    "pages": {
+      "examples": [
+        {
+          "title": "Chat wizard",
+          "language": "en",
+          "path": "../../méli-mélo/deprecated/chatwizard/chatwizard-en.html"
+        },
+        {
+          "title": "Conversation suggestive",
+          "language": "fr",
+          "path": "../../méli-mélo/deprecated/chatwizard/chatwizard-fr.html"
+        },
+        {
+          "title": "with JSON setting",
+          "language": "en",
+          "path": "../../méli-mélo/deprecated/chatwizard/chatwizard-json-en.html"
+        },
+        {
+          "title": "avec une configuration JSON",
+          "language": "fr",
+          "path": "../../méli-mélo/deprecated/chatwizard/chatwizard-json-fr.html"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Chat wizard",
+          "language": "en",
+          "path": "../../méli-mélo/deprecated/chatwizard/docs.html"
+        },
+        {
+          "title": "Chat wizard (en anglais seulement)",
+          "language": "fr",
+          "path": "../../méli-mélo/deprecated/chatwizard/docs.html"
+        }
+      ],
+      "related": [
+        {
+          "title": "2019-15 Research documentation",
+          "language": "en",
+          "url": "https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html"
+        },
+        {
+          "title": "2019-15 Research documentation (en anglais seulement)",
+          "language": "fr",
+          "url": "https://wet-boew.github.io/wet-boew-documentation/research/2019-15-exploration-chat-pattern.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "Do action",
+      "fr": "Exécuter des actions"
+    },
+    "description": {
+      "en": "Execute action, like filter a table, based on pre-established set of configuration.",
+      "fr": "Exécute des actions, tel que filtrer un tableau, selon une configuration pré-établis."
+    },
+    "modified": "2019-1-12",
+    "componentName": "wb-doaction",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "Table",
+          "language": "en",
+          "path": "tblfilter-en.html"
+        },
+        {
+          "title": "Filtrer un tableau",
+          "language": "fr",
+          "path": "tblfilter-fr.html"
+        },
+        {
+          "title": "JSON",
+          "language": "en",
+          "path": "json-en.html"
+        },
+        {
+          "title": "JSON",
+          "language": "fr",
+          "path": "json-fr.html"
+        },
+        {
+          "title": "JSON manager patches",
+          "language": "en",
+          "path": "../wb-jsonmanager/jsonmanager-doaction-en.html"
+        },
+        {
+          "title": "Gestionnaire JSON avec l'exécuteur d'action de patches",
+          "language": "fr",
+          "path": "../wb-jsonmanager/jsonmanager-doaction-fr.html"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Do action",
+          "language": "en",
+          "path": "doaction-doc-en.html"
+        },
+        {
+          "title": "Exécuter des actions",
+          "language": "fr",
+          "path": "doaction-doc-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "Fieldflow",
+      "fr": "Déroulement de champs"
+    },
+    "description": {
+      "en": "Provide an alternative user interface when a page contains a really long list",
+      "fr": "Offre une interface utilisateur alternative lorsqu'une page contient une très longue liste"
+    },
+    "modified": "2021-04-28",
+    "componentName": "wb-fieldflow",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "Fieldflow",
+          "language": "en",
+          "path": "fieldflow-en.html"
+        },
+        {
+          "title": "Déroulement de champs",
+          "language": "fr",
+          "path": "fieldflow-fr.html"
+        },
+        {
+          "title": "Basic",
+          "language": "en",
+          "path": "basic-en.html"
+        },
+        {
+          "title": "Configurations de base",
+          "language": "fr",
+          "path": "basic-fr.html"
+        },
+        {
+          "title": "Advanced",
+          "language": "en",
+          "path": "advanced-en.html"
+        },
+        {
+          "title": "Avancé",
+          "language": "fr",
+          "path": "advanced-fr.html"
+        },
+        {
+          "title": "Alternatives",
+          "language": "en",
+          "path": "alternative-en.html"
+        },
+        {
+          "title": "Alternatives",
+          "language": "fr",
+          "path": "alternative-fr.html"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Fieldflow",
+          "language": "en",
+          "path": "fieldflow-doc-en.html"
+        },
+        {
+          "title": "Déroulement de champs",
+          "language": "fr",
+          "path": "fieldflow-doc-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "Datalist dynamic suggestion",
+      "fr": "Suggestion interactive avec un datalist"
+    },
+    "description": {
+      "en": "Load datalist suggestion from a JSON file",
+      "fr": "Chargement de suggestion pour un datalist avec un fichier JSON."
+    },
+    "modified": "2021-04-20",
+    "componentName": "wb-suggest",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "Datalist dynamic suggestion",
+          "language": "en",
+          "path": "suggest-en.html"
+        },
+        {
+          "title": "Datalist dynamic suggestion (en anglais seulement)",
+          "language": "fr",
+          "path": "suggest-en.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "URL Mapping",
+      "fr": "Correspondance d'URL"
+    },
+    "description": {
+      "en": "Execute pre-configured ajax action based on url query string.",
+      "fr": "Exécute des requête ajax pré-établis selon la correspondance des paramètres de l'URL."
+    },
+    "modified": "2019-10-08",
+    "componentName": "wb-urlmapping",
+    "status": "stable",
+    "pages": {
+      "examples": [
+        {
+          "title": "Ajax",
+          "language": "en",
+          "path": "ajax-en.html"
+        },
+        {
+          "title": "Ajax",
+          "language": "fr",
+          "path": "ajax-fr.html"
+        },
+        {
+          "title": "Table filtering",
+          "language": "en",
+          "path": "tblfilter-en.html"
+        },
+        {
+          "title": "Filtrer un tableau",
+          "language": "fr",
+          "path": "tblfilter-fr.html"
+        },
+        {
+          "title": "Patching JSON",
+          "language": "en",
+          "path": "patches-en.html"
+        },
+        {
+          "title": "Appliquer des correctifs JSON",
+          "language": "fr",
+          "path": "patches-fr.html"
+        },
+        {
+          "title": "Select input",
+          "language": "en",
+          "path": "selectinput-en.html"
+        },
+        {
+          "title": "Sélectionner un champ de saisie",
+          "language": "fr",
+          "path": "selectinput-fr.html"
+        },
+        {
+          "title": "Geomap",
+          "language": "en",
+          "path": "geomap-en.html"
+        },
+        {
+          "title": "Filtrage d'une géomap",
+          "language": "fr",
+          "path": "geomap-fr.html"
+        }
+      ],
+      "docs": [
+        {
+          "title": "URL mapping",
+          "language": "en",
+          "path": "urlmapping-doc-en.html"
+        },
+        {
+          "title": "Correspondance d'URL",
+          "language": "fr",
+          "path": "urlmapping-doc-fr.html"
+        }
+      ]
+    }
+  },
+  {
+    "@context": {
+      "@version": 1.1,
+      "dct": "http://purl.org/dc/terms/",
+      "title": { "@id": "dct:title", "@container": "@language" },
+      "description": { "@id": "dct:description", "@container": "@language" },
+      "modified": "dct:modified"
+    },
+    "title": {
+      "en": "wb5-click postback converter",
+      "fr": "Conversion du wb5-click postback"
+    },
+    "description": {
+      "en": "Convert deprecated wb5-click postback form syntax to wb-postback plugin",
+      "fr": "Convertie le code obsolète du wb5-click postback form vers le plugiciel wb-postback"
+    },
+    "modified": "2021-04-26",
+    "componentName": "wb5-click-postback",
+    "status": "deprecated",
+    "pages": {
+      "examples": [
+        {
+          "title": "wb5-click postback converter",
+          "language": "en",
+          "path": "wb5-click-postback-en.html"
+        },
+        {
+          "title": "conversion du wb5-click postback",
+          "language": "fr",
+          "path": "wb5-click-postback-fr.html"
+        }
+      ]
+    }
+  }
 ]
