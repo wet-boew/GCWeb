@@ -42,6 +42,7 @@
  *	- _screen-md-min
  *	- _screen-lg-min
 */
+
 ul[class*="list-col"] {
 	display: flex;
 	flex-wrap: wrap;
@@ -63,12 +64,13 @@ ul[class*="list-col"] {
  * - _screen-md-min
  * - _screen-lg-min
 */
-ul.list-col-vertical {
-	display: block;
-}
 
-ul.list-col-vertical > li {
-	break-inside: avoid;
+ul.list-vertical[class*="list-col"] {
+	display: block;
+
+	> li {
+		break-inside: avoid;
+	}
 }
 
 /*
@@ -80,11 +82,11 @@ ul.list-col-xs-2 > li { flex-basis: 50% }
 ul.list-col-xs-3 > li { flex-basis: 33.33% }
 ul.list-col-xs-4 > li { flex-basis: 25% }
 
-// Column count for list-col-vertical lists
-ul.list-col-vertical.list-col-xs-1 { column-count: 1; }
-ul.list-col-vertical.list-col-xs-2 { column-count: 2; }
-ul.list-col-vertical.list-col-xs-3 { column-count: 3; }
-ul.list-col-vertical.list-col-xs-4 { column-count: 4; }
+// Column count for list-vertical lists
+ul.list-vertical.list-col-xs-1 { column-count: 1; }
+ul.list-vertical.list-col-xs-2 { column-count: 2; }
+ul.list-vertical.list-col-xs-3 { column-count: 3; }
+ul.list-vertical.list-col-xs-4 { column-count: 4; }
 
 div.lst-lwr-alph>ol,
 .lst-lwr-alph {
