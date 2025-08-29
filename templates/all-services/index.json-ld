@@ -14,10 +14,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-07-24",
+	"modified": "2025-08-29",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.2",
+	"version": "1.3",
 	"pages": {
 		"examples": [
 			{
@@ -56,7 +56,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_3",
+			"iteration": "_:iteration_allservices_4",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -67,6 +67,10 @@
 				"_:implement_allservices"
 			],
 			"history": [
+				{
+					"en": "August 2025 - Use the class \".colcount-no-break\" to prevent list items from splitting across multiple columns.",
+					"fr": "Août 2025 - Utilisation de la classe « .colcount-no-break » pour empêcher les éléments de liste de se diviser en plusieurs colonnes."
+				},
 				{
 					"en": "July 2025 - Remove expand and collapse All buttons.",
 					"fr": "Juillet 2025 - Suppression des boutons « Développer » et « Réduire »."
@@ -81,7 +85,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_3",
+			"iteration": "_:iteration_allservices_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -107,13 +111,21 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_allservices_4",
+			"name": "All services page - Iteration 4",
+			"date": "2025-08",
+			"additions": [ "Use the class \".colcount-no-break\" to prevent list items from splitting across multiple columns." ],
+			"detectableBy": "Three navigation bands each whose list container has the class \".colcount-no-break\" followed by a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_3"
+		},
+		{
 			"@id": "_:iteration_allservices_3",
 			"name": "All services page - Iteration 3",
 			"date": "2025-07",
 			"additions": [ "Removing expand/collapse all buttons." ],
 			"detectableBy": "Three navigation bands followed by a Services and Information component containing a list of all themes and topics.",
 			"predecessor": "_:iteration_allservices_2",
-			"successor": "_:iteration_allservices_3"
+			"successor": "_:iteration_allservices_4"
 		},
 		{
 			"@id": "_:iteration_allservices_2",
