@@ -1,0 +1,297 @@
+---
+{
+	"title": "Panneaux",
+	"language": "fr",
+	"altLangPage": "panels-en.html",
+	"description": "Exemples pratiques de la composante Panneaux de la BOEW",
+	"dateModified": "2025-09-17"
+}
+---
+<div class="wb-prettify all-pre"></div>
+
+<h2>Options d'énumération par ordre de priorité</h2>
+<p>Les utiliser pour créer divers types de conteneurs.  Un panneau décomposé comprend les éléments suivants :  <code>.panel</code>, <code>.panel-heading</code>, <code>.panel-title</code>, <code>panel-body</code> et <code>.panel-footer</code>. Seul l'élément <code>.panel</code> est requis. Tous les autres sont facultatifs.</p>
+
+<div class="row">
+	<div class="col-sm-6 col-lg-3">
+		<p>Contenu rempli :</p>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Contenu</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-3">
+		<p>Contenu à pleine chasse :</p>
+		<div class="panel panel-default">
+			<table class="table">
+				<caption class="wb-inv">Texte de la légende</caption>
+				<thead>
+					<tr>
+						<th>En-tête de tableau</th>
+						<th>En-tête de tableau</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Données de tableau</td>
+						<td>Données de tableau</td>
+					</tr>
+					<tr>
+						<td>Données de tableau</td>
+						<td>Données de tableau</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-3">
+		<p>Contenu rempli et à pleine chasse :</p>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Contenu</p>
+			</div>
+			<table class="table">
+				<caption class="wb-inv">Texte de la légende</caption>
+				<thead>
+					<tr>
+						<th>En-tête de tableau</th>
+						<th>En-tête de tableau</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Données de tableau</td>
+						<td>Données de tableau</td>
+					</tr>
+					<tr>
+						<td>Données de tableau</td>
+						<td>Données de tableau</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-lg-3">
+		<p>Ajouter un en-tête et/ou un pied de page :</p>
+		<div class="panel panel-default">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Contenu</p>
+			</div>
+			<footer class="panel-footer">Pied de page du panneau</footer>
+		</div>
+	</div>
+</div>
+
+<h3>Code</h3>
+<dl>
+	<dt>Contenu rempli :</dt>
+	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre></dd>
+	<dt>FContenu à pleine chasse :</dt>
+	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;table class="table"&gt;
+		&lt;caption class="wb-inv"&gt;Texte de la légende&lt;/caption&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th&gt;En-tête de tableau&lt;/th&gt;
+				&lt;th&gt;En-tête de tableau&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;</code></pre></dd>
+	<dt>Contenu rempli et à pleine chasse :</dt>
+	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Contenu&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;table class="table"&gt;
+		&lt;caption class="wb-inv"&gt;Texte de la légende&lt;/caption&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th&gt;En-tête de tableau&lt;/th&gt;
+				&lt;th&gt;En-tête de tableau&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+				&lt;td&gt;Données de tableau&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;</code></pre></dd>
+	<dt>Add a heading and/or footer:</dt>
+	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Contenu&lt;/p&gt;
+	&lt;/div&gt;
+	&lt;footer class="panel-footer"&gt;Pied de page du panneau&lt;/footer&gt;
+&lt;/div&gt;</code></pre></dd>
+</dl>
+
+<h2>Apparences des panneaux</h2>
+<dl>
+	<dt>Panneau par défaut</dt>
+	<dd><p>L'utiliser pour mettre en évidence des renseignements généraux ou des actions générales dans une boîte autonome.</p>
+		<section class="panel panel-default mrgn-bttm-0">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Panel Contenu</p>
+			</div>
+		</section>
+	</dd>
+	<dt>Primary panel</dt>
+	<dd><p>L'utiliser pour mettre en évidence des renseignements généraux ou des actions générales dans une boîte autonome.</p>
+		<section class="panel panel-primary mrgn-bttm-0">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Panel Contenu</p>
+			</div>
+		</section>
+	</dd>
+	<dt>Success panel</dt>
+	<dd><p>Use to spotlight correct information/actions within a self-contained box.</p>
+		<section class="panel panel-success mrgn-bttm-0">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Panel Contenu</p>
+			</div>
+		</section>
+	</dd>
+	<dt>Info panel</dt>
+	<dd><p>Use to spotlight specialized information/actions within a self-contained box.</p>
+		<section class="panel panel-info mrgn-bttm-0">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Panel Contenu</p>
+			</div>
+		</section>
+	</dd>
+	<dt>Warning panel</dt>
+	<dd><p>Use to spotlight warning information/actions within a self-contained box.</p>
+		<section class="panel panel-warning mrgn-bttm-0">
+			<header class="panel-heading">
+				<h3 class="panel-title">Titre du panneau</h3>
+			</header>
+			<div class="panel-body">
+				<p>Panel Contenu</p>
+			</div>
+		</section>
+	</dd>
+	<dt>Danger panel</dt>
+	<dd><p>Use to spotlight dangerous information/actions within a self-contained box.</p>
+	<section class="panel panel-danger mrgn-bttm-0">
+		<header class="panel-heading">
+			<h3 class="panel-title">Titre du panneau</h3>
+		</header>
+		<div class="panel-body">
+			<p>Panel Contenu</p>
+		</div>
+		</section>
+	</dd>
+</dl>
+
+<h3>Source code</h3>
+<dl>
+	<dt>Default panel</dt>
+	<dd><p>L'utiliser pour mettre en évidence des renseignements généraux ou des actions générales dans une boîte autonome.</p>
+		<pre><code>&lt;section class="panel panel-default mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+	<dt>Primary panel</dt>
+	<dd><p>L'utiliser pour mettre en évidence des renseignements généraux ou des actions générales dans une boîte autonome.</p>
+		<pre><code>&lt;section class="panel panel-primary mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+	<dt>Success panel</dt>
+	<dd><p>Use to spotlight correct information/actions within a self-contained box.</p>
+		<pre><code>&lt;section class="panel panel-success mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+	<dt>Info panel</dt>
+	<dd><p>Use to spotlight specialized information/actions within a self-contained box.</p>
+		<pre><code>&lt;section class="panel panel-info mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+	<dt>Warning panel</dt>
+	<dd><p>Use to spotlight warning information/actions within a self-contained box.</p>
+		<pre><code>&lt;section class="panel panel-warning mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+	<dt>Danger panel</dt>
+	<dd><p>Use to spotlight dangerous information/actions within a self-contained box.</p>
+		<pre><code>&lt;section class="panel panel-danger mrgn-bttm-0"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Titre du panneau&lt;/h3&gt;
+	&lt;/header&gt;
+	&lt;div class="panel-body"&gt;
+		&lt;p&gt;Panel Contenu&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+	</dd>
+</dl>
+
+<h2>Reference</h2>
+<p><a href="https://wet-boew.github.io/wet-boew-styleguide/design/panels-fr">Guide de style de la Boîte à outils de l'expérience Web -  - Panels</a></p>
