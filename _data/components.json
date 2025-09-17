@@ -381,6 +381,219 @@
 }
 ,{
 	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Conjunctions (and/or)",
+		"fr": "Conjonction (et/ou)"
+	},
+	"description": {
+		"en": "Conjunctions for stacked or side by side decision points, and/or",
+		"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+	},
+	"modified": "2025-07-14",
+	"componentName": "conjunctions",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "Conjunctions (and/or) - working example",
+				"language": "en",
+				"path": "conjunction.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - example pratique",
+				"language": "fr",
+				"path": "conjunction-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Conjunctions (and/or) documentation",
+				"language": "en",
+				"path": "conjunction-docs-en.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - documentation",
+				"language": "fr",
+				"path": "conjunction-docs-fr.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - guidance",
+				"language": "fr",
+				"path": "conjunction-guidance-fr.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - guidance",
+				"language": "fr",
+				"path": "conjunction-guidance-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Conjunctions (and/or)",
+				"fr": "Conjonction (et/ou)"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Conjunctions for stacked or side by side decision points, and/or",
+				"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+			},
+			"iteration": "_:iteration_conjunction_1",
+			"example": [
+				{
+					"en": { "href": "conjunction.html", "text": "Conjunctions (and/or)" },
+					"fr": { "href": "conjunction-fr.html", "text": "Conjonction (et/ou)" }
+				}
+			],
+			"implementation": [
+				"_:implement_conjunction"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased minimum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Modification de la bordure pour un contraste élevé. Modification de la taille de police du texte généré par CSS : la valeur em permet une meilleure évolutivité entre les tailles de police parentes. Augmentation de la hauteur minimale du motif côte à côte pour créer une bordure cohérente au-dessus et en dessous du texte CSS. Mise à jour de la gouvernance pour une meilleure stabilisation."
+				},
+				{
+					"en": "August 2024 - Change was to remove the side-by-side line separator in Firefox (but keep the shape and text) when in High contrast mode. The previous pattern had the line separator \"cut\" through the words (and/or) which could make it slightly illegible.",
+					"fr": "Août 2024 - La modification a consisté à supprimer le séparateur de lignes côte à côte dans Firefox (tout en conservant la forme et le texte) en mode Contraste élevé. Auparavant, le séparateur de lignes « coupait » les mots (et/ou), ce qui pouvait le rendre légèrement illisible."
+				},
+				{
+					"en": "September 2025 - Conjunction component was stabilized.",
+					"fr": "Septembre 2025 - La composante de conjonction a été stabilisée."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_conjunction",
+			"iteration": "_:iteration_conjunction_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Guidance for the conjunction can be found on the following page: <a href=\"conjunction-guidance-en.html\">Conjunction (and/or) - guidance</a>.",
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Des conseils pour la conjonction peuvent être trouvés sur la page suivante : <a href=\"conjunction-guidance-fr.html\">Conjonction (et/ou) - guidance</a>.",
+					"Référez-vous au code qui suit."
+				]
+			},
+				"notes": {
+				"en": [
+					"UX research done for the conjunction component can be found on the following page: <a href=\"./reports/ux-research.html\">Conjunctions (and/or) - UX research</a>."
+				],
+				"fr": [
+					"Les recherches UX effectuées pour le composant de conjonction peuvent être trouvées sur la page suivante : <a href=\"./reports/ux-research-fr.html\">Conjonctions (et/ou) - recherche UX</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List element example (or):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List element example (and):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (or) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t..\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (and) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_conjunction_1",
+			"name": "Conjunctions (and/or) - Iteration 1",
+			"date": "2024-08",
+			"detectableBy": ".cnjnctn-col",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p>Lead in statement</p><ul class=\"cnjnctn-type-or\"><li class=\"cnjnctn-col\">...</li><li class=\"cnjnctn-col\">...</li></ul>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_conjunction_1",
+			"name": "Conjunctions (and/or)",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_conjunction_1",
+			"detectableBy": ".cnjnctn-col",
+			"layout": "Not applicable",
+			"style": "Design to clearly demonstrate that there are options or that there are content blocks that are complementary or associated",
+			"semantic": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
