@@ -1,59 +1,191 @@
 ---
 {
-	"title": "Résultats de la recherche (Contextuel)",
+	"title": "Recherche (Contextuel)",
 	"language": "fr",
 	"altLangPage": "results-contextual-en.html",
 	"pageType": "recherche",
 	"pageclass": "page-type-search",
-	"dateModified": "2022-08-02",
+	"dateModified": "2025-07-28",
 	"share": "false",
-	"deptfeature": false
+	"nositesearch": true
 }
 ---
 
 <div class="well">
-	<form class="mrgn-tp-sm">
-		<label class="wb-inv" for="sch-inp">Recherchez le site Web du Gouvernement du Canada</label>
-		<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
-
-		<div class="mrgn-tp-md">
-			<p class="wb-inv">Voir les résultats pour:</p>
-
-			<ul class="list-inline mrgn-lft-sm pull-left">
-				<li><a href="#">Tout le site web du gouvernement du Canada</a></li>
-				<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Etiquette contextuel</a></li>
-			</ul>
-
-			<div class="pull-right">
-				<button type="submit" class="btn btn-primary" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span> Recherche</button>
+	<search>
+		<form class="mrgn-tp-sm">
+			<div class="row">
+				<div class="col-md-8">
+					<label for="sch-inp" class="wb-inv">Recherche [contextuel]:</label>
+				</div>
+				<div class="col-md-4 text-right">
+					<ul class="list-inline">
+						<li><a href="/fr/sr/st.html"> Trucs de recherche</a></li>
+						<li><a href="advanced-search-fr.html">Recherche Avancée</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="clearfix"></div>
-		</div>
-		<p id="gc-pi" class="mrgn-tp-md">N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</p>
-	</form>
+			<div class="input-group mrgn-tp-lg">
+				<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv"></span></button>
+				</span>
+			</div>
+			<div class="mrgn-tp-md">
+				<p class="wb-inv">Voir les résultats pour:</p>
+
+				<ul class="list-inline mrgn-lft-sm pull-left">
+					<li><a href="#">Tout le site web du gouvernement du Canada</a></li>
+					<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Etiquette contextuel</a></li>
+				</ul>
+
+				<div class="clearfix"></div>
+			</div>
+			<p id="gc-pi" class="mrgn-tp-md">N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</p>
+		</form>
+	</search>
 </div>
 
-<section class="results">
-	<h2 class="wb-inv">Résultats de recherche</h2>
-	<p class="h4">[nombre de] résultats de recherché pour "[le terme recherché]"</p>
-	<p>De [Context label]</p>
-	<section>
-		<h3><a href="#">[Titre du résultat de recherche]</a></h3>
-		<ol class="location">
-			<li>[Nom de domaine du résultat]</li>
-			<li>[Fil d'Ariane parent du résultat]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
-	</section>
+<section>
+	<div>
+		<hgroup>
+			<h2>[nombre de] résultats de recherché pour "[le terme recherché]"</h2>
+			<p>De [Context label]</p>
+		</hgroup>
+	</div>
 
-	<section>
-		<h3><a href="#">[Titre du résultat de recherche]</a></h3>
-		<ul class="context-labels">
-			<li>[nom du département]</li>
-		</ul>
-		<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
-	</section>
+	<div class="results">
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+			</ul>
+			<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département 1]</li>
+				<li>[nom du département 2]</li>
+				<li>[nom du département 3]</li>
+				<li>[nom du département 4]</li>
+				<li>[nom du département 5]</li>
+				<li>[nom du département 6]</li>
+				<li>[nom du département 7]</li>
+				<li>[nom du département 8]</li>
+				<li>[nom du département 9]</li>
+				<li>[nom du département 10]</li>
+				<li>[nom du département 11]</li>
+				<li>[nom du département 12]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+
+		<section>
+			<h3><a href="#">[Titre du résultat de recherche]</a></h3>
+			<ul class="context-labels">
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+				<li>[nom du département]</li>
+			</ul>
+			<ol class="location">
+				<li>[Nom de domaine du résultat]</li>
+				<li>[Fil d'Ariane parent du résultat]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/extrait du résultat de recherche. Les <strong>termes</strong> rechercher sont en mis en évidence]</p>
+		</section>
+	</div>
 
 	<!-- Pagination -->
 	<div class="text-center">
@@ -96,4 +228,6 @@
 	</div>
 </section>
 
-<p class="text-center"><small><a href="#URL-of-the-advance-search-page">Effectuer une recherche avancée</a></small></p>
+<p class="text-center small">
+	<a href="sra-fr.html">Effectuer une recherche avancée</a>
+</p>
