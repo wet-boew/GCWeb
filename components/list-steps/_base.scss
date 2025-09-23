@@ -1,19 +1,28 @@
 @charset "utf-8";
 
 /* CSS Document */
-ol.lst-stps {
-	counter-reset: item;
-	padding-left: 0;
+ol {
+	&.lst-stps {
+		counter-reset: item;
+		list-style-type: none;
+		padding-left: 0;
+
+		li {
+			content: counter(item);
+			counter-increment: item;
+		}
+
+	}
 }
 
-ol.lst-stps, ol.lst-stps-sub {
+ol.lst-stps-sub {
 	list-style-type: none;
 }
 
-ol.lst-stps > li {
-	content: counter(item);
-	counter-increment: item;
-}
+// ol.lst-stps > li {
+// 	content: counter(item);
+// 	counter-increment: item;
+// }
 
 ol.lst-stps > li:before {
 	content: counter(item);
@@ -115,23 +124,23 @@ ol.lst-stps.stps-strpd:not(.ld-zr) > li:before, ol.lst-stps.stps-strpd:not(.ld-z
 
 @media all and (max-width: 767px) {
 	ol.lst-stps:not(.stps-strpd) > li, ol.lst-stps-sub:not(.stps-strpd) > li {
-		padding-left: 2.6em;
+	padding-left: 2.6em;
 	}
 
 	ol.lst-stps.ld-zr:not(.stps-strpd) > li, ol.lst-stps.ld-zr > li ol.lst-stps-sub:not(.stps-strpd) > li {
-		padding-left: 2.8em;
+	padding-left: 2.8em;
 	}
 
 	ol.lst-stps > li:before {
-		font-size: 0.8em;
+	font-size: 0.8em;
 	}
 
 	ol.lst-stps.ld-zr > li:before {
-		font-size: 1.2em;
+	font-size: 1.2em;
 	}
 
 	ol.lst-stps.stps-strpd > li, ol.lst-stps-sub.stps-strpd > li {
-		padding-left: 3em;
+	padding-left: 3em;
 	}
 }
 
