@@ -82,6 +82,7 @@ module.exports = {
 				"no-duplicate-selectors": null,
 				"no-irregular-whitespace": null,
 				"number-max-precision": null,
+				"property-no-deprecated": null,
 				"property-no-vendor-prefix": null,
 				"rule-empty-line-before": null,
 				"selector-attribute-quotes": null,
@@ -117,6 +118,7 @@ module.exports = {
 				"no-descending-specificity": null, // Extremely slow
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
 				"number-max-precision": null,
+				"property-no-deprecated": null,
 				"scss/at-extend-no-missing-placeholder": null,
 				"scss/comment-no-empty": null,
 				"scss/dollar-variable-pattern": null, // Fixable
