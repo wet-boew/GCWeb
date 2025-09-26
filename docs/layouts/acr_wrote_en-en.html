@@ -33,7 +33,7 @@ layout: default
 		{ "op": "wb-swap", "path": "/acr:conformance", "ref": "/labels/acr:ConformanceState/en" },
 		{
 			"op": "patches", "path": "/acr:audit", "patches": [
-				{ "op": "wb-swap", "path": "/acr:assessment", "ref": "/assessments" },
+				{ "op": "wb-swap", "path": "/acr:assessment", "ref": "/acr:assessments" },
 				{ "op": "wb-swap", "path": "/acr:accuracy", "ref": "/labels/acr:AccuracyState/en" },
 				{ "op": "wb-swap", "path": "/earl:mode", "ref": "/labels/earl:TestMode/en" },
 				{
@@ -61,7 +61,7 @@ layout: default
 				{ "op": "wb-swap", "path": "/acr:requirement", "ref": "/labels/earl:TestCriterion/en" },
 				{ "op": "wb-swap", "path": "/earl:mode", "ref": "/labels/earl:TestMode/en" },
 				{ "op": "wb-swap", "path": "/acr:conformance", "ref": "/labels/acr:ConformanceState/en" },
-				{ "op": "wb-swap", "path": "/acr:assessment", "ref": "/assessments" }
+				{ "op": "wb-swap", "path": "/acr:assessment", "ref": "/acr:assessments" }
 			]
 		}
 
@@ -156,7 +156,7 @@ layout: default
 	<h2>Related assessment</h2>
 	<p>List of related assessments, referenced by date, which have been used and influenced the production of this conformance report.</p>
 	<ul data-wb-json='{
-			"url": "#[a11y]/assessments",
+			"url": "#[a11y]/acr:assessments",
 			"mapping": [
 				{ "selector": "[data-rel-json]", "value": "/@id", "attr": "data-rel-json" },
 				{ "selector": "[lang]", "value": "/dct:language", "attr": "lang" },
