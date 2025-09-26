@@ -1,0 +1,227 @@
+{
+	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "List steps",
+		"fr": "Liste d'étape"
+	},
+	"description": {
+		"en": "Style ordered list and divs with steps number in circles.",
+		"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+	},
+	"modified": "2025-09-16",
+	"componentName": "list-steps",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "List steps - working example",
+				"language": "en",
+				"path": "list-steps-en.html"
+			},
+			{
+				"title": "Liste d'étape - example pratique",
+				"language": "fr",
+				"path": "list-steps-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "List steps - Documentation",
+				"language": "en",
+				"path": "list-steps-documentation-en.html"
+			},
+			{
+				"title": "Liste d'étape - Documentation",
+				"language": "fr",
+				"path": "list-steps-documentation-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "List steps",
+				"fr": "Liste d'étape"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Style ordered list and divs with steps number in circles.",
+				"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+			},
+			"iteration": "_:iteration_list_steps_1",
+			"example": [
+				{
+					"en": { "href": "list-steps-en.html", "text": "List steps" },
+					"fr": { "href": "list-steps-fr.html", "text": "Liste d'étape" }
+				}
+			],
+			"implementation": [
+				"_:implement_list_steps"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Réduction de l'espacement excessif pour les petites quantités de contenu. Suppression de la couleur d'arrière-plan du numéro d'étape par défaut de la liste (sauf en mode rayé), car il ne s'affichait pas correctement en mode contraste élevé. Mise à jour de la gouvernance pour la stabilisation."
+				},
+				{
+					"en": "August 2024 - Fixed issue with printing pages as some text would be cut off.",
+					"fr": "Août 2024 - Correction d'un problème d'impression de pages car certains textes étaient coupés."
+				},
+				{
+					"en": "October 2024 - Added customized option to use start attribute for items 2 to 10.",
+					"fr": "Octobre 2024 - Ajout d'une option personnalisée pour utiliser l'attribut de démarrage pour les éléments 2 à 10."
+				},
+				{
+					"en": "September 2025 - Stabilized the component.",
+					"fr": "Septembre 2025 - La composante a été stabilisée."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_list_steps",
+			"iteration": "_:iteration_list_steps_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List steps (default):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (sub nested):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (start attribute):",
+						"code": "<ol class=\"lst-stps start=\"2\"\">"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (défaut):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (sous-listes imbriquées):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (Attribut de début):",
+						"code": "<ol class=\"lst-stps start=\"2\"\">"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_list_steps_1",
+			"name": "List steps - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".lst-stps",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_list_steps_1",
+			"name": "List steps",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_list_steps_1",
+			"detectableBy": ".lst-stps",
+			"layout": "Not applicable",
+			"style": "Style ordered list and divs with steps number in circles.",
+			"semantic": "Not applicable"
+		}
+	]
+}
