@@ -430,10 +430,10 @@
 		"en": "Conjunctions for stacked or side by side decision points, and/or",
 		"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
 	},
-	"modified": "2025-07-14",
+	"modified": "2025-10-03",
 	"componentName": "conjunctions",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.0.1",
 	"pages": {
 		"examples": [
 			{
@@ -494,7 +494,7 @@
 				"en": "Conjunctions for stacked or side by side decision points, and/or",
 				"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
 			},
-			"iteration": "_:iteration_conjunction_1",
+			"iteration": "_:iteration_conjunction_2",
 			"example": [
 				{
 					"en": { "href": "conjunction.html", "text": "Conjunctions (and/or)" },
@@ -516,6 +516,10 @@
 				{
 					"en": "September 2025 - Conjunction component was stabilized.",
 					"fr": "Septembre 2025 - La composante de conjonction a été stabilisée."
+				},
+				{
+					"en": "October 2025 - Fixed issue with a persistent margin at the top of the first column.",
+					"fr": "Octobre 2025 - Problème résolu avec une marge persistante en haut de la première colonne."
 				}
 			]
 		}
@@ -523,7 +527,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_conjunction",
-			"iteration": "_:iteration_conjunction_1",
+			"iteration": "_:iteration_conjunction_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -603,6 +607,23 @@
 			"@id": "_:iteration_conjunction_1",
 			"name": "Conjunctions (and/or) - Iteration 1",
 			"date": "2024-08",
+			"detectableBy": ".cnjnctn-col",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p>Lead in statement</p><ul class=\"cnjnctn-type-or\"><li class=\"cnjnctn-col\">...</li><li class=\"cnjnctn-col\">...</li></ul>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_conjunction_2",
+			"name": "Conjunctions (and/or) - Iteration 2",
+			"date": "2025-10",
+			"fixes" : [
+				"Fixed issue with a persistent margin at the top of the first column."
+			],
 			"detectableBy": ".cnjnctn-col",
 			"assets": [
 				{

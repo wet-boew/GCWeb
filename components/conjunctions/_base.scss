@@ -13,20 +13,16 @@ ul[class*="cnjnctn-type-"] {
 	min-height: 3em;
 	position: relative;
 
-	&.brdr-0 {
-		[class*="cnjnctn-col"]:after{
-			border-left: none;
-		}
+	&.brdr-0 > [class*="cnjnctn-col"]:after {
+		border-left: none;
 	}
 
-	&:not(.brdr-0) {
-		[class*="cnjnctn-col"] {
-			padding-left: 15px;
-			padding-right: 15px;
-		}
+	&:not(.brdr-0) > [class*="cnjnctn-col"] {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 
-	[class*="cnjnctn-col"] {
+	> [class*="cnjnctn-col"] {
 		width: 100%;
 
 		&:not(:first-child) {
@@ -58,11 +54,11 @@ ul[class*="cnjnctn-type-"] {
 			}
 		}
 
-		&:first-child:not([class*="mrgn-tp-"]){
+		> :first-child:not([class*="mrgn-tp-"]){
 			margin-top: 15px;
 		}
 
-		&:last-child:not([class*="mrgn-bttm-"]) {
+		> :last-child:not([class*="mrgn-bttm-"]) {
 			margin-bottom: 0;
 		}
 
@@ -72,58 +68,22 @@ ul[class*="cnjnctn-type-"] {
 		}
 	}
 
-	.cnjnctn-col-90 {
-		flex-basis: 90%
-	}
-
-	.cnjnctn-col-80 {
-		flex-basis: 80%
-	}
-
-	.cnjnctn-col-75 {
-		flex-basis: 75%
-	}
-
-	.cnjnctn-col-70 {
-		flex-basis: 70%
-	}
-
-	.cnjnctn-col-60 {
-		flex-basis: 60%
-	}
-
-	.cnjnctn-col-50 {
-		flex-basis: 50%
-	}
-
-	.cnjnctn-col-40 {
-		flex-basis: 40%
-	}
-
-	.cnjnctn-col-30 {
-		flex-basis: 30%
-	}
-
-	.cnjnctn-col-25 {
-		flex-basis: 25%
-	}
-
-	.cnjnctn-col-20 {
-		flex-basis: 20%
+	@each $size in (90, 80, 75, 70, 60, 50, 40, 30, 25, 20) {
+		> .cnjnctn-col-#{$size} {
+			flex-basis: #{ $size + '%'};
+		}
 	}
 
 	&.cnjnctn-xs {
 		flex-direction: row;
 
-		&:not(.brdr-0) {
-			[class*="cnjnctn-col"] {
-				min-height: 3em;
-				padding-left: 0;
-				padding-right: 0;
-			}
+		&:not(.brdr-0) > [class*="cnjnctn-col"] {
+			min-height: 3em;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
-		[class*="cnjnctn-col"]:not(:first-child) {
+		> [class*="cnjnctn-col"]:not(:first-child) {
 			margin-left: 1.4em;
 			margin-top: 0;
 			position: relative;
@@ -145,65 +105,97 @@ ul[class*="cnjnctn-type-"] {
 	}
 }
 
-.cnjnctn-type-or {
-	[class*="cnjnctn-col"]:not(:first-child):before {
+// .cnjnctn-type-or {
+// 	> [class*="cnjnctn-col"]:not(:first-child):before {
+// 		border-radius: 50%;
+// 		border-width: 3px;
+// 	}
+
+// 	&.cnjnctn-xs {
+// 		[class*="cnjnctn-col"]:not(:first-child):before {
+// 			margin-left: -3.3em;
+// 		}
+// 	}
+// }
+
+// .cnjnctn-type-and {
+// 	[class*="cnjnctn-col"]:not(:first-child):before {
+// 		border-width: 3px 0;
+// 	}
+
+// 	&.cnjnctn-xs > [class*="cnjnctn-col"]:not(:first-child):before {
+// 		border-width: 3px 0;
+// 		margin-left: -3.15em;
+// 	}
+// }
+
+// html:lang(en) {
+// 	.cnjnctn-type-and {
+// 		> [class*="cnjnctn-col"]:not(:first-child):before {
+// 			content: "and";
+// 		}
+// 	}
+
+// 	.cnjnctn-type-or {
+// 		> [class*="cnjnctn-col"]:not(:first-child):before {
+// 			content: "or";
+// 		}
+// 	}
+// }
+
+// html:lang(fr) {
+// 	.cnjnctn-type-and {
+// 	> [class*="cnjnctn-col"]:not(:first-child):before {
+// 		content: "et";
+// 		}
+// 	}
+
+// 	.cnjnctn-type-or {
+// 		> [class*="cnjnctn-col"]:not(:first-child):before {
+// 			content: "ou";
+// 		}
+// 	}
+// }
+
+[class*="cnjnctn-col"]:not(:first-child):before {
+	.cnjnctn-type-or > & {
 		border-radius: 50%;
 		border-width: 3px;
 	}
 
-	&.cnjnctn-xs {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			margin-left: -3.3em;
-		}
-	}
-}
-
-.cnjnctn-type-and {
-	[class*="cnjnctn-col"]:not(:first-child):before {
+	.cnjnctn-type-and > & {
 		border-width: 3px 0;
 	}
 
-	&.cnjnctn-xs > [class*="cnjnctn-col"]:not(:first-child):before {
+	.cnjnctn-type-or.cnjnctn-xs > & {
+		margin-left: -3.3em;
+	}
+
+	.cnjnctn-type-and.cnjnctn-xs > & {
 		border-width: 3px 0;
 		margin-left: -3.15em;
 	}
-}
 
-html:lang(en) {
-	.cnjnctn-type-and {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			content: "and";
-		}
+	html:lang(en) .cnjnctn-type-and > & {
+		content: "and";
 	}
 
-	.cnjnctn-type-or {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			content: "or";
-		}
-	}
-}
-
-html:lang(fr) {
-	.cnjnctn-type-and {
-	[class*="cnjnctn-col"]:not(:first-child):before {
+	html:lang(fr) .cnjnctn-type-and > & {
 		content: "et";
-		}
 	}
 
-	.cnjnctn-type-or {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			content: "ou";
-		}
+	html:lang(en) .cnjnctn-type-or > & {
+		content: "or";
+	}
+
+	html:lang(fr) .cnjnctn-type-or > & {
+		content: "ou";
 	}
 }
 
 @media (prefers-contrast: more) {
-	[class*="cnjnctn-type-"]{
-		&.cnjnctn-xs {
-			[class*="cnjnctn-col"]:not(:first-child):after {
-				border-image: linear-gradient(to bottom, #fff 0.3em, #fff 0.3em, transparent 0.3em, transparent 2.35em, #fff 2.35em, #fff 2.35em) 1 100%;
-				border-left: none;
-			}
-		}
+	[class*="cnjnctn-type-"].cnjnctn-xs > [class*="cnjnctn-col"]:not(:first-child):after{
+		border-image: linear-gradient(to bottom, #fff 0.3em, #fff 0.3em, transparent 0.3em, transparent 2.35em, #fff 2.35em, #fff 2.35em) 1 100%;
+		border-left: none;
 	}
 }

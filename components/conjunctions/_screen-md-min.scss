@@ -11,60 +11,48 @@
 		border-left: 0 solid transparent;
 		flex-direction: row;
 
-		&:not(.brdr-0) {
-		[class*="cnjnctn-col"] {
+		&:not(.brdr-0) > [class*="cnjnctn-col"] {
 			min-height: 3em;
 			padding-left: 0;
 			padding-right: 0;
-			}
 		}
 
-		[class*="cnjnctn-col"]:not(:first-child) {
-			margin-left: 1.4em;
-			margin-top: 0;
-			position: relative;
+		> [class*="cnjnctn-col"] {
+			&:not(:first-child) {
+				margin-left: 1.4em;
+				margin-top: 0;
+				position: relative;
 
-			&:after {
-				border-image: linear-gradient(to bottom, #6f6f6f 0.3em, #6f6f6f 0.3em, transparent 0.3em, transparent 2.35em, #6f6f6f 2.35em, #6f6f6f 2.35em) 1 100%;
-				border-left: 3px solid #6f6f6f;
-				margin-left: -1.6em;
+				&:after {
+					border-image: linear-gradient(to bottom, #6f6f6f 0.3em, #6f6f6f 0.3em, transparent 0.3em, transparent 2.35em, #6f6f6f 2.35em, #6f6f6f 2.35em) 1 100%;
+					border-left: 3px solid #6f6f6f;
+					margin-left: -1.6em;
+				}
+
+				&:before {
+					margin-top: 0.3em;
+				}
 			}
 
-			&:before {
-				margin-top: 0.3em;
+			&:not(:last-child) {
+				margin-bottom: 0;
 			}
-		}
-
-		[class*="cnjnctn-col"]:not(:last-child) {
-			margin-bottom: 0;
 		}
 	}
 }
 
-.cnjnctn-type-or {
-	&.cnjnctn-md {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			margin-left: -3.3em;
-		}
-	}
+.cnjnctn-type-or.cnjnctn-md > [class*="cnjnctn-col"]:not(:first-child):before {
+	margin-left: -3.3em;
 }
 
-.cnjnctn-type-and {
-	&.cnjnctn-md {
-		[class*="cnjnctn-col"]:not(:first-child):before {
-			border-width: 3px 0;
-			margin-left: -3.15em;
-		}
-	}
+.cnjnctn-type-and.cnjnctn-md > [class*="cnjnctn-col"]:not(:first-child):before {
+	border-width: 3px 0;
+	margin-left: -3.15em;
 }
 
 @media (prefers-contrast: more) {
-	[class*="cnjnctn-type-"] {
-		&.cnjnctn-md {
-			[class*="cnjnctn-col"]:not(:first-child):after {
-				border-image: linear-gradient(to bottom, #fff 0.3em, #fff 0.3em, transparent 0.3em, transparent 2.35em, #fff 2.35em, #fff 2.35em) 1 100%;
-				border-left: none;
-			}
-		}
+	[class*="cnjnctn-type-"].cnjnctn-md > [class*="cnjnctn-col"]:not(:first-child):after {
+		border-image: linear-gradient(to bottom, #fff 0.3em, #fff 0.3em, transparent 0.3em, transparent 2.35em, #fff 2.35em, #fff 2.35em) 1 100%;
+		border-left: none;
 	}
 }
