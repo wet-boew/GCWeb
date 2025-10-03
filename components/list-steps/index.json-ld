@@ -17,7 +17,7 @@
 	"modified": "2025-09-16",
 	"componentName": "list-steps",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.0.1",
 	"pages": {
 		"examples": [
 			{
@@ -68,7 +68,7 @@
 				"en": "Style ordered list and divs with steps number in circles.",
 				"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
 			},
-			"iteration": "_:iteration_list_steps_1",
+			"iteration": "_:iteration_list_steps_2",
 			"example": [
 				{
 					"en": { "href": "list-steps-en.html", "text": "List steps" },
@@ -94,6 +94,10 @@
 				{
 					"en": "September 2025 - Stabilized the component.",
 					"fr": "Septembre 2025 - La composante a été stabilisée."
+				},
+				{
+					"en": "October 2025 - The numbering in mobile view is smaller than desktop view, not the other way around.",
+					"fr": "Octobre 2025 - La numérotation en mode mobile est plus petite qu'en mode bureau, et non l'inverse."
 				}
 			]
 		}
@@ -101,7 +105,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_list_steps",
-			"iteration": "_:iteration_list_steps_1",
+			"iteration": "_:iteration_list_steps_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -210,6 +214,26 @@
 					"code": "<ol class=\"lst-stps\">"
 				}
 			]
+		},
+		{
+			"@id": "_:iteration_list_steps_2",
+			"name": "List steps - Iteration 2",
+			"date": "2025-08",
+			"detectableBy": ".lst-stps",
+			"fixes": [
+				{
+					"en": "The numbering in mobile view is smaller than desktop view, not the other way around.",
+					"fr": "La numérotation en mode mobile est plus petite qu'en mode bureau, et non l'inverse."
+				}
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
 		}
 	],
 	"changesets": [
@@ -217,7 +241,7 @@
 			"@id": "_:cs_list_steps_1",
 			"name": "List steps",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_list_steps_1",
+			"baseOnIteration": "_:iteration_list_steps_2",
 			"detectableBy": ".lst-stps",
 			"layout": "Not applicable",
 			"style": "Style ordered list and divs with steps number in circles.",
