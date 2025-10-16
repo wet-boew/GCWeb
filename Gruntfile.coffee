@@ -1126,8 +1126,8 @@ module.exports = (grunt) ->
 						# "!{sites,components,templatesdesign-patterns}/*/**/*.{md,html}"
 
 						# Images
-						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{jpg,png,ico}"
-						"!{sites,common,components,templates,design-patterns,wet-boew}/*.{ico,jpg,png}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{jpg,png,ico,gif}"
+						"!{sites,common,components,templates,design-patterns,wet-boew}/*.{ico,jpg,png,gif}"
 
 						# External fonts
 						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.{eot,svg,ttf,woff}"
