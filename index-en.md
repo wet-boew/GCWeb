@@ -223,7 +223,7 @@ css:
           <div class="modal-body">
             <div class="mx-3">
               <p>{{ template.description[ page.language ] | default: '[Short description of the template]' }}</p>
-              <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
+              <a href="https://github.com/wet-boew/GCWeb/tree/master/templates/{{ template.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
                 {% for pgGroup in list-pages %}
                 {% assign grpkey = pgGroup[0] %}
               <h3 class="h6">{{ page_group[ grpkey ] | default: "Unknown group" }}</h3>
@@ -415,7 +415,7 @@ css:
         <div class="modal-body">
           <div class="mx-3">
           <p>{{ item.description[ page.language ] | default: '[Short description of the Canada.ca core component]' }}</p>
-          <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
+          <a href="https://github.com/wet-boew/GCWeb/tree/master/sites/{{ item.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
             {% for pgGroup in list-pages %}
             {% assign grpkey = pgGroup[0] %}
             <h3 class="h6">{{ page_group[ grpkey ] | default: "Unknown group" }}</h3>
@@ -516,7 +516,7 @@ css:
           <div class="modal-body">
             <div class="mx-3">
               <p>{{ item.description[ page.language ] | default: '[Short description of the common component]' }}</p>
-              <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
+              <a href="https://github.com/wet-boew/GCWeb/tree/master/common/{{ item.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>View source code</a>
               {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
               <h3 class="h6">{{ page_group[ grpkey ] | default: "Unknown group" }}</h3>
