@@ -230,7 +230,7 @@ css:
 <div class="modal-body">
 <div class="mx-3">
 <p>{{ template.description[ page.language ] | default: '[Courte description du gabarit]' }}</p>
-<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/templates/{{ template.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
 {% for pgGroup in list-pages %}
 {% assign grpkey = pgGroup[0] %}
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
@@ -324,7 +324,7 @@ css:
 <div class="modal-body">
 <div class="mx-3">
 <p>{{ designPattern.description[ page.language ] | default: '[Courte description des configurations de conception]' }}</p>
-<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/design-patterns/{{ designPattern.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
 {% for pgGroup in list-pages %}
 {% assign grpkey = pgGroup[0] %}
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
@@ -432,7 +432,7 @@ css:
 <div class="modal-body">
 <div class="mx-3">
 <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité globale]" }}</p>
-<a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+<a href="https://github.com/wet-boew/GCWeb/tree/master/sites/{{ item.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
 {% for pgGroup in list-pages %}
 {% assign grpkey = pgGroup[0] %}
 <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
@@ -537,7 +537,7 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ item.description[ page.language ] | default: "[Courte description de la fonctionnalité commune]" }}</p>
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/common/{{ item.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
             <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
@@ -641,7 +641,7 @@ css:
         <div class="modal-body">
           <div class="mx-3">
             <p>{{ wetboew.description[ page.language ] | default: "[Courte description de wetboew]" }}</p>
-            <a href="https://github.com/wet-boew/GCWeb/tree/master/components/{{ component.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
+            <a href="https://github.com/wet-boew/GCWeb/tree/master/wet-boew/{{ wetboew.componentName }}" hreflang="en"><span class="fas fa-code small mrgn-rght-sm" aria-hidden="true"></span>Voir le code source</a>
             {% for pgGroup in list-pages %}
               {% assign grpkey = pgGroup[0] %}
             <h3 class="h6">{{ page_group[ grpkey ] | default: "Groupe inconnu" }}</h3>
