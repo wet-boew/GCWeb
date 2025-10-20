@@ -1,0 +1,31 @@
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+{%- if page.title -%}
+{{ page.title }}
+{%- else -%}
+Page untitled
+{%- endif -%}
+{%- endcapture -%}
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+
+<head>
+	<meta charset="utf-8">
+	{% include license.html %}
+	<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	{% include metadata.html %}
+	{% include resources-inc/head.html %}
+</head>
+
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+	{% include skiplinks/skiplinks.html %}
+	{% include header/gcds-header-complete.html %}
+	<main class="container" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+		{{ content }}
+		{% include page-details/footer.html %}
+	</main>
+	{% include footers/gcds-footer-complete.html %}
+	{% include resources-inc/footer.html %}
+</body>
+</html>
