@@ -31,6 +31,9 @@ pages:
 sponsor: Francis Snoddy on behalf of ESDC - Portfolio Web
 
 changes:
+  - date: 2025-10-22
+    description: Removal of the custom purple color for the bar underneath the main title H1 of the thematic. The coporate red color will now be applied on page load. This is to aligned with TBS/DTO recommendations and directives.   
+    publicImpact: No impact since that the only site "What to do when someone dies" make use of this thematic is already using the red underline. 
   - date: 2024-12-02
     description: Life Journey home page layout, includes the code and an example to enable the home page layout to be used by current and future Life Journey projects
     departmentImpact: Having this layout integrated will allow Canada.ca to have a more streamlined and consistent theme throughout the Journey Labs projects. Currently the pages that make use of this layout have it hardcoded into the page
