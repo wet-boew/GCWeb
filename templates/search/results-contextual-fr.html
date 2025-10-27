@@ -1,21 +1,36 @@
 ---
 {
-	"title": "Résultats de la recherche (Contextuel)",
+	"title": "Recherche (Contextuel)",
 	"language": "fr",
 	"altLangPage": "results-contextual-en.html",
 	"pageType": "recherche",
 	"pageclass": "page-type-search",
-	"dateModified": "2022-08-02",
+	"dateModified": "2025-07-28",
 	"share": "false",
-	"deptfeature": false
+	"deptfeature": false,
+	"nositesearch": true
 }
 ---
 
 <div class="well">
-	<form class="mrgn-tp-sm">
-		<label class="wb-inv" for="sch-inp">Recherchez le site Web du Gouvernement du Canada</label>
-		<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
-
+	<form class="mrgn-tp-sm" role="search">
+		<div class="row">
+			<div class="col-md-8">
+				<label for="sch-inp" class="wb-inv">Recherche [contextuel]:</label>
+			</div>
+			<div class="col-md-4 text-right">
+				<ul class="list-inline">
+					<li><a href="/fr/sr/st.html"> Trucs de recherche</a></li>
+					<li><a href="advanced-search-fr.html">Recherche Avancée</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="input-group mrgn-tp-lg">
+			<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv"></span></button>
+			</span>
+		</div>
 		<div class="mrgn-tp-md">
 			<p class="wb-inv">Voir les résultats pour:</p>
 
@@ -24,9 +39,6 @@
 				<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Etiquette contextuel</a></li>
 			</ul>
 
-			<div class="pull-right">
-				<button type="submit" class="btn btn-primary" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span> Recherche</button>
-			</div>
 			<div class="clearfix"></div>
 		</div>
 		<p id="gc-pi" class="mrgn-tp-md">N'incluez pas de renseignements personnels (téléphone, courriel, NAS, renseignements financiers, médicaux ou professionnels).</p>
@@ -96,4 +108,6 @@
 	</div>
 </section>
 
-<p class="text-center"><small><a href="#URL-of-the-advance-search-page">Effectuer une recherche avancée</a></small></p>
+<p class="text-center small">
+	<a href="sra-fr.html">Effectuer une recherche avancée</a>
+</p>
