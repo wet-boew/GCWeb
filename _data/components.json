@@ -657,6 +657,40 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "Deprecated markup",
+		"fr": "Balisage déconseillé"
+	},
+	"description": {
+		"en": "Reference documents and used to test old practice to ensure compatibility with the latest changes applied at this theme.",
+		"fr": "Ce document est à titre de référence et afin de mettre à l'essaie d'ancienne pratique pour s'assurer qu'ils sont compatible avec les derniers changements apporté au thème."
+	},
+	"modified": "2025-09-23",
+	"componentName": "deprecated",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
+				"language": "en",
+				"path": "deprecated-en.html"
+			},
+			{
+				"title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
+				"language": "fr",
+				"path": "deprecated-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Checkboxes and radio buttons",
 		"fr": "Cases à cocher et boutons radio"
 	},
@@ -2022,10 +2056,10 @@
 		"en": "Features top tasks related to the page it is on.",
 		"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
 	},
-	"modified": "2025-09-29",
+	"modified": "2025-10-31",
 	"componentName": "gc-most-requested",
 	"status": "stable",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"pages": {
 		"docs": [
 			{
@@ -2088,7 +2122,7 @@
 				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
 			},
-			"iteration": "_:iteration_mostrequested_3",
+			"iteration": "_:iteration_mostrequested_4",
 			"example": [
 				{
 					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
@@ -2107,6 +2141,10 @@
 				"_:implement_mostrequested"
 			],
 			"history": [
+				{
+					"en": "October 2025 - Fixed the misalignment issue between the list items when there are only two of them.",
+					"fr": "Octobre 2025 - Correction du problème d'alignement entre les éléments de la liste lorsqu'il n'y en a que deux."
+				},
 				{
 					"en": "September 2025 - Items are displayed horizontally when there are only two list items on medium screen breakpoint and larger.",
 					"fr": "Septembre 2025 - Les éléments sont affichés horizontalement quand il y a seulement deux éléments de liste à partir d'un breakpoint écran moyen et plus."
@@ -2129,7 +2167,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_mostrequested",
-			"iteration": "_:iteration_mostrequested_2",
+			"iteration": "_:iteration_mostrequested_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -2175,6 +2213,24 @@
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_mostrequested_4",
+			"name": "Most requested - Iteration 4",
+			"date": "2025-10",
+			"fixes": [
+				"Fixed the misalignment issue between the list items when there are only two of them."
+			],
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_3",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
 		{
 			"@id": "_:iteration_mostrequested_3",
 			"name": "Most requested - Iteration 3",
@@ -3208,83 +3264,6 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Other components",
-		"fr": "Autre composant"
-	},
-	"description": {
-		"en": "Components included but need to move in its own folder.",
-		"fr": "Composant inclus mais qu'il nécessite qu'ils soit déplacé dans son propre dossier."
-	},
-	"modified": "2021-02-12",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Provisional functionality",
-				"language": "en",
-				"path": "provisional-en.html"
-			},
-			{
-				"title": "Fonctionnalités provisoires",
-				"language": "fr",
-				"path": "provisional-fr.html"
-			},
-
-			{
-				"title": "Redacted text",
-				"language": "en",
-				"path": "redacted-en.html"
-			},
-			{
-				"title": "Texte caviardé",
-				"language": "fr",
-				"path": "redacted-fr.html"
-			},
-
-			{
-				"title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "en",
-				"path": "deprecated-en.html"
-			},
-			{
-				"title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "fr",
-				"path": "deprecated-fr.html"
-			},
-
-			{
-				"title": "Float column in a data table",
-				"language": "en",
-				"path": "tbl-floatcolumn-en.html"
-			},
-			{
-				"title": "Float column in a data table",
-				"language": "fr",
-				"path": "tbl-floatcolumn-fr.html"
-			},
-
-			{
-				"title": "Video example",
-				"language": "en",
-				"path": "video-en.html"
-			},
-			{
-				"title": "Exemple de vidéo",
-				"language": "fr",
-				"path": "video-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
 		"en": "Labels",
 		"fr": "Étiquettes"
 	},
@@ -3649,6 +3628,74 @@
 				"title": "Panneaux",
 				"language": "fr",
 				"path": "panels-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Redacted text",
+		"fr": "Texte caviardé"
+	},
+	"description": {
+		"en": "Guidance on how to code redacted text.",
+		"fr": "Ligne directrice sur le codage de texte caviardé (ou expurgé)."
+	},
+	"modified": "2025-09-23",
+	"componentName": "redacted",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Redacted text",
+				"language": "en",
+				"path": "redacted-en.html"
+			},
+			{
+				"title": "Texte caviardé",
+				"language": "fr",
+				"path": "redacted-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Float column in a data table",
+		"fr": "Colonne flottante dans un tableau de données"
+	},
+	"description": {
+		"en": "Use to display a table data in a user friendly manner.",
+		"fr": "Utiliser pour afficher les données d'un tableau de manière claire."
+	},
+	"modified": "2025-09-23",
+	"componentName": "tbl-floatcolumn",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Float column in a data table",
+				"language": "en",
+				"path": "tbl-floatcolumn-en.html"
+			},
+			{
+				"title": "Colonne flottante dans un tableau de données",
+				"language": "fr",
+				"path": "tbl-floatcolumn-fr.html"
 			}
 		]
 	}
