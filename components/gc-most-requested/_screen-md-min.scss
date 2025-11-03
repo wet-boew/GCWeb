@@ -36,11 +36,14 @@
 				display: block;
 				width: 335px;
 			}
+		}
 
-			&:nth-child(2):last-child {
-				break-after: column;
-				break-inside: avoid-column;
-				display: block;
+		// If there are only two items in the list, display them side by side, horizontally aligned
+		&:has(>li:nth-child(2):last-child) {
+			display: flex;
+
+			> li {
+				width: 50%;
 			}
 		}
 	}
