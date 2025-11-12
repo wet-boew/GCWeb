@@ -4,6 +4,20 @@
   @desc:  Styles specific to the theme component for GCWeb
 */
 
+@mixin continuous-bg($bg-color) {
+	position: relative;
+
+	&::after {
+		background-color: $bg-color;
+		bottom: 0;
+		content: "";
+		left: calc(100% - 1px);
+		position: absolute;
+		top: 0;
+		width: 9999px;
+	}
+}
+
 .page-type-theme {
 	overflow-x: hidden;
 
@@ -46,21 +60,29 @@
 		display: none;
 	}
 
-	.gc-most-requested {
-		position: relative;
-
-		&::after {
-			background-color: #f5f5f5;
-			bottom: 0;
-			content: "";
-			left: calc(100% - 1px);
-			position: absolute;
-			top: 0;
-			width: 9999px;
+	main {
+		h1#wb-cont {
+			font-size: 1.81rem;
 		}
 
-		ul li::after {
-			width: 240px
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		.gc-featured-link {
+			@include continuous-bg($bg-gctheme);
+		}
+
+		.gc-most-requested {
+			@include continuous-bg(#f5f5f5);
+
+			&:has(~ .gc-most-requested)::after {
+				background-color: $state-info-bg;
+			}
+		}
+
+		.bg-light {
+			@include continuous-bg(#f5f5f5);
 		}
 	}
 }
