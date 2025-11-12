@@ -17,7 +17,7 @@
 	"modified": "2025-10-31",
 	"componentName": "gc-most-requested",
 	"status": "stable",
-	"version": "1.2.1",
+	"version": "1.3",
 	"pages": {
 		"docs": [
 			{
@@ -43,12 +43,22 @@
 				"path": "gc-most-requested-fr.html"
 			},
 			{
-				"title": "Most requested - Two items",
+				"title": "Most requested with highlight",
+				"language": "en",
+				"path": "gc-most-requested-highlight-en.html"
+			},
+			{
+				"title": "En demande avec mise en évidence",
+				"language": "fr",
+				"path": "gc-most-requested-highlight-fr.html"
+			},
+			{
+				"title": "Most requested - two items",
 				"language": "en",
 				"path": "gc-most-requested-two-items-en.html"
 			},
 			{
-				"title": "En demande - Deux éléments",
+				"title": "En demande - deux éléments",
 				"language": "fr",
 				"path": "gc-most-requested-two-items-fr.html"
 			},
@@ -120,6 +130,37 @@
 					"fr": "Juin 2021 - Implémentation provisionnelle de la variante."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Most requested with highlight",
+				"fr": "En demande avec mise en évidence"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Features top tasks related to the page it is on.",
+				"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
+			},
+			"iteration": "_:iteration_mostrequested_4",
+			"example": [
+				{
+					"en": { "href": "gc-most-requested-highlight-en.html", "text": "Most requested with highlight" },
+					"fr": { "href": "gc-most-requested-highlight-fr.html", "text": "En demande avec mise en évidence" }
+				}
+			],
+			"implementation": [
+				"_:implement_mostrequested_highlight"
+			],
+			"history": [
+				{
+					"en": "November 2025 - Initial implementation of the variation.",
+					"fr": "Novembre 2025 - Implémentation initiale de la variante."
+				}
+			]
 		}
 	],
 	"implementation": [
@@ -168,9 +209,63 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_mostrequested_highlight",
+			"iteration": "_:iteration_mostrequested_highlight_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually. Please refer to the guidance on when you can use this pattern.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement. Veuillez vous référer aux directives pour savoir quand utiliser ce modèle."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below.",
+					"The component cannot be located inside another element with the class <code>container</code>.",
+					"This variation must be directly followed be the default variation of the Most requested component. It cannot be implemented on its own."
+				],
+				"fr": [
+					"Référez-vous au code qui suit.",
+					"La composante ne peut pas être située à l'intérieur d'un autre élément avec la classe <code>container</code>.",
+					"Cette variation doit être immédiatement suivie de la variation par défaut du composant En demande. Elle ne peut pas être implémentée seule."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>\n<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>\n<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>En demande</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 1]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 2]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 3]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 4]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 5]</a></li>\n\t\t\t<li><a href=\"#\">[Lien vers une tâche principale 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_mostrequested_highlight_1",
+			"name": "Most requested with highlight - Iteration 1",
+			"date": "2025-11",
+			"detectableBy": ".gc-most-requested.highlight",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>\n<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 3]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 4]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 5]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 6]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
 		{
 			"@id": "_:iteration_mostrequested_4",
 			"name": "Most requested - Iteration 4",
