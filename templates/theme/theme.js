@@ -50,7 +50,7 @@ var $document = wb.doc,
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // On click of the menu button
-$document.on( "click", "#menuBtn", function( event ) {
+$document.on( "click", "#menu-btn", function( event ) {
 	let themeMenuBtn = event.currentTarget;
 
 	if ( themeMenuBtn.getAttribute( "aria-expanded" ) === "true" ) {
