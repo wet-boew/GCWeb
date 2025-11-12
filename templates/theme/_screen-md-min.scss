@@ -4,8 +4,30 @@
   @desc:  Styles specific to the theme component for GCWeb
 */
 
+@mixin continuous-bg($bg-color) {
+	position: relative;
+
+	&::after {
+		background-color: $bg-color;
+		bottom: 0;
+		content: "";
+		left: calc(100% - 1px);
+		position: absolute;
+		top: 0;
+		width: 9999px;
+	}
+}
+
 .page-type-theme {
 	overflow-x: hidden;
+
+	h1#wb-cont {
+		font-size: 1.875rem;
+	}
+
+	h2 {
+		font-size: 1.8125rem;
+	}
 
 	#gridContainer {
 		display: flex;
@@ -46,21 +68,35 @@
 		display: none;
 	}
 
-	.gc-most-requested {
-		position: relative;
+	.alert {
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
 
-		&::after {
-			background-color: #f5f5f5;
-			bottom: 0;
-			content: "";
-			left: calc(100% - 1px);
-			position: absolute;
-			top: 0;
-			width: 9999px;
+	.gc-featured-link {
+		@include continuous-bg($bg-gctheme);
+	}
+
+	.gc-most-requested {
+		@include continuous-bg(#f5f5f5);
+
+		&.highlight::after {
+			background-color: $state-info-bg;
 		}
 
-		ul li::after {
-			width: 240px
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+
+	.bg-light {
+		@include continuous-bg(#f5f5f5);
+	}
+
+	.gc-srvinfo {
+		h3 {
+			font-size: 1.5rem;
 		}
 	}
 }
