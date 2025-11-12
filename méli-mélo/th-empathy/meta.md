@@ -4,7 +4,7 @@ lang: en
 title: Empathy theme
 description: Background colours used for empathy.
 componentName: th-empathy
-expiry: November 30, 2025
+expiry: November 30, 2026
 mainPage: empathy.html
 cssClass:
 - empathy
@@ -31,6 +31,9 @@ pages:
 sponsor: Francis Snoddy on behalf of ESDC - Portfolio Web
 
 changes:
+  - date: 2025-11-04
+    description: The thematic has been renewed for another year therefore, the expiry date has been updated to Nov 30, 2026.   
+    publicImpact: No impact only minor content change.
   - date: 2025-10-22
     description: Removal of the custom purple color for the bar underneath the main title H1 of the thematic. The coporate red color will now be applied on page load. This is to aligned with TBS/DTO recommendations and directives.   
     publicImpact: No impact since that the only site "What to do when someone dies" make use of this thematic is already using the red underline. 

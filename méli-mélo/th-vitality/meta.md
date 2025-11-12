@@ -4,7 +4,7 @@ lang: en
 title: Vitality theme
 description: Background colours used for vitality.
 componentName: th-vitality
-expiry: November 30, 2025
+expiry: November 30, 2026
 mainPage: vitality.html
 cssClass:
 - vitality
@@ -22,5 +22,11 @@ pages:
       language: en
       path: vitality.html
 sponsor: Francis Snoddy on behalf of ESDC - Portfolio web
+
+changes:
+  - date: 2025-11-04
+    description: The thematic has been renewed for another year therefore, the expiry date has been updated to Nov 30, 2026.   
+    publicImpact: No impact only minor content change.
+
 output: false
 ---
