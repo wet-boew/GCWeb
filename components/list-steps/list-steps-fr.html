@@ -19,6 +19,7 @@ altLangPage: list-steps-en.html
 		<li><a href="#rayee">Conception rayée</a></li>
 		<li><a href="#rayeesousliste">Conception rayée pour la sous-liste</a></li>
 		<li><a href="#startattr">Attribut de début (<span lang="en">start</span>)</a></li>
+		<li><a href="#limitwidth">Largeur de contenu limitée</a></li>
 	</ul>
 </section>
 
@@ -589,4 +590,57 @@ altLangPage: list-steps-en.html
 		</section>
 		</li>
 	</ol>
+</section>
+<section>
+	<h2 id="limitwidth">Largeur de contenu limitée</h2>
+	<p>Les éléments de liste sont normalement restreints en largeur de caractères lorsqu'on utilise la classe <code>cnt-wdth-lmtd</code>. Une étape de liste contenant une balise <code>&lt;div&gt;</code>, <code>&lt;section&gt;</code> ou <code>&lt;table&gt;</code> ne sera pas restreinte en largeur de caractères, ni les composants à l'intérieur.</p>
+	<p>Cependant, les éléments normalement restreints par la classe <code>cnt-wdth-lmtd</code> seront toujours affectés à l'intérieur de ces balises.</p>
+	<section class="cnt-wdth-lmtd">
+		<h3>Avec la classe cnt-wdth-lmtd</h3>
+		<ol class="lst-stps ld-zr">
+			<li>
+				<h5>En-tête pour l'étape 1</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dictum urna justo, porta ultrices purus blandit a. Nunc sed quam dolor. Donec vitae dapibus turpis, in ultrices nisl. Phasellus et tristique diam. Sed a sem eget nisi vehicula tristique et sit amet elit. Vivamus porta turpis sed sapien posuere blandit. Phasellus faucibus quis augue hendrerit tincidunt.</p>
+			</li>
+			<li>
+				<h5>En-tête pour l'étape 2</h5>
+				<p>Duis condimentum volutpat blandit. Praesent non justo venenatis, efficitur ex et, commodo libero.</p>
+				<div class="row">
+					<div class="col-md-6">
+						<h6>Sous-titre pour l'étape 2</h6>
+						<p>Aliquam gravida, lorem at finibus pulvinar, orci neque dignissim erat, eget ornare velit sem tincidunt lectus. Duis condimentum volutpat blandit.</p>
+					</div>
+					<div class="col-md-6">
+						<h6>Sous-titre pour l'étape 2</h6>
+						<p>Phasellus non lacinia dolor, eu scelerisque est. Donec sed elementum odio. Sed molestie molestie tempor. Praesent non justo venenatis, efficitur ex et, commodo libero.</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<h5>En-tête pour l'étape 3</h5>
+				<p>Mauris ut consequat urna, sit amet interdum risus. Sed eu nulla ac nisl commodo laoreet nec eget ante.</p>
+				<details>
+					<summary>Example</summary>
+					<p>Quisque lorem tortor, cursus et pretium at, porta in risus. Donec ut placerat lorem. Curabitur neque ex, rutrum a justo sit amet, placerat viverra magna.</p>
+					<p>Curabitur nunc dolor, molestie efficitur ullamcorper posuere, eleifend vitae lorem.</p>
+				</details>
+			</li>
+			<li>
+				<h5>En-tête pour l'étape 4</h5>
+				<p>Quisque id accumsan tellus. Nunc sed volutpat ligula, eget semper arcu. Cras bibendum leo leo, sit amet varius turpis fermentum vel. Phasellus dapibus, ipsum sed volutpat efficitur, est massa dapibus nunc, vel vestibulum mauris nisl ac elit. Aliquam ultricies dignissim ligula ac interdum. Curabitur finibus cursus elementum. Maecenas ullamcorper interdum viverra. Sed massa eros, sagittis ut ipsum eget, lobortis pharetra leo.</p>
+			</li>
+		</ol>
+		<details>
+			<summary>Visualiser le code</summary>
+			<pre><code>&lt;section class="cnt-wdth-lmtd"&gt;
+	&lt;ol class="lst-stps ld-zr"&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;&lt;div&gt;...&lt;/div&gt;&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+		&lt;li&gt;...&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/section&gt;
+			</code></pre>
+		</details>
+	</section>
 </section>

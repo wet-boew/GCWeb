@@ -3331,7 +3331,7 @@
 	"modified": "2025-09-16",
 	"componentName": "list-steps",
 	"status": "stable",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"pages": {
 		"examples": [
 			{
@@ -3516,10 +3516,14 @@
 	],
 	"iteration": [
 		{
-			"@id": "_:iteration_list_steps_1",
-			"name": "List steps - Iteration 1",
-			"date": "2025-07",
+			"@id": "_:iteration_list_steps_3",
+			"name": "List steps - Iteration 3",
+			"date": "2025-11",
 			"detectableBy": ".lst-stps",
+			"fixes": [
+				"Step width is no longer limited when inside .cnt-wdth-lmtd class"
+			],
+			"predecessor": "_:iteration_list_steps_2",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -3534,12 +3538,26 @@
 			"name": "List steps - Iteration 2",
 			"date": "2025-08",
 			"detectableBy": ".lst-stps",
+			"predecessor": "_:iteration_list_steps_1",
+			"successor": "_:iteration_list_steps_3",
 			"fixes": [
-				{
-					"en": "The numbering in mobile view is smaller than desktop view, not the other way around.",
-					"fr": "La numérotation en mode mobile est plus petite qu'en mode bureau, et non l'inverse."
-				}
+				"The numbering in mobile view is smaller than desktop view, not the other way around."
 			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_list_steps_1",
+			"name": "List steps - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".lst-stps",
+			"successor": "_:iteration_list_steps_2",
 			"assets": [
 				{
 					"@type": "source-code",
