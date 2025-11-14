@@ -1,0 +1,44 @@
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+{%- if page.title -%}
+{{ page.title }}
+{%- else -%}
+Page untitled
+{%- endif -%}
+{%- endcapture -%}
+
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+
+<head>
+	<meta charset="utf-8">
+	{% include license.html %}
+	<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	{% include metadata.html %}
+	{% include resources-inc/head.html gcdsRequired=true%}
+</head>
+
+<body {% if page.pageclass %}class="{{ page.pageclass }}"{% endif %} vocab="http://schema.org/" typeof="WebPage">
+	{% include header/gcds-header.html %}
+	<main {% unless page.noContainer %}class="container"{% endunless %}
+		property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+
+	<!-- Check if the page has a hard coded h1 title -->
+	{% assign normalizedContent = content | downcase %}
+	{% assign hasH1Title = false %}
+	{% if normalizedContent contains 'id="wb-cont"' %}
+		{% assign hasH1Title = true %}
+	{% endif %}
+	<!-- Unless the page has a hard coded h1 title, include the main page title. -->
+	{% unless hasH1Title %}
+		{% include main-page-title/main-page-title.html removeHeaderMargin=true %}
+	{% endunless %}
+	{{ content }}
+	{% include page-details/footer.html addContainer=page.noContainer %}
+
+	</main>
+	{% include footers/gcds-footer.html %}
+	{% include resources-inc/footer.html %}
+</body>
+</html>

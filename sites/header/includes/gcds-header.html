@@ -1,0 +1,14 @@
+<gcds-header lang-href="{{ page.altLangPage }}" skip-to-href="#wb-cont">
+	{% include skiplinks/gcds-skiplinks.html %}
+	{% unless page.nositesearch %}
+	<gcds-search slot="search"></gcds-search>
+	{% endunless %}
+	{% unless page.siteMenuPath == false %}
+	{% if page.sitemenuPath or site.global.sitemenuPath and site.global.sitemenuPath.first %}
+	<gcds-topic-menu slot="menu"></gcds-topic-menu>
+	{% endif %}
+	{% endunless %}
+	{% unless page.noBreadcrumbs %}
+		{% include breadcrumbs/gcds-breadcrumbs.html %}
+	{% endunless %}
+</gcds-header>

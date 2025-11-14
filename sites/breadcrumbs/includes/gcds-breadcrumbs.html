@@ -1,0 +1,20 @@
+<gcds-breadcrumbs slot="breadcrumb" class="mt-2">
+	{%- unless page.overwriteBreadcrumbs -%}
+		{%- if site.global.breadcrumbs -%}
+			{% for breadcrumb in site.global.breadcrumbs[i18nText-lang] %}
+				<gcds-breadcrumbs-item
+					href="{% unless breadcrumb.link contains 'http' or breadcrumb.link contains '../' %}{{ setting-siteBasePath }}{% endunless %}{{ breadcrumb.link }}">
+					{{ breadcrumb.title }}
+				</gcds-breadcrumbs-item>
+			{%- endfor -%}
+		{% endif %}
+	{%- endunless -%}
+	{%- if page.breadcrumbs -%}
+		{% for breadcrumb in page.breadcrumbs %}
+			<gcds-breadcrumbs-item
+			href="{% unless breadcrumb.link contains 'http' or breadcrumb.link contains '../' %}{{ setting-siteBasePath }}{% endunless %}{{ breadcrumb.link }}">
+			{{ breadcrumb.title }}
+			</gcds-breadcrumbs-item>
+		{%- endfor -%}
+	{% endif %}
+</gcds-breadcrumbs>

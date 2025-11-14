@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.css">
 <script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.esm.js"></script>
 {% endif %}
-{%- if page.loadGCDS -%}
+{%- if page.loadGCDS or page.layout == "gcds-layout" or include.gcdsRequired -%}
 <script blocking="render" src="{{ setting-resourcesBasePathTheme }}/js/gcdsloader{{ setting-minifiedSuffix }}.js"></script>
 {% endif %}
 

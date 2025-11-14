@@ -448,6 +448,165 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "GCDS Layout",
+		"fr": "Disposition GCDS"
+	},
+	"description": {
+		"en": "Page layout using the GCDS header and footer components.",
+		"fr": "Disposition de la page utilisant les composants d'en-tête et de pied de page GCDS."
+	},
+	"modified": "2025-10-20",
+	"componentName": "gcds-layout",
+	"status": "provisional",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GCDS Layout - Core",
+				"language": "en",
+				"path": "gcds-layout-core-en.html"
+			},
+			{
+				"title": "Disposition GCDS - Essentiel",
+				"language": "fr",
+				"path": "gcds-layout-core-fr.html"
+			},
+			{
+				"title": "GCDS Layout - Complete",
+				"language": "en",
+				"path": "gcds-layout-complete-en.html"
+			},
+			{
+				"title": "Disposition GCDS - Complet",
+				"language": "fr",
+				"path": "gcds-layout-complete-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GCDS Layout",
+				"language": "en",
+				"path": "gcds-layout-doc-en.html"
+			},
+			{
+				"title": "Disposition GCDS",
+				"language": "fr",
+				"path": "gcds-layout-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "GCDS Layout",
+				"fr": "Disposition GCDS"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "Page template leveraging the GCDS header and footer components.",
+				"fr": "Gabarit de page utilisant les composants d'en-tête et de pied de page GCDS."
+			},
+			"iteration": "_:iteration_gcdslayout_1",
+			"example": [
+				{
+					"en": { "href": "gcds-layout-core-en.html", "text": "GCDS Layout - Core" },
+					"fr": { "href": "gcds-layout-core-fr.html", "text": "Disposition GCDS - Essentiel" }
+				},
+				{
+					"en": { "href": "gcds-layout-complete-en.html", "text": "GCDS Layout - Complete" },
+					"fr": { "href": "gcds-layout-complete-fr.html", "text": "Disposition GCDS - Complet" }
+				}
+			],
+			"implementation": [
+				"_:implement_gcdslayout"
+			],
+			"history": [
+				{
+					"en": "October 2025 - Initial implementation of the page template.",
+					"fr": "Octobre 2025 - Implémentation initiale du gabarit de page."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gcdslayout",
+			"iteration": "_:iteration_gcdslayout_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the template manually and wanting to use the new GCDS components.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement et souhaitent utiliser les nouveaux composants GCDS."
+
+			},
+			"instructions": {
+				"en": [
+					"Refer to the GCDS documentation and examples for more information on implementing the components used in this page template."
+				],
+				"fr": [
+					"Référez-vous à la documentation et aux exemples GCDS pour plus d'informations sur l'implémentation des composants utilisés dans ce gabarit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "GCDS Layout - Core",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<nav slot=\"skip-to-nav\">\n\t\t<ul id=\"wb-tphp\">\n\t\t\t<li class=\"wb-slc\"><a class=\"wb-sl\" href=\"#wb-cont\">Skip to main content</a></li>\n\t\t\t<li class=\"wb-slc visible-sm visible-md visible-lg\"><a class=\"wb-sl\" href=\"#footer\">Skip to about this site</a></li>\n\t\t</ul>\n\t</nav>\n</gcds-header>\n\n...\n\n<gcds-footer display=\"compact\"></gcds-footer>"
+					},
+					{
+						"@type": "source-code",
+						"description": "GCDS Layout - Complete",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<nav slot=\"skip-to-nav\">\n\t\t<ul id=\"wb-tphp\">\n\t\t\t<li class=\"wb-slc\"><a class=\"wb-sl\" href=\"#wb-cont\">Skip to main content</a></li>\n\t\t\t<li class=\"wb-slc visible-sm visible-md visible-lg\"><a class=\"wb-sl\" href=\"#footer\">Skip to about this site</a></li>\n\t\t</ul>\n\t</nav>\n\t<gcds-search slot=\"search\"></gcds-search>\n\t<gcds-topic-menu slot=\"menu\"></gcds-topic-menu>\n\t<gcds-breadcrumbs slot=\"breadcrumb\" class=\"mt-2\">\n\t\t<gcds-breadcrumbs-item href=\"#\">GCWeb</gcds-breadcrumbs-item>\n\t</gcds-breadcrumbs>\n</gcds-header>\n\n...\n\n<gcds-footer\n\tdisplay=\"full\"\n\tcontextual-heading=\"Contextual navigation\"\n\tcontextual-links='{\"Context link 1\": \"#\", \"Context link 2\": \"#\", \"Context link 3\": \"#\"}'\n\tsub-links='{\"Custom sublink 1\": \"#\", \"Custom sublink 2\": \"#\", \"Custom sublink 3\": \"#\", \"Terms and conditions\": \"#\", \"Privacy\": \"#\"}'>\n</gcds-footer>"					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Disposition GCDS - Essentiel",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<nav slot=\"skip-to-nav\">\n\t\t<ul id=\"wb-tphp\">\n\t\t\t<li class=\"wb-slc\"><a class=\"wb-sl\" href=\"#wb-cont\">Passer au contenu principal</a></li>\n\t\t\t<li class=\"wb-slc visible-sm visible-md visible-lg\"><a class=\"wb-sl\" href=\"#footer\">Passer à « À propos de ce site »</a></li>\n\t\t</ul>\n\t</nav>\n</gcds-header>\n\n...\n\n<gcds-footer display=\"compact\"></gcds-footer>"
+
+					},
+					{
+						"@type": "source-code",
+						"description": "Disposition GCDS - Complet",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<nav slot=\"skip-to-nav\">\n\t\t<ul id=\"wb-tphp\">\n\t\t\t<li class=\"wb-slc\"><a class=\"wb-sl\" href=\"#wb-cont\">Passer au contenu principal</a></li>\n\t\t\t<li class=\"wb-slc visible-sm visible-md visible-lg\"><a class=\"wb-sl\" href=\"#footer\">Passer à « À propos de ce site »</a></li>\n\t\t</ul>\n\t</nav>\n\t<gcds-search slot=\"search\"></gcds-search>\n\t<gcds-topic-menu slot=\"menu\"></gcds-topic-menu>\n\t<gcds-breadcrumbs slot=\"breadcrumb\" class=\"mt-2\">\n\t\t<gcds-breadcrumbs-item href=\"#\">GCWeb</gcds-breadcrumbs-item>\n\t</gcds-breadcrumbs>\n</gcds-header>\n\n...\n\n<gcds-footer\n\tdisplay=\"full\"\n\tcontextual-heading=\"Navigation contextuelle\"\n\tcontextual-links='{\"Lien contextuel 1\": \"#\", \"Lien contextuel 2\": \"#\", \"Lien contextuel 3\": \"#\"}'\n\tsub-links='{\"Sous-lien personnalisé 1\": \"#\", \"Sous-lien personnalisé 2\": \"#\", \"Sous-lien personnalisé 3\": \"#\", \"Avis\": \"#\", \"Confidentialité\": \"#\"}'>\n</gcds-footer>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gcdslayout_1",
+			"name": "GCDS Layout - Iteration 1",
+			"date": "2025-10",
+			"detectableBy": "<gcds-header> and <gcds-footer> components"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_gcdslayout",
+			"name": "GCDS Layout",
+			"status": "provisional",
+			"detectableBy": "<gcds-header> and <gcds-footer> components",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Home",
 		"fr": "Accueil"
 	},
