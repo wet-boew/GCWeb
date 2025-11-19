@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"@version": 1.1,
+		"@version": 1.2,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -14,7 +14,7 @@
 		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
 		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
 	},
-	"modified": "2024-12-13",
+	"modified": "2025-11-12",
 	"componentName": "contributors",
 	"status": "stable",
 	"version": "1.1",
@@ -85,6 +85,10 @@
 				"_:implement_contributors_migrate_1_to_1.1"
 			],
 			"history": [
+				{
+					"en": "November 2025 - Bullets replaced with vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Remplacer les puces par des barres verticales dans la vue Desktop."
+				},
 				{
 					"en": "December 2024 - Component context of use changed from anywhere in the <code>&lt;main></code> to the page details section.",
 					"fr": "Décembre 2024 - Le contexte d'utilisation de la composante a changé de n'importe où dans le <code>&lt;main></code> à la section détails de la page."
@@ -208,6 +212,24 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_contributors_4",
+			"name": "Contributors - Iteration 4",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"additions": [
+				"Changed visual appearance of the page when in desktop view. When multiple components are listed, vertical bars are used instead of bullets/dots."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_3"
+		},
+		{
 			"@id": "_:iteration_contributors_3",
 			"name": "Contributors - Iteration 3",
 			"date": "2024-12",
@@ -224,7 +246,8 @@
 					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 				}
 			],
-			"predecessor": "_:iteration_contributors_2"
+			"predecessor": "_:iteration_contributors_2",
+			"successor": "_:iteration_contributors_4"
 		},
 		{
 			"@id": "_:iteration_contributors_2",
@@ -264,8 +287,27 @@
 	"changesets": [
 		{
 			"@id": "_:cs_contributors",
-			"name": "Contributors - Version 1.1",
+			"name": "Contributors - Version 1.2",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_4",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h3+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded. Vertical bars used in medium screens and up and bullet points used in smaller screens.",
+			"context": "Located in the page details section of the page above the date modified component.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		},
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1.1",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_contributors_3",
 			"detectableBy": ".pagedetails .gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
