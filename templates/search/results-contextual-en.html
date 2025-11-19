@@ -1,176 +1,192 @@
 ---
 {
-	"title": "Search results (Contextual)",
+	"title": "Search (Contextual)",
 	"language": "en",
 	"altLangPage": "results-contextual-fr.html",
 	"pageType": "search",
 	"pageclass": "page-type-search",
-	"dateModified": "2022-08-02",
+	"dateModified": "2025-07-28",
 	"share": "false",
-	"deptfeature": false
+	"nositesearch": true
 }
 ---
 
 <div class="well">
-	<form class="mrgn-tp-sm">
-		<label class="wb-inv" for="sch-inp">Search Government of Canada websites</label>
-		<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
-
-		<div class="mrgn-tp-md">
-			<p class="wb-inv">See results from:</p>
-
-			<ul class="list-inline mrgn-lft-sm pull-left">
-				<li><a href="#">All Government of Canada websites</a></li>
-				<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Context label</a></li>
-			</ul>
-
-			<div class="pull-right">
-				<button type="submit" class="btn btn-primary" name="wb-srch-sub"> <span class="glyphicon-search glyphicon"></span> Search</button>
+	<search>
+		<form class="mrgn-tp-sm">
+			<div class="row">
+				<div class="col-md-8">
+					<label for="sch-inp" class="wb-inv">Search [contextual]:</label>
+				</div>
+				<div class="col-md-4 text-right">
+					<ul class="list-inline">
+						<li><a href="/en/sr/st.html">Search Tips</a></li>
+						<li><a href="advanced-search-en.html">Advanced Search</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="clearfix"></div>
-		</div>
-		<p id="gc-pi" class="mrgn-tp-md">Don't include personal information (telephone, email, SIN, financial, medical, or work details).</p>
-	</form>
+			<div class="input-group mrgn-tp-lg">
+				<input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary"> <span class="glyphicon-search glyphicon"></span><span class="wb-inv"></span></button>
+				</span>
+			</div>
+
+			<div class="mrgn-tp-md">
+				<p class="wb-inv">See results from:</p>
+
+				<ul class="list-inline mrgn-lft-sm pull-left">
+					<li><a href="#">All Government of Canada websites</a></li>
+					<li class="mrgn-lft-lg current" aria-current="location"><a href="#">Context label</a></li>
+				</ul>
+
+				<div class="clearfix"></div>
+			</div>
+			<p id="gc-pi" class="mrgn-tp-md">Don't include personal information (telephone, email, SIN, financial, medical, or work details).</p>
+		</form>
+	</search>
 </div>
 
-<section class="results">
-	<h2 class="wb-inv">Search results</h2>
-	<p class="h4">[number] search results for "[search term]"</p>
-	<p>From [Context label]</p>
+<section>
+	<div>
+		<hgroup>
+			<h2>[number] search results for "[search term]"</h2>
+			<p>From [Context label]</p>
+		</hgroup>
+	</div>
 
-	<!-- Item 1 -->
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+	<div class="results">
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<!-- Item 2 -->
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-		</ul>
-		<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+			</ul>
+			<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<!-- Item 3 -->
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name 1]</li>
-			<li>[institution name 2]</li>
-			<li>[institution name 3]</li>
-			<li>[institution name 4]</li>
-			<li>[institution name 5]</li>
-			<li>[institution name 6]</li>
-			<li>[institution name 7]</li>
-			<li>[institution name 8]</li>
-			<li>[institution name 9]</li>
-			<li>[institution name 10]</li>
-			<li>[institution name 11]</li>
-			<li>[institution name 12]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name 1]</li>
+				<li>[institution name 2]</li>
+				<li>[institution name 3]</li>
+				<li>[institution name 4]</li>
+				<li>[institution name 5]</li>
+				<li>[institution name 6]</li>
+				<li>[institution name 7]</li>
+				<li>[institution name 8]</li>
+				<li>[institution name 9]</li>
+				<li>[institution name 10]</li>
+				<li>[institution name 11]</li>
+				<li>[institution name 12]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<p class="location"><cite><a href="https://www.canada.ca/en.html">https://www.canada.ca/en.html</a></cite></p>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
 
-	<section>
-		<h3><a href="#">[Search result page title]</a></h3>
-		<ul class="context-labels">
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-			<li>[institution name]</li>
-		</ul>
-		<ol class="location">
-			<li>[domain name of search result]</li>
-			<li>[parent breadcrumb of page]</li>
-		</ol>
-		<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
-	</section>
+		<section>
+			<h3><a href="#">[Search result page title]</a></h3>
+			<ul class="context-labels">
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+				<li>[institution name]</li>
+			</ul>
+			<ol class="location">
+				<li>[domain name of search result]</li>
+				<li>[parent breadcrumb of page]</li>
+			</ol>
+			<p><time datetime="2019-01-01" class="text-muted">[MMM DD, YYYY]</time> - [description/highlight of search result. Search <strong>terms</strong> in strong]</p>
+		</section>
+	</div>
 
 	<!-- Pagination -->
 	<div class="text-center">
@@ -213,4 +229,6 @@
 	</div>
 </section>
 
-<p class="text-center"><small><a href="#URL-of-the-advance-search-page">Perform an advanced search</a></small></p>
+<p class="text-center small">
+	<a href="sra-en.html">Perform an advanced search</a>
+</p>

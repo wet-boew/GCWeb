@@ -4,7 +4,7 @@
 	"language": "en",
 	"secondlevel": false,
 	"altLangPage": "api-fr.html",
-	"dateModified": "2023-04-18",
+	"dateModified": "2025-07-28",
 	"share": "true"
 }
 ---
@@ -33,6 +33,14 @@
 	</li>
 	<li><a href="results-advanced-en.html">Results advanced (English)</a></li>
 	<li><a href="results-advanced-fr.html" hreflang="fr" lang="fr">Résultats avancés (Français)</a></li>
+	<li><a href="advanced-search-en.html">Advanced search (English)</a></li>
+	<li><a href="advanced-search-fr.html" hreflang="fr" lang="fr">Recherche avancée (Français)</a></li>
+	<li><a href="results-did-you-mean-en.html">Results - did you mean (English)</a></li>
+	<li><a href="results-did-you-mean-fr.html" hreflang="fr" lang="fr">Résultats - voulez-vous dire (Français)</a></li>
+	<li><a href="results-error-en.html">Results - error (English)</a></li>
+	<li><a href="results-error-fr.html" hreflang="fr" lang="fr">Résultats - erreur (Français)</a></li>
+	<li><a href="results-no-results-en.html">Results - no results (English)</a></li>
+	<li><a href="results-no-results-fr.html" hreflang="fr" lang="fr">Résultats - aucun résultat (Français)</a></li>
 </ul>
 
 <h3>Prototype:</h3>
@@ -62,7 +70,15 @@
 
 <h2>Version history</h2>
 <ul>
-<li><time>2023-04-18</time> Version 3.0 - Update search pages with a new disclaimer message to let users know not entering personal information.</li>
+	<li><time>2025-07-28</time> Version 3.1 - Alignement of Search UI with GCWeb:</li>
+		<ul>
+			<li> Adjusted font sizes for h2, h3, and paragraph elements </li>
+			<li> Created reference implementation for the "No results", "Did you mean", and "Error" in-page items</li>
+			<li> Created working example for the Advanced Search template</li>
+			<li> Moved search button on the Contextual Search page template to the right of the search bar</li>
+		</ul>
+	</li>
+	<li><time>2023-04-18</time> Version 3.0 - Update search pages with a new disclaimer message to let users know not entering personal information.</li>
 	<li><time>2022-07-05</time> Version 2.3:
 		<ul>
 			<li>Adding a paragraph with a unique ID in the form to let users know not entering personal information.</li>
@@ -82,7 +98,7 @@
 	<li>Collapsible/Expandable feature when multiple labels in a search result item.</li>
 	<li>Collapsible/Expandable available filters, add a "Show more" button</li>
 	<li>Perform WCAG 2.0 Level AA conformance check on each working example</li>
-	<li>Complete the Search Template Schemas and its Shapes graphs</li>
+	<li>Complete the Search Template Shapes graphs</li>
 	<li>The description should not surpass 4 rows of text on mobile screens. The description may be different in mobile than in desktop to accommodate. JS or CSS might be useful to ensure this rule are followed and enforced.</li>
 	<li>Provide instructions on how search result item are structured to ease navigation with an assistive technology software.</li>
 </ul>
@@ -123,7 +139,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<h4>Version 3.0</h4>
-		<pre><code>&lt;form&gt;
+		<pre><code>&lt;form role="search"&gt;
 	&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
 	&lt;div class="input-group mrgn-tp-lg"&gt;
 		&lt;input spellcheck="false" autocomplete="off" id="sch-inp" class="form-control" type="search" data-fusion-query aria-describedby="gc-pi" /&gt;
@@ -198,6 +214,60 @@
 
 <div class="row">
 		<div class="col-md-6">
+			<h4>Version 3.1</h4>
+			<pre><code>&lt;div class="well"&gt;
+		&lt;form class="mrgn-tp-sm" role="search"&gt;
+			&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+			&lt;div class="input-group mrgn-tp-lg"&gt;
+				&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi" &gt;
+				&lt;span class="input-group-btn"&gt;
+					&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; &lt;span class="wb-inv"&gt;Search&lt;/span&gt;&lt;/button&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+
+			&lt;div class="mrgn-tp-md"&gt;
+				&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+
+				&lt;ul class="list-inline mrgn-lft-sm pull-left"&gt;
+					&lt;li&gt;&lt;a href="#"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
+					&lt;li class="mrgn-lft-lg current" aria-current="location"&gt;&lt;a href="#"&gt; Context label&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+
+				&lt;div class="clearfix"&gt;
+				&lt;/div&gt;
+				&lt;div class="clearfix"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p id="gc-pi" class="mrgn-tp-md"&gt;<ins>Don't include personal information (telephone, email, SIN, financial, medical, or work details).</ins>&lt;/p&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;</code></pre>
+		</div>
+<div class="col-md-6">
+<h4>Version 3.0</h4>
+			<pre><code>&lt;div class="well"&gt;
+		&lt;form class="mrgn-tp-sm"&gt;
+			&lt;label class="wb-inv" for="sch-inp"&gt;Search Government of Canada websites&lt;/label&gt;
+			&lt;input class="form-control full-width" spellcheck="false" autocomplete="off" dir="ltr" id="sch-inp" name="q" type="search" data-fusion-query aria-describedby="gc-pi" &gt;
+			&lt;div class="mrgn-tp-md"&gt;
+				&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
+				&lt;ul class="radio-inline list-inline mrgn-lft-sm"&gt;
+					&lt;li&gt;&lt;input type="radio" name="resultsfrom" id="opt-allresults" value="allresults" /&gt; &lt;label for="opt-allresults"&gt;All Government of Canada websites&lt;/label&gt;&lt;/li&gt;
+					&lt;li class="mrgn-lft-lg current" aria-current="location"&gt;&lt;input type="radio" name="resultsfrom" id="opt-context" value="context" checked="checked" /&gt; &lt;label for="opt-context"&gt;Context label&lt;/label&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;div class="pull-right"&gt;
+					&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
+				&lt;/div&gt;
+				&lt;div class="clearfix"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p id="gc-pi" class="mrgn-tp-md"&gt;<ins>Don't include personal information (telephone, email, SIN, financial, medical, or work details).</ins>&lt;/p&gt;
+		&lt;/form&gt;
+	&lt;/div&gt;</code></pre>
+		</div>
+		</div>
+
+<details>
+<summary>Version 3.0 Vs Version 2.3</summary>
+		<div class="row">
+		<div class="col-md-6">
 			<h4>Version 3.0</h4>
 			<pre><code>&lt;div class="well"&gt;
 		&lt;form class="mrgn-tp-sm"&gt;
@@ -240,6 +310,7 @@
 	&lt;/div&gt;</code></pre>
 		</div>
 		</div>
+		</details>
 
 <details>
 <summary>Version 2.3 Vs Version 2.2</summary>
@@ -315,6 +386,47 @@
 
 <div class="row">
 		<div class="col-md-6">
+			<h4>Version 3.1</h4>
+			<pre><code>&lt;form role="search"&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
+				&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
+				&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
+				&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
+				&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+		&lt;p id="gc-pi" class="mrgn-tp-md"&gt;<ins>Don't include personal information (telephone, email, SIN, financial, medical, or work details).</ins>&lt;/p&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
+				&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
+				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
+				&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+		&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
+	&lt;/form&gt;</code></pre>
+		</div>
+		<div class="col-md-6">
 			<h4>Version 3.0</h4>
 			<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
 		&lt;fieldset&gt;
@@ -355,7 +467,53 @@
 		&lt;/fieldset&gt;
 	&lt;/form&gt;</code></pre>
 		</div>
-		<div class="col-md-6">
+</div>
+
+<details>
+<summary>Version 3.0 Vs Version 2.2</summary>
+<div class="row">
+<div class="col-md-6">
+			<h4>Version 3.0</h4>
+			<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Find pages with...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon1"&gt;all these words:&lt;/label&gt;
+				&lt;input name="allq" class="form-control" id="advseacon1" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon2"&gt;this exact word or phrase:&lt;/label&gt;
+				&lt;input name="exctq" class="form-control" id="advseacon2" maxlength="200" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon3"&gt;any of these words:&lt;/label&gt;
+				&lt;input name="anyq" class="form-control" id="advseacon3" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon4"&gt;none of these words:&lt;/label&gt;
+				&lt;input name="noneq" class="form-control" id="advseacon4" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;button type="submit" class="btn btn-md btn-primary"&gt;Search&lt;/button&gt;
+		&lt;p id="gc-pi" class="mrgn-tp-md"&gt;<ins>Don't include personal information (telephone, email, SIN, financial, medical, or work details).</ins>&lt;/p&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend class="h3 mrgn-tp-sm"&gt;Then narrow your results by...&lt;/legend&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon5"&gt;pages updated:&lt;/label&gt;
+				&lt;select class="form-control" name="fqupdate" id="advseacon5" data-fusion-query="safe"&gt; &lt;option selected value=""&gt;anytime&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1DAY TO NOW]"&gt;past 24 hours&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-7DAYS TO NOW]"&gt;past week&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1MONTH TO NOW]"&gt;past month&lt;/option&gt; &lt;option value="dateModified_dt:[NOW-1YEAR TO NOW]"&gt;past year&lt;/option&gt; &lt;/select&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon7"&gt;site or domain:&lt;/label&gt;
+				&lt;input name="dmn" class="form-control" id="advseacon7" maxlength="100" data-fusion-query="safe" aria-describedby="gc-pi" &gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="advseacon8"&gt;terms appearing:&lt;/label&gt;
+				&lt;select class="form-control" name="fqocct" id="advseacon8" data-fusion-query="safe"&gt; &lt;option value=""&gt;anywhere in the page&lt;/option&gt; &lt;option value="title_t"&gt;in the title of the page&lt;/option&gt; &lt;option value="url_t"&gt;in the URL of the page&lt;/option&gt; &lt;option value="body_t"&gt;in the body of the page &lt;/option&gt;&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+	&lt;/form&gt;</code></pre>
+		</div>
+<div class="col-md-6">
 			<h4>Version 2.2</h4>
 			<pre><code>&lt;form action="#wb-land" method="get" role="form"&gt;
 		&lt;fieldset&gt;
@@ -397,6 +555,7 @@
 	&lt;/form&gt;</code></pre>
 </div>
 </div>
+</details>
 
 <details>
 <summary>Version 2.2 Vs Version 2.1</summary>
@@ -556,7 +715,7 @@
 &lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
 &lt;ul class="inline"&gt;
 	&lt;li&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a class="mrgn-lft-lg current" aria-current="location" href="[Link ot contextual search page]"&gt;[context label]&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a class="mrgn-lft-lg current" aria-current="location" href="[Link to contextual search page]"&gt;[context label]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
 
@@ -577,7 +736,7 @@
 			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
 			&lt;ul class="list-inline mrgn-lft-sm pull-left"&gt;
 				&lt;li class="current" aria-current="location"&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
-				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link ot contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link to contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
 			&lt;/ul&gt;
 			&lt;div class="pull-right"&gt;
 				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
@@ -599,7 +758,7 @@
 			&lt;p class="wb-inv"&gt;See results from:&lt;/p&gt;
 			&lt;ul class="list-inline mrgn-lft-sm pull-left"&gt;
 				&lt;li class="current" aria-current="location"&gt;&lt;a href="[Link to all result search page]"&gt;All Government of Canada websites&lt;/a&gt;&lt;/li&gt;
-				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link ot contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
+				&lt;li class="mrgn-lft-lg"&gt;&lt;a href="[Link to contextual search page]"&gt;Context label&lt;/a&gt;&lt;/li&gt;
 			&lt;/ul&gt;
 			&lt;div class="pull-right"&gt;
 				&lt;button type="submit" class="btn btn-primary" name="wb-srch-sub"&gt; &lt;span class="glyphicon-search glyphicon"&gt;&lt;/span&gt; Search&lt;/button&gt;
@@ -627,10 +786,13 @@
 <h3>Search result contextual</h3>
 
 <pre><code>
-&lt;section&gt;
-	&lt;h2 class="wb-inv"&gt;Search results&lt;/h2&gt;
-	&lt;p class="result-count"&gt;[number] search results for "[search term]"&lt;/p&gt;
-	&lt;p class="gc-byline"&gt;&lt;strong&gt;From [Institution name]&lt;/strong&gt;&lt;/p&gt;
+&lt;section id="wb-land"&gt;
+	&lt;div id="query-summary"&gt;
+		&lt;hgroup&gt;
+			&lt;h2&gt;[number] search results for "[search term]"&lt;/h2&gt;
+			&lt;p&gt;From [Context label]&lt;/p&gt;
+		&lt;/hgroup&gt;
+	&lt;/div&gt;
 
 	&lt;!-- Search result item (Repeat block - max 10 times) --&gt;
 
@@ -640,7 +802,7 @@
 
 <p>Notes:</p>
 <ul>
-	<li>byline is only included in contextual versions of the results page</li>
+	<li>hgroup is an optional alternative to using H2</li>
 </ul>
 
 
@@ -665,61 +827,6 @@
 <p>Notes:</p>
 <ul>
 	<li>A <code>&lt;section&gt;</code> element is necessary because of the pagination. Without that, the pagination, which is at the ends, would belong semantically to the last result item, but we need it to belong to the h2 without considering the content identified by the h3 heading.</li>
-</ul>
-
-<p>Schemas information block:</p>
-<ul>
-	<li>&lt;foaf:page&gt; Link of the search result, required, only one</li>
-	<li>&lt;dct:title&gt; Title of the search result
-		<ul>
-			<li>Should not display "- canada.ca" or any departmental suffixes.</li>
-		</ul>
-	</li>
-	<li>&lt;wms:contextLabel&gt; Institution in scope with this search result, optional, 0 to multiple
-		<ul>
-			<li>Note: if labels go past 1 row, then
-				<ol class="lst-lwr-alph">
-					<li>cut off at end of row</li>
-					<li>do not show any labels beyond the first row. Text-overflow of the cut off label should be with an ellipsis. Expand/collapse to show all is not a requirement for Jan 2018 MVP</li>
-				</ol>
-			</li>
-			<li>Note 2: First label should always be the label of the context the search is in (if contextualised). Not necessarily order of tags in page metadata.</li>
-			<li>The link should be followed by facet labels that indicate indicate the context(s)/facet(s) the page would appear in. Canada.ca and institutions’ contextual searches must display institution labels to indicate context.</li>
-			<li>Topic pages on Canada.ca should not be tagged to context labels, and should appear in all contextual search results sets.</li>
-			<li>Within a filtered/contextual search, the label associated to the context must appear first.</li>
-			<li>(Not implemented) If context labels would extend beyond a row, they should be cut off and hidden with an expand toggle.
-				<ul>
-					<li>The label that would have broken to the next line should still be displayed, but with an ellipsis where it is cut off, before the expand toggle.</li>
-					<li>When expanded, there should be a collapse toggle to reduce the size of the result back to a single row.</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-	<li>&lt; Path of the result &gt; Location of the search result, mandatory, 1 of the following options:
-		<ul>
-			<li>&lt; Breadcrumb item &gt; Path fragment of the location of this search result, mandatory, 2 items
-				<ul>
-					<li>First item: domain name of search result]</li>
-					<li>Second item: parent breadcrumb of page</li>
-					<li>Note: this always has 2 list items. Does not include other breadcrumb items.</li>
-					<li>Need clarification: Is the breadcrumb items are clickable or are static</li>
-				</ul>
-			</li>
-			<li>&lt; foaf:page &gt; When the breadcrumb is unavailable, textual output of the page URL, mandatory
-				<ul>
-					<li>Notes: when the breadcrumb is not available to the search engine, use the URL instead</li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-	<li>&lt; dct:modified &gt; Date modified of the page pointed by this search result</li>
-	<li>&lt; contextualized description &gt; Description excerpt that include highlight to the search term
-		<ul>
-			<li>Search terms found in descriptions should be bolded.</li>
-			<li>If the description is an excerpt that does not begin with a sentence, or end at a period, a &hellip; symbol should be added at the beginning/end.</li>
-			<li>(Not implemented) The description should not surpass 4 rows of text on mobile screens. The description may be different in mobile than in desktop to accommodate</li>
-		</ul>
-	</li>
 </ul>
 
 <h3>Search result item (with no breadcrumb)</h3>
@@ -811,6 +918,35 @@
 &lt;/div&gt;
 </code></pre>
 
+<h3>Search result section - did you mean</h3>
+<pre><code>
+&lt;p&gt;Did you mean&lt;button class="btn btn-lg btn-link" type="button"&gt; &lt;/button&gt;?&lt;/p&gt;
+</code></pre>
+
+<h3>Search result section - error</h3>
+<pre><code>
+&lt;div class="alert alert-warning"&gt;
+	&lt;h2&gt;The Canada.ca Search is currently experiencing issues&lt;/h2&gt;
+	&lt;p&gt;A resolution for the restoration is presently being worked. We apologize for any inconvenience.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Search result section - no results</h3>
+<pre><code>
+&lt;div class="alert alert-warning"&gt;
+	&lt;h2&gt;No results&lt;/h2&gt;
+	&lt;p&gt;No pages were found that match your search terms.&lt;/p&gt;
+	&lt;p&gt;Suggestions:&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Make sure all search terms are spelled correctly&lt;/li&gt;
+		&lt;li&gt;Try different search terms&lt;/li&gt;
+		&lt;li&gt;Try more general search terms&lt;/li&gt;
+		&lt;li&gt;Consult the&nbsp;&lt;a href="https://www.canada.ca/en/sr/st.html"&gt;search tips&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;Try the&nbsp;&lt;a href="advanced-search-en.html"&gt;advanced search&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
 <h3>Advanced Search Link (optional)</h3>
 <p>Advanced search link below the pagination tab will allow users to enhance the search result.</p>
 
@@ -892,61 +1028,6 @@
 	&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-
-<h3>Schema (Incomplete draft v2)</h3>
-<pre><code>#
-# Schema for the Search template
-#
-
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
-@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
-@prefix wms: &lt;http://vocab.canada.ca/wms&gt; .
-@prefix tmpl: &lt;http://vocab.canada.ca/wms/template&gt; .
-@prefix comp: &lt;http://vocab.canada.ca/wms/component&gt; .
-
-tmpl:Search
-	dct:issued "2019-01-21"^^xsd:date ;
-	a rdfs:Class, wms:Template ;
-	wms:templateName "gc-srvinfo" ;
-	rdfs:label "Search"@en ;
-	rdfs:label "Recherche"@fr .
-
-tmpl:SearchBar
-	a rdfs:Class,  wms:Component ;
-	rdfs:label "Search bar"@en .
-
-tmpl:SearchResult
-	a rdfs:Class,  wms:Component ;
-	rdfs:label "Search result"@en .
-
-tmpl:SearchResultItem
-	a rdfs:Class,  wms:Component ;
-	rdfs:label "Search result item"@en .
-
-tmpl:searchResults
-	a rdf:Property ;
-	rdfs:domains tmpl:SearchResult ;
-	rdfs:range tmpl:SearchResultItem .
-
-tmpl:SearchFilters
-	a rdfs:Class,  wms:Component ;
-	rdfs:label "Search filters"@en .
-
-tmpl:SearchPagination
-	a rdfs:Class,  wms:Component ;
-	rdfs:label "Search pagination"@en .
-
-tmpl:searchContext
-	a rdf:Property ;
-	rdfs:domains tmpl:SearchBar ;
-	rdfs:domains tmpl:SearchResult ;
-	rdfs:range wms:Departments .
-
-</code></pre>
-
 
 <!-- Shapes graph not completed -->
 
