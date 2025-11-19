@@ -1,0 +1,61 @@
+{% capture contextLinks %}
+	{% if page.contextualFooter and page.contextualFooter.links %}
+	{
+		{% for link in page.contextualFooter.links %}
+		"{{ link.text }}": "{{ link.url }}"{% if forloop.last == false %},{% endif %}
+		{% endfor %}
+	}
+	{% endif %}
+{% endcapture %}
+
+{%- capture termsUrl -%}
+	{%- if page.termsUrl -%}
+		{{ page.termsUrl }}
+	{%- elsif site.global.termsUrl[i18nText-lang] -%}
+		{{ site.global.termsUrl[i18nText-lang] }}
+	{%- else -%}
+		{{ i18nText-termsUrl }}
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture privacyUrl -%}
+	{%- if page.privacyUrl -%}
+		{{ page.privacyUrl }}
+	{%- elsif site.global.privacyUrl[i18nText-lang] -%}
+		{{ site.global.privacyUrl[i18nText-lang] }}
+	{%- else -%}
+		{{ i18nText-privacyUrl }}
+	{%- endif -%}
+{%- endcapture -%}
+
+{% capture customSublinks %}
+	{% if page.customSublinks and page.customSublinks.links %}
+	{
+		{% for link in page.customSublinks.links %}
+			"{{ link.text }}": "{{ link.url }}",
+		{% endfor %}
+		{% if i18nText-lang == "en" %}
+			"Terms and conditions": "{{ termsUrl }}",
+			"Privacy": "{{ privacyUrl }}"
+		{% else %}
+			"Avis": "{{ termsUrl }}",
+			"Confidentialité": "{{ privacyUrl }}"
+		{% endif %}
+	}
+	{% endif %}
+{% endcapture %}
+
+<gcds-footer id="footer"
+{% unless page.noFooterMain %}
+	display="full"
+{% endunless %}
+{% unless page.noFooterContextual or layout.noFooterContextual %}
+	{% if contextualFooterTitle != "" and page.contextualFooter.links %}
+		contextual-heading="{{ page.contextualFooter.title }}"
+		contextual-links='{{ contextLinks }}'
+	{% endif %}
+{% endunless %}
+{% if page.customSublinks and page.customSublinks.links %}
+	sub-links='{{ customSublinks }}'
+{% endif %}>
+</gcds-footer>
