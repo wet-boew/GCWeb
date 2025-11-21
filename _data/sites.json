@@ -465,7 +465,7 @@
 }
 ,{
 	"@context": {
-		"@version": 1.2,
+		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -479,10 +479,10 @@
 		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
 		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
 	},
-	"modified": "2025-11-12",
+	"modified": "2025-11-21",
 	"componentName": "contributors",
 	"status": "stable",
-	"version": "1.1",
+	"version": "1.2.1",
 	"pages": {
 		"docs": [
 			{
@@ -533,7 +533,7 @@
 				"en": "Links to institutions or organizations that support the content on the page.",
 				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
 			},
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"example": [
 				{
 					"en": { "href": "contributors-en.html", "text": "Contributors" },
@@ -550,6 +550,10 @@
 				"_:implement_contributors_migrate_1_to_1.1"
 			],
 			"history": [
+				{
+					"en": "November 2025 - Reduced spacing between vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Espacement réduit entre les barres verticales dans la vue Desktop."
+				},
 				{
 					"en": "November 2025 - Bullets replaced with vertical bars in Desktop View.",
 					"fr": "Novembre 2025 - Remplacer les puces par des barres verticales dans la vue Desktop."
@@ -572,7 +576,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_contributors",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -610,7 +614,7 @@
 		},
 		{
 			"@id": "_:implement_contributors_gcweb",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -646,7 +650,7 @@
 		},
 		{
 			"@id": "_:implement_contributors_migrate_1_to_1.1",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Migrate from version 1 to 1.1",
 				"fr": "Migration de la version 1 à 1.1"
@@ -677,6 +681,24 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_contributors_5",
+			"name": "Contributors - Iteration 5",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"fixes": [
+				"Reduced spacing between vertical bars in Desktop View."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_4"
+		},
+		{
 			"@id": "_:iteration_contributors_4",
 			"name": "Contributors - Iteration 4",
 			"date": "2025-11",
@@ -692,7 +714,8 @@
 					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 				}
 			],
-			"predecessor": "_:iteration_contributors_3"
+			"predecessor": "_:iteration_contributors_3",
+			"successor": "_:iteration_contributors_5"
 		},
 		{
 			"@id": "_:iteration_contributors_3",
@@ -754,7 +777,7 @@
 			"@id": "_:cs_contributors",
 			"name": "Contributors - Version 1.2",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_contributors_4",
+			"baseOnIteration": "_:iteration_contributors_5",
 			"detectableBy": ".pagedetails .gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
 			"semantic": "section>h3+ul>li*n>a",
