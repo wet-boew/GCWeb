@@ -4,7 +4,7 @@ lang: en
 title: Canada Day theme
 description: Background colours used for the Canada Day campaign
 componentName: th-canadaday
-expiry: June 30, 2024
+expiry: June 30, 2026
 mainPage: canada-day.html
 cssClass:
 - bg-canadaday
