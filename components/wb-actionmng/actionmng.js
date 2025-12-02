@@ -430,6 +430,7 @@ var $document = wb.doc,
 				input.setAttribute( "checked", true );
 			}
 		} );
+		$( sourceElm ).trigger( "wb-contentupdated" );
 	},
 	patchFixArray = function( patchArray, val, basePointer ) {
 
