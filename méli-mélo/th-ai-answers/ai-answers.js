@@ -69,7 +69,15 @@
 	dateModifiedElm.insertAdjacentHTML("afterend", banners.rescue[lang]);
 
 	if (!closed) {
-		pageHeader.insertAdjacentHTML("beforebegin", banners.main[lang]);
+		// If in AEM page
+		if ( document.querySelector(".global-header") ) {
+			const skiplinks = document.querySelector(".global-header > nav");
+
+			document.body.insertAdjacentHTML("afterbegin", banners.main[lang]);
+			document.body.prepend(skiplinks);
+		} else {
+			pageHeader.insertAdjacentHTML("beforebegin", banners.main[lang]);
+		}
 
 		const closeBtn = document.querySelector(".aia-close");
 

@@ -23,9 +23,14 @@ pages:
     - title: Thématique réponses IA
       language: fr
       path: index-fr.html
+    - title: Edge case for AI Answers banner
+      language: en
+      path: edge-case.html
 sponsor: Marc-André Garneau, Principal Publisher on behalf of Digital Transformation Office (DTO)
 
 changes:
+  - date: 2025-12-04
+    description: Added edge case example page to demonstrate behaviour when integrated into AEM.
   - date: 2025-12-01
     description: This thematic provides a top banner to invite users to the beta testing of AI Answers. The banner includes a close button to dismiss the banner. The thematic also includes a rescue link at the bottom of the page for users who missed the banner or dismissed it by mistake. The intent of this thematic is to inform users about the AI Answers beta testing and to provide them with a way to access the beta testing page. It is meant to be temporary and used on around 100 pages (EN and FR) during the testing period.
     departmentImpact: This banner is necessary in order to provide our partner departments (TBS, ESDC EI, HC) with a link and message to try a beta test of AI Answers. The vision for AI Answers is that in 2026, it will be displayed on more and more pages on Canada.ca to provide help to visitors. The beta test this December provides DTO and our partner departments with a consistent method of offering access to AI Answers across a set of pages. By January, we hope that partner departments like IRCC and ESDC can offer access on larger sets of pages, rather than adding one by one.
