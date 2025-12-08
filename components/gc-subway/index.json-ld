@@ -2,24 +2,25 @@
 	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
+		"title": {
+			"@id": "dct:title", "@container": "@language"
+		},
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "GC Subway map menu",
-		"fr": "GC menu par carte de métro"
+		"en": "Subway navigation",
+		"fr": "Navigation de style métro"
 	},
 	"description": {
 		"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
 		"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
 	},
-	"modified": "2023-09-26",
+	"modified": "2025-11-20",
 	"componentName": "gc-subway",
-	"status": "provisional",
-	"todos": [
-		"Publish accessibility related research and tested here"
-	],
+	"status": "stable",
+	"version": "1.0",
 	"pages": {
 		"examples": [
 			{
@@ -95,15 +96,200 @@
 		],
 		"docs": [
 			{
-				"title": "Subway map menu",
+				"title": "Subway navigation - Documentation",
 				"language": "en",
-				"path": "docs-en.html"
+				"path": "subway-doc-en.html"
 			},
 			{
-				"title": "Menu par carte de métro",
+				"title": "Navigation de style métro - Documentation",
 				"language": "fr",
-				"path": "docs-fr.html"
+				"path": "subway-doc-fr.html"
 			}
 		]
-	}
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Subway navigation",
+				"fr": "Navigation de style métro"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
+				"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/subway-navigation.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/navigation-metro.html"
+			},
+			"iteration": "_:iteration_subway_2",
+			"example": [
+				{
+					"en": { "href": "index-en.html", "text": "Index page" },
+					"fr": { "href": "index-fr.html", "text": "Page d'introduction" }
+				},
+				{
+					"en": { "href": "section1-en.html", "text": "Section page" },
+					"fr": { "href": "section1-fr.html", "text": "Page de section" }
+				},
+				{
+					"en": { "href": "sub-section-en.html", "text": "Sub-section page (default)" },
+					"fr": { "href": "sub-section-fr.html", "text": "Page de sous-section (par défaut)" }
+				},
+				{
+					"en": { "href": "sub-section-noline-en.html", "text": "Sub-section page (no line)" },
+					"fr": { "href": "sub-section-noline-fr.html", "text": "Page de sous-section (sans ligne)" }
+				},
+				{
+					"en": { "href": "section-subtitle-en.html", "text": "Section page with custom subtitle" },
+					"fr": { "href": "section-subtitle-fr.html", "text": "Page de section avec sous-titre personnalisé" }
+				},
+				{
+					"en": { "href": "section-rel-info-en.html", "text": "Section page with related information" },
+					"fr": { "href": "section-rel-info-fr.html", "text": "Page de section avec information additionnelle" }
+				},
+				{
+					"en": { "href": "aem-bad-implementation-en.html", "text": "Section page with bad AEM implementation" },
+					"fr": { "href": "aem-bad-implementation-fr.html", "text": "Exemple de page de section avec mauvaise implémentation dans AEM" }
+				}
+			],
+			"implementation": [
+				"_:implement_subway_1"
+			],
+			"history": [
+				{
+					"en": "November 2025 - Stabilized the component",
+					"fr": "Novembre 2025 - Stabilisé le composant"
+				},
+				{
+					"en": "March 2021 - Provisional version of the component is created",
+					"fr": "Mars 2021 - Une version provisoire du composant est créée."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_subway_1",
+			"iteration": "_:iteration_subway_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"notes": {
+				"en": [
+					"The layout for the index page is different from the sections pages. The Subway navigation code snippet for the <strong>index</strong> page can be placed anywhere within the content of the page (<code>&lt;main&gt;</code>). However, make sure the heading level is appropriate. Also, the sub-section items must not be included in the index page."
+				],
+				"fr": [
+					"La mise en page de la page d'index est différente de celle des pages de sections. Vous trouverez ci-dessous des exemples de code montrant comment les éléments de la navigation de style métro sont disposés avant l'initialisation du plugin. L'extrait de code de la navigation de style métro pour la page d'<strong>introduction</strong> peut être placé n'importe où dans le contenu de la page (<code>&lt;main&gt;</code>). Cependant, assurez-vous que le niveau de titre est approprié. De plus, les éléments de la sous-section ne doivent pas être inclus dans la page d'introduction."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Index page:",
+						"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Section page:",
+						"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Page d'introduction:",
+						"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Nom du service]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Navigation de style métro -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-fr.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-fr.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-fr.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-fr.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-fr.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-fr.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Page de section:",
+						"code": "<main>\n\t<!-- 1: Navigation de style métro -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Nom du service]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-fr.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-fr.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-fr.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-fr.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-fr.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-fr.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Titre -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Contenu de la page. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Navigation du document -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Navigation du document</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-fr.html\" rel=\"next\"><span class=\"wb-inv\">Suivant: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Information additionnelle (optionnel) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Information additionnelle</h2>\n\t\t...\n\t</aside>\n</main>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_subway_2",
+			"name": "Subway - Iteration 2",
+			"date": "2025-11",
+			"detectableBy": ".gc-subway",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Index page",
+					"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Section page",
+					"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_subway_1",
+			"name": "Subway - Iteration 1",
+			"date": "2021-03",
+			"detectableBy": ".gc-subway.provisional",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Index page",
+					"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway provisional\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Section page",
+					"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway provisional\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_subway",
+			"name": "Subway navigation",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_subway_2",
+			"detectableBy": ".gc-subway",
+			"layout": "The layout for the index page is different from the sections pages. The Subway navigation code snippet for the <strong>index</strong> page can be placed anywhere within the content of the page (<code>&lt;main&gt;</code>). However, make sure the heading level is appropriate. Also, the sub-section items must not be included in the index page.",
+			"style": "The active class is mandatory and is to be added to the active page's link (<a>) in the Subway navigation. Additionally, an optional class of no-line can be applied to a sub-section list (<ul>). It will remove the vertical line connecting all sub-sections. It will also add a horizontal line connecting the active sub-section with the main subway line.",
+			"context": "To be used to break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
+			"schema": [
+				"Section title (type: STRING)",
+				"Subtitle (type: STRING)",
+				"Sections (type: ARRAY)",
+				"Sections > Title (type: STRING)",
+				"Sections > URL (type: STRING)",
+				"Sections > Description (type: STRING)",
+				"Sections > Sub-section (type: ARRAY)",
+				"Sections > Sub-section > Title (type: STRING)",
+				"Sections > Sub-section > URL (type: STRING)",
+				"Sections > Page content (type: HTML)",
+				"Sections > Related information (type: OBJECT)",
+				"Sections > Related information > Title (type: STRING)",
+				"Sections > Related information > Content (type: HTML)"
+			]
+		}
+	]
 }

@@ -1,5 +1,5 @@
 /**
- * @title WET-BOEW GC Subway map mutator
+ * @title WET-BOEW Subway navigation mutator
  * @overview Plugin used to mutate DOM elements depending on viewport size, in order to follow order accessibility criteria while respecting UI
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @gormfrank
@@ -9,12 +9,13 @@
 
 var $document = wb.doc,
 	componentName = "gc-subway",
-	selector = ".provisional." + componentName,
+	selector = "." + componentName,
 	initEvent = "wb-init " + selector,
 	mainClass = componentName + "-section",
 	indexClass = componentName + "-index",
 	supportClass = componentName + "-support",
 	wrapperClass = componentName + "-wrapper",
+	navigationClass = componentName + "-pagination",
 	sectionsTitle,
 	$navH1, $pageH1,
 	$support,
@@ -52,7 +53,7 @@ var $document = wb.doc,
 				}
 
 				// Wrap all content until it hits either: ".pagedetails", or "".gc-subway-support"
-				$elm.nextUntil( ".pagedetails, .gc-subway-support" ).wrapAll( "<section class='" + mainClass + "'>" );
+				$elm.nextUntil( ".pagedetails, ." + supportClass ).wrapAll( "<section class='" + mainClass + "'>" );
 
 				$elm.wrap( "<div class='" + wrapperClass + "'></div>" );
 
@@ -77,28 +78,30 @@ var $document = wb.doc,
 				elm.classList.add( "no-blink" );
 			}
 
-			//$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" ); Put back once correctly implemented
-			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a, main .pager a" );// Remove once correctly implemented
+			//To support previous implementations
+			var pager = document.querySelector( ".pager" ),
+				nav = pager.closest( "nav" );
+
+			if ( !nav.classList.contains( navigationClass ) ) {
+				nav.classList.add( navigationClass );
+			}
+
+			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" );
 
 			// Duplicating GC-Subway links for single-page application feel on mobile
 			$subwayLinks.each( function( i, el ) {
 				let $el = $( el ),
 					elHref = $el.attr( "href" ),
+					cloneHref = elHref.includes( "#" ) ? elHref : elHref + "#wb-cont";
 
-					//cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont"; Put back once correctly implemented
-					cloneHref;
+				if ( elHref !== cloneHref ) {
+					$el.clone()
+						.addClass( "hidden-md hidden-lg" )
+						.attr( "href", cloneHref )
+						.insertAfter( el );
 
-				// Remove once correctly implemented
-				if ( elHref ) {
-					cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont";
+					$el.addClass( "hidden-xs hidden-sm" );
 				}
-
-				$el.clone()
-					.addClass( "hidden-md hidden-lg" )
-					.attr( "href", cloneHref )
-					.insertAfter( el );
-
-				$el.addClass( "hidden-xs hidden-sm" );
 			} );
 
 			// Identify that initialization has completed
