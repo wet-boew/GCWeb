@@ -9,7 +9,7 @@
 
 var $document = wb.doc,
 	componentName = "gc-subway",
-	selector = ".provisional." + componentName,
+	selector = "." + componentName,
 	initEvent = "wb-init " + selector,
 	mainClass = componentName + "-section",
 	indexClass = componentName + "-index",
@@ -77,21 +77,14 @@ var $document = wb.doc,
 				elm.classList.add( "no-blink" );
 			}
 
-			//$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" ); Put back once correctly implemented
-			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a, main .pager a" );// Remove once correctly implemented
+			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" );
 
 			// Duplicating GC-Subway links for single-page application feel on mobile
 			$subwayLinks.each( function( i, el ) {
 				let $el = $( el ),
 					elHref = $el.attr( "href" ),
 
-					//cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont"; Put back once correctly implemented
-					cloneHref;
-
-				// Remove once correctly implemented
-				if ( elHref ) {
 					cloneHref = elHref.includes( "#" ) ? elHref : elHref += "#wb-cont";
-				}
 
 				$el.clone()
 					.addClass( "hidden-md hidden-lg" )
