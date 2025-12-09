@@ -23,6 +23,7 @@
 	<li><a href="?">Vide <code>?</code></a></li>
 	<li><a href="?f=b">Bananes <code>?f=b"</code></a></li>
 	<li><a href="?f=g">Raisins <code>?f=r"</code></a></li>
+	<li><a href="?lng=eng&loc=otw#filteredEventsList3">En anglais à Ottawa <code>?lng=eng&loc=otw"</code></a></li>
 </ul>
 
 <section>
@@ -222,3 +223,288 @@
 &lt;/fieldset></code></pre>
 	</details>
 </section>
+<section id="filteredEventsList3" class="wb-filter wb-tagfilter wb-paginate provisional" data-wb-filter='{
+	"selector": "li",
+	"section": ".events-list3",
+	"uiTemplate": "#searchFilter3"
+}' data-wb-paginate='{
+	"itemsPerPage": 5,
+	"section": ".events-list3",
+	"selector": "li",
+	"uiTarget": "#filteredEventsListPagination3"
+}'>
+	<h2>Exemple avec le composant de filtres de balise</h2>
+	<p>Ajoutez le paramètre suivant dans l’URL :</p>
+	<ul>
+		<li><code>lng=fr</code> pour le français</li>
+		<li><code>lng=eng</code> pour l’anglais</li>
+		<li><code>loc=mtl</code> pour Montréal</li>
+		<li><code>loc=otw</code> pour Ottawa</li>
+		<li><code>loc=tor</code> pour Toronto</li>
+	</ul>
+	<div id="searchFilter3" class="row mrgn-tp-lg">
+		<div class="col-xs-12">
+			<p class="h3 wb-fltr-info mrgn-tp-0"><span data-nbitem></span> résultats sur <span data-total></span></p>
+			<div class="form-group">
+				<label for="customSearchUI">Recherche</label>
+				<input type="search" class="form-control full-width" id="customSearchUI">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-lg-3">
+
+			<details open>
+				<summary>
+					<h3>Options de filtrage</h3>
+				</summary>
+
+				<div class="form-group mrgn-bttm-0">
+					<fieldset data-wb-urlmapping='{
+							"lng=fr": {
+								"action": "selectInput",
+								"value": "lng__french"
+								},
+							"lng=eng": {
+								"action": "selectInput",
+								"value": "lng__english"
+							} }'>
+						<legend class="h5 mrgn-tp-0"><span class="field-name">Langue</span></legend>
+						<ul class="list-unstyled">
+							<li class="radio">
+								<label>
+									<input type="radio" name="lng" class="wb-tagfilter-ctrl" value="" checked> Toutes
+								</label>
+							</li>
+							<li class="radio">
+								<label>
+									<input type="radio" name="lng" class="wb-tagfilter-ctrl" value="lng__french"> Français
+								</label>
+							</li>
+							<li class="radio">
+								<label>
+									<input type="radio" name="lng" class="wb-tagfilter-ctrl" value="lng__english"> Anglais
+								</label>
+							</li>
+						</ul>
+					</fieldset>
+				</div>
+
+				<div class="form-group mrgn-bttm-0">
+					<fieldset data-wb-urlmapping='{
+							"loc=mtl": {
+								"action": "selectInput",
+								"value": "location__montreal"
+								},
+							"loc=otw": {
+								"action": "selectInput",
+								"value": "location__ottawa"
+							},
+							"loc=tor": {
+								"action": "selectInput",
+								"value": "location__toronto"
+							}}'>
+						<legend class="h5 mrgn-tp-0"><span class="field-name">Lieu de l’événement</span></legend>
+						<ul class="list-unstyled">
+							<li class="checkbox">
+								<label>
+									<input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__montreal"> Montréal
+								</label>
+							</li>
+							<li class="checkbox">
+								<label>
+									<input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__ottawa"> Ottawa
+								</label>
+							</li>
+							<li class="checkbox">
+								<label>
+									<input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__toronto"> Toronto
+								</label>
+							</li>
+						</ul>
+					</fieldset>
+				</div>
+			</details>
+		</div>
+
+		<div class="col-xs-12 col-sm-8 col-lg-9">
+			<ul class="list-unstyled events-list3 wb-tagfilter-items">
+				<li data-wb-tags="lng__english lng__french location__montreal">
+					<h3>Posez vos questions au PAC !</h3>
+					<p><strong>Lieu :</strong> <span class="event-location">Montréal</span>, <strong>Langue :</strong> <span class="event-language">Anglais, Français</span></p>
+				</li>
+
+				<li data-wb-tags="lng__english location__vancouver">
+					<h3>Soumissionner sur les possibilités</h3>
+					<p><strong>Lieu :</strong> <span class="event-location">Vancouver</span>, <strong>Langue :</strong> <span class="event-language">Anglais</span></p>
+				</li>
+
+				<li data-wb-tags="lng__english location__ottawa">
+					<h3>Faire affaire avec le gouvernement du Canada (Webinaire)</h3>
+					<p><strong>Lieu :</strong> <span class="event-location">Ottawa</span>, <strong>Langue :</strong> <span class="event-language">Anglais</span></p>
+				</li>
+
+				<li data-wb-tags="lng__english location__toronto">
+					<h3>Posez vos questions au PAC !</h3>
+					<p><strong>Lieu :</strong> <span class="event-location">Toronto</span>, <strong>Langue :</strong> <span class="event-language">Anglais</span></p>
+				</li>
+
+				<li data-wb-tags="lng__english location__ottawa">
+					<h3>Soumissionner sur les possibilités (Webinaire)</h3>
+					<p><strong>Lieu :</strong> <span class="event-location">Ottawa</span>, <strong>Langue :</strong> <span class="event-language">Anglais</span></p>
+				</li>
+			</ul>
+
+			<div class="wb-tagfilter-noresult">
+				<p>Aucun élément ne correspond à cette combinaison de filtres.</p>
+			</div>
+
+			<div id="filteredEventsListPagination3"></div>
+		</div>
+	</div>
+</section>
+<details class="mrgn-tp-lg">
+<summary>Source code</summary>
+<pre><code>&lt;section id="filteredEventsList3" class="wb-filter wb-tagfilter wb-paginate provisional" data-wb-filter='{
+	"selector": "li",
+	"section": ".events-list3",
+	"uiTemplate": "#searchFilter3"
+}' data-wb-paginate='{
+	"itemsPerPage": 5,
+	"section": ".events-list3",
+	"selector": "li",
+	"uiTarget": "#filteredEventsListPagination3"
+}'&gt;
+	&lt;h2&gt;Exemple avec le composant de filtre de balise&lt;/h2&gt;
+	&lt;p&gt;Ajoutez le paramètre suivant dans l’URL :&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;code&gt;lng=fr&lt;/code&gt; pour le français ou &lt;/li&gt;
+		&lt;li&gt;&lt;code&gt;lng=eng&lt;/code&gt; pour l’anglais &lt;/li&gt;
+		&lt;li&gt;&lt;code&gt;loc=mtl&lt;/code&gt; pour Montréal&lt;/li&gt;
+		&lt;li&gt;&lt;code&gt;loc=otw&lt;/code&gt; pour Ottawa&lt;/li&gt;
+		&lt;li&gt;&lt;code&gt;loc=tor&lt;/code&gt; pour Toronto&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div id="searchFilter3" class="row mrgn-tp-lg"&gt;
+		&lt;div class="col-xs-12"&gt;
+			&lt;p class="h3 wb-fltr-info mrgn-tp-0"&gt;&lt;span data-nbitem&gt;&lt;/span&gt; résultats sur &lt;span data-total&gt;&lt;/span&gt;&lt;/p&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="customSearchUI"&gt;Recherche&lt;/label&gt;
+				&lt;input type="search" class="form-control full-width" id="customSearchUI"&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class="row"&gt;
+		&lt;div class="col-xs-12 col-sm-4 col-lg-3"&gt;
+
+			&lt;details open&gt;
+				&lt;summary&gt;
+					&lt;h3&gt;Options de filtrage&lt;/h3&gt;
+				&lt;/summary&gt;
+
+				&lt;div class="form-group mrgn-bttm-0"&gt;
+					&lt;fieldset data-wb-urlmapping='{
+							"lng=fr": {
+								"action": "selectInput",
+								"value": "lng__french"
+								},
+							"lng=eng": {
+								"action": "selectInput",
+								"value": "lng__english"
+							} }'&gt;
+						&lt;legend class="h5 mrgn-tp-0"&gt;&lt;span class="field-name"&gt;Langue&lt;/span&gt;&lt;/legend&gt;
+						&lt;ul class="list-unstyled"&gt;
+							&lt;li class="radio"&gt;
+								&lt;label&gt;
+									&lt;input type="radio" name="lng" class="wb-tagfilter-ctrl" value="" checked&gt; Toutes
+								&lt;/label&gt;
+							&lt;/li&gt;
+							&lt;li class="radio"&gt;
+								&lt;label&gt;
+									&lt;input type="radio" name="lng" class="wb-tagfilter-ctrl" value="lng__french"&gt; Français
+								&lt;/label&gt;
+							&lt;/li&gt;
+							&lt;li class="radio"&gt;
+								&lt;label&gt;
+									&lt;input type="radio" name="lng" class="wb-tagfilter-ctrl" value="lng__english"&gt; Anglais
+								&lt;/label&gt;
+							&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/fieldset&gt;
+				&lt;/div&gt;
+
+				&lt;div class="form-group mrgn-bttm-0"&gt;
+					&lt;fieldset data-wb-urlmapping='{
+							"loc=mtl": {
+								"action": "selectInput",
+								"value": "location__montreal"
+								},
+							"loc=otw": {
+								"action": "selectInput",
+								"value": "location__ottawa"
+							},
+							"loc=tor": {
+								"action": "selectInput",
+								"value": "location__toronto"
+							}}'&gt;
+						&lt;legend class="h5 mrgn-tp-0"&gt;&lt;span class="field-name"&gt;Lieu de l’événement&lt;/span&gt;&lt;/legend&gt;
+						&lt;ul class="list-unstyled"&gt;
+							&lt;li class="checkbox"&gt;
+								&lt;label&gt;
+									&lt;input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__montreal"&gt; Montréal
+								&lt;/label&gt;
+							&lt;/li&gt;
+							&lt;li class="checkbox"&gt;
+								&lt;label&gt;
+									&lt;input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__ottawa"&gt; Ottawa
+								&lt;/label&gt;
+							&lt;/li&gt;
+							&lt;li class="checkbox"&gt;
+								&lt;label&gt;
+									&lt;input type="checkbox" name="location3" class="wb-tagfilter-ctrl" value="location__toronto"&gt; Toronto
+								&lt;/label&gt;
+							&lt;/li&gt;
+						&lt;/ul&gt;
+					&lt;/fieldset&gt;
+				&lt;/div&gt;
+			&lt;/details&gt;
+		&lt;/div&gt;
+
+		&lt;div class="col-xs-12 col-sm-8 col-lg-9"&gt;
+			&lt;ul class="list-unstyled events-list3 wb-tagfilter-items"&gt;
+				&lt;li data-wb-tags="lng__english lng__french location__montreal"&gt;
+					&lt;h3&gt;Posez vos questions au PAC !&lt;/h3&gt;
+					&lt;p&gt;&lt;strong&gt;Lieu :&lt;/strong&gt; &lt;span class="event-location"&gt;Montréal&lt;/span&gt;, &lt;strong&gt;Langue :&lt;/strong&gt; &lt;span class="event-language"&gt;Anglais, Français&lt;/span&gt;&lt;/p&gt;
+				&lt;/li&gt;
+
+				&lt;li data-wb-tags="lng__english location__vancouver"&gt;
+					&lt;h3&gt;Soumissionner sur les possibilités&lt;/h3&gt;
+					&lt;p&gt;&lt;strong&gt;Lieu :&lt;/strong&gt; &lt;span class="event-location"&gt;Vancouver&lt;/span&gt;, &lt;strong&gt;Langue :&lt;/strong&gt; &lt;span class="event-language"&gt;Anglais&lt;/span&gt;&lt;/p&gt;
+				&lt;/li&gt;
+
+				&lt;li data-wb-tags="lng__english location__ottawa"&gt;
+					&lt;h3&gt;Faire affaire avec le gouvernement du Canada (Webinaire)&lt;/h3&gt;
+					&lt;p&gt;&lt;strong&gt;Lieu :&lt;/strong&gt; &lt;span class="event-location"&gt;Ottawa&lt;/span&gt;, &lt;strong&gt;Langue :&lt;/strong&gt; &lt;span class="event-language"&gt;Anglais&lt;/span&gt;&lt;/p&gt;
+				&lt;/li&gt;
+
+				&lt;li data-wb-tags="lng__english location__toronto"&gt;
+					&lt;h3&gt;Posez vos questions au PAC !&lt;/h3&gt;
+					&lt;p&gt;&lt;strong&gt;Lieu :&lt;/strong&gt; &lt;span class="event-location"&gt;Toronto&lt;/span&gt;, &lt;strong&gt;Langue :&lt;/strong&gt; &lt;span class="event-language"&gt;Anglais&lt;/span&gt;&lt;/p&gt;
+				&lt;/li&gt;
+
+				&lt;li data-wb-tags="lng__english location__ottawa"&gt;
+					&lt;h3&gt;Soumissionner sur les possibilités (Webinaire)&lt;/h3&gt;
+					&lt;p&gt;&lt;strong&gt;Lieu :&lt;/strong&gt; &lt;span class="event-location"&gt;Ottawa&lt;/span&gt;, &lt;strong&gt;Langue :&lt;/strong&gt; &lt;span class="event-language"&gt;Anglais&lt;/span&gt;&lt;/p&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+
+			&lt;div class="wb-tagfilter-noresult"&gt;
+				&lt;p&gt;Aucun élément ne correspond à cette combinaison de filtres.&lt;/p&gt;
+			&lt;/div&gt;
+
+			&lt;div id="filteredEventsListPagination3"&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</details>
