@@ -28,3 +28,28 @@ share: true
     <pre><code>&lt;button class="btn <strong>btn-call-to-action</strong>" type="button"&gt;[Appel à l'action]&lt;/button&gt;</code></pre>
   </div>
 </div>
+
+<h2>Polices pour caractères autochtones</h2>
+<!-- Inuktitut: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="iu">
+  <h3>ᐅᓂᒃᑳᓕᐊᑉᑕᐃᔭᐅᓂᖓ 3 (<code>h3</code>)</h3>
+  <p>ᐅᖃᐅᓯᑯᑖᒐᒃᓴᑦ - ᑕᐅᑦᑐᖓᐋᖅᑭᒃᐸᒌᖅᓯᒪᔪᖅ</p>
+</section>
+
+<!-- Plains Cree: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="cr">
+  <h3>ᐃᑗᐏᐣ 3 (<code>h3</code>) - ᑭᓯᑲᐧᐣ ᐊᑕᐧᐦᐃᑲᐣ</h3>
+  <p>ᐸᐦᑫᑭᐣ ᑭᓯᑲᐧᐣ ᐊᑕᐧᐦᐃᑲᐣ</p>
+</section>
+
+<!-- Ojibwe: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="oj">
+  <h3>ᐅᓂᔑᓂᒧᐏᐣ 3 (<code>h3</code>) - ᒥᓇᐊᔨᐧᐃᐧᐣ</h3>
+  <p>ᐃᑭᑎᐎᐣ ᒥᓇᐊᔨᐧᐃᐧᐣ ᐁᓇᑯᓂᑲᑌᐠ</p>
+</section>
+
+<!-- Northern East Cree: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="cr">
+  <h3>ᐄᔨᔫ ᐊᔨᒧᐎᓐ 3 (<code>h3</code>)</h3>
+  <p>ᒫᒃ ᑳ ᐄᔑ ᐊᔨᒧᔮᓐ ᐄᔨᔫ ᐊᔨᒧᐎᓐ</p>
+</section>
