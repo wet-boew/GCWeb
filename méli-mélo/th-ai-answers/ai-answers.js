@@ -22,7 +22,7 @@
 						<div class="d-flex align-items-center">
 							<img src="https://canada.ca/content/dam/canada/ai-stars.png" alt="">
 							<p><strong>Besoin d'aide?</strong>
-							<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick=”ESDC-EDSC:AI Answers Banner Click:Essayez une version bêta de Réponses IA”>
+							<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Click:Essayez une version bêta de Réponses IA">
 							Essayez une version bêta de Réponses IA</a></p>
 						</div>
 					</div>
@@ -35,7 +35,7 @@
 						<div class="d-flex align-items-center">
 							<img src="https://canada.ca/content/dam/canada/ai-stars.png" alt="">
 							<p><strong>Need help?</strong>
-							<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick=”ESDC-EDSC:AI Answers Banner Click:Try a beta test of AI Answers”>
+							<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Click:Try a beta test of AI Answers">
 							Try a beta test of AI Answers</a></p>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 					<div class="d-flex align-items-center">
 						<img src="https://canada.ca/content/dam/canada/ai-stars-blue.png" alt="">
 						<p><strong>Besoin d'aide?</strong>
-						<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick=”ESDC-EDSC:AI Answers Banner Click:Try a beta test of AI Answers”>
+						<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Bottom Link Click:Essayez une version bêta de Réponses IA">
 						Essayez une version bêta de Réponses IA</a></p>
 					</div>
 				</section>`,
@@ -59,7 +59,7 @@
 					<div class="d-flex align-items-center">
 						<img src="https://canada.ca/content/dam/canada/ai-stars-blue.png" alt="">
 						<p><strong>Need help?</strong>
-						<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick=”ESDC-EDSC:AI Answers Banner Click:Try a beta test of AI Answers”>
+						<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Bottom Link Click:Try a beta test of AI Answers">
 						Try a beta test of AI Answers</a></p>
 					</div>
 				</section>`
