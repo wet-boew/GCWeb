@@ -29,6 +29,8 @@ pages:
 sponsor: Marc-André Garneau, Principal Publisher on behalf of Digital Transformation Office (DTO)
 
 changes:
+  - date: 2025-12-10
+    description: Updated analytics strings to be bilingual and replaced invalid quotation marks with valid ones.
   - date: 2025-12-04
     description: Added edge case example page to demonstrate behaviour when integrated into AEM.
   - date: 2025-12-01
