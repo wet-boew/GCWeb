@@ -23,17 +23,7 @@ Page untitled
 	{% include header/gcds-header.html %}
 	<main {% unless page.noContainer %}class="container"{% endunless %}
 		property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
-
-	<!-- Check if the page has a hard coded h1 title -->
-	{% assign normalizedContent = content | downcase %}
-	{% assign hasH1Title = false %}
-	{% if normalizedContent contains 'id="wb-cont"' %}
-		{% assign hasH1Title = true %}
-	{% endif %}
-	<!-- Unless the page has a hard coded h1 title, include the main page title. -->
-	{% unless hasH1Title %}
-		{% include main-page-title/main-page-title.html %}
-	{% endunless %}
+	{% include main-page-title/conditional-page-title.html %}
 	{{ content }}
 	{% include page-details/footer.html addContainer=page.noContainer %}
 

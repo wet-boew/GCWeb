@@ -9,25 +9,47 @@
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<meta name="robots" content="noindex, nofollow, noarchive">
 		{% include templates/servermessage.html %}
+		{% include metadata.html %}
+		{%if page.isBilingual %}
+			{% if page.language == 'en' %}
+			<meta property="dcterms:title" lang="en" content="{{ page.title }}">
+			<meta property="dcterms:creator" lang="en" content="{{ page.creator-en }}">
+			<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject-en }}">
+			<meta property="dcterms:description" lang="en" content="{{ page.description-en }}">
+			<meta property="dcterms:title" lang="fr" content="{{ page.title }}">
+			<meta property="dcterms:creator" lang="fr" content="{{ page.creator-fr }}">
+			<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject-fr }}">
+			<meta property="dcterms:description" lang="fr" content="{{ page.description-fr }}">
+			{% else %}
+			<meta property="dcterms:title" lang="fr" content="{{ page.title }}">
+			<meta property="dcterms:creator" lang="fr" content="{{ page.creator-fr }}">
+			<meta property="dcterms:subject" lang="fr" title="gccore" content="{{ page.subject-fr }}">
+			<meta property="dcterms:description" lang="fr" content="{{ page.description-fr }}">
+			<meta property="dcterms:title" lang="en" content="{{ page.title }}">
+			<meta property="dcterms:creator" lang="en" content="{{ page.creator-en }}">
+			<meta property="dcterms:subject" lang="en" title="gccore" content="{{ page.subject-en }}">
+			<meta property="dcterms:description" lang="en" content="{{ page.description-en }}">
+			{% endif %}
+		{% endif %}
+		{% include resources-inc/head.html %}
 	</head>
 	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
-		<header role="banner" id="wb-bnr" class="container">
-			<div class="row" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
-				<div class="col-sm-6">
-					<img id="gcwu-sig" src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-sigBlk }}" alt="{{ i18nText-goc }}" property="logo"><span class="wb-inv"> / {{ i18nText-gocAltLang }}</span>
-					<meta property="name" content="{{ i18nText-goc }}">
-					<meta property="areaServed" typeOf="Country" content="Canada">
-				</div>
-				<div class="col-sm-6">
+		{% include header/header.html %}
+		<main role="main" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
+			{% include main-page-title/conditional-page-title.html %}
+			{{ content }}
+		</main>
+		{% include resources-inc/footer.html %}
+		{% if page.isBilingual %}
+		<footer class="py-3">
+			<div class="container" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
+				<div class="align-self-end">
 					<img id="wmms" src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-wmmsImg }}" alt="{{ i18nText-wmms }}" property="logo"><span class="wb-inv"> / {{ i18nText-wmmsAltLang }}</span>
 				</div>
 			</div>
-		</header>
-		<main role="main" property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
-			<div class="row mrgn-tp-lg">
-				{{ content }}
-			</div>
-		</main>
-		{% include resources-inc/footer.html %}
+		</footer>
+		{% else %}
+			{% include footers/footer.html %}
+		{% endif %}
 	</body>
 </html>
