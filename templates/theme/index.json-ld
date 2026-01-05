@@ -14,21 +14,41 @@
 		"en": "Theme page template",
 		"fr": "Gabarit de page thème"
 	},
-	"modified": "2020-02-12",
+	"modified": "2025-11-19",
 	"componentName": "theme",
 	"status": "stable",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"pages": {
 		"examples": [
 			{
-				"title": "[Theme]",
+				"title": "Complete theme page",
 				"language": "en",
 				"path": "theme-en.html"
 			},
 			{
-				"title": "[Thème]",
+				"title": "Page de thème complète",
 				"language": "fr",
 				"path": "theme-fr.html"
+			},
+			{
+				"title": "Minimal theme page",
+				"language": "en",
+				"path": "theme-business-en.html"
+			},
+			{
+				"title": "Page de thème minimale",
+				"language": "fr",
+				"path": "theme-business-fr.html"
+			},
+			{
+				"title": "Custom theme page for IRCC",
+				"language": "en",
+				"path": "theme-ircc-en.html"
+			},
+			{
+				"title": "Page de thème personnalisée pour IRCC",
+				"language": "fr",
+				"path": "theme-ircc-fr.html"
 			}
 		],
 		"docs": [
@@ -82,11 +102,19 @@
 				"en": "https://design.canada.ca/mandatory-templates/theme.html",
 				"fr": "https://conception.canada.ca/modeles-obligatoire/theme.html"
 			},
-			"iteration": "_:iteration_theme_1",
+			"iteration": "_:iteration_theme_2",
 			"example": [
 				{
-					"en": { "href": "theme-en.html", "text": "Theme page" },
-					"fr": { "href": "theme-fr.html", "text": "Pages de thème" }
+					"en": { "href": "theme-en.html", "text": "Complete theme page" },
+					"fr": { "href": "theme-fr.html", "text": "Pages de thème complète" }
+				},
+				{
+					"en": { "href": "theme-business-en.html", "text": "Minimal theme page" },
+					"fr": { "href": "theme-business-fr.html", "text": "Pages de thème minimale" }
+				},
+				{
+					"en": { "href": "theme-ircc-en.html", "text": "Customized theme page for IRCC" },
+					"fr": { "href": "theme-ircc-fr.html", "text": "Page de thème personnalisée pour IRCC" }
 				}
 			],
 			"implementation": [
@@ -94,6 +122,10 @@
 				"_:implement_theme_aem"
 			],
 			"history": [
+				{
+					"en": "November 2025 - Added Featured link and Context-specific features components support. Added custom working example for Immigration and Citizenship.",
+					"fr": "Novembre 2025 - Ajout du support pour les composantes Lien en vedette et Promotions contextuelles. Ajout d'un exemple pratique personnalisé pour Immigration et Citoyenneté."
+				},
 				{
 					"en": "July 2025 - Minor adjustments for other environments compatibility and addition of wb-navcurrent.",
 					"fr": "Juillet 2025 - Ajustements mineurs pour la compatibilité avec d'autres environnements et ajout de wb-navcurrent."
@@ -112,7 +144,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_theme",
-			"iteration": "_:iteration_theme_1",
+			"iteration": "_:iteration_theme_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -124,13 +156,11 @@
 			"instructions": {
 				"en": [
 					"Add the CSS class <code>.page-type-theme</code> to the page's <code>&lt;body></code> element.",
-					"The CSS class <code>.active</code> must be added to the current page's <code>&lt;li></code>.",
 					"Refer to the working example for a code sample.",
 					"Refer to the working example and guidance for more information on how to implement this page template."
 				],
 				"fr": [
 					"Ajoutez la classe CSS <code>.page-type-theme</code> sur l'élément <code>&lt;body></code> de la page.",
-					"La classe CSS <code>.active</code> doit être ajoutée au <code>&lt;li></code> de la page courante.",
 					"Reportez-vous à l'exemple pratique pour un exemple de code.",
 					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
 				]
@@ -148,7 +178,7 @@
 		},
 		{
 			"@id": "_:implement_theme_aem",
-			"iteration": "_:iteration_theme_1",
+			"iteration": "_:iteration_theme_2",
 			"name": {
 				"en": "AEM users",
 				"fr": "Utilisateurs AEM"
@@ -181,6 +211,30 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_theme_3",
+			"name": "Theme page - Iteration 3",
+			"date": "2025-11",
+			"additions": [
+				"Added Featured link support.",
+				"Added Context-specific features support.",
+				"Added custom styles for Immigration and citizenship."
+			],
+			"detectableBy": ".page-type-theme:has(.gc-features)",
+			"predecessor": "_:iteration_theme_2"
+		},
+		{
+			"@id": "_:iteration_theme_2",
+			"name": "Theme page - Iteration 2",
+			"date": "2025-07",
+			"additions": [
+				"Added wb-navcurrent support to add active link styles based on URL.",
+				"Adjustments to the styles to support MWS implementation."
+			],
+			"detectableBy": ".page-type-theme",
+			"predecessor": "_:iteration_theme_1",
+			"successor": "_:iteration_theme_3"
+		},
+		{
 			"@id": "_:iteration_theme_1",
 			"name": "Theme page - Iteration 1",
 			"date": "2024-07",
@@ -191,7 +245,8 @@
 			"notes": [
 				"The H1 is exempt from the default styling (bottom red line). Confirmed by DTO on July 17th, 2024.",
 				"The breadcrumbs has specific styling <strong>only</strong> for Theme pages. Confirmed by DTO on July 8th, 2024."
-			]
+			],
+			"successor": "_:iteration_theme_2"
 		}
 	],
 	"changesets": [
@@ -199,11 +254,11 @@
 			"@id": "_:cs_theme",
 			"name": "Theme page",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_theme_1",
+			"baseOnIteration": "_:iteration_theme_2",
 			"detectableBy": ".page-type-theme",
 			"layout": [
 				"On larger screens, navigation on the left and page content on the right.",
-				"In the page content section, from top to bottom: page title, most requested, services and information."
+				"In the page content section, from top to bottom: page title, Alert (optional), Featured link (optional), Most requested highlight (optional), Most requested, Services and information, Context-specific features (optional)."
 			],
 			"style": [
 				"The breadcrumbs first element has a left dark blue border.",
