@@ -879,6 +879,14 @@ module.exports = (grunt) ->
 				options: {
 					process: (content, srcpath) ->
 						return content.replace(/{{>alertariahidden}}/g, "")
+										.replace(/acr_wrote_en-en.hbs/g, "acr_wrote_en-en")
+										.replace(/acr_wrote_en-fr.hbs/g, "acr_wrote_en-fr")
+										.replace(/assessment_wrote_en-en.hbs/g, "assessment_wrote_en-en")
+										.replace(/assessment_wrote_en-fr.hbs/g, "assessment_wrote_en-fr")
+										.replace(/{{#escape}}/g, "{% raw %}")
+										.replace(/{{\/escape}}/g, "{% endraw %}")
+										.replace(/{{#stripbanner}}/g, "")
+										.replace(/{{\/stripbanner}}/g, "")
 				}
 
 			# méli-mélo tasks
