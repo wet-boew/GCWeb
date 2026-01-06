@@ -12,6 +12,7 @@ cssClass:
 - aia-close
 jsFunctions:
 - aiAnswersAvailabilityCheck
+- getAttr
 a11yStatement: >
   These colours meet the colour contrast requirements as outlined in WCAG 2.1 AA Success Criterion 1.4.3: Contrast (Minimum). After validation using WebAIM online contrast checker, I certify that the colours used in this thematic are meeting a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text and also a contrast ratio of at least 3:1 for graphics and user interface components. Furthermore, the meaningful sequence is respected, meeting WCAG 2.1 AA Success Criterion 1.3.2. I did my due diligence and, to the best of my knowledge and understanding, all elements of this thematic are meeting WCAG 2.1 AA standards.
   Tested by Marc-André Garneau, marcandre.garneau@servicecanada.gc.ca. 2025-12-01.
@@ -23,12 +24,19 @@ pages:
     - title: Thématique réponses IA
       language: fr
       path: index-fr.html
-    - title: Edge case for AI Answers banner
+    - title: AI answers thematic with custom content
       language: en
-      path: edge-case.html
+      path: custom-en.html
+    - title: Thématique réponses IA avec contenu personnalisé
+      language: fr
+      path: custom-fr.html
 sponsor: Marc-André Garneau, Principal Publisher on behalf of Digital Transformation Office (DTO)
 
 changes:
+  - date: 2025-01-08
+    description: Moved the banner to the bottom of the page instead of the top and added option to customize the banner and rescue text content via data attributes.
+    departmentImpact: This banner is necessary in order to provide trial partner departments with an efficient and consistent implementation method for the beta test of AI Answers across a set of pages. The vision for AI Answers in 2026 is for the tool to be displayed on more and more pages on Canada.ca to provide help so that visitors can complete their tasks on the web. With further development, CEO will be able to continue to support additional trials with more partners on more pages. A thematic approach allows for faster implementation and supports the ability to update the design without significant publishing resources being required by partners to update it manually per page.
+    publicImpact: Previous CEO trials in summer and fall 2025 were displayed on a very limited set of pages through the PP inviter. Inviters are unwelcome interruptions to many users, and some click them away without reading them. They served as an early temporary stage. The December 2025 trial data clearly showed that a bottom sticky banner generated more visits to AI Answers than a top sticky banner. CEO now seeks to revise the thematic to change the banner to stick to the bottom for the continuing trials. The impact on the public for those who wish to get help with their questions is positive as they can see the offer of AI Answers immediately on pages that are part of the trials. For those not seeking help, the impact is negligible since the banner is very small and can be dismissed to remove it.
   - date: 2025-12-10
     description: Updated analytics strings to be bilingual and replaced invalid quotation marks with valid ones.
   - date: 2025-12-04
