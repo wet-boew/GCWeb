@@ -7,82 +7,91 @@
 
 (function () {
 	const trigger = document.querySelector(".ai-answers-trigger");
-	if (!trigger) return; // exit if no trigger
+	if (!trigger) return;
 
-	const lang = document.documentElement.lang;
-	const pageHeader = document.querySelector("header");
-	const dateModifiedElm = document.querySelector(".pagedetails > h2");
+	const lang = document.documentElement.lang === "fr" ? "fr" : "en";
+	const pageDetailsH2 = document.querySelector(".pagedetails > h2");
 	const closed = sessionStorage.getItem("aiaClosed") === "true";
-	const banners = {
-		main: {
-			fr: `
-				<aside class="aia-banner">
-					<h2 class="wb-inv">Bannière Réponses IA</h2>
-					<div class="container">
-						<div class="d-flex align-items-center">
-							<img src="https://canada.ca/content/dam/canada/ai-stars.png" alt="">
-							<p><strong>Besoin d'aide?</strong>
-							<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Click:Essayez une version bêta de Réponses IA">
-							Essayez une version bêta de Réponses IA</a></p>
-						</div>
-					</div>
-					<button class="aia-close" type="button" aria-label="Essayez une version bêta de Réponses IA">×</button>
-				</aside>`,
-			en: `
-				<aside class="aia-banner">
-					<h2 class="wb-inv">AI answers banner</h2>
-					<div class="container">
-						<div class="d-flex align-items-center">
-							<img src="https://canada.ca/content/dam/canada/ai-stars.png" alt="">
-							<p><strong>Need help?</strong>
-							<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Click:Try a beta test of AI Answers">
-							Try a beta test of AI Answers</a></p>
-						</div>
-					</div>
-					<button class="aia-close" type="button" aria-label="Close AI answers banner">×</button>
-				</aside>`
+	const getAttr = (name, fallback) => {
+		const value = trigger.getAttribute(name);
+		return value !== null ? value.replaceAll("&lt;", "<").replaceAll("&gt;", ">") : fallback;
+	};
+	const allowedHTML = {
+		ALLOWED_TAGS: ["section","div","p","a","img","h2","h3","button","strong"],
+		ALLOWED_ATTR: ["class","href","src","alt","type","aria-label","referrerpolicy","data-gc-analytics-customclick"]
+	};
+
+	// Default i18n
+	const baseI18n = {
+		fr: {
+			defaultTitle: "<strong>Besoin d'aide?</strong>",
+			defaultLinkText: "Essayez une version bêta de Réponses IA",
+			mainClickLabel: "ESDC-EDSC:Réponses IA:Bannière en bas",
+			rescueClickLabel: "ESDC-EDSC:Réponses IA:Lien contenu",
+			aiAnswersURL: "https://reponses-ia.alpha.canada.ca",
+			hiddenBannerTitle: "Bannière Réponses IA",
+			hiddenRescueTitle: "Réponses IA",
+			closeLabel: "Fermer la bannière de Réponses IA"
 		},
-		rescue: {
-			fr: `
-				<section class="aia-rescue">
-					<h3 class="wb-inv">Bannière Réponses IA</h3>
-					<div class="d-flex align-items-center">
-						<img src="https://canada.ca/content/dam/canada/ai-stars-blue.png" alt="">
-						<p><strong>Besoin d'aide?</strong>
-						<a href="https://reponses-ia.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Bottom Link Click:Essayez une version bêta de Réponses IA">
-						Essayez une version bêta de Réponses IA</a></p>
-					</div>
-				</section>`,
-			en: `
-				<section class="aia-rescue">
-					<h3 class="wb-inv">AI answers banner</h3>
-					<div class="d-flex align-items-center">
-						<img src="https://canada.ca/content/dam/canada/ai-stars-blue.png" alt="">
-						<p><strong>Need help?</strong>
-						<a href="https://ai-answers.alpha.canada.ca" referrerpolicy="unsafe-url" data-gc-analytics-customclick="ESDC-EDSC:AI Answers Banner Bottom Link Click:Try a beta test of AI Answers">
-						Try a beta test of AI Answers</a></p>
-					</div>
-				</section>`
+		en: {
+			defaultTitle: "<strong>Need help?</strong>",
+			defaultLinkText: "Try a beta test of AI Answers",
+			mainClickLabel: "ESDC-EDSC:AI Answers:Banner Bottom Link Click",
+			rescueClickLabel: "ESDC-EDSC:AI Answers:Content Link Click",
+			aiAnswersURL: "https://ai-answers.alpha.canada.ca",
+			hiddenBannerTitle: "AI answers banner",
+			hiddenRescueTitle: "AI answers",
+			closeLabel: "Close AI answers banner"
 		}
 	};
 
-	dateModifiedElm.insertAdjacentHTML("afterend", banners.rescue[lang]);
+	const base = baseI18n[lang];
+
+	// Overwrite base i18n with data-* attributes if present
+	const i18n = {
+		...base,
+		bannerTitle: getAttr("data-banner-title", base.defaultTitle),
+		bannerLinkText: getAttr("data-banner-link-text", base.defaultLinkText),
+		rescueTitle: getAttr("data-rescue-title", base.defaultTitle),
+		rescueLinkText: getAttr("data-rescue-link-text", base.defaultLinkText)
+	};
+
+	// Banners UI
+	const banners = {
+		main: `
+			<section class="aia-banner">
+				<h2 class="wb-inv">${i18n.hiddenBannerTitle}</h2>
+				<div class="container">
+					<div class="d-flex align-items-center">
+						<img src="https://canada.ca/content/dam/canada/ai-stars.png" alt="">
+						<p>${i18n.bannerTitle} <a href="${i18n.aiAnswersURL}" referrerpolicy="unsafe-url" data-gc-analytics-customclick="${i18n.mainClickLabel}">${i18n.bannerLinkText}</a></p>
+					</div>
+				</div>
+				<button class="aia-close" type="button" aria-label="${i18n.closeLabel}">×</button>
+			</section>
+		`,
+		rescue: `
+			<section class="aia-rescue">
+				<h3 class="wb-inv">${i18n.hiddenRescueTitle}</h3>
+				<div class="d-flex align-items-center">
+					<img src="https://canada.ca/content/dam/canada/ai-stars-blue.png" alt="">
+					<p>${i18n.rescueTitle} <a href="${i18n.aiAnswersURL}" referrerpolicy="unsafe-url" data-gc-analytics-customclick="${i18n.rescueClickLabel}">${i18n.rescueLinkText}</a></p>
+				</div>
+			</section>
+		`
+	};
+
+	pageDetailsH2.insertAdjacentHTML("afterend", DOMPurify.sanitize(banners.rescue, allowedHTML));
 
 	if (!closed) {
-		// If in AEM page
-		if ( document.querySelector(".global-header") ) {
-			const skiplinks = document.querySelector(".global-header > nav");
-
-			document.body.insertAdjacentHTML("afterbegin", banners.main[lang]);
-			document.body.prepend(skiplinks);
-		} else {
-			pageHeader.insertAdjacentHTML("beforebegin", banners.main[lang]);
-		}
+		pageDetailsH2.insertAdjacentHTML("afterend", DOMPurify.sanitize(banners.main, allowedHTML));
+		document.body.classList.add("aia-banner-visible");
 
 		const closeBtn = document.querySelector(".aia-close");
 
 		closeBtn.addEventListener("click", () => {
 			closeBtn.parentElement.remove();
+			document.body.classList.remove("aia-banner-visible");
 			sessionStorage.setItem("aiaClosed", "true");
 		});
 	}
