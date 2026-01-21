@@ -137,6 +137,7 @@ module.exports = {
 		"node_modules/**",
 		"_site/**",
 		"~sites/**",
+		"_site/**",
 		"dist/**"
 	]
 };
