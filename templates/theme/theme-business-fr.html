@@ -11,9 +11,12 @@
 		"label": "Se connecter",
 		"labelExtended": "Se connecter"
 	},
-	"dateModified": "2025-11-05",
+	"dateModified": "2026-01-20",
 	"pageclass": "page-type-theme",
 	"nomenu": true,
+	"css": [
+		"demo/demo.css"
+	],
 	"contextualFooter": {
 		"title": "Business",
 		"links": [
@@ -35,41 +38,15 @@
 ---
 
 <div class="container">
-	<section class="alert alert-info">
+	<section class="alert alert-info wb-dismissable">
 		<h2 class="h4">Prélancement</h2>
 		<p>Le modèle de Thème version 2.0 a été prélancé en attendant la publication des directives officielles par le Bureau de la transformation numérique. Il ne doit pas être mis en œuvre sans consultation du BTN ou de l'Éditeur principal.</p>
 	</section>
 </div>
 
 <div id="gridContainer">
-	<nav id="theme-nav">
-		<div class="container">
-			<h2 class="wb-inv">Menu de thèmes</h2>
-			<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
-			<button id="menu-btn" class="btn btn-primary"><span class="wb-inv">Basculer le </span>Menu<span class="glyphicon glyphicon-chevron-down"></span></button>
-			<ul class="list-unstyled">
-				<li><a href="theme-fr.html">Emplois</a></li>
-				<li><a href="theme-ircc-fr.html">Immigration et citoyenneté</a></li>
-				<li><a href="#">Voyage et tourisme</a></li>
-				<li><a href="theme-business-fr.html">Entreprises</a></li>
-				<li><a href="#">Prestations</a></li>
-				<li><a href="#">Santé</a></li>
-				<li><a href="#">Impôts</a></li>
-				<li><a href="#">Environnement et ressources naturelles</a></li>
-				<li><a href="#">Sécurité nationale et défense</a></li>
-				<li><a href="#">Culture, histoire et sport</a></li>
-				<li><a href="#">Services de police, justice et urgences</a></li>
-				<li><a href="#">Transport et infrastructure</a></li>
-				<li><a href="#">Canada et le monde</a></li>
-				<li><a href="#">Argent et finances</a></li>
-				<li><a href="#">Science et innovation</a></li>
-				<li><a href="#">Autochtones</a></li>
-				<li><a href="#">Vétérans et militaires</a></li>
-				<li><a href="#">Jeunesse</a></li>
-			</ul>
-		</div>
-	</nav>
-	<section>
+	{% include_relative samples/theme-nav-fr.html %}
+	<div id="theme-content">
 		<div class="container">
 			<h1 id="wb-cont">Entreprises et industrie</h1>
 		</div>
@@ -149,5 +126,5 @@
 				</div>
 			</section>
 		</div>
-	</section>
+	</div>
 </div>
