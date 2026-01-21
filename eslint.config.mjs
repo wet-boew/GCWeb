@@ -22,6 +22,7 @@ export default defineConfig( [ globalIgnores( [
 	"**/_wetboew-demos/",
 	"**/~jekyll-dist/",
 	"**/~sites/*",
+	"**/_site/*",
 	"components/wb-chtwzrd/chatwizard.js"
 ] ), {
 	extends: compat.extends( "eslint:recommended", "jquery" ),
