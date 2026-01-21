@@ -10,6 +10,8 @@ cssClass:
 - aia-banner
 - aia-rescue
 - aia-close
+- ai-answers-trigger
+- aia-banner-visible
 jsFunctions:
 - aiAnswersAvailabilityCheck
 a11yStatement: >
@@ -23,12 +25,19 @@ pages:
     - title: Thématique réponses IA
       language: fr
       path: index-fr.html
-    - title: Edge case for AI Answers banner
+    - title: AI answers thematic with custom content
       language: en
-      path: edge-case.html
+      path: custom-en.html
+    - title: Thématique réponses IA avec contenu personnalisé
+      language: fr
+      path: custom-fr.html
 sponsor: Marc-André Garneau, Principal Publisher on behalf of Digital Transformation Office (DTO)
 
 changes:
+  - date: 2025-01-08
+    description: Moved the banner to the bottom of the page instead of the top and added option to customize the banner and rescue text content via data attributes.
+    departmentImpact: This banner is necessary in order to provide trial partner departments with an efficient and consistent implementation method for the beta test of AI Answers across a set of pages. The vision for AI Answers in 2026 is for the tool to be displayed on more and more pages on Canada.ca to provide help so that visitors can complete their tasks on the web. With further development, CEO will be able to continue to support additional trials with more partners on more pages. A thematic approach allows for faster implementation and supports the ability to update the design without significant publishing resources being required by partners to update it manually per page.
+    publicImpact: Previous CEO trials in summer and fall 2025 were displayed on a very limited set of pages through the PP inviter. Inviters are unwelcome interruptions to many users, and some click them away without reading them. They served as an early temporary stage. The December 2025 trial data clearly showed that a bottom sticky banner generated more visits to AI Answers than a top sticky banner. CEO now seeks to revise the thematic to change the banner to stick to the bottom for the continuing trials. The impact on the public for those who wish to get help with their questions is positive as they can see the offer of AI Answers immediately on pages that are part of the trials. For those not seeking help, the impact is negligible since the banner is very small and can be dismissed to remove it.
   - date: 2025-12-10
     description: Updated analytics strings to be bilingual and replaced invalid quotation marks with valid ones.
   - date: 2025-12-04
