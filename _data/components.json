@@ -2453,7 +2453,7 @@
 	"modified": "2026-02-17",
 	"componentName": "gc-srvinfo",
 	"status": "stable",
-	"version": "3.3",
+	"version": "3.4",
 	"pages": {
 		"examples": [
 			{
@@ -2518,7 +2518,7 @@
 				"en": "https://design.canada.ca/common-design-patterns/services-information.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/services-renseignements.html"
 			},
-			"iteration": "_:iteration_srvinfo_6",
+			"iteration": "_:iteration_srvinfo_8",
 			"example": [
 				{
 					"en": { "href": "gc-srvinfo-en.html", "text": "Services and information" },
@@ -2538,8 +2538,12 @@
 			],
 			"history": [
 				{
-					"en": "December 2025 - Added new pattern with more information block.",
-					"fr": "Décembre 2025 - Ajout d'un nouveau modèle avec un bloc d'informations complémentaires."
+					"en": "March 2026 - Added new pattern with more information block.",
+					"fr": "Mars 2026 - Ajout d'un nouveau modèle avec un bloc d'informations complémentaires."
+				},
+				{
+					"en": "February 2026 - Limited width of single column pattern.",
+					"fr": "Février 2026 - Limitation de la largeur du modèle à une seule colonne."
 				},
 				{
 					"en": "July 2025 - Added new pattern with FieldFlow drop-down list.",
@@ -2575,7 +2579,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_srvinfo",
-			"iteration": "_:iteration_srvinfo_6",
+			"iteration": "_:iteration_srvinfo_8",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -2638,11 +2642,11 @@
 	],
 	"iteration": [
 		{
-			"@id": "_:iteration_srvinfo_7",
-			"name": "Services and information - Iteration 7 (More information)",
-			"date": "2025-07",
+			"@id": "_:iteration_srvinfo_8",
+			"name": "Services and information - Iteration 8 (More information)",
+			"date": "2026-03",
 			"detectableBy": ".gc-srvinfo .well",
-			"predecessor": "_:iteration_srvinfo_6",
+			"predecessor": "_:iteration_srvinfo_7",
 			"additions": [
 				"Added new pattern with more information block."
 			],
@@ -2651,9 +2655,18 @@
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t</div>\n</section>\n\t<div class=\"well\">\n\t\t<h3>[More information title]</h3>\n\t\t<p>[Additional information related to the services and information presented above]</p>\n\t</div>"
+					"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t</div>\n\t<div class=\"well\">\n\t\t<h3>[More information title]</h3>\n\t\t<p>[Additional information related to the services and information presented above]</p>\n\t</div>\n</section>"
 				}
 			]
+		},
+		{
+			"@id": "_:iteration_srvinfo_7",
+			"name": "Services and information - Iteration 7",
+			"date": "2026-02",
+			"detectableBy": ".gc-srvinfo",
+			"predecessor": "_:iteration_srvinfo_6",
+			"successor": "_:iteration_srvinfo_8",
+			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to limit the width of the single-column pattern"]
 		},
 		{
 			"@id": "_:iteration_srvinfo_6",
@@ -2673,14 +2686,6 @@
 					"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<div class=\"wb-eqht row\">\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t\t<div class=\"wb-fieldflow\" data-wb-fieldflow='{\"inline\": true, \"defaultselectedlabel\":\"Select one\"}'>\n\t\t\t\t<p>Find the plugin for the action you need:</p>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"#\">Item 1</a></li>\n\t\t\t\t\t<li><a href=\"#\">Item 2</a></li>\n\t\t\t\t\t<li><a href=\"#\">Item 3</a></li>\n\t\t\t\t\t<li><a href=\"#\">Item 4</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t\t<div class=\"col-md-6 col-lg-4\">\n\t\t\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t\t\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>\n\t\t</div>\n\t</div>\n</section>"
 				}
 			]
-		},
-		{
-			"@id": "_:iteration_srvinfo_6",
-			"name": "Services and information - Iteration 6",
-			"date": "2026-02",
-			"detectableBy": ".gc-srvinfo",
-			"predecessor": "_:iteration_srvinfo_5",
-			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to limit the width of the single-column pattern"]
 		},
 		{
 			"@id": "_:iteration_srvinfo_5",
