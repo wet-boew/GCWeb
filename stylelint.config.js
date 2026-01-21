@@ -136,6 +136,7 @@ module.exports = {
 		"méli-mélo/deprecated/**",
 		"node_modules/**",
 		"~sites/**",
+		"_site/**",
 		"dist/**"
 	]
 };

@@ -1,0 +1,73 @@
+.main-container.container-base.container.responsivegrid {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* Remove container styles when the container is not a grid column or a wrap-container */
+div:not(.wrap-container).wcontainer.container.responsivegrid:not([class*="aem-GridColumn--offset--xs-"]):not([class*="aem-GridColumn--offset--sm-"]):not([class*="aem-GridColumn--offset--md-"]):not([class*="aem-GridColumn--offset--lg-"]) {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	width: auto !important;
+}
+
+.wcontainer.container.responsivegrid .aem-GridColumn:not(.wrap-container).aem-GridColumn--xs--none,
+.wcontainer.container.responsivegrid .aem-GridColumn:not(.wrap-container).aem-GridColumn--offset--xs--0,
+.wcontainer.container.responsivegrid .aem-GridColumn:not(.wrap-container).aem-GridColumn--xs--12,
+.wcontainer.container.responsivegrid .aem-GridColumn:not(.wrap-container) .cq-Editable-dom .cq-Editable-dom--container {
+	padding: 0 !important;
+}
+
+.wcontainer.container.responsivegrid .aem-GridColumn:not(.wrap-container)[class*="aem-GridColumn--default--"] {
+	padding: 0 !important;
+}
+
+.wrap-container.container.aem-GridColumn--default--12 {
+	float: none !important;
+}
+
+.wrap-container.container {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.wrap-container.container:before,
+.wrap-container.container:after,
+.wrap-container .container-fluid:before,
+.wrap-container .container-fluid:after {
+	content: "";
+	display: table;
+}
+
+.wrap-container.container:after,
+.wrap-container .container-fluid:after {
+	clear: both;
+}
+
+@media (min-width: 768px) {
+	.wrap-container.container {
+		width: 750px !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.wrap-container.container {
+		width: 970px !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	.wrap-container.container {
+		width: 1170px !important;
+	}
+}
+
+.wrap-container .container-fluid {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.xf-content-height {
+	margin: 0 !important;
+}

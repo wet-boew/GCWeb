@@ -5,7 +5,7 @@
 	"layout": "no-container",
 	"altLangPage": "theme-fr.html",
 	"overwriteBreadcrumbs": true,
-	"dateModified": "2025-11-05",
+	"dateModified": "2026-01-20",
 	"pageclass": "page-type-theme",
 	"nomenu": true,
 	"auth": {
@@ -14,6 +14,9 @@
 		"label": "Sign in",
 		"labelExtended": "Sign in to Jobs"
 	},
+	"css": [
+		"demo/demo.css"
+	],
 	"contextualFooter": {
 		"title": "Jobs",
 		"links": [
@@ -35,41 +38,15 @@
 ---
 
 <div class="container">
-	<section class="alert alert-info">
+	<section class="alert alert-info wb-dismissable">
 		<h2 class="h4">Soft launch</h2>
 		<p>The Theme template version 2.0 has been soft launched until the official guidance is published by the Digital Transformation Office at CDS. It should not be implemented without consulting DTO or Principal Publisher.</p>
 	</section>
 </div>
 
 <div id="gridContainer">
-	<nav id="theme-nav">
-		<div class="container">
-			<h2 class="wb-inv">Themes menu</h2>
-			<a class="wb-sl" href="#wb-cont">Skip to main content</a>
-			<button id="menu-btn" class="btn btn-primary"><span class="wb-inv">Toggle </span>Menu<span class="glyphicon glyphicon-chevron-down"></span></button>
-			<ul class="list-unstyled">
-				<li><a href="theme-en.html">Jobs</a></li>
-				<li><a href="theme-ircc-en.html">Immigration and citizenship</a></li>
-				<li><a href="#">Travel and tourism</a></li>
-				<li><a href="theme-business-en.html">Business</a></li>
-				<li><a href="#">Benefits</a></li>
-				<li><a href="#">Health</a></li>
-				<li><a href="#">Taxes</a></li>
-				<li><a href="#">Environment and natural resources</a></li>
-				<li><a href="#">National security and defence</a></li>
-				<li><a href="#">Culture, history and sport</a></li>
-				<li><a href="#">Policing, justice and emergencies</a></li>
-				<li><a href="#">Transport and infrastructure</a></li>
-				<li><a href="#">Canada and the world</a></li>
-				<li><a href="#">Money and finances</a></li>
-				<li><a href="#">Science and innovation</a></li>
-				<li><a href="#">Indigenous peoples</a></li>
-				<li><a href="#">Veterans and military</a></li>
-				<li><a href="#">Youth</a></li>
-			</ul>
-		</div>
-	</nav>
-	<section>
+	{% include_relative samples/theme-nav-en.html %}
+	<div id="theme-content">
 		<div class="container">
 			<h1 id="wb-cont">Jobs</h1>
 
@@ -134,10 +111,10 @@
 				</div>
 			</section>
 		</div>
-	</section>
+	</div>
 </div>
 
-<div class="container">
+<div id="theme-features" class="container">
 	<section class="gc-features">
 		<h2>Features</h2>
 		<div class="row wb-eqht-grd">
