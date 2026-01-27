@@ -1,0 +1,253 @@
+// ============================================
+// Combo Box Component Styles
+// Bootstrap-inspired styling with Sass
+// ============================================
+
+// ============================================
+// Variables
+// ============================================
+
+$color-text-primary: #495057;
+$color-text-secondary: #6c757d;
+$color-border: #ced4da;
+$color-white: #fff;
+$color-bg-light: #e9ecef;
+$color-bg-light-gray: #f1f1f1;
+$color-primary: #007bff;
+$color-primary-dark: #0056b3;
+$color-primary-light: #80bdff;
+$color-primary-strong: #0d6efd;
+$color-scrollbar: #888;
+$color-scrollbar-hover: #555;
+$border-radius-default: 4px;
+$border-radius-small: 2px;
+$border-radius-mini: 3px;
+$gap-default: 6px;
+$padding-default: 6px;
+$padding-input: 4px 0;
+$padding-option: 10px 12px;
+$padding-tag: 4px 8px;
+$font-size-default: 14px;
+$font-size-small: 13px;
+$font-size-large: 18px;
+$transition-duration: 0.15s;
+$transition-timing: ease-in-out;
+
+// ============================================
+// Mixins
+// ============================================
+
+@mixin transition( $properties... ) {
+	transition: $properties $transition-duration $transition-timing;
+}
+
+@mixin focus-outline( $color: $color-primary ) {
+	outline: 2px solid $color;
+	outline-offset: -2px;
+}
+
+// ============================================
+// Animations
+// ============================================
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: scale( 0.95 );
+	}
+
+	to {
+		opacity: 1;
+		transform: scale( 1 );
+	}
+}
+
+// ============================================
+// Styles
+// ============================================
+
+.gc-combo-box {
+	position: relative;
+	width: 100%;
+}
+
+.combo-box-label {
+	color: $color-text-primary;
+	display: block;
+	font-size: $font-size-default;
+	font-weight: 500;
+	margin-bottom: 8px;
+}
+
+.combo-box-container {
+	align-items: center;
+	background-color: $color-white;
+	border: 1px solid $color-border;
+	border-radius: $border-radius-default;
+	display: flex;
+	flex-wrap: wrap;
+	gap: $gap-default;
+	min-height: 38px;
+	padding: $padding-default;
+	position: relative;
+	@include transition(border-color, box-shadow);
+
+	&:focus-within {
+		border-color: $color-primary-light;
+		box-shadow: 0 0 0 0.2rem rgb( $color-primary, 0.25 );
+	}
+}
+
+.tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: $gap-default;
+}
+
+.tag {
+	align-items: center;
+	animation: slideIn 0.2s $transition-timing;
+	background-color: $color-primary-strong;
+	border-radius: $border-radius-mini;
+	color: $color-white;
+	display: inline-flex;
+	font-size: $font-size-small;
+	font-weight: 500;
+	gap: $gap-default;
+	padding: $padding-tag;
+
+	.tag-text {
+		color: $color-white;
+		flex-grow: 1;
+	}
+
+	.tag-remove-btn {
+		align-items: center;
+		background: none;
+		border: none;
+		border-radius: $border-radius-small;
+		color: $color-white;
+		cursor: pointer;
+		display: inline-flex;
+		font-size: $font-size-large;
+		height: 16px;
+		justify-content: center;
+		line-height: 1;
+		padding: 0;
+		width: 16px;
+		@include transition( background-color );
+
+		&:hover {
+			background-color: rgb( 0, 0, 0, 0.15 );
+		}
+
+		&:focus {
+			outline: 2px solid $color-white;
+			outline-offset: 1px;
+		}
+	}
+}
+
+.combo-box-input {
+	background: none;
+	border: none;
+	color: $color-text-primary;
+	flex: 1;
+	font-family: inherit;
+	font-size: $font-size-default;
+	min-width: 150px;
+	outline: none;
+	padding: $padding-input;
+
+	&::placeholder {
+		color: $color-text-secondary;
+	}
+}
+
+.combo-box-list {
+	background-color: $color-white;
+	border: 1px solid $color-border;
+	border-radius: $border-radius-default;
+	box-shadow: 0 4px 6px rgb( 0, 0, 0, 0.1 );
+	left: 0;
+	list-style: none;
+	margin: 4px 0 0;
+	max-height: 300px;
+	overflow-y: auto;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 1000;
+
+	&[ hidden ] {
+		display: none;
+	}
+
+	// Scrollbar styling
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $color-bg-light-gray;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $color-scrollbar;
+		border-radius: $border-radius-mini;
+
+		&:hover {
+			background: $color-scrollbar-hover;
+		}
+	}
+}
+
+.combo-box-option {
+	color: $color-text-primary;
+	cursor: pointer;
+	padding: $padding-option;
+	@include transition( background-color );
+
+	user-select: none;
+
+	&:hover {
+		background-color: $color-bg-light;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&[ aria-selected="true" ] {
+		background-color: $color-primary;
+		color: $color-white;
+
+		&[ aria-current="true" ] {
+			background-color: $color-primary-dark;
+			color: $color-white;
+		}
+	}
+
+	&[ aria-current="true" ] {
+		background-color: $color-bg-light;
+		border-left: 3px solid $color-primary;
+		padding-left: 9px;
+
+		&:focus {
+			@include focus-outline;
+		}
+	}
+
+	&.empty-state {
+		color: $color-text-secondary;
+		cursor: default;
+		font-style: italic;
+		padding: 20px 12px;
+		text-align: center;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+}
