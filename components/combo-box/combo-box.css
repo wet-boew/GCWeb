@@ -1,0 +1,199 @@
+* {
+	box-sizing: border-box;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.combo-box-container {
+	align-items: center;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	min-height: 38px;
+	position: relative;
+	padding: 6px;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.combo-box-container:focus-within {
+	border-color: #80bdff;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.combo-box-input {
+	background: none;
+	border: none;
+	font-family: inherit;
+	font-size: 14px;
+	flex: 1;
+	min-width: 150px;
+	outline: none;
+	padding: 4px 0;
+}
+
+.combo-box-label {
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	margin-bottom: 8px;
+}
+
+.combo-box-list {
+	background-color: white;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	left: 0;
+	list-style: none;
+	margin: 4px 0 0 0;
+	max-height: 300px;
+	overflow-y: auto;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 1000;
+}
+
+.combo-box-list[hidden] {
+	display: none;
+}
+
+.combo-box-list::-webkit-scrollbar {
+	width: 6px;
+}
+
+.combo-box-list::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.combo-box-list::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 3px;
+}
+
+.combo-box-list::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.combo-box-option {
+	cursor: pointer;
+	padding: 10px 12px;
+	transition: background-color 0.15s ease-in-out;
+	user-select: none;
+}
+
+.combo-box-option[aria-disabled="true"] {
+	cursor: default;
+	pointer-events: none;
+}
+
+.combo-box-option[aria-disabled="true"]:hover {
+	background-color: transparent;
+}
+
+.combo-box-option[aria-selected="true"] {
+	background-color: #2572b4;
+	color: white;
+	border-left: 3px solid #2572b4;
+	padding-left: 9px;
+}
+
+.combo-box-option[aria-selected="true"]:focus {
+	outline: 2px solid #2572b4;
+	outline-offset: -2px;
+}
+
+.combo-box-option.empty-state {
+	cursor: default;
+	font-style: italic;
+	padding: 20px 12px;
+	text-align: center;
+}
+
+.combo-box-option.empty-state:hover {
+	background-color: transparent;
+}
+
+.combo-box-option:focus {
+	outline: none;
+}
+
+.combo-box-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.tag {
+	align-items: center;
+	animation: slideIn 0.2s ease-in-out;
+	background-color: #2572b4;
+	border-radius: 3px;
+	color: white;
+	display: inline-flex;
+	font-size: 13px;
+	font-weight: 500;
+	gap: 6px;
+	padding: 4px 8px;
+}
+
+.tag-remove-btn {
+	align-items: center;
+	background: none;
+	border: none;
+	border-radius: 2px;
+	color: white;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: inherit;
+	font-size: 18px;
+	height: 16px;
+	justify-content: center;
+	padding: 0;
+	line-height: 1;
+	transition: background-color 0.15s ease-in-out;
+	width: 16px;
+}
+
+.tag-remove-btn:focus {
+	outline: 2px solid white;
+	outline-offset: 1px;
+}
+
+.tag-remove-btn:hover {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+.tag-text {
+	flex-grow: 1;
+}
+
+.tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
