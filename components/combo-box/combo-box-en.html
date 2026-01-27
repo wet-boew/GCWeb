@@ -1,0 +1,42 @@
+---
+title: GC Combo Box Component
+dateModified: 2026-01-13
+description: "An accessible combo-box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items."
+lang: en
+altLangPage: combo-box-fr.html
+---
+
+<div class="gc-combo-box">
+	<label for="combo-box-input" class="combo-box-label">Select Technologies:</label>
+
+	<div class="combo-box-container">
+		<!-- Tags container for selected items -->
+		<div class="tags-container" id="tagsContainer" role="group" aria-label="Selected items">
+			<!-- Tags will be dynamically inserted here -->
+		</div>
+
+		<!-- Input field -->
+		<input
+			type="text"
+			id="combo-box-input"
+			class="combo-box-input"
+			placeholder="Type to search or add items..."
+			autocomplete="on"
+			aria-label="Search and select items"
+			aria-autocomplete="list"
+			aria-controls="combo-box-list"
+			aria-expanded="false"
+		>
+	</div>
+
+	<!-- Dropdown list -->
+	<ul
+		id="combo-box-list"
+		class="combo-box-list"
+		role="listbox"
+		aria-label="Available options"
+		hidden
+	>
+		<!-- Options will be dynamically inserted here -->
+	</ul>
+</div>

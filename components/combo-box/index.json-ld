@@ -1,0 +1,163 @@
+{
+	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "GC Combo Box",
+		"fr": "Boîte Combo GC"
+	},
+	"description": {
+		"en": "An accessible multi-select combo box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items from a list.",
+		"fr": "Un composant de boîte combo multi-sélection accessible qui met en œuvre les normes d'accessibilité WCAG 2.1 et fournit une interface conviviale et moderne pour sélectionner plusieurs éléments dans une liste."
+	},
+	"modified": "2026-01-22",
+	"componentName": "combo-box",
+	"status": "provisional",
+	"version": "1.0.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GC Combo Box - working example",
+				"language": "en",
+				"path": "combo-box-en.html"
+			},
+			{
+				"title": "Boîte Combo GC - example pratique",
+				"language": "fr",
+				"path": "combo-box-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GC Combo Box documentation",
+				"language": "en",
+				"path": "combo-box-docs-en.html"
+			},
+			{
+				"title": "Boîte Combo GC - documentation",
+				"language": "fr",
+				"path": "combo-box-docs-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "GC Combo Box",
+				"fr": "Boîte Combo GC"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "A multi-select combo box with tag display, dynamic filtering, and full keyboard accessibility.",
+				"fr": "Une boîte combo multi-sélection avec affichage d'étiquettes, filtrage dynamique et accessibilité complète au clavier."
+			},
+			"iteration": "_:iteration_combo_box_1",
+			"example": [
+				{
+					"en": { "href": "combo-box-en.html", "text": "GC Combo Box" },
+					"fr": { "href": "combo-box-fr.html", "text": "Boîte Combo GC" }
+				}
+			],
+			"implementation": [
+				"_:implement_combo_box"
+			],
+			"history": [
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_combo_box",
+			"iteration": "_:iteration_combo_box_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"notes": {
+				"en": [
+					"The component supports keyboard navigation including arrow keys, Enter, Escape, and Backspace.",
+					"Selected items are displayed as removable tags.",
+					"Already selected items are automatically filtered out from the dropdown to prevent duplicate selections."
+				],
+				"fr": [
+					"Le composant supporte la navigation au clavier incluant les flèches, Entrée, Échapper et Retour arrière.",
+					"Les éléments sélectionnés sont affichés sous forme d'étiquettes supprimables.",
+					"Les éléments déjà sélectionnés sont automatiquement filtrés de la liste déroulante pour éviter les sélections en double."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Combo box example:",
+						"code": "<div class=\"combo-box-wrapper\">\n\t<label for=\"combo-box-input\" class=\"combo-box-label\">Select Items:</label>\n\t<div class=\"combo-box-container\">\n\t\t<div class=\"tags-container\" id=\"tagsContainer\" role=\"group\" aria-label=\"Selected items\"></div>\n\t\t<input\n\t\t\ttype=\"text\"\n\t\t\tid=\"combo-box-input\"\n\t\t\tclass=\"combo-box-input\"\n\t\t\tplaceholder=\"Type to search or add items...\"\n\t\t\tautocomplete=\"off\"\n\t\t\taria-label=\"Search and select items\"\n\t\t\taria-autocomplete=\"list\"\n\t\t\taria-controls=\"combo-box-list\"\n\t\t\taria-expanded=\"false\"\n\t\t>\n\t</div>\n\t<ul\n\t\tid=\"combo-box-list\"\n\t\tclass=\"combo-box-list\"\n\t\trole=\"listbox\"\n\t\taria-label=\"Available options\"\n\t\thidden\n\t></ul>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple du Boîte Combo  :",
+						"code": "<div class=\"combo-box-wrapper\">\n\t<label for=\"combo-box-input\" class=\"combo-box-label\">Sélectionnez les éléments :</label>\n\t<div class=\"combo-box-container\">\n\t\t<div class=\"tags-container\" id=\"tagsContainer\" role=\"group\" aria-label=\"Éléments sélectionnés\"></div>\n\t\t<input\n\t\t\ttype=\"text\"\n\t\t\tid=\"combo-box-input\"\n\t\t\tclass=\"combo-box-input\"\n\t\t\tplaceholder=\"Tapez pour rechercher ou ajouter des éléments...\"\n\t\t\tautocomplete=\"off\"\n\t\t\taria-label=\"Rechercher et sélectionner des éléments\"\n\t\t\taria-autocomplete=\"list\"\n\t\t\taria-controls=\"combo-box-list\"\n\t\t\taria-expanded=\"false\"\n\t\t>\n\t</div>\n\t<ul\n\t\tid=\"combo-box-list\"\n\t\tclass=\"combo-box-list\"\n\t\trole=\"listbox\"\n\t\taria-label=\"Options disponibles\"\n\t\thidden\n\t></ul>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_combo_box_1",
+			"name": "GC Combo Box - Iteration 1",
+			"date": "2026-01",
+			"detectableBy": ".combo-box-wrapper",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<div class=\"combo-box-wrapper\"><label for=\"combo-box-input\">Select Items:</label><div class=\"combo-box-container\"><div class=\"tags-container\" id=\"tagsContainer\"></div><input type=\"text\" id=\"combo-box-input\" class=\"combo-box-input\" aria-controls=\"combo-box-list\"></div><ul id=\"combo-box-list\" class=\"combo-box-list\" role=\"listbox\" hidden></ul></div>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_combo_box_1",
+			"name": "Accessible Combo Box",
+			"status": "provisional",
+			"baseOnIteration": "_:iteration_combo_box_1",
+			"detectableBy": ".combo-box-wrapper",
+			"layout": "Not applicable",
+			"style": "Bootstrap-inspired styling with modern animations and accessibility focus",
+			"semantic": "Uses ARIA attributes for screen readers including listbox role, option role, and aria-expanded state"
+		}
+	]
+}
