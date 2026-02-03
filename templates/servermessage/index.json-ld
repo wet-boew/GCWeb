@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"@version": 1.1,
+		"@version": 2.0,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -11,36 +11,35 @@
 		"fr": "Message d'erreur serveur"
 	},
 	"description": {
-		"en": "Error server page",
+		"en": "Example server error message page.",
 		"fr": "Exemple de page d'erreur serveur."
 	},
-	"modified": "2020-06-04",
+	"modified": "2025-12-09",
 	"componentName": "servermessage",
 	"status": "stable",
+	"version": "2.0",
 	"pages": {
 		"examples": [
 			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme",
+				"title": "Page not found - Canada.ca",
 				"language": "en",
 				"path": "404-en.html"
 			},
 			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+				"title": "Page non trouvée - Canada.ca",
 				"language": "fr",
 				"path": "404-fr.html"
 			},
 			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme / Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+				"title": "Page not found - Canada.ca / Page non trouvée - Canada.ca",
 				"language": "en",
 				"path": "404-en-fr.html"
 			},
 			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / We couldn't find that Web page (Error 404) - Canada.ca theme",
+				"title": "Page non trouvée - Canada.ca / Page not found - Canada.ca",
 				"language": "fr",
 				"path": "404-fr-en.html"
 			},
-
-
 			{
 				"title": "Message title - Canada.ca theme",
 				"language": "en",
@@ -61,6 +60,186 @@
 				"language": "fr",
 				"path": "servermessage-fr-en.html"
 			}
+		],
+		"docs": [
+			{
+				"title": "Server error message",
+				"language": "en",
+				"path": "servermessage-doc-en.html"
+			},
+			{
+				"title": "Message d'erreur serveur",
+				"language": "fr",
+				"path": "servermessage-doc-fr.html"
+			}
 		]
-	}
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Server error message",
+				"fr": "Message d'erreur serveur"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Page template for server error messages.",
+				"fr": "Gabarit de page pour les messages d'erreur serveur."
+			},
+			"iteration": "_:iteration_servermessage_1",
+			"example": [
+				{
+					"en": { "href": "404-en.html", "text": "Page not found" },
+					"fr": { "href": "404-fr.html", "text": "Page non trouvée" }
+				},
+				{
+					"en": { "href": "404-en-fr.html", "text": "Page not found / Page non trouvée (Bilingual)" },
+					"fr": { "href": "404-fr-en.html", "text": "Page non trouvée / Page not found  (Bilingue)" }
+				},
+				{
+					"en": { "href": "servermessage-en.html", "text": "Message title" },
+					"fr": { "href": "servermessage-fr.html", "text": "Titre du message" }
+				},
+				{
+					"en": { "href": "servermessage-en-fr.html", "text": "Message title / Titre du message (Bilingual)" },
+					"fr": { "href": "servermessage-fr-en.html", "text": "Titre du message / Message title (Bilingue)" }
+				}
+			],
+			"implementation": [
+				"_:implement_servermessage"
+			],
+			"history": [
+				{
+					"en": "December 2025 - Update the \"Page not found\" template.",
+					"fr": "Décembre 2025 - Mise à jour du gabarit de la \"Page non trouvée.\""
+				},
+				{
+					"en": "June 2020 - Initial implementaton of template.",
+					"fr": "Juin 2020 - Implémentation initiale du gabarit."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_servermessage",
+			"iteration": "_:iteration_servermessage_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers who are looking to configure the server error message page template. There are two versions of this template: a unilingual page for users whose language preference is known, and a bilingual page for users whose language preference is unknown.",
+				"fr": "Cette implémentation s'adresse aux développeurs/éditeurs qui souhaitent configurer le gabarit de la page de message d'erreur serveur. Il existe deux versions de ce gabarit : une page unilingue pour les utilisateurs dont la préférence linguistique est connue, et une page bilingue pour les utilisateurs dont la préférence linguistique est inconnue."
+
+			},
+			"instructions": {
+				"en": [
+					"The \"Page not found\" template should only be used when a user attempts to access a page that does not exist (i.e. a 404 error) and should include at least one rescue link (e.g. the Canada.ca homepage).",
+					"The bilingual \"Page not found\" page should limit the elements in the header and footer to only the Government of Canada signature with a link to the Canada.ca splash page and only the Canada wordmark in the footer.",
+					"The \"Message title\" template can be used to display other server error messages."
+				],
+				"fr": [
+					"Le gabarit « Page non trouvée » ne devrait être utilisé que lorsqu'un utilisateur tente d'accéder à une page qui n'existe pas (une erreur 404) et devrait inclure au moins un lien de secours (par ex: la page d'accueil de Canada.ca).",
+					"La page bilingue « Page non trouvée » devait limiter les éléments de l'en-tête et du pied de page à la signature du gouvernement du Canada avec un lien vers la page d'accueil de Canada.ca et au mot-symbole Canada dans le pied de page.",
+					"Le gabarit « Titre du message » peut être utilisé pour afficher d'autres messages d'erreur serveur."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Page not found",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Page not found / Page non trouvée (Bilingual)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Message title",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Message title / Titre du message (Bilingual)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en-fr.html main"
+						}
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Page non trouvée",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Page non trouvée / Page not found (Bilingue)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Titre du message",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Titre du message / Message title (Bilingue)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en-fr.html main"
+						}
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_servermessage_2",
+			"name": "Server error message - Iteration 2",
+			"date": "2025-12",
+			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors)."
+		},
+		{
+			"@id": "_:iteration_servermessage_1",
+			"name": "Server error message - Iteration 1",
+			"date": "2020-06",
+			"detectableBy": "A warning icon accompanied by a message text in the main content area."
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_servermessage",
+			"name": "Server error message",
+			"status": "stable",
+			"detectableBy": "Danger label directly below H1 heading",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Not applicable"
+		}
+	]
 }
