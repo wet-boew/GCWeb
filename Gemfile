@@ -7,6 +7,7 @@ gem 'json'
 gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-github-metadata'
 gem 'minitest'
+gem 'tzinfo-data'
 
 # Dev dependency for the post build
 #gem "scss_lint"
