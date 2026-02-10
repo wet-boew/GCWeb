@@ -8,6 +8,11 @@
 	margin-bottom: 20px;
 	padding: 24px 0 12px;
 
+	&:has(~ .gc-most-requested) {
+		background-color: $state-info-bg;
+		margin-bottom: 0;
+	}
+
 	h2 {
 		font-size: 22px;
 		margin-top: 0;
@@ -23,8 +28,8 @@
 	}
 }
 
-// Styles to slightly break the layout for bad implementation
-.container .gc-most-requested {
+// Styles to slightly break the layout for bad implementation. Styles to be used for the AEM authoring theme page.
+.container:not(.responsivegrid) .gc-most-requested {
 	background: transparent;
 }
 
