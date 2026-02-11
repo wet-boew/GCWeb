@@ -7,6 +7,19 @@
  *
  */
 
+fieldset {
+	&.chkbxrdio-grp {
+		legend {
+			font-size: 20px;
+		}
+	}
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin-top: 9px;
+}
+
 // Increase likelihood of side-by-side input/button having same height
 .input-group {
 	.form-control,
@@ -17,38 +30,10 @@
 	}
 }
 
-/* Exclude temporary the form element from the font update, keep same style as before
- * - Rational: More testing and various adjustment need to be completed before to apply it
- * - Fieldflow is brought to speed with the visual update with a clearly defined temporary class .gc-font-2019, but the class can be tried out on other forms
- */
-:not(#wb-srch) form, .checkbox, .checkbox-inline, .radio, .radio-inline, form .btn:not(.btn-call-to-action) {
-	font-size: 1rem;
-	line-height: 1.4375;
-}
 
-form .btn:not(.btn-call-to-action), .form-control {
-	padding: 6px 12px;
-}
-
-// Apply the new font size to form, for early adopter
-.gc-font-2019 {
-	&, & + div {
-		&, label, fieldset legend, input[type="submit"], select, .wb-fieldflow-label ~ p {
-			font-size: 20px;
-			line-height: 1.65em;
-		}
-
-		fieldset legend {
-			margin-bottom: 11.5px;
-		}
-
-		input[type="checkbox"], input[type="radio"] {
-			margin-top: 11px;
-		}
-
-		[type="submit"], select {
-			padding: .54em 1em;
-		}
+.form-horizontal {
+	.control-label {
+		padding-top: 7px;
 	}
 }
 
