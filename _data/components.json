@@ -2797,9 +2797,6 @@
 	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
-		"title": {
-			"@id": "dct:title", "@container": "@language"
-		},
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
 		"modified": "dct:modified"
@@ -2812,10 +2809,10 @@
 		"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
 		"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
 	},
-	"modified": "2025-11-20",
+	"modified": "2026-02-27",
 	"componentName": "gc-subway",
 	"status": "stable",
-	"version": "1.0",
+	"version": "1.0.1",
 	"pages": {
 		"examples": [
 			{
@@ -2918,7 +2915,7 @@
 				"en": "https://design.canada.ca/common-design-patterns/subway-navigation.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/navigation-metro.html"
 			},
-			"iteration": "_:iteration_subway_2",
+			"iteration": "_:iteration_subway_3",
 			"example": [
 				{
 					"en": { "href": "index-en.html", "text": "Index page" },
@@ -2954,6 +2951,10 @@
 			],
 			"history": [
 				{
+					"en": "February 2026 - Removed code to adjust previous implementations of the pattern as it was breaking some pages that had a bad implementation.",
+					"fr": "Février 2026 - Supprimé le code pour ajuster les implémentations précédentes du modèle car cela cassait certaines pages qui avaient une mauvaise implémentation."
+				},
+				{
 					"en": "November 2025 - Stabilized the component",
 					"fr": "Novembre 2025 - Stabilisé le composant"
 				},
@@ -2967,7 +2968,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_subway_1",
-			"iteration": "_:iteration_subway_2",
+			"iteration": "_:iteration_subway_3",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -3022,10 +3023,22 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_subway_3",
+			"name": "Subway - Iteration 3",
+			"date": "2026-02",
+			"detectableBy": ".gc-subway",
+			"predecessor": "_:iteration_subway_2",
+			"fixes": [
+				"Removed code to adjust previous implementations of the pattern as it was breaking some pages that had a bad implementation."
+			]
+		},
+		{
 			"@id": "_:iteration_subway_2",
 			"name": "Subway - Iteration 2",
 			"date": "2025-11",
 			"detectableBy": ".gc-subway",
+			"predecessor": "_:iteration_subway_1",
+			"successor": "_:iteration_subway_3",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -3045,6 +3058,7 @@
 			"name": "Subway - Iteration 1",
 			"date": "2021-03",
 			"detectableBy": ".gc-subway.provisional",
+			"successor": "_:iteration_subway_2",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -3065,7 +3079,7 @@
 			"@id": "_:cs_subway",
 			"name": "Subway navigation",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_subway_2",
+			"baseOnIteration": "_:iteration_subway_3",
 			"detectableBy": ".gc-subway",
 			"layout": "The layout for the index page is different from the sections pages. The Subway navigation code snippet for the <strong>index</strong> page can be placed anywhere within the content of the page (<code>&lt;main&gt;</code>). However, make sure the heading level is appropriate. Also, the sub-section items must not be included in the index page.",
 			"style": "The active class is mandatory and is to be added to the active page's link (<a>) in the Subway navigation. Additionally, an optional class of no-line can be applied to a sub-section list (<ul>). It will remove the vertical line connecting all sub-sections. It will also add a horizontal line connecting the active sub-section with the main subway line.",
