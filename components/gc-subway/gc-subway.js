@@ -15,7 +15,6 @@ var $document = wb.doc,
 	indexClass = componentName + "-index",
 	supportClass = componentName + "-support",
 	wrapperClass = componentName + "-wrapper",
-	navigationClass = componentName + "-pagination",
 	sectionsTitle,
 	$navH1, $pageH1,
 	$support,
@@ -76,14 +75,6 @@ var $document = wb.doc,
 
 				// Prevent on-load blinking on desktop
 				elm.classList.add( "no-blink" );
-			}
-
-			//To support previous implementations
-			var pager = document.querySelector( ".pager" ),
-				nav = pager.closest( "nav" );
-
-			if ( !nav.classList.contains( navigationClass ) ) {
-				nav.classList.add( navigationClass );
 			}
 
 			$subwayLinks = $( selector + " a, ." + mainClass + " .gc-subway-pagination a" );
