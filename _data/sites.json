@@ -1018,10 +1018,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2025-05-28",
+	"modified": "2026-03-05",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"pages": {
 		"docs": [
 			{
@@ -1144,7 +1144,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_3",
 			"example": [
 				{
 					"en": { "href": "page-feedback-en.html", "text": "GC feedback" },
@@ -1158,6 +1158,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en":"March 2026 - PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected",
+					"fr":"Mars 2026 - Fenêtre modale de gestion des données personnelles : Le texte de la fenêtre a été mis à jour et le bouton « Envoyer un commentaire » a été supprimé si des données personnelles étaient détectées"
+				},
 				{
 					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
@@ -1182,7 +1186,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_3",
 			"example": [
 				{
 					"en": { "href": "page-feedback-contact-en.html", "text": "GC feedback with contact link" },
@@ -1196,6 +1200,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en":"March 2026 - PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected",
+					"fr":"Mars 2026 - Fenêtre modale de gestion des données personnelles : Le texte de la fenêtre a été mis à jour et le bouton « Envoyer un commentaire » a été supprimé si des données personnelles étaient détectées"
+				},
 				{
 					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
@@ -2015,6 +2023,16 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_pft_3",
+			"name": "GC feedback - Iteration 3",
+			"date": "2026-03",
+			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
+			"fixes": [
+				"PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected"
+			],
+			"predecessor": "_:iteration_pft_2"
+		},
+		{
 			"@id": "_:iteration_pft_2",
 			"name": "GC feedback - Iteration 2",
 			"date": "2025-01",
@@ -2024,6 +2042,7 @@
 				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 				"AJAX fragment: Added PII scrub of the comment field."
 			],
+			"successor": "_:iteration_pft_3",
 			"predecessor": "_:iteration_pft_1",
 			"assets": [
 				{
