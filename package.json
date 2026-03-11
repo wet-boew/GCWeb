@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-sass": "3.4.3",
-    "wet-boew": "github:wet-boew/wet-boew#v4.0.95.1"
+    "wet-boew": "github:garneauma/wet-boew#flot"
   },
   "peerDependencies": {
     "@cdssnc/gcds-components": "0.43.1"
@@ -22,7 +22,10 @@
   "io.github.wet-boew": {
     "gcdsSriJs": "sha384-LvlLD5RBuKfWk4D3tLBoQb10idfyXY2NzeDN/WylPZcZm1mWEvAAUvtaBOrq3Aw5",
     "gcdsSriCss": "sha384-nbfuI8ypmBcicF3iEfQgDR5GbezYoSB81DQu2M3imy8Cp5ynFJWqdJ64Qond1esU",
-    "gcdsPiloting": [ "gcds-card", "gcds-grid > gcds-card" ]
+    "gcdsPiloting": [
+      "gcds-card",
+      "gcds-grid > gcds-card"
+    ]
   },
   "peerDependenciesMeta": {
     "@cdssnc/gcds-components": {
@@ -62,9 +65,14 @@
     "load-grunt-tasks": "^5.1.0",
     "postcss": "^8.5.6",
     "sass": "^1.97.3",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint": "^17.4.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-order": "^7.0.1",
     "time-grunt": "^2.0.0"
+  },
+  "overrides": {
+    "grunt-stylelint": {
+      "stylelint": ">=17.0.0"
+    }
   }
 }
