@@ -14,10 +14,10 @@
 		"en": "Example server error message page.",
 		"fr": "Exemple de page d'erreur serveur."
 	},
-	"modified": "2025-12-09",
+	"modified": "2026-03-04",
 	"componentName": "servermessage",
 	"status": "stable",
-	"version": "2.0",
+	"version": "2.1",
 	"pages": {
 		"examples": [
 			{
@@ -86,7 +86,7 @@
 				"en": "Page template for server error messages.",
 				"fr": "Gabarit de page pour les messages d'erreur serveur."
 			},
-			"iteration": "_:iteration_servermessage_1",
+			"iteration": "_:iteration_servermessage_3",
 			"example": [
 				{
 					"en": { "href": "404-en.html", "text": "Page not found" },
@@ -110,6 +110,10 @@
 			],
 			"history": [
 				{
+					"en": "March 2026 - Update the \"Page not found\" template.",
+					"fr": "Mars 2026 - Mise à jour du gabarit de la \"Page non trouvée.\""
+				},
+				{
 					"en": "December 2025 - Update the \"Page not found\" template.",
 					"fr": "Décembre 2025 - Mise à jour du gabarit de la \"Page non trouvée.\""
 				},
@@ -123,7 +127,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_servermessage",
-			"iteration": "_:iteration_servermessage_1",
+			"iteration": "_:iteration_servermessage_3",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -219,9 +223,19 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_servermessage_3",
+			"name": "Server error message - Iteration 3",
+			"date": "2026-03",
+			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors).",
+			"predecessor": "_:iteration_servermessage_2",
+			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to respect Canada.ca readability typography guidelines", "Adding visible skip links on mobile and on bilingual example pages"]
+		},
+		{
 			"@id": "_:iteration_servermessage_2",
 			"name": "Server error message - Iteration 2",
 			"date": "2025-12",
+			"successor": "_:iteration_servermessage_3",
+			"predecessor": "_:iteration_servermessage_1",
 			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors)."
 		},
 		{
