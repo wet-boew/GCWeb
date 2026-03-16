@@ -14,10 +14,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2026-03-05",
+	"modified": "2026-03-16",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"pages": {
 		"docs": [
 			{
@@ -140,7 +140,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_3",
+			"iteration": "_:iteration_pft_4",
 			"example": [
 				{
 					"en": { "href": "page-feedback-en.html", "text": "GC feedback" },
@@ -182,7 +182,7 @@
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_3",
+			"iteration": "_:iteration_pft_4",
 			"example": [
 				{
 					"en": { "href": "page-feedback-contact-en.html", "text": "GC feedback with contact link" },
@@ -400,7 +400,7 @@
 		},
 		{
 			"@id": "_:implement_pft",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Standard (wet-boew)",
 				"fr": "Standard (wet-boew)"
@@ -470,7 +470,7 @@
 		},
 		{
 			"@id": "_:implement_pft_gcweb",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -510,7 +510,7 @@
 		},
 		{
 			"@id": "_:implement_pft_upgrade_rap",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Upgrade from RAP",
 				"fr": "Mise à jour à partir de SUP"
@@ -532,7 +532,7 @@
 		},
 		{
 			"@id": "_:implement_pft_mws_author",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "MWS users",
 				"fr": "Utilisateur SWG"
@@ -558,7 +558,7 @@
 		},
 		{
 			"@id": "_:implement_pft_contact",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Standard (WET-BOEW)",
 				"fr": "Standard (WET-BOEW)"
@@ -628,7 +628,7 @@
 		},
 		{
 			"@id": "_:implement_pft_contact_gcweb",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -674,7 +674,7 @@
 			"@id": "_:cs_pft_container",
 			"name": "GC feedback with AJAX",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_2",
+			"baseOnIteration": "_:iteration_pft_4",
 			"detectableBy": ".pagedetails .wb-disable-allow[data-ajax-replace*=feedback]",
 			"layout": [
 				"At the top-left column in the page details component",
@@ -722,7 +722,7 @@
 			"@id": "_:cs_pft_ajax",
 			"name": "GC feedback AJAX file",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_2",
+			"baseOnIteration": "_:iteration_pft_4",
 			"dependOnChangeSet": "_:cs_pft_container",
 			"detectableBy": "<div class=\"gc-pft\">",
 			"layout": [
@@ -1019,6 +1019,16 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_pft_4",
+			"name": "GC feedback - Iteration 4",
+			"date": "2026-03",
+			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
+			"fixes": [
+				"Keep visual output after increase of forms font-size."
+			],
+			"predecessor": "_:iteration_pft_3"
+		},
+		{
 			"@id": "_:iteration_pft_3",
 			"name": "GC feedback - Iteration 3",
 			"date": "2026-03",
@@ -1026,6 +1036,7 @@
 			"fixes": [
 				"PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected"
 			],
+			"successor": "_:iteration_pft_4",
 			"predecessor": "_:iteration_pft_2"
 		},
 		{
@@ -1038,7 +1049,7 @@
 				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 				"AJAX fragment: Added PII scrub of the comment field."
 			],
-			"successor": "_:iteration_pft_3",
+			"successor": "_:iteration_pft_4",
 			"predecessor": "_:iteration_pft_1",
 			"assets": [
 				{
