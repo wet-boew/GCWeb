@@ -940,10 +940,10 @@
 		"en": "This adds a featured link to a page that your institution needs to feature prominently.",
 		"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
 	},
-	"modified": "2024-02-21",
+	"modified": "2026-03-13",
 	"componentName": "gc-featured-link",
 	"status": "stable",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"pages": {
 		"docs": [
 			{
@@ -1004,7 +1004,7 @@
 				"en": "This adds a featured link to a page that your institution needs to feature prominently.",
 				"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
 			},
-			"iteration": "_:iteration_featuredLink_3",
+			"iteration": "_:iteration_featuredLink_4",
 			"example": [
 				{
 					"en": { "href": "gc-featured-link-en.html", "text": "Featured link" },
@@ -1016,6 +1016,10 @@
 				"_:implement_migrationProvisional"
 			],
 			"history": [
+				{
+					"en": "March 2026 - Added hover property: increase underline thickness on hover.",
+					"fr": "Mars 2026 - Propriété de survol ajoutée : augmentation de l'épaisseur du soulignement au survol."
+				},
 				{
 					"en": "March 2024 - Stabilizing component.",
 					"fr": "Mars 2024 - Stabilisation de la composante."
@@ -1132,6 +1136,23 @@
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_featuredLink_4",
+			"name": "Featured link - Iteration 4",
+			"date": "2026-03",
+			"detectableBy": ".gc-featured-link:not(.provisional)",
+			"fixes": [
+				"Increased underline thickness on hover."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-featured-link\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Spotlight on</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t</div>\n</section>"
+				}
+			]
+		},
 		{
 			"@id": "_:iteration_featuredLink_3",
 			"name": "Featured link - Iteration 3",
