@@ -19,7 +19,7 @@ const gcdsVersion = "@gcdsComponentVersion@", // pkg.peerDependencies[ "@cdssnc/
 //
 // General configuration used to detect and load GCSD
 //
-const gcdsBasePath = "https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@",
+const gcdsBasePath = "https://cdn.design-system.canada.ca/@gcds-core/components@",
 	gcdsSuffixJs = "/dist/gcds/gcds.esm.js",
 	gcdsSuffixCss = "/dist/gcds/gcds.css",
 	txtScript = "script",
