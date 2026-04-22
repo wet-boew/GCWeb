@@ -118,24 +118,25 @@ class ComboBoxComponent extends HTMLElement {
 			</style>
 
 			<div class="combo-box-wrapper">
-				<label for="combo-box-input" class="combo-box-label">${ this.escapeHtml( label ) }</label>
+				<label for="combo-box-input" class="combo-box-label">
+				<slot name="label">${ this.escapeHtml( label ) }</slot>
+				</label>
 
 				<div class="combo-box-container" role="combobox">
 					<div class="tags-container" id="tagsContainer" role="group" aria-label="Selected items">
 						<!-- Tags will be dynamically inserted here -->
+						<input
+							type="text"
+							id="combo-box-input"
+							class="combo-box-input"
+							placeholder="${ this.escapeHtml( placeholder ) }"
+							autocomplete="off"
+							aria-label="Search and select items"
+							aria-autocomplete="list"
+							aria-controls="combo-box-list"
+							aria-expanded="false"
+						>
 					</div>
-
-					<input
-						type="text"
-						id="combo-box-input"
-						class="combo-box-input"
-						placeholder="${ this.escapeHtml( placeholder ) }"
-						autocomplete="off"
-						aria-label="Search and select items"
-						aria-autocomplete="list"
-						aria-controls="combo-box-list"
-						aria-expanded="false"
-					>
 				</div>
 
 				<ul
@@ -261,6 +262,7 @@ class ComboBoxComponent extends HTMLElement {
 					this.renderTags();
 					this.updateFilteredOptions();
 					this.renderOptions();
+					this.syncHiddenInputs();
 				}
 				break;
 			case "Tab":
@@ -349,6 +351,8 @@ class ComboBoxComponent extends HTMLElement {
 				bubbles: true,
 				composed: true
 			} ) );
+
+			this.syncHiddenInputs();
 		}
 	}
 
@@ -369,6 +373,8 @@ class ComboBoxComponent extends HTMLElement {
 			bubbles: true,
 			composed: true
 		} ) );
+
+		this.syncHiddenInputs();
 	}
 
 	// Updates filtered options based on selected items
@@ -380,6 +386,7 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Renders the selected items as tags
 	renderTags() {
+		const hadFocus = this.shadowRoot.activeElement === this.input;
 		this.tagsContainer.innerHTML = "";
 
 		this.selectedItems.forEach( item => {
@@ -395,9 +402,14 @@ class ComboBoxComponent extends HTMLElement {
 					×
 				</button>
 			`;
-
 			this.tagsContainer.appendChild( tag );
 		} );
+		this.tagsContainer.appendChild( this.input );
+		this.input.classList.toggle( "has-selections", this.selectedItems.length > 0 );
+
+		if ( hadFocus ) {
+			this.input.focus();
+		}
 
 		// Update aria-label with selection count
 		const count = this.selectedItems.length;
@@ -455,6 +467,9 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Escapes HTML special characters
 	escapeHtml( text ) {
+		if ( !text ) {
+			return "";
+		}
 		const map = {
 			"&": "&amp;",
 			"<": "&lt;",
@@ -465,6 +480,24 @@ class ComboBoxComponent extends HTMLElement {
 			"'": "&#039;"
 		};
 		return text.replace( /[&<>"']/g, m => map[ m ] );
+	}
+
+	syncHiddenInputs() {
+		this.querySelectorAll( "input[type=\"hidden\"][data-combo-value]" ).forEach( el => el.remove() );
+
+		const name = this.getAttribute( "name" );
+		if ( !name ) {
+			return;
+		}
+
+		this.selectedItems.forEach( value => {
+			const input = document.createElement( "input" );
+			input.type = "hidden";
+			input.name = name;
+			input.value = value;
+			input.dataset.comboValue = "true";
+			this.appendChild( input );
+		} );
 	}
 
 	// Returns the encapsulated styles for the Shadow DOM
