@@ -99,10 +99,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-08-29",
+	"modified": "2026-03-20",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.3",
+	"version": "2.0",
 	"pages": {
 		"examples": [
 			{
@@ -141,7 +141,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_4",
+			"iteration": "_:iteration_allservices_5",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -149,11 +149,16 @@
 				}
 			],
 			"implementation": [
-				"_:implement_allservices"
+				"_:implement_allservices",
+				"_:implement_allservices_1dot3_to_2"
 			],
 			"history": [
 				{
-					"en": "August 2025 - Use the class \".colcount-no-break\" to prevent list items from splitting across multiple columns.",
+					"en": "March 2026 - Remove the 'Top searches' band, update 'Most requested services' band, remove 'Manage life events' band, add expand collapse section between 'Most requested' and theme/topics area, change 'Access services by topic' title",
+					"fr": "Mars 2026 – Retirer la bande « Recherches les plus populaires », mettre à jour la bande « Services les plus demandés », retirer la bande « Gérer les événements de la vie », ajouter une section à expansion/réduction entre « En demande » et la zone des thèmes/sujets, modifier le titre « Accéder aux services par sujet »."
+				},
+				{
+					"en": "August 2025 - Use the class '.colcount-no-break' to prevent list items from splitting across multiple columns.",
 					"fr": "Août 2025 - Utilisation de la classe « .colcount-no-break » pour empêcher les éléments de liste de se diviser en plusieurs colonnes."
 				},
 				{
@@ -192,16 +197,57 @@
 				"en": "all-services-en.html main > *:not(.pagedetails)",
 				"fr": "all-services-fr.html main > *:not(.pagedetails)"
 			}
+		},
+		{
+			"@id": "_:implement_allservices_1dot3_to_2",
+			"iteration": "_:iteration_allservices_5",
+			"name": {
+				"en": "Transition from 1.3 to 2.0",
+				"fr": "Transitionner de 1.3 à 2.0"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers migrating from version 1.3 of the template to version 2.0.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui migrent de la version 1.3 à la version 2.0 du gabarit."
+			},
+			"instructions": {
+				"en": [
+					"Remove the 'Top searches' band",
+					"Update 'Most requested services' band: update title to 'Most requested' and update links as needed",
+					"Remove 'Manage life events' band",
+					"Add between 'Most requested' and theme/topics area, a section with expand and collapses containing all service categories. This section title is 'By category'",
+					"Replace the H1 title 'Access services by topic' with an H2 title 'By theme'"
+				],
+				"fr": [
+					"Retirer la bande « Recherches les plus populaires »",
+					"Mettre à jour la bande « Services les plus demandés » : mettre à jour le titre « En demande » et mettre à jour les liens comme dans la démo",
+					"Retirer la section « Gérer les événements de la vie»",
+					"Ajouter une section avec expansions/réductions entre la zone « En demande » et celle des thèmes/sujets. Le titre est « Par catégorie »",
+					"Remplacer le H1 « Accès aux services par thème par un H2 « Par thème »"
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "all-services-en.html main > *:not(.pagedetails)",
+				"fr": "all-services-fr.html main > *:not(.pagedetails)"
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_allservices_5",
+			"name": "All services page - Iteration 5",
+			"date": "2026-03",
+			"breaking": [ "Remove the top searches band", "Update Most requested services band", "Remove manage life events", "Add between 'Most requested' and theme/topics area, a 'By category' section with expand and collapses containing all service categories", "Update Access services by topic title" ],
+			"detectableBy": "Most requested navigation band with a list container that has the class \".colcount-no-break\" followed by a section with expand and collapses containing all service categories and a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_4"
+		},
 		{
 			"@id": "_:iteration_allservices_4",
 			"name": "All services page - Iteration 4",
 			"date": "2025-08",
 			"additions": [ "Use the class \".colcount-no-break\" to prevent list items from splitting across multiple columns." ],
 			"detectableBy": "Three navigation bands each whose list container has the class \".colcount-no-break\" followed by a Services and Information component containing a list of all themes and topics.",
-			"predecessor": "_:iteration_allservices_3"
+			"predecessor": "_:iteration_allservices_3",
+			"successor": "iteration_allservices_5"
 		},
 		{
 			"@id": "_:iteration_allservices_3",
