@@ -1,0 +1,387 @@
+---
+{
+"title": "Contenu intégré et interactif",
+"language": "fr",
+"altLangPage": "interactive-content-en.html",
+"dateModified": "2025-10-01"
+}
+---
+
+<h2>Les éléments <code>picture</code>, <code>source</code> et <code>img</code></h2>
+<h3>Source d'image valide</h3>
+<picture>
+	<source srcset="img/input-image-sample.jpg">
+	<img src="img/input-image-sample.jpg" alt="Exemple de source d'image valide">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset="img/input-image-sample.jpg"&gt;
+&lt;img src="img/input-image-sample.jpg" alt="Exemple de source d'image valide"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h3>Source d'image vide</h3>
+<picture>
+	<source srcset="">
+	<img src="" alt="Exemple de source d'image vide">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset=""&gt;
+&lt;img src="" alt="Exemple de source d'image vide"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h3>Source d'image invalide</h3>
+<picture>
+	<source srcset="img/invalid-image.jpg">
+	<img src="img/invalid-image.jpg" alt="Exemple de source d'image non valide">
+</picture>
+<pre>
+<code>&lt;picture&gt;
+&lt;source srcset="img/invalid-image.jpg"&gt;
+&lt;img src="img/invalid-image.jpg" alt="Exemple de source d'image non valide"&gt;
+&lt;/picture&gt;</code>
+</pre>
+
+<h3>L'élément <code>image</code></h3>
+<h3>Source d'image valide</h3>
+<img src="img/input-image-sample.jpg" alt="Example of a valid image source">
+<pre>
+<code>
+&lt;img src="img/input-image-sample.jpg" alt="Example of a valid image source"&gt;
+</code>
+</pre>
+
+<h3>Source d'image vide</h3>
+<img src="" alt="Example of an empty image source">
+<pre>
+<code>
+&lt;img src="" alt="Example of an empty image source"&gt;
+</code>
+</pre>
+
+<h3>Source d'image invalide</h3>
+<img src="img/invalid-image.jpg" alt="Example of an invalid image source">
+<pre>
+<code>
+&lt;img src="img/invalid-image.jpg" alt="Example of an invalid image source"&gt;
+</code>
+</pre>
+
+<h2>L'élément <code>iframe</code></h2>
+<iframe src="https://www.canada.ca/fr.html" title="Le site officiel du gouvernement du Canada" width="700px" height="500px"></iframe>
+<pre><code>&lt;iframe src="https://www.canada.ca/fr.html" title="Le site officiel du gouvernement du Canada" width="700px" height="500px"&gt;&lt;/iframe&gt;</code></pre>
+
+<h2>L'élément <code>embed</code></h2>
+<p>Gardez à l'esprit que la plupart des navigateurs modernes ont abandonné et supprimé la prise en charge des plug-ins de navigateur. Il n'est donc généralement pas judicieux de s'appuyer sur <embed> si vous souhaitez que votre site puisse être utilisé sur le navigateur de l'utilisateur moyen.
+
+Problèmes d'accessibilité: utilisez l'attribut title sur un élément intégré pour étiqueter son contenu afin que les personnes naviguant avec une technologie d'assistance telle qu'un lecteur d'écran puissent comprendre ce qu'il contient. La valeur du titre doit décrire de manière concise le contenu intégré. Sans titre, ils ne seront peut-être pas en mesure de déterminer quel est le contenu intégré. Ce changement de contexte peut être déroutant et prendre du temps, surtout si l'élément intégré contient du contenu interactif comme de la vidéo ou de l'audio.</p>
+
+<h3>Une image intégrée</h3>
+<embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200">
+<pre><code>&lt;embed type="image/jpg" src="img/input-image-sample.jpg" width="300" height="200"&gt;</code></pre>
+
+<h3>Une page HTML intégrée</h3>
+<embed type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200">
+<pre><code>&lt;embed type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200"&gt;</code></pre>
+
+<h3>Une vidéo intégrée</h3>
+<embed type="video/webm" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300">
+<pre><code>&lt;embed type="video/webm" src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"&gt;</code></pre>
+
+<h2>L'élément <code>object</code></h2>
+<h3>Une image intégrée</h3>
+<object data="img/input-image-sample.jpg" width="300" height="200"></object>
+<pre><code>&lt;object data="img/input-image-sample.jpg" width="300" height="200"&gt;&lt;/object&gt;</code></pre>
+
+<h3>Une page HTML intégrée</h3>
+<object data="https://www.canada.ca/fr.html" width="500" height="200"></object>
+<pre><code>&lt;object type="text/html" src="https://www.canada.ca/fr.html" width="500" height="200"&gt;&lt;/object&gt;</code></pre>
+
+<h3>Une vidéo intégrée</h3>
+<object data="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"></object>
+<pre><code>&lt;object data="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" width="400" height="300"&gt;&lt;/object&gt;</code></pre>
+
+<h2>L'élément <code>vidéo</code></h2>
+<video controls>
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" type="video/webm">
+	Votre navigateur ne prend pas en charge la balise vidéo.
+</video>
+<pre>
+<code>&lt;video controls&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video1-fr.webm" type="video/webm"&gt;
+Votre navigateur ne prend pas en charge la balise vidéo.
+&lt;/video&gt;</code>
+</pre>
+
+<h2>L'élément <code>audio</code></h2>
+<audio controls>
+	<source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3"/>
+	<source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg"/>
+	Votre navigateur ne prend pas en charge la balise audio.
+</audio>
+<pre>
+<code>&lt;audio controls&gt;
+&lt;source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3"/&gt;
+&lt;source src="https://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg"/&gt;
+Votre navigateur ne prend pas en charge la balise audio.
+&lt;/audio&gt;</code>
+</pre>
+
+<h2>L'élément <code>track</code></h2>
+<video controls>
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm">
+	<source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4">
+	<track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French">
+	Votre navigateur ne prend pas en charge la balise vidéo.
+</video>
+<pre>
+<code>&lt;video controls&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.webm" type="video/webm"&gt;
+&lt;source src="https://wet-boew.github.io/wet-boew-attachments/videos/video2-fr.mp4" type="video/mp4"&gt;
+&lt;track src="https://wet-boew.github.io/wet-boew/demos/multimedia/demo/video2-captions-fr.xml" kind="captions" data-type="application/ttml+xml" srclang="fr" label="French"&gt;
+Votre navigateur ne prend pas en charge la balise vidéo.
+&lt;/video&gt;</code>
+</pre>
+
+<h2>L'élément <code>map</code> et <code>area</code></h2>
+<img src="img/planets.gif" width="145" height="126" alt="Planets"
+usemap="#planetmap">
+
+<map name="planetmap">
+<area shape="rect" coords="0,0,82,126" href="img/sun.gif" alt="Sun">
+<area shape="circle" coords="90,58,3" href="img/mercury.gif" alt="Mercury">
+<area shape="circle" coords="124,58,8" href="img/venus.gif" alt="Venus">
+</map>
+
+<pre>
+<code>&lt;img src="img/planets.gif" width="145" height="126" alt="Planets"
+usemap="#planetmap"&gt;
+
+&lt;map name="planetmap"&gt;
+&lt;area shape="rect" coords="0,0,82,126" href="img/sun.gif" alt="Sun"&gt;
+&lt;area shape="circle" coords="90,58,3" href="img/mercury.gif" alt="Mercury";
+&lt;area shape="circle" coords="124,58,8" href="img/venus.gif" alt="Venus";
+&lt;map name="planetmap"&gt;
+</code>
+</pre>
+
+<h2>L'élément <code>MathML</code></h2>
+<h3>La formule quadratique</h3>
+<p>
+<math>
+<mi>x</mi>
+<mo>=</mo>
+<mfrac>
+	<mrow>
+	<mo form="prefix">-</mo> <mi>b</mi>
+	<mo>±</mo>
+	<msqrt>
+	<msup> <mi>b</mi> <mn>2</mn> </msup>
+	<mo>-</mo>
+	<mn>4</mn> <mo></mo> <mi>a</mi> <mo></mo> <mi>c</mi>
+	</msqrt>
+	</mrow>
+	<mrow>
+	<mn>2</mn> <mo></mo> <mi>a</mi>
+	</mrow>
+</mfrac>
+</math>
+</p>
+
+<h4>Rendu attendu</h4>
+<img src="img/mathml.png" alt="Voir la section précédente 'La formule quadratique' pour le contenu de l'image">
+
+<pre>
+<code>&lt;p&gt;
+&lt;math&gt;
+&lt;mi&gt;x&lt;/mi&gt;
+&lt;mo&gt;=&lt;/mo&gt;
+&lt;mfrac&gt;
+&lt;mrow&gt;
+&lt;mo form="prefix"&gt;-&lt;/mo&gt; &lt;mi&gt;b&lt;/mi&gt;
+&lt;mo&gt;±&lt;/mo&gt;
+&lt;msqrt&gt;
+&lt;msup&gt; &lt;mi&gt;b&lt;/mi&gt; &lt;mn&gt;2&lt;/mn&gt; &lt;/msup&gt;
+&lt;mo&gt;-&lt;/mo&gt;
+&lt;mn&gt;4&lt;/mn&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;a&lt;/mi&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;c&lt;/mi&gt;
+&lt;/msqrt&gt;
+&lt;/mrow&gt;
+&lt;mrow&gt;
+&lt;mn&gt;2&lt;/mn&gt; &lt;mo&gt;&lt;/mo&gt; &lt;mi&gt;a&lt;/mi&gt;
+&lt;/mrow&gt;
+&lt;/mfrac&gt;
+&lt;/math&gt;
+&lt;/p&gt;</code>
+</pre>
+
+<h2>L'élément <code>svg</code></h2>
+<svg width="100" height="100">
+<circle cx="50" cy="50" r="40" stroke="red" stroke-width="5" fill="blue" />
+</svg>
+
+<pre>
+<code>&lt;svg width="100" height="100"&gt;
+&lt;circle cx="50" r="40" stroke="red" stroke-width="5" fill="blue" /&gt;
+&lt;/svg&gt;
+
+</code>
+</pre>
+
+<h2>L'élément <code>details</code> et <code>summary</code></h2>
+
+<details>
+<summary>Résumé</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis metus ligula, aliquet vulputate ligula molestie nec. Aenean dapibus varius dapibus.</p>
+</details>
+<pre>
+<code>&lt;details&gt;
+&lt;summary&gt;Résumé&lt;/summary&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis metus ligula, aliquet vulputate ligula molestie nec. Aenean dapibus varius dapibus.&lt;/p&gt;
+&lt;/details&gt;</code>
+</pre>
+
+<h2>L'élément <code>dialogue</code></h2>
+
+<dialog open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dialog>
+
+<pre>
+<code>&lt;dialog open&gt;
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/dialog&gt;</code>
+</pre>
+
+<h3>Dessinez des graphiques avec l'élément <code>canvas</code></h3>
+
+<canvas id="myCanvas">
+Votre navigateur ne prend pas en charge la balise canvas.
+</canvas>
+
+<script>
+	let canvas = document.getElementById("myCanvas");
+	let ctx = canvas.getContext("2d");
+	ctx.fillStyle = "#FF0000";
+	ctx.fillRect(0, 0, 80, 80);
+</script>
+
+<pre>
+<code>&lt;canvas id="myCanvas"&gt;
+Votre navigateur ne prend pas en charge la balise canvas.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+	let canvas = document.getElementById("myCanvas");
+	let ctx = canvas.getContext("2d");
+	ctx.fillStyle = "#FF0000";
+	ctx.fillRect(0, 0, 80, 80);
+&lt;/script&gt;
+</code>
+</pre>
+
+<h3>L'élément <code>template</code></h3>
+
+<p>Cliquez sur le bouton ci-dessous pour afficher le contenu masqué de l'élément de modèle.</p>
+
+<button onclick="showContent()">Ajouter du contenu masqué</button>
+
+<div id="content"></div>
+
+<template>
+<h3>Image cachée</h3>
+<img src="img/input-image-sample.jpg" width="300" height="200">
+</template>
+
+<script>
+	function showContent() {
+	let temp = document.getElementsByTagName("template")[0];
+	let clone = temp.content.cloneNode(true);
+	let content = document.getElementById("content");
+	content.appendChild(clone);
+	}
+</script>
+
+<pre>
+<code>&lt;button onclick="showContent()"&gt;
+Afficher le contenu masqué
+&lt;/button&gt;
+
+&lt;template&gt;
+	&lt;h2&gt;Image cachée&lt;/h2&gt;
+	&lt;img src="img/input-image-sample.jpg" width="300" height="200"&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+	function showContent() {
+	let temp = document.getElementsByTagName("template")[0];
+	let clone = temp.content.cloneNode(true);
+	let content = document.getElementById("content");
+	content.appendChild(clone);
+	}
+&lt;/script&gt;
+</code>
+</pre>
+
+<h3>L'élément <code>slot</code></h3>
+<button onclick="fillTemplate()">
+Remplir le modèle
+</button>
+
+<template id="slotTemplate">
+<h3><slot name="heading"></slot></h3>
+<dl>
+	<dt><slot name="term-1"></slot></dt>
+	<dd><slot name="description-1"></slot></dd>
+	<dt><slot name="term-2"></slot></dt>
+		<dd><slot name="description-2"></slot></dd>
+</dl>
+</template>
+
+<div class="slotDiv">
+<span slot="heading">Lorem ipsum</span>
+<span slot="term-1">Dolor sit amet</span>
+<span slot="description-1">Aliquam vel consectetur erat</span>
+<span slot="term-2">Morbi vitae odio orci</span>
+	<span slot="description-2">Cras neque ligula</span>
+</div>
+
+<script>
+	function fillTemplate(){
+		var dlTemplate = document.querySelector('#slotTemplate').content;
+		var div = document.querySelector('.slotDiv');
+		div.attachShadow({  mode: 'open' }).appendChild(
+		dlTemplate.cloneNode(true));
+	}
+</script>
+
+<pre>
+<code>&lt;template&gt;
+	&lt;h1&gt;&lt;slot name="heading"&gt;&lt;/slot&gt;&lt;/h1&gt;
+	&lt;dl&gt;
+		&lt;dt&gt;&lt;slot name="term-1"&gt;&lt;/slot&gt;&lt;/dt&gt;
+		&lt;dd&gt;&lt;slot name="description-1"&gt;&lt;/slot&gt;&lt;/dd&gt;
+		&lt;dt&gt;&lt;slot name="term-2"&gt;&lt;/slot&gt;&lt;/dt&gt;
+		&lt;dd&gt;&lt;slot name="description-2"&gt;&lt;/slot&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/template&gt;
+
+&lt;div class="slotDiv"&gt;
+	&lt;span slot="heading"&gt;Lorem ipsum&lt;/span&gt;
+	&lt;span slot="term-1"&gt;Dolor sit amet&lt;/span&gt;
+	&lt;span slot="description-1"&gt;Aliquam vel consectetur erat&lt;/span&gt;
+	&lt;span slot="term-2"&gt;Morbi vitae odio orci&lt;/span&gt;
+	&lt;span slot="description-2"&gt;Cras neque ligula&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	function fillTemplate() {
+		var dlTemplate = document.querySelector('template').content;
+		var divs = document.querySelectorAll('.slotDiv');
+		divs.forEach(function(div){
+		div.attachShadow({  mode: 'open' }).appendChild(
+		dlTemplate.cloneNode(true))
+		});
+	}
+&lt;/script&gt;
+</code>
+</pre>
