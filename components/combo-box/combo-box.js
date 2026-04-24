@@ -23,6 +23,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.highlightedIndex = -1;
 		this.isOpen = false;
 		this.allOptions = [];
+		this.selectAllCheckboxChecked = false;
 	}
 
 	connectedCallback() {
@@ -38,7 +39,7 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Initializes the Web Component with styles and markup
 	async initializeComponent() {
-		this.allOptions = this.parseOptions();
+		this.allOptions = await this.parseOptions();
 		this.filteredOptions = [ ...this.allOptions ];
 
 		await this.render();
@@ -65,52 +66,93 @@ class ComboBoxComponent extends HTMLElement {
 		}
 	}
 
-	// Parses options from the component attribute or slot content
-	parseOptions() {
-		const optionsAttr = this.getAttribute( "options" );
+	// Parses options from JSON files based on the label attribute
+	async parseOptions() {
+		const labelType = this.getAttribute( "label" ) || this.getAttribute( "placeholder" );
 
+		// If options are explicitly provided via attribute, use those
+		const optionsAttr = this.getAttribute( "options" );
 		if ( optionsAttr ) {
 			try {
 				return JSON.parse( optionsAttr );
 			} catch ( e ) {
 				console.error( "Invalid options format. Expected JSON array.", e );
-				return [];
 			}
 		}
 
-		// Alternative: parse from slot content
-		const slot = this.querySelector( "[slot='options']" );
-		if ( slot ) {
-			return Array.from( slot.querySelectorAll( "option" ) ).map( opt => opt.textContent );
+		// Map label types to JSON files
+		const fileMap = {
+			"region": "regions.json",
+			"institution": "institutions.json"
+		};
+
+		const jsonFile = fileMap[ labelType?.toLowerCase() ];
+		if ( !jsonFile ) {
+
+			// Fallback to parsing from slot content if no matching label type
+			const slot = this.querySelector( "[slot='options']" );
+			if ( slot ) {
+				return Array.from( slot.querySelectorAll( "option" ) ).map( opt => opt.textContent );
+			}
+			return [];
 		}
 
-		return [];
+		try {
+			const response = await fetch( jsonFile );
+			if ( !response.ok ) {
+				throw new Error( `Failed to load ${ jsonFile }: ${ response.statusText }` );
+			}
+			const data = await response.json();
+
+			// Determine page language (default to English)
+			const pageLanguage = ( document.documentElement.lang || "en" );
+
+			// Extract the display values based on the page language
+			const options = Object.values( data ).map( item => {
+
+				// Support both nested language objects and simple values
+				if ( typeof item === "object" && item !== null ) {
+					return item[ pageLanguage ] || item.en || item.fr || Object.values( item )[ 0 ];
+				}
+				return String( item );
+			} );
+
+			return options;
+		} catch ( e ) {
+			console.error( `Error loading options from ${ jsonFile }:`, e );
+			return [];
+		}
 	}
 
 	// Renders the component template and styles into Shadow DOM
 	async render() {
 
-		// To be implemented: i18n support for label and placeholder based on "label" attribute value
-		// var i18n, i18nText, label, placeholder;
-		// if ( !i18nText ) {
-		// 	i18n = wb.i18n;
-		// 	i18nText = {
-		// 		region_label: i18n( "combo-box-region-label" ),
-		// 		institution_label: i18n( "combo-box-institution-label" )
-		// 	};
-		// }
+		var defaults = {
+			i18n:
+			{
+				"en": {
+					region: "Select region(s)", // text for the region label
+					institution: "Select institution(s)", // text for the institution label
+					selectAll: "Select all" // text for the select all checkbox
+				},
+				"fr": {
+					region: "Sélectionner région(s)", // text for the french region label
+					institution: "Sélectionner institution(s)", // text for the french institution label
+					selectAll: "Sélectionner tous" // text for the french select all checkbox
+				}
+			}
+		};
 
-		// if ( this.getAttribute( "label" ) === "region" ) {
-		// 	label = i18nText.region_label;
-		// 	placeholder = i18nText( "combo-box-region-label" );
-		// } else {
-		// 	label = i18nText.institution_label;
-		// 	placeholder = i18nText( "combo-box-institution-label" );
-		// }
+		// Determine page language (default to English)
+		const pageLanguage = ( document.documentElement.lang || "en" );
 
-		// For now, we will use the label and placeholder directly from attributes
-		const label = this.getAttribute( "label" );
-		const placeholder = this.getAttribute( "placeholder" );
+		// Get label type from attribute (e.g., "region" or "institution")
+		const labelType = this.getAttribute( "label" );
+
+		// Get label and placeholder from i18n based on page language and label type
+		const label = defaults.i18n[ pageLanguage ]?.[ labelType ] || this.getAttribute( "label" );
+		const placeholder = defaults.i18n[ pageLanguage ]?.[ labelType ] || this.getAttribute( "placeholder" );
+		const selectAllLabel = defaults.i18n[ pageLanguage ]?.selectAll;
 		const styles = await this.getStyles();
 		this.shadowRoot.innerHTML = `
 			<style>
@@ -121,6 +163,16 @@ class ComboBoxComponent extends HTMLElement {
 				<label for="combo-box-input" class="combo-box-label">
 				<slot name="label">${ this.escapeHtml( label ) }</slot>
 				</label>
+
+				<div class="select-all-wrapper">
+					<input
+						type="checkbox"
+						id="combo-box-select-all"
+						class="combo-box-select-all-checkbox"
+						aria-label="Select all options"
+					>
+					<label for="combo-box-select-all" class="select-all-label">${ this.escapeHtml( selectAllLabel ) }</label>
+				</div>
 
 				<div class="combo-box-container" role="combobox">
 					<div class="tags-container" id="tagsContainer" role="group" aria-label="Selected items">
@@ -161,6 +213,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.list = this.shadowRoot.getElementById( "combo-box-list" );
 		this.tagsContainer = this.shadowRoot.getElementById( "tagsContainer" );
 		this.liveRegion = this.shadowRoot.getElementById( "liveRegion" );
+		this.selectAllCheckbox = this.shadowRoot.getElementById( "combo-box-select-all" );
 	}
 
 	// Attaches all event listeners
@@ -201,6 +254,11 @@ class ComboBoxComponent extends HTMLElement {
 				this.updateHighlight();
 			}
 		}, true );
+
+		// Select All checkbox event listener
+		this.selectAllCheckbox.addEventListener( "change", ( e ) => {
+			this.toggleSelectAll( e.target.checked );
+		} );
 
 		// Close list when clicking outside the component
 		this.handleDocumentClick = ( e ) => {
@@ -364,6 +422,13 @@ class ComboBoxComponent extends HTMLElement {
 		this.renderOptions();
 		this.input.focus();
 
+		// Uncheck select all if not all items are selected anymore
+		if ( this.selectedItems.length !== this.allOptions.length ) {
+			this.selectAllCheckboxChecked = false;
+			this.selectAllCheckbox.checked = false;
+			this.enableInput();
+		}
+
 		// Announce removal to screen readers
 		this.announce( `${ option } removed` );
 
@@ -517,11 +582,90 @@ class ComboBoxComponent extends HTMLElement {
 		this.renderTags();
 		this.renderOptions();
 
+		// Update select all checkbox state
+		this.updateSelectAllCheckbox();
+
 		this.dispatchEvent( new CustomEvent( "change", {
 			detail: { selectedItems: [ ...this.selectedItems ] },
 			bubbles: true,
 			composed: true
 		} ) );
+	}
+
+	// Handles select all / unselect all functionality
+	toggleSelectAll( isChecked ) {
+		if ( isChecked ) {
+			this.selectAll();
+		} else {
+			this.unselectAll();
+		}
+	}
+
+	// Selects all options
+	selectAll() {
+		this.selectedItems = [ ...this.allOptions ];
+		this.selectAllCheckboxChecked = true;
+		this.updateFilteredOptions();
+		this.renderTags();
+		this.renderOptions();
+		this.disableInput();
+		this.input.value = "";
+
+		// Announce action to screen readers
+		this.announce( "All options selected" );
+
+		// Dispatch custom event
+		this.dispatchEvent( new CustomEvent( "change", {
+			detail: { selectedItems: [ ...this.selectedItems ] },
+			bubbles: true,
+			composed: true
+		} ) );
+	}
+
+	// Unselects all options
+	unselectAll() {
+		this.selectedItems = [];
+		this.selectAllCheckboxChecked = false;
+		this.updateFilteredOptions();
+		this.renderTags();
+		this.renderOptions();
+		this.enableInput();
+		this.input.value = "";
+
+		// Announce action to screen readers
+		this.announce( "All options deselected" );
+
+		// Dispatch custom event
+		this.dispatchEvent( new CustomEvent( "change", {
+			detail: { selectedItems: [ ...this.selectedItems ] },
+			bubbles: true,
+			composed: true
+		} ) );
+	}
+
+	// Disables the combo-box input
+	disableInput() {
+		this.input.disabled = true;
+		this.input.setAttribute( "aria-disabled", "true" );
+	}
+
+	// Enables the combo-box input
+	enableInput() {
+		this.input.disabled = false;
+		this.input.removeAttribute( "aria-disabled" );
+	}
+
+	// Updates the select all checkbox based on current selections
+	updateSelectAllCheckbox() {
+		const allSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
+		this.selectAllCheckbox.checked = allSelected;
+		this.selectAllCheckboxChecked = allSelected;
+
+		if ( allSelected ) {
+			this.disableInput();
+		} else {
+			this.enableInput();
+		}
 	}
 
 	// Public API: Update options
