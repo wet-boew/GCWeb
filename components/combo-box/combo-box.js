@@ -15,6 +15,44 @@ class ComboBoxComponent extends HTMLElement {
 	// Static cache for loaded styles
 	static stylesCache = null;
 
+	// Static i18n defaults
+	static defaults = {
+		i18n: {
+			"en": {
+				regions: "Select region(s)",
+				institutions: "Select institution(s)",
+				selectAll: "Select all",
+				comboBoxInput: "Search and select items",
+				selectedItems: "Selected items",
+				selectAllOptions: "Select all options",
+				deselectAllOptions: "Deselect all options",
+				availableOptions: "Available options",
+				selected: "selected",
+				removed: "removed",
+				remove: "Remove",
+				noMatchingOptions: "No matching options",
+				allOptionsSelected: "All options selected",
+				allOptionsDeselected: "All options deselected"
+			},
+			"fr": {
+				regions: "Sélectionner région(s)",
+				institutions: "Sélectionner institution(s)",
+				selectAll: "Sélectionner tous",
+				comboBoxInput: "Rechercher et sélectionner des éléments",
+				selectedItems: "Éléments sélectionnés",
+				selectAllOptions: "Sélectionner toutes les options",
+				deselectAllOptions: "Désélectionner toutes les options",
+				availableOptions: "Options disponibles",
+				selected: "sélectionné",
+				removed: "supprimé",
+				remove: "Supprimer",
+				noMatchingOptions: "Aucune option correspondante",
+				allOptionsSelected: "Toutes les options sélectionnées",
+				allOptionsDeselected: "Toutes les options désélectionnées"
+			}
+		}
+	};
+
 	constructor() {
 		super();
 		this.attachShadow( { mode: "open" } );
@@ -24,9 +62,13 @@ class ComboBoxComponent extends HTMLElement {
 		this.isOpen = false;
 		this.allOptions = [];
 		this.selectAllCheckboxChecked = false;
+		this.pageLanguage = "en"; // Default language
 	}
 
 	connectedCallback() {
+
+		// Set page language from document or fallback to English
+		this.pageLanguage = ( wb.lang || "en" );
 		this.initializeComponent();
 	}
 
@@ -56,19 +98,19 @@ class ComboBoxComponent extends HTMLElement {
 		try {
 			const response = await fetch( "combo-box.css" );
 			if ( !response.ok ) {
-				throw new Error( `Failed to load _combo-box.scss: ${ response.statusText }` );
+				throw new Error( `Failed to load combo-box.css: ${ response.statusText }` );
 			}
 			ComboBoxComponent.stylesCache = await response.text();
 			return ComboBoxComponent.stylesCache;
 		} catch ( e ) {
-			console.error( "Failed to load styles from _combo-box.scss:", e );
+			console.error( "Failed to load styles from combo-box.css:", e );
 			return ""; // Return empty string as fallback
 		}
 	}
 
-	// Parses options from JSON files based on the label attribute
+	// Parses options from JSON files based on the name attribute
 	async parseOptions() {
-		const labelType = this.getAttribute( "label" ) || this.getAttribute( "placeholder" );
+		const labelType = this.getAttribute( "name" ) || this.getAttribute( "placeholder" );
 
 		// If options are explicitly provided via attribute, use those
 		const optionsAttr = this.getAttribute( "options" );
@@ -82,17 +124,17 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Map label types to JSON files
 		const fileMap = {
-			"region": "regions.json",
-			"institution": "institutions.json"
+			"regions": "regions.json",
+			"institutions": "institutions.json"
 		};
 
 		const jsonFile = fileMap[ labelType?.toLowerCase() ];
 		if ( !jsonFile ) {
 
 			// Fallback to parsing from slot content if no matching label type
-			const slot = this.querySelector( "[slot='options']" );
-			if ( slot ) {
-				return Array.from( slot.querySelectorAll( "option" ) ).map( opt => opt.textContent );
+			const slotOptions = this.querySelector( "[slot='options']" );
+			if ( slotOptions ) {
+				return Array.from( slotOptions.querySelectorAll( "option" ) ).map( opt => opt.textContent );
 			}
 			return [];
 		}
@@ -127,32 +169,13 @@ class ComboBoxComponent extends HTMLElement {
 	// Renders the component template and styles into Shadow DOM
 	async render() {
 
-		var defaults = {
-			i18n:
-			{
-				"en": {
-					region: "Select region(s)", // text for the region label
-					institution: "Select institution(s)", // text for the institution label
-					selectAll: "Select all" // text for the select all checkbox
-				},
-				"fr": {
-					region: "Sélectionner région(s)", // text for the french region label
-					institution: "Sélectionner institution(s)", // text for the french institution label
-					selectAll: "Sélectionner tous" // text for the french select all checkbox
-				}
-			}
-		};
-
-		// Determine page language (default to English)
-		const pageLanguage = ( document.documentElement.lang || "en" );
-
-		// Get label type from attribute (e.g., "region" or "institution")
-		const labelType = this.getAttribute( "label" );
+		// Get label type from attribute (e.g., "regions" or "institutions")
+		const labelType = this.getAttribute( "name" );
 
 		// Get label and placeholder from i18n based on page language and label type
-		const label = defaults.i18n[ pageLanguage ]?.[ labelType ] || this.getAttribute( "label" );
-		const placeholder = defaults.i18n[ pageLanguage ]?.[ labelType ] || this.getAttribute( "placeholder" );
-		const selectAllLabel = defaults.i18n[ pageLanguage ]?.selectAll;
+		const label = this.constructor.defaults.i18n[ this.pageLanguage ]?.[ labelType ] || this.getAttribute( "label" );
+		const placeholder = this.constructor.defaults.i18n[ this.pageLanguage ]?.[ labelType ] || this.getAttribute( "placeholder" );
+		const selectAllLabel = this.constructor.defaults.i18n[ this.pageLanguage ]?.selectAll;
 		const styles = await this.getStyles();
 		this.shadowRoot.innerHTML = `
 			<style>
@@ -164,30 +187,32 @@ class ComboBoxComponent extends HTMLElement {
 				<slot name="label">${ this.escapeHtml( label ) }</slot>
 				</label>
 
-				<div class="select-all-wrapper">
-					<input
-						type="checkbox"
-						id="combo-box-select-all"
-						class="combo-box-select-all-checkbox"
-						aria-label="Select all options"
-					>
-					<label for="combo-box-select-all" class="select-all-label">${ this.escapeHtml( selectAllLabel ) }</label>
-				</div>
+				<div class="combo-box-input-row">
+					<div class="combo-box-container" role="combobox">
+						<div class="tags-container" id="tagsContainer" role="group" aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems ) }">
+							<!-- Tags will be dynamically inserted here -->
+							<input
+								type="text"
+								id="combo-box-input"
+								class="combo-box-input"
+								placeholder="${ this.escapeHtml( placeholder ) }"
+								autocomplete="off"
+								aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].comboBoxInput ) }"
+								aria-autocomplete="list"
+								aria-controls="combo-box-list"
+								aria-expanded="false"
+							>
+						</div>
+					</div>
 
-				<div class="combo-box-container" role="combobox">
-					<div class="tags-container" id="tagsContainer" role="group" aria-label="Selected items">
-						<!-- Tags will be dynamically inserted here -->
+					<div class="select-all-wrapper">
 						<input
-							type="text"
-							id="combo-box-input"
-							class="combo-box-input"
-							placeholder="${ this.escapeHtml( placeholder ) }"
-							autocomplete="off"
-							aria-label="Search and select items"
-							aria-autocomplete="list"
-							aria-controls="combo-box-list"
-							aria-expanded="false"
+							type="checkbox"
+							id="combo-box-select-all"
+							class="combo-box-select-all-checkbox"
+							aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].selectAllOptions ) }"
 						>
+						<label for="combo-box-select-all" class="select-all-label">${ this.escapeHtml( selectAllLabel ) }</label>
 					</div>
 				</div>
 
@@ -195,7 +220,8 @@ class ComboBoxComponent extends HTMLElement {
 					id="combo-box-list"
 					class="combo-box-list"
 					role="listbox"
-					aria-label="Available options"
+					aria-multiselectable="true"
+				aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].availableOptions ) }"
 					hidden
 				>
 					<!-- Options will be dynamically inserted here -->
@@ -401,7 +427,7 @@ class ComboBoxComponent extends HTMLElement {
 			this.input.focus();
 
 			// Announce selection to screen readers
-			this.announce( `${ option } selected` );
+			this.announce( `${ option }` + `${ this.constructor.defaults.i18n[ this.pageLanguage ].selected }` );
 
 			// Dispatch custom event for external listeners
 			this.dispatchEvent( new CustomEvent( "change", {
@@ -430,7 +456,7 @@ class ComboBoxComponent extends HTMLElement {
 		}
 
 		// Announce removal to screen readers
-		this.announce( `${ option } removed` );
+		this.announce( `${ option }` + `${ this.constructor.defaults.i18n[ this.pageLanguage ].removed }` );
 
 		// Dispatch custom event for external listeners
 		this.dispatchEvent( new CustomEvent( "change", {
@@ -462,7 +488,7 @@ class ComboBoxComponent extends HTMLElement {
 				<button
 					type="button"
 					class="tag-remove-btn"
-					aria-label="Remove ${ item }"
+					aria-label="${ this.constructor.defaults.i18n[ this.pageLanguage ].remove } ${ item }"
 				>
 					×
 				</button>
@@ -478,7 +504,7 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Update aria-label with selection count
 		const count = this.selectedItems.length;
-		const label = count === 0 ? "Selected items" : `Selected items (${ count } selected)`;
+		const label = count === 0 ? this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems : `${ this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems } (${ count } ${ this.constructor.defaults.i18n[ this.pageLanguage ].selected })`;
 		this.tagsContainer.setAttribute( "aria-label", label );
 	}
 
@@ -492,7 +518,7 @@ class ComboBoxComponent extends HTMLElement {
 			emptyOption.className = "combo-box-option empty-state";
 			emptyOption.setAttribute( "role", "option" );
 			emptyOption.setAttribute( "aria-disabled", "true" );
-			emptyOption.textContent = "No matching options";
+			emptyOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].noMatchingOptions;
 			this.list.appendChild( emptyOption );
 		} else {
 			this.filteredOptions.forEach( ( option ) => {
@@ -612,7 +638,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.input.value = "";
 
 		// Announce action to screen readers
-		this.announce( "All options selected" );
+		this.announce( `${ this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsSelected }` );
 
 		// Dispatch custom event
 		this.dispatchEvent( new CustomEvent( "change", {
@@ -633,7 +659,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.input.value = "";
 
 		// Announce action to screen readers
-		this.announce( "All options deselected" );
+		this.announce( `${ this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsDeselected }` );
 
 		// Dispatch custom event
 		this.dispatchEvent( new CustomEvent( "change", {

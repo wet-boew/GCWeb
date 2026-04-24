@@ -19,10 +19,10 @@
 	border: 1px solid #ced4da;
 	border-radius: 4px;
 	display: flex;
+	flex: 1;
 	flex-wrap: wrap;
 	min-height: 38px;
 	position: relative;
-	padding: 10px 14px;
 	transition:
 		border-color 0.15s ease-in-out,
 		box-shadow 0.15s ease-in-out;
@@ -44,11 +44,17 @@
 	flex: 1;
 	min-width: 150px;
 	outline: none;
-	padding: 4px 0;
+	padding: 14px 14px;
 }
 
 .combo-box-input.has-selections::placeholder {
 	color: transparent;
+}
+
+.combo-box-input-row {
+	align-items: center;
+	display: flex;
+	gap: 5px;
 }
 
 .combo-box-label {
@@ -135,6 +141,10 @@
 .combo-box-wrapper {
 	position: relative;
 	width: 100%;
+}
+
+.select-all-label {
+	font-size: 14px;
 }
 
 .sr-only {
