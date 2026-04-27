@@ -14,6 +14,7 @@ RUN apt-get update \
     github-pages \
     jekyll-github-metadata \
     minitest \
+    tzinfo-data \
   && gem install rake html-proofer \
   && gem install webrick \
   && mkdir -p /usr/src/app \
