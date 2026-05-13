@@ -62,6 +62,10 @@ class ComboBoxComponent extends HTMLElement {
 		this.originalPlaceholder = ""; // Store original placeholder
 	}
 
+	getLocalizedText() {
+		return this.constructor.defaults.i18n[ this.pageLanguage ] || {};
+	}
+
 	connectedCallback() {
 
 		// Set page language from document or fallback to English
@@ -154,7 +158,7 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Get placeholder from attribute
 		const placeholder = this.getAttribute( "placeholder" ) || "";
-		const selectAllLabel = this.constructor.defaults.i18n[ this.pageLanguage ]?.selectAll;
+		const selectAllLabel = this.getLocalizedText()?.selectAll;
 		const styles = await this.getStyles();
 		this.shadowRoot.innerHTML = `
 			<style>
@@ -168,7 +172,7 @@ class ComboBoxComponent extends HTMLElement {
 
 				<div class="combo-box-input-row">
 					<div class="combo-box-container">
-						<div class="tags-container" id="tagsContainer" role="group" aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems ) }">
+						<div class="tags-container" id="tagsContainer" role="group" aria-label="${ this.escapeHtml( this.getLocalizedText().selectedItems ) }">
 							<!-- Tags will be dynamically inserted here -->
 							<input
 								type="text"
@@ -177,7 +181,7 @@ class ComboBoxComponent extends HTMLElement {
 								class="combo-box-input"
 								placeholder="${ this.escapeHtml( placeholder ) }"
 								autocomplete="off"
-								aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].comboBoxInput ) }"
+								aria-label="${ this.escapeHtml( this.getLocalizedText().comboBoxInput ) }"
 								aria-autocomplete="list"
 								aria-controls="combo-box-list"
 								aria-expanded="false"
@@ -188,11 +192,11 @@ class ComboBoxComponent extends HTMLElement {
 							class="combo-box-list"
 							role="listbox"
 							aria-multiselectable="true"
-							aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].availableOptions ) }"
+							aria-label="${ this.escapeHtml( this.getLocalizedText().availableOptions ) }"
 							hidden
 						>
-					<!-- Options will be dynamically inserted here -->
-				</ul>
+							<!-- Options will be dynamically inserted here -->
+						</ul>
 					</div>
 
 					<div class="select-all-wrapper">
@@ -200,22 +204,11 @@ class ComboBoxComponent extends HTMLElement {
 							type="checkbox"
 							id="combo-box-select-all"
 							class="combo-box-select-all-checkbox"
-							aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].selectAllOptions ) }"
+							aria-label="${ this.escapeHtml( this.getLocalizedText().selectAllOptions ) }"
 						>
 						<label for="combo-box-select-all" class="select-all-label">${ this.escapeHtml( selectAllLabel ) }</label>
 					</div>
 				</div>
-
-				<ul
-					id="combo-box-list"
-					class="combo-box-list"
-					role="listbox"
-					aria-multiselectable="true"
-					aria-label="${ this.escapeHtml( this.constructor.defaults.i18n[ this.pageLanguage ].availableOptions ) }"
-					hidden
-				>
-					<!-- Options will be dynamically inserted here -->
-				</ul>
 
 				<!-- Live region for screen reader announcements -->
 				<div id="liveRegion" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -449,7 +442,7 @@ class ComboBoxComponent extends HTMLElement {
 			}
 
 			// Announce selection to screen readers
-			this.announce( `${ option.label } ${ this.constructor.defaults.i18n[ this.pageLanguage ].selected }` );
+			this.announce( `${ option.label } ${ this.getLocalizedText().selected }` );
 
 			// Dispatch change event
 			this.dispatchChangeEvent();
@@ -480,7 +473,7 @@ class ComboBoxComponent extends HTMLElement {
 		}
 
 		// Announce removal to screen readers
-		this.announce( `${ option.label }` + `${ this.constructor.defaults.i18n[ this.pageLanguage ].removed }` );
+		this.announce( `${ option.label }` + `${ this.getLocalizedText().removed }` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
@@ -506,11 +499,11 @@ class ComboBoxComponent extends HTMLElement {
 		if ( allSelected ) {
 
 			// Show "All items selected" message as placeholder text
-			this.input.placeholder = this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsSelected;
+			this.input.placeholder = this.getLocalizedText().allOptionsSelected;
 			this.input.value = "";
 			this.input.classList.toggle( "has-selections", false );
 			this.tagsContainer.appendChild( this.input );
-			this.tagsContainer.setAttribute( "aria-label", this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsSelected );
+			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
 		} else {
 
 			// Restore original placeholder
@@ -523,7 +516,7 @@ class ComboBoxComponent extends HTMLElement {
 				tag.type = "button";
 				tag.dataset.tagValue = item.value;
 				tag.setAttribute( "part", "tag" );
-				tag.setAttribute( "aria-label", `${ this.constructor.defaults.i18n[ this.pageLanguage ].remove } ${ item.label }` );
+				tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
 
 				tag.innerHTML = `
 					<span class="tag-text">${ this.escapeHtml( item.label ) }</span>
@@ -537,7 +530,7 @@ class ComboBoxComponent extends HTMLElement {
 
 			// Update aria-label with selection count
 			const count = this.selectedItems.length;
-			const label = count === 0 ? this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems : `${ this.constructor.defaults.i18n[ this.pageLanguage ].selectedItems } (${ count } ${ this.constructor.defaults.i18n[ this.pageLanguage ].selected })`;
+			const label = count === 0 ? this.getLocalizedText().selectedItems : `${ this.getLocalizedText().selectedItems } (${ count } ${ this.getLocalizedText().selected })`;
 			this.tagsContainer.setAttribute( "aria-label", label );
 		}
 
@@ -556,7 +549,7 @@ class ComboBoxComponent extends HTMLElement {
 			emptyOption.className = "combo-box-option empty-state";
 			emptyOption.setAttribute( "role", "option" );
 			emptyOption.setAttribute( "aria-disabled", "true" );
-			emptyOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].noMatchingOptions;
+			emptyOption.textContent = this.getLocalizedText().noMatchingOptions;
 			this.list.appendChild( emptyOption );
 		} else {
 			this.filteredOptions.forEach( ( option ) => {
@@ -686,7 +679,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.syncHiddenInputs();
 
 		// Announce action to screen readers
-		this.announce( `${ this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsSelected }` );
+		this.announce( `${ this.getLocalizedText().allOptionsSelected }` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
@@ -705,7 +698,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.syncHiddenInputs();
 
 		// Announce action to screen readers
-		this.announce( `${ this.constructor.defaults.i18n[ this.pageLanguage ].allOptionsDeselected }` );
+		this.announce( `${ this.getLocalizedText().allOptionsDeselected }` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
