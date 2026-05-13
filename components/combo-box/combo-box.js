@@ -57,7 +57,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.highlightedIndex = -1;
 		this.isOpen = false;
 		this.allOptions = [];
-		this.selectAllCheckboxChecked = false;
+		this.allOptionsSelected = false;
 		this.pageLanguage = "en"; // Default language
 		this.originalPlaceholder = ""; // Store original placeholder
 	}
@@ -69,7 +69,7 @@ class ComboBoxComponent extends HTMLElement {
 	connectedCallback() {
 
 		// Set page language from document or fallback to English
-		this.pageLanguage = ( wb.lang || "en" );
+		this.pageLanguage = ( typeof wb !== "undefined" && wb.lang ) ? wb.lang : "en";
 		this.initializeComponent();
 	}
 
@@ -158,7 +158,6 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Get placeholder from attribute
 		const placeholder = this.getAttribute( "placeholder" ) || "";
-		const selectAllLabel = this.getLocalizedText()?.selectAll;
 		const styles = await this.getStyles();
 		this.shadowRoot.innerHTML = `
 			<style>
@@ -166,11 +165,10 @@ class ComboBoxComponent extends HTMLElement {
 			</style>
 
 			<div class="combo-box-wrapper">
-				<label for="combo-box-input" class="combo-box-label">
-				<slot name="label">${ this.escapeHtml( label ) }</slot>
-				</label>
-
 				<div class="combo-box-input-row">
+					<label for="combo-box-input" class="combo-box-label">
+						<slot name="label">${ this.escapeHtml( label ) }</slot>
+					</label>
 					<div class="combo-box-container">
 						<div class="tags-container" id="tagsContainer" role="group" aria-label="${ this.escapeHtml( this.getLocalizedText().selectedItems ) }">
 							<!-- Tags will be dynamically inserted here -->
@@ -198,16 +196,6 @@ class ComboBoxComponent extends HTMLElement {
 							<!-- Options will be dynamically inserted here -->
 						</ul>
 					</div>
-
-					<div class="select-all-wrapper">
-						<input
-							type="checkbox"
-							id="combo-box-select-all"
-							class="combo-box-select-all-checkbox"
-							aria-label="${ this.escapeHtml( this.getLocalizedText().selectAllOptions ) }"
-						>
-						<label for="combo-box-select-all" class="select-all-label">${ this.escapeHtml( selectAllLabel ) }</label>
-					</div>
 				</div>
 
 				<!-- Live region for screen reader announcements -->
@@ -222,7 +210,6 @@ class ComboBoxComponent extends HTMLElement {
 		this.list = this.shadowRoot.getElementById( "combo-box-list" );
 		this.tagsContainer = this.shadowRoot.getElementById( "tagsContainer" );
 		this.liveRegion = this.shadowRoot.getElementById( "liveRegion" );
-		this.selectAllCheckbox = this.shadowRoot.getElementById( "combo-box-select-all" );
 
 		// Store the original placeholder text
 		this.originalPlaceholder = this.input.placeholder;
@@ -252,9 +239,15 @@ class ComboBoxComponent extends HTMLElement {
 		this.list.addEventListener( "click", ( e ) => {
 			const option = e.target.closest( "[role='option']" );
 			if ( option && !option.hasAttribute( "aria-disabled" ) ) {
-				const optionText = option.getAttribute( "data-option-text" );
-				if ( optionText ) {
-					this.selectOption( optionText );
+
+				// Check if this is the "Select all options" special option
+				if ( option.hasAttribute( "data-select-all" ) ) {
+					this.selectAll();
+				} else {
+					const optionText = option.getAttribute( "data-option-text" );
+					if ( optionText ) {
+						this.selectOption( optionText );
+					}
 				}
 			}
 		} );
@@ -267,11 +260,6 @@ class ComboBoxComponent extends HTMLElement {
 				this.updateHighlight();
 			}
 		}, true );
-
-		// Select All checkbox event listener
-		this.selectAllCheckbox.addEventListener( "change", ( e ) => {
-			this.toggleSelectAll( e.target.checked );
-		} );
 
 		// Close list when clicking outside the component
 		this.handleDocumentClick = ( e ) => {
@@ -434,7 +422,8 @@ class ComboBoxComponent extends HTMLElement {
 
 			// If all options are selected, disable input and hide dropdown
 			if ( this.selectedItems.length === this.allOptions.length ) {
-				this.updateSelectAllCheckbox();
+				this.allOptionsSelected = true;
+				this.renderOptions();
 				this.closeList();
 			} else {
 				this.openList();
@@ -453,6 +442,13 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Removes a selected item
 	removeTag( value ) {
+
+		// Handle removal of "All options" tag
+		if ( value === "all-options" ) {
+			this.unselectAll();
+			return;
+		}
+
 		const option = this.allOptions.find( o => o.value === value );
 
 		if ( !option ) {
@@ -460,17 +456,11 @@ class ComboBoxComponent extends HTMLElement {
 		}
 
 		this.selectedItems = this.selectedItems.filter( item => item.value !== value );
+		this.allOptionsSelected = false;
 		this.renderTags();
 		this.updateFilteredOptions();
 		this.renderOptions();
 		this.input.focus();
-
-		// Uncheck select all if not all items are selected anymore
-		if ( this.selectedItems.length !== this.allOptions.length ) {
-			this.selectAllCheckboxChecked = false;
-			this.selectAllCheckbox.checked = false;
-			this.enableInput();
-		}
 
 		// Announce removal to screen readers
 		this.announce( `${ option.label }` + `${ this.getLocalizedText().removed }` );
@@ -492,22 +482,34 @@ class ComboBoxComponent extends HTMLElement {
 	renderTags() {
 		const hadFocus = this.shadowRoot.activeElement === this.input;
 		this.tagsContainer.innerHTML = "";
+		this.input.value = "";
 
 		// Check if all items are selected
 		const allSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
 
 		if ( allSelected ) {
 
-			// Show "All items selected" message as placeholder text
-			this.input.placeholder = this.getLocalizedText().allOptionsSelected;
+			// Show "All options selected" tag when all are selected
+			const allTag = document.createElement( "button" );
+			allTag.className = "tag tag-all-options";
+			allTag.type = "button";
+			allTag.dataset.tagValue = "all-options";
+			allTag.setAttribute( "part", "tag" );
+			allTag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getLocalizedText().allOptionsSelected }` );
+
+			allTag.innerHTML = `
+				<span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span>
+				<span type="button" aria-hidden="true">×</span>
+			`;
+			this.tagsContainer.appendChild( allTag );
+
+			this.input.placeholder = "";
+			this.input.disabled = true;
 			this.input.value = "";
-			this.input.classList.toggle( "has-selections", false );
-			this.tagsContainer.appendChild( this.input );
 			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
 		} else {
-
-			// Restore original placeholder
 			this.input.placeholder = this.originalPlaceholder;
+			this.input.disabled = false;
 
 			// Show individual tags for each selected item
 			this.selectedItems.forEach( item => {
@@ -524,7 +526,7 @@ class ComboBoxComponent extends HTMLElement {
 				`;
 				this.tagsContainer.appendChild( tag );
 			} );
-			this.tagsContainer.appendChild( this.input );
+
 			this.input.value = "";
 			this.input.classList.toggle( "has-selections", this.selectedItems.length > 0 );
 
@@ -533,6 +535,9 @@ class ComboBoxComponent extends HTMLElement {
 			const label = count === 0 ? this.getLocalizedText().selectedItems : `${ this.getLocalizedText().selectedItems } (${ count } ${ this.getLocalizedText().selected })`;
 			this.tagsContainer.setAttribute( "aria-label", label );
 		}
+
+		// Always append the input
+		this.tagsContainer.appendChild( this.input );
 
 		if ( hadFocus ) {
 			this.input.focus();
@@ -544,7 +549,15 @@ class ComboBoxComponent extends HTMLElement {
 		this.list.innerHTML = "";
 		this.input.removeAttribute( "aria-activedescendant" );
 
-		if ( this.filteredOptions.length === 0 ) {
+		// If all options are selected, show "No options available"
+		if ( this.allOptionsSelected ) {
+			const emptyOption = document.createElement( "li" );
+			emptyOption.className = "combo-box-option empty-state";
+			emptyOption.setAttribute( "role", "option" );
+			emptyOption.setAttribute( "aria-disabled", "true" );
+			emptyOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].noMatchingOptions;
+			this.list.appendChild( emptyOption );
+		} else if ( this.filteredOptions.length === 0 ) {
 			const emptyOption = document.createElement( "li" );
 			emptyOption.className = "combo-box-option empty-state";
 			emptyOption.setAttribute( "role", "option" );
@@ -552,6 +565,19 @@ class ComboBoxComponent extends HTMLElement {
 			emptyOption.textContent = this.getLocalizedText().noMatchingOptions;
 			this.list.appendChild( emptyOption );
 		} else {
+
+			// Add "Select all options" at the top
+			const selectAllOption = document.createElement( "li" );
+			const selectAllId = `combo-option-select-all-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
+			selectAllOption.id = selectAllId;
+			selectAllOption.className = "combo-box-option combo-box-option-select-all";
+			selectAllOption.setAttribute( "role", "option" );
+			selectAllOption.setAttribute( "aria-selected", "false" );
+			selectAllOption.setAttribute( "data-select-all", "true" );
+			selectAllOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].selectAllOptions;
+			this.list.appendChild( selectAllOption );
+
+			// Add regular options
 			this.filteredOptions.forEach( ( option ) => {
 				const optionElement = document.createElement( "li" );
 				const optionId = `combo-option-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
@@ -646,34 +672,25 @@ class ComboBoxComponent extends HTMLElement {
 			items.some( i => i.value === o.value )
 		);
 
+		// Check if all options are selected
+		this.allOptionsSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
+
 		this.updateFilteredOptions();
 		this.renderTags();
 		this.renderOptions();
-
-		// Update select all checkbox state
-		this.updateSelectAllCheckbox();
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
 	}
 
-	// Handles select all / unselect all functionality
-	toggleSelectAll( isChecked ) {
-		if ( isChecked ) {
-			this.selectAll();
-		} else {
-			this.unselectAll();
-		}
-	}
-
 	// Selects all options
 	selectAll() {
 		this.selectedItems = [ ...this.allOptions ];
-		this.selectAllCheckboxChecked = true;
+		this.allOptionsSelected = true;
 		this.updateFilteredOptions();
 		this.renderTags();
+		this.renderOptions();
 		this.closeList();
-		this.disableInput();
 		this.input.value = "";
 
 		this.syncHiddenInputs();
@@ -688,12 +705,12 @@ class ComboBoxComponent extends HTMLElement {
 	// Unselects all options
 	unselectAll() {
 		this.selectedItems = [];
-		this.selectAllCheckboxChecked = false;
+		this.allOptionsSelected = false;
 		this.updateFilteredOptions();
 		this.renderTags();
 		this.renderOptions();
-		this.enableInput();
 		this.input.value = "";
+		this.input.focus();
 
 		this.syncHiddenInputs();
 
@@ -702,31 +719,6 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
-	}
-
-	// Disables the combo-box input
-	disableInput() {
-		this.input.disabled = true;
-		this.input.setAttribute( "aria-disabled", "true" );
-	}
-
-	// Enables the combo-box input
-	enableInput() {
-		this.input.disabled = false;
-		this.input.removeAttribute( "aria-disabled" );
-	}
-
-	// Updates the select all checkbox based on current selections
-	updateSelectAllCheckbox() {
-		const allSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
-		this.selectAllCheckbox.checked = allSelected;
-		this.selectAllCheckboxChecked = allSelected;
-
-		if ( allSelected ) {
-			this.disableInput();
-		} else {
-			this.enableInput();
-		}
 	}
 
 	// Public API: Update options

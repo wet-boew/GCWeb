@@ -1,16 +1,65 @@
 ---
 title: GC Combo Box Web Component
-dateModified: 2026-04-22
+dateModified: 2026-05-13
 description: "An accessible combo-box component that implements WCAG 2.1 accessibility standards and provides a modern,
 user-friendly interface for selecting multiple items."
 lang: en
 altLangPage: combo-box-fr.html
 ---
-<div class="mrgn-bttm-lg"></div>
-<gc-combobox id="demo-regions" placeholder="Select region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions">
-	<span slot="label">Select region(s)</span>
+<p>An accessible combo-box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items from a dropdown list. This component supports multiple selection, keyboard navigation, and full screen reader support.</p>
+
+<h2>Example 1: Options from API with Label Slot</h2>
+<gc-combobox id="demo-regions" placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions">
+	<span slot="label">Region(s)</span>
 </gc-combobox>
-<br>
-<gc-combobox id="demo-institutions" name="institutions" placeholder="Select institution(s)..." options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions">
-	<span slot="label">Select institution(s)</span>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;gc-combobox id="demo-regions" placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions"&gt;
+	&lt;span slot="label"&gt;Region(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 2: Options from Slot</h2>
+<gc-combobox id="demo-slot-options" placeholder="Fruit(s)..." name="fruits">
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Apple</option>
+		<option value="banana">Banana</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Grape</option>
+	</select>
 </gc-combobox>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;gc-combobox id="demo-slot-options" placeholder="Fruit(s)..." name="fruits"&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Apple&lt;/option&gt;
+		&lt;option value="banana"&gt;Banana&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Grape&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 3: Label as Attribute (Not a Slot)</h2>
+<gc-combobox id="demo-label-attr" placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"></gc-combobox>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;gc-combobox id="demo-label-attr" placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 4: No Placeholder Provided</h2>
+<gc-combobox id="demo-no-placeholder" name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions">
+	<span slot="label">Institution(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;gc-combobox id="demo-no-placeholder" name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;
+	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
