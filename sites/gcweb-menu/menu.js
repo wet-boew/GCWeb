@@ -63,8 +63,15 @@ var componentName = "gcweb-menu",
 			setMnu3LevelOrientationExpandState( false, isMediumView );
 		}
 
+		const desc = document.createElement( "p" );
+		desc.id = "gcweb-menu-desc";
+		desc.hidden = true;
+		desc.textContent = i18nInstruction;
+
+		subElm.previousElementSibling.insertAdjacentElement( "beforebegin", desc );
+
 		// Add menu navigation instruction
-		subElm.previousElementSibling.setAttribute( "aria-label", i18nInstruction );
+		subElm.previousElementSibling.setAttribute( "aria-describedby", "gcweb-menu-desc" );
 
 		// Identify that initialization has completed
 		wb.ready( $elm, componentName );
