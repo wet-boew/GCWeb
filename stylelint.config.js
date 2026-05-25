@@ -135,6 +135,7 @@ module.exports = {
 		"méli-mélo/compilation-gelé/**",
 		"méli-mélo/deprecated/**",
 		"node_modules/**",
+		"_site/**",
 		"~sites/**",
 		"dist/**"
 	]

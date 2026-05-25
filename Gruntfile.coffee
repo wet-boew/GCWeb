@@ -988,12 +988,14 @@ module.exports = (grunt) ->
 					"**/*.css"
 					"!**/*.min.css"
 					"!méli-mélo/compilation-gelé/"
+					"!_site/**"
 					"!node_modlules/"
 				]
 
 			scss:
 				src: [
 					"**/*.scss"
+					"!_site/**"
 					"!node_modlules"
 				]
 
@@ -1089,6 +1091,7 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.js"
 					"**/*.mjs"
+					"!_site/**"
 					"!node_modules/**"
 				]
 
@@ -1170,6 +1173,7 @@ module.exports = (grunt) ->
 				src: [
 					'**/*.md'
 					'!node_modules/**/*.md'
+					'!_site/**/*.md'
 					'!_wetboew-demos/**/*.md',
 					'!~sites/**/*.md'
 				]

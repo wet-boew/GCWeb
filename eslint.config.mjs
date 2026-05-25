@@ -19,6 +19,7 @@ export default defineConfig( [ globalIgnores( [
 	"**/*.min.js",
 	"méli-mélo/**/*.js",
 	"**/méli-mélo-demos/",
+	"**/_site/",
 	"**/_wetboew-demos/",
 	"**/~jekyll-dist/",
 	"**/~sites/*",
