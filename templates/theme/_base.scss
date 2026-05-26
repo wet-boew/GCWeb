@@ -25,9 +25,9 @@
 			a {
 				color: $link-color;
 				display: block;
-				font-size: 16px;
+				font-size: 1rem;
 				line-height: 1.65em;
-				padding: 10px 14px;
+				padding: .625rem 1rem;
 				text-decoration: none;
 
 				&:hover {
@@ -70,18 +70,58 @@
 		}
 	}
 
-	h1#wb-cont {
-		border: none;
-		font-size: 1.2em;
-		line-height: 1.1;
-		margin: 10px 0 11.5px;
-	}
+	main {
+		h1#wb-cont {
+			border: none;
+			font-size: 1.81rem;
+			line-height: 1.1;
+			margin: 10px 0 11.5px;
+		}
 
-	.gc-most-requested {
 		h2 {
-			float: none;
-			font-size: 1em;
-			width: auto;
+			font-size: 1.375rem;
+		}
+
+		.gc-most-requested {
+			h2 {
+				float: none;
+				width: auto;
+			}
+		}
+
+		.gc-srvinfo {
+			h2 {
+				margin-top: .5rem;
+			}
+		}
+
+		.bg-light {
+			.well {
+				background-color: #fff;
+				border-radius: 0;
+				margin-top: 2rem;
+				padding: 1.25rem 1.5rem 1.5rem;
+				position: relative;
+
+				h3 {
+					margin-top: 0;
+				}
+			}
+
+			&:has(.gc-srvinfo) {
+				margin: 1rem 0 1.25rem;
+				padding-bottom: 1rem;
+
+				h2 {
+					margin-top: 1.5rem;
+				}
+			}
+		}
+
+		.gc-features {
+			h2 {
+				font-size: 1.625rem;
+			}
 		}
 	}
 }

@@ -7,7 +7,7 @@
 		{%- endunless -%}
 	</h2>
 {%- if page.auth.type == "contextual" -%}
-	{% assign label = page.auth.label | truncate: 12, "" %}
+	{% assign label = page.auth.label | truncate: 25, "" %}
 	{% assign labelExtended = page.auth.labelExtended | truncate: 25, "" %}
 	<a class="btn btn-primary" href="{{ page.auth.link }}">
 	{%- if label and labelExtended -%}
