@@ -5,7 +5,7 @@ require "html-proofer"
 task :default => [:test]
 
 task :test do
-	HTMLProofer.check_directory("/_site/", {
+	HTMLProofer.check_directory("_site/", {
 		:ignore_urls => [
 			"#",
 			"wetboew-demos/"
