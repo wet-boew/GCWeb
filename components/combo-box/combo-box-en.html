@@ -18,7 +18,7 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>View code</summary>
 	<pre><code>&lt;gc-combobox id="demo-regions" placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions"&gt;
 	&lt;span slot="label"&gt;Region(s)&lt;/span&gt;
 &lt;/gc-combobox&gt;</code></pre>
@@ -36,7 +36,7 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>View code</summary>
 	<pre><code>&lt;gc-combobox id="demo-slot-options" placeholder="Fruit(s)..." name="fruits"&gt;
 	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
 	&lt;select slot="options"&gt;
@@ -52,7 +52,7 @@
 <gc-combobox id="demo-label-attr" placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"></gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>View code</summary>
 	<pre><code>&lt;gc-combobox id="demo-label-attr" placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;&lt;/gc-combobox&gt;</code></pre>
 </details>
 
@@ -62,8 +62,44 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>View code</summary>
 	<pre><code>&lt;gc-combobox id="demo-no-placeholder" name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;
 	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 5: Static JSON File Provided</h2>
+<gc-combobox id="demo-json-file" placeholder="Institution(s)..." name="institutions-json" options="institutions.json">
+	<span slot="label">Institution(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox id="demo-json-file" placeholder="Institution(s)..." name="institutions-json" options="institutions.json"&gt;
+	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 6: With Select All Options Enabled</h2>
+<gc-combobox id="demo-select-all" placeholder="Fruit(s)..." name="fruits-select-all" select-all-options>
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Apple</option>
+		<option value="banana">Banana</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Grape</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox id="demo-select-all" placeholder="Fruit(s)..." name="fruits-select-all" select-all-options&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Apple&lt;/option&gt;
+		&lt;option value="banana"&gt;Banana&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Grape&lt;/option&gt;
+	&lt;/select&gt;
 &lt;/gc-combobox&gt;</code></pre>
 </details>

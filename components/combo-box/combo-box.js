@@ -58,6 +58,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.isOpen = false;
 		this.allOptions = [];
 		this.allOptionsSelected = false;
+		this.allowSelectAll = false; // Feature flag for select-all option
 		this.pageLanguage = "en"; // Default language
 		this.originalPlaceholder = ""; // Store original placeholder
 	}
@@ -70,6 +71,10 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Set page language from document or fallback to English
 		this.pageLanguage = ( typeof wb !== "undefined" && wb.lang ) ? wb.lang : "en";
+
+		// Check if select-all-options attribute is present
+		this.allowSelectAll = this.hasAttribute( "select-all-options" );
+
 		this.initializeComponent();
 	}
 
@@ -307,7 +312,18 @@ class ComboBoxComponent extends HTMLElement {
 			case "Enter":
 				e.preventDefault();
 				if ( this.highlightedIndex >= 0 && this.isOpen ) {
-					this.selectOption( this.filteredOptions[ this.highlightedIndex ].value );
+					const options = Array.from( this.list.querySelectorAll( "[role='option']" ) );
+					const selectedOption = options[ this.highlightedIndex ];
+
+					// Check if "Select all options" was selected
+					if ( selectedOption && selectedOption.hasAttribute( "data-select-all" ) ) {
+						this.selectAll();
+					} else if ( selectedOption ) {
+						const optionValue = selectedOption.getAttribute( "data-option-text" );
+						if ( optionValue ) {
+							this.selectOption( optionValue );
+						}
+					}
 				}
 				break;
 			case "Escape":
@@ -566,16 +582,18 @@ class ComboBoxComponent extends HTMLElement {
 			this.list.appendChild( emptyOption );
 		} else {
 
-			// Add "Select all options" at the top
-			const selectAllOption = document.createElement( "li" );
-			const selectAllId = `combo-option-select-all-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
-			selectAllOption.id = selectAllId;
-			selectAllOption.className = "combo-box-option combo-box-option-select-all";
-			selectAllOption.setAttribute( "role", "option" );
-			selectAllOption.setAttribute( "aria-selected", "false" );
-			selectAllOption.setAttribute( "data-select-all", "true" );
-			selectAllOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].selectAllOptions;
-			this.list.appendChild( selectAllOption );
+			// Add "Select all options" at the top if enabled
+			if ( this.allowSelectAll ) {
+				const selectAllOption = document.createElement( "li" );
+				const selectAllId = `combo-option-select-all-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
+				selectAllOption.id = selectAllId;
+				selectAllOption.className = "combo-box-option combo-box-option-select-all";
+				selectAllOption.setAttribute( "role", "option" );
+				selectAllOption.setAttribute( "aria-selected", "false" );
+				selectAllOption.setAttribute( "data-select-all", "true" );
+				selectAllOption.textContent = this.getLocalizedText().selectAllOptions;
+				this.list.appendChild( selectAllOption );
+			}
 
 			// Add regular options
 			this.filteredOptions.forEach( ( option ) => {

@@ -22,7 +22,7 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>Visualiser le code</summary>
 	<pre><code>&lt;gc-combobox
 	id="demo-regions"
 	placeholder="Région(s)..."
@@ -44,7 +44,7 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>Visualiser le code</summary>
 	<pre><code>&lt;gc-combobox id="demo-slot-options" placeholder="Fruit(s)..." name="fruits"&gt;
 	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
 	&lt;select slot="options"&gt;
@@ -65,7 +65,7 @@
 	options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/fr/institutions"></gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>Visualiser le code</summary>
 	<pre><code>&lt;gc-combobox
 	id="demo-label-attr"
 	placeholder="Institution(s)..."
@@ -83,11 +83,47 @@
 </gc-combobox>
 
 <details>
-	<summary>Code</summary>
+	<summary>Visualiser le code</summary>
 	<pre><code>&lt;gc-combobox
 	id="demo-no-placeholder"
 	name="institutions"
 	options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/fr/institutions"&gt;
 	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Exemple 5 : Fichier JSON statique fourni</h2>
+<gc-combobox id="demo-json-file" placeholder="Institution(s)..." name="institutions-json" options="institutions.json">
+	<span slot="label">Institution(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>Visualiser le code</summary>
+	<pre><code>&lt;gc-combobox id="demo-json-file" placeholder="Institution(s)..." name="institutions-json" options="institutions.json"&gt;
+	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Exemple 6 : Avec l'option Sélectionner tout activée</h2>
+<gc-combobox id="demo-select-all" placeholder="Fruit(s)..." name="fruits-select-all" select-all-options>
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Pomme</option>
+		<option value="banana">Banane</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Raisin</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>Visualiser le code</summary>
+	<pre><code>&lt;gc-combobox id="demo-select-all" placeholder="Fruit(s)..." name="fruits-select-all" select-all-options&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Pomme&lt;/option&gt;
+		&lt;option value="banana"&gt;Banane&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Raisin&lt;/option&gt;
+	&lt;/select&gt;
 &lt;/gc-combobox&gt;</code></pre>
 </details>
