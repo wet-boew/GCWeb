@@ -11,7 +11,9 @@
 		</div>
 	</div>
 	{% unless page.layout == "application" %}
+	{% unless page.layout == "servermessage" and page.isBilingual %}
 	<hr>
+	{% endunless %}
 	<div class="container">
 		<div class="row">
 			{%- unless page.nomenu -%}

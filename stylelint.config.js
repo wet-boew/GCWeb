@@ -74,7 +74,6 @@ module.exports = {
 				"font-family-no-missing-generic-family-keyword": null,
 				"function-no-unknown": null,
 				"function-url-quotes": null,
-				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
 				"length-zero-no-unit": null,
 				"media-feature-name-no-unknown": null,
@@ -83,6 +82,7 @@ module.exports = {
 				"no-duplicate-selectors": null,
 				"no-irregular-whitespace": null,
 				"number-max-precision": null,
+				"property-no-deprecated": null,
 				"property-no-vendor-prefix": null,
 				"rule-empty-line-before": null,
 				"selector-attribute-quotes": null,
@@ -114,19 +114,17 @@ module.exports = {
 				// Suppress stylelint-config-standard errors
 				"at-rule-empty-line-before": null,
 				"declaration-block-no-redundant-longhand-properties": null,
-				"hue-degree-notation": null,
 				"keyframes-name-pattern": null,
 				"no-descending-specificity": null, // Extremely slow
-				"no-duplicate-selectors": null,
 				"no-invalid-position-at-import-rule": null, // Fixable, need to run sass migrator
 				"number-max-precision": null,
+				"property-no-deprecated": null,
 				"scss/at-extend-no-missing-placeholder": null,
 				"scss/comment-no-empty": null,
 				"scss/dollar-variable-pattern": null, // Fixable
 				"scss/no-global-function-names": null, // Fixable, need to run sass migrator
 				"selector-class-pattern": null,
 				"selector-id-pattern": null,
-				"selector-not-notation": null,
 				"selector-pseudo-element-colon-notation": null,
 				"value-keyword-case": null
 			}
@@ -137,6 +135,7 @@ module.exports = {
 		"méli-mélo/compilation-gelé/**",
 		"méli-mélo/deprecated/**",
 		"node_modules/**",
+		"_site/**",
 		"~sites/**",
 		"dist/**"
 	]

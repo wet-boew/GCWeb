@@ -1,0 +1,14 @@
+/*
+ * GCDS card co-existence workaround
+ *
+*/
+
+//
+// Workaround needed for implementation in the MWS which wrap every component inside divs
+// TODO:
+//	-[ ] Evaluate the scope of use, like validating if a such fix are also required another CMS
+//	-[ ] Check alternative solution
+//
+.gcdscardcontainer.section > gcds-grid[equal-row-height] > div.gcdscard > gcds-card {
+	height: 100%;
+}

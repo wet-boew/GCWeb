@@ -1,0 +1,39 @@
+---
+dateModified: "2025-07-04"
+description: "Co-existence pilot of the GCDS card in GCWeb with images."
+language: "en"
+altLangPage: "withimg-fr.html"
+title: "GCDS Card with images"
+loadGCDS: true
+---
+
+<p>This is an example test for comparative implementation purposes and for tracking coexistence changes across versions. In particular, this example shows a width inconsistency that is only visible in small viewports</p>
+
+<gcds-grid place-items="center" columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr">
+
+	<gcds-card card-title="Lorem ipsum" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." href="#" img-src="https://dummyimage.com/360x200/000000/FFFFFF.png">
+	</gcds-card>
+
+	<gcds-card card-title="Aenean id" description="Aenean id sem tellus." href="#" img-src="https://dummyimage.com/100x50/000000/FFFFFF.png">
+	</gcds-card>
+
+	<gcds-card card-title="Pellentesque dapibus" description="Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque." href="#" badge="badge" img-src="https://dummyimage.com/306x203/000000/FFFFFF.png">
+	</gcds-card>
+
+	<gcds-card card-title="Proin at ligula" description="Proin at ligula tincidunt neque convallis varius." href="#" img-src="https://dummyimage.com/365x205/000000/FFFFFF.png">
+	</gcds-card>
+
+</gcds-grid>
+
+<h2>Technical notes</h2>
+<p>To reproduce the concern:</p>
+<ul>
+	<li>This happen when the attribute <code>place-items="center"</code> are set on the GCDS grid</li>
+	<li>Images width need to lower than the width available in the view port</li>
+	<li>The description text take less width space than the width available in the view port</li>
+</ul>
+<p>Workaround, at least one of the following:</p>
+<ul>
+	<li>Use images that have a minimum width of 400 pixels</li>
+	<li>Ensure the description text will take at least 2 lines, like with a least 70 characters</li>
+</ul>

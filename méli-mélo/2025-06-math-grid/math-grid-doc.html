@@ -1,0 +1,238 @@
+---
+title: Math equation grid - documentation
+dateModified: 2025-06-05
+description: "To create a way to layout simple math equations or calculations."
+lang: en
+altLangPage: math-grid-doc-fr.html
+css:
+- math-grid.css
+- https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.css
+script:
+- math-grid.js
+---
+<div class="wb-prettify all-pre"></div>
+<section>
+  <h2>Purpose</h2>
+  <p>To create a way to layout simple math equations or calculations. </p>
+</section>
+<section>
+  <h2>Usage</h2>
+  <h3 class="mrgn-tp-0 text-success"><span class="glyphicon glyphicon-ok-circle mrgn-rght-sm"></span>Use to</h3>
+  <ul>
+    <li>Align  math  equations or calculation patterns</li>
+    <li>Replicate calculation layouts from a document (e.g. PDF) in HTML</li>
+  </ul>
+  <h3 class="mrgn-tp-0 text-danger"><span class="glyphicon glyphicon-remove-circle mrgn-rght-sm"></span>Do not use to</h3>
+  <ul>
+    <li>Create a layout for general content
+      <ul>
+        <li>Refer to: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/grids-en.html">Grid system - WET4</a></li>
+        <li>Use the grid system when needing to create specific column widths</li>
+      </ul>
+    </li>
+    <li>In place of a table when the content should be in that format
+      <ul>
+        <li>Refer to: <a href="https://wet-boew.github.io/wet-boew-styleguide/design/tables-en.html">Tables - WET4</a></li>
+      </ul>
+    </li>
+    <li>Stylize complex math equations
+      <ul>
+        <li>Refer to: <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/mathml/mathml-en.html">MathML - WET4</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<section>
+  <h2>Working examples</h2>
+  <ul>
+    <li><a href="index.html">English example</a></li>
+      <li><a href="index-fr.html">French example</a></li>
+  </ul>
+</section>
+<section>
+  <h2>Evaluation and report</h2>
+  <p>Not yet evaluated</p>
+</section>
+<section>
+  <h2>Accessibility guidance</h2>
+  <p>Use  HTML entity names or codes for math symbols in order display without CSS or additional accessibility support.</p>
+  <p>Style HTML symbols instead of using icons,  unless you have a fall back in case the icon style sheet does not load. Icons also need invisible text for screen reader devices.</p>
+  <div class="table-responsive">
+    <table class="table">
+      <caption>
+      HTML math entities
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Character</th>
+          <th scope="col">Description</th>
+          <th scope="col">HTML entity</th>
+          <th scope="col">HTML code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&plus;</td>
+          <td>Plus sign</td>
+          <td>&amp;plus; or +</td>
+          <td>&amp;#43;</td>
+        </tr>
+        <tr>
+          <td>&minus;</td>
+          <td>Minus sign</td>
+          <td>&amp;minus;</td>
+          <td>&amp;#8722;</td>
+        </tr>
+        <tr>
+          <td>&times;</td>
+          <td>Multiplication sign</td>
+          <td>&amp;times;</td>
+          <td>&amp;#215;</td>
+        </tr>
+        <tr>
+          <td>&divide;</td>
+          <td>Division sign</td>
+          <td>&amp;divide;</td>
+          <td>&amp;#247;</td>
+        </tr>
+        <tr>
+          <td>&equals;</td>
+          <td>Equal sign</td>
+          <td>&amp;equals; or = </td>
+          <td>&amp;#61;</td>
+        </tr>
+        <tr>
+          <td>&percnt;</td>
+          <td>Percent sign</td>
+          <td>&amp;percnt; or %</td>
+          <td>&amp;#37;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2>How to implement</h2>
+  <ol class="lst-stps ld-zr">
+    <li>Create a parent element<br>
+      <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;</code></pre>
+    </li>
+    <li>Create a row for each line item and calculation<br>
+      <pre><code>&lt;div class=&quot;mg-row&quot;&gt;</code></pre>
+    </li>
+    <li>Create the same number of cells needed to display each line item fully
+      <h3>Using <code>&lt;div&gt;</code> on cell</h3>
+      <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>		&lt;div class=&quot;mg-row&quot;&gt;<br>			&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>			...<br>		&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+      Use <code>&lt;div&gt;</code> elements, as inline elements may cause unexpected issues</li>
+    <li>Repeat for the amount of rows needed for the equation<br>
+      Use an <strong>equal number of cells for all rows</strong> of the equation, even when there is no content.  If the aligned cell does not have information, leave it blank.</li>
+  </ol>
+</section>
+<section>
+  <h2>Configuration options</h2>
+  <h3>Class options</h3>
+  <div class="table-responsive">
+    <table class="table">
+      <caption>
+      Custom classes for math grid
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Class</th>
+          <th scope="col">Description</th>
+          <th scope="col">How to configure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="nowrap">mg-spcd</code></td>
+          <td>Adds 10px (5px top/5px bottom) of spacing to all or specific rows</td>
+          <td><ul class="list-unstyled">
+              <li>All rows:
+                <pre>&lt;div class=&quot;wb-math-grid mg-spcd&quot;&gt;</pre>
+              </li>
+              <li>Specific rows:
+                <pre>&lt;div class=&quot;mg-row mg-spcd&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-otln</code></td>
+          <td>Adds a stronger border line around the entire cell</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-otln&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-tp</code></td>
+          <td>Adds a stronger border line along the top of a row or specific cell</td>
+          <td><ul class="list-unstyled">
+              <li>Specific rows:
+                <pre>&lt;div class=&quot;mg-row mg-brdr-tp&quot;&gt;</pre>
+              </li>
+              <li>Specific cells:
+                <pre>&lt;div class=&quot;mg-cell mg-brdr-tp&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-bttm</code></td>
+          <td>Adds a stronger border line along the bottom of a row or specific cell</td>
+          <td><ul class="list-unstyled">
+              <li>Specific rows:
+                <pre>&lt;div class=&quot;mg-row mg-brdr-bttm&quot;&gt;</pre>
+              </li>
+              <li>Specific cells:
+                <pre>&lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-lft</code></td>
+          <td>Adds a stronger border line on the left of a specific cell</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-lft&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-rght</code></td>
+          <td>Adds a stronger border line on the right of a specific cell</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-rght&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-scroll</code></td>
+          <td>Adds a scroll to equations who's rows are set with no wrapping (to preserve inheritance from original design) </td>
+          <td><pre>&lt;div class=&quot;mg-scroll&quot;&gt;<br>  &lt;div class=&quot;wb-math-grid&quot;&gt;</pre></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>You can also use many existing GCWeb styling for this component.</p>
+  <h3>Attribute options</h3>
+  <table class="table">
+    <caption>
+    Custom options for math grid
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Option</th>
+        <th scope="col">Description</th>
+        <th scope="col">How to configure</th>
+        <th scope="col">Values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="nowrap">srPause</code></td>
+        <td>Will require screen readers to navigate the equation more precisely.</td>
+        <td><code>data-wb-math-grid='{"srPause": true}'</code></td>
+        <td><dl>
+            <dt>None/<code>false</code> (default):</dt>
+            <dd>Will read equation line by line</dd>
+            <dt><code>true</code></dt>
+            <dd>Will read each "cell" separately.</dd>
+          </dl></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2>Source code</h2>
+  <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2025-06-math-grid">Source code for the math grid plugin on GitHub</a></p>
+</section>

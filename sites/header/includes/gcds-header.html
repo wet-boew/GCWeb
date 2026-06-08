@@ -1,0 +1,13 @@
+<gcds-header lang-href="{{ page.altLangPage }}" skip-to-href="#wb-cont">
+	{% unless page.nositesearch %}
+	<gcds-search slot="search"></gcds-search>
+	{% endunless %}
+	{% unless page.nomenu %}
+	{% if page.sitemenuPath or site.global.sitemenuPath and site.global.sitemenuPath.first %}
+	<gcds-topic-menu slot="menu"></gcds-topic-menu>
+	{% endif %}
+	{% endunless %}
+	{% unless page.breadcrumbs == false %}
+		{% include breadcrumbs/gcds-breadcrumbs.html %}
+	{% endunless %}
+</gcds-header>

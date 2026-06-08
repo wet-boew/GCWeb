@@ -1,0 +1,236 @@
+---
+title: Grille d'équations mathématiques - documentation
+dateModified: 2025-06-05
+description: "Créer un moyen de disposer des équations mathématiques ou des calculs simples."
+lang: fr
+altLangPage: math-grid-doc.html
+css:
+- math-grid.css
+- https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2024-09-kejimkujik.css
+script:
+- math-grid.js
+---
+<div class="wb-prettify all-pre"></div>
+<section>
+  <h2>Objectif</h2>
+  <p>Créer un moyen de disposer des équations mathématiques ou des calculs simples.</p>
+</section>
+<section>
+  <h2>Utilisation</h2>
+  <h3 class="mrgn-tp-0 text-success"><span class="glyphicon glyphicon-ok-circle mrgn-rght-sm"></span>Utiliser pour</h3>
+  <ul>
+    <li>Aligner les équations mathématiques ou les motifs de calcul</li>
+    <li>Répliquer les mises en page de calcul à partir d'un document (par exemple, PDF) en HTML</li>
+  </ul>
+  <h3 class="mrgn-tp-0 text-danger"><span class="glyphicon glyphicon-remove-circle mrgn-rght-sm"></span>Ne pas utiliser pour</h3>
+  <ul>
+    <li>Créer une mise en page pour du contenu général
+      <ul>
+        <li>Référez-vous à : <a href="https://wet-boew.github.io/wet-boew-styleguide/design/grids-fr.html">Grilles - WET4</a></li>
+        <li>Utilisez le système de grille lorsque vous devez créer des largeurs de colonne spécifiques</li>
+      </ul>
+    </li>
+    <li>À la place d'un tableau lorsque le contenu doit être dans ce format
+      <ul>
+        <li>Référez-vous à : <a href="https://wet-boew.github.io/wet-boew-styleguide/design/tables-fr.html">Tableaux - WET4</a></li>
+      </ul>
+    </li>
+    <li>Styliser des équations mathématiques complexes
+      <ul>
+        <li>Référez-vous à : <a href="https://wet-boew.github.io/v4.0-ci/docs/ref/mathml/mathml-fr.html">Correctif MathML - WET4</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<section>
+  <h2>Exemples de travail</h2>
+  <ul>
+    <li><a href="index.html">Exemple en anglais</a></li>
+    <li><a href="index-fr.html">Exemple en français</a></li>
+  </ul>
+</section>
+<section>
+  <h2>Évaluation et rapport</h2>
+  <p>Pas encore évalué</p>
+  <h2>Directives d'accessibilité</h2>
+  <p>Utilisez des noms ou des codes d'entité HTML pour les symboles mathématiques afin d'afficher sans CSS ou support d'accessibilité supplémentaire.</p>
+  <p>Stylisez les symboles HTML au lieu d'utiliser des icônes, sauf si vous avez une solution de secours au cas où la feuille de style des icônes ne se charge pas. Les icônes ont également besoin d'un texte invisible pour les dispositifs de lecteur d'écran.</p>
+  <div class="table-responsive">
+    <table class="table">
+      <caption>
+      Entités mathématiques HTML
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Caractère</th>
+          <th scope="col">Description</th>
+          <th scope="col">Entité HTML</th>
+          <th scope="col">Code HTML</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&plus;</td>
+          <td>Signe plus</td>
+          <td>&amp;plus; ou +</td>
+          <td>&amp;#43;</td>
+        </tr>
+        <tr>
+          <td>&minus;</td>
+          <td>Signe moins</td>
+          <td>&amp;minus;</td>
+          <td>&amp;#8722;</td>
+        </tr>
+        <tr>
+          <td>&times;</td>
+          <td>Signe de multiplication</td>
+          <td>&amp;times;</td>
+          <td>&amp;#215;</td>
+        </tr>
+        <tr>
+          <td>&divide;</td>
+          <td>Signe de division</td>
+          <td>&amp;divide;</td>
+          <td>&amp;#247;</td>
+        </tr>
+        <tr>
+          <td>&equals;</td>
+          <td>Signe égal</td>
+          <td>&amp;equals; ou = </td>
+          <td>&amp;#61;</td>
+        </tr>
+        <tr>
+          <td>&percnt;</td>
+          <td>Signe pourcentage</td>
+          <td>&amp;percnt; ou %</td>
+          <td>&amp;#37;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <h2>Comment mettre en œuvre</h2>
+  <ol class="lst-stps ld-zr">
+    <li>Créer un élément parent<br>
+      <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;</code></pre>
+    </li>
+    <li>Créer une ligne pour chaque élément de ligne et calcul<br>
+      <pre><code>&lt;div class=&quot;mg-row&quot;&gt;</code></pre>
+    </li>
+    <li>Créer le même nombre de cellules nécessaires pour afficher chaque élément de ligne complètement
+      <h3>Utilisation de <code>&lt;div&gt;</code> sur la cellule</h3>
+      <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>		&lt;div class=&quot;mg-row&quot;&gt;<br>			&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>			...<br>		&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+      Utilisez des éléments <code>&lt;div&gt;</code>, car les éléments en ligne peuvent causer des problèmes inattendus</li>
+    <li>Répéter pour le nombre de lignes nécessaires pour l'équation<br>
+      Utilisez un <strong>nombre égal de cellules pour toutes les lignes</strong> de l'équation, même lorsqu'il n'y a pas de contenu. Si la cellule alignée n'a pas d'information, laissez-la vide.</li>
+  </ol>
+</section>
+<section>
+  <h2>Options de configuration</h2>
+  <h3>Options de classe</h3>
+  <div class="table-responsive">
+    <table class="table">
+      <caption>
+      Classes personnalisées pour la grille mathématique
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Classe</th>
+          <th scope="col">Description</th>
+          <th scope="col">Comment configurer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="nowrap">mg-spcd</code></td>
+          <td>Ajoute 10px (5px en haut/5px en bas) d'espacement à toutes ou à des lignes spécifiques</td>
+          <td><ul class="list-unstyled">
+              <li>Toutes les lignes :
+                <pre>&lt;div class=&quot;wb-math-grid mg-spcd&quot;&gt;</pre>
+              </li>
+              <li>Lignes spécifiques :
+                <pre>&lt;div class=&quot;mg-row mg-spcd&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-otln</code></td>
+          <td>Ajoute une ligne de bordure plus forte autour de la cellule entière</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-otln&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-tp</code></td>
+          <td>Ajoute une ligne de bordure plus forte le long du haut d'une ligne ou d'une cellule spécifique</td>
+          <td><ul class="list-unstyled">
+              <li>Lignes spécifiques :
+                <pre>&lt;div class=&quot;mg-row mg-brdr-tp&quot;&gt;</pre>
+              </li>
+              <li>Cellules spécifiques :
+                <pre>&lt;div class=&quot;mg-cell mg-brdr-tp&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-bttm</code></td>
+          <td>Ajoute une ligne de bordure plus forte le long du bas d'une ligne ou d'une cellule spécifique</td>
+          <td><ul class="list-unstyled">
+              <li>Lignes spécifiques :
+                <pre>&lt;div class=&quot;mg-row mg-brdr-bttm&quot;&gt;</pre>
+              </li>
+              <li>Cellules spécifiques :
+                <pre>&lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;</pre>
+              </li>
+            </ul></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-lft</code></td>
+          <td>Ajoute une ligne de bordure plus forte sur le côté gauche d'une cellule spécifique</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-lft&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-brdr-rght</code></td>
+          <td>Ajoute une ligne de bordure plus forte sur le côté droit d'une cellule spécifique</td>
+          <td><pre>&lt;div class=&quot;mg-cell mg-brdr-rght&quot;&gt;</pre></td>
+        </tr>
+        <tr>
+          <td><code class="nowrap">mg-scroll</code></td>
+          <td>Ajoute un défilement aux équations dont les lignes sont définies sans retour à la ligne (pour préserver l'héritage du design original)</td>
+          <td><pre>&lt;div class=&quot;mg-scroll&quot;&gt;<br>  &lt;div class=&quot;wb-math-grid&quot;&gt;</pre></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Vous pouvez également utiliser de nombreux styles GCWeb existants pour ce composant.</p>
+  <h3>Options d'attribut</h3>
+  <table class="table">
+    <caption>
+    Options personnalisées pour la grille mathématique
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Option</th>
+        <th scope="col">Description</th>
+        <th scope="col">Comment configurer</th>
+        <th scope="col">Valeurs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="nowrap">srPause</code></td>
+        <td>Exigera des lecteurs d'écran de naviguer dans l'équation plus précisément.</td>
+        <td><code>data-wb-math-grid='{"srPause": true}'</code></td>
+        <td><dl>
+            <dt>Aucun/<code>false</code> (par défaut) :</dt>
+            <dd>Lira l'équation ligne par ligne</dd>
+            <dt><code>true</code></dt>
+            <dd>Lira chaque "cellule" séparément.</dd>
+          </dl></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2>Code source</h2>
+  <p><a href="https://github.com/wet-boew/GCWeb/tree/master/m%C3%A9li-m%C3%A9lo/2025-06-math-grid">Code source du plugin de grille mathématique sur GitHub</a> </p>
+</section>

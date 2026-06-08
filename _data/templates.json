@@ -99,10 +99,10 @@
 		"en": "All services page template.",
 		"fr": "Gabarit de page pour tous les services."
 	},
-	"modified": "2025-01-09",
+	"modified": "2026-03-20",
 	"componentName": "all-services",
 	"status": "stable",
-	"version": "1.1",
+	"version": "2.0",
 	"pages": {
 		"examples": [
 			{
@@ -141,7 +141,7 @@
 				"en": "All services page template.",
 				"fr": "Gabarit de page pour tous les services."
 			},
-			"iteration": "_:iteration_allservices_2",
+			"iteration": "_:iteration_allservices_5",
 			"example": [
 				{
 					"en": { "href": "all-services-en.html", "text": "All services" },
@@ -149,9 +149,22 @@
 				}
 			],
 			"implementation": [
-				"_:implement_allservices"
+				"_:implement_allservices",
+				"_:implement_allservices_1dot3_to_2"
 			],
 			"history": [
+				{
+					"en": "March 2026 - Remove the 'Top searches' band, update 'Most requested services' band, remove 'Manage life events' band, add expand collapse section between 'Most requested' and theme/topics area, change 'Access services by topic' title",
+					"fr": "Mars 2026 – Retirer la bande « Recherches les plus populaires », mettre à jour la bande « Services les plus demandés », retirer la bande « Gérer les événements de la vie », ajouter une section à expansion/réduction entre « En demande » et la zone des thèmes/sujets, modifier le titre « Accéder aux services par sujet »."
+				},
+				{
+					"en": "August 2025 - Use the class '.colcount-no-break' to prevent list items from splitting across multiple columns.",
+					"fr": "Août 2025 - Utilisation de la classe « .colcount-no-break » pour empêcher les éléments de liste de se diviser en plusieurs colonnes."
+				},
+				{
+					"en": "July 2025 - Remove expand and collapse All buttons.",
+					"fr": "Juillet 2025 - Suppression des boutons « Développer » et « Réduire »."
+				},
 				{
 					"en": "November 2024 - Initial implementation of the page template.",
 					"fr": "Novembre 2024 - Implémentation initiale du gabarit de page."
@@ -162,7 +175,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_allservices",
-			"iteration": "_:iteration_allservices_2",
+			"iteration": "_:iteration_allservices_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -184,9 +197,67 @@
 				"en": "all-services-en.html main > *:not(.pagedetails)",
 				"fr": "all-services-fr.html main > *:not(.pagedetails)"
 			}
+		},
+		{
+			"@id": "_:implement_allservices_1dot3_to_2",
+			"iteration": "_:iteration_allservices_5",
+			"name": {
+				"en": "Transition from 1.3 to 2.0",
+				"fr": "Transitionner de 1.3 à 2.0"
+			},
+			"introduction": {
+				"en": "This implementation is meant for publishers migrating from version 1.3 of the template to version 2.0.",
+				"fr": "Cette implémentation est destinée aux éditeurs qui migrent de la version 1.3 à la version 2.0 du gabarit."
+			},
+			"instructions": {
+				"en": [
+					"Remove the 'Top searches' band",
+					"Update 'Most requested services' band: update title to 'Most requested' and update links as needed",
+					"Remove 'Manage life events' band",
+					"Add between 'Most requested' and theme/topics area, a section with expand and collapses containing all service categories. This section title is 'By category'",
+					"Replace the H1 title 'Access services by topic' with an H2 title 'By theme'"
+				],
+				"fr": [
+					"Retirer la bande « Recherches les plus populaires »",
+					"Mettre à jour la bande « Services les plus demandés » : mettre à jour le titre « En demande » et mettre à jour les liens comme dans la démo",
+					"Retirer la section « Gérer les événements de la vie»",
+					"Ajouter une section avec expansions/réductions entre la zone « En demande » et celle des thèmes/sujets. Le titre est « Par catégorie »",
+					"Remplacer le H1 « Accès aux services par thème par un H2 « Par thème »"
+				]
+			},
+			"ajaxSourceCode": {
+				"en": "all-services-en.html main > *:not(.pagedetails)",
+				"fr": "all-services-fr.html main > *:not(.pagedetails)"
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_allservices_5",
+			"name": "All services page - Iteration 5",
+			"date": "2026-03",
+			"breaking": [ "Remove the top searches band", "Update Most requested services band", "Remove manage life events", "Add between 'Most requested' and theme/topics area, a 'By category' section with expand and collapses containing all service categories", "Update Access services by topic title" ],
+			"detectableBy": "Most requested navigation band with a list container that has the class \".colcount-no-break\" followed by a section with expand and collapses containing all service categories and a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_4"
+		},
+		{
+			"@id": "_:iteration_allservices_4",
+			"name": "All services page - Iteration 4",
+			"date": "2025-08",
+			"additions": [ "Use the class \".colcount-no-break\" to prevent list items from splitting across multiple columns." ],
+			"detectableBy": "Three navigation bands each whose list container has the class \".colcount-no-break\" followed by a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_3",
+			"successor": "iteration_allservices_5"
+		},
+		{
+			"@id": "_:iteration_allservices_3",
+			"name": "All services page - Iteration 3",
+			"date": "2025-07",
+			"additions": [ "Removing expand/collapse all buttons." ],
+			"detectableBy": "Three navigation bands followed by a Services and Information component containing a list of all themes and topics.",
+			"predecessor": "_:iteration_allservices_2",
+			"successor": "_:iteration_allservices_4"
+		},
 		{
 			"@id": "_:iteration_allservices_2",
 			"name": "All services page - Iteration 2",
@@ -203,9 +274,26 @@
 	],
 	"changesets": [
 		{
-			"@id": "_:cs_allservices",
+			"@id": "_:cs_allservices_2",
 			"name": "All services page",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_allservices_3",
+			"detectableBy": "By the sequence of elements.",
+			"semantic": "h1 + h2*3 + h1 + h3*n + h2 + h3*3",
+			"accessibility": "This page contains two <h1> elements since the content is perceptibly split in two distinct sections. A skip link has been added at the top of the content to go directly to the second part of the content.",
+			"context": "This page template is strictly limited to the All services page located on Canada.ca.",
+			"layout": [
+				"Top searches navigation band",
+				"Most requested services navigation band",
+				"Manage life events navigation band",
+				"Access services by topic navigation band",
+				"Focus On navigation band"
+			]
+		},
+		{
+			"@id": "_:cs_allservices",
+			"name": "All services page - expand and collapse",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_allservices_2",
 			"detectableBy": "By the sequence of elements.",
 			"semantic": "h1 + h2*3 + h1 + h2*n",
@@ -287,11 +375,11 @@
 	},
 	"title": {
 		"en": "Campaign name",
-		"fr": "Bêta - Message d'erreur serveur"
+		"fr": "Nom de la campagne"
 	},
 	"description": {
 		"en": "Campaign name templates samples",
-		"fr": "Exemple de page d'erreur serveur."
+		"fr": "Exemples de gabarits pour le nom de la campagne"
 	},
 	"modified": "2020-04-16",
 	"componentName": "campaign",
@@ -406,6 +494,222 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "GCDS Layout",
+		"fr": "Disposition GCDS"
+	},
+	"description": {
+		"en": "Page layout using the GCDS header and footer components.",
+		"fr": "Disposition de la page utilisant les composants d'en-tête et de pied de page GCDS."
+	},
+	"modified": "2025-11-17",
+	"componentName": "gcds-layout",
+	"status": "stable",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GCDS Layout - Core",
+				"language": "en",
+				"path": "gcds-layout-core-en.html"
+			},
+			{
+				"title": "Disposition GCDS - Essentiel",
+				"language": "fr",
+				"path": "gcds-layout-core-fr.html"
+			},
+			{
+				"title": "GCDS Layout - Complete",
+				"language": "en",
+				"path": "gcds-layout-complete-en.html"
+			},
+			{
+				"title": "Disposition GCDS - Complet",
+				"language": "fr",
+				"path": "gcds-layout-complete-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GCDS Layout",
+				"language": "en",
+				"path": "gcds-layout-doc-en.html"
+			},
+			{
+				"title": "Disposition GCDS",
+				"language": "fr",
+				"path": "gcds-layout-doc-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "GCDS Layout",
+				"fr": "Disposition GCDS"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Page template leveraging the GCDS header and footer components.",
+				"fr": "Gabarit de page utilisant les composants d'en-tête et de pied de page GCDS."
+			},
+			"iteration": "_:iteration_gcdslayout_1",
+			"example": [
+				{
+					"en": { "href": "gcds-layout-core-en.html", "text": "GCDS Layout - Core" },
+					"fr": { "href": "gcds-layout-core-fr.html", "text": "Disposition GCDS - Essentiel" }
+				},
+				{
+					"en": { "href": "gcds-layout-complete-en.html", "text": "GCDS Layout - Complete" },
+					"fr": { "href": "gcds-layout-complete-fr.html", "text": "Disposition GCDS - Complet" }
+				}
+			],
+			"implementation": [
+				"_:implement_gcdslayout",
+				"_:implement_gcdslayout_dev"
+			],
+			"history": [
+				{
+					"en": "November 2025 - Initial implementation of the page template.",
+					"fr": "Novembre 2025 - Implémentation initiale du gabarit de page."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gcdslayout",
+			"iteration": "_:iteration_gcdslayout_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the template manually and wanting to use the new GCDS components.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le gabarit manuellement et souhaitent utiliser les nouveaux composants GCDS."
+
+			},
+			"instructions": {
+				"en": [
+					"Refer to the <a href=\"https://design-system.alpha.canada.ca\" target=\"_blank\">GCDS documentation</a> and examples for more information on implementing the components used in this page template."
+				],
+				"fr": [
+					"Référez-vous à <a href=\"https://systeme-design.alpha.canada.ca/fr/\" target=\"_blank\">la documentation GCDS</a> et aux exemples pour plus d'informations sur l'implémentation des composants utilisés dans ce gabarit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "GCDS Layout - Core",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\"></gcds-header>\n\n...\n\n<gcds-footer display=\"compact\"></gcds-footer>"
+					},
+					{
+						"@type": "source-code",
+						"description": "GCDS Layout - Complete",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<gcds-search slot=\"search\"></gcds-search>\n\t<gcds-topic-menu slot=\"menu\"></gcds-topic-menu>\n\t<gcds-breadcrumbs slot=\"breadcrumb\" class=\"mt-2\">\n\t\t<gcds-breadcrumbs-item href=\"#\">GCWeb</gcds-breadcrumbs-item>\n\t</gcds-breadcrumbs>\n</gcds-header>\n\n...\n\n<gcds-footer\n\tdisplay=\"full\"\n\tcontextual-heading=\"Contextual navigation\"\n\tcontextual-links='{\"Context link 1\": \"#\", \"Context link 2\": \"#\", \"Context link 3\": \"#\"}'\n\tsub-links='{\"Custom sublink 1\": \"#\", \"Custom sublink 2\": \"#\", \"Custom sublink 3\": \"#\", \"Terms and conditions\": \"#\", \"Privacy\": \"#\"}'>\n</gcds-footer>"					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Disposition GCDS - Essentiel",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\"></gcds-header>\n\n...\n\n<gcds-footer display=\"compact\"></gcds-footer>"
+
+					},
+					{
+						"@type": "source-code",
+						"description": "Disposition GCDS - Complet",
+						"code": "<gcds-header lang-href=\"#\" skip-to-href=\"#\">\n\t<gcds-search slot=\"search\"></gcds-search>\n\t<gcds-topic-menu slot=\"menu\"></gcds-topic-menu>\n\t<gcds-breadcrumbs slot=\"breadcrumb\" class=\"mt-2\">\n\t\t<gcds-breadcrumbs-item href=\"#\">GCWeb</gcds-breadcrumbs-item>\n\t</gcds-breadcrumbs>\n</gcds-header>\n\n...\n\n<gcds-footer\n\tdisplay=\"full\"\n\tcontextual-heading=\"Navigation contextuelle\"\n\tcontextual-links='{\"Lien contextuel 1\": \"#\", \"Lien contextuel 2\": \"#\", \"Lien contextuel 3\": \"#\"}'\n\tsub-links='{\"Sous-lien personnalisé 1\": \"#\", \"Sous-lien personnalisé 2\": \"#\", \"Sous-lien personnalisé 3\": \"#\", \"Avis\": \"#\", \"Confidentialité\": \"#\"}'>\n</gcds-footer>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_gcdslayout_dev",
+			"iteration": "_:iteration_gcdslayout_1",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this layout within a GCWeb Jekyll site. To apply the optional components of the header and/or footer on any given page, you will need to do the following in the page's front matter:",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll. Pour appliquer les composants optionnels de l’en-tête et/ou du pied de page sur une page donnée, vous devrez procéder comme suit dans le front-matter de la page :"
+			},
+			"instructions": {
+				"en": [
+					"To implement the GCDS layout, simply set the <code>layout</code> property to <code>gcds</code>.",
+					"If the page being migrated to GCDS layout used the <code>no-container</code> layout previously, set the <code>noContainer</code> property to <code>true</code> to maintain the same layout.",
+					"To add custom sublinks to the footer, add a <code>customSublinks</code> object with the desired link texts and urls.",
+					"To see more examples of optional properties that can be used with the GCDS layout, refer to the source code of the individual components (i.e. <a href=\"https://github.com/wet-boew/GCWeb/tree/master/sites/header/includes/gcds-header.html\" target=\"_blank\">gcds-header</a> and <a href=\"https://github.com/wet-boew/GCWeb/tree/master/sites/footers/includes/gcds-footer.html\" target=\"_blank\">gcds-footer</a>)."
+				],
+				"fr": [
+					"Pour appliquer la disposition GCDS, définissez simplement la variable <code>layout</code> à <code>gcds</code>.",
+					"Si la page en cours de migration vers la disposition GCDS utilisait précédemment la mise en page <code>no-container</code>, définissez la variable <code>noContainer</code> à <code>true</code> pour conserver la même mise en page.",
+					"Pour ajouter des sous-liens personnalisés au pied de page, ajoutez un objet <code>customSublinks</code> avec les textes et les URL des liens souhaités.",
+					"Pour voir plus d'exemples de propriétés optionnelles qui peuvent être utilisées avec la disposition GCDS, consultez le code source des composants individuels (i.e. <a href=\"https://github.com/wet-boew/GCWeb/tree/master/sites/header/includes/gcds-header.html\" target=\"_blank\">gcds-header</a> et <a href=\"https://github.com/wet-boew/GCWeb/tree/master/sites/footers/includes/gcds-footer.html\" target=\"_blank\">gcds-footer</a>)."
+				]
+
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Using \"noContainer\" with the GCDS Layout",
+						"code": "---\n{\n\t...\n\t\"layout\": \"gcds\",\n\t\"noContainer\": true\n\t...\n}\n---"
+
+
+					},
+					{
+						"@type": "source-code",
+						"description": "Using custom sublinks with the GCDS Layout",
+						"code": "---\n{\n\t...\n\t\"layout\": \"gcds\",\n\t\"customSublinks\": {\n\t\t\"links\": [\n\t\t\t{\"url\": \"#\", \"text\": \"Custom sublink 1\"},\n\t\t\t{\"url\": \"#\", \"text\": \"Custom sublink 2\"},\n\t\t\t{\"url\": \"#\", \"text\": \"Custom sublink 3\"}\n\t\t]\n\t},\n\t...\n}\n---"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Utilisation de « noContainer » avec la disposition GCDS",
+						"code": "---\n{\n\t...\n\t\"layout\": \"gcds\",\n\t\"noContainer\": true\n\t...\n}\n---"
+
+					},
+					{
+						"@type": "source-code",
+						"description": "Utlisation de sous-liens personnalisés avec la disposition GCDS",
+						"code": "---\n{\n\t...\n\t\"layout\": \"gcds\",\n\t\"customSublinks\": {\n\t\t\"links\": [\n\t\t\t{\"url\": \"#\", \"text\": \"Sous-lien personnalisé 1\"},\n\t\t\t{\"url\": \"#\", \"text\": \"Sous-lien personnalisé 2\"},\n\t\t\t{\"url\": \"#\", \"text\": \"Sous-lien personnalisé 3\"}\n\t\t]\n\t},\n\t...\n}\n---"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gcdslayout_1",
+			"name": "GCDS Layout - Iteration 1",
+			"date": "2025-11",
+			"detectableBy": "<gcds-header> and <gcds-footer> components"
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_gcdslayout",
+			"name": "GCDS Layout",
+			"status": "stable",
+			"detectableBy": "<gcds-header> and <gcds-footer> components",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Home",
 		"fr": "Accueil"
 	},
@@ -413,7 +717,7 @@
 		"en": "Home templates",
 		"fr": "Gabarit de la page d'accueil"
 	},
-	"modified": "2020-06-25",
+	"modified": "2025-10-07",
 	"componentName": "home",
 	"status": "stable",
 	"pages": {
@@ -613,10 +917,10 @@
 		"en": "Institutional landing page template documentation and working example.",
 		"fr": "Documentation et exemple pratique de la page d'accueil institutionnelle"
 	},
-	"modified": "2024-04-16",
+	"modified": "2025-07-10",
 	"componentName": "institutional-landing",
 	"status": "stable",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"pages": {
 		"docs": [
 			{
@@ -640,6 +944,16 @@
 				"title": "Page d'accueil institutionnelle",
 				"language": "fr",
 				"path": "institutional-landing-fr.html"
+			},
+			{
+				"title": "Institutional landing page - multiple with pictures",
+				"language": "en",
+				"path": "institutional-landing-multiple-en.html"
+			},
+			{
+				"title": "Page d'accueil institutionnelle - plusieurs avec des images",
+				"language": "fr",
+				"path": "institutional-landing-multiple-fr.html"
 			}
 		],
 		"reports": [
@@ -724,6 +1038,37 @@
 					"fr": "Avril 2014 - Implémentation de la version 1 du gabarit de page."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Institutional landing page - multiple with pictures",
+				"fr": "Pages d'accueil institutionnelle - plusieurs avec des images"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Use this template as the landing page for Government of Canada institutions and organizations with multiple ministers or institutional heads.",
+				"fr": "Utilisez ce modèle comme page d'accueil pour les institutions et organismes du gouvernement du Canada lorsqu'il y a plusieurs ministres."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/mandatory-templates/institutional-profile-pages.html",
+				"fr": "https://conception.canada.ca/modeles-obligatoire/pages-profil-institutionnel.html"
+			},
+			"iteration": "_:iteration_ilp_4",
+			"example": [
+				{
+					"en": { "href": "institutional-landing-multiple-en.html", "text": "Institutional landing page - multiple" },
+					"fr": { "href": "institutional-landing-multiple-fr.html", "text": "Pages d'accueil institutionnelle - plusieurs" }
+				}
+			],
+			"implementation": [
+				"_:implement_ilp_multiple"
+			],
+			"history": [
+				{
+					"en": "July 2025 - implementation of the version 4 of the page template.",
+					"fr": "Juillet 2024 - Implémentation provisoire de la version 4 du gabarit de page."
+				}
+			]
 		}
 	],
 	"implementation": [
@@ -748,14 +1093,6 @@
 					"Ajoutez la classe CSS <code>.page-type-ilp</code> sur l'élément <code>&lt;body></code> de la page.",
 					"Reportez-vous à l'exemple pratique pour un exemple de code.",
 					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
-				]
-			},
-			"notes": {
-				"en": [
-					"Not adding the required CSS class (<code>.page-type-ilp</code>) will result in the styles specific to this template not being applied. We did implement a temporary workaround as a transition to this new template. The workaround is going to be removed at the same time as the demoted/deprecated ILP version 1."
-				],
-				"fr": [
-					"Si vous n'ajoutez pas la classe CSS requise (<code>.page-type-ilp</code>), les styles spécifiques à ce gabarit ne seront pas appliqués. Nous avons mis en œuvre une solution de contournement temporaire en guise de transition vers ce nouveau modèle. La solution de contournement sera supprimée en même temps que la version 1 de la PAI rétrogradée/obsolète."
 				]
 			}
 		},
@@ -802,9 +1139,51 @@
 				"en": "institutional-landing-en.html main > *:not(.pagedetails)",
 				"fr": "institutional-landing-fr.html main > *:not(.pagedetails)"
 			}
+		},
+		{
+			"@id": "_:implement_ilp_multiple",
+			"iteration": "_:iteration_ilp_4",
+			"name": {
+				"en": "Multiple",
+				"fr": "Plusieurs"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the multiple pictures component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant de plusieurs images manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the working example for a code sample.",
+					"Refer to the working example and guidance for more information on how to implement this page template."
+				],
+				"fr": [
+					"Reportez-vous à l'exemple pratique pour un exemple de code.",
+					"Référez-vous à l'exemple pratique et aux directives pour plus d'informations sur l'implémentation ce modèle de page."
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_ilp_4",
+			"name": "Institutional landing page - Iteration 4 (multiple)",
+			"date": "2025-07",
+			"detectableBy": "Multiple pictures for minister or insitutional head.",
+			"example": {
+				"en": [
+					{
+						"href": "institutional-landing-multiple-en.html",
+						"text": "Institutional landing page version 4 (multiple)"
+					}
+				],
+				"fr": [
+					{
+						"href": "institutional-landing-multiple-fr.html",
+						"text": "Page d'accueil institutionnelle version 4 (plusieurs)"
+					}
+				]
+			}
+		},
 		{
 			"@id": "_:iteration_ilp_3",
 			"name": "Institutional landing page - Iteration 3",
@@ -813,46 +1192,6 @@
 				"Stabilization of the page template."
 			],
 			"detectableBy": ".page-type-ilp"
-		},
-		{
-			"@id": "_:iteration_ilp_2",
-			"name": "Institutional landing page - Iteration 2",
-			"date": "2021-06",
-			"detectableBy": "Social media channels have the horizontal layout. About the institution and social media channels are on a white background.",
-			"example": {
-				"en": [
-					{
-						"href": "deprecated/institution-landing-en.html",
-						"text": "Institutional landing page version 2 (beta)"
-					}
-				],
-				"fr": [
-					{
-						"href": "deprecated/institution-landing-fr.html",
-						"text": "Page d'accueil institutionnelle version 2 (bêta)"
-					}
-				]
-			}
-		},
-		{
-			"@id": "_:iteration_ilp_1",
-			"name": "Institutional landing page - Iteration 1",
-			"date": "2014-04",
-			"detectableBy": "Social media channels at top right. Latest news directly under intro block.",
-			"example": {
-				"en": [
-					{
-						"href": "deprecated/institution-en.html",
-						"text": "Institutional landing page version 1"
-					}
-				],
-				"fr": [
-					{
-						"href": "deprecated/institution-fr.html",
-						"text": "Page d'accueil institutionnelle version 1"
-					}
-				]
-			}
 		}
 	],
 	"changesets": [
@@ -1018,7 +1357,7 @@
 		"en": "Ministerial profile templates documentation and example",
 		"fr": "Documentation et exemple de page Profile ministériel."
 	},
-	"modified": "2021-12-02",
+	"modified": "2026-02-11",
 	"componentName": "ministerial",
 	"status": "stable",
 	"pages": {
@@ -1046,26 +1385,6 @@
 				"title": "Profile ministériel",
 				"language": "fr",
 				"path": "ministerial-fr.html"
-			},
-			{
-				"title": "Ministerial profile - swearing-in day",
-				"language": "en",
-				"path": "ministerial-reduced-en.html"
-			},
-			{
-				"title": "Profile ministériel - jour d'assermentation",
-				"language": "fr",
-				"path": "ministerial-reduced-fr.html"
-			},
-			{
-				"title": "Parliamentary secretaries profile - swearing-in day",
-				"language": "en",
-				"path": "parliamentary-secretaries-reduced-en.html"
-			},
-			{
-				"title": "Profile des secrétaires parlementaires - jour d'assermentation",
-				"language": "fr",
-				"path": "parliamentary-secretaries-reduced-fr.html"
 			}
 		]
 	}
@@ -1177,7 +1496,7 @@
 		"en": "Search templates",
 		"fr": "Gabarit pour les pages de recherche"
 	},
-	"modified": "2022-07-06",
+	"modified": "2025-12-02",
 	"componentName": "search",
 	"status": "stable",
 	"pages": {
@@ -1213,6 +1532,59 @@
 				"title": "Contextuel",
 				"language": "fr",
 				"path": "results-contextual-fr.html"
+			},
+
+			{
+				"title": "Did you mean",
+				"language": "en",
+				"path": "results-did-you-mean-en.html"
+			},
+			{
+				"title": "Voulez-vous dire",
+				"language": "fr",
+				"path": "results-did-you-mean-fr.html"
+			},
+
+			{
+				"title": "Error",
+				"language": "en",
+				"path": "results-error-en.html"
+			},
+			{
+				"title": "Erreur",
+				"language": "fr",
+				"path": "results-error-fr.html"
+			},
+
+			{
+				"title": "No results",
+				"language": "en",
+				"path": "results-no-results-en.html"
+			},
+			{
+				"title": "Aucun résultat",
+				"language": "fr",
+				"path": "results-no-results-fr.html"
+			},
+			{
+				"title": "Advanced search template",
+				"language": "en",
+				"path": "advanced-search-en.html"
+			},
+			{
+				"title": "Résultats avancés",
+				"language": "fr",
+				"path": "advanced-search-fr.html"
+			},
+			{
+				"title": "Search results (Advanced)",
+				"language": "en",
+				"path": "results-advanced-en.html"
+			},
+			{
+				"title": "Résultats de la recherche (Avancée)",
+				"language": "fr",
+				"path": "results-advanced-fr.html"
 			}
 		],
 		"docs": [
@@ -1233,7 +1605,7 @@
 }
 ,{
 	"@context": {
-		"@version": 1.1,
+		"@version": 2.0,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -1244,36 +1616,35 @@
 		"fr": "Message d'erreur serveur"
 	},
 	"description": {
-		"en": "Error server page",
+		"en": "Example server error message page.",
 		"fr": "Exemple de page d'erreur serveur."
 	},
-	"modified": "2020-06-04",
+	"modified": "2026-03-04",
 	"componentName": "servermessage",
 	"status": "stable",
+	"version": "2.1",
 	"pages": {
 		"examples": [
 			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme",
+				"title": "Page not found - Canada.ca",
 				"language": "en",
 				"path": "404-en.html"
 			},
 			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+				"title": "Page non trouvée - Canada.ca",
 				"language": "fr",
 				"path": "404-fr.html"
 			},
 			{
-				"title": "We couldn't find that Web page (Error 404) - Canada.ca theme / Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca",
+				"title": "Page not found - Canada.ca / Page non trouvée - Canada.ca",
 				"language": "en",
 				"path": "404-en-fr.html"
 			},
 			{
-				"title": "Nous ne pouvons trouver cette page Web (Erreur 404) - Thème Canada.ca / We couldn't find that Web page (Error 404) - Canada.ca theme",
+				"title": "Page non trouvée - Canada.ca / Page not found - Canada.ca",
 				"language": "fr",
 				"path": "404-fr-en.html"
 			},
-
-
 			{
 				"title": "Message title - Canada.ca theme",
 				"language": "en",
@@ -1294,8 +1665,202 @@
 				"language": "fr",
 				"path": "servermessage-fr-en.html"
 			}
+		],
+		"docs": [
+			{
+				"title": "Server error message",
+				"language": "en",
+				"path": "servermessage-doc-en.html"
+			},
+			{
+				"title": "Message d'erreur serveur",
+				"language": "fr",
+				"path": "servermessage-doc-fr.html"
+			}
 		]
-	}
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Server error message",
+				"fr": "Message d'erreur serveur"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Page template for server error messages.",
+				"fr": "Gabarit de page pour les messages d'erreur serveur."
+			},
+			"iteration": "_:iteration_servermessage_3",
+			"example": [
+				{
+					"en": { "href": "404-en.html", "text": "Page not found" },
+					"fr": { "href": "404-fr.html", "text": "Page non trouvée" }
+				},
+				{
+					"en": { "href": "404-en-fr.html", "text": "Page not found / Page non trouvée (Bilingual)" },
+					"fr": { "href": "404-fr-en.html", "text": "Page non trouvée / Page not found  (Bilingue)" }
+				},
+				{
+					"en": { "href": "servermessage-en.html", "text": "Message title" },
+					"fr": { "href": "servermessage-fr.html", "text": "Titre du message" }
+				},
+				{
+					"en": { "href": "servermessage-en-fr.html", "text": "Message title / Titre du message (Bilingual)" },
+					"fr": { "href": "servermessage-fr-en.html", "text": "Titre du message / Message title (Bilingue)" }
+				}
+			],
+			"implementation": [
+				"_:implement_servermessage"
+			],
+			"history": [
+				{
+					"en": "March 2026 - Update the \"Page not found\" template.",
+					"fr": "Mars 2026 - Mise à jour du gabarit de la \"Page non trouvée.\""
+				},
+				{
+					"en": "December 2025 - Update the \"Page not found\" template.",
+					"fr": "Décembre 2025 - Mise à jour du gabarit de la \"Page non trouvée.\""
+				},
+				{
+					"en": "June 2020 - Initial implementaton of template.",
+					"fr": "Juin 2020 - Implémentation initiale du gabarit."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_servermessage",
+			"iteration": "_:iteration_servermessage_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers who are looking to configure the server error message page template. There are two versions of this template: a unilingual page for users whose language preference is known, and a bilingual page for users whose language preference is unknown.",
+				"fr": "Cette implémentation s'adresse aux développeurs/éditeurs qui souhaitent configurer le gabarit de la page de message d'erreur serveur. Il existe deux versions de ce gabarit : une page unilingue pour les utilisateurs dont la préférence linguistique est connue, et une page bilingue pour les utilisateurs dont la préférence linguistique est inconnue."
+
+			},
+			"instructions": {
+				"en": [
+					"The \"Page not found\" template should only be used when a user attempts to access a page that does not exist (i.e. a 404 error) and should include at least one rescue link (e.g. the Canada.ca homepage).",
+					"The bilingual \"Page not found\" page should limit the elements in the header and footer to only the Government of Canada signature with a link to the Canada.ca splash page and only the Canada wordmark in the footer.",
+					"The \"Message title\" template can be used to display other server error messages."
+				],
+				"fr": [
+					"Le gabarit « Page non trouvée » ne devrait être utilisé que lorsqu'un utilisateur tente d'accéder à une page qui n'existe pas (une erreur 404) et devrait inclure au moins un lien de secours (par ex: la page d'accueil de Canada.ca).",
+					"La page bilingue « Page non trouvée » devait limiter les éléments de l'en-tête et du pied de page à la signature du gouvernement du Canada avec un lien vers la page d'accueil de Canada.ca et au mot-symbole Canada dans le pied de page.",
+					"Le gabarit « Titre du message » peut être utilisé pour afficher d'autres messages d'erreur serveur."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Page not found",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Page not found / Page non trouvée (Bilingual)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Message title",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Message title / Titre du message (Bilingual)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en-fr.html main"
+						}
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Page non trouvée",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Page non trouvée / Page not found (Bilingue)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "404-en-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Titre du message",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-fr.html main"
+						}
+					},
+					{
+						"@type": "source-code",
+						"description": "Titre du message / Message title (Bilingue)",
+						"code": {
+							"@type": [ "@id", "rdf:HTML" ],
+							"@value": "servermessage-en-fr.html main"
+						}
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_servermessage_3",
+			"name": "Server error message - Iteration 3",
+			"date": "2026-03",
+			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors).",
+			"predecessor": "_:iteration_servermessage_2",
+			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to respect Canada.ca readability typography guidelines", "Adding visible skip links on mobile and on bilingual example pages"]
+		},
+		{
+			"@id": "_:iteration_servermessage_2",
+			"name": "Server error message - Iteration 2",
+			"date": "2025-12",
+			"successor": "_:iteration_servermessage_3",
+			"predecessor": "_:iteration_servermessage_1",
+			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors)."
+		},
+		{
+			"@id": "_:iteration_servermessage_1",
+			"name": "Server error message - Iteration 1",
+			"date": "2020-06",
+			"detectableBy": "A warning icon accompanied by a message text in the main content area."
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_servermessage",
+			"name": "Server error message",
+			"status": "stable",
+			"detectableBy": "Danger label directly below H1 heading",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Not applicable"
+		}
+	]
 }
 ,{
 	"@context": {
@@ -1438,7 +2003,7 @@
 	"modified": "2020-02-12",
 	"componentName": "theme",
 	"status": "stable",
-	"version": "2.0",
+	"version": "2.0.2",
 	"pages": {
 		"examples": [
 			{
@@ -1474,6 +2039,16 @@
 				"title": "Évaluation d'accessibilité #1 - Modèle de thème GC",
 				"language": "fr",
 				"path": "reports/a11y-1-fr.html"
+			},
+			{
+				"title": "Accessibility assessment #2 - Layered theme template",
+				"language": "en",
+				"path": "reports/a11y-2-en.html"
+			},
+			{
+				"title": "Évaluation d'accessibilité #2 - Modèle de thème superposé",
+				"language": "fr",
+				"path": "reports/a11y-2-fr.html"
 			}
 		]
 	},
@@ -1515,6 +2090,10 @@
 				"_:implement_theme_aem"
 			],
 			"history": [
+				{
+					"en": "July 2025 - Minor adjustments for other environments compatibility and addition of wb-navcurrent.",
+					"fr": "Juillet 2025 - Ajustements mineurs pour la compatibilité avec d'autres environnements et ajout de wb-navcurrent."
+				},
 				{
 					"en": "May 2025 - Introduction of the new theme template",
 					"fr": "Mai 2025 - Introduction du nouveau gabarit de page thème."
@@ -1769,8 +2348,8 @@
 					"fr": { "href": "topic-fr.html", "text": "Page de sujet" }
 				},
 				{
-					"en": { "href": "demoted/topic_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page version 2" },
-					"fr": { "href": "demoted/topic_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet version 2" }
+					"en": { "href": "deprecated/topic_v2-en.html", "text": "Deprecated as of GCWeb v17.0.0 - Topic page version 2" },
+					"fr": { "href": "deprecated/topic_v2-fr.html", "text": "Obsolète à partir de GCWeb v17.0.0 - Page de sujet version 2" }
 				}
 			],
 			"implementation": [
@@ -1816,8 +2395,8 @@
 					"fr": { "href": "topic-stackedheader-fr.html", "text": "Page de sujet avec en-tête superposé" }
 				},
 				{
-					"en": { "href": "demoted/topic-stackedheader_v2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Topic page with stacked header version 2" },
-					"fr": { "href": "demoted/topic-stackedheader_v2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Page de sujet avec en-tête superposé version 2" }
+					"en": { "href": "deprecated/topic-stackedheader_v2-en.html", "text": "Deprecated as of GCWeb v17.0.0 - Topic page with stacked header version 2" },
+					"fr": { "href": "deprecated/topic-stackedheader_v2-fr.html", "text": "Obsolète à partir de GCWeb v17.0.0 - Page de sujet avec en-tête superposé version 2" }
 				}
 			],
 			"implementation": [
@@ -2060,7 +2639,7 @@
 		{
 			"@id": "_:cs_topic_2",
 			"name": "Topic page - Version 2",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_topic_2",
 			"detectableBy": "By the sequence of the mandatory implemented design pattern and components and limited to its optional components.",
 			"layout": [

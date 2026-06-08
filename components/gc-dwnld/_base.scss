@@ -20,3 +20,38 @@
 		margin-bottom:0;
 	}
 }
+
+a.gc-dwnld {
+	@extend .well;
+
+	display: inline-flex;
+	gap: 30px;
+
+	> img {
+		align-self: start;
+		border: 5px solid #eaebed;
+		max-width: 25%;
+	}
+
+	> span {
+		display: block;
+	}
+
+	&.vertical {
+		flex-direction: column;
+		gap: 15px;
+
+		> img {
+			align-self: center;
+			max-width: 100%;
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		> img {
+			box-shadow: 1px 5px 7px rgb(0,0,0,.15);
+		}
+	}
+}

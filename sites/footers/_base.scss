@@ -47,17 +47,9 @@
 		}
 	}
 
-	.gc-main-footer, .landscape { // ".landscape" to support footer v2.0
+	.gc-main-footer {
 		background: #26374a url("../assets/landscape.png") no-repeat right bottom;
 		color: #fff;
-
-		/* Start: to support footer version 2.0 (with gcweb v4.0.22) */
-		nav h2.wb-inv + ul {
-			padding-bottom: 1em;
-			padding-top: .6em;
-		}
-
-		/* END */
 
 		h4 {
 			margin-bottom: 2rem;
@@ -83,7 +75,7 @@
 		}
 	}
 
-	.gc-sub-footer, .brand { // ".brand" to support footer v2.0
+	.gc-sub-footer {
 		background: #f8f8f8;
 		color: #333;
 		padding: 1.75rem 0 2.25rem;
@@ -100,7 +92,6 @@
 			padding-top: 0;
 
 			ul {
-				display: inline-block; // To support footer v3.0
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -116,29 +107,6 @@
 					}
 				}
 			}
-
-			/* START: To support footer v3.0 */
-			h4 {
-				margin: 0;
-			}
-
-			ul + h4 {
-				display: inline-block;
-				margin: 0;
-
-				&::before {
-					border: 1px solid #333;
-					border-width: 0 0 0 1px;
-					content: "";
-					display: block;
-					height: 1em;
-					margin: 0 .75em 0 .4em;
-					position: relative;
-					top: .1875em;
-				}
-			}
-
-			/* END */
 		}
 
 		.wtrmrk {
@@ -148,67 +116,5 @@
 				text-align: left;
 			}
 		}
-
-		/* START: To support footer <= v2.0 */
-		.row {
-			ul {
-				list-style-type: none;
-				margin-bottom: 0;
-				padding: 0;
-				padding-top: 1em;
-
-				li {
-					display: inline-block;
-					margin-right: .5em;
-
-					[dir="rtl"] & {
-						margin-left: .5em;
-						margin-right: 0;
-					}
-
-					&:not(:first-child):before {
-						content: "\2022";
-						margin-right: .75em;
-
-						[dir="rtl"] & {
-							margin-left: .75em;
-							margin-right: 0;
-						}
-					}
-				}
-			}
-
-			nav {
-				padding-bottom: 0;
-				padding-top: 0;
-			}
-		}
-
-		.tofpg {
-			line-height: 40px;
-
-			a {
-				color: #000;
-
-				span {
-					margin-left: 25px;
-				}
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-
-			[dir="rtl"] & {
-				float: right;
-
-				a span {
-					margin-left: 0;
-					margin-right: 10px;
-				}
-			}
-		}
-
-		/* END */
 	}
 }

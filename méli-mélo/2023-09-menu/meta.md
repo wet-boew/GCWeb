@@ -45,6 +45,7 @@ implementationPlan:
 
 todos:
   - Remove the dependencies on wb-menu for desktop and on gc-menu for mobile by rewriting the code
+  - Must implement the changes from the following PR https://github.com/wet-boew/GCWeb/pull/2469
 
 output: false
 ---

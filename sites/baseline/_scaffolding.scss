@@ -29,6 +29,7 @@ body {
 main {
 	font-size: 1.25rem;
 	line-height: 1.6;
+	position: relative;
 
 	h1, h2, h3, h4, h5, h6, p {
 		@extend %gcweb-scaffolding-word-break-break-word;
@@ -36,6 +37,8 @@ main {
 
 	table {
 		caption {
+			text-align: left;
+
 			p {
 				@extend %gcweb-scaffolding-word-break-break-word;
 			}
@@ -74,10 +77,6 @@ main .cnt-wdth-lmtd {
 	}
 }
 
-main {
-	position: relative;
-}
-
 a {
 	color: $button-blue;
 
@@ -102,7 +101,7 @@ a.figcaption {
 		color: $text-color;
 	}
 
-	figure > *:not( blockquote):not( img ):not( table):not( div ) {
+	figure > *:not(blockquote, img, table, div) {
 		margin-left: .8ch;
 		margin-right: .8ch;
 	}

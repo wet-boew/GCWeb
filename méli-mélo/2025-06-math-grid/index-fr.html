@@ -1,0 +1,915 @@
+---
+title: Grille d'équations mathématiques
+dateModified: 2025-06-05
+description: "Un modèle accessible, imprimable et compréhensible pour des équations mathématiques simples."
+lang: fr
+altLangPage: index.html
+css:
+- math-grid.css
+script:
+- math-grid.js
+---
+<p>Un modèle accessible, imprimable et compréhensible pour des équations mathématiques simples.</p>
+
+
+<ul class="list-inline">
+    <li><a class="btn btn-primary" href="math-grid-doc-fr.html">Documentation</a></li>
+    <li><a class="btn btn-primary" href="https://github.com/wet-boew/GCWeb/issues/new?title=Math%20grid">Questions ou commentaires ?</a></li>
+  </ul>
+  <section>
+    <h2>Sur cette page</h2>
+    <ul>
+      <li><a href="#basic">Configurations de base</a></li>
+      <li><a href="#custom">Personnalisation</a></li>
+      <li><a href="#other">Autres exemples</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2 id="basic">Configurations de base</h2>
+    <p>Utilisez cette composante pour aligner les équations mathématiques.</p>
+    <p>Utilisation supplémentaire des classes <code>text-right</code> et <code>brdr-tp</code> pour finaliser la conception.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell"> &nbsp;&nbsp; </div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêtss</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+        <details class="mrgn-tp-lg">
+          <summary>Code</summary>
+          <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;50 000&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Prix de base&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;times;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;3,5&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;%&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Intérêts&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;+&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;200&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Frais&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;divide;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;12&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Mois de l'année&lt;/div&gt;
+	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;
+		&lt;div class=&quot;mg-cell mg-brdr-tp&quot;&gt;=&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;162,50&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;
+		&lt;div class=&quot;mg-cell&quot;&gt;Total&lt;/div&gt;
+	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+        </details>
+      </div>
+      <div class="col-md-6">
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell">Prix de base</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Intérêts</div>
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Frais</div>
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Mois de l'année</div>
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Total</div>
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+          </div>
+        </div>
+        <details class="mrgn-tp-lg">
+          <summary>Code</summary>
+          <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Prix de base&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;50 000&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Intérêts&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;times;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;3,5&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;%&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Frais&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;+&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;200&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Mois de l'année&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;divide;&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right&quot;&gt;12&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>	&lt;/div&gt;<br>	&lt;div class=&quot;mg-row&quot;&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;Total&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell mg-brdr-tp&quot;&gt;=&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;162,50&lt;/div&gt;<br>		&lt;div class=&quot;mg-cell&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+        </details>
+      </div>
+    </div>
+    <h2 id="custom">Personnalisation</h2>
+    <h3>Espacement</h3>
+    <h4>Supprimer tout espacement</h4>
+    <p>Supprimez tout l'espacement pour personnaliser l'alignement des symboles ou des énoncés au besoin.</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid p-0">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>&lt;div class=&quot;wb-math-grid p-0&quot;&gt;<br>...</code></pre>
+      </div>
+    </div>
+    <h4>Supprimer l'espacement par ligne</h4>
+    <p>Supprimez l'espacement des lignes individuelles au besoin.</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row p-0">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>...<br>&lt;div class=&quot;mg-row p-0&quot;&gt;<br>...</code></pre>
+        <p>Appliqué à la ligne 2 (&times; 3,5&nbsp;% Intérêts).</p>
+      </div>
+    </div>
+    <h4>Supprimer l'espacement par cellule</h4>
+    <p>Supprimez l'espacement des cellules individuelles selon les besoins. Cela peut causer quelques problèmes d'alignement.</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right p-0">3,5</div>
+            <div class="mg-cell p-0">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>...<br>&lt;div class=&quot;mg-cell text-right p-0&quot;&gt;3,5&lt;/div&gt;<br>&lt;div class=&quot;mg-cell p-0&quot;&gt;&amp;nbsp;%&lt;/div&gt;<br>...</code></pre>
+        <p>Appliqué à 2 cellules de la ligne 2 (3,5&nbsp;%).</p>
+      </div>
+    </div>
+    <h4>Ajouter un espacement supplémentaire entre les lignes</h4>
+    <p>Ajoutez 10 pixels d'espacement supplémentaire entre les lignes au besoin.</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid mg-spcd">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>&lt;div class=&quot;wb-math-grid <strong>mg-spcd</strong>&quot;&gt;<br>...</code></pre>
+      </div>
+    </div>
+    <h3>Ligne de calcul foncée</h3>
+    <p>Une ligne de calcul plus visible est nécessaire lorsque le calcul est terminé et que le total est fourni.</p>
+    <h4>Ligne de calcul dans une rangée</h4>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row mg-brdr-tp">
+            <div class="mg-cell">=</div>
+            <div class="mg-cell text-right">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>...<br>&lt;div class=&quot;mg-row <strong>mg-brdr-tp</strong>&quot;&gt;<br>...</code></pre>
+        <p>Utilisez soit la classe <code>mg-brdr-tp</code> soit la classe <code>mg-brdr-bttm</code>.</p>
+      </div>
+    </div>
+    <h4>Ligne de calcul dans des cellules</h4>
+    <p>La ligne de calcul peut être ajoutée à une cellule individuelle.</p>
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <h5>Apparence</h5>
+        <div class="wb-math-grid">
+          <div class="mg-row">
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">50 000</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Prix de base</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&times;</div>
+            <div class="mg-cell text-right">3,5</div>
+            <div class="mg-cell">&nbsp;%</div>
+            <div class="mg-cell">Intérêts</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">+</div>
+            <div class="mg-cell text-right">200</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Frais</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">&divide;</div>
+            <div class="mg-cell text-right">12</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell">Mois de l'année</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell mg-brdr-tp">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+            <div class="mg-cell">&nbsp;$</div>
+            <div class="mg-cell">Total</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <h5>Code</h5>
+        <pre><code>...<br>&lt;div class=&quot;mg-cell mg-brdr-tp&quot;&gt;=&lt;/div&gt;<br>&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;$162.50&lt;/div&gt;<br>...</code></pre>
+        <p>Utilisez soit la classe <code>mg-brdr-tp</code> soit la classe <code>mg-brdr-bttm</code>.</p>
+      </div>
+    </div>
+    <h3>Défilement en cas de débordement horizontal</h3>
+    <p>Enveloppez la grille avec la classe <code>mg-scroll</code> pour faire défiler l'équation horizontalement pour les petits appareils (moins de 768px), similaire à la classe <code>table-responsive</code> pour les  tableaux.</p>
+    <div class="wb-tabs">
+      <div class="tabpanels">
+        <details id="details-panel1a">
+          <summary>Avec classe de défilement</summary>
+          <div class="row mrgn-lft-md mrgn-rght-md">
+            <div class="col-sm-6 col-md-5">
+              <h5>Apparence</h5>
+              <div class="mg-scroll">
+                <div class="wb-math-grid">
+                  <div class="mg-row">
+                    <div class="mg-cell"></div>
+                    <div class="mg-cell text-right">50&nbsp;000</div>
+                    <div class="mg-cell">&nbsp;$</div>
+                    <div class="mg-cell">Prix de base</div>
+                  </div>
+                  <div class="mg-row">
+                    <div class="mg-cell">&times;</div>
+                    <div class="mg-cell text-right">3,5</div>
+                    <div class="mg-cell">&nbsp;%</div>
+                    <div class="mg-cell">Intérêts</div>
+                  </div>
+                  <div class="mg-row">
+                    <div class="mg-cell">+</div>
+                    <div class="mg-cell text-right">200</div>
+                    <div class="mg-cell">&nbsp;$</div>
+                    <div class="mg-cell">Frais</div>
+                  </div>
+                  <div class="mg-row nowrap">
+                    <div class="mg-cell">&divide;</div>
+                    <div class="mg-cell text-right">12</div>
+                    <div class="mg-cell"></div>
+                    <div class="mg-cell">Mois de l'année (texte supplémentaire pour montrer le défilement)</div>
+                  </div>
+                  <div class="mg-row">
+                    <div class="mg-cell mg-brdr-tp">=</div>
+                    <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+                    <div class="mg-cell">&nbsp;$</div>
+                    <div class="mg-cell">Total</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-7">
+              <h5>Code</h5>
+              <pre><code>&lt;div class=&quot;<strong>mg-scroll</strong>&quot;&gt;<br>    &lt;div class=&quot;wb-math-grid&quot;&gt;<br>...<br> &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>...<br>&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p>À utiliser uniquement lorsque nécessaire. Elle est plus utile lors de la recréation de modèles à partir d'un formulaire PDF.</p>
+            </div>
+          </div>
+        </details>
+        <details id="details-panel2a">
+          <summary>Sans classe de défilement</summary>
+          <div class="row mrgn-lft-md mrgn-rght-md">
+            <div class="col-sm-6 col-md-5">
+              <h5>Apparence</h5>
+              <div class="wb-math-grid">
+                <div class="mg-row">
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell text-right">50&nbsp;000</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Prix de base</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">&times;</div>
+                  <div class="mg-cell text-right">3,5</div>
+                  <div class="mg-cell">&nbsp;%</div>
+                  <div class="mg-cell">Intérêts</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right">200</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Frais</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">&divide;</div>
+                  <div class="mg-cell text-right">12</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Mois de l'année (Texte supplémentaire pour montrer le retour à la ligne)</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell mg-brdr-tp">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Total</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-7">
+              <h5>Code</h5>
+              <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>...<br>&lt;div class=&quot;mg-row&quot;&gt;<br>...<br>&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p>Sans classes <code>mg-scroll</code> ou <code>nowrap</code>, le texte revient à la ligne.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <h3>Pause pour chaque section</h3>
+    <p>Par défaut, la plupart des lecteurs d'écran liront l’équation ligne par ligne.</p>
+    <p>Si l'équation contient beaucoup de contenu, ou a des barrières visuelles (c'est-à-dire des bordures), il peut être utile d'entendre les informations de chaque cellule séparément pour naviguer de façon plus précise (comme dans un tableau).</p>
+    <p>Ajoutez l'attribut <code>data-wb-math-grid</code> à l'élément parent (avec la classe <code>wb-math-grid</code>) en utilisant la valeur <code>srPause: true</code>.</p>
+    <p><strong>Remarque :</strong> Cette fonctionnalité n'a pas été vérifiée de manière indépendante en français.</p>
+    <div class="wb-tabs">
+      <div class="tabpanels">
+        <details id="details-panel1b">
+          <summary>Avec classe de pause</summary>
+          <div class="row mrgn-lft-md mrgn-rght-md">
+            <div class="col-sm-6 col-md-5">
+              <h4>Apparence</h4>
+              <div class="wb-math-grid" data-wb-math-grid='{"srPause": true}'>
+                <div class="mg-row">
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell text-right">50&nbsp;000</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Prix de base</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">&times;</div>
+                  <div class="mg-cell text-right">3,5</div>
+                  <div class="mg-cell">&nbsp;%</div>
+                  <div class="mg-cell">Intérêts</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right">200</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Frais</div>
+                </div>
+                <div class="mg-row nowrap">
+                  <div class="mg-cell">&divide;</div>
+                  <div class="mg-cell text-right">12</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Mois de l'année</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell mg-brdr-tp">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+                  <div class="mg-cell">&nbsp;$</div>
+                  <div class="mg-cell">Total</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-7">
+              <h4>Code</h4>
+              <pre><code>&lt;div class=&quot;wb-math-grid&quot;  <strong>data-wb-math-grid='{&quot;srPause&quot;: true}'</strong>&gt;<br>...</code></pre>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">Cela devrait se lire comme suit :<br>
+            [cinquante mille dollars] [prix de base] [fois] [trois point cinq] [pour cent] [Intérêts] [plus] [deux cents dollars] [frais] [divisé par] [douze] [mois dans l'année] [égale] [cent soixante-deux dollars et cinquante cents] [total]</p>
+          <p>Testé avec :</p>
+          <ul>
+            <li>JAWS 2023</li>
+            <li>NVDA 2021</li>
+          </ul>
+        </details>
+        <details id="details-panel2b">
+          <summary>Sans classe de pause</summary>
+          <div class="row mrgn-lft-md mrgn-rght-md">
+            <div class="col-sm-6 col-md-5">
+              <h4>Apparence</h4>
+              <div class="wb-math-grid">
+                <div class="mg-row">
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell text-right">50 000</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Prix de base</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">&times;</div>
+                  <div class="mg-cell text-right">3,5</div>
+                  <div class="mg-cell">&nbsp;%</div>
+                  <div class="mg-cell">Intérêts</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right">200</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Frais</div>
+                </div>
+                <div class="mg-row nowrap">
+                  <div class="mg-cell">&divide;</div>
+                  <div class="mg-cell text-right">12</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Mois de l'année</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell mg-brdr-tp">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+                  <div class="mg-cell"></div>
+                  <div class="mg-cell">Total</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-7">
+              <h4>Code</h4>
+              <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>...</code></pre>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">Cela devrait se lire comme :<br>
+            [cinquante mille dollars prix de base] [fois trois point cinq pour cent Intérêts] [plus deux cents dollars frais] [divisé par douze mois dans l'année] [égale cent soixante-deux dollars et cinquante cents total]</p>
+          <p>Testé avec :</p>
+          <ul>
+            <li>JAWS 2023</li>
+            <li>NVDA 2021</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2 id="other">Autres exemples</h2>
+    <h3>Utiliser un style de conception personnalisé</h3>
+    <p>Ajoutez des classes de style GCWeb pour améliorer la visibilité ou l'apparence de l'équation.</p>
+    <div class="wb-math-grid">
+      <div class="mg-row">
+        <div class="mg-cell"></div>
+        <div class="mg-cell h4 text-muted text-right">50 000</div>
+        <div class="mg-cell h4 text-muted">&nbsp;$</div>
+        <div class="mg-cell">Prix de base</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell h4">&times;</div>
+        <div class="mg-cell h4 text-muted text-right">3,5</div>
+        <div class="mg-cell h4 text-muted">&nbsp;%</div>
+        <div class="mg-cell">Intérêts</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell h4">+</div>
+        <div class="mg-cell h4 text-muted text-right">200</div>
+        <div class="mg-cell h4 text-muted">&nbsp;$</div>
+        <div class="mg-cell">Frais</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell h4">&divide;</div>
+        <div class="mg-cell h4 text-muted text-right">12</div>
+        <div class="mg-cell"></div>
+        <div class="mg-cell">Mois de l'année</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell h4 mg-brdr-tp">=</div>
+        <div class="mg-cell h4 text-muted text-right mg-brdr-tp">162,50</div>
+        <div class="mg-cell h4 text-muted mrg-brdr-tp">&nbsp;$</div>
+        <div class="mg-cell">Total</div>
+      </div>
+    </div>
+    <details class="mrgn-tp-lg">
+      <summary>Code</summary>
+      <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>    &lt;div class=&quot;mg-row&quot;&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted text-right&quot;&gt;50 000&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;Prix de base&lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class=&quot;mg-row&quot;&gt;<br>      &lt;div class=&quot;mg-cell h4&quot;&gt;&amp;times;&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted text-right&quot;&gt;3.5&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted&quot;&gt;&amp;nbsp;%&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;Intérêts&lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class=&quot;mg-row&quot;&gt;<br>      &lt;div class=&quot;mg-cell h4&quot;&gt;+&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted text-right&quot;&gt;$200&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;Frais&lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class=&quot;mg-row&quot;&gt;<br>      &lt;div class=&quot;mg-cell h4&quot;&gt;&amp;divide;&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted text-right&quot;&gt;12&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;Mois de l'année&lt;/div&gt;<br>    &lt;/div&gt;<br>    &lt;div class=&quot;mg-row&quot;&gt;<br>      &lt;div class=&quot;mg-cell h4 mg-brdr-tp&quot;&gt;=&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted text-right mg-brdr-tp&quot;&gt;162,50&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell h4 text-muted mg-brdr-tp&quot;&gt;&amp;nbsp;$&lt;/div&gt;<br>      &lt;div class=&quot;mg-cell&quot;&gt;Total&lt;/div&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;</code></pre>
+    </details>
+    <h3>Utiliser la grille et la largeur complète pour aligner les calculs</h3>
+    <p>Utilisez la largeur complète pour égaliser la taille des calculs séparés associés les uns aux autres. Ils peuvent être visuellement alignés indépendamment du contenu.</p>
+    <p>Aussi, la largeur de tous les calculs peut être alignée en les plaçant dans un modèle de grille. </p>
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Droits de cotisation disponibles après la cotisation (2022)</h4>
+        <div class="wb-math-grid full-width">
+          <div class="mg-row">
+            <div class="mg-cell">Plafond CELI 2022</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">6&nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Cotisations 2022</div>
+            <div class="mg-cell">&minus;</div>
+            <div class="mg-cell text-right">2&nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI inutilisés/disponibles pour les années futures</div>
+            <div class="mg-cell">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">4&nbsp;000&nbsp;$</div>
+          </div>
+        </div>
+        <p class="mrgn-tp-lg">En 2023, Cedric retire 500 $ de son compte. Même s'il effectue ce retrait en 2023, il ne sera pas ajouté à ses droits de cotisation au CELI avant 2024.</p>
+        <h4>Droits de cotisation disponibles dans l’année du retrait (2023)</h4>
+        <div class="wb-math-grid full-width">
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI inutilisés de 2023 disponibles pour les années future</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">4 &nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Plafond CELI 2023</div>
+            <div class="mg-cell">&plus;</div>
+            <div class="mg-cell text-right">6&nbsp; 500&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Retrait 2023 (n'a aucune incidence sur les droits de cotisation de l'année en cours)</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">500&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Espace de contribution CELI non utilisé 2023 disponible pour les années futures</div>
+            <div class="mg-cell">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">10&nbsp;500&nbsp;$</div>
+          </div>
+        </div>
+        <h4>Droits de cotisation disponibles dans l’année suivant le retrait (2024) </h4>
+        <div class="wb-math-grid full-width">
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI inutilisés de 2023</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">10&nbsp;500&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Retrait 2023 (ajouté aux droits de cotisation disponibles)</div>
+            <div class="mg-cell">&plus;</div>
+            <div class="mg-cell text-right">500&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Plafond CELI 2024</div>
+            <div class="mg-cell">&plus;</div>
+            <div class="mg-cell text-right">7&nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI au début de 2024 </div>
+            <div class="mg-cell">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">18&nbsp;000&nbsp;$</div>
+          </div>
+        </div>
+        <h4>Droits de cotisation disponibles en 2025</h4>
+        <div class="wb-math-grid full-width">
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI inutilisés de 2024</div>
+            <div class="mg-cell"></div>
+            <div class="mg-cell text-right">18&nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Plafond CELI 20255</div>
+            <div class="mg-cell">&plus;</div>
+            <div class="mg-cell text-right">7&nbsp;000&nbsp;$</div>
+          </div>
+          <div class="mg-row">
+            <div class="mg-cell">Droits de cotisation au CELI au début de 2025</div>
+            <div class="mg-cell">=</div>
+            <div class="mg-cell text-right mg-brdr-tp">25&nbsp;000&nbsp;$</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>Code</summary>
+      <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-8&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;		
+    </code></pre>
+    </details>
+    <h3>Utiliser pour copier les calculs dans des formulaires PDF</h3>
+    <p>Ce modèle est utilisé pour calculer les paiements d'acompte provisionnels trimestriels pour les sociétés avec des exemples.</p>
+    <div class="wb-tabs">
+      <div class="tabpanels">
+        <details id="details-panel1c">
+          <summary>Avec classe de défilement</summary>
+          <div class="mg-scroll">
+            <div class="wb-math-grid">
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Total de l'impôt fédéral à payer 2024 <a href="#">Note de bas de page(1l)</a> (total des lignes 700, 720, 724, 727 de votre déclaration T2 pour 2024)</div>
+                <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+                <div class="mg-cell align-bottom">2A</div>
+              </div>
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Impôt provincial et territorial net à payer 2024 avant crédits remboursables <a href="#">Note de bas de page(2l)</a> (ligne 760 de votre déclaration T2 pour 2024)</div>
+                <div class="mg-cell align-bottom mg-brdr-bttm text-right">0&nbsp;$</div>
+                <div class="mg-cell align-bottom">2B</div>
+              </div>
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Total de l'impôt à payer 2024 (montant 2A <strong>plus</strong> montant 2B)</div>
+                <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+                <div class="mg-cell align-bottom">2C</div>
+              </div>
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Total estimé des crédits d'impôt remboursables pour 2025 (montant K de la Feuille de travail 1)</div>
+                <div class="mg-cell align-bottom mg-brdr-bttm text-right">0&nbsp;$</div>
+                <div class="mg-cell align-bottom">2D</div>
+              </div>
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Montant de base des acomptes provisionnels 2 (montant 2C <strong>moins</strong> montant 2D)</div>
+                <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+                <div class="mg-cell align-bottom">2E</div>
+              </div>
+              <div class="mg-row nowrap">
+                <div class="mg-cell">Quatre paiements trimestriels dus sous l’option 2 (montant 2E <strong>divisé par</strong> 4)</div>
+                <div class="mg-cell  align-bottom mg-brdr-bttm text-right">60&nbsp;000&nbsp;$</div>
+                <div class="mg-cell align-bottom">2F</div>
+              </div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;mg-scroll&quot;&gt;<br>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>  &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total de l'impôt fédéral à payer 2024 &lt;a href=&quot;#&quot;&gt;Note de bas de page(1l)&lt;/a&gt; (total des lignes 700, 720, 724, 727 de votre déclaration T2 pour 2024)&lt;/div&gt;
+    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2A&lt;/div&gt;<br>  &lt;/div&gt;<br>    &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Impôt provincial et territorial net à payer 2024 avant crédits remboursables&lt;a href=&quot;#&quot;&gt;Note de bas de page(2l)&lt;/a&gt; (ligne 760 de votre déclaration T2 pour 2024)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;0&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2B&lt;/div&gt;<br>  &lt;/div&gt;<br>    &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total de l'impôt à payer 2024 (montant 2A &lt;strong&gt;plus&lt;/strong&gt; montant 2B)&lt;/div&gt;<br>   &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2C&lt;/div&gt;<br>  &lt;/div&gt;<br>    &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total estimé des crédits d'impôt remboursables pour 2025 (montant K de la Feuille de travail 1)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;0&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2D&lt;/div&gt;<br>  &lt;/div&gt;<br>    &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Montant de base des acomptes provisionnels 2 (montant 2C &lt;strong&gt;moins&lt;/strong&gt; montant 2D)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2E&lt;/div&gt;<br>  &lt;/div&gt;<br>    &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Quatre paiements trimestriels dus sous l’option 2 (montant 2E &lt;strong&gt;divisé par&lt;/strong&gt; 4)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell  align-bottom mg-brdr-bttm text-right&quot;&gt;60&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2F&lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+        <details id="details-panel2c">
+          <summary>Sans classe de défilement</summary>
+          <div class="wb-math-grid">
+            <div class="mg-row">
+              <div class="mg-cell">Total de l'impôt fédéral à payer 2024 <a href="#">Note de bas de page(1l)</a> (total des lignes 700, 720, 724, 727 de votre déclaration T2 pour 2024)</div>
+              <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+              <div class="mg-cell align-bottom">2A</div>
+            </div>
+            <div class="mg-row">
+              <div class="mg-cell">Impôt provincial et territorial net à payer 2024 avant crédits remboursables <a href="#">Note de bas de page(2l)</a> (ligne 760 de votre déclaration T2 pour 2024)</div>
+              <div class="mg-cell align-bottom mg-brdr-bttm text-right">0&nbsp;$</div>
+              <div class="mg-cell align-bottom">2B</div>
+            </div>
+            <div class="mg-row">
+              <div class="mg-cell">Total de l'impôt à payer 2024 (montant 2A <strong>plus</strong> montant 2B)</div>
+              <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+              <div class="mg-cell align-bottom">2C</div>
+            </div>
+            <div class="mg-row">
+              <div class="mg-cell">Total estimé des crédits d'impôt remboursables pour 2025 (montant K de la Feuille de travail 1)</div>
+              <div class="mg-cell align-bottom mg-brdr-bttm text-right">0&nbsp;$</div>
+              <div class="mg-cell align-bottom">2D</div>
+            </div>
+            <div class="mg-row">
+              <div class="mg-cell">Montant de base des acomptes provisionnels 2 (montant 2C <strong>moins</strong> montant 2D)</div>
+              <div class="mg-cell align-bottom mg-brdr-bttm text-right">240&nbsp;000&nbsp;$</div>
+              <div class="mg-cell align-bottom">2E</div>
+            </div>
+            <div class="mg-row">
+              <div class="mg-cell">Quatre paiements trimestriels dus sous l'option 2 (montant 2E <strong>divisé par</strong> 4)</div>
+              <div class="mg-cell  align-bottom mg-brdr-bttm text-right">60&nbsp;000&nbsp;$</div>
+              <div class="mg-cell align-bottom">2F</div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;wb-math-grid&quot;&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total de l'impôt fédéral à payer 2024 &lt;a href=&quot;#&quot;&gt;Note de bas de page(1l)&lt;/a&gt; (total des lignes 700, 720, 724, 727 de votre déclaration T2 pour 2024)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2A&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Impôt provincial et territorial net à payer 2024 avant crédits remboursables &lt;a href=&quot;#&quot;&gt;Note de bas de page(2l)&lt;/a&gt; (ligne 760 de votre déclaration T2 pour 2024)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;0&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2B&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total de l'impôt à payer 2024 (montant 2A &lt;strong&gt;plus&lt;/strong&gt; montant 2B)&lt;/div&gt;<br>   &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2C&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Total estimé des crédits d'impôt remboursables pour 2025 (montant K de la Feuille de travail 1)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;0&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2D&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Montant de base des acomptes provisionnels 2 (montant 2C &lt;strong&gt;moins&lt;/strong&gt; montant 2D)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom mg-brdr-bttm text-right&quot;&gt;240&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2E&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class=&quot;mg-row&quot;&gt;<br>    &lt;div class=&quot;mg-cell&quot;&gt;Quatre paiements trimestriels dus sous l'option 2 (montant 2E &lt;strong&gt;divisé par&lt;/strong&gt; 4)&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell  align-bottom mg-brdr-bttm text-right&quot;&gt;60&amp;nbsp;000&amp;nbsp;$&lt;/div&gt;<br>    &lt;div class=&quot;mg-cell align-bottom&quot;&gt;2F&lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+      </div>
+    </div>
+    <h3>Utiliser pour copier des calculs dans des déclarations PDF</h3>
+    <p>Ce modèle provient des premières lignes d'une déclaration T1 avec des exemples.</p>
+    <p><strong>Truc :</strong> Ajoutez du texte supplémentaire invisible pour aider ceux qui utilisent des lecteurs d'écran à mieux comprendre le contenu de chaque cellule.</p>
+    <div class="mg-scroll">
+      <div class="wb-math-grid" data-wb-math-grid='{"srPause": true}'>
+        <div class="mg-row nowrap">
+          <div class="mg-cell bg-light mg-brdr-bttm">Revenu d'emploi (case 14 de tous les feuillets T4)</div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-otln"><span class="wb-inv">numéro de ligne : </span>10100</div>
+          <div class="mg-cell mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-bttm text-right">50&nbsp;000<span class="wb-inv"> : dollars</span></div>
+          <div class="mg-cell mg-brdr-bttm mg-brdr-lft">00<span class="wb-inv"> : cents</span></div>
+          <div class="mg-cell bg-light"><span class="wb-inv">ligne de calcul de la déclaration : </span>1</div>
+        </div>
+        <div class="mg-row nowrap">
+          <div class="mg-cell bg-light mg-brdr-bttm">Revenu exonéré d'impôt pour les bénévoles des services d'urgence</div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght"><span class="wb-inv">numéro de ligne : </span>10105</div>
+          <div class="mg-cell mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-bttm text-right">&nbsp;&nbsp;456<span class="wb-inv"> : dollars</span></div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm">78<span class="wb-inv"> : cents</span></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+        </div>
+        <div class="mg-row nowrap">
+          <div class="mg-cell bg-light mg-brdr-bttm">Commissions incluses à la ligne 10100 (case 42 de tous les feuillets T4)</div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght"><span class="wb-inv">numéro de ligne : </span>10120</div>
+          <div class="mg-cell mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-bttm text-right">56<span class="wb-inv"> : dollars</span></div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm">10<span class="wb-inv"> : cents</span></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+        </div>
+        <div class="mg-row nowrap">
+          <div class="mg-cell bg-light mg-brdr-bttm">Cotisations en remplacement de perte de salaire</div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght"><span class="wb-inv">numéro de ligne : </span>10130</div>
+          <div class="mg-cell mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-bttm text-right">0<span class="wb-inv"> : dollars</span></div>
+          <div class="mg-cell mg-brdr-lft mg-brdr-bttm">00<span class="wb-inv"> : cents</span></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+          <div class="mg-cell bg-light"></div>
+        </div>
+        <div class="mg-row nowrap">
+          <div class="mg-cell bg-light mg-brdr-bttm">Autre revenu d'emploi</div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell bg-light mg-brdr-bttm"></div>
+          <div class="mg-cell mg-brdr-otln"><span class="wb-inv">numéro de ligne : </span>10400</div>
+          <div class="mg-cell mg-brdr-bttm"><strong>+</strong></div>
+          <div class="mg-cell mg-brdr-bttm text-right">1&nbsp;005<span class="wb-inv"> : dollars</span></div>
+          <div class="mg-cell mg-brdr-bttm mg-brdr-lft">23<span class="wb-inv"> : cents</span></div>
+          <div class="mg-cell bg-light"><span class="wb-inv">ligne de calcul de la déclaration : </span>2</div>
+        </div>
+      </div>
+    </div>
+    <details class="mrgn-tp-lg">
+      <summary>Code</summary>
+      <pre><code>&lt;div class=&quot;mg-scroll&quot;&gt;<br>    &lt;div class=&quot;wb-math-grid mg-pause&quot;&gt;<br>      &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;Revenu d'emploi (case 14 de tous les feuillets T4)&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-otln&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;numéro de ligne : &lt;/span&gt;10100&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm text-right&quot;&gt;50&amp;nbsp;000&lt;span class=&quot;wb-inv&quot;&gt; : dollars&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm mg-brdr-lft&quot;&gt;00&lt;span class=&quot;wb-inv&quot;&gt;: cents&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;ligne de calcul de la déclaration : &lt;/span&gt;1&lt;/div&gt;<br>      &lt;/div&gt;<br>      &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;Revenu exonéré d'impôt pour les bénévoles des services d'urgence&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;numéro de ligne : &lt;/span&gt;10105&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm text-right&quot;&gt;&amp;nbsp;&amp;nbsp;456&lt;span class=&quot;wb-inv&quot;&gt; : dollars&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm&quot;&gt;78&lt;span class=&quot;wb-inv&quot;&gt; : cents&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>      &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;Commissions incluses à la ligne 10100 (case 42 de tous les feuillets T4)&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;numéro de ligne : &lt;/span&gt;10120&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm text-right&quot;&gt;56&lt;span class=&quot;wb-inv&quot;&gt; : dollars&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm&quot;&gt;10&lt;span class=&quot;wb-inv&quot;&gt; : cents&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>      &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;Cotisations en remplacement de perte de salaire&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm mg-brdr-rght&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;numéro de ligne : &lt;/span&gt;10130&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm text-right&quot;&gt;0&lt;span class=&quot;wb-inv&quot;&gt; : dollars&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-lft mg-brdr-bttm&quot;&gt;00&lt;span class=&quot;wb-inv&quot;&gt; : cents&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;/div&gt;<br>      &lt;/div&gt;<br>      &lt;div class=&quot;mg-row nowrap&quot;&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;Autre revenu d'emploi&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light mg-brdr-bttm&quot;&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-otln&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;numéro de ligne : &lt;/span&gt;10400&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm&quot;&gt;&lt;strong&gt;+&lt;/strong&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm text-right&quot;&gt;1&amp;nbsp;005&lt;span class=&quot;wb-inv&quot;&gt; : dollars&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell mg-brdr-bttm mg-brdr-lft&quot;&gt;23&lt;span class=&quot;wb-inv&quot;&gt; : cents&lt;/span&gt;&lt;/div&gt;<br>        &lt;div class=&quot;mg-cell bg-light&quot;&gt;&lt;span class=&quot;wb-inv&quot;&gt;ligne de calcul de la déclaration : &lt;/span&gt;2&lt;/div&gt;<br>      &lt;/div&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;</code></pre>
+    </details>
+    <h3>Erreur lors d'un nombre inégal de cellules</h3>
+    <p>S'il n'y a pas un nombre égal de cellules (<code>mg-cells</code>) pour chaque ligne (<code>mg-row</code>), une erreur sera produite dans le journal de la console et l'équation sera mise en surbrillance (<code>bg-danger</code>).</p>
+    <h4>Apparence</h4>
+    <div class="wb-math-grid">
+      <div class="mg-row">
+        <div class="mg-cell text-right">50 000</div>
+        <div class="mg-cell">&nbsp;$</div>
+        <div class="mg-cell">Prix de base</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell">&times;</div>
+        <div class="mg-cell text-right">3,5</div>
+        <div class="mg-cell">&nbsp;%</div>
+        <div class="mg-cell">Intérêts</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell">+</div>
+        <div class="mg-cell text-right">200</div>
+        <div class="mg-cell">Frais</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell">&divide;</div>
+        <div class="mg-cell text-right">12</div>
+        <div class="mg-cell"></div>
+        <div class="mg-cell">Mois de l'année</div>
+      </div>
+      <div class="mg-row">
+        <div class="mg-cell mg-brdr-tp">=</div>
+        <div class="mg-cell text-right mg-brdr-tp">162,50</div>
+        <div class="mg-cell">&nbsp;$</div>
+        <div class="mg-cell">Total</div>
+      </div>
+    </div>
+    <h4>Message dans le journal de la console</h4>
+    <p>En anglais.</p>
+    <pre lang="en"><code>Grid layout error for: wb-auto-X - inconsistent cell counts detected:<br>→ Row: 1, Cell count: 3<br>→ Row: 2, Cell count: 4<br>→ Row: 3, Cell count: 3<br>→ Row: 4, Cell count: 4<br>→ Row: 5, Cell count: 4</code></pre>
+  </section>

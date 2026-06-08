@@ -8,7 +8,6 @@ secondlevel: false
 dateModified: 2017-09-29
 share: true
 ---
-{% include byline/byline.html %}
 {% include web-contents/placeholdercontent-en.html %}
 <h2 id="cnt-wdth-lmtd">Section with limited width content</h2>
 <p>Add the CSS class name <code>.cnt-wdth-lmtd</code> to a sectioning element <code>&lt;section class="cnt-wdth-lmtd"&gt;...&lt;section&gt;</code> inside the main content of your page. More guidance are provided in the Content and IA specification.</p>
@@ -30,3 +29,28 @@ share: true
     <pre><code>&lt;button class="btn <strong>btn-call-to-action</strong>" type="button"&gt;[Call to action]&lt;/button&gt;</code></pre>
   </div>
 </div>
+
+<h2>Indigenous characters fonts</h2>
+<!-- Inuktitut: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="iu">
+  <h3>ᐅᓂᒃᑳᓕᐊᑉᑕᐃᔭᐅᓂᖓ 3 (<code>h3</code>)</h3>
+  <p>ᐅᖃᐅᓯᑯᑖᒐᒃᓴᑦ - ᑕᐅᑦᑐᖓᐋᖅᑭᒃᐸᒌᖅᓯᒪᔪᖅ</p>
+</section>
+
+<!-- Plains Cree: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="cr">
+  <h3>ᐃᑗᐏᐣ 3 (<code>h3</code>) - ᑭᓯᑲᐧᐣ ᐊᑕᐧᐦᐃᑲᐣ</h3>
+  <p>ᐸᐦᑫᑭᐣ ᑭᓯᑲᐧᐣ ᐊᑕᐧᐦᐃᑲᐣ</p>
+</section>
+
+<!-- Ojibwe: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="oj">
+  <h3>ᐅᓂᔑᓂᒧᐏᐣ 3 (<code>h3</code>) - ᒥᓇᐊᔨᐧᐃᐧᐣ</h3>
+  <p>ᐃᑭᑎᐎᐣ ᒥᓇᐊᔨᐧᐃᐧᐣ ᐁᓇᑯᓂᑲᑌᐠ</p>
+</section>
+
+<!-- Northern East Cree: Noto Sans Canadian Aboriginal heading & paragraph: indigenous character demo -->
+<section lang="cr">
+  <h3>ᐄᔨᔫ ᐊᔨᒧᐎᓐ 3 (<code>h3</code>)</h3>
+  <p>ᒫᒃ ᑳ ᐄᔑ ᐊᔨᒧᔮᓐ ᐄᔨᔫ ᐊᔨᒧᐎᓐ</p>
+</section>

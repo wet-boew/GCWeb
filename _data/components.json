@@ -7,12 +7,47 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "Badges",
+		"fr": "Badges"
+	},
+	"description": {
+		"en": "Use badges (numerical indicators) to highlight the number of updates, new or unread items associated with a link.",
+		"fr": "Utilisez les badges (indicateurs numériques) afin de souligner le nombre de mises à jour, d'éléments nouveaux ou non lus associés à un lien."
+	},
+	"modified": "2025-09-17",
+	"componentName": "badges",
+	"processing": "baseline",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Badges",
+				"language": "en",
+				"path": "badges-en.html"
+			},
+			{
+				"title": "Badges",
+				"language": "fr",
+				"path": "badges-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Bold content",
 		"fr": "Contenu en gras"
 	},
 	"description": {
-		"en": "This component applies font weight bold to every text element inside it and generates normal font weight when the element <code>&lt;strong&gt;</code> is applied.",
-		"fr": "Ce composant applique une épaisseur de police en gras à chaque élément de texte qu'il contient et génère une épaisseur de police normale lorsque l'élément <code>&lt;strong&gt;</code> est appliqué."
+		"en": "This component applies font weight bold to every text element inside it and generates normal font weight when the &lt;strong&gt; element is applied.",
+		"fr": "Ce composant applique une épaisseur de police en gras à chaque élément de texte qu'il contient et génère une épaisseur de police normale lorsque l'élément &lt;strong&gt; est appliqué."
 	},
 	"modified": "2024-02-05",
 	"componentName": "bold-content",
@@ -189,7 +224,7 @@
 	},
 	"modified": "2024-12-10",
 	"componentName": "byline",
-	"status": "demoted",
+	"status": "deprecated",
 	"version": "1.1.0",
 	"pages": {
 		"docs": [
@@ -212,7 +247,7 @@
 				"en": "Institutional byline - default",
 				"fr": "Institution responsable - par défaut"
 			},
-			"status": "demoted",
+			"status": "deprecated",
 			"description": {
 				"en": "The institutional byline provides people with a link to the institution or institutions responsible for the content.",
 				"fr": "La signature institutionnelle fournit aux personnes un lien vers l’institution ou les institutions responsables du contenu."
@@ -228,6 +263,10 @@
 				"_:implement_byline"
 			],
 			"history": [
+				{
+					"en": "June 2025 - Deprecation of the component - Moved to the Main title component. Use the Contributors component instead.",
+					"fr": "Juin 2025 - Composante maintenant obsolète - Déplacée vers la composante Titre principal. Utilisez plutôt la composante Contributeurs."
+				},
 				{
 					"en": "December 2024 - Demotion of the component - Moved to the Main title component. Use the Contributors component instead.",
 					"fr": "Décembre 2024 - Composante maintenant rétrogradée - Déplacée vers la composante Titre principal. Utilisez plutôt la composante Contributeurs."
@@ -340,7 +379,7 @@
 		{
 			"@id": "_:cs_byline_2",
 			"name": "Institutional byline - version 2",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_byline_2",
 			"detectableBy": ".gc-byline",
 			"guidance": "The component must be located directly after the first <h1> of the page.",
@@ -358,7 +397,7 @@
 		{
 			"@id": "_:cs_byline",
 			"name": "Institutional byline",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_byline",
 			"detectableBy": "h1#wb-cont+p>strong>a",
 			"guidance": "The component must be located directly after the first <h1> of the page.",
@@ -374,6 +413,274 @@
 			]
 		}
 	]
+}
+,{
+	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Conjunctions (and/or)",
+		"fr": "Conjonction (et/ou)"
+	},
+	"description": {
+		"en": "Conjunctions for stacked or side by side decision points, and/or",
+		"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+	},
+	"modified": "2025-10-03",
+	"componentName": "conjunctions",
+	"status": "stable",
+	"version": "1.0.1",
+	"pages": {
+		"examples": [
+			{
+				"title": "Conjunctions (and/or) - working example",
+				"language": "en",
+				"path": "conjunction.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - example pratique",
+				"language": "fr",
+				"path": "conjunction-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "Conjunctions (and/or) documentation",
+				"language": "en",
+				"path": "conjunction-docs-en.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - documentation",
+				"language": "fr",
+				"path": "conjunction-docs-fr.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - guidance",
+				"language": "fr",
+				"path": "conjunction-guidance-fr.html"
+			},
+			{
+				"title": "Conjonction (et/ou) - guidance",
+				"language": "fr",
+				"path": "conjunction-guidance-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Conjunctions (and/or)",
+				"fr": "Conjonction (et/ou)"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Conjunctions for stacked or side by side decision points, and/or",
+				"fr": "Conjonctions pour des points de décision empilés ou côte à côte, et/ou"
+			},
+			"iteration": "_:iteration_conjunction_2",
+			"example": [
+				{
+					"en": { "href": "conjunction.html", "text": "Conjunctions (and/or)" },
+					"fr": { "href": "conjunction-fr.html", "text": "Conjonction (et/ou)" }
+				}
+			],
+			"implementation": [
+				"_:implement_conjunction"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Changed border to appear in high contrast. Changed font size of CSS generated text to em value for better scalability between parent font sizes. Increased minimum height of side by side pattern to create consistant border above and below CSS text design. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Modification de la bordure pour un contraste élevé. Modification de la taille de police du texte généré par CSS : la valeur em permet une meilleure évolutivité entre les tailles de police parentes. Augmentation de la hauteur minimale du motif côte à côte pour créer une bordure cohérente au-dessus et en dessous du texte CSS. Mise à jour de la gouvernance pour une meilleure stabilisation."
+				},
+				{
+					"en": "August 2024 - Change was to remove the side-by-side line separator in Firefox (but keep the shape and text) when in High contrast mode. The previous pattern had the line separator \"cut\" through the words (and/or) which could make it slightly illegible.",
+					"fr": "Août 2024 - La modification a consisté à supprimer le séparateur de lignes côte à côte dans Firefox (tout en conservant la forme et le texte) en mode Contraste élevé. Auparavant, le séparateur de lignes « coupait » les mots (et/ou), ce qui pouvait le rendre légèrement illisible."
+				},
+				{
+					"en": "September 2025 - Conjunction component was stabilized.",
+					"fr": "Septembre 2025 - La composante de conjonction a été stabilisée."
+				},
+				{
+					"en": "October 2025 - Fixed issue with a persistent margin at the top of the first column.",
+					"fr": "Octobre 2025 - Problème résolu avec une marge persistante en haut de la première colonne."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_conjunction",
+			"iteration": "_:iteration_conjunction_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Guidance for the conjunction can be found on the following page: <a href=\"conjunction-guidance-en.html\">Conjunction (and/or) - guidance</a>.",
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Des conseils pour la conjonction peuvent être trouvés sur la page suivante : <a href=\"conjunction-guidance-fr.html\">Conjonction (et/ou) - guidance</a>.",
+					"Référez-vous au code qui suit."
+				]
+			},
+				"notes": {
+				"en": [
+					"UX research done for the conjunction component can be found on the following page: <a href=\"./reports/ux-research.html\">Conjunctions (and/or) - UX research</a>."
+				],
+				"fr": [
+					"Les recherches UX effectuées pour le composant de conjonction peuvent être trouvées sur la page suivante : <a href=\"./reports/ux-research-fr.html\">Conjonctions (et/ou) - recherche UX</a>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List element example (or):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List element example (and):",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Block element example (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (or) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-or\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t..\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de liste (and) :",
+						"code": "<p>Lead in statement</p>\n<ul class=\"cnjnctn-type-and\">\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n\t<li class=\"cnjnctn-col\">\n\t...\n\t</li>\n</ul>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (or):",
+						"code": "<div class=\"cnjnctn-type-or\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de élément de bloc (and):",
+						"code": "<div class=\"cnjnctn-type-and\">\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n\t<div class=\"cnjnctn-col\">\n\t...\n\t</div>\n</div>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_conjunction_1",
+			"name": "Conjunctions (and/or) - Iteration 1",
+			"date": "2024-08",
+			"detectableBy": ".cnjnctn-col",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p>Lead in statement</p><ul class=\"cnjnctn-type-or\"><li class=\"cnjnctn-col\">...</li><li class=\"cnjnctn-col\">...</li></ul>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_conjunction_2",
+			"name": "Conjunctions (and/or) - Iteration 2",
+			"date": "2025-10",
+			"fixes" : [
+				"Fixed issue with a persistent margin at the top of the first column."
+			],
+			"detectableBy": ".cnjnctn-col",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<p>Lead in statement</p><ul class=\"cnjnctn-type-or\"><li class=\"cnjnctn-col\">...</li><li class=\"cnjnctn-col\">...</li></ul>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_conjunction_1",
+			"name": "Conjunctions (and/or)",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_conjunction_1",
+			"detectableBy": ".cnjnctn-col",
+			"layout": "Not applicable",
+			"style": "Design to clearly demonstrate that there are options or that there are content blocks that are complementary or associated",
+			"semantic": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Deprecated markup",
+		"fr": "Balisage déconseillé"
+	},
+	"description": {
+		"en": "Reference documents and used to test old practice to ensure compatibility with the latest changes applied at this theme.",
+		"fr": "Ce document est à titre de référence et afin de mettre à l'essaie d'ancienne pratique pour s'assurer qu'ils sont compatible avec les derniers changements apporté au thème."
+	},
+	"modified": "2025-09-23",
+	"componentName": "deprecated",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
+				"language": "en",
+				"path": "deprecated-en.html"
+			},
+			{
+				"title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
+				"language": "fr",
+				"path": "deprecated-fr.html"
+			}
+		]
+	}
 }
 ,{
 	"@context": {
@@ -449,23 +756,173 @@
 		"en": "Download link with custom styles.",
 		"fr": "Lien de téléchargement avec des styles personnalisés."
 	},
-	"modified": "2023-04-20",
+	"modified": "2025-08-20",
 	"componentName": "gc-dwnld",
 	"status": "stable",
+	"version": "2.0",
 	"pages": {
-		"examples": [
+		"docs": [
 			{
 				"title": "Download link",
 				"language": "en",
-				"path": "download_link-en.html"
+				"path": "gc-dwnld-doc-en.html"
 			},
 			{
 				"title": "Lien de téléchargement",
 				"language": "fr",
-				"path": "download_link-fr.html"
+				"path": "gc-dwnld-doc-fr.html"
+			}
+		],
+		"examples": [
+			{
+				"title": "Download link - Working examples",
+				"language": "en",
+				"path": "gc-dwnld-en.html"
+			},
+			{
+				"title": "Lien de téléchargement - Exemples pratiques",
+				"language": "fr",
+				"path": "gc-dwnld-fr.html"
 			}
 		]
-	}
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "Download link",
+				"fr": "Lien de téléchargement"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Download links are used for referencing and linking to non-HTML files on Canada.ca web pages.",
+				"fr": "Les liens de téléchargement servent à renvoyer ou à lier à des fichiers de format autre que HTML sur les pages Web de Canada.ca."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/download-links.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/liens-telechargement.html"
+			},
+			"iteration": "_:iteration_gc_dwnld_2",
+			"example": [
+				{
+					"en": { "href": "gc-dwnld-en.html", "text": "Download link" },
+					"fr": { "href": "gc-dwnld-fr.html", "text": "Lien de téléchargement" }
+				}
+			],
+			"implementation": [
+				"_:implement_gc_dwnld"
+			],
+			"history": [
+				{
+					"en": "August 2025 - New pattern for the variant.",
+					"fr": "Août 2025 - Nouveau modèle pour la variante."
+				},
+				{
+					"en": "June 2014 - Initial implementation of the variation.",
+					"fr": "Juin 2014 - Implémentation initiale de la variante."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_gc_dwnld",
+			"iteration": "_:iteration_gc_dwnld_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Follow the markup below to create a download link.",
+					"To display the image above the text, add the class <code>vertical</code> to your <code>&lt;a class=\"gc-dwnld\"></code> element.",
+					"To make the component span the full width of its container, add the class <code>full-width</code> to your <code>&lt;a class=\"gc-dwnld\"></code> element."
+				],
+				"fr": [
+					"Suivez le balisage ci-dessous pour créer un lien de téléchargement.",
+					"Pour afficher l'image au-dessus du texte, ajoutez la classe <code>vertical</code> à votre élément <code>&lt;a class=\"gc-dwnld\"></code>.",
+					"Pour que le composant s'étende sur toute la largeur de son conteneur, ajoutez la classe <code>full-width</code> à votre élément <code>&lt;a class=\"gc-dwnld\"></code>."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[image url]\" alt=\"\">\n\t<span>[Document Title]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloByte\">KB</abbr>)</span>\n</a>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[url de l'image]\" alt=\"\">\n\t<span>[Titre du document]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloOctet\">KB</abbr>)</span>\n</a>"
+					}
+				]
+			},
+			"notes": {
+				"en": [
+					"The image is optional.",
+					"Ensure that the <code>alt</code> attribute of the image is empty (<code>alt=\"\"</code>) to avoid screen readers announcing it.",
+					"Make sure to include the file type (e.g., PDF, DOCX) and size (e.g., 273 KB) in the link text for accessibility and user awareness."
+				],
+				"fr": [
+					"L'image est facultative.",
+					"Assurez-vous que l'attribut <code>alt</code> de l'image est vide (<code>alt=\"\"</code>) afin d'éviter que les lecteurs d'écran ne l'annoncent.",
+					"Veillez à inclure le type de fichier (p. ex., PDF, DOCX) et la taille (p. ex., 273 KB) dans le texte du lien pour des raisons d'accessibilité et de sensibilisation des utilisateurs."
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_gc_dwnld_2",
+			"name": "Download link - Iteration 2",
+			"date": "2025-08",
+			"detectableBy": "a.gc-dwnld",
+			"predecesor": "_:iteration_gc_dwnld_1",
+			"status": "stable",
+			"breaking": [
+				"New HTML pattern with new CSS."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<a href=\"#\" class=\"gc-dwnld\" download>\n\t<img src=\"[image url]\" alt=\"\">\n\t<span>[Document Title]<br>(<abbr title=\"Portable Document Format\">PDF</abbr>, 273 <abbr title=\"KiloByte\">KB</abbr>)</span>\n</a>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_gc_dwnld_1",
+			"name": "Download link - Iteration 1 (deprecated)",
+			"date": "2014-06",
+			"detectableBy": ".gc-dwnld-link .gc-dwnld",
+			"successor": "_:iteration_gc_dwnld_2",
+			"status": "deprecated",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<a class=\"gc-dwnld-lnk\" href=\"#\">\n\t<div class=\"well gc-dwnld\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-4\">\n\t\t\t\t<p><img class=\"img-responsive thumbnail gc-dwnld-img\" src=\"[image url]\" alt=\"\" /></p>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-8\">\n\t\t\t\t<p class=\"gc-dwnld-txt\">\n\t\t\t\t\t<span>[Document Title]</span>\n\t\t\t\t\t<abbr title=\"KiloByte\">KB</abbr>)</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</a>"
+				}
+			],
+			"example": {
+				"en": [
+					{ "href": "deprecated/gc-dwnld_v1-en.html", "text": "Download link" }
+				],
+				"fr": [
+					{ "href": "deprecated/gc-dwnld_v1-fr.html", "text": "Lien de téléchargement" }
+				]
+			}
+		}
+	]
 }
 ,{
 	"@context": {
@@ -483,10 +940,10 @@
 		"en": "This adds a featured link to a page that your institution needs to feature prominently.",
 		"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
 	},
-	"modified": "2024-02-21",
+	"modified": "2026-03-13",
 	"componentName": "gc-featured-link",
 	"status": "stable",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"pages": {
 		"docs": [
 			{
@@ -547,7 +1004,7 @@
 				"en": "This adds a featured link to a page that your institution needs to feature prominently.",
 				"fr": "Ceci ajoute un lien en vedette court et descriptif vers une page que votre institution doit mettre en évidence."
 			},
-			"iteration": "_:iteration_featuredLink_3",
+			"iteration": "_:iteration_featuredLink_4",
 			"example": [
 				{
 					"en": { "href": "gc-featured-link-en.html", "text": "Featured link" },
@@ -559,6 +1016,10 @@
 				"_:implement_migrationProvisional"
 			],
 			"history": [
+				{
+					"en": "March 2026 - Added hover property: increase underline thickness on hover.",
+					"fr": "Mars 2026 - Propriété de survol ajoutée : augmentation de l'épaisseur du soulignement au survol."
+				},
 				{
 					"en": "March 2024 - Stabilizing component.",
 					"fr": "Mars 2024 - Stabilisation de la composante."
@@ -675,6 +1136,23 @@
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_featuredLink_4",
+			"name": "Featured link - Iteration 4",
+			"date": "2026-03",
+			"detectableBy": ".gc-featured-link:not(.provisional)",
+			"fixes": [
+				"Increased underline thickness on hover."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-featured-link\">\n\t<div class=\"container\">\n\t\t<h2 class=\"wb-inv\">Spotlight on</h2>\n\t\t<p><a class=\"stretched-link\" href=\"#\">[Promotion title]</a></p>\n\t</div>\n</section>"
+				}
+			]
+		},
 		{
 			"@id": "_:iteration_featuredLink_3",
 			"name": "Featured link - Iteration 3",
@@ -1190,6 +1668,9 @@
 	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
+		"title": {
+			"@id": "dct:title", "@container": "@language"
+		},
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
 		"modified": "dct:modified"
@@ -1202,10 +1683,10 @@
 		"en": "This component is for the minister or institutional head pattern on the institutional landing page.",
 		"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution sur la page d'accueil de l'institution."
 	},
-	"modified": "2025-04-07",
+	"modified": "2025-07-11",
 	"componentName": "gc-minister",
 	"status": "stable",
-	"version": "1.1",
+	"version": "1.2.1",
 	"pages": {
 		"examples": [
 			{
@@ -1237,6 +1718,16 @@
 				"title": "Ministre ou chef d'institution - cas particuliers",
 				"language": "fr",
 				"path": "gc-minister-special-cases-fr.html"
+			},
+			{
+				"title": "Minister or institutional head (multiple)",
+				"language": "en",
+				"path": "gc-minister-multiple-en.html"
+			},
+			{
+				"title": "Ministre ou chef d'institution (plusieurs)",
+				"language": "fr",
+				"path": "gc-minister-multiple-fr.html"
 			}
 		],
 		"docs": [
@@ -1289,12 +1780,42 @@
 			],
 			"history": [
 				{
-					"en": "April 2025 - Fixed issue where links were not clickable in mobile view.",
+					"en": "August 2025 - Updated recommended image dimensions from 200x250px to 200x200px for better visual consistency.",
+					"fr": "Août 2025 - Mise à jour des dimensions d'image recommandées de 200x250px à 200x200px pour une meilleure cohérence visuelle."
+				},
+				{	"en": "April 2025 - Fixed issue where links were not clickable in mobile view.",
 					"fr": "Avril 2025 - Problème résolu où les liens n'étaient pas cliquables dans la vue mobile."
 				},
 				{
 					"en": "March 2024 - Initial implementation of the variation.",
 					"fr": "Mars 2024 - Implémentation initiale de la variante."
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Minister or institutional head - multiple",
+				"fr": "Ministre ou chef d’institution - plusieurs"
+			},
+			"status": "stable",
+			"description": {
+				"en": "This component is for the minister or institutional head pattern with multiple pictures on the institutional landing page.",
+				"fr": "Ce composant est destiné au modèle du ministre ou du chef d'institution avec plusieurs images sur la page d'accueil de l'institution."
+			},
+			"iteration": "_:iteration_minister_3",
+			"example": [
+				{
+					"en": { "href": "gc-minister-multiple-en.html", "text": "Minister or institutional head (multiple with pictures)" },
+					"fr": { "href": "gc-minister-multiple-fr.html", "text": "Ministre ou chef d'institution (plusieurs avec images)" }
+				}
+			],
+			"implementation": [
+				"_:implement_minister_v1.2"
+			],
+			"history": [
+				{
+					"en": "June 2025 - Added variation of the component with multiple pictures to accomodate high number of appointees.",
+					"fr": "Juin 2025 - Ajout d'une variante du composant avec plusieurs images pour tenir compte du nombre élevé de personnes nommées."
 				}
 			]
 		}
@@ -1325,10 +1846,10 @@
 			},
 			"notes": {
 				"en": [
-					"The recommended image size is 200px by 250px."
+					"The recommended image size is 200px by 200px."
 				],
 				"fr": [
-					"La taille d'image recommandée est de 200px par 250px."
+					"La taille d'image recommandée est de 200px par 200px."
 				]
 			},
 			"sample": {
@@ -1377,6 +1898,52 @@
 					"Ajoutez la classe col-xs-12 aux éléments col-md-5 et col-md-7 (contenant respectivement l'image et la description) afin de résoudre le problème où les liens ne sont pas cliquables dans la vue mobile"
 				]
 			}
+		},
+		{
+			"@id": "_:implement_minister_v1.2",
+			"iteration": "_:iteration_minister_3",
+			"name": {
+				"en": "Multiple",
+				"fr": "Plusieurs"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the multiple pictures component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant de plusieurs images manuellement."
+			},
+			"notes": {
+				"en": [
+					"The recommended image size is 200px by 200px."
+				],
+				"fr": [
+					"La taille d'image recommandée est de 200px par 200px."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample with image:",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Secretary(ies) of State</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t <img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Code sample without image:",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Secretary(ies) of State</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code avec image :",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Secrétaire(s) d'État</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t<img src=\"[url de l'image]\" alt=\"L'honorable [prénom et nom de famille]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Titre officiel du ministre]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Exemple de code sans image :",
+						"code": "<section class=\"gc-minister\">\n\t<h2>Secrétaire(s) d'État</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<h3><a href=\"#\">L'honorable [prénom et nom de famille]</a></h3>\n\t\t\t<p>[Titre officiel]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Lettre de mandat</a></li>\n\t\t\t\t<li><a href=\"\">Dossier d'information</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
+					}
+				]
+			}
 		}
 	],
 	"iteration": [
@@ -1420,6 +1987,28 @@
 					"code": "<section class=\"gc-minister col-xs-12 col-md-5\">\n\t<h2>Minister</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-6\">\n\t\t\t<h3><a href=\"#\">The Honourable [Minister 3 name]</a></h3>\n\t\t\t<p>[Official title]</p>\n\t\t\t<ul>\n\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</section>"
 				}
 			]
+		},
+		{
+			"@id": "_:iteration_minister_3",
+			"name": "Minister - Iteration 3",
+			"date": "2025-06",
+			"additions": [
+				"Added variation of the component with multiple pictures to accomodate high number of appointees. "
+			],
+			"detectableBy": ".gc-minister",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample with image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Secretary(ies) of State</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-5\">\n\t\t\t\t\t <img src=\"[image url]\" alt=\"The Honourable [Minister name]\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-xs-12 col-md-7\">\n\t\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Code sample without image",
+					"code": "<section class=\"gc-minister\">\n\t<h2>Secretary(ies) of State</h2>\n\t<div class=\"row wb-eqht-grd\">\n\t\t<div class=\"col-xs-12 col-md-4\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-xs-12 col-md-7 pull-right\">\n\t\t\t\t\t<h3><a href=\"#\">The Honourable [Minister name]</a></h3>\n\t\t\t\t</div>\n\t\t\t\t<p>[Official title]</p>\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><a href=\"\">Mandate letter</a></li>\n\t\t\t\t\t\t<li><a href=\"\">Briefing book</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>"
+				}
+			]
 		}
 	],
 	"changesets": [
@@ -1445,7 +2034,30 @@
 				"Ministers > Briefing book text (type: STRING)",
 				"Ministers > Briefing book URL (type: STRING)"
 			],
-			"mediaConsiderations": "Recommended image size: 200x250px."
+			"mediaConsiderations": "Recommended image size: 200x200px."
+		},
+		{
+			"@id": "_:cs_minister",
+			"name": "Minister or institutional head multiple",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_minister_3",
+			"detectableBy": ".gc-minister",
+			"layout": "Each minister takes up one third of the container and there are two rows. ",
+			"semantic": "section ((h3 a) + img + p + (ul > li))",
+			"style": "The image has a thin grey border.",
+			"context": "To be used in the institutional landing page template.",
+			"schema": [
+				"Section title (type: STRING) - for example: Minister, President, Parliamentary secretary, Associate minister, Ombudsman, Management",
+				"Ministers (type: ARRAY)",
+				"Ministers > Name (type: STRING)",
+				"Ministers > Title (type: STRING)",
+				"Ministers > Page URL (type: STRING)",
+				"Ministers > Image URL (type: STRING)",
+				"Ministers > Mandate letter text (type: STRING)",
+				"Ministers > Mandate letter URL (type: STRING)",
+				"Ministers > Briefing book text (type: STRING)",
+				"Ministers > Briefing book URL (type: STRING)"
+			]
 		}
 	]
 }
@@ -1465,10 +2077,10 @@
 		"en": "Features top tasks related to the page it is on.",
 		"fr": "Comprend des tâches principales liées à la page sur laquelle elles se trouvent."
 	},
-	"modified": "2025-05-08",
+	"modified": "2025-10-31",
 	"componentName": "gc-most-requested",
 	"status": "stable",
-	"version": "1.1.0",
+	"version": "1.2.1",
 	"pages": {
 		"docs": [
 			{
@@ -1492,6 +2104,16 @@
 				"title": "En demande",
 				"language": "fr",
 				"path": "gc-most-requested-fr.html"
+			},
+			{
+				"title": "Most requested - Two items",
+				"language": "en",
+				"path": "gc-most-requested-two-items-en.html"
+			},
+			{
+				"title": "En demande - Deux éléments",
+				"language": "fr",
+				"path": "gc-most-requested-two-items-fr.html"
 			},
 			{
 				"title": "Most requested - bad implementation",
@@ -1521,11 +2143,15 @@
 				"en": "https://design.canada.ca/common-design-patterns/most-requested.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/en-demande.html"
 			},
-			"iteration": "_:iteration_mostrequested_2",
+			"iteration": "_:iteration_mostrequested_4",
 			"example": [
 				{
 					"en": { "href": "gc-most-requested-en.html", "text": "Most requested" },
 					"fr": { "href": "gc-most-requested-fr.html", "text": "En demande" }
+				},
+								{
+					"en": { "href": "gc-most-requested-two-items-en.html", "text": "Most requested - Two items" },
+					"fr": { "href": "gc-most-requested-two-items-fr.html", "text": "En demande - Deux éléments" }
 				},
 				{
 					"en": { "href": "gc-most-requested-bad-en.html", "text": "Most requested - bad implementation" },
@@ -1536,6 +2162,14 @@
 				"_:implement_mostrequested"
 			],
 			"history": [
+				{
+					"en": "October 2025 - Fixed the misalignment issue between the list items when there are only two of them.",
+					"fr": "Octobre 2025 - Correction du problème d'alignement entre les éléments de la liste lorsqu'il n'y en a que deux."
+				},
+				{
+					"en": "September 2025 - Items are displayed horizontally when there are only two list items on medium screen breakpoint and larger.",
+					"fr": "Septembre 2025 - Les éléments sont affichés horizontalement quand il y a seulement deux éléments de liste à partir d'un breakpoint écran moyen et plus."
+				},
 				{
 					"en": "May 2025 - Items are now distributed vertically instead of horizontally.",
 					"fr": "Mai 2025 - Les items sont maintenant distribués verticalement plutôt que horizontalement."
@@ -1554,7 +2188,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_mostrequested",
-			"iteration": "_:iteration_mostrequested_2",
+			"iteration": "_:iteration_mostrequested_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1601,11 +2235,48 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_mostrequested_4",
+			"name": "Most requested - Iteration 4",
+			"date": "2025-10",
+			"fixes": [
+				"Fixed the misalignment issue between the list items when there are only two of them."
+			],
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_3",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_mostrequested_3",
+			"name": "Most requested - Iteration 3",
+			"date": "2025-09",
+			"detectableBy": ".gc-most-requested:not(.provisional)",
+			"predecessor": "_:iteration_mostrequested_2",
+			"additions": [
+				"Changed display of list items from vertical to horizontal when there are only two list items on medium screen breakpoint and larger. This does not change the component's core behaviour, so this is a Minor change."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-most-requested\">\n\t<div class=\"container\">\n\t\t<h2>Most requested</h2>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 1]</a></li>\n\t\t\t<li><a href=\"#\">[Top task hyperlink 2]</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_mostrequested_2",
 			"name": "Most requested - Iteration 2",
 			"date": "2024-11",
 			"detectableBy": ".gc-most-requested:not(.provisional)",
 			"predecessor": "_:iteration_mostrequested_1",
+			"successor": "_:iteration_mostrequested_3",
 			"additions": [
 				"Changed display of items from flex to column-count. This change is perceptible and a user will notice that change but it won't change the component essential behaviour. So this is a Minor change."
 			],
@@ -1705,10 +2376,10 @@
 		"en": "Used to present sets of links with accompanying descriptions.",
 		"fr": "Utilisé pour présenter des ensembles de liens accompagnés de descriptions."
 	},
-	"modified": "2024-07-26",
+	"modified": "2026-02-17",
 	"componentName": "gc-srvinfo",
 	"status": "stable",
-	"version": "3.1",
+	"version": "3.3",
 	"pages": {
 		"examples": [
 			{
@@ -1720,6 +2391,16 @@
 				"title": "Services et renseignements",
 				"language": "fr",
 				"path": "gc-srvinfo-fr.html"
+			},
+			{
+				"title": "Services and information with FieldFlow - Working examples",
+				"language": "en",
+				"path": "gc-srvinfo-fieldflow-en.html"
+			},
+			{
+				"title": "Services et renseignements avec FieldFlow - Exemples pratiques",
+				"language": "fr",
+				"path": "gc-srvinfo-fieldflow-fr.html"
 			}
 		],
 		"reports": [
@@ -1763,11 +2444,31 @@
 				"en": "https://design.canada.ca/common-design-patterns/services-information.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/services-renseignements.html"
 			},
-			"iteration": "_:iteration_srvinfo_3",
+			"iteration": "_:iteration_srvinfo_6",
 			"example": [
 				{
-					"en": { "href": "gc-srvinfo-en.html", "text": "Services and information" },
-					"fr": { "href": "gc-srvinfo-fr.html", "text": "Services et renseignements" }
+					"en": { "href": "gc-srvinfo-en.html#eg1", "text": "3 columns pattern" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg1", "text": "Disposition sur 3 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-en.html#eg2", "text": "2 columns pattern" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg2", "text": "Disposition sur 2 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-en.html#eg3", "text": "Doormat links in single column pattern" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg3", "text": "Disposition sur 1 colonne" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-en.html#eg4", "text": "Sequential doormat links in single column pattern" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg4", "text": "Liens séquentiels avec disposition sur 1 colonne" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-en.html#eg5", "text": "Doormat links in 3 columns grouped with headings pattern" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg5", "text": "Disposition groupée avec titres, sur 3 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-en.html#eg6", "text": "3 columns pattern with invisible header" },
+					"fr": { "href": "gc-srvinfo-fr.html#eg6", "text": "Disposition sur 3 colonnes avec en-tête invisible" }
 				}
 			],
 			"implementation": [
@@ -1799,12 +2500,63 @@
 					"fr": "Août 2014 - Implémentation initiale de la variante."
 				}
 			]
+		},
+		{
+			"name": {
+				"en": "Services and information with FieldFlow",
+				"fr": "Services et renseignements avec FieldFlow"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Variation of the Service and Information component using FieldFlow.",
+				"fr": "Variante de la composante de Services et renseignements qui utilise FieldFlow."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/services-information.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/services-renseignements.html"
+			},
+			"iteration": "_:iteration_srvinfo_ff_2",
+			"example": [
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg1", "text": "3 columns pattern" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg1", "text": "Disposition sur 3 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg2", "text": "2 columns pattern" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg2", "text": "Disposition sur 2 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg3", "text": "Doormat links in single column pattern" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg3", "text": "Disposition sur 1 colonne" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg4", "text": "Sequential doormat links in single column pattern" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg4", "text": "Liens séquentiels avec disposition sur 1 colonne" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg5", "text": "Doormat links in 3 columns grouped with headings pattern" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg5", "text": "Disposition groupée avec titres, sur 3 colonnes" }
+				},
+				{
+					"en": { "href": "gc-srvinfo-fieldflow-en.html#eg6", "text": "3 columns pattern with invisible header" },
+					"fr": { "href": "gc-srvinfo-fieldflow-fr.html#eg6", "text": "Disposition sur 3 colonnes avec en-tête invisible" }
+				}
+			],
+			"implementation": [
+				"_:implement_srvinfo_fieldflow"
+			],
+			"history": [
+				{
+					"en": "July 2025 - Initial implementation of the new variation with FieldFlow drop-down list. Also, added links from the documentation to the working examples.",
+					"fr": "Juillet 2025 - Implémentation initiale de la variante avec une liste FieldFlow déroulante. Des liens ont également été ajoutés entre la documentation et les exemples de travail"
+				}
+			]
 		}
 	],
 	"implementation": [
 		{
 			"@id": "_:implement_srvinfo",
-			"iteration": "_:iteration_srvinfo_3",
+			"iteration": "_:iteration_srvinfo_6",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -1859,15 +2611,85 @@
 					}
 				]
 			}
+		},
+		{
+			"@id": "_:implement_srvinfo_fieldflow",
+			"iteration": "_:iteration_srvinfo_ff_2",
+			"name": {
+				"en": "FieldFlow drop-down list",
+				"fr": "Liste déroulante FieldFlow"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the code sample below."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Code sample for dropdown FieldFlow list",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to </p>\n\t<div class=\"wb-fieldflow\" data-wb-fieldflow='{\"inline\": true, \"defaultselectedlabel\":\"Select one\"}'>\n\t\t<p>Find the plugin for the action you need:</p>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">Item 1</a></li>\n\t\t\t<li><a href=\"#\">Item 2</a></li>\n\t\t\t<li><a href=\"#\">Item 3</a></li>\n\t\t\t<li><a href=\"#\">Item 4</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"collapsed": true,
+						"description": "Exemple de code pour la disposition de la liste FieldFlow déroulante",
+						"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services et renseignements</h2>\n\t<h3><a href=\"#\">[Texte de l'hyperlien]</a></h3>\n\t<p>Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée</p>\n\t<div class=\"wb-fieldflow\" data-wb-fieldflow='{\"inline\": true, \"defaultselectedlabel\":\"Selectionner un\"}'>\n\t\t<p>Trouvez le plugiciel qui répond à vos besoin:</p>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">Item 1</a></li>\n\t\t\t<li><a href=\"#\">Item 2</a></li>\n\t\t\t<li><a href=\"#\">Item 3</a></li>\n\t\t\t<li><a href=\"#\">Item 4</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+					}
+				]
+			}
 		}
 	],
 	"iteration": [
+		{
+			"@id": "_:iteration_srvinfo_ff_2",
+			"name": "Services and information with FieldFlow - Iteration 2",
+			"date": "2026-02",
+			"detectableBy": ".gc-srvinfo .wb-fieldflow",
+			"predecessor": "_:iteration_srvinfo_ff_1",
+			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to limit the width of the single-column pattern", "Set a max-width of 65ch on component children with the class .input-group" ]
+		},
+		{
+			"@id": "_:iteration_srvinfo_ff_1",
+			"name": "Services and information with FieldFlow - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".gc-srvinfo .wb-fieldflow",
+			"successor": "_:iteration_srvinfo_ff_2",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-srvinfo\">\n\t<h2>Services and information</h2>\n\t<h3><a href=\"#\">[Hyperlink text]</a></h3>\n\t<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to </p>\n\t<div class=\"wb-fieldflow\" data-wb-fieldflow='{\"inline\": true, \"defaultselectedlabel\":\"Select one\"}'>\n\t\t<p>Find the plugin for the action you need:</p>\n\t\t<ul>\n\t\t\t<li><a href=\"#\">Item 1</a></li>\n\t\t\t<li><a href=\"#\">Item 2</a></li>\n\t\t\t<li><a href=\"#\">Item 3</a></li>\n\t\t\t<li><a href=\"#\">Item 4</a></li>\n\t\t</ul>\n\t</div>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_srvinfo_6",
+			"name": "Services and information - Iteration 6",
+			"date": "2026-02",
+			"detectableBy": ".gc-srvinfo",
+			"predecessor": "_:iteration_srvinfo_5",
+			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to limit the width of the single-column pattern"]
+		},
 		{
 			"@id": "_:iteration_srvinfo_5",
 			"name": "Services and information - Iteration 5",
 			"date": "2018-09",
 			"detectableBy": ".gc-srvinfo",
 			"predecessor": "_:iteration_srvinfo_4",
+			"successor": "_:iteration_srvinfo_6",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -1922,7 +2744,7 @@
 			"@id": "_:cs_srvinfo",
 			"name": "Services and information",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_srvinfo_5",
+			"baseOnIteration": "_:iteration_srvinfo_6",
 			"detectableBy": ".gc-srvinfo",
 			"layout": "The (h3>a)+p pattern is either inside a grid layout of two or three columns, in an ordered list, or directly one after the other vertically.",
 			"semantic": "h2 + (h2 > a) + p",
@@ -2001,19 +2823,17 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "GC Subway map menu",
-		"fr": "GC menu par carte de métro"
+		"en": "Subway navigation",
+		"fr": "Navigation de style métro"
 	},
 	"description": {
 		"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
 		"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
 	},
-	"modified": "2023-09-26",
+	"modified": "2026-02-27",
 	"componentName": "gc-subway",
-	"status": "provisional",
-	"todos": [
-		"Publish accessibility related research and tested here"
-	],
+	"status": "stable",
+	"version": "1.0.1",
 	"pages": {
 		"examples": [
 			{
@@ -2089,17 +2909,219 @@
 		],
 		"docs": [
 			{
-				"title": "Subway map menu",
+				"title": "Subway navigation - Documentation",
 				"language": "en",
-				"path": "docs-en.html"
+				"path": "subway-doc-en.html"
 			},
 			{
-				"title": "Menu par carte de métro",
+				"title": "Navigation de style métro - Documentation",
 				"language": "fr",
-				"path": "docs-fr.html"
+				"path": "subway-doc-fr.html"
 			}
 		]
-	}
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Subway navigation",
+				"fr": "Navigation de style métro"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
+				"fr": "Diviser du contenu long et complexe en pages qui se concentrent chacune sur une étape ou une réponse spécifique dont les gens ont besoin avant de passer à l'étape ou à la section suivante."
+			},
+			"guidance": {
+				"en": "https://design.canada.ca/common-design-patterns/subway-navigation.html",
+				"fr": "https://conception.canada.ca/configurations-conception-communes/navigation-metro.html"
+			},
+			"iteration": "_:iteration_subway_3",
+			"example": [
+				{
+					"en": { "href": "index-en.html", "text": "Index page" },
+					"fr": { "href": "index-fr.html", "text": "Page d'introduction" }
+				},
+				{
+					"en": { "href": "section1-en.html", "text": "Section page" },
+					"fr": { "href": "section1-fr.html", "text": "Page de section" }
+				},
+				{
+					"en": { "href": "sub-section-en.html", "text": "Sub-section page (default)" },
+					"fr": { "href": "sub-section-fr.html", "text": "Page de sous-section (par défaut)" }
+				},
+				{
+					"en": { "href": "sub-section-noline-en.html", "text": "Sub-section page (no line)" },
+					"fr": { "href": "sub-section-noline-fr.html", "text": "Page de sous-section (sans ligne)" }
+				},
+				{
+					"en": { "href": "section-subtitle-en.html", "text": "Section page with custom subtitle" },
+					"fr": { "href": "section-subtitle-fr.html", "text": "Page de section avec sous-titre personnalisé" }
+				},
+				{
+					"en": { "href": "section-rel-info-en.html", "text": "Section page with related information" },
+					"fr": { "href": "section-rel-info-fr.html", "text": "Page de section avec information additionnelle" }
+				},
+				{
+					"en": { "href": "aem-bad-implementation-en.html", "text": "Section page with bad AEM implementation" },
+					"fr": { "href": "aem-bad-implementation-fr.html", "text": "Exemple de page de section avec mauvaise implémentation dans AEM" }
+				}
+			],
+			"implementation": [
+				"_:implement_subway_1"
+			],
+			"history": [
+				{
+					"en": "February 2026 - Removed code to adjust previous implementations of the pattern as it was breaking some pages that had a bad implementation.",
+					"fr": "Février 2026 - Supprimé le code pour ajuster les implémentations précédentes du modèle car cela cassait certaines pages qui avaient une mauvaise implémentation."
+				},
+				{
+					"en": "November 2025 - Stabilized the component",
+					"fr": "Novembre 2025 - Stabilisé le composant"
+				},
+				{
+					"en": "March 2021 - Provisional version of the component is created",
+					"fr": "Mars 2021 - Une version provisoire du composant est créée."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_subway_1",
+			"iteration": "_:iteration_subway_3",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"notes": {
+				"en": [
+					"The layout for the index page is different from the sections pages. The Subway navigation code snippet for the <strong>index</strong> page can be placed anywhere within the content of the page (<code>&lt;main&gt;</code>). However, make sure the heading level is appropriate. Also, the sub-section items must not be included in the index page."
+				],
+				"fr": [
+					"La mise en page de la page d'index est différente de celle des pages de sections. Vous trouverez ci-dessous des exemples de code montrant comment les éléments de la navigation de style métro sont disposés avant l'initialisation du plugin. L'extrait de code de la navigation de style métro pour la page d'<strong>introduction</strong> peut être placé n'importe où dans le contenu de la page (<code>&lt;main&gt;</code>). Cependant, assurez-vous que le niveau de titre est approprié. De plus, les éléments de la sous-section ne doivent pas être inclus dans la page d'introduction."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Index page:",
+						"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Section page:",
+						"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Page d'introduction:",
+						"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Nom du service]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Navigation de style métro -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-fr.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-fr.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-fr.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-fr.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-fr.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-fr.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Page de section:",
+						"code": "<main>\n\t<!-- 1: Navigation de style métro -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Nom du service]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-fr.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-fr.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-fr.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-fr.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-fr.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-fr.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Titre -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Contenu de la page. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Navigation du document -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Navigation du document</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-fr.html\" rel=\"next\"><span class=\"wb-inv\">Suivant: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Information additionnelle (optionnel) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Information additionnelle</h2>\n\t\t...\n\t</aside>\n</main>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_subway_3",
+			"name": "Subway - Iteration 3",
+			"date": "2026-02",
+			"detectableBy": ".gc-subway",
+			"predecessor": "_:iteration_subway_2",
+			"fixes": [
+				"Removed code to adjust previous implementations of the pattern as it was breaking some pages that had a bad implementation."
+			]
+		},
+		{
+			"@id": "_:iteration_subway_2",
+			"name": "Subway - Iteration 2",
+			"date": "2025-11",
+			"detectableBy": ".gc-subway",
+			"predecessor": "_:iteration_subway_1",
+			"successor": "_:iteration_subway_3",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Index page",
+					"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Section page",
+					"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_subway_1",
+			"name": "Subway - Iteration 1",
+			"date": "2021-03",
+			"detectableBy": ".gc-subway.provisional",
+			"successor": "_:iteration_subway_2",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Index page",
+					"code": "<main>\n\t<h1 property=\"name\" id=\"wb-cont\">[Service name]</h1>\n\n\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n\n\t<!-- Subway navigation -->\n\t<nav class=\"gc-subway provisional\">\n\t\t<h2>Sections</h2>\n\t\t<dl>\n\t\t\t<dt><a href=\"section1-en.html\">[Page 1]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section2-en.html\">[Page 2]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section3-en.html\">[Page 3]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section4-en.html\">[Page 4]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section5-en.html\">[Page 5]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t\t<dt><a href=\"section6-en.html\">[Page 6]</a></dt>\n\t\t\t<dd>Page description. Lorem ipsum dolor sit amet, consectetur adipiscing elit</dd>\n\t\t</dl>\n\t</nav>\n\t...\n</main>"
+				},
+				{
+					"@type": "source-code",
+					"description": "Section page",
+					"code": "<main>\n\t<!-- 1: Subway navigation -->\n\t<nav class=\"gc-subway provisional\">\n\t\t<h1>[Service name]</h1>\n\t\t<ul>\n\t\t\t<li><a href=\"section1-en.html\" class=\"active\">[Page 1]</a></li>\n\t\t\t<li><a href=\"section2-en.html\">[Page 2]</a></li>\n\t\t\t<li><a href=\"section3-en.html\">[Page 3]</a></li>\n\t\t\t<li><a href=\"section4-en.html\">[Page 4]</a></li>\n\t\t\t<li><a href=\"section5-en.html\">[Page 5]</a></li>\n\t\t\t<li><a href=\"section6-en.html\">[Page 6]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 2: Title -->\n\t<h1 property=\"name\" id=\"wb-cont\">[Page 1]</h1>\n\n\t<!-- 3: Page content -->\n\t<p>Page content. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>\n\t...\n\n\t<!-- 4: Document navigation -->\n\t<nav class=\"gc-subway-pagination\">\n\t\t<h2 class=\"wb-inv\">Document navigation</h2>\n\t\t<ul class=\"pager\">\n\t\t\t<li class=\"next\"><a href=\"section2-en.html\" rel=\"next\"><span class=\"wb-inv\">Next: </span>[Page 2]</a></li>\n\t\t</ul>\n\t</nav>\n\n\t<!-- 5: Related information (optional) -->\n\t<aside class=\"gc-subway-support\">\n\t\t<h2 class=\"h3\">Related information</h2>\n\t\t...\n\t</aside>\n</main>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_subway",
+			"name": "Subway navigation",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_subway_3",
+			"detectableBy": ".gc-subway",
+			"layout": "The layout for the index page is different from the sections pages. The Subway navigation code snippet for the <strong>index</strong> page can be placed anywhere within the content of the page (<code>&lt;main&gt;</code>). However, make sure the heading level is appropriate. Also, the sub-section items must not be included in the index page.",
+			"style": "The active class is mandatory and is to be added to the active page's link (<a>) in the Subway navigation. Additionally, an optional class of no-line can be applied to a sub-section list (<ul>). It will remove the vertical line connecting all sub-sections. It will also add a horizontal line connecting the active sub-section with the main subway line.",
+			"context": "To be used to break up long and complex content into pages that each focus on a step or specific answer people need before moving to the next step or section.",
+			"schema": [
+				"Section title (type: STRING)",
+				"Subtitle (type: STRING)",
+				"Sections (type: ARRAY)",
+				"Sections > Title (type: STRING)",
+				"Sections > URL (type: STRING)",
+				"Sections > Description (type: STRING)",
+				"Sections > Sub-section (type: ARRAY)",
+				"Sections > Sub-section > Title (type: STRING)",
+				"Sections > Sub-section > URL (type: STRING)",
+				"Sections > Page content (type: HTML)",
+				"Sections > Related information (type: OBJECT)",
+				"Sections > Related information > Title (type: STRING)",
+				"Sections > Related information > Content (type: HTML)"
+			]
+		}
+	]
 }
 ,{
 	"@context": {
@@ -2203,6 +3225,216 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "GCDS card",
+		"fr": "Carte GCDS"
+	},
+	"description": {
+		"en": "Co-existence pilot of the GCDSs card in GCWeb.",
+		"fr": "Pilote de co-existance des cartes GCDS dans GCWeb."
+	},
+	"modified": "2025-07-04",
+	"componentName": "gcds-card",
+	"status": "provisional",
+	"version": "1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GCDS card",
+				"language": "en",
+				"path": "card-en.html"
+			},
+			{
+				"title": "Carte GCDS",
+				"language": "fr",
+				"path": "card-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GCDS card",
+				"language": "en",
+				"path": "card-doc-en.html"
+			},
+			{
+				"title": "Carte GCDS",
+				"language": "fr",
+				"path": "card-doc-fr.html"
+			}
+		],
+		"test": [
+			{
+				"title": "GCDS Card with images",
+				"language": "en",
+				"path": "withimg-en.html"
+			},
+			{
+				"title": "Carte GCDS avec images",
+				"language": "fr",
+				"path": "withimg-fr.html"
+			},
+			{
+				"title": "GCDS Card as implemented in MWS",
+				"language": "en",
+				"path": "mws-en.html"
+			},
+			{
+				"title": "Carte GCDS tel que l'implémentation dans le système web géré",
+				"language": "fr",
+				"path": "mws-fr.html"
+			},
+			{
+				"title": "GCDS Card like as implemented in MWS (without workaround)",
+				"language": "en",
+				"path": "mws-no-workaround-en.html"
+			},
+			{
+				"title": "Carte GCDS similaire à l'implémentation dans le système web géré (sans contournement)",
+				"language": "fr",
+				"path": "mws-no-workaround-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "no accessibility guidance",
+	"variations": [
+		{
+			"name": {
+				"en": "GCDS Card - default",
+				"fr": "Carte GCDS - par défaut"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "Co-existence pilot of the GCDS card in GCWeb.",
+				"fr": "Pilote de co-existance de la carte GCDS dans GCWeb."
+			},
+			"iteration": "_:implement_card",
+			"example": [
+				{
+					"en": { "href": "card-en.html", "text": "GCDS Card" },
+					"fr": { "href": "card-fr.html", "text": "Carte GCDS" }
+				}
+			],
+			"implementation": [
+				"_:implement_card"
+			],
+			"history": [
+				{
+					"en": "July 2025 - Initial implementation of the component co-existing with GCWeb.",
+					"fr": "Juillet 2025 - Implémentation initiale de la composante co-existant avec GCWeb."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_card",
+			"iteration": "_:iteration_card_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually and want to participate to the Principal Publisher pilot.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement et qui veulent participer au pilote avec l'Éditeur Principal."
+			},
+			"instructions": {
+				"en": [
+					"Add the GCDS loader into your page, distributed here <code>&lt;script blocking=\"render\" src=\"dist/GCWeb/js/gcdsloader.min.js\">&lt;/script></code>",
+					"Add your <code>gcds-card</code> inside a <code>gcds-grid</code> and then you can configure according to GCDS documentation"
+				],
+				"fr": [
+					"Ajoutez le chargeur de GCDS dans votre page, ce dernier est distribué ici <code>&lt;script blocking=\"render\" src=\"dist/GCWeb/js/gcdsloader.min.js\">&lt;/script></code>",
+					"Ajoutez vos <code>gcds-card</code> à l'intérieur d'une <code>gcds-grid</code> et après vous pouvez faire votre configuration tel que la documenation de GCDS."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_card_1",
+			"name": "GCDS card - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".wb-enable gcds-card",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<gcds-grid columns=\"1fr\" columns-tablet=\"1fr 1fr\" columns-desktop=\"1fr 1fr 1fr\">\n\n\t<gcds-card card-title=\"Lorem ipsum\" href=\"#\">\n\t\t<gcds-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Aenean id\" href=\"#\">\n\t\t<gcds-text>Aenean id sem tellus. Sed sodales mauris non sagittis auctor. Etiam tempus a metus in porta.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Pellentesque dapibus\" href=\"#\" badge=\"badge\">\n\t\t<gcds-text>Pellentesque dapibus erat sit amet lectus scelerisque, sed gravida metus pellentesque.</gcds-text>\n\t</gcds-card>\n\n\t<gcds-card card-title=\"Proin at ligula\" href=\"#\">\n\t\t<gcds-text>Proin at ligula tincidunt neque convallis varius.</gcds-text>\n\t</gcds-card>\n\n</gcds-grid>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_card_1",
+			"name": "GCDS card",
+			"status": "provisional",
+			"detectableBy": ".wb-enable gcds-card",
+			"layout": "Not applicable",
+			"semantic": "Not applicable",
+			"notes": "Tested when used with the gcds-grid."
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Glyphicons",
+		"fr": "Glyphicons"
+	},
+	"description": {
+		"en": "Monochromatic icons and symbols, created with an emphasis to simplicity and easy orientation.",
+		"fr": "Icônes et symboles monochromes, créés en mettant l'accent sur la simplicité et la facilité d'orientation."
+	},
+	"modified": "2025-09-16",
+	"componentName": "glyphicons",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Glyphicons",
+				"language": "en",
+				"path": "glyphicons-en.html"
+			},
+		{
+				"title": "Glyphicons",
+				"language": "fr",
+				"path": "glyphicons-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Well header responsive",
 		"fr": "Entête well responsive"
 	},
@@ -2271,94 +3503,6 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Other components",
-		"fr": "Autre composant"
-	},
-	"description": {
-		"en": "Components included but need to move in its own folder.",
-		"fr": "Composant inclus mais qu'il nécessite qu'ils soit déplacé dans son propre dossier."
-	},
-	"modified": "2021-02-12",
-	"status": "stable",
-	"pages": {
-		"examples": [
-			{
-				"title": "Provisional functionality",
-				"language": "en",
-				"path": "provisional-en.html"
-			},
-			{
-				"title": "Fonctionnalités provisoires",
-				"language": "fr",
-				"path": "provisional-fr.html"
-			},
-
-			{
-				"title": "Redacted text",
-				"language": "en",
-				"path": "redacted-en.html"
-			},
-			{
-				"title": "Texte caviardé",
-				"language": "fr",
-				"path": "redacted-fr.html"
-			},
-
-			{
-				"title": "Download link, In-page table of contents, Alerts designs",
-				"language": "en",
-				"path": "components-en.html"
-			},
-			{
-				"title": "Lien de téléchargement, Table des matières à l’intérieur de la page, Conceptions des avis",
-				"language": "fr",
-				"path": "components-fr.html"
-			},
-
-			{
-				"title": "Deprecated markup - Report a problem (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "en",
-				"path": "deprecated-en.html"
-			},
-			{
-				"title": "Balisage déconseillé - Signaler un problème (v4.0.28), gc-nttvs, gc-prtts",
-				"language": "fr",
-				"path": "deprecated-fr.html"
-			},
-
-			{
-				"title": "Float column in a data table",
-				"language": "en",
-				"path": "tbl-floatcolumn-en.html"
-			},
-			{
-				"title": "Float column in a data table",
-				"language": "fr",
-				"path": "tbl-floatcolumn-fr.html"
-			},
-
-			{
-				"title": "Video example",
-				"language": "en",
-				"path": "video-en.html"
-			},
-			{
-				"title": "Exemple de vidéo",
-				"language": "fr",
-				"path": "video-fr.html"
-			}
-		]
-	}
-}
-,{
-	"@context": {
-		"@version": 1.1,
-		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
-		"modified": "dct:modified"
-	},
-	"title": {
 		"en": "Labels",
 		"fr": "Étiquettes"
 	},
@@ -2409,6 +3553,275 @@
 }
 ,{
 	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "List steps",
+		"fr": "Liste des étapes"
+	},
+	"description": {
+		"en": "Style ordered list and divs with steps number in circles.",
+		"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+	},
+	"modified": "2025-09-16",
+	"componentName": "list-steps",
+	"status": "stable",
+	"version": "1.1.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "List steps - working example",
+				"language": "en",
+				"path": "list-steps-en.html"
+			},
+			{
+				"title": "Liste des étapes - example pratique",
+				"language": "fr",
+				"path": "list-steps-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "List steps - Documentation",
+				"language": "en",
+				"path": "list-steps-documentation-en.html"
+			},
+			{
+				"title": "Liste des étapes - Documentation",
+				"language": "fr",
+				"path": "list-steps-documentation-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "List steps",
+				"fr": "Liste des étapes"
+			},
+			"status": "stable",
+			"description": {
+				"en": "Style ordered list and divs with steps number in circles.",
+				"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
+			},
+			"iteration": "_:iteration_list_steps_2",
+			"example": [
+				{
+					"en": { "href": "list-steps-en.html", "text": "List steps" },
+					"fr": { "href": "list-steps-fr.html", "text": "Liste des étapes" }
+				}
+			],
+			"implementation": [
+				"_:implement_list_steps"
+			],
+			"history": [
+				{
+					"en": "June 2024 - Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.",
+					"fr": "Juin 2024 - Réduction de l'espacement excessif pour les petites quantités de contenu. Suppression de la couleur d'arrière-plan du numéro d'étape par défaut de la liste (sauf en mode rayé), car il ne s'affichait pas correctement en mode contraste élevé. Mise à jour de la gouvernance pour la stabilisation."
+				},
+				{
+					"en": "August 2024 - Fixed issue with printing pages as some text would be cut off.",
+					"fr": "Août 2024 - Correction d'un problème d'impression de pages car certains textes étaient coupés."
+				},
+				{
+					"en": "October 2024 - Added customized option to use start attribute for items 2 to 10.",
+					"fr": "Octobre 2024 - Ajout d'une option personnalisée pour utiliser l'attribut de démarrage pour les éléments 2 à 10."
+				},
+				{
+					"en": "September 2025 - Stabilized the component.",
+					"fr": "Septembre 2025 - La composante a été stabilisée."
+				},
+				{
+					"en": "October 2025 - The numbering in mobile view is smaller than desktop view, not the other way around.",
+					"fr": "Octobre 2025 - La numérotation en mode mobile est plus petite qu'en mode bureau, et non l'inverse."
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_list_steps",
+			"iteration": "_:iteration_list_steps_2",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Refer to the following code samples."
+				],
+				"fr": [
+					"Référez-vous au code qui suit."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "List steps (default):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (sub nested):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (striped sub nested lead zero):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "List steps (start attribute):",
+						"code": "<ol class=\"lst-stps\" start=\"2\">"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (défaut):",
+						"code": "<ol class=\"lst-stps\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (sous-listes imbriquées):",
+						"code": "...\n<li>\n\t<ol class=\"lst-stps-sub\">\n\t ... \n\t</ol>\n</li>\n ..."
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées):",
+						"code": "<ol class=\"lst-stps stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (rayées sous-listes imbriquées avec zéro en tête):",
+						"code": "<ol class=\"lst-stps ld-zr stps-strpd\">\n...\n<li>\n\t<ol class=\"lst-stps-sub stps-strpd\">\n\t ... \n\t</ol>\n</li>\n ...\n</ol>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Liste des étapes (Attribut de début):",
+						"code": "<ol class=\"lst-stps\" start=\"2\">"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_list_steps_3",
+			"name": "List steps - Iteration 3",
+			"date": "2025-11",
+			"detectableBy": ".lst-stps",
+			"additions": [
+				"Step width is no longer limited when inside .cnt-wdth-lmtd class"
+			],
+			"predecessor": "_:iteration_list_steps_2",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_list_steps_2",
+			"name": "List steps - Iteration 2",
+			"date": "2025-08",
+			"detectableBy": ".lst-stps",
+			"predecessor": "_:iteration_list_steps_1",
+			"successor": "_:iteration_list_steps_3",
+			"fixes": [
+				"The numbering in mobile view is smaller than desktop view, not the other way around."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_list_steps_1",
+			"name": "List steps - Iteration 1",
+			"date": "2025-07",
+			"detectableBy": ".lst-stps",
+			"successor": "_:iteration_list_steps_2",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_list_steps_1",
+			"name": "List steps",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_list_steps_2",
+			"detectableBy": ".lst-stps",
+			"layout": "Not applicable",
+			"style": "Style ordered list and divs with steps number in circles.",
+			"semantic": "Not applicable"
+		}
+	]
+}
+,{
+	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
@@ -2437,6 +3850,109 @@
 				"title": "Liste - Style additionnel",
 				"language": "fr",
 				"path": "list-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Panels",
+		"fr": "Panneaux"
+	},
+	"description": {
+		"en": "Use to create a visual grouping of content. Panels have colour themed options, as well as offer a distinct header and footer.",
+		"fr": "Les utiliser pour créer un groupement visuel de contenu. Les panneaux ont des options de couleur par thème, en plus d'offrir un en-tête et un pied de page distincts."
+	},
+	"modified": "2025-09-18",
+	"componentName": "panels",
+	"processing": "baseline",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Panels",
+				"language": "en",
+				"path": "panels-en.html"
+			},
+			{
+				"title": "Panneaux",
+				"language": "fr",
+				"path": "panels-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Redacted text",
+		"fr": "Texte caviardé"
+	},
+	"description": {
+		"en": "Guidance on how to code redacted text.",
+		"fr": "Ligne directrice sur le codage de texte caviardé (ou expurgé)."
+	},
+	"modified": "2025-09-23",
+	"componentName": "redacted",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Redacted text",
+				"language": "en",
+				"path": "redacted-en.html"
+			},
+			{
+				"title": "Texte caviardé",
+				"language": "fr",
+				"path": "redacted-fr.html"
+			}
+		]
+	}
+}
+,{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "Float column in a data table",
+		"fr": "Colonne flottante dans un tableau de données"
+	},
+	"description": {
+		"en": "Use to display a table data in a user friendly manner.",
+		"fr": "Utiliser pour afficher les données d'un tableau de manière claire."
+	},
+	"modified": "2025-09-23",
+	"componentName": "tbl-floatcolumn",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "Float column in a data table",
+				"language": "en",
+				"path": "tbl-floatcolumn-en.html"
+			},
+			{
+				"title": "Colonne flottante dans un tableau de données",
+				"language": "fr",
+				"path": "tbl-floatcolumn-fr.html"
 			}
 		]
 	}

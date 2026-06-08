@@ -479,10 +479,10 @@
 		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
 		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
 	},
-	"modified": "2024-12-13",
+	"modified": "2025-11-21",
 	"componentName": "contributors",
 	"status": "stable",
-	"version": "1.1",
+	"version": "1.2.1",
 	"pages": {
 		"docs": [
 			{
@@ -533,15 +533,15 @@
 				"en": "Links to institutions or organizations that support the content on the page.",
 				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
 			},
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"example": [
 				{
 					"en": { "href": "contributors-en.html", "text": "Contributors" },
 					"fr": { "href": "contributors-fr.html", "text": "Collaborateurs" }
 				},
 				{
-					"en": { "href": "demoted/contributors-v1-en.html", "text": "Demoted as of GCWeb v16.2.0 - Contributors version 1.0" },
-					"fr": { "href": "demoted/contributors-v1-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Collaborateurs 1.0" }
+					"en": { "href": "deprecated/contributors-v1-en.html", "text": "Deprecated as of GCWeb v17.0.0 - Contributors version 1.0" },
+					"fr": { "href": "deprecated/contributors-v1-fr.html", "text": "Obsolète à partir de GCWeb v17.0.0 - Collaborateurs 1.0" }
 				}
 			],
 			"implementation": [
@@ -550,6 +550,14 @@
 				"_:implement_contributors_migrate_1_to_1.1"
 			],
 			"history": [
+				{
+					"en": "November 2025 - Reduced spacing between vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Espacement réduit entre les barres verticales dans la vue Desktop."
+				},
+				{
+					"en": "November 2025 - Bullets replaced with vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Remplacer les puces par des barres verticales dans la vue Desktop."
+				},
 				{
 					"en": "December 2024 - Component context of use changed from anywhere in the <code>&lt;main></code> to the page details section.",
 					"fr": "Décembre 2024 - Le contexte d'utilisation de la composante a changé de n'importe où dans le <code>&lt;main></code> à la section détails de la page."
@@ -568,7 +576,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_contributors",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -592,21 +600,21 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+						"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<section class=\"gc-contributors\">\n\t<h2>De&nbsp;:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
+						"code": "<section class=\"gc-contributors\">\n\t<h3>De&nbsp;:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
 					}
 				]
 			}
 		},
 		{
 			"@id": "_:implement_contributors_gcweb",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -642,7 +650,7 @@
 		},
 		{
 			"@id": "_:implement_contributors_migrate_1_to_1.1",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Migrate from version 1 to 1.1",
 				"fr": "Migration de la version 1 à 1.1"
@@ -673,6 +681,43 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_contributors_5",
+			"name": "Contributors - Iteration 5",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"fixes": [
+				"Reduced spacing between vertical bars in Desktop View."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_4"
+		},
+		{
+			"@id": "_:iteration_contributors_4",
+			"name": "Contributors - Iteration 4",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"additions": [
+				"Changed visual appearance of the page when in desktop view. When multiple components are listed, vertical bars are used instead of bullets/dots."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_3",
+			"successor": "_:iteration_contributors_5"
+		},
+		{
 			"@id": "_:iteration_contributors_3",
 			"name": "Contributors - Iteration 3",
 			"date": "2024-12",
@@ -689,7 +734,8 @@
 					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 				}
 			],
-			"predecessor": "_:iteration_contributors_2"
+			"predecessor": "_:iteration_contributors_2",
+			"successor": "_:iteration_contributors_4"
 		},
 		{
 			"@id": "_:iteration_contributors_2",
@@ -729,8 +775,27 @@
 	"changesets": [
 		{
 			"@id": "_:cs_contributors",
-			"name": "Contributors - Version 1.1",
+			"name": "Contributors - Version 1.2",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_5",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h3+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded. Vertical bars used in medium screens and up and bullet points used in smaller screens.",
+			"context": "Located in the page details section of the page above the date modified component.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		},
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1.1",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_contributors_3",
 			"detectableBy": ".pagedetails .gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
@@ -749,7 +814,7 @@
 		{
 			"@id": "_:cs_contributors",
 			"name": "Contributors - Version 1",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_contributors_2",
 			"detectableBy": ".gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
@@ -765,8 +830,8 @@
 				"contributors object: contributor name, contributor link"
 			],
 			"test": [
-				"<a href=\"demoted/contributors-v1-en.html\">Contributors version 1</a>",
-				"<a href=\"demoted/contributors-v1-fr.html\">Contributeurs version 1</a>"
+				"<a href=\"deprecated/contributors-v1-en.html\">Contributors version 1</a>",
+				"<a href=\"deprecated/contributors-v1-fr.html\">Contributeurs version 1</a>"
 			]
 		}
 	]
@@ -953,10 +1018,10 @@
 		"en": "Documentation on how to use the elements of the feedback area.",
 		"fr": "Documentation sur l'utilisation des éléments de la zone commentaires."
 	},
-	"modified": "2025-05-28",
+	"modified": "2026-03-16",
 	"componentName": "feedback",
 	"status": "stable",
-	"version": "2.0.1",
+	"version": "2.0.3",
 	"pages": {
 		"docs": [
 			{
@@ -972,22 +1037,22 @@
 		],
 		"examples": [
 			{
-				"title": "Page feedback tool",
+				"title": "GC feedback",
 				"language": "en",
 				"path": "page-feedback-en.html"
 			},
 			{
-				"title": "Outil de rétroaction sur la page",
+				"title": "Rétroaction GC",
 				"language": "fr",
 				"path": "page-feedback-fr.html"
 			},
 			{
-				"title": "Page feedback tool with contact link",
+				"title": "GC feedback with contact link",
 				"language": "en",
 				"path": "page-feedback-contact-en.html"
 			},
 			{
-				"title": "Outil de rétroaction sur la page avec lien de contact",
+				"title": "Rétroaction GC avec lien de contact",
 				"language": "fr",
 				"path": "page-feedback-contact-fr.html"
 			},
@@ -1014,14 +1079,14 @@
 				"path": "reports/a11y-2-fr.html"
 			},
 			{
-				"title": "Accessibility Conformance Report - WCAG Level AA - Autumn 2023",
+				"title": "Accessibility Conformance Report - WCAG Level AA",
 				"language": "en",
-				"path": "reports/acr-2023-autumn-en.html"
+				"path": "reports/acr-2025-06-en.html"
 			},
 			{
-				"title": "Rapport de conformité d'accessibilité WCAG 2.1 Niveau AA - Automne 2023",
+				"title": "Rapport de conformité d'accessibilité WCAG 2.1 Niveau AA",
 				"language": "fr",
-				"path": "reports/acr-2023-autumn-fr.html"
+				"path": "reports/acr-2025-06-fr.html"
 			},
 			{
 				"title": "Accessibility assessment #2 - CRA Usability testing",
@@ -1042,6 +1107,16 @@
 				"title": "Évaluation de l'accessibilité #3 - Outil de rétroaction sur la page",
 				"language": "fr",
 				"path": "reports/a11y-4-fr.html"
+			},
+			{
+				"title": "Accessibility assessment #4 - GC feedback",
+				"language": "en",
+				"path": "reports/a11y-5-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #4 - Rétroaction GC",
+				"language": "fr",
+				"path": "reports/a11y-5-fr.html"
 			}
 		]
 	},
@@ -1049,7 +1124,7 @@
 		"en": [
 			{ "title": "Page details", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-en.html", "component": "page-details" },
 			{ "title": "Postback", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-en.html", "component": "postback" },
-			{ "title": "PII Scrub", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-en.html", "component": "pii-scrub" },
+			{ "title": "PII Scrub", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-scrub/pii-scrub-en.html", "component": "pii-scrub" },
 			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-en.html", "component": "wb-data-json" },
 			{ "title": "JSON Manager", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-en.html", "component": "wb-json-manager" },
 			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-en.html", "component": "doaction" }
@@ -1057,7 +1132,7 @@
 		"fr": [
 			{ "title": "Détails de la page", "url": "https://wet-boew.github.io/GCWeb/sites/page-details/page-details-docs-fr.html", "component": "page-details" },
 			{ "title": "Envoie de formulaire via Ajax", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-postback/wb-postback-fr.html", "component": "postback" },
-			{ "title": "Nettoyage d'IPI", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-postback/pii-scrub-fr.html", "component": "pii-scrub" },
+			{ "title": "Nettoyage d'IPI", "url": "https://wet-boew.github.io/wet-boew/docs/ref/pii-scrub/pii-scrub-fr.html", "component": "pii-scrub" },
 			{ "title": "Data JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-data-json/wb-data-json-fr.html", "component": "wb-data-json" },
 			{ "title": "Gestionnaire JSON", "url": "https://wet-boew.github.io/wet-boew/docs/ref/wb-jsonmanager/wb-jsonmanager-fr.html", "component": "wb-json-manager" },
 			{ "title": "Do Action", "url": "https://wet-boew.github.io/GCWeb/components/wb-doaction/doaction-doc-fr.html", "component": "doaction" }
@@ -1067,23 +1142,23 @@
 	"variations": [
 		{
 			"name": {
-				"en": "Page feedback tool (PFT) - default",
-				"fr": "Outil de rétroaction sur la page (ORP) - par défaut"
+				"en": "GC feedback - default",
+				"fr": "Rétroaction GC - par défaut"
 			},
 			"status": "stable",
 			"description": {
-				"en": "The Page feedback tool variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"en": "The GC feedback component variation replaces the “Report a problem” pattern while actively collecting user feedback",
+				"fr": "La variante de la composante Rétroaction GC remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"example": [
 				{
-					"en": { "href": "page-feedback-en.html", "text": "Page feedback tool" },
-					"fr": { "href": "page-feedback-fr.html", "text": "Outil de rétroaction sur la page" }
+					"en": { "href": "page-feedback-en.html", "text": "GC feedback" },
+					"fr": { "href": "page-feedback-fr.html", "text": "Rétroaction GC" }
 				}
 			],
 			"implementation": [
@@ -1093,6 +1168,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en":"March 2026 - PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected",
+					"fr":"Mars 2026 - Fenêtre modale de gestion des données personnelles : Le texte de la fenêtre a été mis à jour et le bouton « Envoyer un commentaire » a été supprimé si des données personnelles étaient détectées"
+				},
 				{
 					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
@@ -1105,23 +1184,23 @@
 		},
 		{
 			"name": {
-				"en": "Page feedback tool with contact link",
-				"fr": "Outil de rétroaction sur la page avec lien de contact"
+				"en": "GC feedback with contact link",
+				"fr": "Rétroaction GC avec lien de contact"
 			},
 			"status": "stable",
 			"description": {
-				"en": "The Page feedback tool with contact link variation replaces the “Report a problem” pattern while actively collecting user feedback",
-				"fr": "La variante de l'Outil de rétroaction sur la page avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
+				"en": "The GC feedback component with contact link variation replaces the “Report a problem” pattern while actively collecting user feedback",
+				"fr": "La variante de la composante Rétroaction GC avec lien de contact remplace le modèle « Signaler un problème » tout en collectant activement les commentaires des utilisateurs."
 			},
 			"guidance": {
 				"en": "https://design.canada.ca/feedback/index.html",
 				"fr": "https://conception.canada.ca/retroaction/index.html"
 			},
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"example": [
 				{
-					"en": { "href": "page-feedback-contact-en.html", "text": "Page feedback tool with contact link" },
-					"fr": { "href": "page-feedback-contact-fr.html", "text": "Outil de rétroaction sur la page avec lien de contact" }
+					"en": { "href": "page-feedback-contact-en.html", "text": "GC feedback with contact link" },
+					"fr": { "href": "page-feedback-contact-fr.html", "text": "Rétroaction GC avec lien de contact" }
 				}
 			],
 			"implementation": [
@@ -1131,6 +1210,10 @@
 				"_:implement_pft_mws_author"
 			],
 			"history": [
+				{
+					"en":"March 2026 - PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected",
+					"fr":"Mars 2026 - Fenêtre modale de gestion des données personnelles : Le texte de la fenêtre a été mis à jour et le bouton « Envoyer un commentaire » a été supprimé si des données personnelles étaient détectées"
+				},
 				{
 					"en": "May 2025 - AJAX fragment: Added PII screening, added <code>pageData</code> to the French variant, changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 					"fr": "Mai 2025 - Fragment AJAX&nbsp;: Ajout de filtrage d'IPI, ajout de <code>pageData</code> à la variante française, changement de <code>aria-live=\"polite\"</code> à <code>role=\"status\"</code> dans «&nbsp;Dites nous pourquoi ci-dessous&nbsp;:&nbsp;»."
@@ -1331,7 +1414,7 @@
 		},
 		{
 			"@id": "_:implement_pft",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Standard (wet-boew)",
 				"fr": "Standard (wet-boew)"
@@ -1344,25 +1427,23 @@
 				"en": [
 					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Ensure the <a href=\"../page-details/page-details-docs-en.html\">version 3.0 or newer of the page details</a> is implemented.",
-					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
+					"To show the GC Feedback component , create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
 					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
 					"Vérifiez que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
-					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
+					"Pour afficher la composante Rétroaction GC sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
 			"notes": {
 				"en": [
-					"In order for your PFT to benefit from the personal information screening tool, you have to make sure your version of WET-BOEW is at 4.0.84 or higher.",
-					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
+					"To upgrade from the RAP to the GC feedback component, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
-					"Pour que votre ORP puisse bénéficier de l'outil de filtrage des informations personnelles, vous devez vous assurer que votre version de WET-BOEW est supérieure ou égalse à 4.0.84.",
-					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
+					"Pour passer du SUP à la composante Rétroaction GC, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -1403,7 +1484,7 @@
 		},
 		{
 			"@id": "_:implement_pft_gcweb",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -1443,29 +1524,29 @@
 		},
 		{
 			"@id": "_:implement_pft_upgrade_rap",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Upgrade from RAP",
 				"fr": "Mise à jour à partir de SUP"
 			},
 			"introduction": {
-				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new PFT.",
-				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers le nouvel ORP."
+				"en": "This implementation is meant for implementers that want to migrate their current page build with RAP towards the new GC feedback component.",
+				"fr": "Cette implémentation est destinée aux implémenteurs qui souhaitent migrer leur page actuelle avec SUP vers la nouvelle composante Rétroaction GC."
 			},
 			"instructions": {
 				"en": [
 					"Update the page details component to the <a href=\"../page-details/page-details-docs-en.html\">version 3.0</a>.",
-					"Follow the implementation instructions for the new PFT implementation."
+					"Follow the implementation instructions for the new GC feedback component implementation."
 				],
 				"fr": [
 					"Mettez à jour le composant détails de page vers la <a href=\"../page-details/page-details-docs-fr.html\">version 3.0</a>.",
-					"Suivez les instructions d'implémentation pour la nouvelle implémentation du ORP."
+					"Suivez les instructions d'implémentation pour la nouvelle implémentation de la composante Rétroaction GC."
 				]
 			}
 		},
 		{
 			"@id": "_:implement_pft_mws_author",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "MWS users",
 				"fr": "Utilisateur SWG"
@@ -1476,22 +1557,22 @@
 			},
 			"instructions": {
 				"en": [
-					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before adding the Page feedback tool on your pages.",
+					"Read the <a href=\"https://design.canada.ca/feedback/index.html\">design system guidance</a> before adding the GC feedback component on your pages.",
 					"If you are configuring the section, please follow the <a href=\"https://design.canada.ca/feedback/index.html\">additional design system guidance</a>.",
-					"You can configure the Page feedback tool via the page properties by adjusting the optional configurations (contact info and section). The value for the theme configuration is automatically set by MWS.",
-					"For additional guidance on how to implement the Page feedback tool, you can consult the guide on GCPedia along with the other documentation for MWS."
+					"You can configure the GC feedback component via the page properties by adjusting the optional configurations (contact info and section). The value for the theme configuration is automatically set by MWS.",
+					"For additional guidance on how to implement the GC feedback component, you can consult the guide on GCPedia along with the other documentation for MWS."
 				],
 				"fr": [
-					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter l'Outil de rétroaction sur la page à vos pages.",
+					"Veuillez lire les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes du système de conception</a> avant d'ajouter la composante Rétroaction GC à vos pages.",
 					"Si vous configurez la section, veuillez suivre les <a href=\"https://conception.canada.ca/retroaction/index.html\">consignes supplémentaires du système de conception</a>.",
-					"Vous pouvez configurer l'Outil de rétroaction sur la page via les propriétés de la page en ajustant les configurations facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
-					"Pour des conseils supplémentaires sur la mise en œuvre de l'Outil de rétroaction sur la page, vous pouvez consulter le guide sur GCPedia avec les autres documents du SWG."
+					"Vous pouvez configurer la composante Rétroaction GC via les propriétés de la page en ajustant les configurations facultative (informations de contact et section). Les valeurs de la configuration du thème sont automatiquement définies par le SWG.",
+					"Pour des conseils supplémentaires sur la mise en œuvre de la composante Rétroaction GC, vous pouvez consulter le guide sur GCPedia avec les autres documents du SWG."
 				]
 			}
 		},
 		{
 			"@id": "_:implement_pft_contact",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "Standard (WET-BOEW)",
 				"fr": "Standard (WET-BOEW)"
@@ -1504,23 +1585,23 @@
 				"en": [
 					"Ensure the <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 or newer of GCWeb</a> is implemented.<ul><li>Note: the minimal GCWeb version is 13.9.0 but the PII data scrub is not supported with that version.</li></ul>",
 					"Ensure the <a href=\"../page-details/page-details-docs-en.html\">version 3.0 or newer of the page details</a> is implemented.",
-					"To show the page feedback form, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
+					"To show the GC feedback component, create a <code>&lt;div class=\"wb-disable-allow\"&gt;</code> with the following data attributes:<ul><li>Mandatory: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-en.html\"</code></li><li>Mandatory: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Mandatory: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optional: <code>data-feedback-theme=\"[Text defining the theme of your page]\"</code></li><li>Optional: <code>data-feedback-section=\"[Text defining the section where your page resides]\"</code></li></ul>",
 					"Additionally, your page needs to have the following metadata: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				],
 				"fr": [
 					"Vérifiez que la <a href=\"https://github.com/wet-boew/GCWeb/releases\">version 16.2.0 ou plus récente de GCWeb</a> est implémentée.<ul><li>Note: la version minimale de GCWeb est 13.9.0, mais le Nettoyage d'IPI n'est pas supporté avec cette version.</li></ul>",
 					"Vérifiez que la <a href=\"../page-details/page-details-docs-en.html\">version 3.0 ou plus récente du détails de la page</a> est implémentée.",
-					"Pour afficher le formulaire de rétroaction sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
+					"Pour afficher la composante Rétroaction GC sur la page, créez un <code>&lt;div class=\"wb-disable-allow\"&gt;</code> avec les attributs suivants&nbsp;:<ul><li>Obligatoire&nbsp;: <code>data-ajax-replace=\"https://www.canada.ca/etc/designs/canada/wet-boew/assets/feedback/page-feedback-fr.html\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-link=\"[Contact link text]\"</code></li><li>Obligatoire&nbsp;: <code>data-feedback-url=\"[Contact link URL]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-theme=\"[Texte définissant le thème de votre page]\"</code></li><li>Optionnel&nbsp;: <code>data-feedback-section=\"[Texte définissant la section où réside votre page]\"</code></li></ul>",
 					"De plus, vous pouvez définir les métadonnées suivantes&nbsp;: <code>&lt;meta name=\"dcterms.creator\" content=\"[Department name]\"&gt;</code>"
 				]
 			},
 			"notes": {
 				"en": [
-					"To upgrade from the RAP to the PFT, follow the instructions of the \"Upgrade from RAP\" tab.",
+					"To upgrade from the RAP to the GC feedback component, follow the instructions of the \"Upgrade from RAP\" tab.",
 					"For more information about Data Ajax plugin, please visit <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-en.html\">Data Ajax documentation page</a>."
 				],
 				"fr": [
-					"Pour passer du SUP au ORP, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
+					"Pour passer du SUP à la composante Rétroaction GC, suivez les instructions de l'onglet \"Mise à jour à partir de SUP\".",
 					"Pour plus d'informations sur le plugin Data Ajax, veuillez visiter la <a href=\"https://wet-boew.github.io/wet-boew/docs/ref/data-ajax/data-ajax-fr.html\">page de documentation Data Ajax</a>."
 				]
 			},
@@ -1561,7 +1642,7 @@
 		},
 		{
 			"@id": "_:implement_pft_contact_gcweb",
-			"iteration": "_:iteration_pft_2",
+			"iteration": "_:iteration_pft_4",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -1605,9 +1686,9 @@
 	"changesets": [
 		{
 			"@id": "_:cs_pft_container",
-			"name": "Page feedback tool with AJAX",
+			"name": "GC feedback with AJAX",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_2",
+			"baseOnIteration": "_:iteration_pft_4",
 			"detectableBy": ".pagedetails .wb-disable-allow[data-ajax-replace*=feedback]",
 			"layout": [
 				"At the top-left column in the page details component",
@@ -1634,8 +1715,8 @@
 				"Mandatory: URL of the file being AJAXed",
 				"Optional: data-feedback-section attribute",
 				"Optional: data-feedback-theme attribute",
-				"Mandatory for Page feedback tool with contact link variation: data-feedback-link attribute",
-				"Mandatory for Page feedback tool with contact link variation: data-feedback-url attribute"
+				"Mandatory for GC feedback with contact link variation: data-feedback-link attribute",
+				"Mandatory for GC feedback with contact link variation: data-feedback-url attribute"
 			],
 			"static": "Not applicable",
 			"schema": [
@@ -1647,15 +1728,15 @@
 			],
 			"dependency": [
 				"Page details, version 2, incompatible with version 1",
-				"PFT AJAX content as described by the changeset _:cs_pft_ajax"
+				"GC feedback AJAX content as described by the changeset _:cs_pft_ajax"
 			],
 			"file": "Not applicable"
 		},
 		{
 			"@id": "_:cs_pft_ajax",
-			"name": "Page feedback tool AJAX file",
+			"name": "GC feedback AJAX file",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_pft_2",
+			"baseOnIteration": "_:iteration_pft_4",
 			"dependOnChangeSet": "_:cs_pft_container",
 			"detectableBy": "<div class=\"gc-pft\">",
 			"layout": [
@@ -1679,7 +1760,7 @@
 			],
 			"include": {
 				"@type": "source-code",
-				"description": "HTML fragment which is inserted into the PFT container",
+				"description": "HTML fragment which is inserted into the GC feedback component container",
 				"collapsed": true,
 				"code": {
 					"@type": [ "@id", "rdf:HTML" ],
@@ -1692,7 +1773,7 @@
 				"When user selects \"Yes\", a success message replaces the question and primary buttons"
 			],
 			"guidance": "Not applicable",
-			"context": "To be used by PFT",
+			"context": "To be used by GC feedback component",
 			"configuration": "Not applicable",
 			"static": [
 				"Heading 3: Give feedback about this page - Donnez votre rétroaction sur cette page",
@@ -1952,8 +2033,29 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_pft_4",
+			"name": "GC feedback - Iteration 4",
+			"date": "2026-03",
+			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
+			"fixes": [
+				"Keep visual output after increase of forms font-size."
+			],
+			"predecessor": "_:iteration_pft_3"
+		},
+		{
+			"@id": "_:iteration_pft_3",
+			"name": "GC feedback - Iteration 3",
+			"date": "2026-03",
+			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
+			"fixes": [
+				"PII Modal popup: Updated the popup text, removed the 'Submit comment' button if PII detected"
+			],
+			"successor": "_:iteration_pft_4",
+			"predecessor": "_:iteration_pft_2"
+		},
+		{
 			"@id": "_:iteration_pft_2",
-			"name": "Page feedback tool - Iteration 2",
+			"name": "GC feedback - Iteration 2",
 			"date": "2025-01",
 			"detectableBy": "#gc-pft:has(.gc-pft-no p[role=\"status\"]:nth-of-type(2))",
 			"fixes": [
@@ -1961,6 +2063,7 @@
 				"AJAX fragment: Changed <code>aria-live=\"polite\"</code> to <code>role=\"status\"</code> in \"Tell us why below:\".",
 				"AJAX fragment: Added PII scrub of the comment field."
 			],
+			"successor": "_:iteration_pft_4",
 			"predecessor": "_:iteration_pft_1",
 			"assets": [
 				{
@@ -2009,7 +2112,7 @@
 		},
 		{
 			"@id": "_:iteration_pft_1",
-			"name": "Page feedback tool - Iteration 1",
+			"name": "GC Feedback - Iteration 1",
 			"date": "2023-08",
 			"detectableBy": "#gc-pft",
 			"assets": [
@@ -2017,13 +2120,13 @@
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample",
-					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/demoted/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"></div>"
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"></div>"
 				},
 				{
 					"@type": "source-code",
 					"@language": "en",
 					"description": "Code sample with contact link",
-					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/demoted/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"\ndata-feedback-link=\"[Contact link text]\"\ndata-feedback-url=\"[Contact link URL]\"></div>"
+					"code": "<div class=\"wb-disable-allow\" \ndata-ajax-replace=\"assets/deprecated/page-feedback-v1-en.html\" \ndata-feedback-section=\"[Text defining the theme of your page]\" \ndata-feedback-theme=\"[Text defining the section where your page resides]\"\ndata-feedback-link=\"[Contact link text]\"\ndata-feedback-url=\"[Contact link URL]\"></div>"
 				},
 				{
 					"@type": "source-code",
@@ -2031,7 +2134,7 @@
 					"description": "Ajaxed-in content",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "assets/demoted/page-feedback-v1-en.html"
+						"@value": "assets/deprecated/page-feedback-v1-en.html"
 					}
 				},
 				{
@@ -2052,7 +2155,7 @@
 					"description": "Contenu ajouté via Ajax",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
-						"@value": "assets/demoted/page-feedback-v1-fr.html"
+						"@value": "assets/deprecated/page-feedback-v1-fr.html"
 					}
 				}
 			]
@@ -3210,12 +3313,12 @@
 				"path": "page-details-default-fr.html"
 			},
 			{
-				"title": "Page details with Page feedback tool",
+				"title": "Page details with GC feedback",
 				"language": "en",
 				"path": "page-details-pft-en.html"
 			},
 			{
-				"title": "Détails de la page avec Outil de rétroaction sur la page",
+				"title": "Détails de la page avec Rétroaction GC",
 				"language": "fr",
 				"path": "page-details-pft-fr.html"
 			}
@@ -3264,8 +3367,8 @@
 			},
 			"status": "stable",
 			"description": {
-				"en": "This component may contain the following components: Page feedback tool and Date modified.",
-				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Outil de rétroaction sur la page et Date de modification."
+				"en": "This component may contain the following components: GC feedback and Date modified.",
+				"fr": "Ce composant peut contenir les composants suivants&nbsp;: Rétroaction GC et Date de modification."
 			},
 			"iteration": "_:iteration_pd_3",
 			"example": [
@@ -3274,16 +3377,16 @@
 					"fr": { "href": "page-details-default-fr.html", "text": "Détails de la page par défaut" }
 				},
 				{
-					"en": { "href": "page-details-pft-en.html", "text": "Page details with Page feedback tool" },
-					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec Outil de rétroaction sur la page" }
+					"en": { "href": "page-details-pft-en.html", "text": "Page details with GC feedback" },
+					"fr": { "href": "page-details-pft-fr.html", "text": "Détails de la page avec Rétroaction GC" }
 				},
 				{
 					"en": { "href": "page-details-contributors-en.html", "text": "Page details with Contributors" },
 					"fr": { "href": "page-details-contributors-fr.html", "text": "Détails de la page avec Contributeurs" }
 				},
 				{
-					"en": { "href": "demoted/page-details-v3.2-en.html", "text": "Demoted as of GCWeb v16.2.0 - Page details version 3.2" },
-					"fr": { "href": "demoted/page-details-v3.2-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Détails de la page version 3.2" }
+					"en": { "href": "deprecated/page-details-v3.2-en.html", "text": "Deprecated as of GCWeb v17.0.0 - Page details version 3.2" },
+					"fr": { "href": "deprecated/page-details-v3.2-fr.html", "text": "Obsolète à partir de GCWeb v17.0.0 - Détails de la page version 3.2" }
 				},
 				{
 					"en": { "href": "deprecated/page-details-v3.1-en.html", "text": "Deprecated as of GCWeb v16.0.0 - Page details version 3.1" },
@@ -3343,12 +3446,12 @@
 			"instructions": {
 				"en": [
 					"The Page details component must include the Date modified component. It can also contain the Page feedback component and Contributors component. See below the code sample for each scenario.",
-					"For more information about Page feedback tool component, please visit <a href=\"../../sites/feedback/feedback-docs-en.html\">Page feedback area</a> page.",
+					"For more information about the GC feedback component, please visit <a href=\"../../sites/feedback/feedback-docs-en.html\">Page feedback area</a> page.",
 					"For more information about Contributors component, please visit <a href=\"../../sites/contributors/contributors-doc-en.html\">Contributors</a> page."
 				],
 				"fr": [
-					"Le composant Détails de la page doit inclure la composante Date de modification. Il peut également contenir la composante Outil de rétroaction sur la page et la composante Contributeurs. Voir ci-dessous l'exemple de code pour chaque scénario.",
-					"Pour plus d'informations sur la composante Outil de rétroaction sur la page, veuillez visiter la page <a href=\"../../sites/feedback/feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
+					"Le composant Détails de la page doit inclure la composante Date de modification. Il peut également contenir la composante Rétroaction GC et la composante Contributeurs. Voir ci-dessous l'exemple de code pour chaque scénario.",
+					"Pour plus d'informations sur la composante Rétroaction GC, veuillez visiter la page <a href=\"../../sites/feedback/feedback-docs-fr.html\">Zone de rétroaction sur la page</a>.",
 					"Pour plus d'informations sur la composante de Contributeurs, veuillez visiter la page <a href=\"../../sites/contributors/contributors-doc-fr.html\">Contributeurs</a>."
 				]
 			},
@@ -3364,7 +3467,7 @@
 					},
 					{
 						"@type": "source-code",
-						"description": "Page details with Page feedback tool:",
+						"description": "Page details with GC feedback:",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "samples/page-details-3.3-en.html#pft"
@@ -3390,7 +3493,7 @@
 					},
 					{
 						"@type": "source-code",
-						"description": "Détails de la page avec Outil de rétroaction sur la page :",
+						"description": "Détails de la page avec Rétroaction GC :",
 						"code": {
 							"@type": [ "@id", "rdf:HTML" ],
 							"@value": "samples/page-details-3.3-fr.html#pft"
@@ -3420,11 +3523,11 @@
 			},
 			"instructions": {
 				"en": [
-					"To show the \"Page feedback tool\", in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
+					"To show the GC feedback component, in the page's front-matter, set the property <code>feedback</code> to <code>true</code>.",
 					"To show the page's contributors, in the page's front-matter, set the property <code>contributors</code> to an array of objects containing the following properties: <code>name</code> and <code>url</code>."
 				],
 				"fr": [
-					"Pour afficher l'\"Outil de rétroaction sur la page\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
+					"Pour afficher la composante \"Rétroaction GC\", dans l'en-tête de la page, définissez la propriété <code>feedback</code> à <code>true</code>.",
 					"Pour afficher les contributeurs de la page, dans l'en-tête de la page, définissez la propriété <code>contributors</code> à un tableau d'objets contenant les propriétés suivantes&nbsp;: <code>name</code> et <code>url</code>."
 				]
 			},
@@ -3524,7 +3627,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.3-en.html#pft"
@@ -3533,7 +3636,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec Rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.3-fr.html#pft"
@@ -3591,7 +3694,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.2-en.html#pft"
@@ -3600,7 +3703,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec Rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.2-fr.html#pft"
@@ -3640,7 +3743,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool",
+					"description": "Page details with GC feedback",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.1-en.html#pft"
@@ -3649,7 +3752,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec Rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3.1-fr.html#pft"
@@ -3689,7 +3792,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Default Page details with Page feedback tool",
+					"description": "Default Page details with GC feedback",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-en.html#pft"
@@ -3698,7 +3801,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page",
+					"description": "Détails de la page avec Rétroaction GC",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-fr.html#pft"
@@ -3725,7 +3828,7 @@
 				{
 					"@type": "source-code",
 					"@language": "en",
-					"description": "Page details with Page feedback tool and Share this page",
+					"description": "Page details with GC feedback and Share this page",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-en.html#pftShare"
@@ -3734,7 +3837,7 @@
 				{
 					"@type": "source-code",
 					"@language": "fr",
-					"description": "Détails de la page avec Outil de rétroaction sur la page et Partagez cette page",
+					"description": "Détails de la page avec Rétroaction GC et Partagez cette page",
 					"code": {
 						"@type": [ "rdf:HTML", "@id" ],
 						"@value": "samples/page-details-3-fr.html#pftShare"
@@ -3815,14 +3918,14 @@
 			"detectableBy": "section.pagedetails",
 			"layout": [
 				"Contributors (if included) on the top row",
-				"Page feedback tool (if included) on the top left",
+				"GC feedback (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Contributors (optional) -->\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Contributors (optional) -->\n\t<!-- GC feedback (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3849,18 +3952,18 @@
 		{
 			"@id": "_:cs_pd_5",
 			"name": "Page details - version 3.2",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_pd_5",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3891,14 +3994,14 @@
 			"baseOnIteration": "_:iteration_pd_4",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback (if included) on the top left",
 				"Date modified on bottom left"
 			],
 			"style": "Not applicable",
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3924,12 +4027,12 @@
 		},
 		{
 			"@id": "_:cs_pd_3",
-			"name": "Page details - Compatible with PFT + Accessibility fix (version 3.0)",
+			"name": "Page details - Compatible with GC feedback component + Accessibility fix (version 3.0)",
 			"status": "deprecated",
 			"baseOnIteration": "_:iteration_pd_3",
 			"detectableBy": "section.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback (if included) on the top left",
 				"Share this page button (if included) on the top right",
 				"Date modified on bottom left"
 			],
@@ -3937,7 +4040,7 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
+				"code": "<section class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</section>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3950,7 +4053,7 @@
 			},
 			"logic": "Not applicable",
 			"behaviour": [
-				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+				"If the Share this page button is visible and the GC feedback component is not, the Date modified will be moved to the left."
 			],
 			"guidance": "Not applicable",
 			"context": "Not applicable",
@@ -3966,13 +4069,13 @@
 		},
 		{
 			"@id": "_:cs_pd_2",
-			"name": "Page details - Compatible with PFT + Accessibility fix",
+			"name": "Page details - Compatible with GC feedback + Accessibility fix",
 			"status": "deprecated",
 			"schema:expires": "2024-12",
 			"baseOnIteration": "_:iteration_pd_2",
 			"detectableBy": "footer.pagedetails",
 			"layout": [
-				"Page feedback tool (if included) on the top left",
+				"GC feedback (if included) on the top left",
 				"Share this page button (if included) on the top right",
 				"Date modified on bottom left"
 			],
@@ -3980,7 +4083,7 @@
 			"semantic": {
 				"@type": "source-code",
 				"description": "Source code",
-				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- Page feedback tool (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</footer>"
+				"code": "<footer class=\"pagedetails\">\n\t<h2>[i18nText-pageDetails]</h2>\n\t<!-- GC feedback (optional) -->\n\t<!-- Share this page (optional) -->\n\t<!-- Date modified (mandatory) -->\n</footer>"
 			},
 			"include": {
 				"@type": "source-code",
@@ -3993,7 +4096,7 @@
 			},
 			"logic": "Not applicable",
 			"behaviour": [
-				"If the Share this page button is visible and the Page feedback tool is not, the Date modified will be moved to the left."
+				"If the Share this page button is visible and the GC feedback component is not, the Date modified will be moved to the left."
 			],
 			"guidance": "Not applicable",
 			"context": "Not applicable",

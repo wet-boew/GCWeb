@@ -1,13 +1,11 @@
 
 // Removes styling from the current WET4 Alert
 %alert-first-child-before-disable {
-	& {
-		> {
-			:first-child {
-				&::before {
-					color: inherit;
-					content: none;
-				}
+	> {
+		:first-child {
+			&::before {
+				color: inherit;
+				content: none;
 			}
 		}
 	}
@@ -31,6 +29,11 @@
 	margin-left: 10px;
 	padding: 0 0 0 15px;
 
+	details {
+		margin-left: .5em;
+		padding-top: 15px;
+	}
+
 	> {
 		p, ul, ol {
 			margin-bottom: 0;
@@ -39,14 +42,7 @@
 		* {
 			margin-left: 15px;
 		}
-	}
 
-	details {
-		margin-left: .5em;
-		padding-top: 15px;
-	}
-
-	> {
 		:first-child:not(details) {
 			margin-top: auto;
 			padding-top: 15px;

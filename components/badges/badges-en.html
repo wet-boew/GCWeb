@@ -1,0 +1,58 @@
+---
+{
+	"title": "Badges",
+	"language": "en",
+	"altLangPage": "badges-fr.html",
+	"description": "Working examples of WET-BOEW Badges component",
+	"dateModified": "2025-09-17"
+}
+---
+<div class="wb-prettify all-pre"></div>
+
+<h2>Purpose</h2>
+<p>Use badges (numerical indicators) to highlight the number of updates, new or unread items associated with a link.</p>
+
+<h2>Default</h2>
+<p>Use to highlight new or updated items with a simple grey numeric, or  blue button-like badge.</p>
+<dl>
+	<dt>Grey badge:</dt>
+	<dd>
+		<p><a href="#">Inbox <span class="badge">42<span class="wb-inv"> unread emails</span></span></a></p>
+	</dd>
+	<dt>Blue button-like badge:</dt>
+	<dd>
+		<p><a class="btn btn-primary" href="#">Inbox <span class="badge">42<span class="wb-inv"> unread emails</span></span></a></p>
+	</dd>
+</dl>
+
+<h3>Source code</h3>
+<dl>
+	<dt>Grey badge:</dt>
+	<dd><pre><code>&lt;p&gt;&lt;a href="#"&gt;Inbox &lt;span class="badge"&gt;42&lt;span class="wb-inv"&gt; unread emails&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</code></pre></dd>
+	<dt>Blue button-like badge:</dt>
+	<dd><pre><code>&lt;p&gt;&lt;a class="btn btn-primary" href="#"&gt;Inbox &lt;span class="badge"&gt;42&lt;span class="wb-inv"&gt; unread emails&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</code></pre></dd>
+</dl>
+
+<h2>Self collapsing badges</h2>
+<p>Use when there are no new or unread items. Badges  simply collapse (via <abbr title="cascading style sheet">CSS</abbr> <code>:empty</code> selector).</p>
+
+<section class="alert alert-warning">
+	<h3>Cross-browser compatibility</h3>
+	<p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+</section>
+
+<dl>
+	<dt>No content inside badge:</dt>
+	<dd>
+		<p><a href="#">Inbox <span class="badge"></span></a></p>
+	</dd>
+</dl>
+
+<h3>Source code</h3>
+<dl>
+	<dt>No content inside badge</dt>
+	<dd><pre><code>&lt;p&gt;&lt;a href="#"&gt;Inbox &lt;span class="badge"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</code></pre></dd>
+</dl>
+
+<h2>Reference</h2>
+<p><a href="https://wet-boew.github.io/wet-boew-styleguide/design/badges-en">Web Experience Toolkit Style Guide - Badges</a></p>

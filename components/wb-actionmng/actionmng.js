@@ -179,10 +179,20 @@ var $document = wb.doc,
 			colInt = parseInt( column, 10 ),
 			regex = !!data.regex,
 			smart = ( !data.smart ) ? true : !!data.smart,
-			caseinsen = ( !data.caseinsen ) ? true : !!data.caseinsen;
+			caseinsen = ( !data.caseinsen ) ? true : !!data.caseinsen,
+			sourceElm = $source.get( 0 );
 
 		if ( $source.get( 0 ).nodeName !== "TABLE" ) {
 			throw "Table filtering can only applied on table";
+		}
+
+		// If the DataTables plugin has not been initialized yet, listen for when wb-tables fires wb.ready(), then retry
+		// This ensures DataTables is initialized before attempting to call .api() on it
+		if ( sourceElm.className.indexOf( "wb-tables-inited" ) === -1 || !$.fn.dataTable || !$.fn.dataTable.isDataTable( sourceElm ) ) {
+			$source.one( "wb-ready.wb-tables", function() {
+				tblflrAct( event, data );
+			} );
+			return;
 		}
 
 		$datatable = $source.dataTable( { "retrieve": true } ).api();
@@ -430,6 +440,7 @@ var $document = wb.doc,
 				input.setAttribute( "checked", true );
 			}
 		} );
+		$( sourceElm ).trigger( "wb-contentupdated" );
 	},
 	patchFixArray = function( patchArray, val, basePointer ) {
 

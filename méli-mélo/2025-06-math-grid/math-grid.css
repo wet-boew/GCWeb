@@ -1,0 +1,53 @@
+    .wb-math-grid {
+      border-collapse: collapse;
+      display: table;
+      position: relative;
+    }
+    .wb-math-grid.mg-spcd {
+		border-collapse: separate;
+		border-spacing: 0px 5px;
+	}
+    .wb-math-grid.p-0 div.mg-cell, div.mg-row.p-0 div.mg-cell {
+      line-height: 1.2em;
+      padding: 0px;
+    }
+   .wb-math-grid div.mg-row {
+      display: table-row;
+    }
+    .wb-math-grid div.mg-row > div.mg-cell {
+      display: table-cell;
+      padding: 0px 3px 0px 3px;
+    }
+  .wb-math-grid div.mg-row >  div.mg-cell:before {
+      content: " ";
+    }
+    .mg-scroll {
+      overflow-x: auto;
+      padding: 5px 5px 5px 0px;
+    }
+    @media screen and (max-width: 767px) {
+      .mg-scroll {
+        border: 1px solid #ddd;
+        overflow-x: scroll;
+        width: 100%;
+      }
+    }
+    .wb-math-grid div.mg-cell.mg-brdr-tp, .wb-math-grid div.mg-row.mg-brdr-tp div.mg-cell {
+      border-top: 3px solid #333;
+    }
+    .wb-math-grid div.mg-cell.mg-brdr-bttm, div.mg-row.mg-brdr-bttm div.mg-cell {
+      border-bottom: 3px solid #333;
+    }
+    .wb-math-grid div.mg-cell.mg-brdr-lft {
+      border-left: 3px solid #333;
+    }
+    .wb-math-grid div.mg-cell.mg-brdr-rght {
+      border-right: 3px solid #333;
+    }
+    .wb-math-grid div.mg-cell.mg-brdr-otln {
+      border: 3px solid #333;
+    }
+    /* hides anything not assigned to the cell */
+  .wb-math-grid  div.mg-row > :not(.mg-cell) {
+      display: none;
+    }

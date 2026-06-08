@@ -14,10 +14,10 @@
 		"en": "Use the contributors pattern to highlight institutions/organizations that have contributed to the content on a webpage.",
 		"fr": "Utilisez la configuration collaborateurs pour mettre en évidence les institutions ou organismes ayant contribué au contenu d’une page Web."
 	},
-	"modified": "2024-12-13",
+	"modified": "2025-11-21",
 	"componentName": "contributors",
 	"status": "stable",
-	"version": "1.1",
+	"version": "1.2.1",
 	"pages": {
 		"docs": [
 			{
@@ -68,15 +68,15 @@
 				"en": "Links to institutions or organizations that support the content on the page.",
 				"fr": "Liens menant aux institutions ou aux organisations qui soutiennent le contenu sur la page."
 			},
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"example": [
 				{
 					"en": { "href": "contributors-en.html", "text": "Contributors" },
 					"fr": { "href": "contributors-fr.html", "text": "Collaborateurs" }
 				},
 				{
-					"en": { "href": "demoted/contributors-v1-en.html", "text": "Demoted as of GCWeb v16.2.0 - Contributors version 1.0" },
-					"fr": { "href": "demoted/contributors-v1-fr.html", "text": "Rétrogradée à partir de GCWeb v16.2.0 - Collaborateurs 1.0" }
+					"en": { "href": "deprecated/contributors-v1-en.html", "text": "Deprecated as of GCWeb v17.0.0 - Contributors version 1.0" },
+					"fr": { "href": "deprecated/contributors-v1-fr.html", "text": "Obsolète à partir de GCWeb v17.0.0 - Collaborateurs 1.0" }
 				}
 			],
 			"implementation": [
@@ -85,6 +85,14 @@
 				"_:implement_contributors_migrate_1_to_1.1"
 			],
 			"history": [
+				{
+					"en": "November 2025 - Reduced spacing between vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Espacement réduit entre les barres verticales dans la vue Desktop."
+				},
+				{
+					"en": "November 2025 - Bullets replaced with vertical bars in Desktop View.",
+					"fr": "Novembre 2025 - Remplacer les puces par des barres verticales dans la vue Desktop."
+				},
 				{
 					"en": "December 2024 - Component context of use changed from anywhere in the <code>&lt;main></code> to the page details section.",
 					"fr": "Décembre 2024 - Le contexte d'utilisation de la composante a changé de n'importe où dans le <code>&lt;main></code> à la section détails de la page."
@@ -103,7 +111,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_contributors",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -127,21 +135,21 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"gc-contributors\">\n\t<h2>From:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+						"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code :",
-						"code": "<section class=\"gc-contributors\">\n\t<h2>De&nbsp;:</h2>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
+						"code": "<section class=\"gc-contributors\">\n\t<h3>De&nbsp;:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Ministère ou agence 1]</a></li>\n\t\t<li><a href=\"#\">[Ministère ou agence 2]</a></li>\n\t</ul>\n</section>"
 					}
 				]
 			}
 		},
 		{
 			"@id": "_:implement_contributors_gcweb",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "GCWeb Jekyll",
 				"fr": "GCWeb Jekyll"
@@ -177,7 +185,7 @@
 		},
 		{
 			"@id": "_:implement_contributors_migrate_1_to_1.1",
-			"iteration": "_:iteration_contributors_3",
+			"iteration": "_:iteration_contributors_5",
 			"name": {
 				"en": "Migrate from version 1 to 1.1",
 				"fr": "Migration de la version 1 à 1.1"
@@ -208,6 +216,43 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_contributors_5",
+			"name": "Contributors - Iteration 5",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"fixes": [
+				"Reduced spacing between vertical bars in Desktop View."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_4"
+		},
+		{
+			"@id": "_:iteration_contributors_4",
+			"name": "Contributors - Iteration 4",
+			"date": "2025-11",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"additions": [
+				"Changed visual appearance of the page when in desktop view. When multiple components are listed, vertical bars are used instead of bullets/dots."
+			],
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
+				}
+			],
+			"predecessor": "_:iteration_contributors_3",
+			"successor": "_:iteration_contributors_5"
+		},
+		{
 			"@id": "_:iteration_contributors_3",
 			"name": "Contributors - Iteration 3",
 			"date": "2024-12",
@@ -224,7 +269,8 @@
 					"code": "<section class=\"gc-contributors\">\n\t<h3>From:</h3>\n\t<ul>\n\t\t<li><a href=\"#\">[Department or agency 1]</a></li>\n\t\t<li><a href=\"#\">[Department or agency 2]</a></li>\n\t</ul>\n</section>"
 				}
 			],
-			"predecessor": "_:iteration_contributors_2"
+			"predecessor": "_:iteration_contributors_2",
+			"successor": "_:iteration_contributors_4"
 		},
 		{
 			"@id": "_:iteration_contributors_2",
@@ -264,8 +310,27 @@
 	"changesets": [
 		{
 			"@id": "_:cs_contributors",
-			"name": "Contributors - Version 1.1",
+			"name": "Contributors - Version 1.2",
 			"status": "stable",
+			"baseOnIteration": "_:iteration_contributors_5",
+			"detectableBy": ".pagedetails .gc-contributors",
+			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
+			"semantic": "section>h3+ul>li*n>a",
+			"style": "The <h2> font size is smaller. The links are bolded. Vertical bars used in medium screens and up and bullet points used in smaller screens.",
+			"context": "Located in the page details section of the page above the date modified component.",
+			"static": [
+				"From:",
+				"De :"
+			],
+			"schema": [
+				"Array of contributors objects",
+				"contributors object: contributor name, contributor link"
+			]
+		},
+		{
+			"@id": "_:cs_contributors",
+			"name": "Contributors - Version 1.1",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_contributors_3",
 			"detectableBy": ".pagedetails .gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
@@ -284,7 +349,7 @@
 		{
 			"@id": "_:cs_contributors",
 			"name": "Contributors - Version 1",
-			"status": "demoted",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_contributors_2",
 			"detectableBy": ".gc-contributors",
 			"layout": "Title and list are displayed inline on medium screens and up. They are displayed vertically on smaller screens.",
@@ -300,8 +365,8 @@
 				"contributors object: contributor name, contributor link"
 			],
 			"test": [
-				"<a href=\"demoted/contributors-v1-en.html\">Contributors version 1</a>",
-				"<a href=\"demoted/contributors-v1-fr.html\">Contributeurs version 1</a>"
+				"<a href=\"deprecated/contributors-v1-en.html\">Contributors version 1</a>",
+				"<a href=\"deprecated/contributors-v1-fr.html\">Contributeurs version 1</a>"
 			]
 		}
 	]

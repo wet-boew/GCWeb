@@ -5,45 +5,38 @@
 */
 
 .page-type-theme {
-	#gridContainer {
-		> nav {
-			#theme-sl-start,
-			#theme-sl-end {
-				display: none !important;
-			}
+	#theme-nav {
+		ul {
+			display: none;
 
-			#menuBtn.expanded + ul {
+			.wb-disable & {
 				display: block;
 			}
 
-			ul {
-				display: none;
+			li {
+				border-bottom: #f5f5f5 solid 1px;
+				position: relative;
 
-				.wb-disable & {
-					display: block;
+				a {
+					&::after {
+						content: "\203A";
+						font-size: 1.5em;
+						margin-left: 10px;
+						position: absolute;
+						right: 14px;
+						top: 50%;
+						transform: translateY(-50%);
+					}
 				}
 
-				li {
-					border-bottom: #f5f5f5 solid 1px;
-					position: relative;
-
-					a {
-						&::after {
-							content: "\203A";
-							font-size: 1.5em;
-							margin-left: 10px;
-							position: absolute;
-							right: 14px;
-							top: 50%;
-							transform: translateY(-50%);
-						}
-					}
-
-					&.active a::after {
-						display: none;
-					}
+				&.active a::after {
+					display: none;
 				}
 			}
 		}
+	}
+
+	#menu-btn.expanded + ul {
+		display: block;
 	}
 }

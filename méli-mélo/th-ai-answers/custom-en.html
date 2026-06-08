@@ -1,0 +1,42 @@
+---
+title: AI answers thematic with custom content
+dateModified: "2026-01-08"
+description: AI answers thematic documentation and working example
+lang: en
+altLangPage: custom-fr.html
+css:
+- style.css
+script:
+- ai-answers.js
+---
+
+<p>This page serves as an example of for AI answers beta testing banner and rescue link with custom content.</p>
+
+<p>To customize the text content of the AI Answers banner and rescue link, you can add the following attributes within the <code>ai-answers-trigger</code> container:</p>
+<ul>
+	<li><code>data-banner-title</code> for the banner title</li>
+	<li><code>data-banner-link-text</code> for the banner link text</li>
+	<li><code>data-rescue-title</code> for the rescue title</li>
+	<li><code>data-rescue-link-text</code> for the rescue link text</li>
+</ul>
+
+<h2>Notes</h2>
+<ul>
+	<li>Make sure to escape HTML entities in the attribute values, such as using <code>&amp;lt;</code> for <code>&lt;</code> and <code>&amp;gt;</code> for <code>&gt;</code>.</li>
+	<li>Every attribute is optional.</li>
+	<li>To remove the title before the link, simply add the the attribute with an empty value.</li>
+</ul>
+
+<div class="ai-answers-trigger"
+	data-banner-title=""
+	data-banner-link-text="Ask AI Answers for assistance"
+	data-rescue-title="&lt;strong&gt;Need help?&lt;/strong&gt;"
+	data-rescue-link-text="Ask AI Answers for help"></div>
+
+<h2>Instructions</h2>
+<p>Insert the following code snippet in your page to activate the AI Answers banner.</p>
+<pre><code>&lt;div class="ai-answers-trigger"
+	data-banner-title=""
+	data-banner-link-text="Ask AI Answers for assistance"
+	data-rescue-title="&amp;lt;strong&amp;gt;Need help?&amp;lt;/strong&amp;gt;"
+	data-rescue-link-text="Ask AI Answers for help">&lt;/div></code></pre>

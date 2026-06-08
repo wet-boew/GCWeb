@@ -1,29 +1,31 @@
 ---
 {
-	"title": "Developing for GCWeb",
-	"language": "en",
-	"description": "Instructions on how to develop for the Canada.ca theme.",
-	"altLangPage": "developing-fr.html",
-	"dateModified": "2022-04-12"
+  "title": "Developing for GCWeb",
+  "language": "en",
+  "description": "Instructions on how to develop for the Canada.ca theme.",
+  "altLangPage": "developing-fr.html",
+  "dateModified": "2022-04-12",
 }
 ---
+
+Found a C&amp;IA implementation issue or want to contribute to its development? Let us know by submitting a [GCWeb issue](https://github.com/wet-boew/GCWeb/issues/new?title=C%26IA%20implementation%20error%3A%20), creating a [pull request](https://github.com/wet-boew/GCWeb/pulls) or by participating at one of our weekly [WET office hours](https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW) (formerly known as WET-BOEW code sprint) every Tuesday.
 
 Install NodeJS
 
 ## Building GCweb
 
-* Build a local development version: `grunt` or `grunt debug`
-* Run code quality check: `grunt test`
-* Build production files: `grunt dist`
-* Compile and assemble méli-mélo:
-  * Run local: `grunt méli-mélo`
-  * Run from compiled dist: `grunt méli-mélo-runLocal`
-  * Run from wet-boew sites : `grunt méli-mélo-remote`
-* Regenerate site web content: `grunt site-contents`
-  * `_data/components.json`
-  * `_data/sites.json`
-  * `_data/templates.json`
-  * `_wetboew-demos/**`
+- Build a local development version: `grunt` or `grunt debug`
+- Run code quality check: `grunt test`
+- Build production files: `grunt dist`
+- Compile and assemble méli-mélo:
+  - Run local: `grunt méli-mélo`
+  - Run from compiled dist: `grunt méli-mélo-runLocal`
+  - Run from wet-boew sites : `grunt méli-mélo-remote`
+- Regenerate site web content: `grunt site-contents`
+  - `_data/components.json`
+  - `_data/sites.json`
+  - `_data/templates.json`
+  - `_wetboew-demos/**`
 
 ## Run GCWeb website locally
 
@@ -62,11 +64,11 @@ Install ACT - [https://github.com/nektos/act](https://github.com/nektos/act)
 
 GitHub fork needed:
 
-* [wet-boew/gcweb](https://github.com/wet-boew/gcweb)
-* [wet-boew/gcweb-jekyll](https://github.com/wet-boew/gcweb-jekyll)
-* [wet-boew/gcweb-compiled-demos](https://github.com/wet-boew/gcweb-compiled-demos)
-* [wet-boew/themes-dist](https://github.com/wet-boew/themes-dist)
-* [wet-boew/themes-cdn](https://github.com/wet-boew/themes-cdn)
+- [wet-boew/gcweb](https://github.com/wet-boew/gcweb)
+- [wet-boew/gcweb-jekyll](https://github.com/wet-boew/gcweb-jekyll)
+- [wet-boew/gcweb-compiled-demos](https://github.com/wet-boew/gcweb-compiled-demos)
+- [wet-boew/themes-dist](https://github.com/wet-boew/themes-dist)
+- [wet-boew/themes-cdn](https://github.com/wet-boew/themes-cdn)
 
 Run the continuous deployment script
 
@@ -76,9 +78,9 @@ act -f deploy-gcweb -s my_token=<XXXXXXXXXXXXXX> -s my_username="<GITHUB USERNAM
 
 Where:
 
-* `<GITHUB USERNAME>`: Your name, like "John Doe"
-* `<GITHUB HANDLE>`: Your github id
-* `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
+- `<GITHUB USERNAME>`: Your name, like "John Doe"
+- `<GITHUB HANDLE>`: Your github id
+- `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
 
 ### Run additional CI test locally
 
@@ -118,9 +120,9 @@ curl -u <GITHUB HANDLE>:<XXXXXXXXXXXXXX> -X POST https://api.github.com/repos/<G
 
 Where:
 
-* `<GITHUB HANDLE>`: Your github id
-* `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
-* `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
+- `<GITHUB HANDLE>`: Your github id
+- `<XXXXXXXXXXXXXX>`: Your personal access token with access to public repository
+- `<GITHUB REPOSITORY>`: Your web site github repository, like "jekyll-website"
 
 Note: A manual update is required if you have specified a version for your jekyll remote theme in your `config.yml` file.
 
@@ -132,8 +134,8 @@ To be able to view GCWeb through Github, you'll have to setup your repo to use G
 
 1. In your GCWeb fork, go to the Settings tab.
 2. In the Settings page, go to the Pages tab.
-    * **Source**: deploy from a branch
-    * **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+   - **Source**: deploy from a branch
+   - **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
 3. Still in the Settings pages, go to the Environments tab.
 4. Select "github-pages" environment.
 5. Under "Deployment branches and tags", if it is not already there, add the branch `dev`.

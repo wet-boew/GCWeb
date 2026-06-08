@@ -1,10 +1,11 @@
 {
   "name": "GCWeb",
-  "version": "16.6.1",
+  "version": "19.1.1",
   "description": "Web Experience Toolkit (WET): Canada.ca Theme Reorg",
   "main": "index.html",
   "scripts": {
-    "post": "grunt"
+    "post": "grunt",
+    "jekyll": "bundle exec jekyll serve --config _config.yml,_localJekyll.yml --incremental"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,20 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-sass": "3.4.3",
-    "wet-boew": "github:wet-boew/wet-boew#v4.0.88"
+    "wet-boew": "github:wet-boew/wet-boew#v4.0.96.1"
+  },
+  "peerDependencies": {
+    "@cdssnc/gcds-components": "1.0.0"
+  },
+  "io.github.wet-boew": {
+    "gcdsSriJs": "sha384-QHV+zvCrAiITDds95HYvkDrBJOUItYeeo4FNEq/cSxJDIrDbIRnwc3brrTxv8Oi6",
+    "gcdsSriCss": "sha384-lRbhe4rCI9asFFK+Bho5e2mck4JXt3I08f6WNGpgZ1mRqT3P11QErcxIeLIRhWOa",
+    "gcdsPiloting": [ "gcds-card", "gcds-grid > gcds-card" ]
+  },
+  "peerDependenciesMeta": {
+    "@cdssnc/gcds-components": {
+      "optional": true
+    }
   },
   "browserslist": [
     "last 2 versions",
@@ -21,14 +35,14 @@
     "ie > 10"
   ],
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.0.4",
+    "@double-great/stylelint-a11y": "^3.4.11",
     "@lodder/grunt-postcss": "^3.0.1",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.5.0",
     "coffeescript": "^2.7.0",
-    "eslint": "^9.28.0",
+    "eslint": "^10.3.0",
     "eslint-config-jquery": "^3.0.2",
-    "globals": "^16.2.0",
-    "grunt": "^1.6.1",
+    "globals": "^17.6.0",
+    "grunt": "^1.6.2",
     "grunt-banner": "^0.6.0",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-concat": "^2.1.0",
@@ -36,21 +50,21 @@
     "grunt-contrib-cssmin": "^5.0.0",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-eslint": "^25.0.0",
-    "grunt-html": "^17.1.0",
+    "grunt-eslint": "^26.0.0",
+    "grunt-html": "^18.0.2",
     "grunt-jsonlint": "^3.0.0",
-    "grunt-lintspaces": "^0.12.0",
+    "grunt-lintspaces": "^1.0.0",
     "grunt-markdownlint": "^3.1.6",
-    "grunt-sass": "^4.0.0",
+    "grunt-sass": "^4.1.0",
     "grunt-sri": "^0.2.0",
-    "grunt-stylelint": "^0.20.1",
-    "js-yaml": "^4.1.0",
+    "grunt-stylelint": "^0.21.0",
+    "js-yaml": "^4.1.1",
     "load-grunt-tasks": "^5.1.0",
-    "postcss": "^8.4.47",
-    "sass": "^1.89.0",
-    "stylelint": "^16.19.1",
-    "stylelint-config-standard-scss": "^15.0.1",
-    "stylelint-order": "^7.0.0",
+    "postcss": "^8.5.13",
+    "sass": "^1.98.0",
+    "stylelint": "^17.10.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^8.1.1",
     "time-grunt": "^2.0.0"
   }
 }
