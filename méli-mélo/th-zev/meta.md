@@ -4,7 +4,7 @@ lang: en
 title: Zero Emission Vehicles (ZEV) Theme
 description: Background colours used for NRCan's ZEV campaign
 componentName: th-zev
-expiry: May 31, 2026
+expiry: May 31, 2027
 mainPage: zev.html
 cssClass:
 - bg-zev-purple
