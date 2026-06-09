@@ -222,6 +222,7 @@ module.exports = (grunt) ->
 			"copy:depsJS_custom"
 			"copy:gcdsLoader"
 			"usebanner:gcdsLoader"
+			"embed-component-styles"
 		]
 	)
 
@@ -258,6 +259,44 @@ module.exports = (grunt) ->
 				homepage: "https://github.com/wet-boew/" + addToRepo + "#readme"
 			};
 			grunt.file.write(writeTo, JSON.stringify(pkg, null, 2));
+	)
+
+	@registerTask(
+		"embed-component-styles"
+		->
+			# Add your component URL here. Make sure to include
+			# @[component-name]_styles@ in your JS file, where [component-name]
+			# equals to the name of the JS file, CSS file, and the name of your component folder
+			components = [
+				"components/combo-box"
+			]
+			themeJsPath = "dist/GCWeb/js/theme.js"
+
+			unless grunt.file.exists themeJsPath
+				grunt.fail.warn "Could not find #{themeJsPath}"
+
+			themeJs = grunt.file.read themeJsPath
+
+			for componentPath in components
+				componentName = componentPath.split("/").pop()
+				cssFiles = grunt.file.expand {cwd: componentPath}, ["*.css"]
+
+				unless cssFiles.length
+					grunt.log.warn "No CSS file found in #{componentPath}"
+					continue
+
+				cssPath = "#{componentPath}/#{cssFiles[0]}"
+				cssContent = grunt.file.read cssPath
+				placeholder = "@#{componentName}_styles@"
+
+				if themeJs.indexOf(placeholder) is -1
+					grunt.log.warn "Placeholder not found: #{placeholder}"
+					continue
+
+				escapedPlaceholder = placeholder.replace /[.*+?^${}()|[\]\\]/g, "\\$&"
+				themeJs = themeJs.replace new RegExp(escapedPlaceholder, "g"), cssContent
+				grunt.log.ok "Embedded styles for #{componentName}"
+				grunt.file.write themeJsPath, themeJs
 	)
 
 	@registerMultiTask(

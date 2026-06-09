@@ -61,6 +61,8 @@ class ComboBoxComponent extends HTMLElement {
 		this.allowSelectAll = false; // Feature flag for select-all option
 		this.pageLanguage = "en"; // Default language
 		this.originalPlaceholder = ""; // Store original placeholder
+		this.instanceId = Math.random().toString( 36 ).substr( 2, 9 ); // Unique ID per instance
+		this.optionsCache = new Map(); // Data layer: option value → <li> element
 	}
 
 	getLocalizedText() {
@@ -87,31 +89,63 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Initializes the Web Component with styles and markup
 	async initializeComponent() {
+
+		// Validate that a label is provided (via attribute or slot)
+		const label = this.getAttribute( "label" ) || this.querySelector( "[slot='label']" )?.textContent.trim();
+		if ( !label ) {
+			console.error( "gc-combobox: A label is required. Provide a label attribute or a <span slot=\"label\"> element." );
+			return;
+		}
+
+		// Validate that options are provided (via attribute or slot)
+		const hasOptionsAttr = this.hasAttribute( "options" );
+		const hasOptionsSlot = !!this.querySelector( "[slot='options']" );
+		if ( !hasOptionsAttr && !hasOptionsSlot ) {
+			console.error( "gc-combobox: Options are required. Provide an options attribute pointing to a JSON file, or a <select slot=\"options\"> element." );
+			return;
+		}
+
 		this.allOptions = await this.parseOptions();
 		this.filteredOptions = [ ...this.allOptions ];
+		this.buildOptionsCache();
 
 		await this.render();
 		this.cacheElements();
 		this.attachEventListeners();
 	}
 
-	// Loads styles from combo-box.css file
-	static async loadStyles() {
-		if ( ComboBoxComponent.stylesCache !== null ) {
-			return ComboBoxComponent.stylesCache;
+	// Builds the data layer: creates all option <li> elements once with stable IDs
+	buildOptionsCache() {
+		this.optionsCache = new Map();
+
+		this.allOptions.forEach( ( option, index ) => {
+			const optionElement = document.createElement( "li" );
+			optionElement.id = `combo-option-${ this.instanceId }-${ index }`;
+			optionElement.className = "combo-box-option";
+			optionElement.setAttribute( "role", "option" );
+			optionElement.setAttribute( "aria-selected", "false" );
+			optionElement.setAttribute( "data-option-text", option.value );
+			optionElement.textContent = option.label;
+			this.optionsCache.set( option.value, optionElement );
+		} );
+
+		// Build the "Select all options" element once (if feature is enabled)
+		if ( this.allowSelectAll ) {
+			this.selectAllOptionElement = document.createElement( "li" );
+			this.selectAllOptionElement.id = `combo-option-select-all-${ this.instanceId }`;
+			this.selectAllOptionElement.className = "combo-box-option combo-box-option-select-all";
+			this.selectAllOptionElement.setAttribute( "role", "option" );
+			this.selectAllOptionElement.setAttribute( "aria-selected", "false" );
+			this.selectAllOptionElement.setAttribute( "data-select-all", "true" );
+			this.selectAllOptionElement.textContent = this.getLocalizedText().selectAllOptions;
 		}
 
-		try {
-			const response = await fetch( "combo-box.css" );
-			if ( !response.ok ) {
-				throw new Error( `Failed to load combo-box.css: ${ response.statusText }` );
-			}
-			ComboBoxComponent.stylesCache = await response.text();
-			return ComboBoxComponent.stylesCache;
-		} catch ( e ) {
-			console.error( "Failed to load styles from combo-box.css:", e );
-			return ""; // Return empty string as fallback
-		}
+		// Build the empty state element once
+		this.emptyStateElement = document.createElement( "li" );
+		this.emptyStateElement.className = "combo-box-option empty-state";
+		this.emptyStateElement.setAttribute( "role", "option" );
+		this.emptyStateElement.setAttribute( "aria-disabled", "true" );
+		this.emptyStateElement.textContent = this.getLocalizedText().noMatchingOptions;
 	}
 
 	// Parses options from JSON file specified in options attribute
@@ -163,7 +197,9 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Get placeholder from attribute
 		const placeholder = this.getAttribute( "placeholder" ) || "";
-		const styles = await this.getStyles();
+		const styles = `
+			@combo-box_styles@
+		`;
 		this.shadowRoot.innerHTML = `
 			<style>
 				${ styles }
@@ -188,13 +224,13 @@ class ComboBoxComponent extends HTMLElement {
 								aria-autocomplete="list"
 								aria-controls="combo-box-list"
 								aria-expanded="false"
+								aria-haspopup="listbox"
 							>
 						</div>
 						<ul
 							id="combo-box-list"
 							class="combo-box-list"
 							role="listbox"
-							aria-multiselectable="true"
 							aria-label="${ this.escapeHtml( this.getLocalizedText().availableOptions ) }"
 							hidden
 						>
@@ -257,7 +293,7 @@ class ComboBoxComponent extends HTMLElement {
 			}
 		} );
 
-		this.list.addEventListener( "mouseenter", ( e ) => {
+		this.list.addEventListener( "mouseover", ( e ) => {
 			const option = e.target.closest( "[role='option']" );
 			if ( option ) {
 				const options = Array.from( this.list.querySelectorAll( "[role='option']" ) );
@@ -337,10 +373,12 @@ class ComboBoxComponent extends HTMLElement {
 			case "Backspace":
 				if ( this.input.value === "" && this.selectedItems.length > 0 ) {
 					e.preventDefault();
-					this.selectedItems.pop();
+					const removedItem = this.selectedItems.pop();
 					this.renderTags();
 					this.updateFilteredOptions();
 					this.renderOptions();
+					this.announce( `${ removedItem.label } ${ this.getLocalizedText().removed }` );
+					this.dispatchChangeEvent();
 					this.syncHiddenInputs();
 				}
 				break;
@@ -361,7 +399,8 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		if ( this.highlightedIndex < this.filteredOptions.length - 1 ) {
+		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
+		if ( this.highlightedIndex < options.length - 1 ) {
 			this.highlightedIndex++;
 		} else {
 			this.highlightedIndex = 0;
@@ -376,17 +415,18 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
+		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
 		if ( this.highlightedIndex > 0 ) {
 			this.highlightedIndex--;
 		} else {
-			this.highlightedIndex = this.filteredOptions.length - 1;
+			this.highlightedIndex = options.length - 1;
 		}
 		this.updateHighlight();
 	}
 
 	// Updates the visual highlight for the current option
 	updateHighlight() {
-		const options = this.list.querySelectorAll( "[role='option']" );
+		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
 		options.forEach( ( option, index ) => {
 			if ( index === this.highlightedIndex ) {
 				option.setAttribute( "aria-selected", "true" );
@@ -479,7 +519,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.input.focus();
 
 		// Announce removal to screen readers
-		this.announce( `${ option.label }` + `${ this.getLocalizedText().removed }` );
+		this.announce( `${ option.label }` + ` ${ this.getLocalizedText().removed }` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
@@ -560,52 +600,28 @@ class ComboBoxComponent extends HTMLElement {
 		}
 	}
 
-	// Renders the filtered options in the dropdown
+	// Renders the filtered options in the dropdown using the data layer cache
 	renderOptions() {
 		this.list.innerHTML = "";
 		this.input.removeAttribute( "aria-activedescendant" );
 
-		// If all options are selected, show "No options available"
-		if ( this.allOptionsSelected ) {
-			const emptyOption = document.createElement( "li" );
-			emptyOption.className = "combo-box-option empty-state";
-			emptyOption.setAttribute( "role", "option" );
-			emptyOption.setAttribute( "aria-disabled", "true" );
-			emptyOption.textContent = this.constructor.defaults.i18n[ this.pageLanguage ].noMatchingOptions;
-			this.list.appendChild( emptyOption );
-		} else if ( this.filteredOptions.length === 0 ) {
-			const emptyOption = document.createElement( "li" );
-			emptyOption.className = "combo-box-option empty-state";
-			emptyOption.setAttribute( "role", "option" );
-			emptyOption.setAttribute( "aria-disabled", "true" );
-			emptyOption.textContent = this.getLocalizedText().noMatchingOptions;
-			this.list.appendChild( emptyOption );
+		if ( this.allOptionsSelected || this.filteredOptions.length === 0 ) {
+			this.list.appendChild( this.emptyStateElement );
 		} else {
 
-			// Add "Select all options" at the top if enabled
+			// Prepend "Select all options" from cache if enabled
 			if ( this.allowSelectAll ) {
-				const selectAllOption = document.createElement( "li" );
-				const selectAllId = `combo-option-select-all-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
-				selectAllOption.id = selectAllId;
-				selectAllOption.className = "combo-box-option combo-box-option-select-all";
-				selectAllOption.setAttribute( "role", "option" );
-				selectAllOption.setAttribute( "aria-selected", "false" );
-				selectAllOption.setAttribute( "data-select-all", "true" );
-				selectAllOption.textContent = this.getLocalizedText().selectAllOptions;
-				this.list.appendChild( selectAllOption );
+				this.selectAllOptionElement.setAttribute( "aria-selected", "false" );
+				this.list.appendChild( this.selectAllOptionElement );
 			}
 
-			// Add regular options
+			// Append only the filtered options from cache
 			this.filteredOptions.forEach( ( option ) => {
-				const optionElement = document.createElement( "li" );
-				const optionId = `combo-option-${ Math.random().toString( 36 ).substr( 2, 9 ) }`;
-				optionElement.id = optionId;
-				optionElement.className = "combo-box-option";
-				optionElement.setAttribute( "role", "option" );
-				optionElement.setAttribute( "aria-selected", "false" );
-				optionElement.setAttribute( "data-option-text", option.value );
-				optionElement.textContent = option.label;
-				this.list.appendChild( optionElement );
+				const el = this.optionsCache.get( option.value );
+				if ( el ) {
+					el.setAttribute( "aria-selected", "false" );
+					this.list.appendChild( el );
+				}
 			} );
 		}
 
@@ -627,6 +643,7 @@ class ComboBoxComponent extends HTMLElement {
 			this.isOpen = false;
 			this.list.setAttribute( "hidden", "" );
 			this.input.setAttribute( "aria-expanded", "false" );
+			this.input.removeAttribute( "aria-activedescendant" );
 			this.highlightedIndex = -1;
 		}
 	}
@@ -672,11 +689,6 @@ class ComboBoxComponent extends HTMLElement {
 	// Public API: Get selected values as array (useful for form handling)
 	getSelectedValues() {
 		return this.selectedItems.map( item => item.value );
-	}
-
-	// Returns the encapsulated styles for the Shadow DOM
-	async getStyles() {
-		return ComboBoxComponent.loadStyles();
 	}
 
 	// Public API: Get selected items
@@ -745,6 +757,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.selectedItems = this.selectedItems.filter( item =>
 			this.allOptions.some( o => o.value === item.value )
 		);
+		this.buildOptionsCache();
 		this.updateFilteredOptions();
 		this.renderTags();
 		this.renderOptions();
