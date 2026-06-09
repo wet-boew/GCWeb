@@ -63,7 +63,13 @@ var componentName = "gcweb-menu",
 			setMnu3LevelOrientationExpandState( false, isMediumView );
 		}
 
-		const desc = document.createElement( "p" );
+		const nav = document.querySelector( " nav" + selector ),
+			buttonID = "mainMenuBtn",
+			desc = document.createElement( "p" );
+		subElm.previousElementSibling.setAttribute( "id", buttonID );
+		nav.setAttribute( "aria-labelledby", buttonID );
+		subElm.previousElementSibling.lastElementChild.setAttribute( "aria-hidden", "true" );
+
 		desc.id = "gcweb-menu-desc";
 		desc.hidden = true;
 		desc.textContent = i18nInstruction;
