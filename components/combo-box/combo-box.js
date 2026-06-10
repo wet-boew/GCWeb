@@ -20,8 +20,8 @@ class ComboBoxComponent extends HTMLElement {
 		i18n: {
 			"en": {
 				selectAll: "Select all",
-				comboBoxInput: "Search and select items",
-				selectedItems: "Selected items",
+				comboBoxInput: "Combo Box text input",
+				itemsSelected: "items selected",
 				selectAllOptions: "Select all options",
 				deselectAllOptions: "Deselect all options",
 				availableOptions: "Available options",
@@ -34,8 +34,8 @@ class ComboBoxComponent extends HTMLElement {
 			},
 			"fr": {
 				selectAll: "Sélectionner tous",
-				comboBoxInput: "Rechercher et sélectionner des éléments",
-				selectedItems: "Éléments sélectionnés",
+				comboBoxInput: "Champe de texte dans le Boîte Combo",
+				itemsSelected: "éléments sélectionnés",
 				selectAllOptions: "Sélectionner toutes les options",
 				deselectAllOptions: "Désélectionner toutes les options",
 				availableOptions: "Options disponibles",
@@ -211,7 +211,7 @@ class ComboBoxComponent extends HTMLElement {
 						<slot name="label">${ this.escapeHtml( label ) }</slot>
 					</label>
 					<div class="combo-box-container">
-						<div class="tags-container" id="tagsContainer" role="group" aria-label="${ this.escapeHtml( this.getLocalizedText().selectedItems ) }">
+						<div class="tags-container" id="tagsContainer">
 							<!-- Tags will be dynamically inserted here -->
 							<input
 								type="text"
@@ -232,6 +232,7 @@ class ComboBoxComponent extends HTMLElement {
 							class="combo-box-list"
 							role="listbox"
 							aria-label="${ this.escapeHtml( this.getLocalizedText().availableOptions ) }"
+							tabindex="-1"
 							hidden
 						>
 							<!-- Options will be dynamically inserted here -->
@@ -275,6 +276,9 @@ class ComboBoxComponent extends HTMLElement {
 				this.removeTag( tag.dataset.tagValue );
 			}
 		} );
+
+		// Event delegation for tag keyboard interactions
+		this.tagsContainer.addEventListener( "keydown", ( e ) => this.handleTagKeyDown( e ) );
 
 		// Event delegation for list options (click and hover)
 		this.list.addEventListener( "click", ( e ) => {
@@ -330,6 +334,13 @@ class ComboBoxComponent extends HTMLElement {
 		this.highlightedIndex = -1;
 		this.renderOptions();
 		this.openList();
+
+		if ( this.filteredOptions.length === 0 && !this.allOptionsSelected ) {
+			this.liveRegion.textContent = "";
+			setTimeout( () => {
+				this.announce( this.getLocalizedText().noMatchingOptions );
+			}, 1000 );
+		}
 	}
 
 	// Handles keyboard navigation and interactions
@@ -337,6 +348,13 @@ class ComboBoxComponent extends HTMLElement {
 		const key = e.key;
 
 		switch ( key ) {
+
+			case "ArrowLeft":
+				if ( this.input.value === "" && this.selectedItems.length > 0 ) {
+					e.preventDefault();
+					this.focusLastTag();
+				}
+				break;
 			case "ArrowDown":
 				e.preventDefault();
 				this.highlightNext();
@@ -371,15 +389,10 @@ class ComboBoxComponent extends HTMLElement {
 				}
 				break;
 			case "Backspace":
+			case "Delete":
 				if ( this.input.value === "" && this.selectedItems.length > 0 ) {
 					e.preventDefault();
-					const removedItem = this.selectedItems.pop();
-					this.renderTags();
-					this.updateFilteredOptions();
-					this.renderOptions();
-					this.announce( `${ removedItem.label } ${ this.getLocalizedText().removed }` );
-					this.dispatchChangeEvent();
-					this.syncHiddenInputs();
+					this.focusLastTag();
 				}
 				break;
 			case "Tab":
@@ -476,7 +489,7 @@ class ComboBoxComponent extends HTMLElement {
 			this.renderOptions();
 			this.highlightedIndex = -1;
 
-			// If all options are selected, disable input and hide dropdown
+			// If all options are selected, hide dropdown
 			if ( this.selectedItems.length === this.allOptions.length ) {
 				this.allOptionsSelected = true;
 				this.renderOptions();
@@ -487,7 +500,8 @@ class ComboBoxComponent extends HTMLElement {
 			}
 
 			// Announce selection to screen readers
-			this.announce( `${ option.label } ${ this.getLocalizedText().selected }` );
+			const count = this.selectedItems.length;
+			this.announce( `${ option.label } ${ this.getLocalizedText().selected }. ${ count } ${ this.getLocalizedText().itemsSelected }.` );
 
 			// Dispatch change event
 			this.dispatchChangeEvent();
@@ -497,7 +511,7 @@ class ComboBoxComponent extends HTMLElement {
 	}
 
 	// Removes a selected item
-	removeTag( value ) {
+	removeTag( value, focusInput = true ) {
 
 		// Handle removal of "All options" tag
 		if ( value === "all-options" ) {
@@ -516,10 +530,14 @@ class ComboBoxComponent extends HTMLElement {
 		this.renderTags();
 		this.updateFilteredOptions();
 		this.renderOptions();
-		this.input.focus();
+
+		if ( focusInput ) {
+			this.input.focus();
+		}
 
 		// Announce removal to screen readers
-		this.announce( `${ option.label }` + ` ${ this.getLocalizedText().removed }` );
+		const count = this.selectedItems.length;
+		this.announce( `${ option.label }` + ` ${ this.getLocalizedText().removed }. ${ count } ${ this.getLocalizedText().itemsSelected }.` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
@@ -550,6 +568,7 @@ class ComboBoxComponent extends HTMLElement {
 			allTag.className = "tag tag-all-options";
 			allTag.type = "button";
 			allTag.dataset.tagValue = "all-options";
+			allTag.tabIndex = -1;
 			allTag.setAttribute( "part", "tag" );
 			allTag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getLocalizedText().allOptionsSelected }` );
 
@@ -560,12 +579,13 @@ class ComboBoxComponent extends HTMLElement {
 			this.tagsContainer.appendChild( allTag );
 
 			this.input.placeholder = "";
-			this.input.disabled = true;
 			this.input.value = "";
 			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
 		} else {
 			this.input.placeholder = this.originalPlaceholder;
 			this.input.disabled = false;
+
+			this.tagsContainer.removeAttribute( "aria-label" );
 
 			// Show individual tags for each selected item
 			this.selectedItems.forEach( item => {
@@ -573,6 +593,7 @@ class ComboBoxComponent extends HTMLElement {
 				tag.className = "tag";
 				tag.type = "button";
 				tag.dataset.tagValue = item.value;
+				tag.tabIndex = -1;
 				tag.setAttribute( "part", "tag" );
 				tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
 
@@ -585,11 +606,6 @@ class ComboBoxComponent extends HTMLElement {
 
 			this.input.value = "";
 			this.input.classList.toggle( "has-selections", this.selectedItems.length > 0 );
-
-			// Update aria-label with selection count
-			const count = this.selectedItems.length;
-			const label = count === 0 ? this.getLocalizedText().selectedItems : `${ this.getLocalizedText().selectedItems } (${ count } ${ this.getLocalizedText().selected })`;
-			this.tagsContainer.setAttribute( "aria-label", label );
 		}
 
 		// Always append the input
@@ -597,6 +613,12 @@ class ComboBoxComponent extends HTMLElement {
 
 		if ( hadFocus ) {
 			this.input.focus();
+		}
+
+		if ( this.selectedItems.length > 0 ) {
+			this.tagsContainer.setAttribute( "role", "toolbar" );
+		} else {
+			this.tagsContainer.removeAttribute( "role" );
 		}
 	}
 
@@ -634,6 +656,69 @@ class ComboBoxComponent extends HTMLElement {
 			this.isOpen = true;
 			this.list.removeAttribute( "hidden" );
 			this.input.setAttribute( "aria-expanded", "true" );
+		}
+	}
+
+	// Focuses the last tag button
+	focusLastTag() {
+		const tags = Array.from( this.tagsContainer.querySelectorAll( ".tag" ) );
+		if ( tags.length > 0 ) {
+			this.closeList();
+			tags[ tags.length - 1 ].focus();
+		}
+	}
+
+	// Handles keyboard events on tag buttons
+	handleTagKeyDown( e ) {
+		const tag = e.target.closest( ".tag" );
+		if ( !tag ) {
+			return;
+		}
+
+		const tags = Array.from( this.tagsContainer.querySelectorAll( ".tag" ) );
+		const index = tags.indexOf( tag );
+
+		switch ( e.key ) {
+			case "Backspace":
+			case "Delete":
+			case "Enter": {
+				e.preventDefault();
+				const value = tag.dataset.tagValue;
+				const nextFocusIndex = tags[ index + 1 ] ? index : index - 1;
+				this.removeTag( value, false );
+
+				const newTags = Array.from( this.tagsContainer.querySelectorAll( ".tag" ) );
+				if ( nextFocusIndex >= 0 && newTags[ nextFocusIndex ] ) {
+					newTags[ nextFocusIndex ].focus();
+				} else {
+					this.input.focus();
+				}
+				break;
+			}
+
+			case "ArrowLeft":
+				e.preventDefault();
+				if ( tags[ index - 1 ] ) {
+					tags[ index - 1 ].focus();
+				}
+				break;
+			case "ArrowRight":
+				e.preventDefault();
+				if ( tags[ index + 1 ] ) {
+					tags[ index + 1 ].focus();
+				} else {
+					this.input.focus();
+					this.updateFilteredOptions();
+					this.renderOptions();
+					this.openList();
+				}
+				break;
+			case "Escape":
+				e.preventDefault();
+				this.input.focus();
+				break;
+			default:
+				break;
 		}
 	}
 
