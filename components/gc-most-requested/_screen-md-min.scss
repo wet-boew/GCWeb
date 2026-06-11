@@ -22,6 +22,7 @@
 			padding-left: 1.15em;
 			padding-right: 1em;
 			position: relative;
+			width: 100%;
 
 			&::before {
 				content: "\2022";
@@ -29,12 +30,6 @@
 				left: 0;
 				position: absolute;
 				top: 0;
-			}
-
-			&::after {
-				content: "";
-				display: block;
-				width: 335px;
 			}
 		}
 
@@ -49,8 +44,8 @@
 	}
 }
 
-// Styles to slightly break the layout for bad implementation
-.container .gc-most-requested {
+// Styles to slightly break the layout for bad implementation. Styles to be used for the AEM authoring theme page.
+.container:not(.responsivegrid) .gc-most-requested {
 	h2 {
 		float: none;
 	}
