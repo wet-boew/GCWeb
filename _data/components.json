@@ -423,6 +423,189 @@
 		"modified": "dct:modified"
 	},
 	"title": {
+		"en": "GC Combo Box",
+		"fr": "Boîte Combo GC"
+	},
+	"description": {
+		"en": "An accessible multi-select combo box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items from a list.",
+		"fr": "Un composant de boîte combo multi-sélection accessible qui met en œuvre les normes d'accessibilité WCAG 2.1 et fournit une interface conviviale et moderne pour sélectionner plusieurs éléments dans une liste."
+	},
+	"modified": "2026-05-27",
+	"componentName": "combo-box",
+	"status": "provisional",
+	"version": "1.0.0",
+	"pages": {
+		"examples": [
+			{
+				"title": "GC Combo Box",
+				"language": "en",
+				"path": "combo-box-en.html"
+			},
+			{
+				"title": "Boîte Combo GC",
+				"language": "fr",
+				"path": "combo-box-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "GC Combo Box",
+				"language": "en",
+				"path": "combo-box-docs-en.html"
+			},
+			{
+				"title": "Boîte Combo GC",
+				"language": "fr",
+				"path": "combo-box-docs-fr.html"
+			}
+		],
+		"reports": [
+			{
+				"title": "Accessibility assessment #1",
+				"language": "en",
+				"path": "reports/a11y-1-en.html"
+			},
+			{
+				"title": "Évaluation de l'accessibilité #1",
+				"language": "fr",
+				"path": "reports/a11y-1-fr.html"
+			}
+		]
+	},
+	"a11yGuidance": "No accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "GC Combo Box",
+				"fr": "Boîte Combo GC"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "A multi-select combo box with tag display, dynamic filtering, and full keyboard accessibility.",
+				"fr": "Une boîte combo multi-sélection avec affichage d'étiquettes, filtrage dynamique et accessibilité complète au clavier."
+			},
+			"iteration": "_:iteration_combo_box_1",
+			"example": [
+				{
+					"en": { "href": "combo-box-en.html", "text": "GC Combo Box" },
+					"fr": { "href": "combo-box-fr.html", "text": "Boîte Combo GC" }
+				}
+			],
+			"implementation": [
+				"_:implement_combo_box"
+			],
+			"history": [
+				{
+					"en": "May 2026 - Initial implementation",
+					"fr": "Mai 2026 - Implémentation initiale"
+				}
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_combo_box",
+			"iteration": "_:iteration_combo_box_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Load options via the <code>options</code> attribute (URL or local JSON file path), or define them inline using a <code>&lt;select&gt;</code> element in the <code>slot=\"options\"</code> slot. One of the two must be provided.",
+					"When structuring the JSON, each entry requires a <code>name</code> field (the display label) and a <code>tag</code> field (the value submitted with the form). See example below.",
+					"Add a label via the <code>label</code> attribute for plain text, or via the <code>slot=\"label\"</code> slot for rich markup or HTML. At least one must be provided for accessibility.",
+					"Add a <code>name</code> attribute to enable native form submission. It works the same as on any native form element. It can be omitted if using the component outside of a form."
+				],
+				"fr": [
+					"Chargez les options via l'attribut <code>options</code> (URL ou chemin local vers un fichier JSON), ou définissez-les directement via un élément <code>&lt;select&gt;</code> dans le slot <code>slot=\"options\"</code>. L'un des deux doit être fourni.",
+					"Lors de la structuration du JSON, chaque entrée nécessite un champ <code>name</code> (le libellé affiché) et un champ <code>tag</code> (la valeur soumise avec le formulaire). Voir l'exemple ci-dessous.",
+					"Ajoutez un label via l'attribut <code>label</code> pour du texte simple, ou via le slot <code>slot=\"label\"</code> pour du balisage enrichi. Au moins l'un des deux doit être fourni pour l'accessibilité.",
+					"Ajoutez un attribut <code>name</code> pour activer la soumission native du formulaire. Il peut être omis si le composant est utilisé hors d'un formulaire."
+				]
+			},
+			"notes": {
+				"en": [
+					"A placeholder is optional but recommended. It works the same as a standard <code>input</code> placeholder.",
+					"Add the <code>select-all-options</code> attribute to enable a \"Select all options\" option at the top of the dropdown. When all options are selected, they are replaced by a single tag.",
+					"Tag colours can be customized using the <code>::part(tag)</code> CSS selector from outside the component."
+				],
+				"fr": [
+					"Un espace réservé est optionnel mais recommandé. Il fonctionne de la même façon que le <code>placeholder</code> d'un <code>input</code> standard.",
+					"Ajoutez l'attribut <code>select-all-options</code> pour activer un option \"Sélectionner toutes les options\" en haut de la liste déroulante. Lorsque toutes les options sont sélectionnées, elles sont remplacées par un seul tag.",
+					"La couleur des étiquettes peut être personnalisée avec le sélecteur CSS <code>::part(tag)</code> depuis l'extérieur du composant."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Basic usage example. Refer to the <a href=\"combo-box-en.html\">working examples page</a> for additional code samples.",
+						"code": "<gc-combobox name=\"regions\" placeholder=\"Region(s)...\" options=\"regions.json\">\n\t<span slot=\"label\">Region(s)</span>\n</gc-combobox>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Expected JSON file structure for the options attribute.",
+						"code": "[\n\t{\n\t\t\"name\": \"Ontario\",\n\t\t\"tag\": \"gc:georegions/canada/on-35\"\n\t},\n\t{\n\t\t\"name\": \"Quebec\",\n\t\t\"tag\": \"gc:georegions/canada/qc-24\"\n\t},\n\t{\n\t\t\"name\": \"British Columbia\",\n\t\t\"tag\": \"gc:georegions/canada/bc-59\"\n\t}\n]"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple d'utilisation de base. Consultez la <a href=\"combo-box-fr.html\">page des exemples pratiques</a> pour des exemples de code supplémentaires.",
+						"code": "<gc-combobox name=\"regions\" placeholder=\"Région(s)...\" options=\"regions.json\">\n\t<span slot=\"label\">Région(s)</span>\n</gc-combobox>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Structure attendue du fichier JSON pour l'attribut options.",
+						"code": "[\n\t{\n\t\t\"name\": \"Ontario\",\n\t\t\"tag\": \"gc:georegions/canada/on-35\"\n\t},\n\t{\n\t\t\"name\": \"Quebec\",\n\t\t\"tag\": \"gc:georegions/canada/qc-24\"\n\t},\n\t{\n\t\t\"name\": \"British Columbia\",\n\t\t\"tag\": \"gc:georegions/canada/bc-59\"\n\t}\n]"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_combo_box_1",
+			"name": "GC Combo Box - Iteration 1",
+			"date": "2026-05",
+			"detectableBy": "<gc-combobox>",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<gc-combobox name=\"regions\" placeholder=\"Region(s)...\" options=\"regions.json\">\n\t<span slot=\"label\">Region(s)</span>\n</gc-combobox>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_combo_box_1",
+			"name": "GC Combo Box",
+			"status": "provisional",
+			"baseOnIteration": "_:iteration_combo_box_1",
+			"detectableBy": "<gc-combobox>",
+			"layout": "Not applicable",
+			"style": "By default, tags are displayed with a grey background and a left border. When all options are selected, a single blue tag is shown. Tag colours can be customized using ::part CSS selector.",
+			"semantic": "Uses ARIA attributes for screen readers including listbox role, option role, and aria-expanded state"
+		}
+	]
+}
+,{
+	"@context": {
+		"@version": 1.0,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
 		"en": "Conjunctions (and/or)",
 		"fr": "Conjonction (et/ou)"
 	},
