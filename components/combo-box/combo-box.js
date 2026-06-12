@@ -15,12 +15,14 @@ class ComboBoxComponent extends HTMLElement {
 	// Static cache for loaded styles
 	static stylesCache = null;
 
+	// Static counter for generating unique instance IDs
+	static instanceCounter = 0;
+
 	// Static i18n defaults
 	static defaults = {
 		i18n: {
 			"en": {
 				selectAll: "Select all",
-				comboBoxInput: "Combo Box text input",
 				itemsSelected: "items selected",
 				selectAllOptions: "Select all options",
 				deselectAllOptions: "Deselect all options",
@@ -34,7 +36,6 @@ class ComboBoxComponent extends HTMLElement {
 			},
 			"fr": {
 				selectAll: "Sélectionner tous",
-				comboBoxInput: "Champe de texte dans le Boîte Combo",
 				itemsSelected: "éléments sélectionnés",
 				selectAllOptions: "Sélectionner toutes les options",
 				deselectAllOptions: "Désélectionner toutes les options",
@@ -61,7 +62,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.allowSelectAll = false; // Feature flag for select-all option
 		this.pageLanguage = "en"; // Default language
 		this.originalPlaceholder = ""; // Store original placeholder
-		this.instanceId = Math.random().toString( 36 ).substr( 2, 9 ); // Unique ID per instance
+		this.instanceId = ++ComboBoxComponent.instanceCounter;
 		this.optionsCache = new Map(); // Data layer: option value → <li> element
 	}
 
@@ -123,7 +124,6 @@ class ComboBoxComponent extends HTMLElement {
 			optionElement.id = `combo-option-${ this.instanceId }-${ index }`;
 			optionElement.className = "combo-box-option";
 			optionElement.setAttribute( "role", "option" );
-			optionElement.setAttribute( "aria-selected", "false" );
 			optionElement.setAttribute( "data-option-text", option.value );
 			optionElement.textContent = option.label;
 			this.optionsCache.set( option.value, optionElement );
@@ -135,7 +135,6 @@ class ComboBoxComponent extends HTMLElement {
 			this.selectAllOptionElement.id = `combo-option-select-all-${ this.instanceId }`;
 			this.selectAllOptionElement.className = "combo-box-option combo-box-option-select-all";
 			this.selectAllOptionElement.setAttribute( "role", "option" );
-			this.selectAllOptionElement.setAttribute( "aria-selected", "false" );
 			this.selectAllOptionElement.setAttribute( "data-select-all", "true" );
 			this.selectAllOptionElement.textContent = this.getLocalizedText().selectAllOptions;
 		}
@@ -220,7 +219,6 @@ class ComboBoxComponent extends HTMLElement {
 								class="combo-box-input"
 								placeholder="${ this.escapeHtml( placeholder ) }"
 								autocomplete="off"
-								aria-label="${ this.escapeHtml( this.getLocalizedText().comboBoxInput ) }"
 								aria-autocomplete="list"
 								aria-controls="combo-box-list"
 								aria-expanded="false"
@@ -339,7 +337,7 @@ class ComboBoxComponent extends HTMLElement {
 			this.liveRegion.textContent = "";
 			setTimeout( () => {
 				this.announce( this.getLocalizedText().noMatchingOptions );
-			}, 1000 );
+			}, 500 );
 		}
 	}
 
@@ -442,15 +440,13 @@ class ComboBoxComponent extends HTMLElement {
 		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
 		options.forEach( ( option, index ) => {
 			if ( index === this.highlightedIndex ) {
-				option.setAttribute( "aria-selected", "true" );
+				option.classList.add( "active" );
 				option.scrollIntoView( { block: "nearest" } );
-
-				// Use aria-activedescendant pattern
 				if ( option.id ) {
 					this.input.setAttribute( "aria-activedescendant", option.id );
 				}
 			} else {
-				option.setAttribute( "aria-selected", "false" );
+				option.classList.remove( "active" );
 			}
 		} );
 	}
@@ -458,6 +454,7 @@ class ComboBoxComponent extends HTMLElement {
 	// Announces messages to screen readers via live region
 	announce( message ) {
 		if ( this.liveRegion ) {
+			this.liveRegion.textContent = "";
 			this.liveRegion.textContent = message;
 		}
 	}
@@ -552,73 +549,86 @@ class ComboBoxComponent extends HTMLElement {
 		);
 	}
 
-	// Renders the selected items as tags
+	// Creates a tag element for a selected item
+	createTag( item ) {
+		const tag = document.createElement( "button" );
+		tag.className = "tag";
+		tag.type = "button";
+		tag.dataset.tagValue = item.value;
+		tag.tabIndex = -1;
+		tag.setAttribute( "part", "tag" );
+		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
+		tag.innerHTML = `<span class="tag-text">${ this.escapeHtml( item.label ) }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+		return tag;
+	}
+
+	// Creates the "All options selected" tag element
+	createAllOptionsTag() {
+		const tag = document.createElement( "button" );
+		tag.className = "tag tag-all-options";
+		tag.type = "button";
+		tag.dataset.tagValue = "all-options";
+		tag.tabIndex = 0;
+		tag.setAttribute( "part", "tag" );
+		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getLocalizedText().allOptionsSelected }` );
+		tag.innerHTML = `<span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+		return tag;
+	}
+
+	// Diffs the tags container: adds or removes tags as needed without full rebuilds
 	renderTags() {
 		const hadFocus = this.shadowRoot.activeElement === this.input;
-		this.tagsContainer.innerHTML = "";
-		this.input.value = "";
-
-		// Check if all items are selected
 		const allSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
+		const desiredValues = new Set( allSelected ? [ "all-options" ] : this.selectedItems.map( i => i.value ) );
 
+		// Remove tags no longer in the desired set
+		this.tagsContainer.querySelectorAll( ".tag[data-tag-value]" ).forEach( tag => {
+			if ( !desiredValues.has( tag.dataset.tagValue ) ) {
+				tag.remove();
+			}
+		} );
+
+		// Build a set of tag values already in the DOM
+		const existingValues = new Set(
+			Array.from( this.tagsContainer.querySelectorAll( ".tag[data-tag-value]" ) )
+				.map( t => t.dataset.tagValue )
+		);
+
+		// Add missing tags in order, just before the input
+		if ( allSelected && !existingValues.has( "all-options" ) ) {
+			this.tagsContainer.insertBefore( this.createAllOptionsTag(), this.input );
+		} else if ( !allSelected ) {
+			this.selectedItems.forEach( item => {
+				if ( !existingValues.has( item.value ) ) {
+					this.tagsContainer.insertBefore( this.createTag( item ), this.input );
+				}
+			} );
+		}
+
+		// Update input state
+		this.input.value = "";
 		if ( allSelected ) {
-
-			// Show "All options selected" tag when all are selected
-			const allTag = document.createElement( "button" );
-			allTag.className = "tag tag-all-options";
-			allTag.type = "button";
-			allTag.dataset.tagValue = "all-options";
-			allTag.tabIndex = -1;
-			allTag.setAttribute( "part", "tag" );
-			allTag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getLocalizedText().allOptionsSelected }` );
-
-			allTag.innerHTML = `
-				<span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span>
-				<span type="button" aria-hidden="true">×</span>
-			`;
-			this.tagsContainer.appendChild( allTag );
-
 			this.input.placeholder = "";
-			this.input.value = "";
+			this.input.disabled = true;
 			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
+			this.tagsContainer.setAttribute( "role", "toolbar" );
 		} else {
 			this.input.placeholder = this.originalPlaceholder;
 			this.input.disabled = false;
-
-			this.tagsContainer.removeAttribute( "aria-label" );
-
-			// Show individual tags for each selected item
-			this.selectedItems.forEach( item => {
-				const tag = document.createElement( "button" );
-				tag.className = "tag";
-				tag.type = "button";
-				tag.dataset.tagValue = item.value;
-				tag.tabIndex = -1;
-				tag.setAttribute( "part", "tag" );
-				tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
-
-				tag.innerHTML = `
-					<span class="tag-text">${ this.escapeHtml( item.label ) }</span>
-					<span type="button" aria-hidden="true">×</span>
-				`;
-				this.tagsContainer.appendChild( tag );
-			} );
-
-			this.input.value = "";
 			this.input.classList.toggle( "has-selections", this.selectedItems.length > 0 );
+			this.tagsContainer.removeAttribute( "aria-label" );
+			if ( this.selectedItems.length > 0 ) {
+				this.tagsContainer.setAttribute( "role", "toolbar" ); // Without role="toolbar", NVDA stays in browse mode when it's inside the tags container and intercepts the arrow key event before they reach our handlers. The "toolbar" role tells NVDA that this is a widget-like element and to allow arrow key events to pass through to our JavaScript. The role is removed when empty to avoid announcing "toolbar" when there are no selected tags
+			} else {
+				this.tagsContainer.removeAttribute( "role" );
+			}
 		}
 
-		// Always append the input
+		// Ensure the input is always last
 		this.tagsContainer.appendChild( this.input );
 
 		if ( hadFocus ) {
 			this.input.focus();
-		}
-
-		if ( this.selectedItems.length > 0 ) {
-			this.tagsContainer.setAttribute( "role", "toolbar" );
-		} else {
-			this.tagsContainer.removeAttribute( "role" );
 		}
 	}
 
@@ -633,15 +643,15 @@ class ComboBoxComponent extends HTMLElement {
 
 			// Prepend "Select all options" from cache if enabled
 			if ( this.allowSelectAll ) {
-				this.selectAllOptionElement.setAttribute( "aria-selected", "false" );
+				this.selectAllOptionElement.classList.remove( "active" );
 				this.list.appendChild( this.selectAllOptionElement );
 			}
 
-			// Append only the filtered options from cache
+			// Append only the filtered options from cache, resetting their highlight state
 			this.filteredOptions.forEach( ( option ) => {
 				const el = this.optionsCache.get( option.value );
 				if ( el ) {
-					el.setAttribute( "aria-selected", "false" );
+					el.classList.remove( "active" );
 					this.list.appendChild( el );
 				}
 			} );
@@ -741,13 +751,9 @@ class ComboBoxComponent extends HTMLElement {
 		const map = {
 			"&": "&amp;",
 			"<": "&lt;",
-			">": "&gt;",
-
-			// This breaks the grunt dist build, if we do not need it in this context, we can leave it out
-			// '"': "&quot;",
-			"'": "&#039;"
+			">": "&gt;"
 		};
-		return text.replace( /[&<>"']/g, m => map[ m ] );
+		return text.replace( /[&<>']/g, m => map[ m ] );
 	}
 
 	syncHiddenInputs() {
