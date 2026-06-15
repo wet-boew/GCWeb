@@ -723,6 +723,141 @@ script:
       <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-8&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;		
     </code></pre>
     </details>
+	<h3>Maintenir une largeur plus uniforme des équations (min-width)</h3>
+    <p>Utilisez cette option pour réduire la largeur de plusieurs équations mathématiques avec la classe <code>full-width</code>.</p>
+    <p>Cette fonctionnalité est surtout visible en mode bureau.</p>
+    <div class="wb-tabs">
+      <div class="tabpanels">
+        <details id="details-panel1d">
+          <summary>Avec classe <code>mg-min-wdth</code></summary>
+          <h4>Détails financiers (partie 1)</h4>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Recettes</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right nowrap">1 500 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Coût des biens vendus</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right nowrap">850 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Bénéfice brut</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth nowrap">650 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Dépenses</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right nowrap">400 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Bénéfice net</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth">250 000 $</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">La valeur absolue des coûts s'établit à <span class="nowrap">1 250 000 $</span>, , incluant le coût des biens vendus (<span class="nowrap">850 000 $</span>) et des dépenses (<span class="nowrap">400 000 $</span>).</p>
+          <h4>Détails financiers (partie 2)</h4>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue des recettes</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right nowrap">1 500 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue des dépenses</div>
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right nowrap">1 250 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue combinée des recettes et des dépenses</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth nowrap">2 750 000 $</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-6&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp mg-min-wdth&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp mg-min-wdth&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+        <details id="details-panel2d">
+          <summary>Sans classe <code>mg-min-wdth</code></summary>
+           <h4>Détails financiers (partie 1)</h4>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Recettes</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right nowrap">1 500 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Coût des biens vendus</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right nowrap">850 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Bénéfice brut</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp nowrap">650 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Dépenses</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right nowrap">400 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Bénéfice net</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">250 000 $</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">La valeur absolue des coûts s'établit à <span class="nowrap">1 250 000 $</span>, , incluant le coût des biens vendus (<span class="nowrap">850 000 $</span>) et des dépenses (<span class="nowrap">400 000 $</span>).</p>
+          <h4>Détails financiers (partie 2)</h4>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue des recettes</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right nowrap">1 500 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue des dépenses</div>
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right nowrap">1 250 000 $</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Valeur absolue combinée des recettes et des dépenses</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp nowrap">2 750 000 $</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-6&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+      </div>
+    </div>
     <h3>Utiliser pour copier les calculs dans des formulaires PDF</h3>
     <p>Ce modèle est utilisé pour calculer les paiements d'acompte provisionnels trimestriels pour les sociétés avec des exemples.</p>
     <div class="wb-tabs">
