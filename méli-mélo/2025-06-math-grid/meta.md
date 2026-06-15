@@ -17,7 +17,7 @@ title:
 description:
   en: An accessible, printable and understandable pattern for simple math equations.
   fr: Un modèle accessible, imprimable et compréhensible pour des équations mathématiques simples.
-modified: 2025-06-05
+modified: 2026-06-15
 componentName: 2025-06-math-grid
 sponsor: CRA - Christopher Oakes (@christopher-o)
 
@@ -47,6 +47,7 @@ todos:
 changes:
   - Change: Add separation to rows rather than padding of cells, and to fix override issue
     How this affects design: Adds no visual difference, except when using borders, borders will now have better separation.
+  - Add: 2026-06 - Added a min-width feature to better visually align equations (more notable on desktop).
 
 output: false
 ---
