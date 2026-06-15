@@ -741,6 +741,141 @@ script:
       <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-8&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;		
     </code></pre>
     </details>
+	<h3>Keep equation width more consistant (min-width)</h3>
+    <p>Use this to minimize the width of multiple math equations when using the <code>full-width</code> class.</p>
+    <p>This feature is most noticeable in desktop view.</p>
+    <div class="wb-tabs">
+      <div class="tabpanels">
+        <details id="details-panel1d">
+          <summary>With min-width class</summary>
+          <h4>Financial Details (Part 1)</h4>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Revenues</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right">$1,500,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Minus:</strong> Cost of goods sold</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right">$850,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Gross profit</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth">$650,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Minus:</strong> Expenses</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right">$400,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Net profit</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth">$250,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">The absolute value of expenses is <span class="nowrap">$1,250,000</span>, which includes the cost of goods sold (<span class="nowrap">$850,000</span>) and expenses (<span class="nowrap">$400,000</span>).</p>
+          <h5>Financial Details (Part 2)</h5>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Absolute value of revenues</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right">$1,500,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Plus:</strong> Absolute value of expenses</div>
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right">$1,250,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Absolute value of revenues plus expenses</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp mg-min-wdth">$2,750,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-6&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp mg-min-wdth&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp mg-min-wdth&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+        <details id="details-panel2d">
+          <summary>Without min-width class</code></summary>
+          <h5>Financial Details (Part 1)</h5>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Revenues</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right">$1,500,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Minus:</strong> Cost of goods sold</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right">$850,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Gross profit</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">$650,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Minus:</strong> Expenses</div>
+                  <div class="mg-cell">−</div>
+                  <div class="mg-cell text-right">$400,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Net profit</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">$250,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mrgn-tp-lg">The absolute value of expenses is <span class="nowrap">$1,250,000</span>, which includes the cost of goods sold (<span class="nowrap">$850,000</span>) and expenses (<span class="nowrap">$400,000</span>).</p>
+          <h5>Financial Details (Part 2)</h5>
+          <div class="row mrgn-lft-0 mrgn-rght-0">
+            <div class="col-md-6">
+              <div class="wb-math-grid full-width">
+                <div class="mg-row">
+                  <div class="mg-cell">Absolute value of revenues</div>
+                  <div class="mg-cell">&nbsp;</div>
+                  <div class="mg-cell text-right">$1,500,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell"><strong>Plus:</strong> Absolute value of expenses</div>
+                  <div class="mg-cell">+</div>
+                  <div class="mg-cell text-right">$1,250,000</div>
+                </div>
+                <div class="mg-row">
+                  <div class="mg-cell">Absolute value of revenues plus expenses</div>
+                  <div class="mg-cell">=</div>
+                  <div class="mg-cell text-right mg-brdr-tp">$2,750,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="mrgn-tp-lg">
+            <summary>Code</summary>
+            <pre><code>&lt;div class=&quot;row&quot;&gt;<br>	&lt;div class=&quot;col-md-6&quot;&gt;<br>		...<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>		&lt;div class=&quot;wb-math-grid full-width&quot;&gt;<br>		...
+			&lt;div class=&quot;mg-cell text-right mg-brdr-tp&quot;&gt;...&lt;/div&gt;<br>		...<br>		&lt;/div&gt;<br>	&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+          </details>
+        </details>
+      </div>
+    </div>
     <h3>Use to replicate calculations in PDF forms</h3>
     <p>This pattern is used to calculate quarterly instalment payments for corporations with example data.</p>
     <div class="wb-tabs">
