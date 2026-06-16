@@ -1,6 +1,6 @@
 ---
 {
-	"title": "Subscribe to News",
+	"title": "Subscribe to Media Advisories",
 	"dateModified": "2026-06-16",
 	"breadcrumbs": [
 		{ "title": "News", "link": "https://www.canada.ca/en/news.html" }
@@ -12,20 +12,16 @@
 ---
 
 <div class="mwsgeneric-base-html parbase section">
-
-
-
-    <p>To subscribe, please enter your email and language preference.</p>
-<p>You’ll only get emails when we publish news releases or statements.</p>
-<p>You should expect emails at 9 a.m. ET, 2 p.m. ET and 6 p.m. ET.</p>
+<p>To subscribe, please enter your email address and language preference. You can also select specific institutions or regions.</p>
+<p>You’ll only get emails when we publish media advisories.</p>
 <p> You can provide your feedback using the link found in the bottom of every email.</p>
 
 <div class="wb-frmvld wb-init wb-frmvld-inited" id="wb-auto-4">
-	<form action="https://apps.canada.ca/cens2/subs/addSubscriber" method="post" novalidate="novalidate">
+	<form action="#" novalidate="novalidate">
 		<div class="form-group mrgn-lft-md mrgn-bttm-lg">
 			<label for="email" class="required"><span class="field-name">Email</span> <strong class="required" aria-hidden="true">(required)</strong> </label>
 			<div class="row">
-				<div class="col-sm-6"><input type="email" name="email" id="email" class="form-control full-width" autocomplete="email" required=""><div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; display: initial !important; float: left !important;"><template shadowrootmode="closed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-lastpass-icon="true" data-testid="infield-icon" style="position: absolute; cursor: pointer; height: 22px; max-height: 22px; width: 22px; max-width: 22px; top: -33.5px; left: 520px; z-index: auto; color: rgb(215, 64, 58);"><rect x="0.680176" y="0.763062" width="22.6392" height="22.4737" rx="4" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M19.7935 7.9516C19.7935 7.64414 20.0427 7.3949 20.3502 7.3949C20.6576 7.3949 20.9069 7.64414 20.9069 7.9516V16.0487C20.9069 16.3562 20.6576 16.6054 20.3502 16.6054C20.0427 16.6054 19.7935 16.3562 19.7935 16.0487V7.9516Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.76288 13.6577C5.68525 13.6577 6.43298 12.9154 6.43298 11.9998C6.43298 11.0842 5.68525 10.3419 4.76288 10.3419C3.8405 10.3419 3.09277 11.0842 3.09277 11.9998C3.09277 12.9154 3.8405 13.6577 4.76288 13.6577Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.3298 13.6577C11.2521 13.6577 11.9999 12.9154 11.9999 11.9998C11.9999 11.0842 11.2521 10.3419 10.3298 10.3419C9.4074 10.3419 8.65967 11.0842 8.65967 11.9998C8.65967 12.9154 9.4074 13.6577 10.3298 13.6577Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.8964 13.6577C16.8188 13.6577 17.5665 12.9154 17.5665 11.9998C17.5665 11.0842 16.8188 10.3419 15.8964 10.3419C14.974 10.3419 14.2263 11.0842 14.2263 11.9998C14.2263 12.9154 14.974 13.6577 15.8964 13.6577Z" fill="white"></path></svg></template></div></div>
+				<div class="col-sm-6"><input type="email" name="email" id="email" class="form-control full-width" autocomplete="email" required=""></div>
 			</div>
 		</div>
 		<div class="form-group mrgn-lft-md mrgn-bttm-lg">
@@ -42,6 +38,31 @@
 			</fieldset>
 		</div>
 
+<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "renderas": "radio", "base": {"live": true}}'>
+					<p class="wb-fieldflow-label">What type of media advisories would you like to receive?</p>
+					<ul>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-all-content"}'>All media advisories</li>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-custom-content"}'>Let me choose (Customized media advisories)</li>
+					</ul>
+				</div>
+
+				<div id="news-all-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>You are subscribing to media advisories from selected institutions and regions that matter most to you</strong></p>
+					</div>
+				</div>
+
+				<div id="news-custom-content" class="hidden mrgn-tp-md">
+					<gc-combobox id="news-institutions" placeholder="Institution(s)..." name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions" select-all-options>
+						<span slot="label">Institutions</span>
+					</gc-combobox>
+					<gc-combobox id="news-regions" placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions" select-all-options>
+						<span slot="label">Regions</span>
+					</gc-combobox>
+				</div>
+			</div>
+
 <details class="mrgn-bttm-lg">
 <summary>Privacy Notice</summary>
 <p>Your personal information is collected by Service Canada for the purpose of delivering the Canada.ca newsroom email service for which you have subscribed to. Information is collected under the authority of the <cite><a href="https://laws-lois.justice.gc.ca/eng/acts/f-11/FullText.html">Financial Administration Act</a></cite>, and in accordance with the <cite><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=30683">Policy on Communications and Federal Identity</a></cite>.</p>
@@ -57,6 +78,4 @@
 		<button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
 	</form>
 <div class="arialive wb-inv" aria-live="polite" aria-relevant="all"></div></div>
-
-
 </div>

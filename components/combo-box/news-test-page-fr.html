@@ -1,0 +1,86 @@
+---
+{
+	"title": "S'abonner aux nouvelles",
+	"dateModified": "2026-06-16",
+	"breadcrumbs": [
+		{ "title": "Nouvelles", "link": "https://www.canada.ca/fr/nouvelles.html" }
+	],
+	"description": "Abonnez-vous aux mises à jour des nouvelles du gouvernement du Canada. Sélectionnez vos régions, institutions et sujets préférés pour recevoir un contenu d'actualité adapté directement dans votre boîte de réception.",
+	"lang": "fr",
+	"altLangPage": "news-test-page.html"
+}
+---
+
+<div class="mwsgeneric-base-html parbase section">
+
+	<p>Pour vous abonner, veuillez saisir votre adresse courriel et votre langue de préférence.</p>
+	<p>Vous ne recevrez des courriels que lorsque nous publierons des communiqués ou des déclarations.</p>
+	<p>Vous devriez recevoir des courriels à 9 h, 14 h et 18 h (HE).</p>
+	<p>Vous pouvez nous faire part de vos commentaires en utilisant le lien se trouvant au bas de chaque courriel.</p>
+
+	<div class="wb-frmvld">
+		<form action="https://apps.canada.ca/cens2/subs/addSubscriber" method="post">
+			<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<label for="email" class="required"><span class="field-name">Courriel</span> <strong class="required" aria-hidden="true">(obligatoire)</strong> </label>
+				<div class="row">
+					<div class="col-sm-6"><input type="email" name="email" id="email" class="form-control full-width" autocomplete="email" required=""></div>
+				</div>
+			</div>
+			<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<fieldset class="chkbxrdio-grp form-inline">
+					<legend class="required"><span class="field-name">Langue de préférence</span> <strong class="required" aria-hidden="true">(obligatoire)</strong></legend>
+					<div class="label-inline">
+						<input type="radio" name="mailingTopicId" value="pco_en" id="language-en">
+						<label for="language-en" lang="en">English </label>
+					</div>
+					<div class="label-inline">
+						<input type="radio" name="mailingTopicId" value="pco_fr" id="language-fr" checked="">
+						<label for="language-fr">Français </label>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "renderas": "radio", "base": {"live": true}}'>
+					<p class="wb-fieldflow-label">Quel type de nouvelles aimeriez-vous recevoir?</p>
+					<ul>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-all-content"}'>Toutes les nouvelles</li>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-custom-content"}'>Laissez-moi choisir (Nouvelles personnalisées)</li>
+					</ul>
+				</div>
+
+				<div id="news-all-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>Vous vous abonnez à tous les avis aux médias</strong></p>
+					</div>
+				</div>
+
+				<div id="news-custom-content" class="hidden mrgn-tp-md">
+					<gc-combobox id="news-institutions" placeholder="Sélectionner" name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/fr/institutions" select-all-options>
+						<span slot="label">Institutions</span>
+					</gc-combobox>
+					<gc-combobox id="news-regions" placeholder="Sélectionner" name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/fr/regions" select-all-options>
+						<span slot="label">Régions</span>
+					</gc-combobox>
+				</div>
+			</div>
+
+<details class="mrgn-bttm-lg">
+<summary>Avis de confidentialité</summary>
+<p>Vos renseignements personnels sont recueillis par Service Canada dans le but de fournir le service de courriel de la salle de presse de Canada.ca auquel vous vous êtes abonné. Les renseignements sont recueillis en vertu de la <cite><a href="https://laws-lois.justice.gc.ca/fra/lois/f-11/TexteComplet.html">Loi sur la gestion des finances publiques</a></cite>, et conformément à la <cite><a href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=30683">Politique sur les communications et l'image de marque</a></cite>.</p>
+<p>Vos renseignements sont protégés en vertu de la <cite><a href="https://laws-lois.justice.gc.ca/fra/lois/p-21/TexteComplet.html">Loi sur la protection des renseignements personnels</a></cite>. Cette loi établit des règles sur la collecte, l'utilisation, la communication et la conservation des renseignements personnels par les institutions gouvernementales. Elle accorde aux personnes le droit :</p>
+<ol>
+<li>d'accéder aux renseignements personnels sous le contrôle de Service Canada;</li>
+<li>d'en demander la correction; et</li>
+<li>de porter plainte auprès du Commissaire à la protection de la vie privée du Canada concernant le traitement de ces renseignements personnels.</li>
+</ol>
+<p>Les renseignements personnels recueillis aux fins du contrat sont liés au fichier de renseignements personnels POU 914.</p>
+</details>
+
+		<button type="submit" class="btn btn-primary btn-lg">S'abonner</button>
+	</form>
+<div class="arialive wb-inv" aria-live="polite" aria-relevant="all"></div></div>
+
+
+
+</div>
