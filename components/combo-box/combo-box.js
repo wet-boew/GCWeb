@@ -2,7 +2,7 @@
  * Accessible Combo Box Web Component with Demo
  *
  * Single file containing:
- * - ComboBoxComponent Web Component class
+ * - GcComboBoxComponent Web Component class
  * - Demo initialization code
  */
 
@@ -10,7 +10,7 @@
 // Accessible Combo Box Web Component
 // ============================================
 
-class ComboBoxComponent extends HTMLElement {
+class GcComboBoxComponent extends HTMLElement {
 
 	// Static cache for loaded styles
 	static stylesCache = null;
@@ -53,7 +53,7 @@ class ComboBoxComponent extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow( { mode: "open" } );
-		this.selectedItems = [];
+		this.selectedOptions = [];
 		this.filteredOptions = [];
 		this.highlightedIndex = -1;
 		this.isOpen = false;
@@ -62,7 +62,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.allowSelectAll = false; // Feature flag for select-all option
 		this.pageLanguage = "en"; // Default language
 		this.originalPlaceholder = ""; // Store original placeholder
-		this.instanceId = ++ComboBoxComponent.instanceCounter;
+		this.instanceId = ++GcComboBoxComponent.instanceCounter;
 		this.optionsCache = new Map(); // Data layer: option value → <li> element
 	}
 
@@ -144,6 +144,7 @@ class ComboBoxComponent extends HTMLElement {
 		this.emptyStateElement.className = "combo-box-option empty-state";
 		this.emptyStateElement.setAttribute( "role", "option" );
 		this.emptyStateElement.setAttribute( "aria-disabled", "true" );
+		this.emptyStateElement.setAttribute( "disabled", "true" );
 		this.emptyStateElement.textContent = this.getLocalizedText().noMatchingOptions;
 	}
 
@@ -280,8 +281,8 @@ class ComboBoxComponent extends HTMLElement {
 
 		// Event delegation for list options (click and hover)
 		this.list.addEventListener( "click", ( e ) => {
-			const option = e.target.closest( "[role='option']" );
-			if ( option && !option.hasAttribute( "aria-disabled" ) ) {
+			const option = e.target.closest( ".combo-box-option" );
+			if ( option && !option.hasAttribute( "disabled" ) ) {
 
 				// Check if this is the "Select all options" special option
 				if ( option.hasAttribute( "data-select-all" ) ) {
@@ -296,9 +297,9 @@ class ComboBoxComponent extends HTMLElement {
 		} );
 
 		this.list.addEventListener( "mouseover", ( e ) => {
-			const option = e.target.closest( "[role='option']" );
+			const option = e.target.closest( ".combo-box-option" );
 			if ( option ) {
-				const options = Array.from( this.list.querySelectorAll( "[role='option']" ) );
+				const options = Array.from( this.list.querySelectorAll( ".combo-box-option" ) );
 				this.highlightedIndex = options.indexOf( option );
 				this.updateHighlight();
 			}
@@ -323,7 +324,7 @@ class ComboBoxComponent extends HTMLElement {
 		const value = e.target.value.trim();
 
 		this.filteredOptions = [ ...this.allOptions ].filter( option => {
-			const selectedValues = this.selectedItems.map( i => i.value );
+			const selectedValues = this.selectedOptions.map( i => i.value );
 			const matchesSearch = value === "" || option.label.toLowerCase().includes( value.toLowerCase() );
 			const isNotSelected = !selectedValues.includes( option.value );
 			return matchesSearch && isNotSelected;
@@ -348,7 +349,7 @@ class ComboBoxComponent extends HTMLElement {
 		switch ( key ) {
 
 			case "ArrowLeft":
-				if ( this.input.value === "" && this.selectedItems.length > 0 ) {
+				if ( this.input.value === "" && this.selectedOptions.length > 0 ) {
 					e.preventDefault();
 					this.focusLastTag();
 				}
@@ -364,7 +365,7 @@ class ComboBoxComponent extends HTMLElement {
 			case "Enter":
 				e.preventDefault();
 				if ( this.highlightedIndex >= 0 && this.isOpen ) {
-					const options = Array.from( this.list.querySelectorAll( "[role='option']" ) );
+					const options = Array.from( this.list.querySelectorAll( ".combo-box-option" ) );
 					const selectedOption = options[ this.highlightedIndex ];
 
 					// Check if "Select all options" was selected
@@ -388,7 +389,7 @@ class ComboBoxComponent extends HTMLElement {
 				break;
 			case "Backspace":
 			case "Delete":
-				if ( this.input.value === "" && this.selectedItems.length > 0 ) {
+				if ( this.input.value === "" && this.selectedOptions.length > 0 ) {
 					e.preventDefault();
 					this.focusLastTag();
 				}
@@ -410,7 +411,7 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
+		const options = this.list.querySelectorAll( ".combo-box-option:not([disabled])" );
 		if ( this.highlightedIndex < options.length - 1 ) {
 			this.highlightedIndex++;
 		} else {
@@ -426,7 +427,7 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
+		const options = this.list.querySelectorAll( ".combo-box-option:not([disabled])" );
 		if ( this.highlightedIndex > 0 ) {
 			this.highlightedIndex--;
 		} else {
@@ -437,7 +438,7 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Updates the visual highlight for the current option
 	updateHighlight() {
-		const options = this.list.querySelectorAll( "[role='option']:not([aria-disabled='true'])" );
+		const options = this.list.querySelectorAll( ".combo-box-option:not([disabled])" );
 		options.forEach( ( option, index ) => {
 			if ( index === this.highlightedIndex ) {
 				option.classList.add( "active" );
@@ -462,7 +463,7 @@ class ComboBoxComponent extends HTMLElement {
 	// Dispatches the change event for external listeners
 	dispatchChangeEvent() {
 		this.dispatchEvent( new CustomEvent( "change", {
-			detail: { selectedItems: [ ...this.selectedItems ] },
+			detail: { selectedOptions: [ ...this.selectedOptions ] },
 			bubbles: true,
 			composed: true
 		} ) );
@@ -476,9 +477,9 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		const alreadySelected = this.selectedItems.some( i => i.value === value );
+		const alreadySelected = this.selectedOptions.some( i => i.value === value );
 		if ( !alreadySelected ) {
-			this.selectedItems.push( option );
+			this.selectedOptions.push( option );
 
 			this.renderTags();
 			this.input.value = "";
@@ -487,7 +488,7 @@ class ComboBoxComponent extends HTMLElement {
 			this.highlightedIndex = -1;
 
 			// If all options are selected, hide dropdown
-			if ( this.selectedItems.length === this.allOptions.length ) {
+			if ( this.selectedOptions.length === this.allOptions.length ) {
 				this.allOptionsSelected = true;
 				this.renderOptions();
 				this.closeList();
@@ -497,7 +498,7 @@ class ComboBoxComponent extends HTMLElement {
 			}
 
 			// Announce selection to screen readers
-			const count = this.selectedItems.length;
+			const count = this.selectedOptions.length;
 			this.announce( `${ option.label } ${ this.getLocalizedText().selected }. ${ count } ${ this.getLocalizedText().itemsSelected }.` );
 
 			// Dispatch change event
@@ -522,7 +523,7 @@ class ComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		this.selectedItems = this.selectedItems.filter( item => item.value !== value );
+		this.selectedOptions = this.selectedOptions.filter( item => item.value !== value );
 		this.allOptionsSelected = false;
 		this.renderTags();
 		this.updateFilteredOptions();
@@ -533,7 +534,7 @@ class ComboBoxComponent extends HTMLElement {
 		}
 
 		// Announce removal to screen readers
-		const count = this.selectedItems.length;
+		const count = this.selectedOptions.length;
 		this.announce( `${ option.label }` + ` ${ this.getLocalizedText().removed }. ${ count } ${ this.getLocalizedText().itemsSelected }.` );
 
 		// Dispatch change event
@@ -545,7 +546,7 @@ class ComboBoxComponent extends HTMLElement {
 	// Updates filtered options based on selected items
 	updateFilteredOptions() {
 		this.filteredOptions = [ ...this.allOptions ].filter(
-			item => !this.selectedItems.map( i => i.value ).includes( item.value )
+			item => !this.selectedOptions.map( i => i.value ).includes( item.value )
 		);
 	}
 
@@ -556,9 +557,9 @@ class ComboBoxComponent extends HTMLElement {
 		tag.type = "button";
 		tag.dataset.tagValue = item.value;
 		tag.tabIndex = -1;
-		tag.setAttribute( "part", "tag" );
-		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
-		tag.innerHTML = `<span class="tag-text">${ this.escapeHtml( item.label ) }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+
+		// tag.setAttribute( "part", "tag" );
+		tag.innerHTML = `<span class="wb-inv" hidden>${ this.getLocalizedText().remove } </span><span class="tag-text">${ this.escapeHtml( item.label ) }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
 		return tag;
 	}
 
@@ -569,17 +570,17 @@ class ComboBoxComponent extends HTMLElement {
 		tag.type = "button";
 		tag.dataset.tagValue = "all-options";
 		tag.tabIndex = -1;
-		tag.setAttribute( "part", "tag" );
-		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getLocalizedText().allOptionsSelected }` );
-		tag.innerHTML = `<span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+
+		// tag.setAttribute( "part", "tag" );
+		tag.innerHTML = `<span class="wb-inv" hidden>${ this.getLocalizedText().remove } </span><span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
 		return tag;
 	}
 
 	// Diffs the tags container: adds or removes tags as needed without full rebuilds
 	renderTags() {
 		const hadFocus = this.shadowRoot.activeElement === this.input;
-		const allSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
-		const desiredValues = new Set( allSelected ? [ "all-options" ] : this.selectedItems.map( i => i.value ) );
+		const allSelected = this.selectedOptions.length === this.allOptions.length && this.allOptions.length > 0;
+		const desiredValues = new Set( allSelected ? [ "all-options" ] : this.selectedOptions.map( i => i.value ) );
 
 		// Remove tags no longer in the desired set
 		this.tagsContainer.querySelectorAll( ".tag[data-tag-value]" ).forEach( tag => {
@@ -598,7 +599,7 @@ class ComboBoxComponent extends HTMLElement {
 		if ( allSelected && !existingValues.has( "all-options" ) ) {
 			this.tagsContainer.insertBefore( this.createAllOptionsTag(), this.input );
 		} else if ( !allSelected ) {
-			this.selectedItems.forEach( item => {
+			this.selectedOptions.forEach( item => {
 				if ( !existingValues.has( item.value ) ) {
 					this.tagsContainer.insertBefore( this.createTag( item ), this.input );
 				}
@@ -610,13 +611,13 @@ class ComboBoxComponent extends HTMLElement {
 		if ( allSelected ) {
 			this.input.placeholder = "";
 			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
-			this.tagsContainer.setAttribute( "role", "toolbar" );
+			this.tagsContainer.setAttribute( "role", "toolbar" ); // AT Compatibility - See following comment about the role=toolbar used the subsequent instruction
 		} else {
 			this.input.placeholder = this.originalPlaceholder;
-			this.input.classList.toggle( "has-selections", this.selectedItems.length > 0 );
+			this.input.classList.toggle( "has-selections", this.selectedOptions.length > 0 );
 			this.tagsContainer.removeAttribute( "aria-label" );
-			if ( this.selectedItems.length > 0 ) {
-				this.tagsContainer.setAttribute( "role", "toolbar" ); // Without role="toolbar", NVDA stays in browse mode when it's inside the tags container and intercepts the arrow key event before they reach our handlers. The "toolbar" role tells NVDA that this is a widget-like element and to allow arrow key events to pass through to our JavaScript. The role is removed when empty to avoid announcing "toolbar" when there are no selected tags
+			if ( this.selectedOptions.length > 0 ) {
+				this.tagsContainer.setAttribute( "role", "toolbar" ); // AT Compatibility - Without role="toolbar", NVDA stays in browse mode when it's inside the tags container and intercepts the arrow key event before they reach our handlers. The "toolbar" role tells NVDA that this is a widget-like element and to allow arrow key events to pass through to our JavaScript. The role is removed when empty to avoid announcing "toolbar" when there are no selected tags
 			} else {
 				this.tagsContainer.removeAttribute( "role" );
 			}
@@ -766,7 +767,7 @@ class ComboBoxComponent extends HTMLElement {
 		}
 
 		// Create hidden input for each selected item to be submitted with forms
-		this.selectedItems.forEach( item => {
+		this.selectedOptions.forEach( item => {
 			const input = document.createElement( "input" );
 			input.type = "hidden";
 			input.name = name;
@@ -778,22 +779,22 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Public API: Get selected values as array (useful for form handling)
 	getSelectedValues() {
-		return this.selectedItems.map( item => item.value );
+		return this.selectedOptions.map( item => item.value );
 	}
 
 	// Public API: Get selected items
-	getSelectedItems() {
-		return [ ...this.selectedItems ];
+	getSelectedOptions() {
+		return [ ...this.selectedOptions ];
 	}
 
 	// Public API: Set selected items programmatically
-	setSelectedItems( items ) {
-		this.selectedItems = this.allOptions.filter( o =>
+	setSelectedOptions( items ) {
+		this.selectedOptions = this.allOptions.filter( o =>
 			items.some( i => i.value === o.value )
 		);
 
 		// Check if all options are selected
-		this.allOptionsSelected = this.selectedItems.length === this.allOptions.length && this.allOptions.length > 0;
+		this.allOptionsSelected = this.selectedOptions.length === this.allOptions.length && this.allOptions.length > 0;
 
 		this.updateFilteredOptions();
 		this.renderTags();
@@ -805,7 +806,7 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Selects all options
 	selectAll() {
-		this.selectedItems = [ ...this.allOptions ];
+		this.selectedOptions = [ ...this.allOptions ];
 		this.allOptionsSelected = true;
 		this.updateFilteredOptions();
 		this.renderTags();
@@ -824,7 +825,7 @@ class ComboBoxComponent extends HTMLElement {
 
 	// Unselects all options
 	unselectAll() {
-		this.selectedItems = [];
+		this.selectedOptions = [];
 		this.allOptionsSelected = false;
 		this.updateFilteredOptions();
 		this.renderTags();
@@ -844,7 +845,7 @@ class ComboBoxComponent extends HTMLElement {
 	// Public API: Update options
 	setOptions( options ) {
 		this.allOptions = options;
-		this.selectedItems = this.selectedItems.filter( item =>
+		this.selectedOptions = this.selectedOptions.filter( item =>
 			this.allOptions.some( o => o.value === item.value )
 		);
 		this.buildOptionsCache();
@@ -855,4 +856,4 @@ class ComboBoxComponent extends HTMLElement {
 }
 
 // Register the custom element
-customElements.define( "gc-combobox", ComboBoxComponent );
+customElements.define( "gc-combobox", GcComboBoxComponent );
