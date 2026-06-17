@@ -1,0 +1,165 @@
+---
+{
+	"title": "GC Combo Box Web Component",
+	"dateModified": "2026-05-13",
+	"breadcrumbs": [
+		{ "title": "GC Combo Box - Documentation", "link": "components/combo-box/combo-box-docs-en.html" }
+	],
+	"description": "An accessible combo-box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items.",
+	"lang": "en",
+	"altLangPage": "combo-box-fr.html"
+}
+---
+<p>An accessible combo-box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items from a dropdown list. This component supports multiple selection, keyboard navigation, and full screen reader support.</p>
+
+<h2>Example 1: Options from API with Label Slot</h2>
+<gc-combobox placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions">
+	<span slot="label">Region(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions"&gt;
+	&lt;span slot="label"&gt;Region(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 2: Options from Slot</h2>
+<gc-combobox placeholder="Fruit(s)..." name="fruits">
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Apple</option>
+		<option value="banana">Banana</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Grape</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits"&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Apple&lt;/option&gt;
+		&lt;option value="banana"&gt;Banana&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Grape&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 3: Label as Attribute (Not a Slot)</h2>
+<gc-combobox placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"></gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Institution(s)..." name="institutions-attr" label="Institution(s)" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 4: No Placeholder Provided</h2>
+<gc-combobox name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions">
+	<span slot="label">Institution(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions"&gt;
+	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 5: Static JSON File Provided</h2>
+<gc-combobox placeholder="Institution(s)..." name="institutions-json" options="institutions.json">
+	<span slot="label">Institution(s)</span>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Institution(s)..." name="institutions-json" options="institutions.json"&gt;
+	&lt;span slot="label"&gt;Institution(s)&lt;/span&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 6: With Select All Options Enabled</h2>
+<gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" select-all-options>
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Apple</option>
+		<option value="banana">Banana</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Grape</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" select-all-options&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Apple&lt;/option&gt;
+		&lt;option value="banana"&gt;Banana&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Grape&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Example 7: Public API Tests</h2>
+<gc-combobox id="demo-api" placeholder="Fruit(s)..." name="fruits-api">
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Apple</option>
+		<option value="banana">Banana</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Grape</option>
+		<option value="mango">Mango</option>
+	</select>
+</gc-combobox>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+	<button type="button" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())">getSelectedValues()</button>
+	<button type="button" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())">getSelectedOptions()</button>
+	<button type="button" onclick="document.getElementById('demo-api').selectOption('apple')">selectOption("apple")</button>
+	<button type="button" onclick="document.getElementById('demo-api').removeTag('apple')">removeTag("apple")</button>
+	<button type="button" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])">setSelectedOptions([banana, grape])</button>
+	<button type="button" onclick="document.getElementById('demo-api').selectAll()">selectAll()</button>
+	<button type="button" onclick="document.getElementById('demo-api').unselectAll()">unselectAll()</button>
+	<button type="button" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])">setOptions([cat, dog, bird])</button>
+</div>
+
+<script>
+	document.getElementById( "demo-api" ).addEventListener( "change", function( e ) {
+		console.log( "change event fired:", e.detail.selectedOptions );
+	} );
+</script>
+
+<details>
+	<summary>View code</summary>
+	<pre><code>&lt;gc-combobox id="demo-api" placeholder="Fruit(s)..." name="fruits-api"&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Apple&lt;/option&gt;
+		&lt;option value="banana"&gt;Banana&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Grape&lt;/option&gt;
+		&lt;option value="mango"&gt;Mango&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;
+
+&lt;div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;"&gt;
+	&lt;button type="button" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())"&gt;getSelectedValues()&lt;/button&gt;
+	&lt;button type="button" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())"&gt;getSelectedOptions()&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').selectOption('apple')"&gt;selectOption("apple")&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').removeTag('apple')"&gt;removeTag("apple")&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])"&gt;setSelectedOptions([banana, grape])&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').selectAll()"&gt;selectAll()&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').unselectAll()"&gt;unselectAll()&lt;/button&gt;
+	&lt;button type="button" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])"&gt;setOptions([cat, dog, bird])&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+	document.getElementById( "demo-api" ).addEventListener( "change", function( e ) {
+		console.log( "change event fired:", e.detail.selectedOptions );
+	} );
+&lt;/script&gt;</code></pre>
+</details>
