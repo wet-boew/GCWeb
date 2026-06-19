@@ -260,6 +260,9 @@ class GcComboBoxComponent extends HTMLElement {
 	attachEventListeners() {
 		this.input.addEventListener( "input", ( e ) => this.handleInput( e ) );
 		this.input.addEventListener( "focus", () => {
+			if ( this.allOptionsSelected ) {
+				return;
+			}
 			if ( this.input.value.trim() === "" ) {
 				this.updateFilteredOptions();
 			}
@@ -321,6 +324,10 @@ class GcComboBoxComponent extends HTMLElement {
 
 	// Filters options based on user input
 	handleInput( e ) {
+		if ( this.allOptionsSelected ) {
+			return;
+		}
+
 		const value = e.target.value.trim();
 
 		this.filteredOptions = [ ...this.allOptions ].filter( option => {
@@ -766,15 +773,23 @@ class GcComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		// Create hidden input for each selected item to be submitted with forms
-		this.selectedOptions.forEach( item => {
+		if ( this.allOptionsSelected ) {
 			const input = document.createElement( "input" );
 			input.type = "hidden";
 			input.name = name;
-			input.value = item.value;
+			input.value = "all";
 			input.dataset.comboValue = "true";
 			this.appendChild( input );
-		} );
+		} else {
+			this.selectedOptions.forEach( item => {
+				const input = document.createElement( "input" );
+				input.type = "hidden";
+				input.name = name;
+				input.value = item.value;
+				input.dataset.comboValue = "true";
+				this.appendChild( input );
+			} );
+		}
 	}
 
 	// Public API: Get selected values as array (useful for form handling)
