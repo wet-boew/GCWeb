@@ -531,13 +531,19 @@
 			"notes": {
 				"en": [
 					"A placeholder is optional but recommended. It works the same as a standard <code>input</code> placeholder.",
-					"Add the <code>select-all-options</code> attribute to enable a \"Select all options\" option at the top of the dropdown. When all options are selected, they are replaced by a single tag.",
-					"Tag colours can be customized using the <code>::part(tag)</code> CSS selector from outside the component."
+					"Add the <code>enable-select-all</code> attribute to enable a \"Select all options\" option at the top of the dropdown. When all options are selected, they are replaced by a single tag.",
+					"Tag colours can be customized using the <code>::part(tag)</code> CSS selector from outside the component.",
+					"Use the <code>slot=\"select-all-option\"</code> slot to customize the \"Select all options\" text in the dropdown (e.g. \"Select all regions\"). Requires the <code>enable-select-all</code> attribute to be present.",
+					"Use the <code>slot=\"all-options-tag\"</code> slot to customize the tag text shown when all options are selected (e.g. \"All regions\"). The component automatically appends \"selected\" or \"deselected\" for screen reader announcements. Use clear, descriptive language.",
+					"Add the <code>flatten-select-all</code> attribute to remove the visual emphasis (bold text, bottom border) from the \"Select all\" option in the dropdown, making it appear the same as other options. Requires the <code>enable-select-all</code> attribute to be present."
 				],
 				"fr": [
 					"Un espace réservé est optionnel mais recommandé. Il fonctionne de la même façon que le <code>placeholder</code> d'un <code>input</code> standard.",
-					"Ajoutez l'attribut <code>select-all-options</code> pour activer un option \"Sélectionner toutes les options\" en haut de la liste déroulante. Lorsque toutes les options sont sélectionnées, elles sont remplacées par un seul tag.",
-					"La couleur des étiquettes peut être personnalisée avec le sélecteur CSS <code>::part(tag)</code> depuis l'extérieur du composant."
+					"Ajoutez l'attribut <code>enable-select-all</code> pour activer une option « Sélectionner toutes les options » en haut de la liste déroulante. Lorsque toutes les options sont sélectionnées, elles sont remplacées par une seule étiquette.",
+					"La couleur des étiquettes peut être personnalisée avec le sélecteur CSS <code>::part(tag)</code> depuis l'extérieur du composant.",
+					"Utilisez le slot <code>slot=\"select-all-option\"</code> pour personnaliser le texte « Sélectionner toutes les options » dans la liste déroulante (ex. : « Sélectionner toutes les régions »). Nécessite la présence de l'attribut <code>enable-select-all</code>.",
+					"Utilisez le slot <code>slot=\"all-options-tag\"</code> pour personnaliser le texte de l'étiquette affichée lorsque toutes les options sont sélectionnées (ex. : « Toutes les régions »). Le composant ajoute automatiquement « sélectionné » ou « désélectionnées » pour les annonces aux lecteurs d'écran. Utilisez un langage clair et descriptif.",
+					"Ajoutez l'attribut <code>flatten-select-all</code> pour retirer l'emphase visuelle (texte en gras, bordure inférieure) de l'option « Sélectionner tout » dans la liste déroulante, afin qu'elle apparaisse comme les autres options. Nécessite la présence de l'attribut <code>enable-select-all</code>."
 				]
 			},
 			"sample": {

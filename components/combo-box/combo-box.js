@@ -22,30 +22,26 @@ class GcComboBoxComponent extends HTMLElement {
 	static defaults = {
 		i18n: {
 			"en": {
-				selectAll: "Select all",
 				itemsSelected: "items selected",
 				selectAllOptions: "Select all options",
-				deselectAllOptions: "Deselect all options",
 				availableOptions: "Available options",
 				selected: "selected",
+				deselected: "deselected",
 				removed: "removed",
 				remove: "Remove",
 				noMatchingOptions: "No matching options",
-				allOptionsSelected: "All options selected",
-				allOptionsDeselected: "All options deselected"
+				allOptions: "All options"
 			},
 			"fr": {
-				selectAll: "Sélectionner tous",
 				itemsSelected: "éléments sélectionnés",
 				selectAllOptions: "Sélectionner toutes les options",
-				deselectAllOptions: "Désélectionner toutes les options",
 				availableOptions: "Options disponibles",
 				selected: "sélectionné",
+				deselected: "désélectionnées",
 				removed: "supprimé",
 				remove: "Supprimer",
 				noMatchingOptions: "Aucune option correspondante",
-				allOptionsSelected: "Toutes les options sélectionnées",
-				allOptionsDeselected: "Toutes les options désélectionnées"
+				allOptions: "Toutes les options"
 			}
 		}
 	};
@@ -70,13 +66,23 @@ class GcComboBoxComponent extends HTMLElement {
 		return this.constructor.defaults.i18n[ this.pageLanguage ] || {};
 	}
 
+	getAllOptionsTag() {
+		const slot = this.querySelector( "[slot='all-options-tag']" );
+		return slot?.textContent.trim() || this.getLocalizedText().allOptions;
+	}
+
+	getSelectAllOption() {
+		const slot = this.querySelector( "[slot='select-all-option']" );
+		return slot?.textContent.trim() || this.getLocalizedText().selectAllOptions;
+	}
+
 	connectedCallback() {
 
 		// Set page language from document or fallback to English
 		this.pageLanguage = ( typeof wb !== "undefined" && wb.lang ) ? wb.lang : "en";
 
-		// Check if select-all-options attribute is present
-		this.allowSelectAll = this.hasAttribute( "select-all-options" );
+		// Check if enable-select-all attribute is present
+		this.allowSelectAll = this.hasAttribute( "enable-select-all" );
 
 		this.initializeComponent();
 	}
@@ -133,10 +139,10 @@ class GcComboBoxComponent extends HTMLElement {
 		if ( this.allowSelectAll ) {
 			this.selectAllOptionElement = document.createElement( "li" );
 			this.selectAllOptionElement.id = `combo-option-select-all-${ this.instanceId }`;
-			this.selectAllOptionElement.className = "combo-box-option combo-box-option-select-all";
+			this.selectAllOptionElement.className = this.hasAttribute( "flatten-select-all" ) ? "combo-box-option" : "combo-box-option combo-box-option-select-all";
 			this.selectAllOptionElement.setAttribute( "role", "option" );
 			this.selectAllOptionElement.setAttribute( "data-select-all", "true" );
-			this.selectAllOptionElement.textContent = this.getLocalizedText().selectAllOptions;
+			this.selectAllOptionElement.textContent = this.getSelectAllOption();
 		}
 
 		// Build the empty state element once
@@ -321,6 +327,10 @@ class GcComboBoxComponent extends HTMLElement {
 
 	// Filters options based on user input
 	handleInput( e ) {
+		if ( this.allOptionsSelected ) {
+			return;
+		}
+
 		const value = e.target.value.trim();
 
 		this.filteredOptions = [ ...this.allOptions ].filter( option => {
@@ -558,8 +568,9 @@ class GcComboBoxComponent extends HTMLElement {
 		tag.dataset.tagValue = item.value;
 		tag.tabIndex = -1;
 
-		// tag.setAttribute( "part", "tag" );
-		tag.innerHTML = `<span class="wb-inv" hidden>${ this.getLocalizedText().remove } </span><span class="tag-text">${ this.escapeHtml( item.label ) }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+		tag.setAttribute( "part", "tag" );
+		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ item.label }` );
+		tag.innerHTML = `<span class="tag-text">${ this.escapeHtml( item.label ) }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
 		return tag;
 	}
 
@@ -571,8 +582,9 @@ class GcComboBoxComponent extends HTMLElement {
 		tag.dataset.tagValue = "all-options";
 		tag.tabIndex = -1;
 
-		// tag.setAttribute( "part", "tag" );
-		tag.innerHTML = `<span class="wb-inv" hidden>${ this.getLocalizedText().remove } </span><span class="tag-text">${ this.getLocalizedText().allOptionsSelected }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
+		tag.setAttribute( "part", "tag" );
+		tag.setAttribute( "aria-label", `${ this.getLocalizedText().remove } ${ this.getAllOptionsTag() }` );
+		tag.innerHTML = `<span class="tag-text">${ this.getAllOptionsTag() }</span><span class="tag-dismiss" aria-hidden="true">×</span>`;
 		return tag;
 	}
 
@@ -610,7 +622,6 @@ class GcComboBoxComponent extends HTMLElement {
 		this.input.value = "";
 		if ( allSelected ) {
 			this.input.placeholder = "";
-			this.tagsContainer.setAttribute( "aria-label", this.getLocalizedText().allOptionsSelected );
 			this.tagsContainer.setAttribute( "role", "toolbar" ); // AT Compatibility - See following comment about the role=toolbar used the subsequent instruction
 		} else {
 			this.input.placeholder = this.originalPlaceholder;
@@ -661,7 +672,7 @@ class GcComboBoxComponent extends HTMLElement {
 
 	// Opens the dropdown list
 	openList() {
-		if ( !this.isOpen ) {
+		if ( !this.isOpen && !this.allOptionsSelected ) {
 			this.isOpen = true;
 			this.list.removeAttribute( "hidden" );
 			this.input.setAttribute( "aria-expanded", "true" );
@@ -766,15 +777,23 @@ class GcComboBoxComponent extends HTMLElement {
 			return;
 		}
 
-		// Create hidden input for each selected item to be submitted with forms
-		this.selectedOptions.forEach( item => {
+		if ( this.allOptionsSelected ) {
 			const input = document.createElement( "input" );
 			input.type = "hidden";
 			input.name = name;
-			input.value = item.value;
+			input.value = "all";
 			input.dataset.comboValue = "true";
 			this.appendChild( input );
-		} );
+		} else {
+			this.selectedOptions.forEach( item => {
+				const input = document.createElement( "input" );
+				input.type = "hidden";
+				input.name = name;
+				input.value = item.value;
+				input.dataset.comboValue = "true";
+				this.appendChild( input );
+			} );
+		}
 	}
 
 	// Public API: Get selected values as array (useful for form handling)
@@ -816,8 +835,11 @@ class GcComboBoxComponent extends HTMLElement {
 
 		this.syncHiddenInputs();
 
-		// Announce action to screen readers
-		this.announce( `${ this.getLocalizedText().allOptionsSelected }` );
+		// If the all options tag already ends with "selected", don't append "selected" to the screen reader announcemnent
+		const tagText = this.getAllOptionsTag();
+		const selected = this.getLocalizedText().selected;
+		const announcement = tagText.toLowerCase().endsWith( selected.toLowerCase() ) ? tagText : `${ tagText } ${ selected }`;
+		this.announce( announcement );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
@@ -836,7 +858,7 @@ class GcComboBoxComponent extends HTMLElement {
 		this.syncHiddenInputs();
 
 		// Announce action to screen readers
-		this.announce( `${ this.getLocalizedText().allOptionsDeselected }` );
+		this.announce( `${ this.getAllOptionsTag() } ${ this.getLocalizedText().deselected }` );
 
 		// Dispatch change event
 		this.dispatchChangeEvent();
