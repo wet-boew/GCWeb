@@ -1,0 +1,87 @@
+---
+{
+	"title": "Subscribe to Media Advisories",
+	"dateModified": "2026-06-22",
+	"breadcrumbs": [
+		{ "title": "News", "link": "https://www.canada.ca/en/news.html" }
+	],
+	"description": "Subscribe to news updates from the Government of Canada. Select your preferred regions, institutions, and topics to receive tailored news content directly to your inbox.",
+	"lang": "en",
+	"altLangPage": "news-test-page-fr.html"
+}
+---
+
+<div class="mwsgeneric-base-html parbase section">
+<p>To subscribe and receive an email when a media advisory is published, please complete the information below.</p>
+<p> You can provide your feedback using the link found in the bottom of every email.</p>
+
+<div class="wb-frmvld wb-init wb-frmvld-inited" id="wb-auto-4">
+	<form action="#" novalidate="novalidate">
+		<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+			<label for="email" class="required"><span class="field-name">Email</span> <strong class="required" aria-hidden="true">(required)</strong> </label>
+			<div class="row">
+				<div class="col-sm-6"><input type="email" name="email" id="email" class="form-control full-width" autocomplete="email" required=""></div>
+			</div>
+		</div>
+		<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+			<fieldset class="chkbxrdio-grp form-inline">
+				<legend class="required"><span class="field-name">Preferred language</span> <strong class="required" aria-hidden="true">(required)</strong></legend>
+				<div class="label-inline">
+					<input type="radio" name="mailingTopicId" value="pco_en" id="language-en" checked="">
+					<label for="language-en">English </label>
+				</div>
+				<div class="label-inline">
+					<input type="radio" name="mailingTopicId" value="pco_fr" id="language-fr">
+					<label for="language-fr" lang="fr">Français </label>
+				</div>
+			</fieldset>
+		</div>
+
+<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "renderas": "radio", "base": {"live": true}}'>
+					<p class="wb-fieldflow-label">What type of media advisories would you like to receive?</p>
+					<ul>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-all-content"}'>All media advisories</li>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-custom-content"}'>Customized media advisories</li>
+					</ul>
+				</div>
+
+				<div id="news-all-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>You are subscribing to all media advisories</strong></p>
+					</div>
+				</div>
+
+				<div id="news-custom-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>You are subscribing to media advisories from selected institutions and regions that matter most to you</strong></p>
+					</div>
+					<gc-combobox id="news-institutions" placeholder="Institution(s)..." name="institutions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/institutions" enable-select-all flatten-select-all>
+						<span slot="label">Institutions</span>
+						<span slot="all-options-tag">All institutions</span>
+						<span slot="select-all-option">Select all institutions</span>
+					</gc-combobox>
+					<gc-combobox id="news-regions" placeholder="Region(s)..." name="regions" options="https://api.io.canada.ca/io-server/gc/news/institutions-and-regions-tags/v1/en/regions" enable-select-all flatten-select-all>
+						<span slot="label">Regions</span>
+						<span slot="all-options-tag">All regions</span>
+						<span slot="select-all-option">Select all regions</span>
+					</gc-combobox>
+				</div>
+			</div>
+
+<details class="mrgn-bttm-lg">
+<summary>Privacy Notice</summary>
+<p>Your personal information is collected by Service Canada for the purpose of delivering the Canada.ca newsroom email service for which you have subscribed to. Information is collected under the authority of the <cite><a href="https://laws-lois.justice.gc.ca/eng/acts/f-11/FullText.html">Financial Administration Act</a></cite>, and in accordance with the <cite><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=30683">Policy on Communications and Federal Identity</a></cite>.</p>
+<p>Your information is protected in accordance with the <cite><a href="https://laws-lois.justice.gc.ca/eng/acts/p-21/FullText.html">Privacy Act</a></cite>. The Act sets rules on government institutions’ collection, use, disclosure, and retention of personal information. It provides individuals with:</p>
+<ol>
+<li>The right to access personal information under the control of Service Canada;</li>
+<li>The right to request its correction; and</li>
+<li>The right to complain to the Privacy Commissioner of Canada about the handling of that personal information.</li>
+</ol>
+<p>The personal information collected for contract purposes is linked with Personal Information Bank PSU 914.</p>
+</details>
+
+		<button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
+	</form>
+<div class="arialive wb-inv" aria-live="polite" aria-relevant="all"></div></div>
+</div>
