@@ -1170,7 +1170,7 @@ module.exports = (grunt) ->
 						"!Gemfile.lock"
 
 						# Web contents
-						"!{sites,common,components,templates,design-patterns,wet-boew}/**/*.md"
+						"!{_site,sites,common,components,templates,design-patterns,wet-boew}/**/*.md"
 						# "{sites,components,templatesdesign-patterns}/*/*.{md,html}"
 						# "{sites,components,templatesdesign-patterns}/*.{md, html}"
 						# "!{sites,components,templatesdesign-patterns}/*/**/*.{md,html}"
@@ -1215,6 +1215,7 @@ module.exports = (grunt) ->
 					'!_site/**/*.md'
 					'!_wetboew-demos/**/*.md',
 					'!~sites/**/*.md'
+					'!_site/**/*.md'
 				]
 
 	require( "load-grunt-tasks" )( grunt )
