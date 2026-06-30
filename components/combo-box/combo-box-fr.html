@@ -99,7 +99,7 @@
 </details>
 
 <h2>Exemple 6 : Avec l'option Sélectionner tout activée</h2>
-<gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" select-all-options>
+<gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" enable-select-all>
 	<span slot="label">Fruit(s)</span>
 	<select slot="options">
 		<option value="apple">Pomme</option>
@@ -111,7 +111,7 @@
 
 <details>
 	<summary>Visualiser le code</summary>
-	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" select-all-options&gt;
+	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-select-all" enable-select-all&gt;
 	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
 	&lt;select slot="options"&gt;
 		&lt;option value="apple"&gt;Pomme&lt;/option&gt;
@@ -122,7 +122,59 @@
 &lt;/gc-combobox&gt;</code></pre>
 </details>
 
-<h2>Exemple 7 : Tests d'API publique</h2>
+<h2>Exemple 7 : Libellés « Sélectionner tout » personnalisés</h2>
+<gc-combobox placeholder="Fruit(s)..." name="fruits-custom-labels" enable-select-all>
+	<span slot="label">Fruit(s)</span>
+	<span slot="select-all-option">Sélectionner tous les fruits</span>
+	<span slot="all-options-tag">Tous les fruits</span>
+	<select slot="options">
+		<option value="apple">Pomme</option>
+		<option value="banana">Banane</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Raisin</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>Visualiser le code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-custom-labels" enable-select-all&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;span slot="select-all-option"&gt;Sélectionner tous les fruits&lt;/span&gt;
+	&lt;span slot="all-options-tag"&gt;Tous les fruits&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Pomme&lt;/option&gt;
+		&lt;option value="banana"&gt;Banane&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Raisin&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Exemple 8 : Option Sélectionner tout aplatie</h2>
+<gc-combobox placeholder="Fruit(s)..." name="fruits-flatten" enable-select-all flatten-select-all>
+	<span slot="label">Fruit(s)</span>
+	<select slot="options">
+		<option value="apple">Pomme</option>
+		<option value="banana">Banane</option>
+		<option value="orange">Orange</option>
+		<option value="grape">Raisin</option>
+	</select>
+</gc-combobox>
+
+<details>
+	<summary>Visualiser le code</summary>
+	<pre><code>&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-flatten" enable-select-all flatten-select-all&gt;
+	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
+	&lt;select slot="options"&gt;
+		&lt;option value="apple"&gt;Pomme&lt;/option&gt;
+		&lt;option value="banana"&gt;Banane&lt;/option&gt;
+		&lt;option value="orange"&gt;Orange&lt;/option&gt;
+		&lt;option value="grape"&gt;Raisin&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/gc-combobox&gt;</code></pre>
+</details>
+
+<h2>Exemple 9 : Tests d'API publique</h2>
 <gc-combobox id="demo-api" placeholder="Fruit(s)..." name="fruits-api">
 	<span slot="label">Fruit(s)</span>
 	<select slot="options">
