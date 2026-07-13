@@ -52,6 +52,13 @@ The next step would be to relaunch the experimental feature in a new méli-mélo
   * [2021-05-steps](https://github.com/wet-boew/GCWeb/tree/v17.8.1/m%C3%A9li-m%C3%A9lo/2021-05-steps)
   * [deprecated](https://github.com/wet-boew/GCWeb/tree/v15.7.0/m%C3%A9li-m%C3%A9lo/deprecated)
 
+* 2025-12-mile-iles - as of GCWeb v19.2.0
+  * [2025-06-math-grid](https://github.com/wet-boew/GCWeb/tree/v19.2.0/m%C3%A9li-m%C3%A9lo/2025-06-math-grid)
+  * [2024-10-datatable-utilities](https://github.com/wet-boew/GCWeb/tree/v19.2.0/m%C3%A9li-m%C3%A9lo/2024-10-datatable-utilities)
+  * [2021-05-conjunction](https://github.com/wet-boew/GCWeb/tree/v19.2.0/m%C3%A9li-m%C3%A9lo/2021-05-conjunction)
+  * [2021-05-steps](https://github.com/wet-boew/GCWeb/tree/v19.2.0/m%C3%A9li-m%C3%A9lo/2021-05-steps)
+  * [deprecated](https://github.com/wet-boew/GCWeb/tree/v19.2.0/m%C3%A9li-m%C3%A9lo/deprecated)
+
 ## Template for the frozen compilations list
 
 * DATE (YYYY-MM-DD) - [méli-mélo compilation name]
