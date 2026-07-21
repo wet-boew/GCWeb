@@ -3,7 +3,7 @@ altLangPage: only-footer-main-en.html
 breadcrumbs:
 - title: Pied de page
   link: sites/footers/footers-fr.html
-dateModified: 2023-01-16
+dateModified: 2025-06-20
 includes:
   footer: edge
 language: fr
