@@ -1174,7 +1174,10 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 
 	// Before to submit, remove jj-down accessory control
 	if ( !preventSubmit ) {
-		$elm.find( basenameInputSelector ).removeAttr( "name" );
+		$elm.find( basenameInputSelector ).each( function() {
+			this.dataset.wbFieldflowName = this.name;
+			this.removeAttribute( "name" );
+		} );
 
 		// Fix an issue when clicking back with the mouse
 		i_len = wbRegisteredHidden.length;
@@ -1370,6 +1373,23 @@ $document.on( fieldflowActionsEvents, selector, function( event, data ) {
 			}
 			break;
 	}
+} );
+
+// On a page restore from cache, undo the two changes the submit handler made to the page just before navigating away to preserve the original state
+window.addEventListener( "pageshow", function( event ) {
+	if ( !event.persisted ) {
+		return;
+	}
+
+	$( "[data-" + componentName + "-name]" ).each( function() {
+		this.setAttribute( "name", this.dataset.wbFieldflowName );
+	} );
+
+	$( selectorForm + " " + crtlSelectSelector ).each( function() {
+		if ( $( this ).find( ":checked" ).length ) {
+			$( this ).trigger( "change" );
+		}
+	} );
 } );
 
 // Bind the init event of the plugin

@@ -330,4 +330,89 @@ dateModified: "2023-12-01"
 	&lt;/form&gt;
 &lt;/div&gt;</code></pre>
 
+	<h3>Inside a form that submits to another page</h3>
+	<div class="wb-frmvld">
+		<form action="ajax/confirmation-en.html" method="get">
+
+			<div class="form-group mrgn-lft-md mrgn-bttm-lg">
+				<div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "renderas": "radio", "base": {"live": true}}'>
+					<p class="wb-fieldflow-label">What would you like to receive?</p>
+					<ul>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-all-content"}'>All advisories
+						</li>
+						<li data-wb-fieldflow='{"action": "toggle", "toggle": "#news-custom-content"}'>Customized subscription</li>
+					</ul>
+				</div>
+
+
+				<div id="news-all-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>You are subscribing to all media advisories</strong></p>
+					</div>
+				</div>
+
+
+				<div id="news-custom-content" class="hidden mrgn-tp-md">
+					<div class="well well-sm mrgn-bttm-0">
+						<p class="mrgn-bttm-0"><strong>You are subscribing to media advisories from selected regions</strong></p>
+					</div>
+					<gc-combobox class="select-all-unstyled" id="news-regions" placeholder="Select region(s)..."
+						name="regions"
+						enable-select-all="Select all regions" all-options-tag="All regions">
+						<span slot="label">Regions</span>
+						<select slot="options">
+							<option value="ontario">Ontario</option>
+							<option value="toronto">Toronto</option>
+							<option value="gatineau">Gatineau</option>
+							<option value="ottawa">Ottawa</option>
+							<option value="quebec">Quebec</option>
+						</select>
+					</gc-combobox>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
+		</form>
+	</div>
+	<pre class="mrgn-tp-md"><code>&lt;div class=&quot;wb-frmvld&quot;&gt;
+	&lt;form action=&quot;ajax/confirmation-en.html&quot; method=&quot;get&quot;&gt;
+
+		&lt;div class=&quot;form-group mrgn-lft-md mrgn-bttm-lg&quot;&gt;
+			&lt;div class=&quot;wb-fieldflow&quot; data-wb-fieldflow='{&quot;noForm&quot;: true, &quot;renderas&quot;: &quot;radio&quot;, &quot;base&quot;: {&quot;live&quot;: true}}'&gt;
+				&lt;p class=&quot;wb-fieldflow-label&quot;&gt;What would you like to receive?&lt;/p&gt;
+				&lt;ul&gt;
+					&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;toggle&quot;, &quot;toggle&quot;: &quot;#news-all-content&quot;}'&gt;All advisories&lt;/li&gt;
+					&lt;li data-wb-fieldflow='{&quot;action&quot;: &quot;toggle&quot;, &quot;toggle&quot;: &quot;#news-custom-content&quot;}'&gt;Customized subscription&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div id=&quot;news-all-content&quot; class=&quot;hidden mrgn-tp-md&quot;&gt;
+				&lt;div class=&quot;well well-sm mrgn-bttm-0&quot;&gt;
+					&lt;p class=&quot;mrgn-bttm-0&quot;&gt;&lt;strong&gt;You are subscribing to all media advisories&lt;/strong&gt;&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div id=&quot;news-custom-content&quot; class=&quot;hidden mrgn-tp-md&quot;&gt;
+				&lt;div class=&quot;well well-sm mrgn-bttm-0&quot;&gt;
+					&lt;p class=&quot;mrgn-bttm-0&quot;&gt;&lt;strong&gt;You are subscribing to media advisories from selected regions&lt;/strong&gt;&lt;/p&gt;
+				&lt;/div&gt;
+				&lt;gc-combobox class=&quot;select-all-unstyled&quot; id=&quot;news-regions&quot; placeholder=&quot;Select region(s)...&quot;
+					name=&quot;regions&quot;
+					enable-select-all=&quot;Select all regions&quot; all-options-tag=&quot;All regions&quot;&gt;
+					&lt;span slot=&quot;label&quot;&gt;Regions&lt;/span&gt;
+					&lt;select slot=&quot;options&quot;&gt;
+						&lt;option value=&quot;ontario&quot;&gt;Ontario&lt;/option&gt;
+						&lt;option value=&quot;toronto&quot;&gt;Toronto&lt;/option&gt;
+						&lt;option value=&quot;gatineau&quot;&gt;Gatineau&lt;/option&gt;
+						&lt;option value=&quot;ottawa&quot;&gt;Ottawa&lt;/option&gt;
+						&lt;option value=&quot;quebec&quot;&gt;Quebec&lt;/option&gt;
+					&lt;/select&gt;
+				&lt;/gc-combobox&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Subscribe&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+
 </section>
