@@ -1,0 +1,113 @@
+/*
+ *
+ * @title: Compatibility fixes for MWS integration
+ *
+ */
+
+main .mws-GridColumn {
+	box-sizing: border-box;
+	clear: both;
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
+
+	&:has(.container) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+main .container.responsivegrid {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/******
+	TODO: Evaluate if the following styles are needed for publish instance
+******/
+
+/*
+.main-container.container-base.container.responsivegrid {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.root {
+	width: 100%;
+}
+
+div:not(.wrap-container).wcontainer.container.responsivegrid {
+	&:not([class*="aem-GridColumn--offset--xs-"],
+	[class*="aem-GridColumn--offset--sm-"],
+	[class*="aem-GridColumn--offset--md-"],
+	[class*="aem-GridColumn--offset--lg-"]) {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+}
+
+.wcontainer.container.responsivegrid {
+	.aem-GridColumn:not(.wrap-container) {
+		&--xs--none,
+		&--offset--xs--0,
+		&--xs--12,
+		.cq-Editable-dom .cq-Editable-dom--container {
+			padding: 0 !important;
+		}
+
+		// Generalize for any aem-GridColumn--default--xx, except when .wrap-container is present
+		&[class*="aem-GridColumn--default--"]:not(.wrap-container) {
+			padding: 0 !important;
+		}
+	}
+}
+
+.wrap-container.container.aem-GridColumn--default--12 {
+	float: none !important;
+}
+
+.wrap-container.container {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.wrap-container.container:before,
+.wrap-container.container:after,
+.wrap-container .container-fluid:before,
+.wrap-container .container-fluid:after {
+	content: " ";
+	display: table;
+}
+
+.wrap-container.container:after,
+.wrap-container .container-fluid:after {
+	clear: both;
+}
+
+@media (min-width: 768px) {
+	.wrap-container.container {
+		width: 750px !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.wrap-container.container {
+		width: 970px !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	.wrap-container.container {
+		width: 1170px !important;
+	}
+}
+
+.wrap-container .container-fluid {
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.xf-content-height {
+	margin: 0 !important;
+}
+*/
