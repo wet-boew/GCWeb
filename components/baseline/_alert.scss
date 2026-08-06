@@ -21,6 +21,27 @@
 	}
 }
 
+// Removes icon + segmented border + extra spacing
+@mixin alert-emphasis-reset {
+	@extend %label-alert-common;
+
+	border-image: none;
+	font-size: 75%;
+	margin-left: 0;
+	padding: 0 0 0 .6em;
+
+	&::before {
+		content: none;
+	}
+
+	> {
+		*, :first-child, :last-child {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
 .alert {
 	background-clip: content-box;
 	background-color: inherit;
@@ -71,19 +92,39 @@
 .alert-info {
 	@include alert-type($alert-info-color, "\e086");
 	@extend %alert-first-child-before-disable;
+
+	&.alert-emphasis {
+		@include alert-emphasis-reset;
+		@extend %label-alert-info-bg-border-left;
+	}
 }
 
 .alert-success {
 	@include alert-type($alert-success-color, "\e084");
 	@extend %alert-first-child-before-disable;
+
+	&.alert-emphasis {
+		@include alert-emphasis-reset;
+		@extend %label-alert-success-bg-border-left;
+	}
 }
 
 .alert-warning {
 	@include alert-type($alert-warning-color, "\e107");
 	@extend %alert-first-child-before-disable;
+
+	&.alert-emphasis {
+		@include alert-emphasis-reset;
+		@extend %label-alert-warning-bg-border-left;
+	}
 }
 
 .alert-danger {
 	@include alert-type($alert-danger-color, "\e101");
 	@extend %alert-first-child-before-disable;
+
+	&.alert-emphasis {
+		@include alert-emphasis-reset;
+		@extend %label-alert-danger-bg-border-left;
+	}
 }
