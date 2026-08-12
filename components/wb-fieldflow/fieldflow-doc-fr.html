@@ -6,7 +6,7 @@ description: Transforme une simple liste en une liste de choix.
 tag: fieldflow
 parentdir: fieldflow
 altLangPage: fieldflow-doc-en.html
-dateModified: "2021-04-28"
+dateModified: "2026-08-12"
 ---
 
 <div class="wb-prettify all-pre"></div>
@@ -954,6 +954,28 @@ dateModified: "2021-04-28"
 				</td>
 				<td><code>data-wb-fieldflow='{&quot;live&quot;: true}'</code></td>
 				<td>URL</td>
+			</tr>
+			<tr>
+				<td>keepOnSubmit</td>
+				<td>ajax,toggle</td>
+				<td><p>Do not undo the action when the form is submitted. Without it, the content shown by a <code>live</code> action is hidden (or emptied) right before the browser navigates away, which is visible to the user.</p>
+					<p>Available for:</p>
+					<ul>
+						<li>ajax</li>
+						<li>toggle</li>
+					</ul>
+				</td>
+				<td><code>data-wb-fieldflow='{&quot;action&quot;: &quot;toggle&quot;, &quot;toggle&quot;: &quot;#jQuerySelector&quot;, &quot;live&quot;: true, &quot;keepOnSubmit&quot;: true}'</code>
+					<p>It can be set for all the actions of a component with <code>data-wb-fieldflow='{&quot;base&quot;: {&quot;keepOnSubmit&quot;: true}}'</code></p>
+				</td>
+				<td>
+					<dl>
+						<dt>false (default):</dt>
+						<dd>The action is undone when the form is submitted, like it is on a selection change.</dd>
+						<dt>true</dt>
+						<dd>The action is only undone on a selection change, the content stay as it is while the form is submitted.</dd>
+					</dl>
+				</td>
 			</tr>
 			<tr>
 				<td>type</td>

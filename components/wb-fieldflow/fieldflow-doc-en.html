@@ -6,7 +6,7 @@ description: Transform a basic list into a drop down.
 tag: fieldflow
 parentdir: fieldflow
 altLangPage: fieldflow-doc-fr.html
-dateModified: 2021-04-28
+dateModified: 2026-08-12
 ---
 
 <div class="wb-prettify all-pre"></div>
@@ -950,6 +950,27 @@ dateModified: 2021-04-28
 				</td>
 				<td><code>data-wb-fieldflow='{&quot;live&quot;: true}'</code></td>
 				<td>URL</td>
+			</tr>
+			<tr>
+				<td>keepOnSubmit</td>
+				<td>ajax,toggle</td>
+				<td><p>Keep content visible during a submit. Without it, the content shown by a <code>live</code> action is hidden or emptied right before the browser navigates away.</p>
+					<p>Available for:</p>
+					<ul>
+						<li>ajax</li>
+						<li>toggle</li>
+					</ul>
+				</td>
+				<td><code>data-wb-fieldflow='{&quot;action&quot;: &quot;toggle&quot;, &quot;toggle&quot;: &quot;#jQuerySelector&quot;, &quot;live&quot;: true, &quot;keepOnSubmit&quot;: true}'</code>
+				</td>
+				<td>
+					<dl>
+						<dt>false (default):</dt>
+						<dd>Visible content will be hidden or emptied on form submission, the same way it is for a selection change. </dd>
+						<dt>true</dt>
+						<dd>The content stays as it is while the form is submitted.</dd>
+					</dl>
+				</td>
 			</tr>
 			<tr>
 				<td>type</td>
