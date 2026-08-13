@@ -1,0 +1,77 @@
+/*
+* Custom responsive table styles
+*/
+
+/*
+* Custom filtered table
+*/
+table {
+	&.nws-tbl.crd-tbl {
+
+		td {
+			display: block;
+		}
+
+		.nws-tbl-ttl.crd-tbl-ttl,
+		.nws-tbl-desc.crd-tbl-desc {
+			margin-top: 15px;
+		}
+
+		.nws-tbl-date.crd-tbl-date,
+		.nws-tbl-dept.crd-tbl-dept,
+		.nws-tbl-type.crd-tbl-type {
+			color: #555;
+			letter-spacing: .01em;
+		}
+
+		tbody {
+
+			tr {
+				background-color: $body-bg;
+			}
+		}
+
+		> tbody > tr > td,
+		> tbody > tr > th,
+		> tfoot > tr > td,
+		> tfoot > tr > th,
+		> thead > tr > td,
+		> thead > tr > th {
+			border-top: 0;
+			padding-bottom: 0;
+			padding-top: 0;
+		}
+	}
+}
+
+// Custom responsive table formatting (extended)
+.nws-tbl.crd-tbl .tp-rail {
+	display:inline-block;
+}
+.nws-tbl.crd-tbl details summary, .nws-tbl.crd-tbl details[open] {
+	border:	0;
+}
+.nws-tbl.crd-tbl .one-dot {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background: #000;
+	border-radius: 50%;
+	display: inline-block;
+	height: .5em;
+	vertical-align: middle;
+	width: .5em;
+}
+.nws-tbl.crd-tbl .tp-rail.commit {
+	font-size: 1.15em;
+	font-weight: 600;
+	max-width: 67%;
+	min-width: 67%;
+}
+.largeview .nws-tbl.crd-tbl .tp-rail.commit, .xlargeview .nws-tbl.crd-tbl .tp-rail.commit {
+	max-width: 71%;
+	min-width: 71%;
+}
+
+table.dataTable.nws-tbl.crd-tbl .label.label-success {
+	padding: .6em .6em .3em;
+}
