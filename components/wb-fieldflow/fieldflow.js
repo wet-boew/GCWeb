@@ -212,6 +212,20 @@ var componentName = "wb-fieldflow",
 		dtCache.push( data );
 		return $elm.data( prop, dtCache );
 	},
+
+
+	// Bind the clean event, and check if the cleaning should be done on submit or not
+	bindCleanEvent = function( $elm, data, cleanFunction ) {
+		$elm.on( cleanEvent, function cleanHandler( event, cleanData ) {
+			if ( data.keepOnSubmit && cleanData && cleanData.onSubmit ) {
+				return;
+			}
+			cleanFunction.call( this, event, cleanData );
+
+			// Cleaning event is unbinded after it's been executed so that it only runs once
+			$elm.off( cleanEvent, cleanHandler );
+		} );
+	},
 	subRedir = function( event, data ) {
 
 		var form = data.form,
@@ -268,7 +282,7 @@ var componentName = "wb-fieldflow",
 		}
 
 		if ( cleanSelector ) {
-			$( data.origin ).one( cleanEvent, function( ) {
+			bindCleanEvent( $( data.origin ), data, function( ) {
 				$( cleanSelector ).empty();
 			} );
 		}
@@ -314,7 +328,7 @@ var componentName = "wb-fieldflow",
 
 		// Set the cleaning task
 		toggleOpts.type = "off";
-		$origin.one( cleanEvent, function( ) {
+		bindCleanEvent( $origin, data, function( ) {
 			$origin.addClass( "wb-toggle" );
 			$origin.trigger( "toggle.wb-toggle", toggleOpts );
 			$origin.removeClass( "wb-toggle" );
@@ -1124,11 +1138,12 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 		preventSubmit = false, lastProvEvt;
 
 	// Run the cleaning on the current items
+	// The "onSubmit" property lets an action opt out of it via the "keepOnSubmit" attribute
 	if ( i_len ) {
 		$wbFieldFlow = $( "#" + wbFieldFlowRegistered[ i_len - 1 ] );
 		fieldOrigin = $wbFieldFlow.data( registerJQData );
-		$( "#" + fieldOrigin[ fieldOrigin.length - 1 ] ).trigger( cleanEvent );
-		$wbFieldFlow.trigger( cleanEvent );
+		$( "#" + fieldOrigin[ fieldOrigin.length - 1 ] ).trigger( cleanEvent, { onSubmit: true } );
+		$wbFieldFlow.trigger( cleanEvent, { onSubmit: true } );
 	}
 
 	// For each wb-fieldflow component, execute submitting task.
@@ -1174,7 +1189,10 @@ $document.on( "submit", selectorForm + " form", function( event ) {
 
 	// Before to submit, remove jj-down accessory control
 	if ( !preventSubmit ) {
-		$elm.find( basenameInputSelector ).removeAttr( "name" );
+		$elm.find( basenameInputSelector ).each( function() {
+			this.dataset.wbFieldflowName = this.name;
+			this.removeAttribute( "name" );
+		} );
 
 		// Fix an issue when clicking back with the mouse
 		i_len = wbRegisteredHidden.length;
@@ -1370,6 +1388,23 @@ $document.on( fieldflowActionsEvents, selector, function( event, data ) {
 			}
 			break;
 	}
+} );
+
+// On a page restore from cache, undo the two changes the submit handler made to the page just before navigating away to preserve the original state
+window.addEventListener( "pageshow", function( event ) {
+	if ( !event.persisted ) {
+		return;
+	}
+
+	$( "[data-" + componentName + "-name]" ).each( function() {
+		this.setAttribute( "name", this.dataset.wbFieldflowName );
+	} );
+
+	$( selectorForm + " " + crtlSelectSelector ).each( function() {
+		if ( $( this ).find( ":checked" ).length ) {
+			$( this ).trigger( "change" );
+		}
+	} );
 } );
 
 // Bind the init event of the plugin

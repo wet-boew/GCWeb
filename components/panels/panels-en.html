@@ -10,12 +10,15 @@
 <div class="wb-prettify all-pre"></div>
 
 <h2>Stacking options</h2>
-<p>Use to create  various container types. A panel can be broken up into a <code>.panel</code>, <code>.panel-heading</code>, <code>.panel-title</code>, <code>panel-body</code> and <code>.panel-footer</code>. Only the <code>.panel</code> is required. All the rest are optional.</p>
+<p>Use to create  various container types. A panel can be broken up into a <code>.panel</code>, <code>.panel-heading</code>, <code>.panel-title</code>, <code>panel-body</code> and <code>.panel-footer</code>. The <code>.panel</code>, <code>.panel-heading</code> and <code>.panel-title</code> elements are required; all other panel elements are optional.</p>
 
 <div class="row">
 	<div class="col-sm-6 col-lg-3">
 		<p>Padded content:</p>
 		<div class="panel panel-default">
+			<header class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			</header>
 			<div class="panel-body">
 				<p>Content</p>
 			</div>
@@ -24,6 +27,9 @@
 	<div class="col-sm-6 col-lg-3">
 		<p>Full-width content:</p>
 		<div class="panel panel-default">
+			<header class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			</header>
 			<table class="table">
 				<caption class="wb-inv">Caption text</caption>
 				<thead>
@@ -48,6 +54,9 @@
 	<div class="col-sm-6 col-lg-3">
 		<p>Padded plus full-width content:</p>
 		<div class="panel panel-default">
+			<header class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			</header>
 			<div class="panel-body">
 				<p>Content</p>
 			</div>
@@ -75,7 +84,7 @@
 		</div>
 	</div>
 	<div class="col-sm-6 col-lg-3">
-		<p>Add a heading and/or footer:</p>
+		<p>Add a footer:</p>
 		<div class="panel panel-default">
 			<header class="panel-heading">
 				<h3 class="panel-title">Panel title</h3>
@@ -92,12 +101,18 @@
 <dl>
 	<dt>Padded content:</dt>
 	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;header class="panel-heading"&gt;
+	&lt;h3 class="panel-title"&gt;Panel title&lt;/h3&gt;
+	&lt;/header&gt;
 	&lt;div class="panel-body"&gt;
 		&lt;p&gt;Content&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre></dd>
 	<dt>Full-width content:</dt>
 	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Panel title&lt;/h3&gt;
+	&lt;/header&gt;
 	&lt;table class="table"&gt;
 		&lt;caption class="wb-inv"&gt;Caption text&lt;/caption&gt;
 		&lt;thead&gt;
@@ -120,6 +135,9 @@
 &lt;/div&gt;</code></pre></dd>
 	<dt>Padded plus full-width content:</dt>
 	<dd><pre><code>&lt;div class="panel panel-default"&gt;
+	&lt;header class="panel-heading"&gt;
+		&lt;h3 class="panel-title"&gt;Panel title&lt;/h3&gt;
+	&lt;/header&gt;
 	&lt;div class="panel-body"&gt;
 		&lt;p&gt;Content&lt;/p&gt;
 	&lt;/div&gt;
@@ -145,7 +163,7 @@
 		&lt;/tbody&gt;
 	&lt;/table&gt;
 &lt;/div&gt;</code></pre></dd>
-	<dt>Add a heading and/or footer:</dt>
+	<dt>Add a footer:</dt>
 	<dd><pre><code>&lt;div class="panel panel-default"&gt;
 	&lt;header class="panel-heading"&gt;
 		&lt;h3 class="panel-title"&gt;Panel title&lt;/h3&gt;

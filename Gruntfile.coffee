@@ -1026,16 +1026,14 @@ module.exports = (grunt) ->
 				src: [
 					"**/*.css"
 					"!**/*.min.css"
-					"!méli-mélo/compilation-gelé/"
+					"!méli-mélo/compilation-gelé/**"
 					"!_site/**"
-					"!node_modlules/"
 				]
 
 			scss:
 				src: [
 					"**/*.scss"
 					"!_site/**"
-					"!node_modlules"
 				]
 
 		cssmin:

@@ -134,7 +134,6 @@ module.exports = {
 		"**/*.min.css",
 		"méli-mélo/compilation-gelé/**",
 		"méli-mélo/deprecated/**",
-		"node_modules/**",
 		"_site/**",
 		"~sites/**",
 		"_site/**",
