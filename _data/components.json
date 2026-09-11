@@ -430,7 +430,7 @@
 		"en": "An accessible multi-select combo box component that implements WCAG 2.1 accessibility standards and provides a modern, user-friendly interface for selecting multiple items from a list.",
 		"fr": "Un composant de boîte combo multi-sélection accessible qui met en œuvre les normes d'accessibilité WCAG 2.1 et fournit une interface conviviale et moderne pour sélectionner plusieurs éléments dans une liste."
 	},
-	"modified": "2026-07-06",
+	"modified": "2026-09-11",
 	"componentName": "combo-box",
 	"status": "provisional",
 	"version": "0.1.0",
@@ -498,6 +498,14 @@
 				{
 					"en": "May 2026 - Initial implementation",
 					"fr": "Mai 2026 - Implémentation initiale"
+				},
+				{
+					"en": "July 2026 - Updated implementation with improved accessibility and styling options",
+					"fr": "Juillet 2026 - Mise à jour de l'implémentation avec une meilleure accessibilité et des options de style"
+				},
+				{
+					"en": "September 2026 - Added support required field validation and custom error messages",
+					"fr": "Septembre 2026 - Ajout de la prise en charge de la validation des champs requis et des messages d'erreur personnalisés"
 				}
 			]
 		}
@@ -534,6 +542,8 @@
 					"Add the <code>enable-select-all</code> attribute to enable a \"Select all options\" option at the top of the dropdown. When all options are selected, they are replaced by a single tag.",
 					"Add a value to the <code>enable-select-all</code> attribute to customize the \"Select all options\" text shown in the dropdown (e.g. <code>enable-select-all=\"Select all regions\"</code>). If no value is provided, it uses the default text.",
 					"Use the <code>all-options-tag</code> attribute to customize the tag text shown when all options are selected (e.g. <code>all-options-tag=\"All regions\"</code>). If omitted, the default text is used. The component automatically appends \"selected\" or \"deselected\" for screen reader announcements, so use clear, descriptive language.",
+					"Add the <code>required</code> attribute to enable field validation that blocks form submission until at least one option is selected. An inline error message is shown on a failed submit attempt.",
+					"Use the <code>required-message</code> attribute to customize the error message text (e.g. <code>required-message=\"Please select at least one region.\"</code>). If omitted, a default message is used.",
 					"To remove the default styling of the \"Select all options\" option, add the <code>select-all-unstyled</code> class to the component. Alternatively, you can use the <code>::part(select-all)</code> CSS selector to style it from outside the component.",
 					"Tag colours can be customized by using the <code>::part(tag)</code> CSS selector."
 				],
@@ -542,6 +552,8 @@
 					"Ajoutez l'attribut <code>enable-select-all</code> pour activer une option « Sélectionner toutes les options » en haut de la liste déroulante. Lorsque toutes les options sont sélectionnées, elles sont remplacées par une seule étiquette.",
 					"Ajoutez une valeur à l'attribut <code>enable-select-all</code> pour personnaliser le texte « Sélectionner toutes les options » affiché dans la liste déroulante (ex. : <code>enable-select-all=\"Sélectionner toutes les régions\"</code>). Si aucune valeur n'est fournie, le texte par défaut est utilisé.",
 					"Utilisez l'attribut <code>all-options-tag</code> pour personnaliser le texte de l'étiquette affichée lorsque toutes les options sont sélectionnées (ex. : <code>all-options-tag=\"Toutes les régions\"</code>). S'il est omis, le texte par défaut est utilisé. Le composant ajoute automatiquement « sélectionné » ou « désélectionnées » pour les annonces aux lecteurs d'écran; utilisez donc un langage clair et descriptif.",
+					"Ajoutez l'attribut <code>required</code> pour activer une validation du champ qui bloque la soumission du formulaire tant qu'au moins une option n'est pas sélectionnée. Un message d'erreur est affiché en ligne lors d'une tentative de soumission échouée.",
+					"Utilisez l'attribut <code>required-message</code> pour personnaliser le texte du message d'erreur (ex. : <code>required-message=\"Veuillez sélectionner au moins une région.\"</code>). S'il est omis, un message par défaut est utilisé.",
 					"Pour retirer le style par défaut de l'option « Sélectionner toutes les options », ajoutez la classe <code>select-all-unstyled</code> au composant. Vous pouvez aussi utiliser le sélecteur CSS <code>::part(select-all)</code> pour la styliser depuis l'extérieur du composant.",
 					"La couleur des étiquettes peut être personnalisée avec le sélecteur CSS <code>::part(tag)</code>."
 				]

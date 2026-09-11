@@ -12,6 +12,9 @@
 
 class GcComboBoxComponent extends HTMLElement {
 
+	// Enables participation in form submission and constraint validation
+	static formAssociated = true;
+
 	// Static cache for loaded styles
 	static stylesCache = null;
 
@@ -30,7 +33,8 @@ class GcComboBoxComponent extends HTMLElement {
 				removed: "removed",
 				remove: "Remove",
 				noMatchingOptions: "No matching options",
-				allOptions: "All options"
+				allOptions: "All options",
+				requiredMessage: "Please select at least one option."
 			},
 			"fr": {
 				itemsSelected: "éléments sélectionnés",
@@ -41,7 +45,8 @@ class GcComboBoxComponent extends HTMLElement {
 				removed: "supprimé",
 				remove: "Supprimer",
 				noMatchingOptions: "Aucune option correspondante",
-				allOptions: "Toutes les options"
+				allOptions: "Toutes les options",
+				requiredMessage: "Veuillez sélectionner au moins une option."
 			}
 		}
 	};
@@ -49,6 +54,7 @@ class GcComboBoxComponent extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow( { mode: "open" } );
+		this.internals = this.attachInternals();
 		this.selectedOptions = [];
 		this.filteredOptions = [];
 		this.highlightedIndex = -1;
@@ -97,6 +103,9 @@ class GcComboBoxComponent extends HTMLElement {
 		if ( this.handleDocumentClick ) {
 			document.removeEventListener( "click", this.handleDocumentClick );
 		}
+		if ( this.ownerForm && this.handleFormSubmit ) {
+			this.ownerForm.removeEventListener( "submit", this.handleFormSubmit );
+		}
 	}
 
 	// Initializes the Web Component with styles and markup
@@ -124,6 +133,8 @@ class GcComboBoxComponent extends HTMLElement {
 		await this.render();
 		this.cacheElements();
 		this.attachEventListeners();
+		this.setupFormValidation();
+		this.updateValidity();
 	}
 
 	// Builds the data layer: creates all option <li> elements once with stable IDs
@@ -221,6 +232,7 @@ class GcComboBoxComponent extends HTMLElement {
 					<label for="combo-box-input" class="combo-box-label">
 						<slot name="label">${ this.escapeHtml( label ) }</slot>
 					</label>
+					<div id="combo-box-error" class="combo-box-error" role="alert"></div>
 					<div class="combo-box-container">
 						<div class="tags-container" id="tagsContainer">
 							<!-- Tags will be dynamically inserted here -->
@@ -233,7 +245,7 @@ class GcComboBoxComponent extends HTMLElement {
 								autocomplete="off"
 								aria-autocomplete="list"
 								aria-controls="combo-box-list"
-								aria-describedby="combo-box-selection-desc"
+								aria-describedby="combo-box-error combo-box-selection-desc"
 								aria-expanded="false"
 								aria-haspopup="listbox"
 							>
@@ -265,6 +277,8 @@ class GcComboBoxComponent extends HTMLElement {
 		this.tagsContainer = this.shadowRoot.getElementById( "tagsContainer" );
 		this.liveRegion = this.shadowRoot.getElementById( "liveRegion" );
 		this.selectionDescription = this.shadowRoot.getElementById( "combo-box-selection-desc" );
+		this.errorMessage = this.shadowRoot.getElementById( "combo-box-error" );
+		this.container = this.shadowRoot.querySelector( ".combo-box-container" );
 
 		// Store the original placeholder text
 		this.originalPlaceholder = this.input.placeholder;
@@ -657,6 +671,7 @@ class GcComboBoxComponent extends HTMLElement {
 		this.tagsContainer.appendChild( this.input );
 
 		this.updateSelectionDescription();
+		this.updateValidity();
 
 		if ( hadFocus ) {
 			this.input.focus();
@@ -816,6 +831,85 @@ class GcComboBoxComponent extends HTMLElement {
 				this.appendChild( input );
 			} );
 		}
+	}
+
+	// Checks if this combobox instance requires a selection via the "required" attribute
+	isRequired() {
+		return this.hasAttribute( "required" );
+	}
+
+	getValidationMessage() {
+		return this.getAttribute( "required-message" ) || this.getLocalizedText().requiredMessage;
+	}
+
+	// Updates the validity state of the combobox based on selection and required attribute
+	updateValidity() {
+		const invalid = this.isRequired() && this.selectedOptions.length === 0;
+
+		if ( this.internals ) {
+			if ( invalid ) {
+				this.internals.setValidity(
+					{ valueMissing: true },
+					this.getValidationMessage(),
+					this.input // Anchor element to associate the error message with
+				);
+			} else {
+				this.internals.setValidity( {} );
+			}
+		}
+
+		if ( this.errorMessage && this.hasAttemptedSubmit ) {
+			if ( invalid ) {
+				this.showValidationError();
+			} else {
+				this.clearValidationError();
+			}
+		}
+	}
+
+	// Sets up form validation by adding a submit event listener to the form,
+	// preventing submission if the combobox input is required but has no selection
+	setupFormValidation() {
+		this.ownerForm = ( this.internals && this.internals.form );
+		if ( !this.ownerForm ) {
+			return;
+		}
+
+		this.handleFormSubmit = ( e ) => {
+			if ( !this.isRequired() || this.selectedOptions.length > 0 || !this.checkVisibility() ) {
+				return;
+			}
+			e.preventDefault();
+			e.stopPropagation();
+			this.hasAttemptedSubmit = true;
+			this.showValidationError();
+		};
+
+		this.ownerForm.addEventListener( "submit", this.handleFormSubmit );
+	}
+
+	showValidationError() {
+		this.errorMessage.textContent = this.getValidationMessage();
+		this.container.classList.add( "has-error" );
+		this.input.setAttribute( "aria-invalid", "true" );
+	}
+
+	clearValidationError() {
+		this.errorMessage.textContent = "";
+		this.container.classList.remove( "has-error" );
+		this.input.setAttribute( "aria-invalid", "false" );
+	}
+
+	// Ensures that for implementations where form reset is possible,
+	// the selection is cleared when the form gets reset.
+	formResetCallback() {
+		if ( !this.input ) {
+			return;
+		}
+		this.hasAttemptedSubmit = false;
+		this.setSelectedOptions( [] );
+		this.syncHiddenInputs();
+		this.clearValidationError();
 	}
 
 	// Public API: Get selected values as array (useful for form handling)
