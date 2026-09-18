@@ -153,7 +153,7 @@
 </details>
 
 <h2>Example 9: Public API Tests</h2>
-<gc-combobox id="demo-api" placeholder="Fruit(s)..." name="fruits-api">
+<gc-combobox id="demo-api" class="mrgn-bttm-md" placeholder="Fruit(s)..." name="fruits-api">
 	<span slot="label">Fruit(s)</span>
 	<select slot="options">
 		<option value="apple">Apple</option>
@@ -164,15 +164,15 @@
 	</select>
 </gc-combobox>
 
-<div class="d-flex flex-sm-wrap mrgn-bttm-lg" style="gap: 8px; margin-top: -15px;">
-	<button type="button" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())">getSelectedValues()</button>
-	<button type="button" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())">getSelectedOptions()</button>
-	<button type="button" onclick="document.getElementById('demo-api').selectOption('apple')">selectOption("apple")</button>
-	<button type="button" onclick="document.getElementById('demo-api').removeTag('apple')">removeTag("apple")</button>
-	<button type="button" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])">setSelectedOptions([banana, grape])</button>
-	<button type="button" onclick="document.getElementById('demo-api').selectAll()">selectAll()</button>
-	<button type="button" onclick="document.getElementById('demo-api').unselectAll()">unselectAll()</button>
-	<button type="button" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])">setOptions([cat, dog, bird])</button>
+<div class="mrgn-bttm-lg">
+	<button type="button" class="mrgn-bttm-sm" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())">getSelectedValues()</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())">getSelectedOptions()</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').selectOption('apple')">selectOption("apple")</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').removeTag('apple')">removeTag("apple")</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])">setSelectedOptions([banana, grape])</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').selectAll()">selectAll()</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').unselectAll()">unselectAll()</button>
+	<button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])">setOptions([cat, dog, bird])</button>
 </div>
 
 <script>
@@ -183,7 +183,7 @@
 
 <details>
 	<summary>View code</summary>
-	<pre><code>&lt;gc-combobox id="demo-api" placeholder="Fruit(s)..." name="fruits-api"&gt;
+	<pre><code>&lt;gc-combobox id="demo-api" class="mrgn-bttm-md" placeholder="Fruit(s)..." name="fruits-api"&gt;
 	&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
 	&lt;select slot="options"&gt;
 		&lt;option value="apple"&gt;Apple&lt;/option&gt;
@@ -194,15 +194,15 @@
 	&lt;/select&gt;
 &lt;/gc-combobox&gt;
 
-&lt;div class="d-flex flex-sm-wrap mrgn-bttm-lg" style="gap: 8px; margin-top: -15px;"&gt;
-	&lt;button type="button" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())"&gt;getSelectedValues()&lt;/button&gt;
-	&lt;button type="button" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())"&gt;getSelectedOptions()&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').selectOption('apple')"&gt;selectOption("apple")&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').removeTag('apple')"&gt;removeTag("apple")&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])"&gt;setSelectedOptions([banana, grape])&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').selectAll()"&gt;selectAll()&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').unselectAll()"&gt;unselectAll()&lt;/button&gt;
-	&lt;button type="button" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])"&gt;setOptions([cat, dog, bird])&lt;/button&gt;
+&lt;div class="mrgn-bttm-lg"&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="console.log('getSelectedValues:', document.getElementById('demo-api').getSelectedValues())"&gt;getSelectedValues()&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="console.log('getSelectedOptions:', document.getElementById('demo-api').getSelectedOptions())"&gt;getSelectedOptions()&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').selectOption('apple')"&gt;selectOption("apple")&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').removeTag('apple')"&gt;removeTag("apple")&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').setSelectedOptions([{value:'banana',label:'Banana'},{value:'grape',label:'Grape'}])"&gt;setSelectedOptions([banana, grape])&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').selectAll()"&gt;selectAll()&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').unselectAll()"&gt;unselectAll()&lt;/button&gt;
+	&lt;button type="button" class="mrgn-bttm-sm" onclick="document.getElementById('demo-api').setOptions([{value:'cat',label:'Cat'},{value:'dog',label:'Dog'},{value:'bird',label:'Bird'}])"&gt;setOptions([cat, dog, bird])&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
@@ -217,7 +217,7 @@
 
 <div class="wb-frmvld">
 	<form>
-		<gc-combobox placeholder="Fruit(s)..." name="fruits-required" required required-message="Please choose at least one fruit.">
+		<gc-combobox class="mrgn-bttm-md" placeholder="Fruit(s)..." name="fruits-required" required required-message="Please choose at least one fruit.">
 			<span slot="label">Fruit(s)</span>
 			<select slot="options">
 				<option value="apple">Apple</option>
@@ -226,7 +226,7 @@
 				<option value="grape">Grape</option>
 			</select>
 		</gc-combobox>
-		<button type="submit" class="btn btn-primary btn-lg mrgn-bttm-lg" style="margin-top: -15px;">Submit</button>
+		<button type="submit" class="btn btn-primary btn-lg mrgn-bttm-lg">Submit</button>
 	</form>
 </div>
 
@@ -234,7 +234,7 @@
 	<summary>View code</summary>
 	<pre><code>&lt;div class="wb-frmvld"&gt;
 	&lt;form&gt;
-		&lt;gc-combobox placeholder="Fruit(s)..." name="fruits-required" required required-message="Please choose at least one fruit."&gt;
+		&lt;gc-combobox class="mrgn-bttm-md" placeholder="Fruit(s)..." name="fruits-required" required required-message="Please choose at least one fruit."&gt;
 			&lt;span slot="label"&gt;Fruit(s)&lt;/span&gt;
 			&lt;select slot="options"&gt;
 				&lt;option value="apple"&gt;Apple&lt;/option&gt;
@@ -243,7 +243,7 @@
 				&lt;option value="grape"&gt;Grape&lt;/option&gt;
 			&lt;/select&gt;
 		&lt;/gc-combobox&gt;
-		&lt;button type="submit" class="btn btn-primary btn-lg mrgn-bttm-lg" style="margin-top: -15px;"&gt;Submit&lt;/button&gt;
+		&lt;button type="submit" class="btn btn-primary btn-lg mrgn-bttm-lg"&gt;Submit&lt;/button&gt;
 	&lt;/form&gt;
 &lt;/div&gt;</code></pre>
 </details>
