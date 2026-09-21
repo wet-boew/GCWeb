@@ -23,6 +23,18 @@
 			inset 0 1px 1px rgba(0, 0, 0, 0.075),
 			0 0 8px rgba(102, 175, 233, 0.6);
 	}
+
+	&.has-error {
+		border-color: #d3080c;
+		border-width: 2px;
+	}
+}
+
+.combo-box-error {
+	color: #d3080c;
+	display: block;
+	font-size: 1rem;
+	font-weight: 700;
 }
 
 .combo-box-input {
@@ -142,8 +154,14 @@
 	}
 }
 
-.combo-box-wrapper {
+/* Spacing is on the <gc-combobox> element itself so that
+it can be overidden with the margin utility classes */
+:host {
+	display: block;
 	margin-bottom: 30px;
+}
+
+.combo-box-wrapper {
 	position: relative;
 	width: 100%;
 }
