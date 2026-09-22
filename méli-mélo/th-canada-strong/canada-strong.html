@@ -1,0 +1,303 @@
+---
+title: Canada Strong theme
+dateModified: 2026-09-22
+description: Documentation for the Canada Strong theme.
+lang: en
+altLangPage: canada-fort.html
+css:
+- style.css
+---
+<div class="wb-prettify all-pre"></div>
+
+<p>Styles for the Canada Strong campaign pages. Refer to the working examples for a visual of the code below.</p>
+
+<section id="examples">
+	<h2>Working examples</h2>
+	<ul>
+		<li><a href="landing-page-en.html">Landing page layout</a></li>
+		<li><a href="support-en.html">Support page layout</a></li>
+	</ul>
+</section>
+
+<section>
+	<h2>CSS classes</h2>
+	<dl>
+		<dt><code>canada-strong-page</code></dt>
+		<dd>Wrapper for the campaign content. Sets the navy text and heading colour.</dd>
+		<dt><code>canada-strong-hero</code></dt>
+		<dd>Full-width hero with a light blue background and a decorative background image. Use with <code>bg-cover</code> and <code>data-bgimg-srcset</code>. Its children are <code>canada-strong-hero__overlay</code>, <code>canada-strong-hero__row</code> and <code>canada-strong-hero__copy</code>.</dd>
+		<dt><code>canada-strong-section-header</code></dt>
+		<dd>Maroon title bar with white heading text.</dd>
+		<dt><code>canada-strong-audience-card</code></dt>
+		<dd>Maroon card with white heading, text and link. Use with <code>well</code>.</dd>
+		<dt><code>canada-strong-support-section</code>, <code>canada-strong-support-grid</code>, <code>canada-strong-support-card</code></dt>
+		<dd>Grid of equal-height bordered cards with a round icon (<code>canada-strong-support-card__icon</code>). Use the card class with <code>panel panel-default</code>.</dd>
+		<dt><code>canada-strong-closing-band</code>, <code>canada-strong-closing-panel</code></dt>
+		<dd>Light blue band with a navy closing panel, a round white icon (<code>canada-strong-closing-panel__icon</code>), white heading, text and link. Use the panel class with <code>well</code>.</dd>
+		<dt><code>canada-strong-banner</code></dt>
+		<dd>Maroon banner with a white <code>h1</code> and an image, used on sub pages. Use with <code>panel</code>.</dd>
+	</dl>
+</section>
+
+<section>
+	<h2>Theme elements</h2>
+
+	<p>The hero and the banner hold the page title. In the working examples below they use a <code>h2</code> so the documentation page keeps a single <code>h1</code>, and the inner <code>container</code> is replaced with <code>container-fluid</code> because these examples already sit inside a container. On a real page, use <code>&lt;h1 property="name" id="wb-cont"&gt;</code>, which is what draws the short red underline.</p>
+
+	<h3>Hero</h3>
+	<h4>Working example</h4>
+	<div class="canada-strong-page">
+		<section class="canada-strong-hero bg-cover" data-bgimg-srcset="images/PM_CanadaStrongWebsiteBanner_1920x315.png 1920w, https://wet-boew.github.io/vocab/wb/utilities#no-image 991w">
+			<div class="canada-strong-hero__overlay">
+				<div class="container-fluid">
+					<div class="row canada-strong-hero__row">
+						<div class="col-xs-12 col-md-6 canada-strong-hero__copy">
+							<h2>Canada Strong: Government support programs for workers and businesses</h2>
+							<p class="mb-0">Easily access programs, resources and measures in place to build a resilient and prosperous economy, now and for the future.</p>
+						</div>
+					</div>
+					<a class="btn btn-call-to-action" href="#examples" role="button">Find tariff business supports</a>
+				</div>
+			</div>
+		</section>
+	</div>
+	<h4>Code</h4>
+	<pre><code>&lt;div class="canada-strong-page">
+	&lt;section class="canada-strong-hero bg-cover" data-bgimg-srcset="[image url] 1920w, https://wet-boew.github.io/vocab/wb/utilities#no-image 991w" aria-labelledby="wb-cont">
+		&lt;div class="canada-strong-hero__overlay">
+			&lt;div class="container">
+				&lt;div class="row canada-strong-hero__row">
+					&lt;div class="col-xs-12 col-md-6 canada-strong-hero__copy">
+						&lt;h1 property="name" id="wb-cont">[Title]&lt;/h1>
+						&lt;p class="mb-0">[Description]&lt;/p>
+					&lt;/div>
+				&lt;/div>
+				&lt;a class="btn btn-call-to-action" href="#">[Call to action]&lt;/a>
+			&lt;/div>
+		&lt;/div>
+	&lt;/section>
+	[...]
+&lt;/div></code></pre>
+
+	<h3>Section header</h3>
+	<h4>Working example</h4>
+	<div class="canada-strong-page">
+		<div class="canada-strong-section-header mb-3">
+			<h4 class="h2 my-1 pl-3">Get support for...</h4>
+		</div>
+	</div>
+	<h4>Code</h4>
+	<pre><code>&lt;div class="canada-strong-section-header mb-3">
+	&lt;h2 class="my-1 pl-3">[Title]&lt;/h2>
+&lt;/div></code></pre>
+
+	<h3>Audience cards</h3>
+	<h4>Working example</h4>
+	<div class="canada-strong-page">
+		<div class="row wb-eqht-grd">
+			<div class="col-sm-4">
+				<div class="well brdr-rds-0 canada-strong-audience-card h-100">
+					<img src="images/PM_CanadaStrongWebsite_Icons2_Business_White.svg" width="64" height="64" alt="" decoding="async">
+					<h4 class="h5 mrgn-tp-0">Businesses</h4>
+					<img src="images/red-bar.jpg" alt="">
+					<p class="my-3">Funding, financing and other supports to help your business adapt, grow and reach new markets.</p>
+					<a href="#examples">Explore supports for businesses</a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well brdr-rds-0 canada-strong-audience-card h-100">
+					<img src="images/PM_CanadaStrongWebsite_Icons2_Workers_White.svg" width="64" height="64" alt="" decoding="async">
+					<h4 class="h5 mrgn-tp-0">Workers</h4>
+					<img src="images/red-bar.jpg" alt="">
+					<p class="my-3">Programs and services to help you find work, access training and plan your next step.</p>
+					<a href="#examples">Explore support for workers</a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well brdr-rds-0 canada-strong-audience-card h-100">
+					<img src="images/PM_CanadaStrongWebsite_Icons2_Employers_White.svg" width="64" height="64" alt="" decoding="async">
+					<h4 class="h5 mrgn-tp-0">Employers</h4>
+					<img src="images/red-bar.jpg" alt="">
+					<p class="my-3">Programs and services to help you manage and support your workforce.</p>
+					<a href="#examples">Explore support for employers</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h4>Code</h4>
+	<pre><code>&lt;div class="row wb-eqht-grd">
+	&lt;div class="col-sm-4">
+		&lt;div class="well brdr-rds-0 canada-strong-audience-card h-100">
+			&lt;img src="[icon url]" width="64" height="64" alt="">
+			&lt;h3 class="h5 mrgn-tp-0">[Title]&lt;/h3>
+			&lt;img src="[red bar url]" alt="">
+			&lt;p class="my-3">[Description]&lt;/p>
+			&lt;a href="#">[Link]&lt;/a>
+		&lt;/div>
+	&lt;/div>
+	[...]
+&lt;/div></code></pre>
+
+	<h3>Support cards</h3>
+	<h4>Working example</h4>
+	<div class="canada-strong-page">
+		<section class="canada-strong-support-section">
+			<div class="canada-strong-section-header mb-3">
+				<h4 class="h3 my-1 pl-3">New support measures</h4>
+			</div>
+			<ul class="row list-unstyled canada-strong-support-grid">
+				<li class="col-xs-12 col-md-6 col-lg-3">
+					<article class="panel panel-default canada-strong-support-card">
+						<div class="panel-body">
+							<div class="canada-strong-support-card__icon">
+								<img src="images/PM_CanadaStrongWebsite_Icons_RapidResponseSupports_Icon.svg" width="58" height="58" alt="" loading="lazy" decoding="async">
+							</div>
+							<h5 class="h4"><a href="#examples">Workforce Retention and Retraining Program</a></h5>
+							<p>This program will provide flexible and easy-to-access support for businesses facing economic challenges.</p>
+						</div>
+					</article>
+				</li>
+				<li class="col-xs-12 col-md-6 col-lg-3">
+					<article class="panel panel-default canada-strong-support-card">
+						<div class="panel-body">
+							<div class="canada-strong-support-card__icon">
+								<img src="images/PM_CanadaStrongWebsite_Icons_RegionalTariffResponse_Icon.svg" width="58" height="58" alt="" loading="lazy" decoding="async">
+							</div>
+							<h5 class="h4"><a href="#examples">Regional tariff response initiative</a></h5>
+							<p>This will help small and medium-sized enterprises respond to tariff pressures.</p>
+						</div>
+					</article>
+				</li>
+				<li class="col-xs-12 col-md-6 col-lg-3">
+					<article class="panel panel-default canada-strong-support-card">
+						<div class="panel-body">
+							<div class="canada-strong-support-card__icon">
+								<img src="images/PM_CanadaStrongWebsite_Icons_InvestingInCommunities_Icon.svg" width="58" height="58" alt="" loading="lazy" decoding="async">
+							</div>
+							<h5 class="h4"><a href="#examples">BDC's Pivot to Grow program</a></h5>
+							<p>Working capital for businesses facing cash-flow shortfalls as a result of U.S. tariffs.</p>
+						</div>
+					</article>
+				</li>
+				<li class="col-xs-12 col-md-6 col-lg-3">
+					<article class="panel panel-default canada-strong-support-card">
+						<div class="panel-body">
+							<div class="canada-strong-support-card__icon">
+								<img src="images/PM_CanadaStrongWebsite_Icons_Trade_Icon.svg" width="58" height="58" alt="" loading="lazy" decoding="async">
+							</div>
+							<h5 class="h4"><a href="#examples">Canada Strong Diversification Fund</a></h5>
+							<p>Support for tariff-impacted companies with shovel-ready projects.</p>
+						</div>
+					</article>
+				</li>
+			</ul>
+		</section>
+	</div>
+	<h4>Code</h4>
+	<pre><code>&lt;section class="canada-strong-support-section" aria-labelledby="support-heading">
+	&lt;div class="container">
+		&lt;div class="canada-strong-section-header mb-3">
+			&lt;h2 id="support-heading" class="h3 my-1 pl-3">[Title]&lt;/h2>
+		&lt;/div>
+		&lt;ul class="row list-unstyled canada-strong-support-grid">
+			&lt;li class="col-xs-12 col-md-6 col-lg-3">
+				&lt;article class="panel panel-default canada-strong-support-card">
+					&lt;div class="panel-body">
+						&lt;div class="canada-strong-support-card__icon">
+							&lt;img src="[icon url]" width="58" height="58" alt="">
+						&lt;/div>
+						&lt;h3 class="h4">&lt;a href="#">[Title]&lt;/a>&lt;/h3>
+						&lt;p>[Description]&lt;/p>
+					&lt;/div>
+				&lt;/article>
+			&lt;/li>
+			[...]
+		&lt;/ul>
+	&lt;/div>
+&lt;/section></code></pre>
+
+	<h3>Closing panel</h3>
+	<p>On a full-width page, wrap the panel in <code>canada-strong-closing-band</code> to add the light blue band. Inside a container, the band is optional.</p>
+	<h4>Working example</h4>
+	<div class="canada-strong-page">
+		<div class="well canada-strong-closing-panel">
+			<div class="canada-strong-closing-panel__icon">
+				<img src="images/PM_CanadaStrongWebsite_Icons_StrongCanada_Icon.svg" width="60" height="60" alt="" loading="lazy" decoding="async">
+			</div>
+			<div>
+				<h4 class="h3">Together, let’s build a strong Canada</h4>
+				<p>Investing in our workers, our industries, and our communities. Building an economy by Canadians, for Canadians.</p>
+				<p class="mrgn-tp-md"><a href="#examples">Building a strong economy</a></p>
+			</div>
+		</div>
+	</div>
+	<h4>Code</h4>
+	<pre><code>&lt;section class="canada-strong-closing-band" aria-labelledby="closing-heading">
+	&lt;div class="container">
+		&lt;div class="well canada-strong-closing-panel">
+			&lt;div class="canada-strong-closing-panel__icon">
+				&lt;img src="[icon url]" width="60" height="60" alt="">
+			&lt;/div>
+			&lt;div>
+				&lt;h2 id="closing-heading" class="h3">[Title]&lt;/h2>
+				&lt;p>[Description]&lt;/p>
+				&lt;p class="mrgn-tp-md">&lt;a href="#">[Link]&lt;/a>&lt;/p>
+			&lt;/div>
+		&lt;/div>
+	&lt;/div>
+&lt;/section></code></pre>
+
+	<h3>Banner</h3>
+	<h4>Working example</h4>
+	<section class="panel canada-strong-banner mrgn-tp-md">
+		<div class="row">
+			<div class="col-md-6 col-md-push-6 col-xs-12">
+				<img src="images/new_tariffs_supports_banner.jpg" class="img-responsive mrgn-tp-0" alt="">
+			</div>
+			<div class="col-md-6 col-md-pull-6 col-xs-12">
+				<h4 class="h1 mrgn-tp-lg mrgn-bttm-lg mrgn-lft-lg">Support for businesses impacted by tariffs</h4>
+			</div>
+		</div>
+	</section>
+	<h4>Code</h4>
+	<pre><code>&lt;section class="panel canada-strong-banner mrgn-tp-md">
+	&lt;div class="row">
+		&lt;div class="col-md-6 col-md-push-6 col-xs-12">
+			&lt;img src="[image url]" class="img-responsive mrgn-tp-0" alt="">
+		&lt;/div>
+		&lt;div class="col-md-6 col-md-pull-6 col-xs-12">
+			&lt;h1 property="name" id="wb-cont" class="mrgn-tp-lg mrgn-bttm-lg mrgn-lft-lg">[Title]&lt;/h1>
+		&lt;/div>
+	&lt;/div>
+&lt;/section></code></pre>
+</section>
+
+<section>
+	<h2>Migrating from the embedded CSS</h2>
+	<p>Remove the media player that embeds the custom CSS and rename the classes as follows. The <code>text-white</code> spans and classes in the maroon and navy areas are no longer needed.</p>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Previous class</th>
+				<th scope="col">New class</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td><code>cs-page</code></td><td><code>canada-strong-page</code></td></tr>
+			<tr><td><code>cs-hero</code></td><td><code>canada-strong-hero</code></td></tr>
+			<tr><td><code>cs-hero__overlay</code></td><td><code>canada-strong-hero__overlay</code></td></tr>
+			<tr><td><code>cs-hero__row</code></td><td><code>canada-strong-hero__row</code></td></tr>
+			<tr><td><code>cs-hero__copy</code></td><td><code>canada-strong-hero__copy</code></td></tr>
+			<tr><td><code>cs-support-header</code></td><td><code>canada-strong-section-header</code></td></tr>
+			<tr><td><code>cs-audience-band</code></td><td><code>canada-strong-audience-card</code></td></tr>
+			<tr><td><code>cs-support-section</code></td><td><code>canada-strong-support-section</code></td></tr>
+			<tr><td><code>cs-support-grid</code></td><td><code>canada-strong-support-grid</code></td></tr>
+			<tr><td><code>cs-support-card</code></td><td><code>canada-strong-support-card</code></td></tr>
+			<tr><td><code>cs-support-card__icon</code></td><td><code>canada-strong-support-card__icon</code></td></tr>
+			<tr><td><code>cs-closing-band</code></td><td><code>canada-strong-closing-band</code></td></tr>
+			<tr><td><code>cs-closing-panel</code></td><td><code>canada-strong-closing-panel</code></td></tr>
+			<tr><td><code>cs-closing-panel__icon</code></td><td><code>canada-strong-closing-panel__icon</code></td></tr>
+			<tr><td>Inline <code>style="background-color: #63221f"</code></td><td><code>canada-strong-banner</code></td></tr>
+		</tbody>
+	</table>
+</section>
