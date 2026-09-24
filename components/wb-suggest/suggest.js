@@ -99,7 +99,6 @@ var $document = wb.doc,
 
 		if ( !filter || filter.length < 2 ) {
 			emptyExceptTemplate.call( this );
-			currentOptions = [];
 		} else {
 
 			// Remove existing option that don't match

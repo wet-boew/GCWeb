@@ -1129,6 +1129,7 @@ module.exports = (grunt) ->
 					"**/*.js"
 					"**/*.mjs"
 					"!_site/**"
+					"!~sites/**"
 					"!node_modules/**"
 				]
 

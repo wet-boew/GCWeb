@@ -13,7 +13,6 @@ var componentName = "gcweb-menu",
 	$document = wb.doc,
 	selectorAjaxed =  selector + " [data-ajax-replace]," + selector + " [data-ajax-append]," + selector + " [data-ajax-prepend]," + selector + " [data-wb-ajax]",
 	globalTimeoutOn,
-	globalTimeoutOff,
 	hoverDelay = 350,
 	justOpened,
 	isMobileMode, // Mobile vs Desktop
@@ -159,7 +158,6 @@ $document.on( "mouseenter", selector + " ul [aria-haspopup]", function( event ) 
 
 	// There is no "mouseenter" in mobile
 	if ( !isMobileMode ) {
-		clearTimeout( globalTimeoutOff );
 		OpenMenuWithDelay( event.currentTarget );
 	}
 } );
@@ -194,8 +192,6 @@ $document.on( "mouseenter focusin", selector + " [aria-haspopup] + [role=menu]",
 	if ( isMobileMode || justOpened === event.currentTarget ) {
 		return;
 	}
-
-	clearTimeout( globalTimeoutOff );
 } );
 
 // Ensure the menu don't switch when the user do a quick mouse over on other menu item.
@@ -246,7 +242,7 @@ function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
 		i, i_len = mnu3Level.length,
 		expandState = ( isExpanded ? "true" : "false" ),
 		orientation = ( isVertical ? "vertical" : "horizontal" ),
-		expandStateItem = expandState;
+		expandStateItem;
 
 	for ( i = 0; i < i_len; i++ ) {
 

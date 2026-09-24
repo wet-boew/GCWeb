@@ -783,7 +783,6 @@ var componentName = "wb-fieldflow",
 		for ( i = 0; i !== i_len; i += 1 ) {
 			itmCached = arrItems[ i ];
 
-			itmValue = "";
 			grpItem = null;
 			itmLabel = "";
 
@@ -819,7 +818,6 @@ var componentName = "wb-fieldflow",
 				if ( $childNode.hasClass( subComponentName ) ) {
 					childNodeID = childNode.id || wb.getId();
 					childNode.id = childNodeID;
-					itmValue = componentName + "-" + childNodeID;
 
 					actions.push( {
 						action: "append",
