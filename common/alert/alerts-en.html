@@ -3,7 +3,7 @@
 	"title": "GCWeb Alert example",
 	"language": "en",
 	"altLangPage": "alerts-fr.html",
-	"dateModified": "2023-02-28"
+	"dateModified": "2026-09-18"
 }
 ---
 <div class="wb-prettify all-pre"></div>
@@ -80,7 +80,7 @@
 &lt;/section&gt;
 
 &lt;section <strong>class=&quot;alert alert-danger&quot;</strong>&gt;
-&lt;h3&gt;(Info Title)&lt;/h3&gt;
+&lt;h3&gt;(Danger Title)&lt;/h3&gt;
 &lt;p&gt; Danger content goes here &lt;a href=&quot;#&quot; <strong>class=&quot;alert-link&quot;</strong>&gt;link text&lt;/a&gt;.&lt;/p&gt;
 &lt;/section&gt;</code></pre>
 
@@ -125,3 +125,77 @@
 &lt;div class=&quot;alert alert-danger&quot;&gt;
 	&lt;p&gt;(Danger content here.)&lt;/p&gt;
 &lt;/div&gt;</code></pre>
+
+<h2 id="expand-collapse">Alert with expand/collapse</h2>
+<p>Use an alert with expand/collapse when you need to show several alerts on the same page. Each alert only shows its heading until the user expands it, so stacked alerts take up less space.</p>
+<section class="alert alert-warning">
+	<details>
+		<summary>
+			<h3 class="h5">Beware of false information online</h3>
+		</summary>
+		<p>For accurate information, always check official Government of Canada and provincial or territorial websites.</p>
+		<p>Check the <a href="#">latest scams alerts</a> related to benefits and taxes.</p>
+	</details>
+</section>
+<section class="alert alert-info">
+	<details>
+		<summary>
+			<h3 class="h5">Canada Groceries and Essentials Benefit</h3>
+		</summary>
+		<p>The Government of Canada will increase the Canada Groceries and Essentials Benefit (formerly the GST/HST credit) by 25% for five years starting in July 2026.</p>
+		<p>Learn more: <a href="#">Canada Groceries and Essentials Benefit</a></p>
+	</details>
+</section>
+<section class="alert alert-success">
+	<details>
+		<summary>
+			<h3 class="h5">Success alert</h3>
+		</summary>
+		<p>Alert details.</p>
+	</details>
+</section>
+<section class="alert alert-danger">
+	<details open>
+		<summary>
+			<h3 class="h5">Danger alert (expanded by default)</h3>
+		</summary>
+		<p>Alert details.</p>
+	</details>
+</section>
+<h3>Code</h3>
+<pre><code>&lt;section class="alert alert-warning"&gt;
+	&lt;details&gt;
+		&lt;summary&gt;
+			&lt;h3 class="h5"&gt;Beware of false information online&lt;/h3&gt;
+		&lt;/summary&gt;
+		&lt;p&gt;For accurate information, always check official Government of Canada and provincial or territorial websites.&lt;/p&gt;
+		&lt;p&gt;Check the &lt;a href="#"&gt;latest scams alerts&lt;/a&gt; related to benefits and taxes.&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/section&gt;
+
+&lt;section class="alert alert-info"&gt;
+	&lt;details&gt;
+		&lt;summary&gt;
+			&lt;h3 class="h5"&gt;Canada Groceries and Essentials Benefit&lt;/h3&gt;
+		&lt;/summary&gt;
+		&lt;p&gt;(Info content goes here.)&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/section&gt;
+
+&lt;section class="alert alert-success"&gt;
+	&lt;details&gt;
+		&lt;summary&gt;
+			&lt;h3 class="h5"&gt;Success alert&lt;/h3&gt;
+		&lt;/summary&gt;
+		&lt;p&gt;Alert details.&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/section&gt;
+
+&lt;section class="alert alert-danger"&gt;
+	&lt;details <strong>open</strong>&gt;
+		&lt;summary&gt;
+			&lt;h3 class="h5"&gt;Danger alert (expanded by default)&lt;/h3&gt;
+		&lt;/summary&gt;
+		&lt;p&gt;Alert details.&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/section&gt;</code></pre>
