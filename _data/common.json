@@ -49,8 +49,14 @@
 	"@context": {
 		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
+		"title": {
+			"@id": "dct:title",
+			"@container": "@language"
+		},
+		"description": {
+			"@id": "dct:description",
+			"@container": "@language"
+		},
 		"modified": "dct:modified"
 	},
 	"title": {
@@ -58,10 +64,10 @@
 		"fr": "Alertes"
 	},
 	"description": {
-		"en": "Alerts with custom styles.",
-		"fr": "Alertes avec des styles personnalisés."
+		"en": "Alerts with custom styles, including an option to expand and collapse the alert content.",
+		"fr": "Alertes avec des styles personnalisés, incluant une option pour développer et réduire le contenu de l’alerte."
 	},
-	"modified": "2023-03-03",
+	"modified": "2026-09-25",
 	"componentName": "alert",
 	"processing": "baseline",
 	"status": "stable",
@@ -78,6 +84,18 @@
 				"path": "alerts-fr.html"
 			}
 		],
+		"docs": [
+			{
+				"title": "Alert",
+				"language": "en",
+				"path": "alert-docs-en.html"
+			},
+			{
+				"title": "Alertes",
+				"language": "fr",
+				"path": "alert-docs-fr.html"
+			}
+		],
 		"reports": [
 			{
 				"title": "Accessibility assessment #1 - Alert",
@@ -90,7 +108,366 @@
 				"path": "reports/a11y-1-fr.html"
 			}
 		]
-	}
+	},
+	"version": "1.1.0",
+	"a11yGuidance": "no accessibility guidance.",
+	"variations": [
+		{
+			"name": {
+				"en": "Alert",
+				"fr": "Alerte"
+			},
+			"status": "stable",
+			"description": {
+				"en": "An alert that draws attention to information related to the page content. Four types are available: information, success, warning and danger.",
+				"fr": "Une alerte qui attire l'attention sur de l'information liée au contenu de la page. Quatre types sont offerts : information, succès, avertissement et danger."
+			},
+			"iteration": "_:iteration_alert_1",
+			"example": [
+				{
+					"en": {
+						"href": "alerts-en.html",
+						"text": "Alerts"
+					},
+					"fr": {
+						"href": "alerts-fr.html",
+						"text": "Alertes"
+					}
+				}
+			],
+			"implementation": [
+				"_:implement_alert"
+			],
+			"history": [
+				{
+					"en": "March 2023 - Documented in GCWeb",
+					"fr": "Mars 2023 - Documenté dans GCWeb"
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Alert with expand/collapse",
+				"fr": "Alerte avec développement et réduction"
+			},
+			"status": "provisional",
+			"description": {
+				"en": "An alert whose content is placed inside a details element, so that people can expand and collapse it. Use it when several alerts are stacked on the same page, to reduce the space they take up.",
+				"fr": "Une alerte dont le contenu est placé dans un élément details, afin que les gens puissent le développer et le réduire. Utilisez-la lorsque plusieurs alertes sont empilées sur une même page, pour réduire l'espace qu'elles occupent."
+			},
+			"iteration": "_:iteration_alert_collapse_1",
+			"example": [
+				{
+					"en": {
+						"href": "alerts-en.html#expand-collapse",
+						"text": "Alert with expand/collapse"
+					},
+					"fr": {
+						"href": "alerts-fr.html#expand-collapse",
+						"text": "Alerte avec développement et réduction"
+					}
+				}
+			],
+			"implementation": [
+				"_:implement_alert_collapse"
+			],
+			"history": [
+				{
+					"en": "September 2026 - Initial implementation, replacing the deprecated collapsible alerts plugin",
+					"fr": "Septembre 2026 - Implémentation initiale, en remplacement du plugiciel déconseillé des alertes repliables"
+				}
+			]
+		},
+		{
+			"name": {
+				"en": "Collapsible alerts (deprecated)",
+				"fr": "Alertes repliables (déconseillé)"
+			},
+			"status": "deprecated",
+			"description": {
+				"en": "The former pattern, where the alert classes were placed directly on the details element and enhanced by the collapsible alerts plugin. Don't use it for new content. Existing content should move to the alert with expand/collapse.",
+				"fr": "L'ancien modèle, où les classes d'alerte étaient placées directement sur l'élément details et bonifiées par le plugiciel des alertes repliables. Ne l'utilisez pas pour du nouveau contenu. Le contenu existant devrait passer à l'alerte avec développement et réduction."
+			},
+			"iteration": "_:iteration_alert_collapsible_1",
+			"example": [
+				{
+					"en": {
+						"href": "https://wet-boew.github.io/wet-boew/docs/ref/collapsible-alerts/collapsible-alerts-en.html",
+						"text": "Collapsible alerts (WET-BOEW)"
+					},
+					"fr": {
+						"href": "https://wet-boew.github.io/wet-boew/docs/ref/collapsible-alerts/collapsible-alerts-fr.html",
+						"text": "Alertes repliables (BOEW)"
+					}
+				}
+			],
+			"implementation": [
+				"_:implement_alert_collapsible_migration"
+			]
+		}
+	],
+	"implementation": [
+		{
+			"@id": "_:implement_alert",
+			"iteration": "_:iteration_alert_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Wrap the alert content in a container with the <code>alert</code> class and one type class: <code>alert-info</code>, <code>alert-success</code>, <code>alert-warning</code> or <code>alert-danger</code>.",
+					"Use a <code>&lt;section&gt;</code> element when the alert starts with a heading, so that the heading labels a section of the page. Use a <code>&lt;div&gt;</code> element when the alert has no heading.",
+					"Add the <code>alert-link</code> class to links placed inside the alert so that they keep enough contrast against the alert content."
+				],
+				"fr": [
+					"Placez le contenu de l'alerte dans un conteneur ayant la classe <code>alert</code> et une classe de type : <code>alert-info</code>, <code>alert-success</code>, <code>alert-warning</code> ou <code>alert-danger</code>.",
+					"Utilisez un élément <code>&lt;section&gt;</code> lorsque l'alerte commence par un titre, afin que le titre identifie une section de la page. Utilisez un élément <code>&lt;div&gt;</code> lorsque l'alerte n'a pas de titre.",
+					"Ajoutez la classe <code>alert-link</code> aux liens placés dans l'alerte afin qu'ils conservent un contraste suffisant avec le contenu de l'alerte."
+				]
+			},
+			"notes": {
+				"en": [
+					"Choose the type according to the message: <code>alert-info</code> for neutral information, <code>alert-success</code> to confirm that something worked, <code>alert-warning</code> for something people should be careful about, and <code>alert-danger</code> for errors or situations that can cause harm.",
+					"The type is conveyed by an icon and a colour. If the type matters for people to understand the message, say it in the text as well.",
+					"Keep the number of alerts on a page low. When everything is highlighted, nothing stands out."
+				],
+				"fr": [
+					"Choisissez le type selon le message : <code>alert-info</code> pour de l'information neutre, <code>alert-success</code> pour confirmer que quelque chose a fonctionné, <code>alert-warning</code> pour ce à quoi les gens doivent faire attention, et <code>alert-danger</code> pour les erreurs ou les situations pouvant causer un préjudice.",
+					"Le type est transmis par une icône et une couleur. Si le type est important pour comprendre le message, indiquez-le aussi dans le texte.",
+					"Limitez le nombre d'alertes dans une page. Lorsque tout est mis en évidence, plus rien ne ressort."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Alert with a heading. Refer to the <a href=\"alerts-en.html\">working examples page</a> for additional code samples.",
+						"code": "<section class=\"alert alert-info\">\n\t<h2>Information alert</h2>\n\t<p>Alert details, including a <a href=\"#\" class=\"alert-link\">link</a>.</p>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Alert without a heading.",
+						"code": "<div class=\"alert alert-warning\">\n\t<p>Alert details.</p>\n</div>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Alerte avec un titre. Consultez la <a href=\"alerts-fr.html\">page des exemples pratiques</a> pour des exemples de code supplémentaires.",
+						"code": "<section class=\"alert alert-info\">\n\t<h2>Alerte d'information</h2>\n\t<p>Détails de l'alerte, incluant un <a href=\"#\" class=\"alert-link\">lien</a>.</p>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Alerte sans titre.",
+						"code": "<div class=\"alert alert-warning\">\n\t<p>Détails de l'alerte.</p>\n</div>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_alert_collapse",
+			"iteration": "_:iteration_alert_collapse_1",
+			"name": {
+				"en": "Standard",
+				"fr": "Standard"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers/publishers adding the component manually.",
+				"fr": "Cette implémentation est destinée aux développeurs/éditeurs qui ajoutent le composant manuellement."
+			},
+			"instructions": {
+				"en": [
+					"Build the alert container as usual, with the <code>alert</code> class and one type class.",
+					"Place a single <code>&lt;details&gt;</code> element as the only child of the alert container. All of the alert content goes inside that element.",
+					"Put the alert heading inside the <code>&lt;summary&gt;</code> element. Choose the heading level that fits the structure of the page. The <code>h5</code> class is optional and reduces the visual size of the heading.",
+					"Add the <code>open</code> attribute to the <code>&lt;details&gt;</code> element to show the alert expanded when the page loads. Without it, the alert is collapsed."
+				],
+				"fr": [
+					"Construisez le conteneur de l'alerte comme d'habitude, avec la classe <code>alert</code> et une classe de type.",
+					"Placez un seul élément <code>&lt;details&gt;</code> comme unique enfant du conteneur de l'alerte. Tout le contenu de l'alerte se trouve dans cet élément.",
+					"Placez le titre de l'alerte dans l'élément <code>&lt;summary&gt;</code>. Choisissez le niveau de titre qui convient à la structure de la page. La classe <code>h5</code> est facultative et réduit la taille visuelle du titre.",
+					"Ajoutez l'attribut <code>open</code> à l'élément <code>&lt;details&gt;</code> pour afficher l'alerte développée au chargement de la page. Sans cet attribut, l'alerte est réduite."
+				]
+			},
+			"notes": {
+				"en": [
+					"Write a heading that tells people what the alert is about without having to expand it.",
+					"Don't collapse information that people must read to complete a task or to avoid harm, such as form errors or urgent safety information. Use a regular alert instead.",
+					"The expanded or collapsed state isn't remembered from one page load to the next.",
+					"No JavaScript is required. Utility classes such as <code>pb-2</code> on the <code>&lt;details&gt;</code> element aren't needed, but they're harmless.",
+					"Don't add <code>role</code>, <code>aria-expanded</code> or <code>tabindex</code> attributes to the <code>&lt;details&gt;</code> or <code>&lt;summary&gt;</code> elements. The browser provides the expand/collapse semantics and keyboard support.",
+					"Some browser and screen reader combinations don't list a heading placed inside a <code>&lt;summary&gt;</code> element in their headings list. Don't rely on the heading as the only way to find important content on the page."
+				],
+				"fr": [
+					"Rédigez un titre qui indique le sujet de l'alerte sans qu'il soit nécessaire de la développer.",
+					"Ne réduisez pas l'information que les gens doivent lire pour accomplir une tâche ou éviter un préjudice, comme les erreurs de formulaire ou les renseignements urgents sur la sécurité. Utilisez plutôt une alerte régulière.",
+					"L'état développé ou réduit n'est pas conservé d'un chargement de page à l'autre.",
+					"Aucun JavaScript n'est requis. Les classes utilitaires comme <code>pb-2</code> sur l'élément <code>&lt;details&gt;</code> ne sont pas nécessaires, mais elles ne causent aucun problème.",
+					"N'ajoutez pas d'attributs <code>role</code>, <code>aria-expanded</code> ou <code>tabindex</code> aux éléments <code>&lt;details&gt;</code> ou <code>&lt;summary&gt;</code>. Le navigateur fournit la sémantique de développement et de réduction ainsi que la prise en charge du clavier.",
+					"Certaines combinaisons de navigateurs et de lecteurs d'écran n'incluent pas un titre placé dans un élément <code>&lt;summary&gt;</code> dans leur liste des titres. Ne comptez pas sur le titre comme seul moyen de trouver un contenu important dans la page."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Collapsed alert. Refer to the <a href=\"alerts-en.html#expand-collapse\">working examples page</a> for additional code samples.",
+						"code": "<section class=\"alert alert-warning\">\n\t<details>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Beware of false information online</h2>\n\t\t</summary>\n\t\t<p>For accurate information, always check official Government of Canada and provincial or territorial websites.</p>\n\t</details>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Alert expanded when the page loads.",
+						"code": "<section class=\"alert alert-info\">\n\t<details open>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Canada Groceries and Essentials Benefit</h2>\n\t\t</summary>\n\t\t<p>Alert details.</p>\n\t</details>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Alerte réduite. Consultez la <a href=\"alerts-fr.html#expand-collapse\">page des exemples pratiques</a> pour des exemples de code supplémentaires.",
+						"code": "<section class=\"alert alert-warning\">\n\t<details>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Méfiez-vous des fausses informations en ligne</h2>\n\t\t</summary>\n\t\t<p>Pour obtenir des renseignements exacts, consultez toujours les sites Web officiels du gouvernement du Canada et des provinces ou territoires.</p>\n\t</details>\n</section>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Alerte développée au chargement de la page.",
+						"code": "<section class=\"alert alert-info\">\n\t<details open>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Prestation canadienne pour l'épicerie et les biens essentiels</h2>\n\t\t</summary>\n\t\t<p>Détails de l'alerte.</p>\n\t</details>\n</section>"
+					}
+				]
+			}
+		},
+		{
+			"@id": "_:implement_alert_collapsible_migration",
+			"iteration": "_:iteration_alert_collapsible_1",
+			"name": {
+				"en": "Migration",
+				"fr": "Migration"
+			},
+			"introduction": {
+				"en": "How to move existing collapsible alerts to the alert with expand/collapse. The old markup is still supported for now, but it shouldn't be used for new content.",
+				"fr": "Comment faire passer les alertes repliables existantes à l'alerte avec développement et réduction. L'ancien balisage est encore pris en charge pour le moment, mais il ne doit pas être utilisé pour du nouveau contenu."
+			},
+			"instructions": {
+				"en": [
+					"Move the <code>alert</code> and type classes from the <code>&lt;details&gt;</code> element to a new <code>&lt;section&gt;</code> element that wraps it.",
+					"Remove the <code>h2</code> class from the <code>&lt;summary&gt;</code> element, and add the <code>h5</code> class to the heading inside it to keep the heading at the size used by the new pattern.",
+					"Replace <code>open=\"open\"</code> with <code>open</code>, or remove it if the alert should start collapsed.",
+					"Remove the <code>id</code> attribute if it was only used by the plugin to remember the open or closed state."
+				],
+				"fr": [
+					"Déplacez les classes <code>alert</code> et de type de l'élément <code>&lt;details&gt;</code> vers un nouvel élément <code>&lt;section&gt;</code> qui l'englobe.",
+					"Retirez la classe <code>h2</code> de l'élément <code>&lt;summary&gt;</code> et ajoutez la classe <code>h5</code> au titre qu'il contient afin de conserver la taille de titre utilisée par le nouveau modèle.",
+					"Remplacez <code>open=\"open\"</code> par <code>open</code>, ou retirez l'attribut si l'alerte doit être réduite au départ.",
+					"Retirez l'attribut <code>id</code> s'il servait uniquement au plugiciel à mémoriser l'état développé ou réduit."
+				]
+			},
+			"notes": {
+				"en": [
+					"The new pattern doesn't remember the expanded or collapsed state between page loads. The collapsible alerts plugin stored that state in the browser's local storage.",
+					"The collapsible alerts plugin isn't needed by the new pattern. Its styles and script are still shipped for existing content."
+				],
+				"fr": [
+					"Le nouveau modèle ne mémorise pas l'état développé ou réduit d'un chargement de page à l'autre. Le plugiciel des alertes repliables conservait cet état dans le stockage local du navigateur.",
+					"Le plugiciel des alertes repliables n'est pas nécessaire au nouveau modèle. Ses styles et son script sont encore livrés pour le contenu existant."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Deprecated markup",
+						"code": "<details class=\"alert alert-info\" id=\"alert-info\" open=\"open\">\n\t<summary class=\"h2\">\n\t\t<h2>Heads up!</h2>\n\t</summary>\n\t<p>Alert details.</p>\n</details>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Recommended markup",
+						"code": "<section class=\"alert alert-info\">\n\t<details open>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Heads up!</h2>\n\t\t</summary>\n\t\t<p>Alert details.</p>\n\t</details>\n</section>"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Balisage déconseillé",
+						"code": "<details class=\"alert alert-info\" id=\"alert-info\" open=\"open\">\n\t<summary class=\"h2\">\n\t\t<h2>Attention!</h2>\n\t</summary>\n\t<p>Détails de l'alerte.</p>\n</details>"
+					},
+					{
+						"@type": "source-code",
+						"description": "Balisage recommandé",
+						"code": "<section class=\"alert alert-info\">\n\t<details open>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Attention!</h2>\n\t\t</summary>\n\t\t<p>Détails de l'alerte.</p>\n\t</details>\n</section>"
+					}
+				]
+			}
+		}
+	],
+	"iteration": [
+		{
+			"@id": "_:iteration_alert_1",
+			"name": "Alert - Iteration 1",
+			"date": "2023-03",
+			"detectableBy": "section.alert, div.alert",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"alert alert-info\">\n\t<h2>Information alert</h2>\n\t<p>Alert details.</p>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_alert_collapse_1",
+			"name": "Alert with expand/collapse - Iteration 1",
+			"date": "2026-09",
+			"detectableBy": ".alert > details",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"alert alert-info\">\n\t<details>\n\t\t<summary>\n\t\t\t<h2 class=\"h5\">Alert heading</h2>\n\t\t</summary>\n\t\t<p>Alert details.</p>\n\t</details>\n</section>"
+				}
+			]
+		},
+		{
+			"@id": "_:iteration_alert_collapsible_1",
+			"name": "Collapsible alerts - Iteration 1",
+			"date": "2016-06",
+			"detectableBy": "details.alert",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<details class=\"alert alert-info\" id=\"alert-info\" open=\"open\">\n\t<summary class=\"h2\">\n\t\t<h2>Heads up!</h2>\n\t</summary>\n\t<p>Alert details.</p>\n</details>"
+				}
+			]
+		}
+	],
+	"changesets": [
+		{
+			"@id": "_:cs_alert_1",
+			"name": "Alert",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_alert_1",
+			"detectableBy": "section.alert, div.alert",
+			"layout": "Not applicable",
+			"style": "A coloured left bar and a type icon are added to the alert container. The bar colour and the icon are set by the type class: alert-info, alert-success, alert-warning or alert-danger.",
+			"semantic": "Uses a section element when the alert has a heading, and a div element when it doesn't. No ARIA role is added, so the alert isn't announced as a live region."
+		},
+		{
+			"@id": "_:cs_alert_collapse_1",
+			"name": "Alert with expand/collapse",
+			"status": "provisional",
+			"baseOnIteration": "_:iteration_alert_collapse_1",
+			"detectableBy": ".alert > details",
+			"layout": "Not applicable",
+			"style": "A details element that is the only child of an alert gets a 10px bottom padding, so that the coloured bar lines up with the summary box when the alert is collapsed.",
+			"semantic": "Uses the native details and summary elements for the expand/collapse behaviour. No ARIA attributes and no JavaScript are added."
+		}
+	]
 }
 ,{
 	"@context": {
