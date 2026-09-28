@@ -996,7 +996,6 @@ module.exports = (grunt) ->
 					# addressed in Magnific + Bootstrap, but are fine here
 					quietDeps: true
 					silenceDeprecations: [
-						"color-functions"
 						"global-builtin"
 						"import"
 					]
