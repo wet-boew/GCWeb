@@ -983,7 +983,23 @@ module.exports = (grunt) ->
 						if grunt.file.exists( "misc/variant/_variant-default.scss" ) then "src/variant" else "src/variant-default"
 					],
 					indentType: "tab",
-					indentWidth: 1
+					indentWidth: 1,
+					# Recommended fatal to warn Dart Sass 2 https://sass-lang.com/blog/the-road-to-dart-sass-2/
+					fatalDeprecations: [
+						'adjacent-compounds'
+						'compile-string-relative-url'
+						'function-name'
+						'misplaced-rest'
+						'with-private'
+					]
+					# if-function, color-functions, and slash-div need to be
+					# addressed in Magnific + Bootstrap, but are fine here
+					quietDeps: true
+					silenceDeprecations: [
+						"color-functions"
+						"global-builtin"
+						"import"
+					]
 				expand: true
 				cwd: "sites"
 				src: [
