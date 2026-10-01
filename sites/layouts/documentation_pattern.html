@@ -135,9 +135,9 @@ layout: default
 <h2 id="accessibility-guidance">{% if lng == "fr" %}Conseils en matière d'accessibilité{% else %}Accessibility guidance{% endif %}</h2>
 
 {%- if lng == "fr" -%}
-<p>Liste des directives d'accessibilité à suivre pour garantir que le composant est utilisé dans le respect de la directive d'accessibilité et de la norme EN 301 549 (y compris WCAG 2.1 niveau AA).</p>
+<p>Suivez ces conseils d'accessibilité pour vous assurer que le composant est utilisé conformément aux exigences d'accessibilité et à la norme EN 301 549 (y compris WCAG 2.1 niveau AA).</p>
 {%- else -%}
-<p>List of accessibility guidances to be followed to ensure component is used in respect of the accessibility guideline and EN 301 549 standard (including WCAG 2.1 Level AA).</p>
+<p>Follow this accessibility guidance to make sure the component is used in line with accessibility requirements and the EN 301 549 standard (including WCAG 2.1 Level AA).</p>
 {%- endif -%}
 
 <div class="wb-disable-allow" data-wb-json='{
@@ -147,6 +147,21 @@ layout: default
 		{
 			"@type": "rdf:Alt",
 			"mapping": [
+				{
+					"template": "[data-yes-lang]",
+					"test": "fn:isArray",
+					"value": "/a11yGuidance/{{lng}}",
+					"mapping": [
+						{
+							"template": "template",
+							"value": "/",
+							"mapping": [
+								{ "selector": "li", "value": "/", "isHTML": true }
+							]
+						}
+					]
+
+				},
 				{
 					"template": "[data-yes]",
 					"test": "fn:isArray",
@@ -174,6 +189,14 @@ layout: default
 }'>
 	<template data-no>
 		<p>{% if lng == "fr" %}Il n’y a pas de directives d’accessibilité définies{% else %}There is no accessibility guidance defined{% endif %}</p>
+	</template>
+
+	<template data-yes-lang>
+		<ul>
+			<template>
+				<li></li>
+			</template>
+		</ul>
 	</template>
 
 	<template data-yes>
