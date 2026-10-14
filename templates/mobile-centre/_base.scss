@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /*
  * Mobile centre
  */
@@ -80,8 +82,8 @@
 				}
 
 				&:hover {
-					background-color: darken(#f5f5f5, 5%);
-					border-color: darken(#e3e3e3, 5%);
+					background-color: color.adjust(#f5f5f5, $lightness: -5%, $space: hsl);
+					border-color: color.adjust(#e3e3e3, $lightness: -5%, $space: hsl);
 				}
 
 			}
@@ -171,8 +173,8 @@
 		}
 
 		&:hover {
-			background-color: darken(#f5f5f5, 5%);
-			border-color: darken(#e3e3e3, 5%);
+			background-color: color.adjust(#f5f5f5, $lightness: -5%, $space: hsl);
+			border-color: color.adjust(#e3e3e3, $lightness: -5%, $space: hsl);
 			cursor: pointer;
 		}
 	}
