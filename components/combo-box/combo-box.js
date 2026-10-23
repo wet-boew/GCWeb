@@ -12,6 +12,18 @@
 
 class GcComboBoxComponent extends HTMLElement {
 
+	// Enables participation in form submission and constraint validation
+	static formAssociated = true;
+
+	// Attributes that require the form value or validity state to be checked when they change.
+	static observedAttributes = [ "required", "name" ];
+
+	// Private class fields
+	#internals = null;
+	#ownerForm = null;
+	#handleFormSubmit = null;
+	#hasAttemptedSubmit = false;
+
 	// Static cache for loaded styles
 	static stylesCache = null;
 
@@ -30,7 +42,8 @@ class GcComboBoxComponent extends HTMLElement {
 				removed: "removed",
 				remove: "Remove",
 				noMatchingOptions: "No matching options",
-				allOptions: "All options"
+				allOptions: "All options",
+				requiredMessage: "Please select at least one option."
 			},
 			"fr": {
 				itemsSelected: "éléments sélectionnés",
@@ -41,7 +54,8 @@ class GcComboBoxComponent extends HTMLElement {
 				removed: "supprimé",
 				remove: "Supprimer",
 				noMatchingOptions: "Aucune option correspondante",
-				allOptions: "Toutes les options"
+				allOptions: "Toutes les options",
+				requiredMessage: "Veuillez sélectionner au moins une option."
 			}
 		}
 	};
@@ -49,6 +63,7 @@ class GcComboBoxComponent extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow( { mode: "open" } );
+		this.#internals = this.attachInternals();
 		this.selectedOptions = [];
 		this.filteredOptions = [];
 		this.highlightedIndex = -1;
@@ -92,10 +107,21 @@ class GcComboBoxComponent extends HTMLElement {
 		this.initializeComponent();
 	}
 
+	// Triggered when one of the observed attributes is added, removed, or changed.
+	attributeChangedCallback( attributeName ) {
+		if ( attributeName === "name" ) {
+			this.#updateFormValue();
+		}
+		this.#updateValidity();
+	}
+
 	// Cleanup when component is removed from DOM
 	disconnectedCallback() {
 		if ( this.handleDocumentClick ) {
 			document.removeEventListener( "click", this.handleDocumentClick );
+		}
+		if ( this.#ownerForm && this.#handleFormSubmit ) {
+			this.#ownerForm.removeEventListener( "submit", this.#handleFormSubmit );
 		}
 	}
 
@@ -124,6 +150,8 @@ class GcComboBoxComponent extends HTMLElement {
 		await this.render();
 		this.cacheElements();
 		this.attachEventListeners();
+		this.#setupFormValidation();
+		this.#updateValidity();
 	}
 
 	// Builds the data layer: creates all option <li> elements once with stable IDs
@@ -221,6 +249,7 @@ class GcComboBoxComponent extends HTMLElement {
 					<label for="combo-box-input" class="combo-box-label">
 						<slot name="label">${ this.escapeHtml( label ) }</slot>
 					</label>
+					<div id="combo-box-error" class="combo-box-error" role="alert"></div>
 					<div class="combo-box-container">
 						<div class="tags-container" id="tagsContainer">
 							<!-- Tags will be dynamically inserted here -->
@@ -233,7 +262,7 @@ class GcComboBoxComponent extends HTMLElement {
 								autocomplete="off"
 								aria-autocomplete="list"
 								aria-controls="combo-box-list"
-								aria-describedby="combo-box-selection-desc"
+								aria-describedby="combo-box-error combo-box-selection-desc"
 								aria-expanded="false"
 								aria-haspopup="listbox"
 							>
@@ -265,6 +294,8 @@ class GcComboBoxComponent extends HTMLElement {
 		this.tagsContainer = this.shadowRoot.getElementById( "tagsContainer" );
 		this.liveRegion = this.shadowRoot.getElementById( "liveRegion" );
 		this.selectionDescription = this.shadowRoot.getElementById( "combo-box-selection-desc" );
+		this.errorMessage = this.shadowRoot.getElementById( "combo-box-error" );
+		this.container = this.shadowRoot.querySelector( ".combo-box-container" );
 
 		// Store the original placeholder text
 		this.originalPlaceholder = this.input.placeholder;
@@ -533,7 +564,7 @@ class GcComboBoxComponent extends HTMLElement {
 			// Dispatch change event
 			this.dispatchChangeEvent();
 
-			this.syncHiddenInputs();
+			this.#updateFormValue();
 		}
 	}
 
@@ -569,7 +600,7 @@ class GcComboBoxComponent extends HTMLElement {
 		// Dispatch change event
 		this.dispatchChangeEvent();
 
-		this.syncHiddenInputs();
+		this.#updateFormValue();
 	}
 
 	// Updates filtered options based on selected items
@@ -657,6 +688,7 @@ class GcComboBoxComponent extends HTMLElement {
 		this.tagsContainer.appendChild( this.input );
 
 		this.updateSelectionDescription();
+		this.#updateValidity();
 
 		if ( hadFocus ) {
 			this.input.focus();
@@ -789,33 +821,156 @@ class GcComboBoxComponent extends HTMLElement {
 		return text.replace( /[&<>']/g, m => map[ m ] );
 	}
 
-	syncHiddenInputs() {
-
-		// Remove any existing hidden inputs created by this component
-		this.querySelectorAll( "input[type=\"hidden\"][data-combo-value]" ).forEach( el => el.remove() );
-
+	// Reports the current selection to the form
+	#updateFormValue() {
 		const name = this.getAttribute( "name" );
 		if ( !name ) {
+			this.#internals.setFormValue( null );
 			return;
 		}
 
+		const formData = new FormData();
+
 		if ( this.allOptionsSelected ) {
-			const input = document.createElement( "input" );
-			input.type = "hidden";
-			input.name = name;
-			input.value = "all";
-			input.dataset.comboValue = "true";
-			this.appendChild( input );
+			formData.append( name, "all" );
 		} else {
-			this.selectedOptions.forEach( item => {
-				const input = document.createElement( "input" );
-				input.type = "hidden";
-				input.name = name;
-				input.value = item.value;
-				input.dataset.comboValue = "true";
-				this.appendChild( input );
-			} );
+			this.selectedOptions.forEach( item => formData.append( name, item.value ) );
 		}
+
+		this.#internals.setFormValue( formData );
+	}
+
+	// ============================================
+	// Form Control DOM API
+	//
+	// Follows the HTML standard for form-associated custom elements,
+	// which mirrors the interface of native form controls.
+	//
+	// https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-elements
+	// ============================================
+
+	get form() {
+		return this.#internals.form;
+	}
+
+	get name() {
+		return this.getAttribute( "name" );
+	}
+
+	set name( value ) {
+		this.setAttribute( "name", value );
+	}
+
+	get required() {
+		return this.hasAttribute( "required" );
+	}
+
+	set required( value ) {
+		this.toggleAttribute( "required", !!value );
+	}
+
+	get labels() {
+		return this.#internals.labels;
+	}
+
+	get willValidate() {
+		return this.#internals.willValidate;
+	}
+
+	get validity() {
+		return this.#internals.validity;
+	}
+
+	get validationMessage() {
+		return this.#internals.validationMessage;
+	}
+
+	checkValidity() {
+		return this.#internals.checkValidity();
+	}
+
+	reportValidity() {
+		return this.#internals.reportValidity();
+	}
+
+	// The message shown when the required constraint is not satisfied
+	#getRequiredMessage() {
+		return this.getAttribute( "required-message" ) || this.getLocalizedText().requiredMessage;
+	}
+
+	// Updates the validity state of the combobox based on selection and required attribute
+	#updateValidity() {
+		const invalid = this.required && this.selectedOptions.length === 0;
+
+		if ( invalid ) {
+			this.#internals.setValidity(
+				{ valueMissing: true },
+				this.#getRequiredMessage(),
+				this.input // Anchor element to associate the error message with
+			);
+		} else {
+			this.#internals.setValidity( {} );
+		}
+
+		if ( this.errorMessage && this.#hasAttemptedSubmit ) {
+			if ( invalid ) {
+				this.#showValidationError();
+			} else {
+				this.#clearValidationError();
+			}
+		}
+	}
+
+	// Sets up form validation by adding a submit event listener to the form,
+	// preventing submission if the combobox input is required but has no selection.
+	#setupFormValidation() {
+
+		this.addEventListener( "invalid", ( e ) => {
+			e.preventDefault();
+			this.#hasAttemptedSubmit = true;
+			this.#showValidationError();
+		} );
+
+		this.#ownerForm = this.#internals.form;
+		if ( !this.#ownerForm ) {
+			return;
+		}
+
+		this.#handleFormSubmit = ( e ) => {
+			if ( this.checkValidity() || !this.checkVisibility() ) {
+				return;
+			}
+			e.preventDefault();
+		};
+
+		this.#ownerForm.addEventListener( "submit", this.#handleFormSubmit );
+	}
+
+	#showValidationError() {
+		if ( !this.errorMessage ) {
+			return;
+		}
+		this.errorMessage.textContent = this.#getRequiredMessage();
+		this.container.classList.add( "has-error" );
+		this.input.setAttribute( "aria-invalid", "true" );
+	}
+
+	#clearValidationError() {
+		this.errorMessage.textContent = "";
+		this.container.classList.remove( "has-error" );
+		this.input.setAttribute( "aria-invalid", "false" );
+	}
+
+	// Ensures that for implementations where form reset is possible,
+	// the selection is cleared when the form gets reset.
+	formResetCallback() {
+		if ( !this.input ) {
+			return;
+		}
+		this.#hasAttemptedSubmit = false;
+		this.setSelectedOptions( [] );
+		this.#updateFormValue();
+		this.#clearValidationError();
 	}
 
 	// Public API: Get selected values as array (useful for form handling)
@@ -855,7 +1010,7 @@ class GcComboBoxComponent extends HTMLElement {
 		this.closeList();
 		this.input.value = "";
 
-		this.syncHiddenInputs();
+		this.#updateFormValue();
 
 		this.announce( this.getSanitizedAllOptionsAnnouncement() );
 
@@ -873,7 +1028,7 @@ class GcComboBoxComponent extends HTMLElement {
 		this.input.value = "";
 		this.input.focus();
 
-		this.syncHiddenInputs();
+		this.#updateFormValue();
 
 		// Announce action to screen readers
 		this.announce( `${ this.getAllOptionsTag() } ${ this.getLocalizedText().deselected }` );
