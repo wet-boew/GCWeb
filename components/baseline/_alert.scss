@@ -51,6 +51,19 @@
 		:last-child {
 			padding-bottom: 25px;
 		}
+
+		// Expand/collapse alert: the whole alert content is inside a single details element.
+		// No top padding, otherwise it shows as an empty strip inside the border the
+		// details element gets when it's open.
+		details:only-child {
+			padding-bottom: 10px;
+			padding-top: 0;
+		}
+
+		// Keep the collapsed alert tall enough for the icon, otherwise its bottom looks cut off
+		details:only-child:not([open]) {
+			min-height: 64px;
+		}
 	}
 
 	&::before {
