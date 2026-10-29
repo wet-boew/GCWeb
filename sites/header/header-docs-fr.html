@@ -124,6 +124,18 @@
 
 &lt;/header></code></pre>
 
+<h2>Marque personnalisée (exceptions approuvées seulement)</h2>
+<p>Le Bureau de l'expérience Canada.ca peut approuver qu'une institution remplace la signature du gouvernement du Canada par son propre identificateur (par exemple, une signature comprenant les armoiries). L'en-tête par défaut demeure inchangé lorsque l'identificateur ne définit pas ses dimensions.</p>
+<p>Ajoutez les attributs <code>width</code> et <code>height</code> (en pixels) à l'élément <code>&lt;img&gt;</code> de l'identificateur dans le conteneur <code>.brand</code> pour définir sa taille. L'identificateur est affiché à cette taille et est réduit, en conservant ses proportions, lorsque sa colonne est plus étroite (écrans plus petits). L'image devrait être rognée à sa zone visible afin de s'aligner sur la grille de la page.</p>
+<pre><code>&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+	&lt;a href="/" property="url"&gt;
+		&lt;img src="identificateur-fr.svg" alt="Nom de l'institution" width="293" height="85" property="logo" /&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code></pre>
+<p>Dans les vues petites et plus grandes, le champ de recherche est placé au bas de sa rangée, ce qui le garde aligné avec le bas d'un identificateur plus haut.</p>
+<p>Exemple fonctionnel&nbsp;: <a href="../../templates/content-page/custom-header-fr.html">Page de contenu avec en-tête personnalisé</a>. Dans les gabarits Jekyll, définissez <code>customBrand</code> (<code>src</code>, <code>alt</code>, <code>url</code>, <code>width</code>, <code>height</code>, <code>name</code> facultatif) dans les métadonnées de la page.</p>
+
 <h2>Évaluation et rapport</h2>
 <p>Il n'y a pas d'évaluation ni de rapport disponible pour ce composant.</p>
 

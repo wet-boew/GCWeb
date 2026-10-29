@@ -123,6 +123,18 @@
 
 &lt;/header></code></pre>
 
+<h2>Custom brand (approved exceptions only)</h2>
+<p>The Canada.ca Experience Office may approve an institution to replace the Government of Canada signature with its own identifier (for example, a Coat of Arms based signature). The default header is unchanged when the identifier does not define its dimensions.</p>
+<p>Add <code>width</code> and <code>height</code> attributes (in pixels) to the identifier's <code>&lt;img&gt;</code> inside the <code>.brand</code> container to define its size. The identifier is displayed at that size and scales down, keeping its aspect ratio, when its column is narrower (smaller screens). The artwork should be cropped to its visible area so that it lines up with the page grid.</p>
+<pre><code>&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+	&lt;a href="/" property="url"&gt;
+		&lt;img src="identifier-en.svg" alt="Institution name" width="293" height="85" property="logo" /&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code></pre>
+<p>On small views and over, the search field sits at the bottom of its row, so it stays aligned with the bottom of a taller identifier.</p>
+<p>Working example: <a href="../../templates/content-page/custom-header-en.html">Content page with custom header</a>. In the Jekyll templates, set <code>customBrand</code> (<code>src</code>, <code>alt</code>, <code>url</code>, <code>width</code>, <code>height</code>, <code>name</code> optional) in the page's front matter.</p>
+
 <h2>Evaluation and report</h2>
 <p>There is no evaluation and report available for this component.</p>
 
