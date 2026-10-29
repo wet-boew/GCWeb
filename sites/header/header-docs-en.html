@@ -29,8 +29,8 @@
 
 <h2>Working example</h2>
 <ul>
-	<li><a href="../../templates/content-page/content-en.html">Content page including Header v4.0</a></li>
-	<li><a href="../authentication/contextual-signin-en.html">Content page including Header v4.0 and Authentication section</a></li>
+	<li><a href="../../templates/content-page/content-en.html">Content page including Header v4.1</a></li>
+	<li><a href="../authentication/contextual-signin-en.html">Content page including Header v4.1 and Authentication section</a></li>
 </ul>
 
 <h2>How to implement</h2>
@@ -123,10 +123,48 @@
 
 &lt;/header></code></pre>
 
+<h2>Custom brand (approved exceptions only)</h2>
+<p>The Canada.ca Experience Office may approve an institution to replace the Government of Canada signature with its own identifier (for example, a Coat of Arms based signature). The default header is unchanged when the identifier does not define its dimensions.</p>
+<p>Add a <code>width</code> attribute (in pixels) to the identifier's <code>&lt;img&gt;</code> inside the <code>.brand</code> container to define its size; the height follows the image's aspect ratio. The identifier is displayed at that size and scales down, keeping its aspect ratio, when its column is narrower (smaller screens). The artwork should be cropped to its visible area so that it lines up with the page grid.</p>
+<pre><code>&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+	&lt;a href="/" property="url"&gt;
+		&lt;img src="identifier-en.svg" alt="Institution name" width="293" property="logo" /&gt;&lt;span class="wb-inv"&gt; / &lt;span lang="fr"&gt;Nom de l'institution&lt;/span&gt;&lt;/span&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code></pre>
+<p>On small views and over, the search field sits at the bottom of its row, so it stays aligned with the bottom of a taller identifier.</p>
+<p>Working example: <a href="../../templates/content-page/custom-header-en.html">Content page with custom header</a>.</p>
+
+<h3>Front matter</h3>
+<p>In the Jekyll templates, set <code>customBrand</code> in the page's front matter:</p>
+<pre><code>---
+customBrand:
+	src: ../img/identifier-en.svg
+	alt: "Institution name"
+	altLang: "Nom de l'institution"
+	url: "https://www.canada.ca/en/institution.html"
+	width: 293
+	name: "Institution name"
+---</code></pre>
+<dl>
+	<dt><code>src</code></dt>
+	<dd>Path or URL of the identifier image for the page's language.</dd>
+	<dt><code>alt</code></dt>
+	<dd>Text alternative of the identifier, in the page's language.</dd>
+	<dt><code>altLang</code></dt>
+	<dd>Text of the identifier in the opposite official language. It is added after the image as invisible text, with the matching <code>lang</code> attribute, as with the Government of Canada signature.</dd>
+	<dt><code>url</code></dt>
+	<dd>Destination of the link on the identifier, typically the institution's home page.</dd>
+	<dt><code>width</code></dt>
+	<dd>Width of the identifier in pixels on large screens. The height follows the image's aspect ratio.</dd>
+	<dt><code>name</code> (optional)</dt>
+	<dd>Name of the institution used in the page's structured data. Defaults to the value of <code>alt</code>.</dd>
+</dl>
+
 <h2>Evaluation and report</h2>
 <p>There is no evaluation and report available for this component.</p>
 
-<h2>API (Version 2.0)</h2>
+<h2>API (Version 4.1)</h2>
 <table class="table table-bordered">
 	<tr>
 		<th>Component version</th>
@@ -136,9 +174,9 @@
 		<th>Schema</th>
 	</tr>
 	<tr>
-		<th>Version 4.0.0</th>
+		<th>Version 4.1.0</th>
 		<td>n.a.</td>
-		<td>Version 4.0</td>
+		<td>Version 4.1</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -184,7 +222,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<h4>Version 4.0</h4>
+		<h4>Version 4.1</h4>
 		<p>No change</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;

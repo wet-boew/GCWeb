@@ -29,8 +29,8 @@
 
 <h2>Example pratique</h2>
 <ul>
-	<li><a href="../../templates/content-page/content-fr.html">Page de contenu incluant l'en-tête v4.0</a></li>
-	<li><a href="../authentication/contextual-signin-fr.html">Page de contenu incluant l'en-tête v4.0 ainsi que la section d'authentification.</a></li>
+	<li><a href="../../templates/content-page/content-fr.html">Page de contenu incluant l'en-tête v4.1</a></li>
+	<li><a href="../authentication/contextual-signin-fr.html">Page de contenu incluant l'en-tête v4.1 ainsi que la section d'authentification.</a></li>
 </ul>
 
 <h2>Comment mettre en œuvre</h2>
@@ -124,10 +124,48 @@
 
 &lt;/header></code></pre>
 
+<h2>Marque personnalisée (exceptions approuvées seulement)</h2>
+<p>Le Bureau de l'expérience Canada.ca peut approuver qu'une institution remplace la signature du gouvernement du Canada par son propre identificateur (par exemple, une signature comprenant les armoiries). L'en-tête par défaut demeure inchangé lorsque l'identificateur ne définit pas ses dimensions.</p>
+<p>Ajoutez un attribut <code>width</code> (en pixels) à l'élément <code>&lt;img&gt;</code> de l'identificateur dans le conteneur <code>.brand</code> pour définir sa taille; la hauteur suit les proportions de l'image. L'identificateur est affiché à cette taille et est réduit, en conservant ses proportions, lorsque sa colonne est plus étroite (écrans plus petits). L'image devrait être rognée à sa zone visible afin de s'aligner sur la grille de la page.</p>
+<pre><code>&lt;div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization"&gt;
+	&lt;a href="/" property="url"&gt;
+		&lt;img src="identificateur-fr.svg" alt="Nom de l'institution" width="293" property="logo" /&gt;&lt;span class="wb-inv"&gt; / &lt;span lang="en"&gt;Institution name&lt;/span&gt;&lt;/span&gt;
+	&lt;/a&gt;
+	...
+&lt;/div&gt;</code></pre>
+<p>Dans les vues petites et plus grandes, le champ de recherche est placé au bas de sa rangée, ce qui le garde aligné avec le bas d'un identificateur plus haut.</p>
+<p>Exemple fonctionnel&nbsp;: <a href="../../templates/content-page/custom-header-fr.html">Page de contenu avec en-tête personnalisé</a>.</p>
+
+<h3>Métadonnées</h3>
+<p>Dans les gabarits Jekyll, définissez <code>customBrand</code> dans les métadonnées de la page&nbsp;:</p>
+<pre><code>---
+customBrand:
+	src: ../img/identificateur-fr.svg
+	alt: "Nom de l'institution"
+	altLang: "Institution name"
+	url: "https://www.canada.ca/fr/institution.html"
+	width: 293
+	name: "Nom de l'institution"
+---</code></pre>
+<dl>
+	<dt><code>src</code></dt>
+	<dd>Chemin ou adresse URL de l'image de l'identificateur dans la langue de la page.</dd>
+	<dt><code>alt</code></dt>
+	<dd>Texte de remplacement de l'identificateur, dans la langue de la page.</dd>
+	<dt><code>altLang</code></dt>
+	<dd>Texte de l'identificateur dans l'autre langue officielle. Il est ajouté après l'image sous forme de texte invisible, avec l'attribut <code>lang</code> correspondant, comme pour la signature du gouvernement du Canada.</dd>
+	<dt><code>url</code></dt>
+	<dd>Destination du lien de l'identificateur, habituellement la page d'accueil de l'institution.</dd>
+	<dt><code>width</code></dt>
+	<dd>Largeur de l'identificateur en pixels sur les grands écrans. La hauteur suit les proportions de l'image.</dd>
+	<dt><code>name</code> (facultatif)</dt>
+	<dd>Nom de l'institution utilisé dans les données structurées de la page. Par défaut, la valeur de <code>alt</code>.</dd>
+</dl>
+
 <h2>Évaluation et rapport</h2>
 <p>Il n'y a pas d'évaluation ni de rapport disponible pour ce composant.</p>
 
-<h2>API (version 2.0)</h2>
+<h2>API (version 4.1)</h2>
 <table class="table table-bordered">
 	<tr>
 		<th>Versions du composants</th>
@@ -137,9 +175,9 @@
 		<th>Schéma</th>
 	</tr>
 	<tr>
-		<th>Version 4.0.0</th>
+		<th>Version 4.1.0</th>
 		<td>n.a.</td>
-		<td>Version 4.0</td>
+		<td>Version 4.1</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -185,7 +223,7 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<h4>Version 4.0</h4>
+		<h4>Version 4.1</h4>
 		<p>Aucun changement.</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
