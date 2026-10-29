@@ -4280,10 +4280,10 @@
 		"en": "Style ordered list and divs with steps number in circles.",
 		"fr": "Mise en style d'une liste ordonnée et de divs avec des numéros d'étape dans un cercle"
 	},
-	"modified": "2025-09-16",
+	"modified": "2026-10-26",
 	"componentName": "list-steps",
 	"status": "stable",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"pages": {
 		"examples": [
 			{
@@ -4352,6 +4352,10 @@
 			],
 			"history": [
 				{
+					"en": "October 2026 - Added option for two-digit 'start' attributes.",
+					"fr": "Octobre 2026 - Ajout d'une option pour les attributs 'start' à deux chiffres."
+				},
+				{
 					"en": "June 2024 - Reduced excessive spacing for small amount of content. Removed background color for default list steps number (except in striped mode) as was not showing up properly in high contrast mode. Updated governance towards stabilization.",
 					"fr": "Juin 2024 - Réduction de l'espacement excessif pour les petites quantités de contenu. Suppression de la couleur d'arrière-plan du numéro d'étape par défaut de la liste (sauf en mode rayé), car il ne s'affichait pas correctement en mode contraste élevé. Mise à jour de la gouvernance pour la stabilisation."
 				},
@@ -4377,7 +4381,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_list_steps",
-			"iteration": "_:iteration_list_steps_2",
+			"iteration": "_:iteration_list_steps_4",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -4474,6 +4478,24 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_list_steps_4",
+			"name": "List steps - Iteration 4",
+			"date": "2026-11",
+			"detectableBy": ".lst-stps",
+			"additions": [
+				"The start attribute is no longer limited to single digits, it may now be any number from 2 to 99, inclusive"
+			],
+			"predecessor": "_:iteration_list_steps_3",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<ol class=\"lst-stps\">"
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_list_steps_3",
 			"name": "List steps - Iteration 3",
 			"date": "2025-11",
@@ -4482,6 +4504,7 @@
 				"Step width is no longer limited when inside .cnt-wdth-lmtd class"
 			],
 			"predecessor": "_:iteration_list_steps_2",
+			"successor": "_:iteration_list_steps_4",
 			"assets": [
 				{
 					"@type": "source-code",
@@ -4527,6 +4550,16 @@
 		}
 	],
 	"changesets": [
+		{
+			"@id": "_:cs_list_steps_1",
+			"name": "List steps - Version 1.2.0",
+			"status": "stable",
+			"baseOnIteration": "_:iteration_list_steps_4",
+			"detectableBy": ".lst-stps",
+			"layout": "Not applicable",
+			"style": "Style ordered list and divs with steps number in circles.",
+			"semantic": "Not applicable"
+		},
 		{
 			"@id": "_:cs_list_steps_1",
 			"name": "List steps",
