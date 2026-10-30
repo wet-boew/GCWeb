@@ -1,9 +1,15 @@
 {
 	"@context": {
-		"@version": 2.0,
+		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
-		"title": { "@id": "dct:title", "@container": "@language" },
-		"description": { "@id": "dct:description", "@container": "@language" },
+		"title": {
+			"@id": "dct:title",
+			"@container": "@language"
+		},
+		"description": {
+			"@id": "dct:description",
+			"@container": "@language"
+		},
 		"modified": "dct:modified"
 	},
 	"title": {
@@ -89,20 +95,44 @@
 			"iteration": "_:iteration_servermessage_3",
 			"example": [
 				{
-					"en": { "href": "404-en.html", "text": "Page not found" },
-					"fr": { "href": "404-fr.html", "text": "Page non trouvée" }
+					"en": {
+						"href": "404-en.html",
+						"text": "Page not found"
+					},
+					"fr": {
+						"href": "404-fr.html",
+						"text": "Page non trouvée"
+					}
 				},
 				{
-					"en": { "href": "404-en-fr.html", "text": "Page not found / Page non trouvée (Bilingual)" },
-					"fr": { "href": "404-fr-en.html", "text": "Page non trouvée / Page not found  (Bilingue)" }
+					"en": {
+						"href": "404-en-fr.html",
+						"text": "Page not found / Page non trouvée (Bilingual)"
+					},
+					"fr": {
+						"href": "404-fr-en.html",
+						"text": "Page non trouvée / Page not found  (Bilingue)"
+					}
 				},
 				{
-					"en": { "href": "servermessage-en.html", "text": "Message title" },
-					"fr": { "href": "servermessage-fr.html", "text": "Titre du message" }
+					"en": {
+						"href": "servermessage-en.html",
+						"text": "Message title"
+					},
+					"fr": {
+						"href": "servermessage-fr.html",
+						"text": "Titre du message"
+					}
 				},
 				{
-					"en": { "href": "servermessage-en-fr.html", "text": "Message title / Titre du message (Bilingual)" },
-					"fr": { "href": "servermessage-fr-en.html", "text": "Titre du message / Message title (Bilingue)" }
+					"en": {
+						"href": "servermessage-en-fr.html",
+						"text": "Message title / Titre du message (Bilingual)"
+					},
+					"fr": {
+						"href": "servermessage-fr-en.html",
+						"text": "Titre du message / Message title (Bilingue)"
+					}
 				}
 			],
 			"implementation": [
@@ -135,7 +165,6 @@
 			"introduction": {
 				"en": "This implementation is meant for developers/publishers who are looking to configure the server error message page template. There are two versions of this template: a unilingual page for users whose language preference is known, and a bilingual page for users whose language preference is unknown.",
 				"fr": "Cette implémentation s'adresse aux développeurs/éditeurs qui souhaitent configurer le gabarit de la page de message d'erreur serveur. Il existe deux versions de ce gabarit : une page unilingue pour les utilisateurs dont la préférence linguistique est connue, et une page bilingue pour les utilisateurs dont la préférence linguistique est inconnue."
-
 			},
 			"instructions": {
 				"en": [
@@ -155,7 +184,10 @@
 						"@type": "source-code",
 						"description": "Page not found",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "404-en.html main"
 						}
 					},
@@ -163,7 +195,10 @@
 						"@type": "source-code",
 						"description": "Page not found / Page non trouvée (Bilingual)",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "404-en-fr.html main"
 						}
 					},
@@ -171,7 +206,10 @@
 						"@type": "source-code",
 						"description": "Message title",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "servermessage-en.html main"
 						}
 					},
@@ -179,7 +217,10 @@
 						"@type": "source-code",
 						"description": "Message title / Titre du message (Bilingual)",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "servermessage-en-fr.html main"
 						}
 					}
@@ -189,7 +230,10 @@
 						"@type": "source-code",
 						"description": "Page non trouvée",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "404-fr.html main"
 						}
 					},
@@ -197,7 +241,10 @@
 						"@type": "source-code",
 						"description": "Page non trouvée / Page not found (Bilingue)",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "404-en-fr.html main"
 						}
 					},
@@ -205,7 +252,10 @@
 						"@type": "source-code",
 						"description": "Titre du message",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "servermessage-fr.html main"
 						}
 					},
@@ -213,7 +263,10 @@
 						"@type": "source-code",
 						"description": "Titre du message / Message title (Bilingue)",
 						"code": {
-							"@type": [ "@id", "rdf:HTML" ],
+							"@type": [
+								"@id",
+								"rdf:HTML"
+							],
 							"@value": "servermessage-en-fr.html main"
 						}
 					}
@@ -228,7 +281,10 @@
 			"date": "2026-03",
 			"detectableBy": "A red \"danger\" label with the error code, followed by the message text and and at least one helpful link (for 404 errors).",
 			"predecessor": "_:iteration_servermessage_2",
-			"additions": ["Added the CSS class .cnt-wdth-lmtd to the body element to respect Canada.ca readability typography guidelines", "Adding visible skip links on mobile and on bilingual example pages"]
+			"additions": [
+				"Added the CSS class .cnt-wdth-lmtd to the body element to respect Canada.ca readability typography guidelines",
+				"Adding visible skip links on mobile and on bilingual example pages"
+			]
 		},
 		{
 			"@id": "_:iteration_servermessage_2",
