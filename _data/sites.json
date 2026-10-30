@@ -14,10 +14,10 @@
 		"en": "Global demoed feature included but need to move in its own folder.",
 		"fr": "Fonctionnalité globale inclus mais qu'il nécessite qu'ils soit déplacé dans son propre dossier."
 	},
-	"modified": "2022-05-03",
+	"modified": "2026-09-25",
 	"componentName": "archived",
 	"status": "stable",
-	"version": "1.1",
+	"version": "2.0",
 	"pages": {
 		"examples": [
 			{
@@ -53,10 +53,10 @@
 			},
 			"status": "stable",
 			"description": {
-				"en": "The archived component indicates that a given page was archived and its content is provided for reference, research or recordkeeping purposes.",
-				"fr": "La composante archivé indique qu'une page donnée a été archivée et que son contenu est fourni aux fins de référence, de recherche ou de tenue de documents."
+				"en": "The archived component indicates that a given page was archived and its content is provided for reference, research or recordkeeping purposes. The banner stays at the top of the screen as the user scrolls the page, and the user can close it.",
+				"fr": "La composante archivé indique qu'une page donnée a été archivée et que son contenu est fourni aux fins de référence, de recherche ou de tenue de documents. La bannière reste en haut de l'écran lorsque l'utilisateur fait défiler la page, et l'utilisateur peut la fermer."
 			},
-			"iteration": "_:iteration_archvd_1",
+			"iteration": "_:iteration_archvd_2",
 			"example": [
 				{
 					"en": { "href": "archived-en.html", "text": "Archived" },
@@ -64,9 +64,14 @@
 				}
 			],
 			"implementation": [
-				"_:implement_archvd"
+				"_:implement_archvd",
+				"_:implement_archvd_gcweb"
 			],
 			"history": [
+				{
+					"en": "September 2026 - The banner is now sticky, its heading is styled as an H3 and its wording was updated. An in-page archived alert is no longer recommended.",
+					"fr": "Septembre 2026 - La bannière est maintenant fixe, son titre a le style d'un H3 et son libellé a été mis à jour. Une alerte d'archivage dans le contenu de la page n'est plus recommandée."
+				},
 				{
 					"en": "November 2023 - Initial implementation of the variation.",
 					"fr": "Novembre 2023 - Implémentation initiale de la variante."
@@ -78,7 +83,7 @@
 				"en": "Archived with overlay",
 				"fr": "Archivé avec contenu superposé"
 			},
-			"status": "stable",
+			"status": "deprecated",
 			"description": {
 				"en": "The archived with overlay component indicates that a given page was archived and its content is provided for reference, research or recordkeeping purposes. It contains an overlayed element that appears when the page is scrolled.",
 				"fr": "La composante archivé avec contenu superposé indique qu'une page donnée a été archivée et que son contenu est fourni aux fins de référence, de recherche ou de tenue de documents. Elle comporte un élément superposé au contenu qui s'affiche lorsque la page défile."
@@ -95,6 +100,10 @@
 				"_:implement_archvd_overlay_gcweb"
 			],
 			"history": [
+				{
+					"en": "September 2026 - Deprecated. The sticky banner is now part of the \"Archived - default\" variation.",
+					"fr": "Septembre 2026 - Obsolète. La bannière fixe fait maintenant partie de la variante «&nbsp;Archivé - par défaut&nbsp;»."
+				},
 				{
 					"en": "February 2014 - Initial implementation of the variation.",
 					"fr": "Février 2014 - Implémentation initiale de la variante."
@@ -192,8 +201,52 @@
 			}
 		},
 		{
+			"@id": "_:implement_archvd_gcweb",
+			"iteration": "_:iteration_archvd_2",
+			"name": {
+				"en": "GCWeb Jekyll",
+				"fr": "GCWeb Jekyll"
+			},
+			"introduction": {
+				"en": "This implementation is meant for developers trying to implement this component within a GCWeb Jekyll site.",
+				"fr": "Cette implémentation est destinée aux développeurs essayant d'implémenter ce composant dans un site GCWeb Jekyll."
+			},
+			"instructions": {
+				"en": [
+					"To show the \"Archived\" banner, in the page's front-matter, set the property <code>archived</code> to <code>true</code>."
+				],
+				"fr": [
+					"Pour afficher la bannière \"Archivé\", dans l'en-tête de la page, définissez la propriété <code>archived</code> à <code>true</code>."
+				]
+			},
+			"notes": {
+				"en": [
+					"The <code>archiveOverlay</code> property is no longer needed. The banner is always sticky."
+				],
+				"fr": [
+					"La propriété <code>archiveOverlay</code> n'est plus nécessaire. La bannière est toujours fixe."
+				]
+			},
+			"sample": {
+				"en": [
+					{
+						"@type": "source-code",
+						"description": "Code sample:",
+						"code": "{\n\t...\n\t\"archived\": true\n\t...\n}"
+					}
+				],
+				"fr": [
+					{
+						"@type": "source-code",
+						"description": "Exemple de code&nbsp;:",
+						"code": "{\n\t...\n\t\"archived\": true\n\t...\n}"
+					}
+				]
+			}
+		},
+		{
 			"@id": "_:implement_archvd",
-			"iteration": "_:iteration_archvd_1",
+			"iteration": "_:iteration_archvd_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -210,19 +263,31 @@
 					"Insérez l'extrait de code ci-dessous au début de votre élément <code>&lt;body&gt;</code>."
 				]
 			},
+			"notes": {
+				"en": [
+					"The first <code>section</code> is shown at the top of the page. When it is scrolled out of view, the Data Inview plugin opens the second <code>section</code> as a bar that stays at the top of the screen. The two <code>section</code> elements must have the same content. The <code>modal-title</code> class on the second heading gives the close button its accessible name.",
+					"Accessibility: the heading is an <code>h2</code> styled as an H3 with the <code>h3</code> class, so the page's heading structure does not change. The sticky bar is hidden from assistive technologies until it opens, can be closed with its close button (named \"Close: Archived information\") or with the <kbd>Escape</kbd> key when focus is in the bar, does not close or trap focus when the user clicks or tabs elsewhere on the page, is limited to half of the screen height so content stays visible when zoomed in, and the page scrolls so the element in focus is not hidden behind it. The sticky bar is not shown in basic HTML mode.",
+					"For more information on how the Overlay or Data Inview plugins work, visit their respective documentation<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-en.html\">Overlay documentation</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data-inview-en.html\">Data Inview documentation</a></li></ul>"
+				],
+				"fr": [
+					"La première <code>section</code> s'affiche en haut de la page. Lorsqu'elle sort de l'écran, le plugiciel Data Inview ouvre la deuxième <code>section</code> sous forme de barre qui reste en haut de l'écran. Les deux éléments <code>section</code> doivent avoir le même contenu. La classe <code>modal-title</code> sur le deuxième titre donne son nom accessible au bouton de fermeture.",
+					"Accessibilité&nbsp;: le titre est un <code>h2</code> qui a le style d'un H3 grâce à la classe <code>h3</code>, donc la structure des titres de la page ne change pas. La barre fixe est masquée aux technologies d'assistance tant qu'elle n'est pas ouverte, peut être fermée avec son bouton de fermeture (nommé «&nbsp;Fermer&nbsp;: Informations archivées&nbsp;») ou avec la touche <kbd>Échap</kbd> lorsque le focus est dans la barre, ne se ferme pas et ne retient pas le focus lorsque l'utilisateur clique ou navigue ailleurs dans la page, est limitée à la moitié de la hauteur de l'écran pour que le contenu reste visible lors d'un zoom, et la page défile pour que l'élément ayant le focus ne soit pas caché derrière elle. La barre fixe ne s'affiche pas en mode HTML de base.",
+					"Pour plus d'informations sur le fonctionnement des plugiciels Contenu superposé ou Data Inview, visitez leur documentation respective<ul><li><a href=\"https://wet-boew.github.io/wet-boew/demos/overlay/overlay-fr.html\">Documentation de Contenu superposé</a></li><li><a href=\"https://wet-boew.github.io/wet-boew/demos/data-inview/data-inview-fr.html\">Documentation de Data Inview</a></li></ul>"
+				]
+			},
 			"sample": {
 				"en": [
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t\t<h2>We have archived this page and will not be updating it.</h2>\n\t\t<p>You can use it for research or reference.</p>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-archv wb-inview modal-content show-none\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3\">Archived information</h2>\n\t\t<p>Archived information is provided for reference, research or recordkeeping purposes. It is not subject to the Government of Canada Web Standards and has not been altered or updated since it was archived. Please contact us to request a format other than those available.</p>\n\t</div>\n</section>\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3 modal-title\">Archived information</h2>\n\t\t<p>Archived information is provided for reference, research or recordkeeping purposes. It is not subject to the Government of Canada Web Standards and has not been altered or updated since it was archived. Please contact us to request a format other than those available.</p>\n\t</div>\n</section>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code&nbsp;:",
-						"code": "<section class=\"gc-archv\">\n\t<div class=\"container\">\n\t\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
+						"code": "<section class=\"gc-archv wb-inview modal-content show-none\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3\">Informations archivées</h2>\n\t\t<p>Les informations archivées sont fournies aux fins de référence, de recherche ou de tenue de documents. Elles ne sont pas assujetties aux normes Web du gouvernement du Canada et n'ont pas été modifiées ou mises à jour depuis leur archivage. Pour obtenir ces informations dans un autre format, veuillez communiquer avec nous.</p>\n\t</div>\n</section>\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3 modal-title\">Informations archivées</h2>\n\t\t<p>Les informations archivées sont fournies aux fins de référence, de recherche ou de tenue de documents. Elles ne sont pas assujetties aux normes Web du gouvernement du Canada et n'ont pas été modifiées ou mises à jour depuis leur archivage. Pour obtenir ces informations dans un autre format, veuillez communiquer avec nous.</p>\n\t</div>\n</section>"
 					}
 				]
 			}
@@ -269,6 +334,27 @@
 					"code": "<section class=\"gc-archv wb-inview modal-content show-none bar-demo\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>\n\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t<h2>Nous avons archivé cette page et elle ne sera plus mise à jour.</h2>\n\t<p>Vous pouvez la consulter à des fins de recherche ou à titre de référence.</p>\n\t</div>\n</section>"
 				}
 			]
+		},
+		{
+			"@id": "_:iteration_archvd_2",
+			"name": "Archived - Iteration 2",
+			"date": "2026-09",
+			"detectableBy": ".gc-archv.wb-inview h2.h3",
+			"predecessor": "_:iteration_archvd_overlay_1",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<section class=\"gc-archv wb-inview modal-content show-none\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3\">Archived information</h2>\n\t\t<p>Archived information is provided for reference, research or recordkeeping purposes. It is not subject to the Government of Canada Web Standards and has not been altered or updated since it was archived. Please contact us to request a format other than those available.</p>\n\t</div>\n</section>\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3 modal-title\">Archived information</h2>\n\t\t<p>Archived information is provided for reference, research or recordkeeping purposes. It is not subject to the Government of Canada Web Standards and has not been altered or updated since it was archived. Please contact us to request a format other than those available.</p>\n\t</div>\n</section>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<section class=\"gc-archv wb-inview modal-content show-none\" data-inview=\"top-bar\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3\">Informations archivées</h2>\n\t\t<p>Les informations archivées sont fournies aux fins de référence, de recherche ou de tenue de documents. Elles ne sont pas assujetties aux normes Web du gouvernement du Canada et n'ont pas été modifiées ou mises à jour depuis leur archivage. Pour obtenir ces informations dans un autre format, veuillez communiquer avec nous.</p>\n\t</div>\n</section>\n<section id=\"top-bar\" class=\"gc-archv wb-overlay modal-content overlay-def wb-bar-t\">\n\t<div class=\"container\">\n\t\t<h2 class=\"h3 modal-title\">Informations archivées</h2>\n\t\t<p>Les informations archivées sont fournies aux fins de référence, de recherche ou de tenue de documents. Elles ne sont pas assujetties aux normes Web du gouvernement du Canada et n'ont pas été modifiées ou mises à jour depuis leur archivage. Pour obtenir ces informations dans un autre format, veuillez communiquer avec nous.</p>\n\t</div>\n</section>"
+				}
+			]
 		}
 	],
 	"changesets": [
@@ -276,15 +362,15 @@
 			"@id": "_:cs_archvd",
 			"name": "Archived",
 			"status": "stable",
-			"baseOnIteration": "_:iteration_archvd_1",
-			"detectableBy": ".gc-archv",
+			"baseOnIteration": "_:iteration_archvd_2",
+			"detectableBy": ".gc-archv.wb-inview",
 			"layout": "Must be at the very top of the page",
-			"semantic": "section > .container > h2 + p",
+			"semantic": "(section > .container > h2.h3 + p) + (section#top-bar > .container > h2.h3 + p)",
 			"static": [
-				"We have archived this page and will not be updating it.",
-				"You can use it for research or reference.",
-				"Nous avons archivé cette page et elle ne sera plus mise à jour.",
-				"Vous pouvez la consulter à des fins de recherche ou à titre de référence."
+				"Archived information",
+				"Archived information is provided for reference, research or recordkeeping purposes. It is not subject to the Government of Canada Web Standards and has not been altered or updated since it was archived. Please contact us to request a format other than those available.",
+				"Informations archivées",
+				"Les informations archivées sont fournies aux fins de référence, de recherche ou de tenue de documents. Elles ne sont pas assujetties aux normes Web du gouvernement du Canada et n'ont pas été modifiées ou mises à jour depuis leur archivage. Pour obtenir ces informations dans un autre format, veuillez communiquer avec nous."
 			],
 			"include": {
 				"@type": "source-code",
@@ -294,12 +380,13 @@
 					"@type": [ "@id", "rdf:HTML" ],
 					"@value": "../headers-includes/archive.html"
 				}
-			}
+			},
+			"basic": "The sticky bar is not shown."
 		},
 		{
 			"@id": "_:cs_archvd_overlay",
 			"name": "Archived with overlay",
-			"status": "stable",
+			"status": "deprecated",
 			"baseOnIteration": "_:iteration_archvd_overlay_1",
 			"detectableBy": ".gc-archv.wb-inview",
 			"layout": "Must be at the very top of the page",
