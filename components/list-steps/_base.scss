@@ -124,37 +124,12 @@ ol.lst-stps.stps-strpd:not(.ld-zr) > li ol.lst-stps-sub.stps-strpd > li:before {
 	background-color: #fff;
 }
 
-/* Increment (start) */
-ol.lst-stps[start="2"] {
-	counter-set: item 1;
+ol.lst-stps {
+	counter-reset: item calc(attr(start number, 1) - 1);
 }
 
-ol.lst-stps[start="3"] {
-	counter-set: item 2;
-}
-
-ol.lst-stps[start="4"] {
-	counter-set: item 3;
-}
-
-ol.lst-stps[start="5"] {
-	counter-set: item 4;
-}
-
-ol.lst-stps[start="6"] {
-	counter-set: item 5;
-}
-
-ol.lst-stps[start="7"] {
-	counter-set: item 6;
-}
-
-ol.lst-stps[start="8"] {
-	counter-set: item 7;
-}
-
-ol.lst-stps[start="9"] {
-	counter-set: item 8;
+ol.lst-stps > li {
+	counter-increment: item;
 }
 
 /* Full width exception li (for exempt designs, e.g. grids, tables, etc.) */
