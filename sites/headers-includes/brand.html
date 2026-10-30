@@ -1,3 +1,17 @@
+{%- comment -%}
+	Default: Government of Canada signature (FIP).
+	Custom identifier (approved by the Canada.ca Experience Office): set `customBrand` in the page's front matter.
+	Supported keys: src, alt, url, width, height (in pixels, the identifier's size on large screens), name.
+{%- endcomment -%}
+{%- if page.customBrand -%}
+<div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+	<a href="{{ page.customBrand.url }}" property="url">
+		<img src="{{ page.customBrand.src }}" alt="{{ page.customBrand.alt }}" width="{{ page.customBrand.width }}" height="{{ page.customBrand.height }}" property="logo" />
+	</a>
+	<meta property="name" content="{{ page.customBrand.name | default: page.customBrand.alt }}">
+	<meta property="areaServed" typeof="Country" content="Canada" />
+</div>
+{%- else -%}
 <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
 	<a href="{{ setting-website }}" property="url">
 		<img src="{{ setting-resourcesBasePathTheme }}/{{ i18nText-sigBlk }}" alt="{{ i18nText-goc }}" property="logo" /><span class="wb-inv"> / {{ i18nText-gocAltLang }}</span>
@@ -6,3 +20,4 @@
 	<meta property="areaServed" typeof="Country" content="Canada" />
 	<link property="logo" href="{{ setting-resourcesBasePathTheme }}/assets/wmms-blk.svg" />
 </div>
+{%- endif -%}

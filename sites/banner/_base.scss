@@ -39,6 +39,14 @@ header {
 		img {
 			margin-bottom: .375em;
 		}
+
+		// Identifier with its own dimensions (width and height attributes): shown at that size and
+		// scaled down, keeping its aspect ratio, when its column is narrower.
+		img[width][height] {
+			height: auto;
+			max-height: none;
+			max-width: 100%;
+		}
 	}
 }
 
