@@ -1,4 +1,14 @@
+{%- if page.nomenu -%}
+<h2>{{ i18nText-breadcrumb }}</h2>
+<div class="container">
+{% endif %}
 <gcds-breadcrumbs slot="breadcrumb" class="mt-2">
+	{%- if page.nomenu -%}
+		<gcds-breadcrumbs-item href="{{ i18nText-homePage }}">
+			{{ i18nText-home }}
+		</gcds-breadcrumbs-item>
+		{% assign breadcrumbCounter = 2 %}
+	{% endif %}
 	{%- unless page.overwriteBreadcrumbs -%}
 		{%- if site.global.breadcrumbs -%}
 			{% for breadcrumb in site.global.breadcrumbs[i18nText-lang] %}
@@ -18,3 +28,6 @@
 		{%- endfor -%}
 	{% endif %}
 </gcds-breadcrumbs>
+{%- if page.nomenu -%}
+</div>
+{% endif %}
