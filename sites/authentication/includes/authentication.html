@@ -25,6 +25,19 @@
 {%- elsif page.auth.type == "active" -%}
 		<p><a class="btn btn-sm btn-default" href="#"><span class="glyphicon glyphicon-user"></span> {{ i18nText-signUsername }}</a>
 		<a class="btn btn-sm btn-primary" href="#"><span class="glyphicon glyphicon-off"></span> {{ i18nText-signOut }}</a></p>
+{%- elsif page.auth.type == "nomenu" -%}
+	{% assign label = page.auth.label | truncate: 12, "" %}
+	{% assign labelExtended = page.auth.labelExtended | truncate: 25, "" %}
+	<gcds-button class="btn btn-primary" href="{{ page.auth.link }}" type="submit">
+	{%- if label and labelExtended -%}
+			<span class="visible-xs">{{ label }}</span>
+			<span class="hidden-xs">{{ labelExtended }}</span>
+	{%- elsif label -%}
+		{{ label }}
+	{%- else -%}
+		{{ i18nText-signIn }}
+	{% endif %}
+	</gcds-button>
 {% else %}
 		<button class="btn btn-default" type="button">{{ i18nText-signAccount }}</button>
 		<button class="btn btn-primary" type="button">{{ i18nText-signOut }}</button>

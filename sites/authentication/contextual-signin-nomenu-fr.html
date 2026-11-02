@@ -4,13 +4,13 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/fr.html"
 	},
-	"dateModified": "2022-09-26",
+	"dateModified": "2026-10-29",
 	"description": "Exemple de la section d'authentification sans le menu de GCWeb.",
 	"language": "fr",
 	"title": "Bouton contextuel « Se connecter » sans le menu GCWeb",
 	"nomenu": true,
 	"auth": {
-		"type": "contextual",
+		"type": "nomenu",
 		"link": "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html",
 		"label": "Se connecter"
 	}
@@ -21,12 +21,17 @@
 <h2>Code source attendu</h2>
 <pre><code>&lt;div class="container"&gt;
 	&lt;div class="row"&gt;
-		&lt;div class="col-xs-12"&gt;
-			&lt;section id="wb-so"&gt;
-				&lt;h2 class="wb-inv"&gt;Se connecter&lt;/h2&gt;
-				&lt;a class="btn btn-primary" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"&gt;Se connecter&lt;/a&gt;
-			&lt;/section&gt;
-		&lt;/div&gt;
+		&lt;nav id="wb-bc" property="breadcrumb" class="col-xs-8"&gt;
+			&lt;h2 class="wb-inv"&gt;Vous êtes ici:&lt;/h2&gt;
+			&lt;gcds-breadcrumbs&gt;
+				&lt;gcds-breadcrumbs-item href="https://www.canada.ca/en.html"&gt;Canada.ca&lt;/gcds-breadcrumbs-item&gt;
+				&lt;gcds-breadcrumbs-item href="https://servicecanada.github.io/wet-boew-demos/gcweb-pr2873/index-fr.html"&gt;GCWeb&lt;/gcds-breadcrumbs-item&gt;
+			&lt;/gcds-breadcrumbs&gt;
+		&lt;/nav&gt;
+		&lt;section id="wb-so" class="col-xs-4"&gt;
+			&lt;h2 class="wb-inv"&gt;Se connecter&lt;/h2&gt;
+			&lt;gcds-button class="btn btn-primary" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"&gt;Se connecter&lt;/gcds-button&gt;
+		&lt;/section&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
