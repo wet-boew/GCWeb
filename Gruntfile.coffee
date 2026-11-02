@@ -1165,9 +1165,6 @@ module.exports = (grunt) ->
 						"\.*"
 						"**"
 
-						# temp fixed in #2526
-						"!**/*.md"
-
 						# Exemptions...
 						"!**/*.min.*"
 						"!**/*.lock"
