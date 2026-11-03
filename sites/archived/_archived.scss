@@ -12,6 +12,24 @@
 		margin-top: 0;
 	}
 
+	// Sticky banner: keep at least half of the viewport visible when zoomed in (WCAG 1.4.10 Reflow)
+	&.wb-overlay {
+		max-height: 50vh;
+		overflow-y: auto;
+	}
+
+	// .modal-title gives the overlay close button its accessible name; keep the responsive H3 styling
+	&.overlay-def .modal-title {
+		font-size: $font-size-h3;
+		line-height: 1.37;
+		padding: 0;
+
+		@media screen and (max-width: $screen-sm-max) {
+			font-size: 1.625rem;
+			line-height: 1.23;
+		}
+	}
+
 	.mfp-close.overlay-close {
 		color: #000;
 
@@ -22,6 +40,7 @@
 	}
 }
 
-.wb-disable .gc-arch.wb-overlay {
-	display: none;
+// Basic HTML mode: WET forces overlays to display, which would duplicate the banner
+.wb-disable .gc-archv.wb-overlay {
+	display: none !important;
 }
