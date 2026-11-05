@@ -1,11 +1,9 @@
 ---
-{
-  "title": "Developing for GCWeb",
-  "language": "en",
-  "description": "Instructions on how to develop for the Canada.ca theme.",
-  "altLangPage": "developing-fr.html",
-  "dateModified": "2022-04-12",
-}
+title: "Developing for GCWeb"
+language: "en"
+description: "Instructions on how to develop for the Canada.ca theme."
+altLangPage: "developing-fr.html"
+dateModified: "2022-04-12"
 ---
 
 Found a C&amp;IA implementation issue or want to contribute to its development? Let us know by submitting a [GCWeb issue](https://github.com/wet-boew/GCWeb/issues/new?title=C%26IA%20implementation%20error%3A%20), creating a [pull request](https://github.com/wet-boew/GCWeb/pulls) or by participating at one of our weekly [WET office hours](https://github.com/wet-boew/wet-boew/wiki/WET-Office-hours,-Heures-de-service-de-la-BOEW) (formerly known as WET-BOEW code sprint) every Tuesday.
@@ -134,8 +132,8 @@ To be able to view GCWeb through Github, you'll have to setup your repo to use G
 
 1. In your GCWeb fork, go to the Settings tab.
 2. In the Settings page, go to the Pages tab.
-   - **Source**: deploy from a branch
-   - **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+    - **Source**: deploy from a branch
+    - **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
 3. Still in the Settings pages, go to the Environments tab.
 4. Select "github-pages" environment.
 5. Under "Deployment branches and tags", if it is not already there, add the branch `dev`.

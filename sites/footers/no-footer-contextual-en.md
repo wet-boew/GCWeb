@@ -1,8 +1,8 @@
 ---
 altLangPage: no-footer-contextual-fr.html
 breadcrumbs:
- - title: Footer
-   link: sites/footers/footers-en.html
+- title: Footer
+  link: sites/footers/footers-en.html
 dateModified: 2025-06-20
 includes:
   footer: edge
