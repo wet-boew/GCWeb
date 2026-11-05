@@ -1,7 +1,7 @@
 ---
 feature: méli-mélo
 "@context":
-  "@version": 1.0.4
+  "@version": 1.1
   dct: http://purl.org/dc/terms/
   title:
     "@id": dct:title
