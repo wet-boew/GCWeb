@@ -13,3 +13,42 @@
 		margin-top: -50px;
 	}
 }
+
+/* xxs at screen width of 479px */
+@media (max-width: 479px) {
+	// full-width sign-in button for mobile view
+	#wb-so {
+		order: 1;
+
+		.btn {
+			display: block;
+			margin-top: 0.5rem;
+			width: 100%;
+		}
+
+		.col-xs-4 {
+			width: 100%;
+		}
+	}
+
+	#wb-bc {
+		order:2;
+
+		.col-xs-8 {
+			width: 100%;
+		}
+	}
+
+	// On large screen, breadcrumb comes before sign in. On small screen, sign in comes before breadcrumb
+	.row {
+		display: flex;
+		flex-flow: column;
+	}
+
+	#wb-bnr {
+		.row {
+			display: block;
+			flex-flow: none;
+		}
+	}
+}

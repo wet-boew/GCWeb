@@ -23,10 +23,14 @@
 			{%- endunless -%}
 			{%- assign colSo = "col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4" -%}
 			{%- if page.nomenu -%}
-				{%- assign colSo = "col-xs-12" -%}
+				<div class="{{ colBc }}">
+					{% include breadcrumbs/gcds-breadcrumbs.html %}
+				</div>
+				{%- assign colSo = "col-xs-4" -%}
+				{%- assign colBc = "col-xs-8" -%}
 			{%- endif -%}
 			{%- if page.auth -%}
-				<div class="{{ colSo }}">
+				<div class="{{ colBc }}">
 					{% include authentication/authentication.html %}
 				</div>
 			{%- endif -%}

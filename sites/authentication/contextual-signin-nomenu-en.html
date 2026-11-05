@@ -4,13 +4,13 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/en.html"
 	},
-	"dateModified": "2022-08-24",
+	"dateModified": "2026-10-29",
 	"description": "Example of the authentication section without the menu.",
 	"language": "en",
 	"title": "Contextual Sign in button without the GCWeb Menu",
 	"nomenu": true,
 	"auth": {
-		"type": "contextual",
+		"type": "nomenu",
 		"link": "https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html",
 		"label": "Sign in"
 	}
@@ -21,12 +21,17 @@
 <h2>Expected output code</h2>
 <pre><code>&lt;div class="container"&gt;
 	&lt;div class="row"&gt;
-		&lt;div class="col-xs-12"&gt;
-			&lt;section id="wb-so"&gt;
-				&lt;h2 class="wb-inv"&gt;Sign in&lt;/h2&gt;
-				&lt;a class="btn btn-primary" href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html"&gt;Sign in&lt;/a&gt;
-			&lt;/section&gt;
-		&lt;/div&gt;
+		&lt;nav id="wb-bc" property="breadcrumb" class="col-xs-8"&gt;
+			&lt;h2 class="wb-inv"&gt;You are here:&lt;/h2&gt;
+			&lt;gcds-breadcrumbs&gt;
+				&lt;gcds-breadcrumbs-item href="https://www.canada.ca/en.html"&gt;Canada.ca&lt;/gcds-breadcrumbs-item&gt;
+				&lt;gcds-breadcrumbs-item href="https://servicecanada.github.io/wet-boew-demos/gcweb-pr2873/index-en.html"&gt;GCWeb&lt;/gcds-breadcrumbs-item&gt;
+			&lt;/gcds-breadcrumbs&gt;
+		&lt;/nav&gt;
+		&lt;section id="wb-so" class="col-xs-4"&gt;
+			&lt;h2 class="wb-inv"&gt;Sign in&lt;/h2&gt;
+			&lt;gcds-button class="btn btn-primary" href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html"&gt;Sign in&lt;/gcds-button&gt;
+		&lt;/section&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
