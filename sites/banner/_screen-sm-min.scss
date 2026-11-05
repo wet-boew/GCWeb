@@ -1,0 +1,19 @@
+/*
+ Banner (small view and over)
+ */
+
+// Language toggle, brand and search wrap onto rows. The search sits at the bottom of its row,
+// so it stays on the baseline of the brand whatever the height of the brand (e.g. a taller identifier).
+#wb-bnr .row {
+	display: flex;
+	flex-wrap: wrap;
+
+	&:before,
+	&:after {
+		display: none;
+	}
+
+	#wb-srch {
+		align-self: flex-end;
+	}
+}
