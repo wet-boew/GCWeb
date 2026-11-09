@@ -1,11 +1,9 @@
 ---
-{
-  "title": "Developing for GCWeb",
-  "language": "fr",
-  "description": "Instructions sur comment développer pour le thème de Canada.ca.",
-  "altLangPage": "developing-en.html",
-  "dateModified": "2021-12-03",
-}
+title: "Developing for GCWeb"
+language: "fr"
+description: "Instructions sur comment développer pour le thème de Canada.ca."
+altLangPage: "developing-en.html"
+dateModified: "2021-12-03"
 ---
 
 <div lang="en" markdown="1">
@@ -138,8 +136,8 @@ To be able to view GCWeb through Github, you'll have to setup your repo to use G
 
 1. In your GCWeb fork, go to the Settings tab.
 2. In the Settings page, go to the Pages tab.
-   - **Source**: deploy from a branch
-   - **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
+    - **Source**: deploy from a branch
+    - **Branch**: gh-pages | /(root) (if you don't have the `gh-pages` branch already, you'll have to create it)
 3. Still in the Settings pages, go to the Environments tab.
 4. Select "github-pages" environment.
 5. Under "Deployment branches and tags", if it is not already there, add the branch `dev`.

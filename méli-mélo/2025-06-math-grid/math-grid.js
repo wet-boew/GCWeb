@@ -65,4 +65,3 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 wb.add( selector );
 } )( jQuery, window, wb );
-

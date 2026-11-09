@@ -49,7 +49,7 @@ changes:
     How this affects design: Adds no visual difference, except when using borders, borders will now have better separation.
   - date: 2026-06-16
     description: Added a min-width feature to better visually align equations (more notable on desktop)
-    departmentImpact: No impact on existing instances of component 
+    departmentImpact: No impact on existing instances of component
     publicImpact: Will create more aligned calculations (visually appealing), no impact to accessibility
 
 output: false

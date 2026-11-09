@@ -6,9 +6,9 @@ pageclass: "wb-prettify all-pre"
 layout: without-h1
 title: "Titre principal dans une div alignée à droite"
 index_json: index.json-ld
-breadcrumbs: [
-		{ "title": "Titre principal - Documentation", "link": "sites/main-page-title/main-page-title-fr.html" }
-	]
+breadcrumbs:
+- title: "Titre principal - Documentation"
+  link: "sites/main-page-title/main-page-title-fr.html"
 ---
 
 <div dir="rtl">

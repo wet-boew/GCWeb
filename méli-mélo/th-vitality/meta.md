@@ -25,7 +25,7 @@ sponsor: Francis Snoddy on behalf of ESDC - Portfolio web
 
 changes:
   - date: 2025-11-04
-    description: The thematic has been renewed for another year therefore, the expiry date has been updated to Nov 30, 2026.   
+    description: The thematic has been renewed for another year therefore, the expiry date has been updated to Nov 30, 2026.
     publicImpact: No impact only minor content change.
 
 output: false
