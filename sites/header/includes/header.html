@@ -12,7 +12,12 @@
 	</div>
 	{% unless page.layout == "application" %}
 	{% unless page.layout == "servermessage" and page.isBilingual %}
-	<hr>
+		{%- unless page.nomenu -%}
+			<hr>
+		{% endunless %}
+		{%- if page.nomenu -%}
+			<hr class="col-xs-12">
+		{%- endif -%}
 	{% endunless %}
 	<div class="container">
 		<div class="row">
@@ -23,7 +28,10 @@
 			{%- endunless -%}
 			{%- assign colSo = "col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4" -%}
 			{%- if page.nomenu -%}
-				{%- assign colSo = "col-xs-12" -%}
+				{%- assign colSo = "col-xs-4" -%}
+				<nav id="wb-bc" property="breadcrumb" class="col-xs-8">
+					{% include breadcrumbs/gcds-breadcrumbs.html %}
+				</nav>
 			{%- endif -%}
 			{%- if page.auth -%}
 				<div class="{{ colSo }}">
@@ -33,5 +41,7 @@
 		</div>
 	</div>
 	{% endunless %}
-	{% include breadcrumbs/breadcrumbs.html %}
+	{%- unless page.nomenu -%}
+		{% include breadcrumbs/breadcrumbs.html %}
+	{% endunless %}
 </header>
