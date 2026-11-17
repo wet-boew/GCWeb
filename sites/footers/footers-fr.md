@@ -9,7 +9,7 @@ contextualFooter:
     text: Lien contextuel 2
   - url: http://canada.ca/fr
     text: Lien contextuel 3
-dateModified: 2025-11-20
+dateModified: 2026-11-17
 includes:
   footer: edge
 language:	fr
@@ -31,10 +31,11 @@ Consultez le système de conception de Canada.ca pour savoir quels éléments de
 
 ## Changements récents
 
-### Version 11.0
+### Version 11.1
 
 Les modifications suivantes ont été apportées depuis la **version 4.0**&nbsp;:
 
+* Version 11.1 : Augmentation de la hauteur du mot-symbole Canada.ca dans le sous pied de page de 40px à 48px sur les écrans moyens et plus (992px et plus).
 * Version 11.0 : URL "À propos de Canada . ca" mis à jour.
 * Version 10.0 : URL "À propos de Canada . ca" mis à jour.
 * Version 9.0 : Changé l'URL du lien "Gérer les événements de la vie".
