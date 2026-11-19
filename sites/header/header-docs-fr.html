@@ -4,7 +4,7 @@
 	"language": "fr",
 	"altLangPage": "header-docs-en.html",
 	"secondlevel": false,
-	"dateModified": "2022-11-01",
+	"dateModified": "2026-11-12",
 	"share": "true"
 }
 ---
@@ -16,7 +16,7 @@
 	<dt>Type</dt>
 	<dd>Fonctionnalité du site Canada.ca</dd>
 	<dt>Dernière révision</dt>
-	<dd>2022-08-31</dd>
+	<dd>2026-11-12</dd>
 </dl>
 
 <h2>Objectif</h2>
@@ -29,8 +29,8 @@
 
 <h2>Example pratique</h2>
 <ul>
-	<li><a href="../../templates/content-page/content-fr.html">Page de contenu incluant l'en-tête v4.0</a></li>
-	<li><a href="../authentication/contextual-signin-fr.html">Page de contenu incluant l'en-tête v4.0 ainsi que la section d'authentification.</a></li>
+	<li><a href="../../templates/content-page/content-fr.html">Page de contenu incluant l'en-tête v5.0</a></li>
+	<li><a href="../authentication/contextual-signin-fr.html">Page de contenu incluant l'en-tête v5.0 ainsi que la section d'authentification.</a></li>
 </ul>
 
 <h2>Comment mettre en œuvre</h2>
@@ -137,9 +137,9 @@
 		<th>Schéma</th>
 	</tr>
 	<tr>
-		<th>Version 4.0.0</th>
+		<th>Version 5.0.0</th>
 		<td>n.a.</td>
-		<td>Version 4.0</td>
+		<td>Version 5.0</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -154,6 +154,13 @@
 			<th>Gabarit</th>
 			<th>Rendu visuel</th>
 			<th>Schéma</th>
+		</tr>
+		<tr>
+			<th>Version 4.0.0</th>
+			<td>n.a.</td>
+			<td>Version 4.0</td>
+			<td>Version 1.0</td>
+			<td>n.a.</td>
 		</tr>
 		<tr>
 			<th>Version 3.0.0</th>
@@ -185,54 +192,57 @@
 
 <div class="row">
 	<div class="col-md-6">
-		<h4>Version 4.0</h4>
-		<p>Aucun changement.</p>
+		<h4>Version 5.0</h4>
+		<p>Les différence entre ce version et le version 4.0 sont l'enlèvement du menu, l'addition de la classe col-xs-12 a l'élément hr, l'utilisation des gcds-breadcrumbs, et mettant les gcds-breadcrumbs et le sign-on dans la meme rangée en leur assignant les classes col-xs-4 et col-xs-8, respectivement.</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
-			&lt;!-- Changer de langue [version 1.1] --&gt;
-			&lt;!-- Image de marque [version 1.0] --&gt;
-			&lt;!-- Recherche [version 1.0] --&gt;
+			&lt;!-- Language toggle [version 1.1] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;hr&gt;
+	&lt;hr <ins>class="col-xs-12"</ins>&gt;
 	&lt;div class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
-			&lt;div class=&quot;col-md-<ins>8</ins>&quot;&gt;
-				&lt;!-- Menu du site [version 2.0] --&gt;
+			</ins>&lt;nav class=&quot;col-xs-8&quot;&gt;
+				&lt;!-- Breadcrumbs [version 1.0] --&gt;
+			&lt;/div&gt;</ins>
+			&lt;div class=&quot;col-<ins>xs-4</ins>&quot;&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;!-- Fil d'Ariane [version 1.0] --&gt;
 &lt;/header&gt;</code></pre>
 
 		<h5>Incluant la section d'authentification (optionnelle)</h5>
-		<p>La différence avec la version 3.0 est que la valeur pour <code>col-xs-5</code> et <code>col-xs-offset-7</code> a été ajusté à un "6" afin que le texte du bouton ne brise pas et demeure sur une seule ligne pour toutes les fenêtre d'affichage d'extra-extra-petite à extra-large (xs, xxs, sm, md, lg et xl).</p>
+		<p>No change.</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
-			&lt;!-- Changer de langue [version 1.1] --&gt;
-			&lt;!-- Image de marque [version 1.0] --&gt;
-			&lt;!-- Recherche [version 1.0] --&gt;
+			&lt;!-- Language toggle [version 1.1] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;hr&gt;
 	&lt;div class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
 			&lt;div class=&quot;col-md-8&quot;&gt;
-				&lt;!-- Menu du site [version 2.0] --&gt;
-			&lt;/div&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
+		&lt;/div&gt;
 			&lt;div class=&quot;col-xs-<ins>6</ins> col-xs-offset-<ins>6</ins> col-md-offset-0 col-md-4&quot;&gt;
-				&lt;!-- Section d'authentification optionnelle [version 1.0] --&gt;
+				&lt;!-- Optional Authentication Section [version 1.0] --&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;!-- Breadcrumbs [version 1.0] --&gt;
 &lt;/header&gt;</code></pre>
 	</div>
+
 	<div class="col-md-6">
-		<h4>Version 3.0 (obsolète)</h4>
-		<p>Aucun changement.</p>
+		<h4>Version 4.0 (deprecated)</h4>
+		<p>La version 4.0 de l'en-tête est obsolète mais toujours supportée et requière l'implémentation de la <a href="../gcweb-menu/gcweb-menu-docs-en.html">version 3.0 du menu GCWeb</a> ou le code <code>&lt;div class="container"&gt;</code> a été relocalisé dans l'en-tête donc l'extérieur du composant "gcweb-menu".</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
@@ -244,7 +254,7 @@
 	&lt;hr&gt;
 	&lt;div class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
-			&lt;div class=&quot;col-md-<del>12</del>&quot;&gt;
+			&lt;div class=&quot;col-md-8&quot;&gt;
 				&lt;!-- Menu du site [version 2.0] --&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
@@ -253,8 +263,7 @@
 &lt;/header&gt;</code></pre>
 
 		<h5>Incluant la section d'authentification (optionnelle)</h5>
-		<p>La version 3.0 de l'en-tête incluant la section d'authentification est obsolète mais toujours supportée et requière l'implémentation de la <a href="../gcweb-menu/gcweb-menu-docs-fr.html">version 2.0 du menu GCWeb</a> ou le code <code>&lt;div class="container"&gt;</code> a été relocalisé dans l'en-tête donc l'extérieur du composant "gcweb-menu".</p>
-
+		<p>No change.</p>
 		<pre><code>&lt;header&gt;
 	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
 		&lt;div class=&quot;row&quot;&gt;
@@ -274,7 +283,7 @@
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;!-- Breadcrumbs [version 1.0] --&gt;
+	&lt;!-- Fil d'Ariane [version 1.0] --&gt;
 &lt;/header&gt;</code></pre>
 	</div>
 </div>
