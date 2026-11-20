@@ -9,7 +9,7 @@ contextualFooter:
     text: Contextual link 2
   - url: http://canada.ca/en
     text: Contextual link 3
-dateModified: 2025-11-20
+dateModified: 2026-11-17
 includes:
   footer: edge
 language: en
@@ -31,10 +31,11 @@ Consult the Canada.ca Design System for guidance on which footer elements or cus
 
 ## Latest changes
 
-### Version 11.0
+### Version 11.1
 
 The following changes have been made since **version 4.0**:
 
+* Version 11.1 : Increased the height of the Canada.ca wordmark in the sub-footer from 40px to 48px on medium screens and over (992px and up).
 * Version 11.0 : Updated "About Canada . ca" URL.
 * Version 10.0 : Updated "About Canada . ca" URL.
 * Version 9.0 : Updated "Manage life events" URL.
