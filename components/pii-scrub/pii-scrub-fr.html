@@ -1,0 +1,349 @@
+---
+{
+	"title": "Nettoyage d'IPI",
+	"language": "fr",
+	"description": "Détectez les informations personnelles identifiables (IPI) dans les champs marqués d'un formulaire et remplacez-les par des caractères caviardés avant la soumission.",
+	"altLangPage": "pii-scrub-en.html",
+	"dateModified": "2026-09-04"
+}
+---
+<div class="wb-prettify all-pre hide"></div>
+
+<p>La composante Nettoyage d'IPI détecte les informations personnelles identifiables (IPI) dans les champs de formulaire que vous marquez, présente à l'utilisateur une fenêtre de confirmation affichant les valeurs caviardées, puis remplace ces valeurs avant la soumission du formulaire.</p>
+
+<section class="alert alert-info">
+	<h2>À propos des motifs de détection de cette page</h2>
+	<p>Cette page charge une version mise à jour de l'assistant de base <code>wb.findPotentialPII()</code>, reprenant les motifs proposés dans la <a href="https://github.com/wet-boew/wet-boew/pull/10117">demande de tirage nº 10117 de wet-boew</a>. En plus des motifs déjà offerts dans la BOEW, elle détecte&nbsp;:</p>
+	<ul>
+		<li>les adresses courriel masquées, y compris les domaines espacés et les adresses sans domaine de premier niveau</li>
+		<li>les adresses municipales en français et en anglais, avec ou sans direction ni article</li>
+		<li>les cases postales (<q>case postale</q>, <q>casier postal</q>, <q>PO Box</q> et leurs abréviations)</li>
+	</ul>
+	<p>Cette substitution est temporaire et se trouve dans <code>components/pii-scrub/pii-scrub.js</code>. Elle devra être retirée une fois la demande de tirage fusionnée en amont et la dépendance <code>wet-boew</code> mise à jour.</p>
+</section>
+
+<h2>Sur cette page</h2>
+<ul>
+	<li><a href="#nouveauxMotifs">Nouveaux motifs détectés</a></li>
+	<li><a href="#exempleBase">Exemple de base</a></li>
+	<li><a href="#exemplePostback">Exemple avec envoi via Ajax et gabarit de fenêtre contextuelle personnalisé</a></li>
+	<li><a href="#exempleValidation">Exemple avec validation de formulaire</a></li>
+	<li><a href="#exempleValidationEtPostback">Exemple avec validation de formulaire et avec envoi via Ajax</a></li>
+	<li><a href="#fonctionnement">Fonctionnement</a></li>
+</ul>
+
+<h2 id="nouveauxMotifs">Nouveaux motifs détectés</h2>
+<p>Utilisez ce formulaire pour mettre à l'essai les motifs ajoutés par la demande de tirage nº 10117. Aucune de ces valeurs n'est détectée par la version de l'assistant actuellement offerte dans la BOEW.</p>
+<section class="panel panel-info">
+	<header class="panel-heading">
+		<h3 class="panel-title">Instructions</h3>
+	</header>
+	<div class="panel-body">
+		<p>Remplissez le champ <strong>Détails</strong> avec l'une des valeurs suivantes, puis soumettez&nbsp;:</p>
+		<ul>
+			<li>Adresse municipale (français)&nbsp;: <code>J'habite au 1250, rue Sainte-Catherine Ouest</code></li>
+			<li>Adresse municipale (anglais)&nbsp;: <code>I live at 123 Main St West, Ottawa</code></li>
+			<li>Case postale&nbsp;: <code>Case postale 789, succursale B</code></li>
+			<li>Case postale (anglais)&nbsp;: <code>Send it to PO Box 1234</code></li>
+			<li>Courriel masqué&nbsp;: <code>Écrivez-moi à jean . tremblay + impot @ exemple . com</code></li>
+			<li>Courriel sans domaine de premier niveau&nbsp;: <code>equipe_soutien@mon-domaine</code></li>
+		</ul>
+	</div>
+</section>
+
+<form action="pii-scrub-fr.html" class="wb-pii-scrub">
+	<div class="form-content">
+		<div class="form-group">
+			<label for="details"><span class="field-name">Détails</span></label>
+			<textarea class="form-control" id="details" name="details" data-scrub-field rows="4" cols="50"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Soumettre</button>
+	</div>
+</form>
+
+<details class="mrgn-tp-md mrgn-bttm-md">
+	<summary>Afficher le code</summary>
+	<pre><code>&lt;form action="pii-scrub-fr.html" class="wb-pii-scrub">
+	&lt;div class="form-content">
+		&lt;div class="form-group">
+			&lt;label for="details">&lt;span class="field-name">Détails&lt;/span>&lt;/label>
+			&lt;textarea class="form-control" id="details" name="details" data-scrub-field rows="4" cols="50">&lt;/textarea>
+		&lt;/div>
+		&lt;button type="submit" class="btn btn-primary">Soumettre&lt;/button>
+	&lt;/div>
+&lt;/form></code></pre>
+</details>
+
+<h2 id="exempleBase">Exemple de base</h2>
+<p>Vous trouverez ci-dessous un exemple de base de la manière d'implémenter la composante Nettoyage d'IPI.</p>
+<section class="panel panel-info">
+	<header class="panel-heading">
+		<h3 class="panel-title">Instructions</h3>
+	</header>
+	<div class="panel-body">
+		<p>Remplissez les champs ci-dessous avec les valeurs suivantes&nbsp;:</p>
+		<ul>
+			<li>Objet&nbsp;: <code>Mon PRI&nbsp;: 012345678</code></li>
+			<li>Message&nbsp;: <code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, numéro de permis de conduire&nbsp;: P12345678912345, Compte bancaire&nbsp;: 003-1234567</code></li>
+		</ul>
+	</div>
+</section>
+
+<form action="pii-scrub-fr.html" class="wb-pii-scrub">
+	<div class="form-content">
+		<div class="form-group">
+			<label for="subject"><span class="field-name">Objet</span></label>
+			<input class="form-control" id="subject" name="subject" type="text" data-scrub-field>
+		</div>
+		<div class="form-group">
+			<label for="message">Message</label>
+			<textarea class="form-control" id="message" name="message" data-scrub-field rows="4" cols="50"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary" name="test" value="valeur de test">Soumettre</button>
+	</div>
+</form>
+
+<details class="mrgn-tp-md mrgn-bttm-md">
+	<summary>Afficher le code</summary>
+	<pre><code>&lt;form action="pii-scrub-fr.html" class="wb-pii-scrub">
+	&lt;div class="form-content">
+		&lt;div class="form-group">
+			&lt;label for="subject">&lt;span class="field-name">Objet&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="subject" name="subject" type="text" data-scrub-field>
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="message">Message&lt;/label>
+			&lt;textarea class="form-control" id="message" name="message" data-scrub-field rows="4" cols="50">&lt;/textarea>
+		&lt;/div>
+		&lt;button type="submit" class="btn btn-primary" name="test" value="valeur de test">Soumettre&lt;/button>
+	&lt;/div>
+&lt;/form></code></pre>
+</details>
+
+<h2 id="exemplePostback">Exemple avec envoi via Ajax et gabarit de fenêtre contextuelle personnalisé</h2>
+<p>Vous trouverez ci-dessous un exemple démontrant l'implémentation de la composante Nettoyage d'IPI avec un formulaire soumis avec l'envoi via Ajax. Cet exemple démontre également l'utilisation des options <code>scrubChar</code> et <code>modalTemplate</code>.</p>
+<section class="panel panel-info">
+	<header class="panel-heading">
+		<h3 class="panel-title">Instructions</h3>
+	</header>
+	<div class="panel-body">
+		<p>Seul le champ <strong>Commentaires</strong> possède un attribut <code>data-scrub-field</code>.</p>
+		<p>Remplissez le champ <strong>Commentaires</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, 1250, rue Sainte-Catherine Ouest</code></p>
+	</div>
+</section>
+<form action="pii-scrub-fr.html" class="wb-postback wb-pii-scrub" data-wb-postback='{"success":".success-message","failure":".failure-message"}' data-wb-pii-scrub='{"scrubChar": "████████", "modalTemplate": "[data-scrub-modal]"}'>
+	<template data-scrub-modal>
+		<header class="modal-header">
+			<h2 class="modal-title">Les informations personnelles contenues dans votre commentaire ont été supprimées</h2>
+		</header>
+		<div class="modal-body">
+			<p>Les commentaires servent uniquement à améliorer notre site. Vous ne recevrez pas de réponse.</p>
+			<p><strong>Pour protéger votre vie privée, votre commentaire sera soumis comme suit&nbsp;:</strong></p>
+			<div data-scrub-modal-fields></div>
+			<details class="mrgn-tp-md">
+				<summary>Qu’est-ce qui est considéré comme une information personnelle?</summary>
+				<p>Certains types d’informations ne peuvent pas être inclus dans ce formulaire de commentaires, tels que&nbsp;:</p>
+				<ul>
+					<li>adresse courriel</li>
+					<li>numéro de téléphone</li>
+					<li>adresse domiciliaire ou postale</li>
+					<li>code postal</li>
+					<li>numéro de passeport</li>
+					<li>numéro d'entreprise</li>
+					<li>numéro d'assurance sociale (NAS)</li>
+				</ul>
+			</details>
+		</div>
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-link btn-block popup-modal-dismiss">Fermer et modifier le commentaire</button></div>
+				<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block" data-scrub-submit>Soumettre le commentaire</button></div>
+			</div>
+		</div>
+	</template>
+	<div class="form-content">
+		<div class="form-group">
+			<label for="firstname1"><span class="field-name">Prénom</span></label>
+			<input class="form-control" id="firstname1" name="firstname" type="text">
+		</div>
+		<div class="form-group">
+			<label for="lastname1"><span class="field-name">Nom de famille</span></label>
+			<input class="form-control" id="lastname1" name="lastname" type="text">
+		</div>
+		<div class="form-group">
+			<label for="comments">Commentaires</label>
+			<textarea class="form-control" id="comments" name="comments" data-scrub-field rows="4" cols="50"></textarea>
+		</div>
+		<button class="btn btn-primary" name="test" value="valeur de test">Soumettre</button>
+	</div>
+</form>
+<p class="success-message hide">Merci&nbsp;!</p>
+<p class="failure-message hide">Une erreur s'est produite. Veuillez soumettre vos informations par un autre moyen.</p>
+<details class="mrgn-tp-md mrgn-bttm-md">
+	<summary>Afficher le code</summary>
+	<pre><code>&lt;form action="pii-scrub-fr.html" class="wb-postback wb-pii-scrub" data-wb-postback='{"success":".success-message","failure":".failure-message"}' data-wb-pii-scrub='{"scrubChar": "████████", "modalTemplate": "[data-scrub-modal]"}'>
+	&lt;template data-scrub-modal>
+		&lt;header class="modal-header">
+			&lt;h2 class="modal-title">Les informations personnelles contenues dans votre commentaire ont été supprimées&lt;/h2>
+		&lt;/header>
+		&lt;div class="modal-body">
+			&lt;p>Les commentaires servent uniquement à améliorer notre site. Vous ne recevrez pas de réponse.&lt;/p>
+			&lt;p>&lt;strong>Pour protéger votre vie privée, votre commentaire sera soumis comme suit&nbsp;:&lt;/strong>&lt;/p>
+			&lt;div data-scrub-modal-fields>&lt;/div>
+			&lt;details class="mrgn-tp-md">
+				&lt;summary>Qu’est-ce qui est considéré comme une information personnelle?&lt;/summary>
+				&lt;p>Certains types d’informations ne peuvent pas être inclus dans ce formulaire de commentaires, tels que&nbsp;:&lt;/p>
+				&lt;ul>
+					&lt;li>adresse courriel&lt;/li>
+					&lt;li>numéro de téléphone&lt;/li>
+					&lt;li>adresse domiciliaire ou postale&lt;/li>
+					&lt;li>code postal&lt;/li>
+					&lt;li>numéro de passeport&lt;/li>
+					&lt;li>numéro d'entreprise&lt;/li>
+					&lt;li>numéro d'assurance sociale (NAS)&lt;/li>
+				&lt;/ul>
+			&lt;/details>
+		&lt;/div>
+		&lt;div class="modal-footer">
+			&lt;div class="row">
+				&lt;div class="col-xs-12 col-sm-6 mrgn-tp-sm">&lt;button type="button" class="btn btn-link btn-block popup-modal-dismiss">Fermer et modifier le commentaire&lt;/button>&lt;/div>
+				&lt;div class="col-xs-12 col-sm-6 mrgn-tp-sm">&lt;button type="button" class="btn btn-primary btn-block" data-scrub-submit>Soumettre le commentaire&lt;/button>&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	&lt;/template>
+	&lt;div class="form-content">
+		&lt;div class="form-group">
+			&lt;label for="firstname1">&lt;span class="field-name">Prénom&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="firstname1" name="firstname" type="text">
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="lastname1">&lt;span class="field-name">Nom de famille&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="lastname1" name="lastname" type="text">
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="comments">Commentaires&lt;/label>
+			&lt;textarea class="form-control" id="comments" name="comments" data-scrub-field rows="4" cols="50">&lt;/textarea>
+		&lt;/div>
+		&lt;button class="btn btn-primary" name="test" value="valeur de test">Soumettre&lt;/button>
+	&lt;/div>
+&lt;/form>
+&lt;p class="success-message hide">Merci&nbsp;!&lt;/p>
+&lt;p class="failure-message hide">Une erreur s'est produite. Veuillez soumettre vos informations par un autre moyen.&lt;/p></code></pre>
+</details>
+
+<h2 id="exempleValidation">Exemple avec validation de formulaire</h2>
+<p>Vous trouverez ci-dessous un exemple démontrant l'implémentation de la composante Nettoyage d'IPI avec la validation de formulaire. La fenêtre de confirmation n'est affichée qu'une fois le formulaire validé.</p>
+<section class="panel panel-info">
+	<header class="panel-heading">
+		<h3 class="panel-title">Instructions</h3>
+	</header>
+	<div class="panel-body">
+		<p>Seul le champ <strong>Commentaires</strong> possède un attribut <code>data-scrub-field</code>.</p>
+		<p>Remplissez le champ <strong>Commentaires</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, Case postale 789</code></p>
+	</div>
+</section>
+<div class="wb-frmvld mrgn-bttm-md">
+	<form action="pii-scrub-fr.html" class="wb-pii-scrub">
+		<div class="form-content">
+			<div class="form-group">
+				<label for="fname1" class="required"><span class="field-name">Prénom</span> <strong class="required">(obligatoire)</strong></label>
+				<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+			</div>
+			<div class="form-group">
+				<label for="lname1" class="required"><span class="field-name">Nom de famille</span> <strong class="required">(obligatoire)</strong></label>
+				<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2">
+			</div>
+			<div class="form-group">
+				<label for="comments2">Commentaires</label>
+				<textarea class="form-control" id="comments2" name="comments2" data-scrub-field rows="4" cols="50"></textarea>
+			</div>
+			<button class="btn btn-primary">Soumettre</button>
+		</div>
+	</form>
+</div>
+<details class="mrgn-bttm-md">
+	<summary>Afficher le code</summary>
+	<pre><code>&lt;div class="wb-frmvld mrgn-bttm-md">
+	&lt;form action="pii-scrub-fr.html" class="wb-pii-scrub">
+		&lt;div class="form-content">
+			&lt;div class="form-group">
+				&lt;label for="fname1" class="required">&lt;span class="field-name">Prénom&lt;/span> &lt;strong class="required">(obligatoire)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="lname1" class="required">&lt;span class="field-name">Nom de famille&lt;/span> &lt;strong class="required">(obligatoire)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="lname1" name="lname1" type="text" autocomplete="family-name" required="required" data-rule-minlength="2">
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="comments2">Commentaires&lt;/label>
+				&lt;textarea class="form-control" id="comments2" name="comments2" data-scrub-field rows="4" cols="50">&lt;/textarea>
+			&lt;/div>
+			&lt;button class="btn btn-primary">Soumettre&lt;/button>
+		&lt;/div>
+	&lt;/form>
+&lt;/div></code></pre>
+</details>
+
+<h2 id="exempleValidationEtPostback">Exemple avec validation de formulaire et avec envoi via Ajax</h2>
+<p>Vous trouverez ci-dessous un exemple démontrant l'implémentation de la composante Nettoyage d'IPI avec la validation de formulaire et l'envoi via Ajax.</p>
+<section class="panel panel-info">
+	<header class="panel-heading">
+		<h3 class="panel-title">Instructions</h3>
+	</header>
+	<div class="panel-body">
+		<p>Seul le champ <strong>Problème</strong> possède un attribut <code>data-scrub-field</code>.</p>
+		<p>Remplissez le champ <strong>Problème</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, NAS&nbsp;: 123 123-123, 123 Main St West</code></p>
+	</div>
+</section>
+<div class="wb-frmvld mrgn-bttm-md">
+	<form action="pii-scrub-fr.html" class="wb-pii-scrub wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'>
+		<div class="form-content">
+			<div class="form-group">
+				<label for="nomComplet" class="required"><span class="field-name">Nom complet</span> <strong class="required">(obligatoire)</strong></label>
+				<input class="form-control" id="nomComplet" name="nomComplet" type="text" required="required" data-rule-minlength="2">
+			</div>
+			<div class="form-group">
+				<label for="probleme">Problème</label>
+				<textarea class="form-control" id="probleme" name="probleme" data-scrub-field rows="4" cols="50"></textarea>
+			</div>
+			<button class="btn btn-primary">Soumettre</button>
+		</div>
+	</form>
+	<p class="success-message-2 hide">Merci&nbsp;!</p>
+	<p class="failure-message-2 hide">Une erreur s'est produite. Veuillez soumettre vos informations par un autre moyen.</p>
+</div>
+<details class="mrgn-bttm-md">
+	<summary>Afficher le code</summary>
+	<pre><code>&lt;div class="wb-frmvld mrgn-bttm-md">
+	&lt;form action="pii-scrub-fr.html" class="wb-pii-scrub wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'>
+		&lt;div class="form-content">
+			&lt;div class="form-group">
+				&lt;label for="nomComplet" class="required">&lt;span class="field-name">Nom complet&lt;/span> &lt;strong class="required">(obligatoire)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="nomComplet" name="nomComplet" type="text" required="required" data-rule-minlength="2">
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="probleme">Problème&lt;/label>
+				&lt;textarea class="form-control" id="probleme" name="probleme" data-scrub-field rows="4" cols="50">&lt;/textarea>
+			&lt;/div>
+			&lt;button class="btn btn-primary">Soumettre&lt;/button>
+		&lt;/div>
+	&lt;/form>
+	&lt;p class="success-message-2 hide">Merci&nbsp;!&lt;/p>
+	&lt;p class="failure-message-2 hide">Une erreur s'est produite. Veuillez soumettre vos informations par un autre moyen.&lt;/p>
+&lt;/div></code></pre>
+</details>
+
+<h2 id="fonctionnement">Fonctionnement</h2>
+<ul>
+	<li>Ajoutez la classe <code>wb-pii-scrub</code> à l'élément <code>form</code>.</li>
+	<li>Ajoutez l'attribut <code>data-scrub-field</code> à chaque champ dont la valeur doit être vérifiée.</li>
+	<li>Donnez une étiquette à chaque champ marqué. Encadrez le texte de l'étiquette dans <code>&lt;span class="field-name"&gt;</code> lorsque celle-ci contient du texte supplémentaire à ne pas répéter dans la fenêtre de confirmation.</li>
+	<li>Configurez au besoin la composante avec l'attribut <code>data-wb-pii-scrub</code>&nbsp;:
+		<ul>
+			<li><code>scrubChar</code>&nbsp;: la chaîne servant à remplacer les IPI détectées. Valeur par défaut&nbsp;: <code>********</code>.</li>
+			<li><code>moreInfo</code>&nbsp;: le code HTML affiché dans la section <q>en savoir plus</q> de la fenêtre par défaut.</li>
+			<li><code>modalTemplate</code>&nbsp;: un sélecteur ciblant un élément <code>&lt;template&gt;</code> à l'intérieur du formulaire, utilisé à la place de la fenêtre par défaut. Placez un élément <code>data-scrub-modal-fields</code> à l'endroit où les valeurs caviardées doivent être listées, et l'attribut <code>data-scrub-submit</code> sur le bouton de confirmation.</li>
+		</ul>
+	</li>
+</ul>
+<p>Les détails complets des options se trouvent dans la <a href="https://wet-boew.github.io/wet-boew/docs/ref/pii-scrub/pii-scrub-fr.html">documentation du nettoyage d'IPI</a>.</p>
