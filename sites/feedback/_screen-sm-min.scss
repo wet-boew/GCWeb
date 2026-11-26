@@ -1,0 +1,18 @@
+/*
+  @title: GC feedback - Small view and over
+ */
+
+/* Centre the yes/no buttons on the question, whatever number of lines it takes. Flexbox can't be used on the fieldset, Safari doesn't keep its legend as a flex item. Older copies of the template still using flexbox are left as is. */
+#gc-pft {
+	.gc-pft-btns:not( .d-sm-flex ) {
+		min-height: $input-height-base;
+		position: relative;
+
+		> .nojs-hide {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
