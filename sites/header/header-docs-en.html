@@ -4,7 +4,7 @@
 	"language": "en",
 	"altLangPage": "header-docs-fr.html",
 	"secondlevel": false,
-	"dateModified": "2022-11-01",
+	"dateModified": "2026-11-12",
 	"share": "true"
 }
 ---
@@ -16,7 +16,7 @@
 	<dt>Type</dt>
 	<dd>Canada.ca site functionality</dd>
 	<dt>Last review</dt>
-	<dd>2022-08-31</dd>
+	<dd>2026-11-12</dd>
 </dl>
 
 <h2>Purpose</h2>
@@ -29,8 +29,8 @@
 
 <h2>Working example</h2>
 <ul>
-	<li><a href="../../templates/content-page/content-en.html">Content page including Header v4.0</a></li>
-	<li><a href="../authentication/contextual-signin-en.html">Content page including Header v4.0 and Authentication section</a></li>
+	<li><a href="../../templates/content-page/content-en.html">Content page including Header v5.0</a></li>
+	<li><a href="../authentication/contextual-signin-en.html">Content page including Header v5.0 and Authentication section</a></li>
 </ul>
 
 <h2>How to implement</h2>
@@ -136,9 +136,9 @@
 		<th>Schema</th>
 	</tr>
 	<tr>
-		<th>Version 4.0.0</th>
+		<th>Version 5.0.0</th>
 		<td>n.a.</td>
-		<td>Version 4.0</td>
+		<td>Version 5.0</td>
 		<td>Version 1.0</td>
 		<td>n.a.</td>
 	</tr>
@@ -153,6 +153,13 @@
 			<th>Template</th>
 			<th>Visual rendering</th>
 			<th>Schema</th>
+		</tr>
+		<tr>
+			<th>Version 4.0.0</th>
+			<td>n.a.</td>
+			<td>Version 4.0</td>
+			<td>Version 1.0</td>
+			<td>n.a.</td>
 		</tr>
 		<tr>
 			<th>Version 3.0.0</th>
@@ -183,6 +190,107 @@
 <h3>Before and After</h3>
 
 <div class="row">
+	<div class="col-md-6">
+		<h4>Version 5.0</h4>
+		<p>The differences between this version and version 4.0 are that, when the menu is removed, a col-xs-12 class is applied to the hr element, gcds-breadcrumbs are used, and the sign in and gcds-breadcrumbs are in the same row using col-xs-4 and col-xs-8, respectively.</p>
+		<pre><code>&lt;header&gt;
+	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;!-- Language toggle [version 1.1] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;hr <ins>class="col-xs-12"</ins>&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			</ins>&lt;nav class=&quot;col-xs-8&quot;&gt;
+				&lt;!-- Breadcrumbs [version 1.0] --&gt;
+			&lt;/div&gt;</ins>
+			&lt;div class=&quot;col-<ins>xs-4</ins>&quot;&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/header&gt;</code></pre>
+
+		<h5>Including authentication section (optional)</h5>
+		<p>No change.</p>
+		<pre><code>&lt;header&gt;
+	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;!-- Language toggle [version 1.1] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;hr&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-md-8&quot;&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
+		&lt;/div&gt;
+			&lt;div class=&quot;col-xs-<ins>6</ins> col-xs-offset-<ins>6</ins> col-md-offset-0 col-md-4&quot;&gt;
+				&lt;!-- Optional Authentication Section [version 1.0] --&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;!-- Breadcrumbs [version 1.0] --&gt;
+&lt;/header&gt;</code></pre>
+	</div>
+
+	<div class="col-md-6">
+		<h4>Version 4.0 (deprecated)</h4>
+		<p>The header version 4.0 is deprecated but still supported and requires the implementation of the <a href="../gcweb-menu/gcweb-menu-docs-en.html">gcweb-menu version 3.0</a> where the <code>&lt;div class="container"&gt;</code> has been relocated in the header so outside the "gcweb-menu" component.</p>
+		<pre><code>&lt;header&gt;
+	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;!-- Language toggle [version 1.0] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;hr&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-md-8&quot;&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;!-- Breadcrumbs [version 1.0] --&gt;
+&lt;/header&gt;</code></pre>
+
+		<h5>Including authentication section (optional)</h5>
+		<p>No change.</p>
+		<pre><code>&lt;header&gt;
+	&lt;div id=&quot;wb-bnr&quot; class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;!-- Language toggle [version 1.0] --&gt;
+			&lt;!-- Branding [version 1.0] --&gt;
+			&lt;!-- Search [version 1.0] --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;hr&gt;
+	&lt;div class=&quot;container&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-md-8&quot;&gt;
+				&lt;!-- Site Menu [version 2.0] --&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;col-xs-<del>6</del> col-xs-offset-<del>6</del> col-md-offset-0 col-md-4&quot;&gt;
+				&lt;!-- Optional Authentication Section [version 1.0] --&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;!-- Breadcrumbs [version 1.0] --&gt;
+&lt;/header&gt;</code></pre>
+	</div>
+</div>
+
+<h3>Previous versions</h3>
+<details>
+	<summary>Version 4.0 vs Version 3.0</summary>
+	<div class="row">
 	<div class="col-md-6">
 		<h4>Version 4.0</h4>
 		<p>No change</p>
@@ -446,6 +554,16 @@
 </details>
 
 <h4>Working examples</h4>
+<details>
+	<summary>Header Version 4.0</summary>
+	<ul>
+		<li><a href="deprecated/header-v4.html">Content page including Header Version 4.0</a></li>
+		<li><a href="deprecated/header-auth-v4.html">Content page including Header Version 4.0 and the authentication section</a></li>
+		<li><a href="../../templates/home/deprecated/home-v4.html">Home page including Header Version 4.0</a></li>
+		<li><a href="../../templates/home/deprecated/home-auth-v4.html">Home page including Header Version 4.0 and the authentication section</a></li>
+	</ul>
+</details>
+
 <details>
 	<summary>Header Version 3.0</summary>
 	<ul>

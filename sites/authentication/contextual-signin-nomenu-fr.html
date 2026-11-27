@@ -4,13 +4,13 @@
 	"breadcrumb": {
 		"title": "Canada.ca", "link": "https://www.canada.ca/fr.html"
 	},
-	"dateModified": "2022-09-26",
+	"dateModified": "2026-10-29",
 	"description": "Exemple de la section d'authentification sans le menu de GCWeb.",
 	"language": "fr",
 	"title": "Bouton contextuel « Se connecter » sans le menu GCWeb",
 	"nomenu": true,
 	"auth": {
-		"type": "contextual",
+		"type": "nomenu",
 		"link": "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html",
 		"label": "Se connecter"
 	}
@@ -18,13 +18,55 @@
 ---
 <div class="wb-prettify all-pre hide"></div>
 
-<h2>Code source attendu</h2>
+<h2>Expected output code</h2>
 <pre><code>&lt;div class="container"&gt;
 	&lt;div class="row"&gt;
-		&lt;div class="col-xs-12"&gt;
+		&lt;nav id="wb-bc" class="col-xs-8"&gt;
+			&lt;h2&gt;You are here:&lt;/h2&gt;
+			&lt;div class="container"&gt;
+				&lt;gcds-breadcrumbs slot="breadcrumb" class="mt-2 hydrated"&gt;
+					&lt;nav aria-label="Breadcrumb" class="gcds-breadcrumbs"&gt;
+						&lt;ol class="has-canada-link"&gt;
+							&lt;gcds-breadcrumbs-item role="listitem" class="gcds-breadcrumbs-item hydrated"&gt;
+								&lt;gcds-link class="hydrated"&gt;
+									&lt;template shadowrootmode="open"&gt;
+										&lt;a tabindex="0" href="https://www.canada.ca/en.html" target="_self" class="gcds-link link--regular" part="link"&gt;
+											&lt;slot&gt;&lt;/slot&gt;
+										&lt;/a&gt;
+									&lt;/template&gt;
+									&lt;slot&gt;&lt;/slot&gt;
+								&lt;/gcds-link&gt;
+								Canada.ca
+							&lt;/gcds-breadcrumbs-item&gt;
+							&lt;slot&gt;&lt;/slot&gt;
+						&lt;/ol&gt;
+					&lt;/nav&gt;
+					&lt;gcds-breadcrumbs-item href="https://wet-boew.github.io/GCWeb/index-en.html" role="listitem" class="gcds-breadcrumbs-item hydrated"&gt;
+						&lt;template shadowrootmode="open"&gt;
+							&lt;gcds-link class="hydrated"&gt;
+								&lt;template shadowrootmode="open"&gt;
+									&lt;a tabindex="0" href="https://wet-boew.github.io/GCWeb/index-en.html" target="_self" class="gcds-link link--regular" part="link"&gt;
+										&lt;slot&gt;&lt;/slot&gt;
+									&lt;/a&gt;
+								&lt;/template&gt;
+								&lt;slot&gt;&lt;/slot&gt;
+							&lt;/gcds-link&gt;
+						&lt;/template&gt;
+						GCWeb
+					&lt;/gcds-breadcrumbs-item&gt;
+				&lt;/gcds-breadcrumbs&gt;
+			&lt;/div&gt;
+		&lt;/nav&gt;
+		&lt;div class="col-xs-4"&gt;
 			&lt;section id="wb-so"&gt;
-				&lt;h2 class="wb-inv"&gt;Se connecter&lt;/h2&gt;
-				&lt;a class="btn btn-primary" href="https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"&gt;Se connecter&lt;/a&gt;
+				&lt;h2 class="wb-inv"&gt;Sign-on information&lt;/h2&gt;
+				&lt;gcds-button class="btn btn-primary hydrated" href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" type="submit"&gt;
+					&lt;template shadowrootmode="open" shadowrootdelegatesfocus=""&gt;
+						&lt;button type="submit" class="gcds-button button--role-primary button--regular" part="button"&gt;
+							&lt;slot&gt;&lt;/slot&gt;
+						&lt;/button&gt;
+					&lt;/template&gt;Sign in
+				&lt;/gcds-button&gt;
 			&lt;/section&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -33,7 +75,7 @@
 <h2>Exemple de l'initialisation pour GCWeb Jekyll</h2>
 <pre><code>"nomenu": true,
 		"auth": {
-		"type": "contextual",
+		"type": "nomenu",
 		"link": "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html"
 		"label": "Se connecter"
 	}</code></pre>

@@ -1,3 +1,7 @@
+{%- if page.nomenu -%}
+<h2>{{ i18nText-breadcrumb }}</h2>
+<div class="container">
+{% endif %}
 <gcds-breadcrumbs slot="breadcrumb" class="mt-2">
 	{%- unless page.overwriteBreadcrumbs -%}
 		{%- if site.global.breadcrumbs -%}
@@ -18,3 +22,6 @@
 		{%- endfor -%}
 	{% endif %}
 </gcds-breadcrumbs>
+{%- if page.nomenu -%}
+</div>
+{% endif %}
